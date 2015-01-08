@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="bootstrap.min.css">
+<style type="text/css"><style type="text/css">
+		
+		table input[type=text][readonly] {
+			background: transparent;
+			border: none;
+		}
+		table .hilite {
+			background-color: #dff0d8 !important;
+		}
+		#nonidle input {
+			width: 100px;
+		}
+		.wrapper {
+			width: 1504px;
+			margin: 0px auto;
+		}
+		body {
+			margin: 15px;
+		}
+		.btn + .btn {
+			margin-left: 10px;
+		}
+		.table > tbody > tr > td{
+			padding: 0px;
+			vertical-align: middle;
+		}
+		.panel-heading > * {
+			vertical-align: middle;
+		}
+		.panel-heading button {
+			border: none;
+			background: none;
+			padding: 0px 1px 0px 1px;
+		}
+		
+		input[type=text] {
+    width: 100%;
+    margin: 0px;
+		border:none;
+}
+		
+	</style>
+
+<script type="text/javascript" src="jquery-latest.min.js"></script>
+<script type="text/javascript" src="bootstrap.min.js"></script>
+<script src="skills.js"></script>
+<title>HTML5, CSS3 and JavaScript demo</title>
+  <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
+</head>
+<body>
+  <div class="wrapper">
+	<div style="width: 500px; display: inline-block;">
+		<button type="button" onclick="Calculate()" class="btn btn-default">Update</button>
+		<input type="text" id="numberofpredictions" value="30">
+		<!--<label><input type="checkbox" id="addsouls" checked="checked">Include souls gained after ascension</label>-->
+		<div class="panel panel-success">
+			<div class="panel-heading">Results:</div>
+			<div id="output" class="panel-body">Please import a save for suggestions</div>
+		</div>
+	</div>
+	<div role="tabpanel" style="width: 1000px; display: inline-block; vertical-align: top;">
+		<ul class="nav nav-tabs" role="tablist">
+			<li role="presentation" class="active"><a href="#heroes" aria-controls="heroes" role="tab" data-toggle="tab">Heroes</a></li>
+			<!--<li role="presentation"><a href="#heroes" aria-controls="heroes" role="tab" data-toggle="tab">Heroes</a></li>-->
+		</ul>
+		<div class="tab-content">
+		<div role="tabpanel" class="tab-pane active" id="heroes">
+			<table id="ancienttbl" class="table table-striped">
+				<tbody><tr><th width="25%">Name</th><th width="20%">Skills</th><th width="15%">Upgrade Cost</th><th width="15%">DpS</th width="20%"><th>Next Level DpS Diff</th><th width="5%">Level</th></tr>
+			</tbody></table>
+		</div>
+		<!--<div role="tabpanel" class="tab-pane" id="heroes">
+			<div class="panel-heading">
+				Efficiency indicates switching all gilds to the indicated hero, and includes the 80 souls lost for each regild.<br>
+				Tinkering with gilds will not automatically account for the souls lost to regilding.
+			</div>
+			<table id="heroestbl" class="table table-striped">
+				<tbody><tr><th><input type="checkbox" onclick="$('.chkHero').prop('checked', this.checked);" title="Select all heroes">Hero</th><th>Gilds</th><th>Efficiency</th></tr>
+			</tbody></table>
+		</div>-->
+	  </div>
+	</div>
+</div>
+  
+  
+
+<script language="javascript">/* Write JavaScript here */
+//$(window).load(function start(){
+
+var heroEvolveLevel = 1001.0;
+var levelIneffiency = 0.904;
+var heroInefficiency = 0.019;
+var heroInefficiencySlowDown = 15.0;
+var heroUpgradeBase = 1.075;
+var evolveCostMultiplier = 10.0;
+var dMGScaleDown = 0.1;
+var passiveSkillCostMultiplier = 5.0;
+
+var HeroInfo = {
+Hero1: {name: "Takeda, the Blade Assassin", cost: 50, heroID: 1},
+Hero2: {name: "Contessa, the Torch Wielder", cost: 175, heroID: 2},
+Hero3: {name: "Hornetta, Queen of the Valrunes", cost: 673.75, heroID: 3},
+Hero4: {name: "Mila, the Hammer Stomper", cost: 2853.33, heroID: 4},
+Hero5: {name: "Terra, the Land Scorcher", cost: 1.33E+04, heroID: 5},
+Hero6: {name: "Inquisireaux the Terrible", cost: 6.81E+04, heroID: 6},
+Hero7: {name: "Charlotte the Special", cost: 3.84E+05, heroID: 7},
+Hero8: {name: "Jordaan, Knight of Mini", cost: 2.38E+06, heroID: 8},
+Hero9: {name: "Jukka, Master of Axes", cost: 2.38E+07, heroID: 9},
+Hero10: {name: "Milo and Clonk-Clonk", cost: 1.43E+08, heroID: 10},
+Hero11: {name: "Macelord the Ruthless", cost: 9.43E+08, heroID: 11},
+Hero12: {name: "Gertrude the Goat Rider", cost: 6.84E+09, heroID: 12},
+Hero13: {name: "Twitterella the Tweeter", cost: 5.47E+10, heroID: 13},
+Hero14: {name: "Master Hawk, Lord of Luft", cost: 8.20E+11, heroID: 14},
+Hero15: {name: "Elpha, Wielder of Gems", cost: 8.20E+12, heroID: 15},
+Hero16: {name: "Poppy, Daughter of Ceremony", cost: 1.64E+14, heroID: 16},
+Hero17: {name: "Skulptor, Protector of Bridges", cost: 1.64E+15, heroID: 17},
+Hero18: {name: "Sterling the Enchantor", cost: 4.92E+16, heroID: 18},
+Hero19: {name: "Orba the Foreseer", cost: 2.46E+18, heroID: 19},
+Hero20: {name: "Remus the Noble Archer", cost: 7.38E+19, heroID: 20},
+Hero21: {name: "Mikey the Magician Apprentice", cost: 2.44E+21, heroID: 21},
+Hero22: {name: "Peter Pricker the Prickly Poker", cost: 2.44E+23, heroID: 22},
+Hero23: {name: "Teeny Tom, Keeper of the Castle", cost: 4.87E+25, heroID: 23},
+Hero24: {name: "Deznis the Cleanser", cost: 1.95E+28, heroID: 24},
+Hero25: {name: "Hamlette, Painter of Skulls", cost: 2.14E+31, heroID: 25},
+Hero26: {name: "Eistor the Banisher", cost: 2.36E+36, heroID: 26},
+Hero27: {name: "Flavius and Oinksbjorn", cost: 2.59E+46, heroID: 27},
+Hero28: {name: "Chester the Beast Tamer", cost: 2.85E+61, heroID: 28},
+Hero29: {name: "Mohacas the Wind Warrior", cost: 3.14E+81, heroID: 29},
+Hero30: {name: "Jaqulin the Unknown", cost: 3.76E+111, heroID: 30}
+};
+
+var heroList = [];
+for (var k in HeroInfo) {
+  if (HeroInfo.hasOwnProperty(k)) {
+    heroList.push(k);
+	//alert(Heroes['solomon'].name);
+  }
+}
+
+for (var i = 0; i < heroList.length; i++) {
+  var key = heroList[i];
+  var tr = HeroInfo[key].targetBox = $("<tr></tr>");
+  //tr.append($("<td></td>"));
+  tr.append($("<td></td>").append(HeroInfo[key].name).attr("id", key+"name"));
+  HeroInfo[key].used1 = $("<input></input>").attr("type", "checkbox").attr("id", key+"skill1").attr("title", "ha");
+  HeroInfo[key].used2 = $("<input></input>").attr("type", "checkbox").attr("id", key+"skill2").attr("title", "ha");
+  HeroInfo[key].used3 = $("<input></input>").attr("type", "checkbox").attr("id", key+"skill3").attr("title", "ha");
+  HeroInfo[key].used4 = $("<input></input>").attr("type", "checkbox").attr("id", key+"skill4").attr("title", "ha");
+  HeroInfo[key].used5 = $("<input></input>").attr("type", "checkbox").attr("id", key+"skill5").attr("title", "ha");
+  HeroInfo[key].used6 = $("<input></input>").attr("type", "checkbox").attr("id", key+"skill6").attr("title", "ha");
+  HeroInfo[key].used7 = $("<input></input>").attr("type", "checkbox").attr("id", key+"skill7").attr("title", "ha");
+  tr.append($("<td></td>").append(HeroInfo[key].used1).append(HeroInfo[key].used2).append(HeroInfo[key].used3).append(HeroInfo[key].used4).append(HeroInfo[key].used5).append(HeroInfo[key].used6).append(HeroInfo[key].used7));
+  if (HeroInfo[key].nextUpgradeCost > 1000000)
+  {
+	tr.append($("<td></td>").append(HeroInfo[key].nextUpgradeCost.toExponential(2)).attr("id", key+"nextUpgradeCost"));
+  }
+  else
+  {
+	tr.append($("<td></td>").append(HeroInfo[key].nextUpgradeCost).attr("id", key+"nextUpgradeCost"));
+  }
+  tr.append($("<td></td>").append(HeroInfo[key].currentDPS).attr("id", key+"currentDPS"));
+  tr.append($("<td></td>").append(HeroInfo[key].nextLevelDPSDiff).attr("id", key+"nextLevelDPSDiff"));
+  tr.append($("<td></td>").append($("<input></input>").attr("type", "text").val(0).attr("id", key+"heroLevel")));
+  tr.append("\n\n");
+  $("#ancienttbl").append(tr);
+}
+
+//var levels = [];
+
+function UpdateHeroStats(hero)
+{
+	hero.currentDPS = GetDPSByLevel(hero.heroLevel, hero.heroID, hero.cost);
+	hero.nextLevelDPSDiff = GetDPSByLevel(hero.heroLevel + 1, hero.heroID, hero.cost) - hero.currentDPS;
+	hero.nextUpgradeCost = GetUpgradeCostByLevel(hero.heroLevel, hero.cost);
+	hero.efficiency = hero.nextUpgradeCost/hero.nextLevelDPSDiff;
+	for (var i = 0; i < 7; i++)
+	{	
+		//hero.NextToBuySkill = "";
+		if (!hero.skills[i].isActive) {hero.NextToBuySkill = hero.skills[i]; break;}
+	}
+	//GetSkillDPS(hero.skills[0]);
+	//hero.skills[0].boughtDPS = GetSKillDPS();
+}
+
+function GetSkillDPS(skill)
+{	var totalCurrentDPS = 0.0;
+	
+	skill.currentDPS = GetDPSByLevel(hero.heroLevel, hero.heroID, hero.cost);
+	hero.reqLevelDPSDiff = GetDPSByLevel(hero.skills[0].reqLevel, hero.heroID, hero.cost) - hero.currentDPS;
+}
+
+function printHeroInfo(hero)
+{
+	if (hero.currentDPS > 1000000) { $("#Hero"+(hero.heroID)+"currentDPS").html(hero.currentDPS.toExponential(3)); } else { $("#Hero"+hero.heroID+"currentDPS").html(Math.floor(hero.currentDPS)); }
+	if (hero.nextLevelDPSDiff > 1000000) { $("#Hero"+(hero.heroID)+"nextLevelDPSDiff").html("+ "+hero.nextLevelDPSDiff.toExponential(3)); } else { $("#Hero"+hero.heroID+"nextLevelDPSDiff").html("+ "+Math.floor(hero.nextLevelDPSDiff)); }
+	if (hero.nextUpgradeCost > 1000000) { $("#Hero"+(hero.heroID)+"nextUpgradeCost").html(hero.nextUpgradeCost.toExponential(3)); } else { $("#Hero"+hero.heroID+"nextUpgradeCost").html(Math.floor(hero.nextUpgradeCost)); }
+	//$("#Hero"+x+"skill"+y).prop("title", x+","+y+","+index);
+	for (var x = 0; x < 7; x++)
+	{
+		$("#Hero"+(hero.heroID)+"skill"+(x+1)).prop("title", 
+		hero.skills[x].name + "\n" + 
+		hero.skills[x].bonusType + " +" + hero.skills[x].magnitude*100 + "%\n" + 
+		hero.NextToBuySkill.name);
+	}
+	$("#Hero"+(hero.heroID)+"nextUpgradeCost").prop("title", hero.efficiency);
+	$("#Hero"+(hero.heroID)+"nextLevelDPSDiff").prop("title", hero.nextLevelDPSDiff);
+	$("#Hero"+(hero.heroID)+"currentDPS").prop("title", "Additional dmg: " + (GetStatBonusAllDamage() + currentPassiveThisHeroDamage(hero.heroID))*100 + "%");
+}
+
+function GetDPSByLevel(iLevel, heroID, purchaseCost)
+{
+    //double statBonus = PlayerModel.instance.GetStatBonus(BonusType.HeroAttackSpeedActive);
+    var num3 = 0.0;
+    if (IsEvolved(iLevel))
+    {
+      num3 = Math.pow(levelIneffiency, (iLevel - heroEvolveLevel)) * Math.pow((1.0 - (heroInefficiency * heroInefficiencySlowDown)), (heroID + 30));
+	  //alert(typeof heroID);
+    }
+    else
+    {
+      num3 = Math.pow(levelIneffiency, (iLevel - 1)) * Math.pow((1.0 - (heroInefficiency * Math.min(heroID, heroInefficiencySlowDown))), heroID);
+    }
+    var num4 = 0.0;
+    if (IsEvolved(iLevel))
+    {
+      num4 = (((GetUpgradeCostByLevel(iLevel - 1, purchaseCost) * (Math.pow(heroUpgradeBase, (iLevel - (heroEvolveLevel - 1))) - 1.0)) / ((heroUpgradeBase - 1.0))) * num3) * dMGScaleDown;
+    }
+    else
+    {
+      num4 = (((GetUpgradeCostByLevel(iLevel - 1, purchaseCost) * (Math.pow(heroUpgradeBase, iLevel) - 1.0)) / ((heroUpgradeBase - 1.0))) * num3) * dMGScaleDown;
+    }
+	//alert((((this.GetUpgradeCostByLevel(iLevel - 1) * (Math.pow(heroUpgradeBase, iLevel) - 1.0)) / ((heroUpgradeBase - 1.0))) * num3) * dMGScaleDown);
+    //return (((num4 * ((1.0 + this.currentPassiveThisHeroDamage) + PlayerModel.instance.GetStatBonus(BonusType.AllDamage))) * (1.0 + ArtifactModel.instance.ArtifactDamageBonus)) * (1.0 + statBonus));
+    return num4 * (1.0 + this.currentPassiveThisHeroDamage(heroID) + GetStatBonusAllDamage());
+}
+
+function currentPassiveThisHeroDamage(heroID)
+{
+	var hero = HeroInfo[heroList[heroID-1]];
+	var num = 0.0;
+	//hero.NextToBuySkill.isActive = true;
+	for (var x = 0; x < 7; x++)
+	{	
+		if (hero.skills[x].isActive && hero.skills[x].bonusType=="ThisHeroDamage") 
+		{ 	
+			num = num + hero.skills[x].magnitude;
+		}
+	}
+	//hero.NextToBuySkill.isActive = false;
+	return num;
+}
+
+function GetStatBonusAllDamage()
+{
+	var num = 0.0;
+	for (var y = 0; y < 30; y++)
+	{
+		var hero = HeroInfo[heroList[y]];
+		for (var x = 0; x < 7; x++)
+		{	
+			if (hero.skills[x].isActive && hero.skills[x].bonusType=="AllDamage") 
+			{ 	
+				num = num + hero.skills[x].magnitude;
+			}
+		}
+	}
+	return num;
+}
+  
+function IsEvolved(iLevel)
+{
+	return (iLevel >= heroEvolveLevel);
+}
+
+function GetUpgradeCostByLevel(iLevel, purchaseCost)
+{
+    var num = 0.0;
+    num = GetHeroBaseCost(iLevel, purchaseCost, iLevel) * Math.pow(heroUpgradeBase, iLevel);
+    var a = num;// * (1.0 + PlayerModel.instance.GetStatBonus(BonusType.AllUpgradeCost));
+    return Math.ceil(a);
+}
+
+function GetUpgradeCostByMultiLevel(iLevelstart, iLevelfinish, purchaseCost)
+{
+	var total = 0.0;
+	//alert("debug");
+	for (var i = iLevelstart; i < iLevelfinish; i++)
+	{
+		total += GetUpgradeCostByLevel(i, purchaseCost);
+	}
+	return total;
+}
+
+function GetHeroBaseCost(iLevel, purchaseCost, heroLevel)
+{
+    var purchaseCost = purchaseCost;
+    iLevel = -1;
+    if (iLevel == -1)
+    {
+      iLevel = heroLevel;
+    }
+    if (iLevel >= (heroEvolveLevel - 1))
+    {
+      purchaseCost *= evolveCostMultiplier;
+    }
+    return purchaseCost;
+} 
+
+/*$("#Hero1heroLevel").on('input propertychange paste', function() {
+	if ( isNaN(parseInt($("#Hero1heroLevel").val())) ) { return; }
+    Calculate();
+});*/
+
+function GetEfficiency()
+{
+	//$("#output").html("");
+	var output = [];
+    var levels = [];
+	var text = "";
+	var best = 0;
+	for (var i = 0; i < heroList.length; i++) 
+	{
+        levels.push(parseInt(HeroInfo[heroList[i]].heroLevel));
+		//$("#output").html(total);
+        //total += GetDPSByLevel(HeroInfo[heroList[i]].heroLevel, HeroInfo[heroList[i]].heroID, HeroInfo[heroList[i]].cost);
+    }
+	for (var x = 0; x < 100000; x++)
+	{
+		//best = 0;
+		for (i = 0; i < 30; i++) 
+		{
+			var effcurrentDPS = GetDPSByLevel(levels[i], HeroInfo[heroList[i]].heroID, HeroInfo[heroList[i]].cost);
+			var effnextLevelDPSDiff = GetDPSByLevel(levels[i] + 1, HeroInfo[heroList[i]].heroID, HeroInfo[heroList[i]].cost) - effcurrentDPS;
+			var effnextUpgradeCost = GetUpgradeCostByLevel(levels[i], HeroInfo[heroList[i]].cost);
+			var eff = effnextUpgradeCost/effnextLevelDPSDiff;
+			
+			var beffcurrentDPS = GetDPSByLevel(levels[best], HeroInfo[heroList[best]].heroID, HeroInfo[heroList[best]].cost);
+			var beffnextLevelDPSDiff = GetDPSByLevel(levels[best] + 1, HeroInfo[heroList[best]].heroID, HeroInfo[heroList[best]].cost) - beffcurrentDPS;
+			var beffnextUpgradeCost = GetUpgradeCostByLevel(levels[best], HeroInfo[heroList[best]].cost);
+			var beff = beffnextUpgradeCost/beffnextLevelDPSDiff;
+			if (eff/beff < 1)
+			{
+				//oldbest = best;
+				best = i;
+			}
+		}
+		levels[best] += 1;
+		if (output.length < 1) 
+		{			
+			output.push({
+                    name: HeroInfo[heroList[best]].name,
+                    level: levels[best]
+                });
+			
+			continue;
+		}
+		if (output[output.length-1].name == HeroInfo[heroList[best]].name)
+		{
+			output[output.length-1].level = levels[best];
+		}
+		else
+		{
+			output.push({
+                    name: HeroInfo[heroList[best]].name,
+                    level: levels[best]
+                });
+		}
+		//$("#output").append([HeroInfo[heroList[best]].name + " " + levels[best]] + "<br>");
+		//$("#output").append([HeroInfo[heroList[best]].name + " " + levels[best]] + "<br>");
+		if (output.length > parseInt($("#numberofpredictions").val()))
+		{	
+			text += "<table id=\"ancienttbl\" class=\"table table-striped\"><tbody>";
+			text += "<tr><th>Name</th><th>Level</th></tr>"
+			for (var i = 0; i < output.length; i++) 
+			{
+				/*<table id="ancienttbl" class="table table-striped">
+				<tbody><tr><th width="25%">Name</th><th width="20%">Skills</th><th width="15%">Upgrade Cost</th><th width="15%">DpS</th width="20%"><th>Next Level DpS Diff</th><th width="5%">Level</th></tr>
+			</tbody></table>*/output[i].level
+				text += "<tr><td>" + output[i].name + "</td><td>" + output[i].level + "</td></tr>"; 
+			}
+			text += "</tbody></table>";
+			$("#output").html(text);
+			break;
+		}
+	}
+	
+    //$("#output").html(text);
+}
+
+function GetLevels()
+{
+	for (var i = 0; i < 30; i++)
+	{
+		HeroInfo[heroList[i]].heroLevel = parseInt($("#Hero"+(i+1)+"heroLevel").val());
+		UpdateHeroStats(HeroInfo[heroList[i]]);
+		printHeroInfo(HeroInfo[heroList[i]]);
+		//$("#output").append("<br>"+HeroInfo[heroList[i]].heroLevel);
+	}
+}
+
+function GetSkills()
+{	
+	var index = 0;
+	for (var x = 1; x < 31; x++)
+	{
+	//$("#Hero"+heroID+"skill1").is(":checked)
+		for (var y = 1; y < 8; y++)
+		{
+			skillsInfo[index].isActive = $("#Hero"+x+"skill"+y).is(":checked");
+			index++;
+		}
+	}
+}
+
+function BuildSkillBase()
+{
+		var index = 0;
+	for (var x = 1; x < 31; x++)
+	{
+	//$("#Hero"+heroID+"skill1").is(":checked)
+		for (var y = 1; y < 8; y++)
+		{
+			if (typeof HeroInfo[skillsInfo[index].owner].skills == "undefined") { HeroInfo[skillsInfo[index].owner].skills = []; }
+			HeroInfo[skillsInfo[index].owner].skills.push(skillsInfo[index]);
+			index++;
+		}
+	}
+}
+//#Hero1skill1
+
+//Calculate();
+BuildSkillBase();
+GetSkills();
+GetLevels();
+function Calculate() {
+	GetSkills();
+	GetLevels();
+	//$("#output").html(HeroInfo[heroList[0]].skills[6].name);
+	GetEfficiency();
+	//alert(GetUpgradeCostByMultiLevel(10,10, 50));
+	//alert(typeof skillsInfo);
+	//$("#output").html(skillsInfo[0].name);
+	//GetUpgradeCostByMultiLevel(0, 1 HeroInfo[heroList[i]].cost);
+}
+//});
+</script></body>
