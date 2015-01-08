@@ -38,12 +38,11 @@
 		}
 		
 		input[type=text] {
-    width: 100%;
+    width: 100px;
     margin: 0px;
 		border:none;
 }
-		
-	</style>
+</style>
 
 <script type="text/javascript" src="jquery-latest.min.js"></script>
 <script type="text/javascript" src="bootstrap.min.js"></script>
@@ -65,7 +64,7 @@
 	<div role="tabpanel" style="width: 1000px; display: inline-block; vertical-align: top;">
 		<ul class="nav nav-tabs" role="tablist">
 			<li role="presentation" class="active"><a href="#heroes" aria-controls="heroes" role="tab" data-toggle="tab">Heroes</a></li>
-			<!--<li role="presentation"><a href="#heroes" aria-controls="heroes" role="tab" data-toggle="tab">Heroes</a></li>-->
+			<li role="presentation"><a href="#artifacts" aria-controls="heroes" role="tab" data-toggle="tab">Artifacts</a></li>
 		</ul>
 		<div class="tab-content">
 		<div role="tabpanel" class="tab-pane active" id="heroes">
@@ -73,15 +72,14 @@
 				<tbody><tr><th width="25%">Name</th><th width="20%">Skills</th><th width="15%">Upgrade Cost</th><th width="15%">DpS</th width="20%"><th>Next Level DpS Diff</th><th width="5%">Level</th></tr>
 			</tbody></table>
 		</div>
-		<!--<div role="tabpanel" class="tab-pane" id="heroes">
+		<div role="tabpanel" class="tab-pane" id="artifacts">
 			<div class="panel-heading">
-				Efficiency indicates switching all gilds to the indicated hero, and includes the 80 souls lost for each regild.<br>
-				Tinkering with gilds will not automatically account for the souls lost to regilding.
+				<div><input type="text" id="artifactbonus" value="0"></input>%
 			</div>
 			<table id="heroestbl" class="table table-striped">
-				<tbody><tr><th><input type="checkbox" onclick="$('.chkHero').prop('checked', this.checked);" title="Select all heroes">Hero</th><th>Gilds</th><th>Efficiency</th></tr>
+				<tbody><tr><th>Artifact</th><th>Effect</th><th>Efficiency</th></tr>
 			</tbody></table>
-		</div>-->
+		</div>
 	  </div>
 	</div>
 </div>
@@ -235,7 +233,8 @@ function GetDPSByLevel(iLevel, heroID, purchaseCost)
     }
 	//alert((((this.GetUpgradeCostByLevel(iLevel - 1) * (Math.pow(heroUpgradeBase, iLevel) - 1.0)) / ((heroUpgradeBase - 1.0))) * num3) * dMGScaleDown);
     //return (((num4 * ((1.0 + this.currentPassiveThisHeroDamage) + PlayerModel.instance.GetStatBonus(BonusType.AllDamage))) * (1.0 + ArtifactModel.instance.ArtifactDamageBonus)) * (1.0 + statBonus));
-    return num4 * (1.0 + this.currentPassiveThisHeroDamage(heroID) + GetStatBonusAllDamage());
+	var artifactBonus = parseFloat($("#artifactbonus").val())/100;
+    return (num4 * (1.0 + this.currentPassiveThisHeroDamage(heroID) + GetStatBonusAllDamage())) * (1.0 + artifactBonus);
 }
 
 function currentPassiveThisHeroDamage(heroID)
@@ -447,4 +446,4 @@ function Calculate() {
 	//GetUpgradeCostByMultiLevel(0, 1 HeroInfo[heroList[i]].cost);
 }
 //});
-</script></body>
+</script></body></html>
