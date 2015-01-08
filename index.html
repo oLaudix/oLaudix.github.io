@@ -175,37 +175,50 @@ function UpdateHeroStats(hero)
 	hero.nextLevelDPSDiff = GetDPSByLevel(hero.heroLevel + 1, hero.heroID, hero.cost) - hero.currentDPS;
 	hero.nextUpgradeCost = GetUpgradeCostByLevel(hero.heroLevel, hero.cost);
 	hero.efficiency = hero.nextUpgradeCost/hero.nextLevelDPSDiff;
-	for (var i = 0; i < 7; i++)
-	{	
-		//hero.NextToBuySkill = "";
-		if (!hero.skills[i].isActive) {hero.NextToBuySkill = hero.skills[i]; break;}
+	for (var x = 0; x < 7; x++)
+	{
+		hero.skills[x].desc = hero.skills[x].name + "\n" + hero.skills[x].bonusType + " +" + hero.skills[x].magnitude*100 + "%";
+		if (!(hero.skills[x].isActive) && hero.skills[x].bonusType=="ThisHeroDamage")
+		{
+			hero.skills[x].isActive = true;
+			hero.skills[x].activeDPSDiff = GetDPSByLevel(hero.skills[x].reqLevel, hero.heroID, hero.cost) - hero.currentDPS;
+			hero.skills[x].isActive = false;
+			hero.skills[x].purchaseCost = GetUpgradeCostByMultiLevel(hero.heroLevel, hero.skills[x].reqLevel, hero.cost);
+			hero.skills[x].purchaseCost += (hero.cost * Math.pow(heroUpgradeBase, hero.skills[x].reqLevel)) * passiveSkillCostMultiplier;
+			if (hero.skills[x].reqLevel <= hero.heroLevel)
+			{
+				hero.skills[x].efficiency = 0;
+			}
+			else
+			{
+				hero.skills[x].efficiency = hero.skills[x].purchaseCost/hero.skills[x].activeDPSDiff;
+			}
+			hero.skills[x].desc += "\n" + 
+		"DPS: " + parseFloat(hero.skills[x].activeDPSDiff) + "\n" + 
+		"Cost: " + parseFloat(hero.skills[x].purchaseCost) + "\n" + 
+		"Efficiency: " + hero.skills[x].efficiency;
+		}
 	}
-	//GetSkillDPS(hero.skills[0]);
-	//hero.skills[0].boughtDPS = GetSKillDPS();
-}
-
-function GetSkillDPS(skill)
-{	var totalCurrentDPS = 0.0;
-	
-	skill.currentDPS = GetDPSByLevel(hero.heroLevel, hero.heroID, hero.cost);
-	hero.reqLevelDPSDiff = GetDPSByLevel(hero.skills[0].reqLevel, hero.heroID, hero.cost) - hero.currentDPS;
+			{	
+			//hero.skills[x].currentDPS = GetDPSByLevel(hero.heroLevel, hero.heroID, hero.cost);
+			//hero.skills[x].isActive = true;
+			//hero.skills[x].activeDPSDiff = GetDPSByLevel(hero.skills[x].reqLevel, hero.heroID, hero.cost);
+			//hero.skills[x].isActive = false;
+		}
 }
 
 function printHeroInfo(hero)
 {
-	//if (hero.currentDPS > 1000000) { $("#Hero"+(hero.heroID)+"currentDPS").html(hero.currentDPS.toExponential(3)); } else { $("#Hero"+hero.heroID+"currentDPS").html(Math.floor(hero.currentDPS)); }
-	//if (hero.nextLevelDPSDiff > 1000000) { $("#Hero"+(hero.heroID)+"nextLevelDPSDiff").html("+ "+hero.nextLevelDPSDiff.toExponential(3)); } else { $("#Hero"+hero.heroID+"nextLevelDPSDiff").html("+ "+Math.floor(hero.nextLevelDPSDiff)); }
-	//if (hero.nextUpgradeCost > 1000000) { $("#Hero"+(hero.heroID)+"nextUpgradeCost").html(hero.nextUpgradeCost.toExponential(3)); } else { $("#Hero"+hero.heroID+"nextUpgradeCost").html(Math.floor(hero.nextUpgradeCost)); }
-	$("#Hero"+(hero.heroID)+"nextUpgradeCost").html(numberFormat(hero.nextUpgradeCost));
-	$("#Hero"+(hero.heroID)+"currentDPS").html(numberFormat(hero.currentDPS));
-	$("#Hero"+(hero.heroID)+"nextLevelDPSDiff").html(numberFormat(hero.nextLevelDPSDiff));
+	if (hero.currentDPS > 1000000) { $("#Hero"+(hero.heroID)+"currentDPS").html(hero.currentDPS.toExponential(3)); } else { $("#Hero"+hero.heroID+"currentDPS").html(Math.floor(hero.currentDPS)); }
+	if (hero.nextLevelDPSDiff > 1000000) { $("#Hero"+(hero.heroID)+"nextLevelDPSDiff").html("+ "+hero.nextLevelDPSDiff.toExponential(3)); } else { $("#Hero"+hero.heroID+"nextLevelDPSDiff").html("+ "+Math.floor(hero.nextLevelDPSDiff)); }
+	if (hero.nextUpgradeCost > 1000000) { $("#Hero"+(hero.heroID)+"nextUpgradeCost").html(hero.nextUpgradeCost.toExponential(3)); } else { $("#Hero"+hero.heroID+"nextUpgradeCost").html(Math.floor(hero.nextUpgradeCost)); }
+	//$("#Hero"+(hero.heroID)+"nextUpgradeCost").html(numberFormat(hero.nextUpgradeCost));
+	//$("#Hero"+(hero.heroID)+"currentDPS").html(numberFormat(hero.currentDPS));
+	//$("#Hero"+(hero.heroID)+"nextLevelDPSDiff").html(numberFormat(hero.nextLevelDPSDiff));
 	//$("#Hero"+x+"skill"+y).prop("title", x+","+y+","+index);
 	for (var x = 0; x < 7; x++)
 	{
-		$("#Hero"+(hero.heroID)+"skill"+(x+1)).prop("title", 
-		hero.skills[x].name + "\n" + 
-		hero.skills[x].bonusType + " +" + hero.skills[x].magnitude*100 + "%\n" + 
-		hero.NextToBuySkill.name);
+		$("#Hero"+(hero.heroID)+"skill"+(x+1)).prop("title", hero.skills[x].desc);
 	}
 	$("#Hero"+(hero.heroID)+"nextUpgradeCost").prop("title", hero.efficiency);
 	$("#Hero"+(hero.heroID)+"nextLevelDPSDiff").prop("title", hero.nextLevelDPSDiff);
