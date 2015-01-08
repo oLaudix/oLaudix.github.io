@@ -193,9 +193,12 @@ function GetSkillDPS(skill)
 
 function printHeroInfo(hero)
 {
-	if (hero.currentDPS > 1000000) { $("#Hero"+(hero.heroID)+"currentDPS").html(hero.currentDPS.toExponential(3)); } else { $("#Hero"+hero.heroID+"currentDPS").html(Math.floor(hero.currentDPS)); }
-	if (hero.nextLevelDPSDiff > 1000000) { $("#Hero"+(hero.heroID)+"nextLevelDPSDiff").html("+ "+hero.nextLevelDPSDiff.toExponential(3)); } else { $("#Hero"+hero.heroID+"nextLevelDPSDiff").html("+ "+Math.floor(hero.nextLevelDPSDiff)); }
-	if (hero.nextUpgradeCost > 1000000) { $("#Hero"+(hero.heroID)+"nextUpgradeCost").html(hero.nextUpgradeCost.toExponential(3)); } else { $("#Hero"+hero.heroID+"nextUpgradeCost").html(Math.floor(hero.nextUpgradeCost)); }
+	//if (hero.currentDPS > 1000000) { $("#Hero"+(hero.heroID)+"currentDPS").html(hero.currentDPS.toExponential(3)); } else { $("#Hero"+hero.heroID+"currentDPS").html(Math.floor(hero.currentDPS)); }
+	//if (hero.nextLevelDPSDiff > 1000000) { $("#Hero"+(hero.heroID)+"nextLevelDPSDiff").html("+ "+hero.nextLevelDPSDiff.toExponential(3)); } else { $("#Hero"+hero.heroID+"nextLevelDPSDiff").html("+ "+Math.floor(hero.nextLevelDPSDiff)); }
+	//if (hero.nextUpgradeCost > 1000000) { $("#Hero"+(hero.heroID)+"nextUpgradeCost").html(hero.nextUpgradeCost.toExponential(3)); } else { $("#Hero"+hero.heroID+"nextUpgradeCost").html(Math.floor(hero.nextUpgradeCost)); }
+	$("#Hero"+(hero.heroID)+"nextUpgradeCost").html(numberFormat(hero.nextUpgradeCost));
+	$("#Hero"+(hero.heroID)+"currentDPS").html(numberFormat(hero.currentDPS));
+	$("#Hero"+(hero.heroID)+"nextLevelDPSDiff").html(numberFormat(hero.nextLevelDPSDiff));
 	//$("#Hero"+x+"skill"+y).prop("title", x+","+y+","+index);
 	for (var x = 0; x < 7; x++)
 	{
@@ -281,6 +284,29 @@ function GetUpgradeCostByLevel(iLevel, purchaseCost)
     num = GetHeroBaseCost(iLevel, purchaseCost, iLevel) * Math.pow(heroUpgradeBase, iLevel);
     var a = num;// * (1.0 + PlayerModel.instance.GetStatBonus(BonusType.AllUpgradeCost));
     return Math.ceil(a);
+}
+
+
+function numberFormat(number)
+{
+  //var tabUnits = [" million", " billion", " trillion", " quadrillion", " quintillion", " sextillion", " septillion", " octillion", " nonillion", " decillion", " undecillion", " duodecillion", " tredecillion", " quattuordecillion", " quindecillion", " sexdecillion", " septendecillion", " octodecillion", " novemdecillion", " vigintillion", " unvigintillion", " duovigintillion", " tresvigintillion", " quattuorvigintillion", " quinquavigintillion", " sesvigintillion", " septemvigintillion", " octovigintillion", " novemvigintillion", " trigintillion", " untrigintillion", " duotrigintillion", " duotrigintillion", " trestrigintillion", " quattuortrigintillion", " quinquatrigintillion", " sestrigintillion", " septentrigintillion", " octotrigintillion", " noventrigintillion", " quadragintillion"];
+  var tabUnits = ["K","M","B","T","aa","bb","cc","dd","ee","ff","gg","hh","ii","jj","kk","ll","mm","nn","oo","pp","qq","rr","ss","tt","uu","vv","ww","xx","yy","zz"];
+  var highnumber = false; 
+  var bignumber = 1000; 
+  var tabposition = -1;
+  var p_atomepersecond = true;
+    var unit;
+    if (number >= bignumber) {
+        highnumber = true;
+        while (number >= bignumber) { bignumber *= 1000; tabposition++; }
+        //while (number >= bignumber && tabposition < 4 ) { bignumber *= 1000; tabposition++; }
+        number /= (bignumber / 1000);
+        unit = tabUnits[tabposition];
+    } else unit = "";
+    //if (unit == undefined) return "I can't handle that much";
+    var toround = (highnumber == true) ? (p_atomepersecond == true) ? 1000 : 100 : 10;
+    var res = Math.round(number * toround) / toround;
+    return [res.toLocaleString().replace(",", ".") + '' + unit];
 }
 
 function GetUpgradeCostByMultiLevel(iLevelstart, iLevelfinish, purchaseCost)
