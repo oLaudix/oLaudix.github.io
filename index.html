@@ -53,11 +53,21 @@
 <body>
   <div class="wrapper">
 	<div style="width: 500px; display: inline-block;">
-		<button type="button" onclick="Calculate()" class="btn btn-default">Update</button>
-		<input type="text" id="numberofpredictions" value="30">
+	
+	<div class="panel panel-primary">
+		  <div class="panel-heading">Paste save data (click wrench, click Save, close the save prompt because its already copied to clipboard):</div>
+		  <div class="panel-body">
+			<textarea id="savedata" style="width: 100%; height: 50px" onfocus="this.select()" onmouseup="return false">
+			</textarea>
+			<div style="margin-top: 10px;">
+				<button type="button" onclick="Save()" class="btn btn-default">Save</button>
+				<button type="button" onclick="Load()" class="btn btn-primary" style="float: right;">Load</button>
+			</div>
+		  </div>
+		</div>
 		<!--<label><input type="checkbox" id="addsouls" checked="checked">Include souls gained after ascension</label>-->
 		<div class="panel panel-success">
-			<div class="panel-heading">Results:</div>
+			<div class="panel-heading">Results: <input type="text" id="numberofpredictions" value="30"></div>
 			<div id="output" class="panel-body">Please import a save for suggestions</div>
 		</div>
 	</div>
@@ -81,7 +91,7 @@
 			</tbody></table>
 		</div>
 	  </div>
-	</div>
+	</div><button type="button" onclick="Calculate()" class="btn btn-default">Update</button>
 </div>
   
   
@@ -195,16 +205,21 @@ function UpdateHeroStats(hero)
 				hero.skills[x].efficiency = hero.skills[x].purchaseCost/hero.skills[x].activeDPSDiff;
 			}
 			hero.skills[x].desc += "\n" + 
-		"DPS: " + parseFloat(hero.skills[x].activeDPSDiff) + "\n" + 
-		"Cost: " + parseFloat(hero.skills[x].purchaseCost) + "\n" + 
-		"Efficiency: " + hero.skills[x].efficiency;
+				"DPS: " + parseFloat(hero.skills[x].activeDPSDiff) + "\n" + 
+				"Cost: " + parseFloat(hero.skills[x].purchaseCost) + "\n" + 
+				"Efficiency: " + hero.skills[x].efficiency;
 		}
 	}
 }
 
-function UpdateHeroStats2(hero)
+function UpdateHeroStats2()
 {
-	hero.nextLevelGoldDiff = GetOfflineGoldByTime(1000,currentAllHeroDPS + hero.nextLevelDPSDiff) - GetOfflineGoldByTime(1000,currentAllHeroDPS);
+	for (var x = 0; x < heroList.length; x++)
+	{	
+		var hero = HeroInfo[heroList[x]]
+		hero.nextLevelGoldDiff = GetOfflineGoldByTime(1000,currentAllHeroDPS + hero.nextLevelDPSDiff) - GetOfflineGoldByTime(1000,currentAllHeroDPS);
+		hero.efficiency = hero.nextUpgradeCost/hero.nextLevelGoldDiff;
+	}
 	//currentAllHeroDPS
 }
 
@@ -221,7 +236,7 @@ function printHeroInfo(hero)
 	{
 		$("#Hero"+(hero.heroID)+"skill"+(x+1)).prop("title", hero.skills[x].desc);
 	}
-	$("#Hero"+(hero.heroID)+"nextUpgradeCost").prop("title", hero.efficiency);
+	$("#Hero"+(hero.heroID)+"nextUpgradeCost").prop("title", hero.nextLevelGoldDiff + "\n" + hero.efficiency);
 	$("#Hero"+(hero.heroID)+"nextLevelDPSDiff").prop("title", hero.nextLevelDPSDiff);
 	$("#Hero"+(hero.heroID)+"currentDPS").prop("title", "Additional dmg: " + (GetStatBonusAllDamage() + currentPassiveThisHeroDamage(hero.heroID))*100 + "%");
 }
@@ -449,7 +464,8 @@ function GetEfficiency()
 			}
 		}
 		HeroInfo[heroList[best]].heroLevel += 1;
-		UpdateHeroStats(HeroInfo[heroList[best]])
+		//UpdateHeroStats(HeroInfo[heroList[best]])
+		UpdateAllHeroesStats();
 		if (output.length < 1) 
 		{			
 			output.push({
@@ -555,14 +571,29 @@ function GetEfficiency2()
 var currentAllHeroDPS = 0.0;
 function GetLevels()
 {	
-	currentAllHeroDPS = 0.0;
 	for (var i = 0; i < 30; i++)
 	{
 		HeroInfo[heroList[i]].heroLevel = parseInt($("#Hero"+(i+1)+"heroLevel").val());
+	}
+	UpdateAllHeroesStats();
+}
+
+function UpdateAllHeroesStats()
+{
+	currentAllHeroDPS = 0.0;
+	for (var i = 0; i < 30; i++)
+	{
 		UpdateHeroStats(HeroInfo[heroList[i]]);
 		currentAllHeroDPS += HeroInfo[heroList[i]].currentDPS;
+	}
+	UpdateHeroStats2();
+}
+
+function printAll()
+{
+	for (var i = 0; i < 30; i++)
+	{
 		printHeroInfo(HeroInfo[heroList[i]]);
-		//$("#output").append("<br>"+HeroInfo[heroList[i]].heroLevel);
 	}
 }
 
@@ -609,16 +640,41 @@ function GetOfflineGoldByTime(iSeconds, DPS)
     return goldAmount;
 }
 
+function Save()
+{	
+	GetSkills();
+	GetLevels();
+	var text = [];
+	for (var x = 0; x < 30; x++)
+	{	
+		var temp = [];
+		for (var y = 0; y < 7; y++)
+		{
+			temp.push(HeroInfo[heroList[x]].skills[y].isActive);
+		}
+		text.push({level: HeroInfo[heroList[x]].heroLevel, skills: temp})
+	}
+	var save = JSON.stringify(text);
+	//var drugitest = jQuery.parseJSON(save);
+	$("#output").html(save);
+	//$("#Hero1skill1").prop("checked", drugitest[0].skills[0]);
+	//if (!(drugitest[0].skillz[0])) { alert("fail") }
+	//$("#output").html(drugitest[0].skillz[0]);
+}
 
 BuildSkillBase();
 GetSkills();
 GetLevels();
+printAll();
 function Calculate() {
 	GetSkills();
 	GetLevels();
+	printAll();
+	//$("#Hero1skill1").prop("checked", true);
 	//alert(GetOfflineGoldByTime(1000,currentAllHeroDPS) + " gold gained\n" + GetOfflineGoldByTime(1000,currentAllHeroDPS+HeroInfo[heroList[0]].nextLevelDPSDiff));
 	//alert(HeroInfo[heroList[0]].nextLevelDPSDiff);
 	GetEfficiency();
+	//save();
 }
 //});
 </script></body></html>
