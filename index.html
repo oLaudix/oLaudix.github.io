@@ -55,10 +55,9 @@
 	<div style="width: 500px; display: inline-block;">
 	
 	<div class="panel panel-primary">
-		  <div class="panel-heading">Paste save data (click wrench, click Save, close the save prompt because its already copied to clipboard):</div>
+		  <div class="panel-heading">Save panel</div>
 		  <div class="panel-body">
-			<textarea id="savedata" style="width: 100%; height: 50px" onfocus="this.select()" onmouseup="return false">
-			</textarea>
+			<textarea id="savedata" style="width: 100%; height: 50px"></textarea>
 			<div style="margin-top: 10px;">
 				<button type="button" onclick="Save()" class="btn btn-default">Save</button>
 				<button type="button" onclick="Load()" class="btn btn-primary" style="float: right;">Load</button>
@@ -605,7 +604,8 @@ function GetSkills()
 	//$("#Hero"+heroID+"skill1").is(":checked)
 		for (var y = 1; y < 8; y++)
 		{
-			skillsInfo[index].isActive = $("#Hero"+x+"skill"+y).is(":checked");
+			//skillsInfo[index].isActive = $("#Hero"+x+"skill"+y).is(":checked");
+			HeroInfo[heroList[x-1]].skills[y-1].isActive = $("#Hero"+x+"skill"+y).is(":checked");
 			index++;
 		}
 	}
@@ -655,11 +655,31 @@ function Save()
 		text.push({level: HeroInfo[heroList[x]].heroLevel, skills: temp})
 	}
 	var save = JSON.stringify(text);
-	//var drugitest = jQuery.parseJSON(save);
-	$("#output").html(save);
-	//$("#Hero1skill1").prop("checked", drugitest[0].skills[0]);
+	$("#savedata").val(save);
+	text = [];
+	temp = [];
 	//if (!(drugitest[0].skillz[0])) { alert("fail") }
 	//$("#output").html(drugitest[0].skillz[0]);
+}
+
+function Load()
+{	
+	var txt = $("#savedata").val();
+	var txt2 = jQuery.parseJSON(txt);
+	for (var x = 0; x < 30; x++)
+	{	
+		for (var y = 0; y < 7; y++)
+		{
+			//if (typeof HeroInfo[heroList[x]].skills == "undefined") { BuildSkillBase(); }
+			HeroInfo[heroList[x]].skills[y].isActive = txt2[x].skills[y];
+			HeroInfo[heroList[x]].heroLevel = txt2[x].level;
+			$("#Hero"+(x+1)+"skill"+(y+1)).prop("checked", HeroInfo[heroList[x]].skills[y].isActive);
+			$("#Hero"+(x+1)+"heroLevel").val(HeroInfo[heroList[x]].heroLevel);
+		}
+	}
+	Calculate();
+	//UpdateAllHeroesStats();
+	//printAll();
 }
 
 BuildSkillBase();
