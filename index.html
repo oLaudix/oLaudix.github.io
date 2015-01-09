@@ -456,7 +456,7 @@ function GetSkills()
 
 function BuildSkillBase()
 {
-		var index = 0;
+	var index = 0;
 	for (var x = 1; x < 31; x++)
 	{
 	//$("#Hero"+heroID+"skill1").is(":checked)
@@ -479,6 +479,12 @@ function Calculate() {
 	GetLevels();
 	//$("#output").html(HeroInfo[heroList[0]].skills[6].name);
 	GetEfficiency();
+	var total = 0.0;
+	for (var x = 0; x < heroList.length; x++)
+	{
+		total += HeroInfo[heroList[x]].currentDPS;
+	}
+	//alert(heroList.length);
 	//alert(GetUpgradeCostByMultiLevel(10,10, 50));
 	//alert(typeof skillsInfo);
 	//$("#output").html(skillsInfo[0].name);
