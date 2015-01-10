@@ -140,7 +140,7 @@ function UpdateHeroStats(hero)
 		//alert(HeroInfo[heroList[hero.heroID-2]].name +"\n"+ hero.nextUpgradeCost);
 		//alert(hero.heroID-1)
 		hero.isActive = false;
-		if (HeroInfo[heroList[hero.heroID-2]].nextUpgradeCost > hero.cost)
+		if (HeroInfo[heroList[hero.heroID-2]].heroLevel > 0)
 		{	
 			//alert(HeroInfo[heroList[hero.heroID-1]].nextUpgradeCost > hero.nextUpgradeCost);
 			hero.isActive = true;
@@ -156,7 +156,7 @@ function printHeroInfo(hero)
 {
 	if (hero.currentDPS > 1000000) { $("#Hero"+(hero.heroID)+"currentDPS").html(hero.currentDPS.toExponential(3)); } else { $("#Hero"+hero.heroID+"currentDPS").html(Math.floor(hero.currentDPS)); }
 	if (hero.nextLevelDPSDiff > 1000000) { $("#Hero"+(hero.heroID)+"nextLevelDPSDiff").html("+ "+hero.nextLevelDPSDiff.toExponential(3)); } else { $("#Hero"+hero.heroID+"nextLevelDPSDiff").html("+ "+Math.floor(hero.nextLevelDPSDiff)); }
-	if (hero.nextUpgradeCost > 1000000) { $("#Hero"+(hero.heroID)+"nextUpgradeCost").html(hero.nextUpgradeCost.toExponential(3)); } else { $("#Hero"+hero.heroID+"nextUpgradeCost").html(Math.floor(hero.nextUpgradeCost)); }
+	if (hero.nextUpgradeCost > 1000000) { $("#Hero"+(hero.heroID)+"nextUpgradeCost").html(numberFormat(hero.nextUpgradeCost.toExponential(3))); } else { $("#Hero"+hero.heroID+"nextUpgradeCost").html(Math.floor(hero.nextUpgradeCost)); }
 	for (var x = 0; x < 7; x++)
 	{
 		$("#Hero"+(hero.heroID)+"skill"+(x+1)).prop("title", hero.skills[x].name + "\n" + hero.skills[x].bonusType + "\n"  + hero.skills[x].magnitude);
