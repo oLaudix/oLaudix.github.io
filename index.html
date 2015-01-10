@@ -47,51 +47,62 @@
 <script type="text/javascript" src="jquery-latest.min.js"></script>
 <script type="text/javascript" src="bootstrap.min.js"></script>
 <script src="common.js"></script>
+<script src="testing.js"></script>
 <title>HTML5, CSS3 and JavaScript demo</title>
   <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
 </head>
 <body>
-  <div class="wrapper">
-	<div style="width: 500px; display: inline-block;">
-	
-	<div class="panel panel-primary">
-		  <div class="panel-heading">Save panel</div>
-		  <div class="panel-body">
-			<textarea id="savedata" style="width: 100%; height: 50px"></textarea>
-			<div style="margin-top: 10px;">
-				<button type="button" onclick="Save()" class="btn btn-default">Save</button>
-				<button type="button" onclick="Load()" class="btn btn-primary" style="float: right;">Load</button>
+	<div class="wrapper">
+		<div style="width: 500px; display: inline-block;">
+			<div class="panel panel-primary">
+				<div class="panel-heading">Save panel</div>
+				<div class="panel-body">
+					<textarea id="savedata" style="width: 100%; height: 50px"></textarea>
+					<div style="margin-top: 10px;">
+						<button type="button" onclick="Save()" class="btn btn-default">Save</button>
+						<button type="button" onclick="Load()" class="btn btn-primary" style="float: right;">Load</button>
+					</div>
+				</div>
 			</div>
-		  </div>
-		</div>
 		<!--<label><input type="checkbox" id="addsouls" checked="checked">Include souls gained after ascension</label>-->
-		<div class="panel panel-success">
-			<div class="panel-heading">Results: <input type="text" id="numberofpredictions" value="30"></div>
-			<div id="output" class="panel-body"></div>
+			<div class="panel panel-success">
+				<div class="panel-heading">Results: <input type="text" id="numberofpredictions" value="30"></div>
+				<div id="output" class="panel-body"></div>
+			</div>
+		</div>
+		<div role="tabpanel" style="width: 1000px; display: inline-block; vertical-align: top;">
+			<ul class="nav nav-tabs" role="tablist">
+				<li role="presentation" class="active"><a href="#heroes" aria-controls="heroes" role="tab" data-toggle="tab">Heroes</a></li>
+				<li role="presentation"><a href="#player" aria-controls="player" role="tab" data-toggle="tab">Player</a></li>
+				<li role="presentation"><a href="#artifacts" aria-controls="heroes" role="tab" data-toggle="tab">Artifacts</a></li>
+			</ul>
+			<div class="tab-content">
+				<div role="tabpanel" class="tab-pane active" id="heroes">
+					<table id="ancienttbl" class="table table-striped">
+						<tbody><tr><th width="25%">Name</th><th width="20%">Skills</th><th width="15%">Upgrade Cost</th><th width="15%">DpS</th width="20%"><th>Next Level DpS Diff</th><th width="5%">Level</th></tr>
+						</tbody>
+					</table>
+				</div>
+				<div role="tabpanel" class="tab-pane" id="player">
+					<table id="playertbl" class="table table-striped">
+						<tbody><tr><th width="25%">Name</th><th width="20%">Skills</th><th width="15%">Upgrade Cost</th><th width="15%">DpS</th width="20%"><th>Next Level DpS Diff</th><th width="5%">Level</th></tr>
+						</tbody>
+					</table>
+				</div>
+				<div role="tabpanel" class="tab-pane" id="artifacts">
+					<div class="panel-heading">
+						<div><input type="text" id="artifactbonus" value="0"></input>%
+						</div>
+						<table id="heroestbl" class="table table-striped">
+							<tbody><tr><th>Artifact</th><th>Effect</th><th>Efficiency</th></tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<button type="button" onclick="Calculate()" class="btn btn-default">Update</button>
 		</div>
 	</div>
-	<div role="tabpanel" style="width: 1000px; display: inline-block; vertical-align: top;">
-		<ul class="nav nav-tabs" role="tablist">
-			<li role="presentation" class="active"><a href="#heroes" aria-controls="heroes" role="tab" data-toggle="tab">Heroes</a></li>
-			<li role="presentation"><a href="#artifacts" aria-controls="heroes" role="tab" data-toggle="tab">Artifacts</a></li>
-		</ul>
-		<div class="tab-content">
-		<div role="tabpanel" class="tab-pane active" id="heroes">
-			<table id="ancienttbl" class="table table-striped">
-				<tbody><tr><th width="25%">Name</th><th width="20%">Skills</th><th width="15%">Upgrade Cost</th><th width="15%">DpS</th width="20%"><th>Next Level DpS Diff</th><th width="5%">Level</th></tr>
-			</tbody></table>
-		</div>
-		<div role="tabpanel" class="tab-pane" id="artifacts">
-			<div class="panel-heading">
-				<div><input type="text" id="artifactbonus" value="0"></input>%
-			</div>
-			<table id="heroestbl" class="table table-striped">
-				<tbody><tr><th>Artifact</th><th>Effect</th><th>Efficiency</th></tr>
-			</tbody></table>
-		</div>
-	  </div>
-	</div><button type="button" onclick="Calculate()" class="btn btn-default">Update</button>
-</div>
   
   
 
@@ -126,32 +137,6 @@ for (var i = 0; i < heroList.length; i++) {
   $("#ancienttbl").append(tr);
 }
 
-//var levels = [];
-var StatBonusAllDamage = 0.0;
-function UpdateHeroStats(hero)
-{
-	hero.currentPassiveThisHeroDamage = currentPassiveThisHeroDamage(hero);
-	hero.currentDPS = GetDPSByLevel(hero, hero.heroLevel);
-	hero.nextLevelDPSDiff = GetDPSByLevel(hero, hero.heroLevel + 1) - hero.currentDPS;
-	hero.nextUpgradeCost = GetUpgradeCostByLevel(hero.heroLevel, hero.cost);
-	hero.efficiency = hero.nextUpgradeCost/hero.nextLevelDPSDiff;
-	if (hero.heroID >= 2) 
-	{	
-		//alert(HeroInfo[heroList[hero.heroID-2]].name +"\n"+ hero.nextUpgradeCost);
-		//alert(hero.heroID-1)
-		hero.isActive = false;
-		if (HeroInfo[heroList[hero.heroID-2]].heroLevel > 0)
-		{	
-			//alert(HeroInfo[heroList[hero.heroID-1]].nextUpgradeCost > hero.nextUpgradeCost);
-			hero.isActive = true;
-		}
-	} 
-	else if (hero.heroID <= 1)
-	{ 	
-		hero.isActive = true; 
-	}
-}
-
 function printHeroInfo(hero)
 {
 	if (hero.currentDPS > 1000000) { $("#Hero"+(hero.heroID)+"currentDPS").html(hero.currentDPS.toExponential(3)); } else { $("#Hero"+hero.heroID+"currentDPS").html(Math.floor(hero.currentDPS)); }
@@ -161,17 +146,23 @@ function printHeroInfo(hero)
 	{
 		$("#Hero"+(hero.heroID)+"skill"+(x+1)).prop("title", hero.skills[x].name + "\n" + hero.skills[x].bonusType + "\n"  + hero.skills[x].magnitude);
 	}
-	$("#Hero"+(hero.heroID)+"currentDPS").prop("title", "Additional dmg: " + (GetStatBonusAllDamage() + hero.currentPassiveThisHeroDamage)*100 + "%");
+	$("#Hero"+(hero.heroID)+"currentDPS").prop("title", "Additional dmg: " + (StatBonusAllDamage + hero.currentPassiveThisHeroDamage)*100 + "%");
+	$("#playertbl").html(
+						"All Damage Bonus: " + StatBonusAllDamage + "<br>" +
+						"All Gold Bonus: " + StatBonusGoldAll + "<br>" +
+						"Crit Damage Bonus: " + CritDamagePassive + "<br>" +
+						"Tap Dmg from DPS Bonus: " + TapDamageFromDPS + "<br>" +
+						"Crit Chance Bonus: " + CritChance + "<br>" +
+						"Tap Damage Bonus: " + TapDamagePassive
+						);
 }
 
 function GetDPSByLevel(hero, level)
 {
-    //double statBonus = PlayerModel.instance.GetStatBonus(BonusType.HeroAttackSpeedActive);
     var num3 = 0.0;
     if (IsEvolved(level))
     {
       num3 = Math.pow(levelIneffiency, (level - heroEvolveLevel)) * Math.pow((1.0 - (heroInefficiency * heroInefficiencySlowDown)), (hero.heroID + 30));
-	  //alert(typeof heroID);
     }
     else
     {
@@ -185,47 +176,10 @@ function GetDPSByLevel(hero, level)
     else
     {
       num4 = (((GetUpgradeCostByLevel(level - 1, hero.cost) * (Math.pow(heroUpgradeBase, level) - 1.0)) / ((heroUpgradeBase - 1.0))) * num3) * dMGScaleDown;
-    }
-	//alert(num4);
-	//alert((((this.GetUpgradeCostByLevel(iLevel - 1) * (Math.pow(heroUpgradeBase, iLevel) - 1.0)) / ((heroUpgradeBase - 1.0))) * num3) * dMGScaleDown);
-    //return (((num4 * ((1.0 + this.currentPassiveThisHeroDamage) + PlayerModel.instance.GetStatBonus(BonusType.AllDamage))) * (1.0 + ArtifactModel.instance.ArtifactDamageBonus)) * (1.0 + statBonus));
-	var artifactBonus = parseFloat($("#artifactbonus").val())/100;
-	//$("#output").append(num3 + "<br>");
+    }	var artifactBonus = parseFloat($("#artifactbonus").val())/100;
     return (num4 * (1.0 + hero.currentPassiveThisHeroDamage + StatBonusAllDamage)) * (1.0 + artifactBonus);
 }
 
-function currentPassiveThisHeroDamage(hero)
-{
-	var num = 0.0;
-	//hero.NextToBuySkill.isActive = true;
-	for (var x = 0; x < 7; x++)
-	{	
-		if (hero.skills[x].isActive && hero.skills[x].bonusType=="ThisHeroDamage") 
-		{ 	
-			num = num + hero.skills[x].magnitude;
-		}
-	}
-	//hero.NextToBuySkill.isActive = false;
-	return num;
-}
-
-function GetStatBonusAllDamage()
-{
-	StatBonusAllDamage = 0.0;
-	for (var y = 0; y < 30; y++)
-	{
-		var hero = HeroInfo[heroList[y]];
-		for (var x = 0; x < 7; x++)
-		{	
-			if (hero.skills[x].isActive && hero.skills[x].bonusType=="AllDamage") 
-			{
-				StatBonusAllDamage = StatBonusAllDamage + hero.skills[x].magnitude;
-			}
-		}
-	}
-	return StatBonusAllDamage;
-}
-  
 function IsEvolved(iLevel)
 {
 	return (iLevel >= heroEvolveLevel);
@@ -262,30 +216,6 @@ function numberFormat(number)
     return [res.toLocaleString().replace(",", ".") + '' + unit];
 }
 
-function GetUpgradeCostByMultiLevel(iLevelstart, iLevelfinish, purchaseCost)
-{
-	var total = 0.0;
-	for (var i = iLevelstart; i < iLevelfinish; i++)
-	{
-		total += GetUpgradeCostByLevel(i, purchaseCost);
-	}
-	return total;
-}
-
-function GetHeroBaseCost(iLevel, purchaseCost, heroLevel)
-{
-    var purchaseCost = purchaseCost;
-    iLevel = -1;
-    if (iLevel == -1)
-    {
-      iLevel = heroLevel;
-    }
-    if (iLevel >= (heroEvolveLevel - 1))
-    {
-      purchaseCost *= evolveCostMultiplier;
-    }
-    return purchaseCost;
-} 
 
 function GetEfficiency()
 {
@@ -293,7 +223,7 @@ function GetEfficiency()
     var levels = [];
 	var text = "";
 	var best = 0;
-	for (var x = 0; x < 1000; x++)
+	for (var x = 0; x < 1000000; x++)
 	{
 		//best = 0;
 		for (i = 0; i < 30; i++) 
@@ -311,6 +241,7 @@ function GetEfficiency()
 		HeroInfo[heroList[best]].heroLevel += 1;
 		GetStatBonusAllDamage();
 		UpdateAllHeroesStats();
+		//testing();
 		if (x == 0) 
 		{			
 			output.push({
@@ -331,9 +262,9 @@ function GetEfficiency()
                     level: HeroInfo[heroList[best]].heroLevel
                 });
 		}
-		if (output.length > parseInt($("#numberofpredictions").val()) || x == 99)
+		if (output.length > parseInt($("#numberofpredictions").val()))
 		{	
-			text += "<table id=\"ancienttbl\" class=\"table table-striped\"><tbody>";
+			text += "<table id=\"resulttbl\" class=\"table table-striped\"><tbody>";
 			text += "<tr><th>Name</th><th>Level</th></tr>"
 			for (var i = 0; i < output.length; i++) 
 			{
@@ -348,14 +279,13 @@ function GetEfficiency()
 }
 
 var currentAllHeroDPS = 0.0;
+
 function GetLevels()
 {	
 	for (var i = 0; i < 30; i++)
 	{
 		HeroInfo[heroList[i]].heroLevel = parseInt($("#Hero"+(i+1)+"heroLevel").val());
 	}
-	GetStatBonusAllDamage();
-	UpdateAllHeroesStats();
 }
 
 function UpdateAllHeroesStats()
@@ -363,9 +293,34 @@ function UpdateAllHeroesStats()
 	currentAllHeroDPS = 0.0;
 	for (var i = 0; i < 30; i++)
 	{
-		UpdateHeroStats(HeroInfo[heroList[i]]);
+		hero = HeroInfo[heroList[i]];
+		hero.currentPassiveThisHeroDamage = currentPassiveThisHeroDamage(hero);
+		hero.currentDPS = GetDPSByLevel(hero, hero.heroLevel);
+		hero.nextLevelDPSDiff = GetDPSByLevel(hero, hero.heroLevel + 1) - hero.currentDPS;
+		hero.nextUpgradeCost = GetUpgradeCostByLevel(hero.heroLevel, hero.cost);
+		//hero.efficiency = hero.nextUpgradeCost/hero.nextLevelDPSDiff;
+		if (hero.heroID >= 2) 
+		{	
+			hero.isActive = false;
+			if (HeroInfo[heroList[hero.heroID-2]].heroLevel > 0){ hero.isActive = true; }
+		} 
+		else if (hero.heroID <= 1)
+		{ 	
+			hero.isActive = true; 
+		}	
 		currentAllHeroDPS += HeroInfo[heroList[i]].currentDPS;
 	}
+	for (var i = 0; i < 30; i++)
+	{	
+		hero = HeroInfo[heroList[i]];
+		hero.earnedGoldIncrease = GetOfflineGoldByTime(1000, currentAllHeroDPS + hero.nextLevelDPSDiff) - GetOfflineGoldByTime(1000, currentAllHeroDPS);
+		hero.efficiency = (hero.nextUpgradeCost/hero.earnedGoldIncrease);	
+	}
+}
+
+function UpdateAllSkillsStats()
+{
+
 }
 
 function printAll()
@@ -378,13 +333,11 @@ function printAll()
 
 function GetSkills()
 {	
-	var index = 0;
 	for (var x = 1; x < 31; x++)
 	{
 		for (var y = 1; y < 8; y++)
 		{
 			HeroInfo[heroList[x-1]].skills[y-1].isActive = $("#Hero"+x+"skill"+y).is(":checked");
-			index++;
 		}
 	}
 }
@@ -409,6 +362,7 @@ function GetOfflineGoldByTime(iSeconds, DPS)
     var stageBaseHP = 100.0;
     var stageBaseGold = 10.0;
     var num5 = 0.0;
+	if (DPS == 0) { DPS+=1; }
     if (DPS > 0.0)
     {
 		num5 = (iSeconds / ((stageBaseHP / DPS))) * stageBaseGold;
@@ -452,23 +406,51 @@ function Load()
 			$("#Hero"+(x+1)+"heroLevel").val(HeroInfo[heroList[x]].heroLevel);
 		}
 	}
-	Calculate();
+	//---------------
+	GetSkills();
+	GetLevels();
+	//---------------
+	GetStatBonusAllDamage();
+	GetStatBonusAllGold();
+	GetStatBonusCritDamagePassive();
+	GetStatBonusTapDamageFromDPS();
+	GetStatBonusCritChance();
+	GetStatBonusTapDamagePassive();
+	//alert(TapDamagePassive);
+	//---------------
+	UpdateAllHeroesStats();
+	printAll();
 }
 
 BuildSkillBase();
 GetSkills();
 GetLevels();
+GetStatBonusAllDamage();
+GetStatBonusAllGold();
+GetStatBonusCritDamagePassive();
+GetStatBonusTapDamageFromDPS();
+GetStatBonusCritChance();
+GetStatBonusTapDamagePassive();
+UpdateAllHeroesStats();
 printAll();
 function Calculate() {
-	$("#output").html("");
+	//$("#output").html("");
+	//---------------
 	GetSkills();
 	GetLevels();
+	//---------------
+	GetStatBonusAllDamage();
+	GetStatBonusAllGold();
+	GetStatBonusCritDamagePassive();
+	GetStatBonusTapDamageFromDPS();
+	GetStatBonusCritChance();
+	GetStatBonusTapDamagePassive();
+	//alert(TapDamagePassive);
+	//---------------
+	UpdateAllHeroesStats();
 	printAll();
-	//$("#Hero1skill1").prop("checked", true);
-	//alert(GetOfflineGoldByTime(1000,currentAllHeroDPS) + " gold gained\n" + GetOfflineGoldByTime(1000,currentAllHeroDPS+HeroInfo[heroList[0]].nextLevelDPSDiff));
-	//alert(currentAllHeroDPS);
 	GetEfficiency();
-	//save();
+	//$("#ancienttbl").html("test");
 }
 //});
 </script></body></html>

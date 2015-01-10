@@ -7,6 +7,13 @@ var evolveCostMultiplier = 10.0;
 var dMGScaleDown = 0.1;
 var passiveSkillCostMultiplier = 5.0;
 
+var StatBonusAllDamage = 0.0;
+var StatBonusGoldAll = 0.0;
+var CritDamagePassive = 0.0;
+var TapDamageFromDPS = 0.0;
+var CritChance = 0.0;
+var TapDamagePassive = 0.0;
+
 var HeroInfo = {
 Hero1: {name: "Takeda, the Blade Assassin", cost: 50, heroID: 1},
 Hero2: {name: "Contessa, the Torch Wielder", cost: 175, heroID: 2},
@@ -260,3 +267,137 @@ var skillsInfo = [
 {skillID: 209, owner: "Hero30", name: "Prodigal Blur", bonusType: "AllDamage", magnitude: 0.3, reqLevel: 400, cost: 3.20E+20},
 {skillID: 210, owner: "Hero30", name: "Enchanted Soul", bonusType: "AllDamage", magnitude: 0.4, reqLevel: 800, cost: 3.20E+28}
 ];
+
+function GetUpgradeCostByMultiLevel(iLevelstart, iLevelfinish, purchaseCost)
+{
+	var total = 0.0;
+	for (var i = iLevelstart; i < iLevelfinish; i++)
+	{
+		total += GetUpgradeCostByLevel(i, purchaseCost);
+	}
+	return total;
+}
+
+function GetHeroBaseCost(iLevel, purchaseCost, heroLevel)
+{
+    var purchaseCost = purchaseCost;
+    iLevel = -1;
+    if (iLevel == -1)
+    {
+      iLevel = heroLevel;
+    }
+    if (iLevel >= (heroEvolveLevel - 1))
+    {
+      purchaseCost *= evolveCostMultiplier;
+    }
+    return purchaseCost;
+}
+
+function currentPassiveThisHeroDamage(hero)
+{
+	var num = 0.0;
+	for (var x = 0; x < 7; x++)
+	{	
+		if (hero.skills[x].isActive && hero.skills[x].bonusType=="ThisHeroDamage") 
+		{ 	
+			num = num + hero.skills[x].magnitude;
+		}
+	}
+	return num;
+}
+
+function GetStatBonusAllDamage()
+{
+	StatBonusAllDamage = 0.0;
+	for (var y = 0; y < 30; y++)
+	{
+		var hero = HeroInfo[heroList[y]];
+		for (var x = 0; x < 7; x++)
+		{	
+			if (hero.skills[x].isActive && hero.skills[x].bonusType=="AllDamage") 
+			{
+				StatBonusAllDamage = StatBonusAllDamage + hero.skills[x].magnitude;
+			}
+		}
+	}
+}
+
+function GetStatBonusAllGold()
+{
+	StatBonusGoldAll = 0.0;
+	for (var y = 0; y < 30; y++)
+	{
+		var hero = HeroInfo[heroList[y]];
+		for (var x = 0; x < 7; x++)
+		{	
+			if (hero.skills[x].isActive && hero.skills[x].bonusType=="GoldAll") 
+			{
+				StatBonusGoldAll = StatBonusGoldAll + hero.skills[x].magnitude;
+			}
+		}
+	}
+}
+
+function GetStatBonusTapDamageFromDPS()
+{
+	TapDamageFromDPS = 0.0;
+	for (var y = 0; y < 30; y++)
+	{
+		var hero = HeroInfo[heroList[y]];
+		for (var x = 0; x < 7; x++)
+		{	
+			if (hero.skills[x].isActive && hero.skills[x].bonusType=="TapDamageFromDPS") 
+			{
+				TapDamageFromDPS = TapDamageFromDPS + hero.skills[x].magnitude;
+			}
+		}
+	}
+}
+
+function GetStatBonusCritChance()
+{
+	CritChance = 0.0;
+	for (var y = 0; y < 30; y++)
+	{
+		var hero = HeroInfo[heroList[y]];
+		for (var x = 0; x < 7; x++)
+		{	
+			if (hero.skills[x].isActive && hero.skills[x].bonusType=="CritChance") 
+			{
+				CritChance = CritChance + hero.skills[x].magnitude;
+			}
+		}
+	}
+}
+
+function GetStatBonusCritDamagePassive()
+{
+	CritDamagePassive = 0.0;
+	for (var y = 0; y < 30; y++)
+	{
+		var hero = HeroInfo[heroList[y]];
+		for (var x = 0; x < 7; x++)
+		{	
+			if (hero.skills[x].isActive && hero.skills[x].bonusType=="CritDamagePassive") 
+			{
+				CritDamagePassive = CritDamagePassive + hero.skills[x].magnitude;
+			}
+		}
+	}
+}
+
+function GetStatBonusTapDamagePassive()
+{
+	TapDamagePassive = 0.0;
+	for (var y = 0; y < 30; y++)
+	{
+		var hero = HeroInfo[heroList[y]];
+		for (var x = 0; x < 7; x++)
+		{	
+			if (hero.skills[x].isActive && hero.skills[x].bonusType=="TapDamagePassive") 
+			{
+				TapDamagePassive = TapDamagePassive + hero.skills[x].magnitude;
+			}
+		}
+	}
+}
