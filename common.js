@@ -1,3 +1,53 @@
+var heroEvolveLevel = 1001.0;
+var levelIneffiency = 0.904;
+var heroInefficiency = 0.019;
+var heroInefficiencySlowDown = 15.0;
+var heroUpgradeBase = 1.075;
+var evolveCostMultiplier = 10.0;
+var dMGScaleDown = 0.1;
+var passiveSkillCostMultiplier = 5.0;
+
+var HeroInfo = {
+Hero1: {name: "Takeda, the Blade Assassin", cost: 50, heroID: 1},
+Hero2: {name: "Contessa, the Torch Wielder", cost: 175, heroID: 2},
+Hero3: {name: "Hornetta, Queen of the Valrunes", cost: 673.75, heroID: 3},
+Hero4: {name: "Mila, the Hammer Stomper", cost: 2853.33, heroID: 4},
+Hero5: {name: "Terra, the Land Scorcher", cost: 1.33E+04, heroID: 5},
+Hero6: {name: "Inquisireaux the Terrible", cost: 6.81E+04, heroID: 6},
+Hero7: {name: "Charlotte the Special", cost: 3.84E+05, heroID: 7},
+Hero8: {name: "Jordaan, Knight of Mini", cost: 2.38E+06, heroID: 8},
+Hero9: {name: "Jukka, Master of Axes", cost: 2.38E+07, heroID: 9},
+Hero10: {name: "Milo and Clonk-Clonk", cost: 1.43E+08, heroID: 10},
+Hero11: {name: "Macelord the Ruthless", cost: 9.43E+08, heroID: 11},
+Hero12: {name: "Gertrude the Goat Rider", cost: 6.84E+09, heroID: 12},
+Hero13: {name: "Twitterella the Tweeter", cost: 5.47E+10, heroID: 13},
+Hero14: {name: "Master Hawk, Lord of Luft", cost: 8.20E+11, heroID: 14},
+Hero15: {name: "Elpha, Wielder of Gems", cost: 8.20E+12, heroID: 15},
+Hero16: {name: "Poppy, Daughter of Ceremony", cost: 1.64E+14, heroID: 16},
+Hero17: {name: "Skulptor, Protector of Bridges", cost: 1.64E+15, heroID: 17},
+Hero18: {name: "Sterling the Enchantor", cost: 4.92E+16, heroID: 18},
+Hero19: {name: "Orba the Foreseer", cost: 2.46E+18, heroID: 19},
+Hero20: {name: "Remus the Noble Archer", cost: 7.38E+19, heroID: 20},
+Hero21: {name: "Mikey the Magician Apprentice", cost: 2.44E+21, heroID: 21},
+Hero22: {name: "Peter Pricker the Prickly Poker", cost: 2.44E+23, heroID: 22},
+Hero23: {name: "Teeny Tom, Keeper of the Castle", cost: 4.87E+25, heroID: 23},
+Hero24: {name: "Deznis the Cleanser", cost: 1.95E+28, heroID: 24},
+Hero25: {name: "Hamlette, Painter of Skulls", cost: 2.14E+31, heroID: 25},
+Hero26: {name: "Eistor the Banisher", cost: 2.36E+36, heroID: 26},
+Hero27: {name: "Flavius and Oinksbjorn", cost: 2.59E+46, heroID: 27},
+Hero28: {name: "Chester the Beast Tamer", cost: 2.85E+61, heroID: 28},
+Hero29: {name: "Mohacas the Wind Warrior", cost: 3.14E+81, heroID: 29},
+Hero30: {name: "Jaqulin the Unknown", cost: 3.76E+111, heroID: 30}
+};
+
+var heroList = [];
+for (var k in HeroInfo) {
+  if (HeroInfo.hasOwnProperty(k)) {
+    heroList.push(k);
+	//alert(Heroes['solomon'].name);
+  }
+}
+
 var skillsInfo = [
 {skillID: 1, owner: "Hero1", name: "Nature's Presence", bonusType: "ThisHeroDamage", magnitude: 0.5, reqLevel: 10, cost: 6.14E+02},
 {skillID: 2, owner: "Hero1", name: "Lightning Rage", bonusType: "ThisHeroDamage", magnitude: 1, reqLevel: 25, cost: 2.36E+03},

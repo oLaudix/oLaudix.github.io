@@ -135,6 +135,21 @@ function UpdateHeroStats(hero)
 	hero.nextLevelDPSDiff = GetDPSByLevel(hero, hero.heroLevel + 1) - hero.currentDPS;
 	hero.nextUpgradeCost = GetUpgradeCostByLevel(hero.heroLevel, hero.cost);
 	hero.efficiency = hero.nextUpgradeCost/hero.nextLevelDPSDiff;
+	if (hero.heroID >= 2) 
+	{	
+		//alert(HeroInfo[heroList[hero.heroID-2]].name +"\n"+ hero.nextUpgradeCost);
+		//alert(hero.heroID-1)
+		hero.isActive = false;
+		if (HeroInfo[heroList[hero.heroID-2]].nextUpgradeCost > hero.cost)
+		{	
+			//alert(HeroInfo[heroList[hero.heroID-1]].nextUpgradeCost > hero.nextUpgradeCost);
+			hero.isActive = true;
+		}
+	} 
+	else if (hero.heroID <= 1)
+	{ 	
+		hero.isActive = true; 
+	}
 }
 
 function printHeroInfo(hero)
@@ -278,23 +293,25 @@ function GetEfficiency()
     var levels = [];
 	var text = "";
 	var best = 0;
-	for (var x = 0; x < 100000; x++)
+	for (var x = 0; x < 1000; x++)
 	{
 		//best = 0;
 		for (i = 0; i < 30; i++) 
 		{	
+			if (HeroInfo[heroList[i]].isActive) {   
 			var eff = HeroInfo[heroList[i]].efficiency;
 			var beff = HeroInfo[heroList[best]].efficiency;
 			if (eff/beff < 1)
 			{
 				//oldbest = best;
 				best = i;
-			}
+			}}
 		}
+		//alert ("test");
 		HeroInfo[heroList[best]].heroLevel += 1;
 		GetStatBonusAllDamage();
 		UpdateAllHeroesStats();
-		if (output.length < 1) 
+		if (x == 0) 
 		{			
 			output.push({
                     name: HeroInfo[heroList[best]].name,
@@ -314,7 +331,7 @@ function GetEfficiency()
                     level: HeroInfo[heroList[best]].heroLevel
                 });
 		}
-		if (output.length > parseInt($("#numberofpredictions").val()))
+		if (output.length > parseInt($("#numberofpredictions").val()) || x == 99)
 		{	
 			text += "<table id=\"ancienttbl\" class=\"table table-striped\"><tbody>";
 			text += "<tr><th>Name</th><th>Level</th></tr>"
@@ -381,6 +398,7 @@ function BuildSkillBase()
 		{
 			if (typeof HeroInfo[skillsInfo[index].owner].skills == "undefined") { HeroInfo[skillsInfo[index].owner].skills = []; }
 			HeroInfo[skillsInfo[index].owner].skills.push(skillsInfo[index]);
+			HeroInfo[heroList[x-1]].isActive = false;
 			index++;
 		}
 	}
