@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-1.16.0.css">
 <link rel="stylesheet" href="bootstrap.min.css">
 <style type="text/css"><style type="text/css">
 		
@@ -44,11 +45,7 @@
 }
 </style>
 
-<script type="text/javascript" src="jquery-latest.min.js"></script>
-<script type="text/javascript" src="bootstrap.min.js"></script>
-<script src="common.js"></script>
-<script src="testing.js"></script>
-<title>HTML5, CSS3 and JavaScript demo</title>
+<title>Tap Titans Heroes Calculator</title>
   <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
 </head>
 <body>
@@ -105,7 +102,9 @@
 	</div>
   
   
-
+<script type="text/javascript" src="jquery-latest.min.js"></script>
+<script type="text/javascript" src="bootstrap.min.js"></script>
+<script src="common.js"></script>
 <script language="javascript">/* Write JavaScript here */
 //$(window).load(function start(){
 
@@ -228,6 +227,7 @@ function GetEfficiency()
 	for (var x = 0; x < 10000; x++)
 	{
 		//best = 0;
+		$("#output").html(x);
 		for (i = 0; i < 30; i++) 
 		{	
 			if (HeroInfo[heroList[i]].isActive) {   
