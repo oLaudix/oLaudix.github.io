@@ -321,15 +321,15 @@ function UpdateAllHeroesStats()
 		}	
 		currentAllHeroDPS += HeroInfo[heroList[i]].currentDPS;
 	}
-	for (var i = 0; i < 30; i++)
+	//for (var i = 0; i < 30; i++)
 	{	
-		hero = HeroInfo[heroList[i]];
+		//hero = HeroInfo[heroList[i]];
 		//alert(currentAllHeroDPS);
 		//hero.earnedGoldIncrease = GetOfflineGoldByTime(10, currentAllHeroDPS + hero.nextLevelDPSDiff) - GetOfflineGoldByTime(10, currentAllHeroDPS);
 		//if (hero.earnedGoldIncrease == 0) { hero.earnedGoldIncrease = 1; }
 		//hero.efficiency = (hero.nextUpgradeCost/hero.earnedGoldIncrease);
 		//if (hero.efficiency > 1e10) { hero.efficiency = 1e10; }
-		$("#output").append(hero.earnedGoldIncrease + " " + hero.heroID + "<br>");		
+		//$("#output").append(hero.earnedGoldIncrease + " " + hero.heroID + "<br>");		
 	}
 }
 
