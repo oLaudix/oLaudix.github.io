@@ -144,7 +144,12 @@ function printHeroInfo(hero)
 	if (hero.nextUpgradeCost > 1000000) { $("#Hero"+(hero.heroID)+"nextUpgradeCost").html(hero.nextUpgradeCost.toExponential(3)); } else { $("#Hero"+hero.heroID+"nextUpgradeCost").html(Math.floor(hero.nextUpgradeCost)); }
 	for (var x = 0; x < 7; x++)
 	{
-		$("#Hero"+(hero.heroID)+"skill"+(x+1)).prop("title", hero.skills[x].name + "\n" + hero.skills[x].bonusType + "\n"  + hero.skills[x].magnitude);
+		$("#Hero"+(hero.heroID)+"skill"+(x+1)).prop("title", 
+															hero.skills[x].name + "\n" + 
+															hero.skills[x].bonusType + "\n"  + 
+															hero.skills[x].magnitude + "\n"  + 
+															hero.skills[x].dps
+															);
 	}
 	$("#Hero"+(hero.heroID)+"currentDPS").prop("title", "Additional dmg: " + (StatBonusAllDamage + hero.currentPassiveThisHeroDamage)*100 + "%");
 	$("#playertbl").html(
@@ -178,7 +183,7 @@ function GetDPSByLevel(hero, level)
       num4 = (((GetUpgradeCostByLevel(level - 1, hero.cost) * (Math.pow(heroUpgradeBase, level) - 1.0)) / ((heroUpgradeBase - 1.0))) * num3) * dMGScaleDown;
     }	
 	var artifactBonus = parseFloat($("#artifactbonus").val())/100;
-    return (num4 * (1.0 + hero.currentPassiveThisHeroDamage + StatBonusAllDamage)) * (1.0 + artifactBonus);
+    return (num4 * (1.0 + currentPassiveThisHeroDamage(hero) + StatBonusAllDamage)) * (1.0 + artifactBonus);
 }
 
 function IsEvolved(iLevel)
@@ -304,7 +309,7 @@ function UpdateAllHeroesStats()
 	currentAllHeroDPS = 0.0;
 	for (var i = 0; i < 30; i++)
 	{
-		hero = HeroInfo[heroList[i]];
+		var hero = HeroInfo[heroList[i]];
 		hero.currentPassiveThisHeroDamage = currentPassiveThisHeroDamage(hero);
 		hero.currentDPS = GetDPSByLevel(hero, hero.heroLevel);
 		hero.nextLevelDPSDiff = GetDPSByLevel(hero, hero.heroLevel + 1) - hero.currentDPS;
@@ -321,8 +326,74 @@ function UpdateAllHeroesStats()
 		}	
 		currentAllHeroDPS += HeroInfo[heroList[i]].currentDPS;
 	}
-	//for (var i = 0; i < 30; i++)
+	if (currentAllHeroDPS == 0) { currentAllHeroDPS = 1; }
+	for (var i = 0; i < 30; i++)
 	{	
+		var hero = HeroInfo[heroList[i]];
+		for (var x = 0; x < hero.skills.length; x++)
+		{	
+			var skill = hero.skills[x];
+			//
+			if (!(skill.isActive) && skill.bonusType == "AllDamage")
+			{
+				//DPS))) * stageBaseGold;
+				skill.isActive = true;
+				GetStatBonusAllDamage();
+				skill.dps = 0;
+				//if (skill.reqLevel >= hero2.heroLevel) { skill.dps = GetDPSByLevel(hero, skill.reqLevel) - GetDPSByLevel(hero, hero.heroLevel); } else { skill.dps = GetDPSByLevel(hero, hero.heroLevel) - GetDPSByLevel(hero, skill.reqLevel); }
+				//if (skill.dps <= 0) { skill.dps = 0 }
+				for (var y = 0; y < heroList.length; y++)
+				{
+					var hero2 = HeroInfo[heroList[y]];
+					if (!(hero2.name == HeroInfo[skill.owner].name))
+					{
+						skill.dps+=GetDPSByLevel(hero2, hero2.heroLevel);
+					}
+					else
+					{
+						if (skill.reqLevel >= hero2.heroLevel)
+						{
+							skill.dps+=GetDPSByLevel(hero2, skill.reqLevel);
+						}
+						else
+						{
+							skill.dps+=GetDPSByLevel(hero2, hero2.heroLevel) + GetDPSByLevel(hero2, skill.reqLevel);
+						}
+					}
+				}
+				skill.isActive = false;
+				GetStatBonusAllDamage();
+				skill.dps -= currentAllHeroDPS;
+			}
+			if (!(skill.isActive) && skill.bonusType == "ThisHeroDamage")
+			{
+				skill.isActive = true;
+				skill.dps = 0;
+				//if (skill.reqLevel >= hero2.heroLevel) { skill.dps = GetDPSByLevel(hero, skill.reqLevel) - GetDPSByLevel(hero, hero.heroLevel); } else { skill.dps = GetDPSByLevel(hero, hero.heroLevel) - GetDPSByLevel(hero, skill.reqLevel); }
+				//if (skill.dps <= 0) { skill.dps = 0 }
+				for (var y = 0; y < heroList.length; y++)
+				{
+					var hero2 = HeroInfo[heroList[y]];
+					if (!(hero2.name == HeroInfo[skill.owner].name))
+					{
+						skill.dps+=GetDPSByLevel(hero2, hero2.heroLevel);
+					}
+					else
+					{
+						if (skill.reqLevel >= hero2.heroLevel)
+						{
+							skill.dps+=GetDPSByLevel(hero2, skill.reqLevel);
+						}
+						else
+						{
+							skill.dps+=GetDPSByLevel(hero2, hero2.heroLevel) + GetDPSByLevel(hero2, skill.reqLevel);
+						}
+					}
+				}
+				skill.isActive = false;
+				skill.dps -= currentAllHeroDPS;
+			}
+		}
 		//hero = HeroInfo[heroList[i]];
 		//alert(currentAllHeroDPS);
 		//hero.earnedGoldIncrease = GetOfflineGoldByTime(10, currentAllHeroDPS + hero.nextLevelDPSDiff) - GetOfflineGoldByTime(10, currentAllHeroDPS);
@@ -465,8 +536,15 @@ function Calculate() {
 	UpdateAllHeroesStats();
 	printAll();
 	//alert(1.281e34/(GetOfflineGoldByTime(1000, 6.507e20 + 3.899e28) - GetOfflineGoldByTime(1000, 6.507e20)));
-	GetEfficiency();
+	//var test2 = (10*(1+1.1+1.3)) * 10 * 1.1;
+	
+	$("#output").html(currentAllHeroDPS);
+	//GetEfficiency();
 	//$("#ancienttbl").html("test");
 }
+
+//1.1 - 1
+//1.2 - x
+//x = 1.2/1.1
 //});
 </script></body></html>
