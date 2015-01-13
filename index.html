@@ -142,13 +142,14 @@ function printHeroInfo(hero)
 	if (hero.currentDPS > 1000000) { $("#Hero"+(hero.heroID)+"currentDPS").html(hero.currentDPS.toExponential(3)); } else { $("#Hero"+hero.heroID+"currentDPS").html(Math.floor(hero.currentDPS)); }
 	if (hero.nextLevelDPSDiff > 1000000) { $("#Hero"+(hero.heroID)+"nextLevelDPSDiff").html("+ "+hero.nextLevelDPSDiff.toExponential(3)); } else { $("#Hero"+hero.heroID+"nextLevelDPSDiff").html("+ "+Math.floor(hero.nextLevelDPSDiff)); }
 	if (hero.nextUpgradeCost > 1000000) { $("#Hero"+(hero.heroID)+"nextUpgradeCost").html(hero.nextUpgradeCost.toExponential(3)); } else { $("#Hero"+hero.heroID+"nextUpgradeCost").html(Math.floor(hero.nextUpgradeCost)); }
+	$("#Hero"+hero.heroID+"name").prop("title", hero.efficiency)
 	for (var x = 0; x < 7; x++)
 	{
 		$("#Hero"+(hero.heroID)+"skill"+(x+1)).prop("title", 
 															hero.skills[x].name + "\n" + 
 															hero.skills[x].bonusType + "\n"  + 
 															hero.skills[x].magnitude + "\n"  + 
-															hero.skills[x].dps
+															hero.skills[x].efficiency
 															);
 	}
 	$("#Hero"+(hero.heroID)+"currentDPS").prop("title", "Additional dmg: " + (StatBonusAllDamage + hero.currentPassiveThisHeroDamage)*100 + "%");
@@ -238,7 +239,7 @@ function GetEfficiency()
 			if (HeroInfo[heroList[i]].isActive) {   
 			var eff = HeroInfo[heroList[i]].efficiency;
 			var beff = HeroInfo[heroList[best]].efficiency;
-			if (eff/beff < 1)
+			if (eff < beff)
 			{
 				//oldbest = best;
 				best = i;
@@ -314,7 +315,7 @@ function UpdateAllHeroesStats()
 		hero.currentDPS = GetDPSByLevel(hero, hero.heroLevel);
 		hero.nextLevelDPSDiff = GetDPSByLevel(hero, hero.heroLevel + 1) - hero.currentDPS;
 		hero.nextUpgradeCost = GetUpgradeCostByLevel(hero.heroLevel, hero.cost);
-		hero.efficiency = hero.nextUpgradeCost/hero.nextLevelDPSDiff;
+		//hero.efficiency = hero.nextUpgradeCost/hero.nextLevelDPSDiff;
 		if (hero.heroID >= 2) 
 		{	
 			hero.isActive = false;
@@ -326,10 +327,15 @@ function UpdateAllHeroesStats()
 		}	
 		currentAllHeroDPS += HeroInfo[heroList[i]].currentDPS;
 	}
-	if (currentAllHeroDPS == 0) { currentAllHeroDPS = 1; }
+	if (currentAllHeroDPS == 0) { currentAllHeroDPS = 1e-100; }
+	//hero.salary = currentAllHeroDPS * 100.0 * StatBonusGoldAll;
 	for (var i = 0; i < 30; i++)
 	{	
 		var hero = HeroInfo[heroList[i]];
+		hero.currentSalary = currentAllHeroDPS  * (1 + StatBonusGoldAll);
+		hero.nextLevelSalaryDiff = (currentAllHeroDPS + hero.nextLevelDPSDiff) * (1 + StatBonusGoldAll);
+		hero.efficiency = hero.nextUpgradeCost/(hero.nextLevelSalaryDiff - hero.currentSalary);
+		//$("#output").append(hero.currentSalary + " " + hero.nextLevelSalaryDiff + " " + hero.heroID + "<BR>");
 		for (var x = 0; x < hero.skills.length; x++)
 		{	
 			var skill = hero.skills[x];
@@ -357,13 +363,19 @@ function UpdateAllHeroesStats()
 						}
 						else
 						{
-							skill.dps+=GetDPSByLevel(hero2, hero2.heroLevel) + GetDPSByLevel(hero2, skill.reqLevel);
+							//skill.dps+=GetDPSByLevel(hero2, hero2.heroLevel) + GetDPSByLevel(hero2, skill.reqLevel);
+							skill.dps+=GetDPSByLevel(hero2, hero2.heroLevel);
 						}
 					}
 				}
 				skill.isActive = false;
 				GetStatBonusAllDamage();
-				skill.dps -= currentAllHeroDPS;
+				//var hero = HeroInfo[heroList[i]];
+				skill.currentSalary = currentAllHeroDPS  * (1 + StatBonusGoldAll);
+				skill.nextLevelSalaryDiff = skill.dps * (1 + StatBonusGoldAll);
+				skill.nextUpgradeCost = GetUpgradeCostByMultiLevel(hero.heroLevel, skill.reqLevel, hero.cost) + (GetUpgradeCostByLevel(skill.reqLevel, hero.cost)*5);
+				skill.efficiency = skill.nextUpgradeCost/(skill.nextLevelSalaryDiff - skill.currentSalary);
+				//skill.dps -= currentAllHeroDPS;
 			}
 			if (!(skill.isActive) && skill.bonusType == "ThisHeroDamage")
 			{
@@ -386,27 +398,30 @@ function UpdateAllHeroesStats()
 						}
 						else
 						{
-							skill.dps+=GetDPSByLevel(hero2, hero2.heroLevel) + GetDPSByLevel(hero2, skill.reqLevel);
+							skill.dps+=GetDPSByLevel(hero2, hero2.heroLevel);
 						}
 					}
 				}
 				skill.isActive = false;
-				skill.dps -= currentAllHeroDPS;
+				skill.currentSalary = currentAllHeroDPS  * (1 + StatBonusGoldAll);
+				skill.nextLevelSalaryDiff = skill.dps * (1 + StatBonusGoldAll);
+				skill.nextUpgradeCost = GetUpgradeCostByMultiLevel(hero.heroLevel, skill.reqLevel, hero.cost) + (GetUpgradeCostByLevel(skill.reqLevel, hero.cost)*5);
+				skill.efficiency = skill.nextUpgradeCost/(skill.nextLevelSalaryDiff - skill.currentSalary);
+				//skill.dps -= currentAllHeroDPS;
 			}
-		}
-		//hero = HeroInfo[heroList[i]];
-		//alert(currentAllHeroDPS);
-		//hero.earnedGoldIncrease = GetOfflineGoldByTime(10, currentAllHeroDPS + hero.nextLevelDPSDiff) - GetOfflineGoldByTime(10, currentAllHeroDPS);
-		//if (hero.earnedGoldIncrease == 0) { hero.earnedGoldIncrease = 1; }
-		//hero.efficiency = (hero.nextUpgradeCost/hero.earnedGoldIncrease);
-		//if (hero.efficiency > 1e10) { hero.efficiency = 1e10; }
-		//$("#output").append(hero.earnedGoldIncrease + " " + hero.heroID + "<br>");		
+		}	
 	}
 }
 
-function UpdateAllSkillsStats()
-{
-
+function GetUpgradeCostByMultiLevel(iLevelstart, iLevelfinish, purchaseCost)
+{	
+	//alert("test")
+	var total = 0.0;
+	for (var i = iLevelstart; i < iLevelfinish; i++)
+	{
+		total += GetUpgradeCostByLevel(i, purchaseCost);
+	}
+	return total;
 }
 
 function printAll()
@@ -537,9 +552,12 @@ function Calculate() {
 	printAll();
 	//alert(1.281e34/(GetOfflineGoldByTime(1000, 6.507e20 + 3.899e28) - GetOfflineGoldByTime(1000, 6.507e20)));
 	//var test2 = (10*(1+1.1+1.3)) * 10 * 1.1;
-	
-	$("#output").html(currentAllHeroDPS);
-	//GetEfficiency();
+	//var currentDPS = GetDPSByLevel(HeroInfo[heroList[0]], HeroInfo[heroList[0]].heroLevel);
+	///var nextLevelDPSDiff = GetDPSByLevel(HeroInfo[heroList[0]], HeroInfo[heroList[0]].heroLevel + 1) - HeroInfo[heroList[0]].currentDPS;
+	//var nextLevelDPS = GetDPSByLevel(HeroInfo[heroList[0]], HeroInfo[heroList[0]].heroLevel + 1);
+	//alert("test");
+	//$("#output").html(nextLevelDPSDiff * 100.0 * (1 + StatBonusGoldAll));
+	GetEfficiency();
 	//$("#ancienttbl").html("test");
 }
 

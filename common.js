@@ -268,15 +268,6 @@ var skillsInfo = [
 {skillID: 210, owner: "Hero30", name: "Enchanted Soul", bonusType: "AllDamage", magnitude: 0.4, reqLevel: 800, cost: 3.20E+28}
 ];
 
-function GetUpgradeCostByMultiLevel(iLevelstart, iLevelfinish, purchaseCost)
-{
-	var total = 0.0;
-	for (var i = iLevelstart; i < iLevelfinish; i++)
-	{
-		total += GetUpgradeCostByLevel(i, purchaseCost);
-	}
-	return total;
-}
 
 function GetHeroBaseCost(iLevel, purchaseCost, heroLevel)
 {
