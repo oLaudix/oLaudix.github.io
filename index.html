@@ -141,15 +141,16 @@ function printHeroInfo(hero)
 {
 	if (hero.currentDPS > 1000000) { $("#Hero"+(hero.heroID)+"currentDPS").html(hero.currentDPS.toExponential(3)); } else { $("#Hero"+hero.heroID+"currentDPS").html(Math.floor(hero.currentDPS)); }
 	if (hero.nextLevelDPSDiff > 1000000) { $("#Hero"+(hero.heroID)+"nextLevelDPSDiff").html("+ "+hero.nextLevelDPSDiff.toExponential(3)); } else { $("#Hero"+hero.heroID+"nextLevelDPSDiff").html("+ "+Math.floor(hero.nextLevelDPSDiff)); }
-	if (hero.nextUpgradeCost > 1000000) { $("#Hero"+(hero.heroID)+"nextUpgradeCost").html(hero.nextUpgradeCost.toExponential(3)); } else { $("#Hero"+hero.heroID+"nextUpgradeCost").html(Math.floor(hero.nextUpgradeCost)); }
-	$("#Hero"+hero.heroID+"name").prop("title", hero.efficiency)
+	//if (hero.nextUpgradeCost > 1000000) { $("#Hero"+(hero.heroID)+"nextUpgradeCost").html(hero.nextUpgradeCost.toExponential(3)); } else { $("#Hero"+hero.heroID+"nextUpgradeCost").html(Math.floor(hero.nextUpgradeCost)); }
+	$("#Hero"+(hero.heroID)+"nextUpgradeCost").html(numberFormat(hero.nextUpgradeCost));
+	//$("#Hero"+hero.heroID+"name").prop("title", hero.efficiency)
 	for (var x = 0; x < 7; x++)
 	{
 		$("#Hero"+(hero.heroID)+"skill"+(x+1)).prop("title", 
 															hero.skills[x].name + "\n" + 
-															hero.skills[x].bonusType + "\n"  + 
-															hero.skills[x].magnitude + "\n"  + 
-															hero.skills[x].efficiency
+															hero.skills[x].bonusType + "\n" + 
+															hero.skills[x].magnitude + "\n"
+															// + hero.skills[x].efficiency
 															);
 	}
 	$("#Hero"+(hero.heroID)+"currentDPS").prop("title", "Additional dmg: " + (StatBonusAllDamage + hero.currentPassiveThisHeroDamage)*100 + "%");
@@ -203,6 +204,7 @@ function GetUpgradeCostByLevel(iLevel, purchaseCost)
 
 function numberFormat(number)
 {
+	var temp = number;
   //var tabUnits = [" million", " billion", " trillion", " quadrillion", " quintillion", " sextillion", " septillion", " octillion", " nonillion", " decillion", " undecillion", " duodecillion", " tredecillion", " quattuordecillion", " quindecillion", " sexdecillion", " septendecillion", " octodecillion", " novemdecillion", " vigintillion", " unvigintillion", " duovigintillion", " tresvigintillion", " quattuorvigintillion", " quinquavigintillion", " sesvigintillion", " septemvigintillion", " octovigintillion", " novemvigintillion", " trigintillion", " untrigintillion", " duotrigintillion", " duotrigintillion", " trestrigintillion", " quattuortrigintillion", " quinquatrigintillion", " sestrigintillion", " septentrigintillion", " octotrigintillion", " noventrigintillion", " quadragintillion"];
   var tabUnits = ["K","M","B","T","aa","bb","cc","dd","ee","ff","gg","hh","ii","jj","kk","ll","mm","nn","oo","pp","qq","rr","ss","tt","uu","vv","ww","xx","yy","zz"];
   var highnumber = false; 
@@ -217,7 +219,7 @@ function numberFormat(number)
         number /= (bignumber / 1000);
         unit = tabUnits[tabposition];
     } else unit = "";
-    //if (unit == undefined) return "I can't handle that much";
+    if (unit == undefined) return temp.toExponential(3);
     var toround = (highnumber == true) ? (p_atomepersecond == true) ? 1000 : 100 : 10;
     var res = Math.round(number * toround) / toround;
     return [res.toLocaleString().replace(",", ".") + '' + unit];
@@ -257,46 +259,83 @@ function GetEfficiency()
 				}
 			}
 		}
+		
 		if (bestskill.nextSkill.efficiency < HeroInfo[heroList[best]].efficiency)
 		{
 			bestskill.nextSkill.isActive = true;
 			bestskill.heroLevel = bestskill.nextSkill.reqLevel;
+			//if (output[output.length-1].name == bestskill.name)
+			//{
+				//output[output.length-1].level = bestskill.heroLevel;
+				//output.push({name: bestskill.nextSkill.name + " - " + bestskill.nextSkill.reqLevel, level: bestskill.name});
+			//}
+			//else
+			{
+				//if (bestskill.heroLevel < bestskill.nextSkill.reqLevel){
+				output.push({name: bestskill.name, level: bestskill.heroLevel});//}
+				output.push({name: bestskill.nextSkill.name + " - " + bestskill.nextSkill.reqLevel, level: bestskill.name});
+			}
+			//output.push({name: bestskill.nextSkill.name + " - " + bestskill.nextSkill.reqLevel, level: bestskill.name});
+			bestskill.nextSkill.efficiency = 1000000;
 		}
 		else
-		{	
+		{
 			HeroInfo[heroList[best]].heroLevel += 1;
+			//if (output[output.length-1].name == HeroInfo[heroList[best]].name)
+			//{
+			//	output[output.length-1].level = HeroInfo[heroList[best]].heroLevel;
+			//}
+			//else
+			{
+				output.push({name: HeroInfo[heroList[best]].name, level: HeroInfo[heroList[best]].heroLevel});
+			}
+			//output.push({name: HeroInfo[heroList[best]].name, level: HeroInfo[heroList[best]].heroLevel});
+		}
+		GetStatBonusAllDamage();
+		GetStatBonusAllGold();
+		GetStatBonusCritDamagePassive();
+		GetStatBonusTapDamageFromDPS();
+		GetStatBonusCritChance();
+		GetStatBonusTapDamagePassive();
+		UpdateAllHeroesStats();
+		if (output.length > parseInt($("#numberofpredictions").val()))
+		{
+			$("#output").html("");
+			text = "";
+			text += "<table id=\"resulttbl\" class=\"table table-striped\"><tbody>";
+			text += "<tr><th>Name</th><th>Level</th></tr>"
+			for (var i = 0; i < output.length; i++) 
+			{
+				output[i].level
+				text += "<tr><td>" + output[i].name + "</td><td>" + output[i].level + "</td></tr>"; 
+			}
+			text += "</tbody></table>";
+			$("#output").html(text);
+			//alert(test);
+			break;
 		}
 		//testing();
-		if (x == 0) 
-		{			
-			output.push({
-                    name: HeroInfo[heroList[best]].name,
-                    level: HeroInfo[heroList[best]].heroLevel
-                });
-			
-			continue;
-		}
-		if (bestskill.nextSkill.efficiency < HeroInfo[heroList[best]].efficiency)
-		{
-			if (output[output.length-1].name == bestskill.name)
-			{
-				output[output.length-1].level = bestskill.heroLevel;
-			}
-			else
-			{
-				output.push({name: bestskill.name, level: bestskill.heroLevel});
-			}
+		//if (bestskill.nextSkill.efficiency < HeroInfo[heroList[best]].efficiency)
+		//{
+			//if (output[output.length-1].name == bestskill.name)
+			//{
+			//	output[output.length-1].level = bestskill.heroLevel;
+			//}
+			//else
+			//{
+				//output.push({name: bestskill.name, level: bestskill.heroLevel});
+			//}
 			//output.push({name: HeroInfo[heroList[bestskill[0]]].name, level: HeroInfo[heroList[bestskill[0]]].heroLevel});
-			output.push({name: bestskill.nextSkill.name + " - " + bestskill.nextSkill.reqLevel, level: bestskill.name});
-		}
-		else if (output[output.length-1].name == HeroInfo[heroList[best]].name)
-		{
-			output[output.length-1].level = HeroInfo[heroList[best]].heroLevel;
-		}
-		else
-		{
-			output.push({name: HeroInfo[heroList[best]].name, level: HeroInfo[heroList[best]].heroLevel});
-		}
+			//output.push({name: bestskill.nextSkill.name + " - " + bestskill.nextSkill.reqLevel, level: bestskill.name});
+		//}
+		//else if (output[output.length-1].name == HeroInfo[heroList[best]].name)
+		//{
+			//output[output.length-1].level = HeroInfo[heroList[best]].heroLevel;
+		//}
+		//else
+		//else{
+			//output.push({name: HeroInfo[heroList[best]].name, level: HeroInfo[heroList[best]].heroLevel});
+		//}
 		/*for (i = 0; i < 30; i++) 
 		{	
 			if (HeroInfo[heroList[i]].isActive) 
@@ -355,8 +394,8 @@ function GetEfficiency()
 			output.push({name: HeroInfo[heroList[best]].name, level: HeroInfo[heroList[best]].heroLevel});
 		}*/
 		//HeroInfo[heroList[bestskill[0]]].skills[bestskill[1]].efficiency = 1000000;
-		bestskill.nextSkill.efficiency = 1000000;
-		GetStatBonusAllDamage();
+		best = 0;
+		//bestskill.nextSkill.efficiency = 1000000;
 		GetStatBonusAllDamage();
 		GetStatBonusAllGold();
 		GetStatBonusCritDamagePassive();
@@ -366,23 +405,9 @@ function GetEfficiency()
 	//alert(TapDamagePassive);
 	//---------------
 		UpdateAllHeroesStats();
-
-		if (output.length > parseInt($("#numberofpredictions").val()))
-		{
-			$("#output").html("");
-			text = "";
-			text += "<table id=\"resulttbl\" class=\"table table-striped\"><tbody>";
-			text += "<tr><th>Name</th><th>Level</th></tr>"
-			for (var i = 0; i < output.length; i++) 
-			{
-				output[i].level
-				text += "<tr><td>" + output[i].name + "</td><td>" + output[i].level + "</td></tr>"; 
-			}
-			text += "</tbody></table>";
-			$("#output").html(text);
-			//alert(test);
-			break;
-		}
+		//printAll();
+	//alert(TapDamagePassive);
+	//---------------
 	}
 }
 
