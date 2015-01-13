@@ -225,38 +225,47 @@ function numberFormat(number)
 
 
 function GetEfficiency()
-{
+{	
 	var output = [];
     var levels = [];
 	var text = "";
 	var best = 0;
+	//var bestskill = [0,0]
+	var bestskill = HeroInfo[heroList[0]];
 	var test = 0;
 	for (var x = 0; x < 10000; x++)
 	{
 		//best = 0;
 		for (i = 0; i < 30; i++) 
 		{	
-			if (HeroInfo[heroList[i]].isActive) {   
-			var eff = HeroInfo[heroList[i]].efficiency;
-			var beff = HeroInfo[heroList[best]].efficiency;
-			if (eff < beff)
-			{
-				//oldbest = best;
-				best = i;
-			}}
+			if (HeroInfo[heroList[i]].isActive) 
+			{   
+				var eff = HeroInfo[heroList[i]].efficiency;
+				var beff = HeroInfo[heroList[best]].efficiency;
+				if (eff < beff)
+				{
+					//oldbest = best;
+					best = i;
+				}
+				if (!(HeroInfo[heroList[i]].nextSkill.isActive)){
+					var eff = HeroInfo[heroList[i]].nextSkill.efficiency;
+					var beff = bestskill.nextSkill.efficiency;
+					if (eff < beff)
+					{
+						bestskill = HeroInfo[heroList[i]];
+					}
+				}
+			}
 		}
-		//alert ("test");
-		HeroInfo[heroList[best]].heroLevel += 1;
-		GetStatBonusAllDamage();
-		GetStatBonusAllDamage();
-	GetStatBonusAllGold();
-	GetStatBonusCritDamagePassive();
-	GetStatBonusTapDamageFromDPS();
-	GetStatBonusCritChance();
-	GetStatBonusTapDamagePassive();
-	//alert(TapDamagePassive);
-	//---------------
-	UpdateAllHeroesStats();
+		if (bestskill.nextSkill.efficiency < HeroInfo[heroList[best]].efficiency)
+		{
+			bestskill.nextSkill.isActive = true;
+			bestskill.heroLevel = bestskill.nextSkill.reqLevel;
+		}
+		else
+		{	
+			HeroInfo[heroList[best]].heroLevel += 1;
+		}
 		//testing();
 		if (x == 0) 
 		{			
@@ -267,19 +276,101 @@ function GetEfficiency()
 			
 			continue;
 		}
-		if (output[output.length-1].name == HeroInfo[heroList[best]].name)
+		if (bestskill.nextSkill.efficiency < HeroInfo[heroList[best]].efficiency)
+		{
+			if (output[output.length-1].name == bestskill.name)
+			{
+				output[output.length-1].level = bestskill.heroLevel;
+			}
+			else
+			{
+				output.push({name: bestskill.name, level: bestskill.heroLevel});
+			}
+			//output.push({name: HeroInfo[heroList[bestskill[0]]].name, level: HeroInfo[heroList[bestskill[0]]].heroLevel});
+			output.push({name: bestskill.nextSkill.name + " - " + bestskill.nextSkill.reqLevel, level: bestskill.name});
+		}
+		else if (output[output.length-1].name == HeroInfo[heroList[best]].name)
 		{
 			output[output.length-1].level = HeroInfo[heroList[best]].heroLevel;
 		}
 		else
 		{
+			output.push({name: HeroInfo[heroList[best]].name, level: HeroInfo[heroList[best]].heroLevel});
+		}
+		/*for (i = 0; i < 30; i++) 
+		{	
+			if (HeroInfo[heroList[i]].isActive) 
+			{ 	
+				for (var z = 0; z < 7; z++)
+				{
+					if (!(HeroInfo[heroList[i]].skills[z].isActive)){
+					var eff = HeroInfo[heroList[i]].skills[z].efficiency;
+					var beff = HeroInfo[heroList[bestskill[0]]].skills[bestskill[1]].efficiency;
+					if (eff < beff)
+					{
+						bestskill = [i,z];
+					}
+				}
+				}
+			}
+		}
+		if (HeroInfo[heroList[bestskill[0]]].skills[bestskill[1]].efficiency < HeroInfo[heroList[best]].efficiency)
+		{
+			HeroInfo[heroList[bestskill[0]]].skills[bestskill[1]].isActive = true;
+			HeroInfo[heroList[bestskill[0]]].heroLevel = HeroInfo[heroList[bestskill[0]]].skills[bestskill[1]].reqLevel;
+		}
+		else
+		{	
+			HeroInfo[heroList[best]].heroLevel += 1;
+		}
+		//testing();
+		if (x == 0) 
+		{			
 			output.push({
                     name: HeroInfo[heroList[best]].name,
                     level: HeroInfo[heroList[best]].heroLevel
                 });
+			
+			continue;
 		}
+		if (HeroInfo[heroList[bestskill[0]]].skills[bestskill[1]].efficiency < HeroInfo[heroList[best]].efficiency)
+		{
+			if (output[output.length-1].name == HeroInfo[heroList[bestskill[0]]].name)
+			{
+				output[output.length-1].level = HeroInfo[heroList[bestskill[0]]].heroLevel;
+			}
+			else
+			{
+				output.push({name: HeroInfo[heroList[bestskill[0]]].name, level: HeroInfo[heroList[bestskill[0]]].heroLevel});
+			}
+			//output.push({name: HeroInfo[heroList[bestskill[0]]].name, level: HeroInfo[heroList[bestskill[0]]].heroLevel});
+			output.push({name: HeroInfo[heroList[bestskill[0]]].skills[bestskill[1]].name + " - " + HeroInfo[heroList[bestskill[0]]].skills[bestskill[1]].reqLevel, level: HeroInfo[heroList[bestskill[0]]].name});
+		}
+		else if (output[output.length-1].name == HeroInfo[heroList[best]].name)
+		{
+			output[output.length-1].level = HeroInfo[heroList[best]].heroLevel;
+		}
+		else
+		{
+			output.push({name: HeroInfo[heroList[best]].name, level: HeroInfo[heroList[best]].heroLevel});
+		}*/
+		//HeroInfo[heroList[bestskill[0]]].skills[bestskill[1]].efficiency = 1000000;
+		bestskill.nextSkill.efficiency = 1000000;
+		GetStatBonusAllDamage();
+		GetStatBonusAllDamage();
+		GetStatBonusAllGold();
+		GetStatBonusCritDamagePassive();
+		GetStatBonusTapDamageFromDPS();
+		GetStatBonusCritChance();
+		GetStatBonusTapDamagePassive();
+	//alert(TapDamagePassive);
+	//---------------
+		UpdateAllHeroesStats();
+
 		if (output.length > parseInt($("#numberofpredictions").val()))
-		{	
+		{
+			$("#output").html("");
+			text = "";
 			text += "<table id=\"resulttbl\" class=\"table table-striped\"><tbody>";
 			text += "<tr><th>Name</th><th>Level</th></tr>"
 			for (var i = 0; i < output.length; i++) 
@@ -326,6 +417,41 @@ function UpdateAllHeroesStats()
 			hero.isActive = true; 
 		}	
 		currentAllHeroDPS += HeroInfo[heroList[i]].currentDPS;
+		hero.nextSkill = hero.skills[0];
+		if (hero.heroLevel > 10)
+		{
+			hero.skills[0].isActive = true;
+			hero.nextSkill = hero.skills[1];
+		}
+		if (hero.heroLevel > 25)
+		{
+			hero.skills[1].isActive = true;
+			hero.nextSkill = hero.skills[2];
+		}
+		if (hero.heroLevel > 50)
+		{
+			hero.skills[2].isActive = true;
+			hero.nextSkill = hero.skills[3];
+		}
+		if (hero.heroLevel > 100)
+		{
+			hero.skills[3].isActive = true;
+			hero.nextSkill = hero.skills[4];
+		}
+		if (hero.heroLevel > 200)
+		{
+			hero.skills[4].isActive = true;
+			hero.nextSkill = hero.skills[5];
+		}
+		if (hero.heroLevel > 400)
+		{
+			hero.skills[5].isActive = true;
+			hero.nextSkill = hero.skills[6];
+		}
+		if (hero.heroLevel > 800)
+		{
+			hero.skills[6].isActive = true;
+		}
 	}
 	if (currentAllHeroDPS == 0) { currentAllHeroDPS = 1e-100; }
 	//hero.salary = currentAllHeroDPS * 100.0 * StatBonusGoldAll;
@@ -339,6 +465,7 @@ function UpdateAllHeroesStats()
 		for (var x = 0; x < hero.skills.length; x++)
 		{	
 			var skill = hero.skills[x];
+			//skill.efficiency = 1000000;
 			//
 			if (!(skill.isActive) && skill.bonusType == "AllDamage")
 			{
@@ -375,8 +502,50 @@ function UpdateAllHeroesStats()
 				skill.nextLevelSalaryDiff = skill.dps * (1 + StatBonusGoldAll);
 				skill.nextUpgradeCost = GetUpgradeCostByMultiLevel(hero.heroLevel, skill.reqLevel, hero.cost) + (GetUpgradeCostByLevel(skill.reqLevel, hero.cost)*5);
 				skill.efficiency = skill.nextUpgradeCost/(skill.nextLevelSalaryDiff - skill.currentSalary);
+				if(hero.heroLevel == skill.reqLevel) { skill.efficiency = 0; }
 				//skill.dps -= currentAllHeroDPS;
 			}
+			
+			if (!(skill.isActive) && skill.bonusType == "GoldAll")
+			{
+				//DPS))) * stageBaseGold;
+				skill.isActive = true;
+				//GetStatBonusAllDamage();
+				GetStatBonusAllGold();
+				skill.dps = 0;
+				//if (skill.reqLevel >= hero2.heroLevel) { skill.dps = GetDPSByLevel(hero, skill.reqLevel) - GetDPSByLevel(hero, hero.heroLevel); } else { skill.dps = GetDPSByLevel(hero, hero.heroLevel) - GetDPSByLevel(hero, skill.reqLevel); }
+				//if (skill.dps <= 0) { skill.dps = 0 }
+				for (var y = 0; y < heroList.length; y++)
+				{
+					var hero2 = HeroInfo[heroList[y]];
+					if (!(hero2.name == HeroInfo[skill.owner].name))
+					{
+						skill.dps+=GetDPSByLevel(hero2, hero2.heroLevel);
+					}
+					else
+					{
+						if (skill.reqLevel >= hero2.heroLevel)
+						{
+							skill.dps+=GetDPSByLevel(hero2, skill.reqLevel);
+						}
+						else
+						{
+							//skill.dps+=GetDPSByLevel(hero2, hero2.heroLevel) + GetDPSByLevel(hero2, skill.reqLevel);
+							skill.dps+=GetDPSByLevel(hero2, hero2.heroLevel);
+						}
+					}
+				}
+				skill.isActive = false;
+				GetStatBonusAllGold();
+				//var hero = HeroInfo[heroList[i]];
+				skill.currentSalary = currentAllHeroDPS  * (1 + StatBonusGoldAll);
+				skill.nextLevelSalaryDiff = skill.dps * (1 + StatBonusGoldAll);
+				skill.nextUpgradeCost = GetUpgradeCostByMultiLevel(hero.heroLevel, skill.reqLevel, hero.cost) + (GetUpgradeCostByLevel(skill.reqLevel, hero.cost)*5);
+				skill.efficiency = skill.nextUpgradeCost/(skill.nextLevelSalaryDiff - skill.currentSalary);
+				if(hero.heroLevel == skill.reqLevel) { skill.efficiency = 0; }
+				//skill.dps -= currentAllHeroDPS;
+			}
+			
 			if (!(skill.isActive) && skill.bonusType == "ThisHeroDamage")
 			{
 				skill.isActive = true;
@@ -407,6 +576,7 @@ function UpdateAllHeroesStats()
 				skill.nextLevelSalaryDiff = skill.dps * (1 + StatBonusGoldAll);
 				skill.nextUpgradeCost = GetUpgradeCostByMultiLevel(hero.heroLevel, skill.reqLevel, hero.cost) + (GetUpgradeCostByLevel(skill.reqLevel, hero.cost)*5);
 				skill.efficiency = skill.nextUpgradeCost/(skill.nextLevelSalaryDiff - skill.currentSalary);
+				if(hero.heroLevel == skill.reqLevel) { skill.efficiency = 0; }
 				//skill.dps -= currentAllHeroDPS;
 			}
 		}	
@@ -439,6 +609,18 @@ function GetSkills()
 		for (var y = 1; y < 8; y++)
 		{
 			HeroInfo[heroList[x-1]].skills[y-1].isActive = $("#Hero"+x+"skill"+y).is(":checked");
+		}
+	}
+}
+
+function SetSkills()
+{	
+	for (var x = 1; x < 31; x++)
+	{
+		for (var y = 1; y < 8; y++)
+		{
+			$("#Hero"+x+"skill"+y).prop("checked", HeroInfo[heroList[x-1]].skills[y-1].isActive);
+			//$("#Hero1skill1").prop("checked", HeroInfo[heroList[0]].skills[0].isActive);
 		}
 	}
 }
