@@ -6,7 +6,7 @@ var heroUpgradeBase = 1.075;
 var evolveCostMultiplier = 10.0;
 var dMGScaleDown = 0.1;
 var passiveSkillCostMultiplier = 5.0;
-
+var currentAllHeroDPS = 0.0;
 var StatBonusAllDamage = 0.0;
 var StatBonusGoldAll = 0.0;
 var CritDamagePassive = 0.0;
@@ -391,4 +391,193 @@ function GetStatBonusTapDamagePassive()
 			}
 		}
 	}
+}
+
+function GetEfficiency()
+{	
+	var output = [];
+    var levels = [];
+	var text = "";
+	var best = 0;
+	//var bestskill = [0,0]
+	var bestskill = HeroInfo[heroList[0]];
+	var test = 0;
+	for (var x = 0; x < 10000; x++)
+	{
+		//best = 0;
+		for (i = 0; i < 30; i++) 
+		{	
+			if (HeroInfo[heroList[i]].isActive) 
+			{   
+				var eff = HeroInfo[heroList[i]].efficiency;
+				var beff = HeroInfo[heroList[best]].efficiency;
+				if (eff < beff)
+				{
+					//oldbest = best;
+					best = i;
+				}
+				if (!(HeroInfo[heroList[i]].nextSkill.isActive)){
+					var eff = HeroInfo[heroList[i]].nextSkill.efficiency;
+					var beff = bestskill.nextSkill.efficiency;
+					if (eff < beff)
+					{
+						bestskill = HeroInfo[heroList[i]];
+					}
+				}
+			}
+		}
+		if (bestskill.nextSkill.efficiency < HeroInfo[heroList[best]].efficiency)
+		{
+			bestskill.nextSkill.isActive = true;
+			bestskill.heroLevel = bestskill.nextSkill.reqLevel;
+			if (x==0)
+			{
+				output.push({name: bestskill.name, level: bestskill.heroLevel});
+				output.push({name: bestskill.nextSkill.name + " - " + bestskill.nextSkill.reqLevel, level: bestskill.name});
+			}
+			else
+			{
+				if (output[output.length-1].name == bestskill.name)
+				{
+					output[output.length-1].level = bestskill.heroLevel;
+					output.push({name: bestskill.nextSkill.name + " - " + bestskill.nextSkill.reqLevel, level: bestskill.name});
+				}
+				else
+				{
+					output.push({name: bestskill.name, level: bestskill.heroLevel});
+					output.push({name: bestskill.nextSkill.name + " - " + bestskill.nextSkill.reqLevel, level: bestskill.name});
+				}
+			}
+			bestskill.nextSkill.efficiency = 1000000;
+		}
+		else
+		{
+			HeroInfo[heroList[best]].heroLevel += 1;
+			if (x==0)
+			{
+				output.push({name: HeroInfo[heroList[best]].name, level: HeroInfo[heroList[best]].heroLevel});
+			}
+			else
+			{
+				if (output[output.length-1].name == HeroInfo[heroList[best]].name)
+				{
+					output[output.length-1].level = HeroInfo[heroList[best]].heroLevel;
+				}
+				else
+				{
+					output.push({name: HeroInfo[heroList[best]].name, level: HeroInfo[heroList[best]].heroLevel});
+				}
+			}
+		}
+		GetStatBonusAllDamage();
+		GetStatBonusAllGold();
+		GetStatBonusCritDamagePassive();
+		GetStatBonusTapDamageFromDPS();
+		GetStatBonusCritChance();
+		GetStatBonusTapDamagePassive();
+		UpdateAllHeroesStats();
+		if (output.length > parseInt($("#numberofpredictions").val()))
+		{
+			$("#output").html("");
+			text = "";
+			text += "<table id=\"resulttbl\" class=\"table table-striped\"><tbody>";
+			text += "<tr><th>Name</th><th>Level</th></tr>"
+			for (var i = 0; i < output.length; i++) 
+			{
+				//if (output[i+1].name == output[i].name) { continue; }
+				text += "<tr><td>" + output[i].name + "</td><td>" + output[i].level + "</td></tr>"; 
+			}
+			text += "</tbody></table>";
+			$("#output").html(text);
+			//alert(test);
+			break;
+		}
+	}
+}
+
+function GetUpgradeCostByMultiLevel(iLevelstart, iLevelfinish, purchaseCost)
+{	
+	var total = 0.0;
+	for (var i = iLevelstart; i < iLevelfinish; i++)
+	{
+		total += GetUpgradeCostByLevel(i, purchaseCost);
+	}
+	return total;
+}
+
+function printAll()
+{
+	for (var i = 0; i < 30; i++)
+	{
+		printHeroInfo(HeroInfo[heroList[i]]);
+	}
+}
+
+function GetSkills()
+{	
+	for (var x = 1; x < 31; x++)
+	{
+		for (var y = 1; y < 8; y++)
+		{
+			HeroInfo[heroList[x-1]].skills[y-1].isActive = $("#Hero"+x+"skill"+y).is(":checked");
+		}
+	}
+}
+
+function SetSkills()
+{	
+	for (var x = 1; x < 31; x++)
+	{
+		for (var y = 1; y < 8; y++)
+		{
+			$("#Hero"+x+"skill"+y).prop("checked", HeroInfo[heroList[x-1]].skills[y-1].isActive);
+			//$("#Hero1skill1").prop("checked", HeroInfo[heroList[0]].skills[0].isActive);
+		}
+	}
+}
+
+function BuildSkillBase()
+{
+	var index = 0;
+	for (var x = 1; x < 31; x++)
+	{
+		for (var y = 1; y < 8; y++)
+		{
+			if (typeof HeroInfo[skillsInfo[index].owner].skills == "undefined") { HeroInfo[skillsInfo[index].owner].skills = []; }
+			HeroInfo[skillsInfo[index].owner].skills.push(skillsInfo[index]);
+			HeroInfo[heroList[x-1]].isActive = false;
+			index++;
+		}
+	}
+}
+
+function GetLevels()
+{	
+	for (var i = 0; i < 30; i++)
+	{
+		HeroInfo[heroList[i]].heroLevel = parseInt($("#Hero"+(i+1)+"heroLevel").val());
+	}
+}
+
+function numberFormat(number)
+{
+	var temp = number;
+  //var tabUnits = [" million", " billion", " trillion", " quadrillion", " quintillion", " sextillion", " septillion", " octillion", " nonillion", " decillion", " undecillion", " duodecillion", " tredecillion", " quattuordecillion", " quindecillion", " sexdecillion", " septendecillion", " octodecillion", " novemdecillion", " vigintillion", " unvigintillion", " duovigintillion", " tresvigintillion", " quattuorvigintillion", " quinquavigintillion", " sesvigintillion", " septemvigintillion", " octovigintillion", " novemvigintillion", " trigintillion", " untrigintillion", " duotrigintillion", " duotrigintillion", " trestrigintillion", " quattuortrigintillion", " quinquatrigintillion", " sestrigintillion", " septentrigintillion", " octotrigintillion", " noventrigintillion", " quadragintillion"];
+  var tabUnits = ["K","M","B","T","aa","bb","cc","dd","ee","ff","gg","hh","ii","jj","kk","ll","mm","nn","oo","pp","qq","rr","ss","tt","uu","vv","ww","xx","yy","zz"];
+  var highnumber = false; 
+  var bignumber = 1000; 
+  var tabposition = -1;
+  var p_atomepersecond = true;
+    var unit;
+    if (number >= bignumber) {
+        highnumber = true;
+        while (number >= bignumber) { bignumber *= 1000; tabposition++; }
+        //while (number >= bignumber && tabposition < 4 ) { bignumber *= 1000; tabposition++; }
+        number /= (bignumber / 1000);
+        unit = tabUnits[tabposition];
+    } else unit = "";
+    if (unit == undefined) return temp.toExponential(3);
+    var toround = (highnumber == true) ? (p_atomepersecond == true) ? 1000 : 100 : 10;
+    var res = Math.round(number * toround) / toround;
+    return [res.toLocaleString().replace(",", ".") + '' + unit];
 }
