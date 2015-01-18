@@ -11,7 +11,7 @@ var StatBonusAllDamage = 0.0;
 var StatBonusGoldAll = 0.0;
 var CritDamagePassive = 10.0;
 var TapDamageFromDPS = 0.0;
-var CritChance = 0.2;
+var CritChance = 0.02;
 var TapDamagePassive = 0.0;
 
 var HeroInfo = {
@@ -348,7 +348,7 @@ function GetStatBonusTapDamageFromDPS()
 
 function GetStatBonusCritChance()
 {
-	CritChance = 0.2;
+	CritChance = 0.02;
 	for (var y = 0; y < 30; y++)
 	{
 		var hero = HeroInfo[heroList[y]];
