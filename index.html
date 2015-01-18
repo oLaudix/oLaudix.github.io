@@ -71,16 +71,16 @@
 			<ul class="nav nav-tabs" role="tablist">
 				<li role="presentation" class="active"><a href="#heroes" aria-controls="heroes" role="tab" data-toggle="tab">Heroes</a></li>
 				<li role="presentation"><a href="#player" aria-controls="player" role="tab" data-toggle="tab">Player</a></li>
-				<li role="presentation"><a href="#artifacts" aria-controls="heroes" role="tab" data-toggle="tab">Artifacts</a></li>
+				<li role="presentation"><a href="#artifacts" aria-controls="artifacts" role="tab" data-toggle="tab">Artifacts</a></li>
 			</ul>
 			<div class="tab-content">
-				<div role="tabpanel" class="tab-pane active" id="heroes">
+				<div role="tabpanel" class="tab-pane active" id="heroes"><div> &nbsp </div>
 					<table id="ancienttbl" class="table table-striped">
 						<tbody><tr><th width="25%">Name</th><th width="20%">Skills</th><th width="15%">Upgrade Cost</th><th width="15%">DpS</th width="20%"><th>Next Level DpS Diff</th><th width="5%">Level</th></tr>
 						</tbody>
 					</table>
 				</div>
-				<div role="tabpanel" class="tab-pane" id="player">
+				<div role="tabpanel" class="tab-pane" id="player"><div> &nbsp </div>
 					<table id="playertbl" class="table table-striped">
 						<tbody><tr><th width="25%">Name</th><th width="15%">Upgrade Cost</th><th width="15%">DpS</th width="20%"><th>Next Level DpS Diff</th><th width="5%">Level</th><th>Click per Second</th></tr>
 						</tbody>
@@ -88,12 +88,12 @@
 					<div id="playerdata">
 					</div>
 				</div>
-				<div role="tabpanel" class="tab-pane" id="artifacts">
+				<div role="tabpanel" class="tab-pane" id="artifacts"><div> &nbsp </div>
 					<div class="panel-heading">
 						<div><input type="text" id="artifactbonus" value="0"></input>%
 						</div>
-						<table id="heroestbl" class="table table-striped">
-							<tbody><tr><th>Artifact</th><th>Effect</th><th>Efficiency</th></tr>
+						<table id="artifacttable" class="table table-striped">
+							<tbody>
 							</tbody>
 						</table>
 					</div>
@@ -483,6 +483,16 @@ function Load()
 	printAll();
 }
 
+
+function getArtifactUpgradeCost(artifact)
+{	
+	var num1 = artifact.CostCoEff * Math.pow(artifact.level + 1, artifact.CostExpo);
+	var num2 = Math.round(num1);
+	//alert(num2);
+	return num2;
+}
+
+buildArtifacts();
 BuildSkillBase();
 GetSkills();
 GetLevels();
@@ -516,7 +526,7 @@ function Calculate() {
 	///var nextLevelDPSDiff = GetDPSByLevel(HeroInfo[heroList[0]], HeroInfo[heroList[0]].heroLevel + 1) - HeroInfo[heroList[0]].currentDPS;
 	//var nextLevelDPS = GetDPSByLevel(HeroInfo[heroList[0]], HeroInfo[heroList[0]].heroLevel + 1);
 	//alert("test");
-	//$("#output").html(nextLevelDPSDiff * 100.0 * (1 + StatBonusGoldAll));
+	//$("#output").html(ArtifactInfo[1].name);
 	GetEfficiency();
 	//$("#ancienttbl").html("test");
 	//alert(HeroInfo[heroList[30]].clicks)

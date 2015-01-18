@@ -14,6 +14,61 @@ var TapDamageFromDPS = 0.0;
 var CritChance = 0.02;
 var TapDamagePassive = 0.0;
 
+function buildArtifacts()
+{
+	var artifact = "Knight's Shield,Artifact1,0,GoldBoss,1.00,0.6,0.7,1.5/\
+Amulet of the Valrunes,Artifact2,0,GoldMinion,0.10,0.5,0.7,2/\
+Dark Cloak of Life,Artifact3,25,BossLife,-0.02,0.3,0.5,2/\
+Death Seeker,Artifact4,25,CritChance,0.02,0.3,0.5,2/\
+Savior Shield,Artifact5,25,BossTime,0.10,0.3,0.5,1.7/\
+Overseer's Lotion,Artifact6,10,SkillConstantDamageCD,-0.05,0.7,0.4,1.5/\
+Sacred Scroll,Artifact7,10,SkillCriticalChanceBoostCD,-0.05,0.7,0.4,1.5/\
+Hunter's Ointment,Artifact8,10,SkillHeroesAttackSpeedIncreaseCD,-0.05,0.7,0.4,1.5/\
+Laborer's Pendant,Artifact9,10,SkillTapGoldCD,-0.05,0.7,0.7,1.5/\
+Barbarian's Mettle,Artifact10,10,SkillTapDamageIncreaseCD,-0.05,0.7,0.4,1.5/\
+Saintly Shield,Artifact11,10,SkillBurstDamageCD,-0.05,0.7,0.3,1.5/\
+Ogre's Gauntlet,Artifact12,0,SkillConstantDamageDuration,0.10,0.7,0.5,1.7/\
+Parchment of Importance,Artifact13,0,SkillCriticalChanceBoostDuration,0.10,0.7,0.5,1.7/\
+Universal Fissure,Artifact14,0,SkillHeroesAttackSpeedIncreaseDuration,0.10,0.7,0.5,1.7/\
+Ring of Opulence,Artifact15,0,SKillTapGoldDuration,0.10,0.7,0.7,1.7/\
+Axe of Resolution,Artifact16,0,SkillTapDamageIncreaseDuration,0.10,0.7,0.5,1.7/\
+Hero's Thrust,Artifact17,0,CritDamageArtifact,0.20,0.3,0.7,1.7/\
+Crown Egg,Artifact18,0,TreasureChance,0.20,0.4,1,1.5/\
+Chest of Contentment,Artifact19,0,GoldTreasureArtifact,0.20,0.4,1,1.5/\
+Future's Fortune,Artifact20,0,GoldAll,0.05,0.3,0.7,2/\
+Divine Chalice,Artifact21,0,Gold10xChance,0.01,0.3,0.7,1.7/\
+Unread Aura,Artifact22,0,PrestigeRelic,0.05,0.3,0.7,2/\
+Warrior's Revival,Artifact23,10,ReviveTime,-0.05,0.7,1,2.2/\
+Ring of Wonderous Charm,Artifact24,25,AllUpgradeCost,-0.02,0.3,0.5,1.7/\
+Worldly Illuminator,Artifact25,5,MonstersRequiredToAdvance,-1.00,3,0.5,3/\
+Tincture of the Maker,Artifact26,0,ArtifactDamageBoost,0.05,0.1,0.6,2.5/\
+Crafter's Elixir,Artifact27,0,GoldOnline,0.15,0.4,0.5,1.8/\
+Outerworldly Armor,Artifact28,10,HeroDeathChance,-0.05,0.7,1,2.2/\
+Drunken Hammer,Artifact29,0,TapDamageArtifact,0.20,0.3,0.5,1.7"
+	var artifact_temp = artifact.split("/");
+	ArtifactInfo = [];
+	for (var x = 0; x < artifact_temp.length; x++) 
+	{
+		//alert(artifact_temp[x]);
+		var temp = artifact_temp[x].split(",");
+		//alert(temp[0]);
+		ArtifactInfo.push({name: temp[0], maxLevel: temp[2], bonusType: temp[3], effectPerLevel: temp[4], DamageBonus: temp[5], CostCoEff: temp[6], CostExpo: temp[7], artifactID: temp[1], level: 0});
+	}
+	//$("#artifacttable").append("<tr><th>Artifact</th><th>Max Level</th><th>Bonus Type</th><th>Bonus Strength</th><th>Damage Bonus</th><th>Upgrade Cost</th><th>Level</th></tr>");
+	$("#artifacttable").append("<tr><th>Artifact</th><th>Bonus Type</th><th>Bonus Strength</th><th>Damage Bonus</th><th>Upgrade Cost</th><th>Level</th></tr>\n");
+	for (var y = 0; y < ArtifactInfo.length; y++)
+	{
+		var tr2 = ArtifactInfo[y].targetBox = $("<tr></tr>");
+		tr2.append($("<td></td>").append(ArtifactInfo[y].name).attr("id", ArtifactInfo[y].artifactID+"name"));
+		tr2.append($("<td></td>").append(ArtifactInfo[y].bonusType).attr("id", ArtifactInfo[y].artifactID+"bonusType").attr("style", "font-size:10px"));
+		tr2.append($("<td></td>").append(ArtifactInfo[y].effectPerLevel*100+"%").attr("id", ArtifactInfo[y].artifactID+"effectPerLevel"));
+		tr2.append($("<td></td>").append(ArtifactInfo[y].DamageBonus*100+"%").attr("id", ArtifactInfo[y].artifactID+"DamageBonus"));
+		tr2.append($("<td></td>").append(getArtifactUpgradeCost(ArtifactInfo[y])).attr("id", ArtifactInfo[y].artifactID+"upgradeCost"));
+		tr2.append($("<td></td>").append($("<input></input>").attr("type", "text").val(0).attr("id", ArtifactInfo[y].artifactID+"Level")));
+		$("#artifacttable").append(tr2);
+	}
+}
+
 var HeroInfo = {
 Hero1: {name: "Takeda, the Blade Assassin", cost: 50, heroID: 1},
 Hero2: {name: "Contessa, the Torch Wielder", cost: 175, heroID: 2},
