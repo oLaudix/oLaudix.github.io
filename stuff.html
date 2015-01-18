@@ -54,7 +54,10 @@
 		<!--<label><input type="checkbox" id="addsouls" checked="checked">Include souls gained after ascension</label>-->
 			<div class="panel panel-success">
 				<div class="panel-heading">Stuff</div>
-				<div id="output" class="panel-body"></div>
+				<div id="output" class="panel-body">
+					<div>Stage: <input type="text" id="stage" value="1"></div>
+					<div id="stage-result"></div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -62,10 +65,31 @@
   
 <script type="text/javascript" src="jquery-latest.min.js"></script>
 <script type="text/javascript" src="bootstrap.min.js"></script>
-<script src="common.js"></script>
 
 <script language="javascript">/* Write JavaScript here */
-//$(window).load(function start(){
+$(window).load(
+	function start()
+	{ 
+		$("#stage-result").html("Stage " + $("#stage").val() + " base HP: " + GetStageBaseHP($("#stage").val()) + "<br>");
+		$("#stage-result").append("Stage " + $("#stage").val() + " base Gold: " + GetStageBaseGold($("#stage").val()) + "<br>");
+	}
+);
 
+$( "#stage" ).change(function() {
+	$("#stage-result").html("Stage " + $("#stage").val() + " base HP: " + GetStageBaseHP($("#stage").val()) + "<br>");
+	$("#stage-result").append("Stage " + $("#stage").val() + " base Gold: " + GetStageBaseGold($("#stage").val()) + "<br>");
+});
+
+function GetStageBaseHP(stage)
+{
+     return ((18.5 * Math.pow(1.57, Math.min(stage, 156))) * Math.pow(1.17, Math.max((stage - 156),0)));
+}
+
+function GetStageBaseGold(stage)
+{
+    var num2 = GetStageBaseHP($("#stage").val()) * (0.02 + (0.00045 * Math.min(stage, 150.0)));
+    //return (num2 * Math.Ceiling((double) (1.0 + PlayerModel.instance.GetStatBonus(BonusType.GoldAll))));
+	return num2;
+}
 
 </script></body></html>
