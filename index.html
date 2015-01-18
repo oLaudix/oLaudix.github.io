@@ -56,14 +56,16 @@
 				<div class="panel-body">
 					<textarea id="savedata" style="width: 100%; height: 50px"></textarea>
 					<div style="margin-top: 10px;">
-						<button type="button" onclick="Save()" class="btn btn-default">Save</button>
+						<button type="button" onclick="EfficiencyCalculations()" class="btn btn-default">Update</button>
 						<button type="button" onclick="Load()" class="btn btn-primary" style="float: right;">Load</button>
+						<button type="button" onclick="Save()" class="btn btn-default" style="float: right;">Save</button>
 					</div>
 				</div>
 			</div>
 		<!--<label><input type="checkbox" id="addsouls" checked="checked">Include souls gained after ascension</label>-->
 			<div class="panel panel-success">
-				<div class="panel-heading">Results: <input type="text" id="numberofpredictions" value="30"></div>
+				<div class="panel-heading">Results: <input type="text" id="numberofpredictions" value="30">
+				</div>
 				<div id="output" class="panel-body"></div>
 			</div>
 		</div>
@@ -99,7 +101,7 @@
 					</div>
 				</div>
 			</div>
-			<button type="button" onclick="Calculate()" class="btn btn-default">Update</button>
+			<button type="button" onclick="UpdateTables()" class="btn btn-default">Update Tables</button>
 		</div>
 	</div>
   
@@ -504,32 +506,24 @@ GetStatBonusCritChance();
 GetStatBonusTapDamagePassive();
 UpdateAllHeroesStats();
 printAll();
-function Calculate() {
+function UpdateTables() {
 	$("#output").html("");
-	//---------------
 	GetSkills();
 	GetLevels();
-	//---------------
 	GetStatBonusAllDamage();
 	GetStatBonusAllGold();
 	GetStatBonusCritDamagePassive();
 	GetStatBonusTapDamageFromDPS();
 	GetStatBonusCritChance();
 	GetStatBonusTapDamagePassive();
-	//alert(TapDamagePassive);
-	//---------------
 	UpdateAllHeroesStats();
 	printAll();
-	//alert(1.281e34/(GetOfflineGoldByTime(1000, 6.507e20 + 3.899e28) - GetOfflineGoldByTime(1000, 6.507e20)));
-	//var test2 = (10*(1+1.1+1.3)) * 10 * 1.1;
-	//var currentDPS = GetDPSByLevel(HeroInfo[heroList[0]], HeroInfo[heroList[0]].heroLevel);
-	///var nextLevelDPSDiff = GetDPSByLevel(HeroInfo[heroList[0]], HeroInfo[heroList[0]].heroLevel + 1) - HeroInfo[heroList[0]].currentDPS;
-	//var nextLevelDPS = GetDPSByLevel(HeroInfo[heroList[0]], HeroInfo[heroList[0]].heroLevel + 1);
-	//alert("test");
-	//$("#output").html(ArtifactInfo[1].name);
+}
+
+function EfficiencyCalculations()
+{
+	UpdateTables()
 	GetEfficiency();
-	//$("#ancienttbl").html("test");
-	//alert(HeroInfo[heroList[30]].clicks)
 }
 
 //1.1 - 1
