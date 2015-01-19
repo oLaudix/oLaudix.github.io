@@ -66,7 +66,10 @@ Drunken Hammer,Artifact29,0,TapDamageArtifact,0.05,0.3,0.5,1.7"
 		tr2.append($("<td></td>").append(ArtifactInfo[y].bonusPerLevel*100+"%").attr("id", ArtifactInfo[y].artifactID+"artifactBonus"));
 		tr2.append($("<td></td>").append(ArtifactInfo[y].DamageBonus*100+"%").attr("id", ArtifactInfo[y].artifactID+"DamageBonus"));
 		tr2.append($("<td></td>").append(getArtifactUpgradeCost(ArtifactInfo[y])).attr("id", ArtifactInfo[y].artifactID+"upgradeCost"));
-		tr2.append($("<td></td>").append($("<input></input>").attr("type", "text").val(0).attr("id", ArtifactInfo[y].artifactID+"level")));
+		if (ArtifactInfo[y].maxLevel > 0)
+		{ tr2.append($("<td></td>").append($("<input></input>").attr("type", "text").val(0).attr("id", ArtifactInfo[y].artifactID+"level")).append("/" + ArtifactInfo[y].maxLevel)); } 
+		else
+		{ tr2.append($("<td></td>").append($("<input></input>").attr("type", "text").val(0).attr("id", ArtifactInfo[y].artifactID+"level"))); }
 		$("#artifacttable").append(tr2);
 	}
 }
@@ -655,6 +658,11 @@ function GetLevels()
 	for (var j = 0; j < ArtifactInfo.length; j++)
 	{
 		ArtifactInfo[j].level = parseInt($("#"+ArtifactInfo[j].artifactID+"level").val());
+		if (ArtifactInfo[j].level > parseInt(ArtifactInfo[j].maxLevel) && parseInt(ArtifactInfo[j].maxLevel) > 0)
+		{
+			ArtifactInfo[j].level = parseInt(ArtifactInfo[j].maxLevel);
+			$("#"+ArtifactInfo[j].artifactID+"level").val(ArtifactInfo[j].maxLevel);
+		}
 	}
 }
 

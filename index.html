@@ -171,12 +171,27 @@ function printHeroInfo(hero)
 
 function printArtifactInfo(artifact)
 {
-	if (artifact.bonusPerLevel > 0)
-	{ $("#"+(artifact.artifactID)+"artifactBonus").html(Math.round(artifact.currentBonus*10000)/100+"%" + " (+" + Math.round(artifact.bonusPerLevel*10000)/100 + "%)"); }
+	if (artifact.level >= parseInt(artifact.maxLevel) && parseInt(artifact.maxLevel) > 0)
+	{
+		$("#"+(artifact.artifactID)+"upgradeCost").html("MAX LEVEL");
+		$("#"+(artifact.artifactID)+"upgradeCost").prop("title", getArtifactRelicsSpent(artifact));
+		$("#"+(artifact.artifactID)+"DamageBonus").html(Math.round(artifact.currentDamageBonus*10000)/100+"%");
+		$("#"+(artifact.artifactID)+"artifactBonus").html(Math.round(artifact.currentBonus*10000)/100+"%"); 
+	}
 	else
-	{ $("#"+(artifact.artifactID)+"artifactBonus").html(Math.round(artifact.currentBonus*10000)/100+"%" + " (" + Math.round(artifact.bonusPerLevel*10000)/100 + "%)"); }
-	$("#"+(artifact.artifactID)+"DamageBonus").html(Math.round(artifact.currentDamageBonus*10000)/100+"%" + " (+" + Math.round(artifact.nextLevelDamageBonusDiff*10000)/100 + "%)");
-	$("#"+(artifact.artifactID)+"upgradeCost").html(artifact.upgradeCost);
+	{
+		$("#"+(artifact.artifactID)+"upgradeCost").html(artifact.upgradeCost);
+		$("#"+(artifact.artifactID)+"upgradeCost").prop("title", getArtifactRelicsSpent(artifact));
+		$("#"+(artifact.artifactID)+"DamageBonus").html(Math.round(artifact.currentDamageBonus*10000)/100+"%" + " (+" + Math.round(artifact.nextLevelDamageBonusDiff*10000)/100 + "%)");
+		if (artifact.bonusPerLevel > 0)
+		{ 
+			$("#"+(artifact.artifactID)+"artifactBonus").html(Math.round(artifact.currentBonus*10000)/100+"%" + " (+" + Math.round(artifact.bonusPerLevel*10000)/100 + "%)"); 
+		}
+		else
+		{ 
+			$("#"+(artifact.artifactID)+"artifactBonus").html(Math.round(artifact.currentBonus*10000)/100+"%" + " (" + Math.round(artifact.bonusPerLevel*10000)/100 + "%)"); 
+		}
+	}
 }
 
 function UpdateArtifactsStats()
@@ -195,7 +210,7 @@ function UpdateArtifactsStats()
 		ArtifactInfo[x].nextLevelDamageBonusDiff = totalDamageArtifactBonus(ArtifactInfo[x], ArtifactInfo[x].level + 1) - ArtifactInfo[x].currentDamageBonus;
 		artifactBonusDamage += ArtifactInfo[x].currentDamageBonus;
 	}
-	$("#artifactbonus").val(artifactBonusDamage*100);
+	//$("#artifactbonus").val(artifactBonusDamage*100);
 }
 
 function totalArtifactBonus(bonusPerLevel, level)
@@ -209,6 +224,18 @@ function getArtifactUpgradeCost(artifact)
 	var num1 = artifact.CostCoEff * Math.pow(artifact.level + 1, artifact.CostExpo);
 	var num2 = Math.round(num1);
 	return num2;
+}
+
+function getArtifactRelicsSpent(artifact)
+{
+	var num = 0.0;
+	for (var x = 1; x < artifact.level; x++)
+	{
+		var num1 = artifact.CostCoEff * Math.pow(x + 1, artifact.CostExpo);
+		var num2 = Math.round(num1);
+		num += num2;
+	}
+	return num;
 }
 
 function NextArtifactCost()
