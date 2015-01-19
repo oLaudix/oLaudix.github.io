@@ -46,7 +46,7 @@ Worldly Illuminator,Artifact25,5,MonstersRequiredToAdvance,-1.00,3,0.5,3/\
 Tincture of the Maker,Artifact26,0,ArtifactDamageBoost,0.05,0.1,0.6,2.5/\
 Crafter's Elixir,Artifact27,0,GoldOnline,0.15,0.4,0.5,1.8/\
 Outerworldly Armor,Artifact28,10,HeroDeathChance,-0.05,0.7,1,2.2/\
-Drunken Hammer,Artifact29,0,TapDamageArtifact,0.20,0.3,0.5,1.7"
+Drunken Hammer,Artifact29,0,TapDamageArtifact,0.05,0.3,0.5,1.7"
 	var artifact_temp = artifact.split("/");
 	ArtifactInfo = [];
 	for (var x = 0; x < artifact_temp.length; x++) 

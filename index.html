@@ -156,8 +156,6 @@ function printHeroInfo(hero)
 	if (hero.currentDPS > 1000) { $("#Hero"+(hero.heroID)+"currentDPS").html(numberFormat(hero.currentDPS)); } else { $("#Hero"+hero.heroID+"currentDPS").html(Math.floor(hero.currentDPS)); }
 	if (hero.nextLevelDPSDiff > 1000) { $("#Hero"+(hero.heroID)+"nextLevelDPSDiff").html("+ "+numberFormat(hero.nextLevelDPSDiff)); } else { $("#Hero"+hero.heroID+"nextLevelDPSDiff").html("+ "+Math.floor(hero.nextLevelDPSDiff)); }
 	$("#Hero"+(hero.heroID)+"nextUpgradeCost").html(numberFormat(hero.nextUpgradeCost));
-	//$("#Hero"+(hero.heroID)+"currentDPS").html(numberFormat(hero.currentDPS));
-	//$("#Hero"+(hero.heroID)+"nextLevelDPSDiff").html("+ "+numberFormat(hero.nextLevelDPSDiff));
 	//$("#Hero"+hero.heroID+"name").prop("title", hero.efficiency)
 	for (var x = 0; x < 7; x++)
 	{
@@ -531,7 +529,6 @@ buildArtifacts();
 BuildSkillBase();
 UpdateTables();
 function UpdateTables() {
-	$("#output").html("");
 	GetSkills();
 	GetLevels();
 	UpdateArtifactsStats();
@@ -546,7 +543,8 @@ function UpdateTables() {
 }
 
 function EfficiencyCalculations()
-{
+{	
+	$("#output").html("");
 	UpdateTables()
 	GetEfficiency();
 }
