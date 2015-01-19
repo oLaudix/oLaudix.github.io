@@ -13,6 +13,8 @@ var CritDamagePassive = 10.0;
 var TapDamageFromDPS = 0.0;
 var CritChance = 0.02;
 var TapDamagePassive = 0.0;
+var artifactBonusDamage = 0.0;
+//var ArtifactDamageBoost = 0.0;
 
 function buildArtifacts()
 {
@@ -52,7 +54,7 @@ Drunken Hammer,Artifact29,0,TapDamageArtifact,0.20,0.3,0.5,1.7"
 		//alert(artifact_temp[x]);
 		var temp = artifact_temp[x].split(",");
 		//alert(temp[0]);
-		ArtifactInfo.push({name: temp[0], maxLevel: temp[2], bonusType: temp[3], effectPerLevel: temp[4], DamageBonus: temp[5], CostCoEff: temp[6], CostExpo: temp[7], artifactID: temp[1], level: 0});
+		ArtifactInfo.push({name: temp[0], maxLevel: temp[2], bonusType: temp[3], bonusPerLevel: temp[4], DamageBonus: temp[5], CostCoEff: temp[6], CostExpo: temp[7], artifactID: temp[1], level: 0});
 	}
 	//$("#artifacttable").append("<tr><th>Artifact</th><th>Max Level</th><th>Bonus Type</th><th>Bonus Strength</th><th>Damage Bonus</th><th>Upgrade Cost</th><th>Level</th></tr>");
 	$("#artifacttable").append("<tr><th>Artifact</th><th>Bonus Type</th><th>Bonus Strength</th><th>Damage Bonus</th><th>Upgrade Cost</th><th>Level</th></tr>\n");
@@ -61,10 +63,10 @@ Drunken Hammer,Artifact29,0,TapDamageArtifact,0.20,0.3,0.5,1.7"
 		var tr2 = ArtifactInfo[y].targetBox = $("<tr></tr>");
 		tr2.append($("<td></td>").append(ArtifactInfo[y].name).attr("id", ArtifactInfo[y].artifactID+"name"));
 		tr2.append($("<td></td>").append(ArtifactInfo[y].bonusType).attr("id", ArtifactInfo[y].artifactID+"bonusType").attr("style", "font-size:10px"));
-		tr2.append($("<td></td>").append(ArtifactInfo[y].effectPerLevel*100+"%").attr("id", ArtifactInfo[y].artifactID+"effectPerLevel"));
+		tr2.append($("<td></td>").append(ArtifactInfo[y].bonusPerLevel*100+"%").attr("id", ArtifactInfo[y].artifactID+"artifactBonus"));
 		tr2.append($("<td></td>").append(ArtifactInfo[y].DamageBonus*100+"%").attr("id", ArtifactInfo[y].artifactID+"DamageBonus"));
 		tr2.append($("<td></td>").append(getArtifactUpgradeCost(ArtifactInfo[y])).attr("id", ArtifactInfo[y].artifactID+"upgradeCost"));
-		tr2.append($("<td></td>").append($("<input></input>").attr("type", "text").val(0).attr("id", ArtifactInfo[y].artifactID+"Level")));
+		tr2.append($("<td></td>").append($("<input></input>").attr("type", "text").val(0).attr("id", ArtifactInfo[y].artifactID+"level")));
 		$("#artifacttable").append(tr2);
 	}
 }
@@ -371,7 +373,7 @@ function GetStatBonusAllDamage()
 
 function GetStatBonusAllGold()
 {
-	StatBonusGoldAll = 0.0;
+	StatBonusGoldAll = 0.0 + ArtifactInfo[19].currentBonus;
 	for (var y = 0; y < 30; y++)
 	{
 		var hero = HeroInfo[heroList[y]];
@@ -403,7 +405,7 @@ function GetStatBonusTapDamageFromDPS()
 
 function GetStatBonusCritChance()
 {
-	CritChance = 0.02;
+	CritChance = 0.02 + ArtifactInfo[3].currentBonus;
 	for (var y = 0; y < 30; y++)
 	{
 		var hero = HeroInfo[heroList[y]];
@@ -431,6 +433,7 @@ function GetStatBonusCritDamagePassive()
 			}
 		}
 	}
+	CritDamagePassive = CritDamagePassive * (1+ArtifactInfo[16].currentBonus)
 }
 
 function GetStatBonusTapDamagePassive()
@@ -575,6 +578,10 @@ function printAll()
 	{
 		printHeroInfo(HeroInfo[heroList[i]]);
 	}
+	for (var j = 0; j < ArtifactInfo.length; j++)
+	{
+		printArtifactInfo(ArtifactInfo[j]);
+	}
 	$("#player0nextUpgradeCost").html(numberFormat(HeroInfo[heroList[30]].nextUpgradeCost));
 	//$("#player0currentDPS").html(numberFormat(HeroInfo[heroList[30]].currentDamage));
 	//$("#player0nextLevelDPSDiff").html("+ "+numberFormat(HeroInfo[heroList[30]].nextLevelDMGDiff));
@@ -645,6 +652,10 @@ function GetLevels()
 	}
 	HeroInfo[heroList[30]].heroLevel = parseInt($("#player0heroLevel").val());
 	HeroInfo[heroList[30]].clicks = parseInt($("#player0clicks").val());
+	for (var j = 0; j < ArtifactInfo.length; j++)
+	{
+		ArtifactInfo[j].level = parseInt($("#"+ArtifactInfo[j].artifactID+"level").val());
+	}
 }
 
 function numberFormat(number)
