@@ -462,7 +462,7 @@ function GetEfficiency()
 	var text = "";
 	var best = 0;
 	//var bestskill = [0,0]
-	var bestskill = HeroInfo[heroList[0]];
+	var bestskill = HeroInfo[heroList[0]].skills[0];
 	var test = 0;
 	for (var x = 0; x < 10000; x++)
 	{
@@ -478,12 +478,16 @@ function GetEfficiency()
 					//oldbest = best;
 					best = i;
 				}
-				if (!(HeroInfo[heroList[i]].nextSkill.isActive)){
-					var eff = HeroInfo[heroList[i]].nextSkill.efficiency;
-					var beff = bestskill.nextSkill.efficiency;
-					if (eff < beff)
+				for (var h = 0; h < 7; h++)
+				{
+					if (!(HeroInfo[heroList[i]].skills[h].isActive))
 					{
-						bestskill = HeroInfo[heroList[i]];
+						var eff = HeroInfo[heroList[i]].skills[h].efficiency;
+						var beff = bestskill.efficiency;
+						if (eff < beff)
+						{
+							bestskill = HeroInfo[heroList[i]].skills[h];
+						}
 					}
 				}
 			}
@@ -495,29 +499,52 @@ function GetEfficiency()
 				best = 30;
 			}
 		}
-		if (bestskill.nextSkill.efficiency < HeroInfo[heroList[best]].efficiency)
+		//alert(bestskill.name);
+		if (bestskill.efficiency < HeroInfo[heroList[best]].efficiency)
 		{
-			bestskill.nextSkill.isActive = true;
-			bestskill.heroLevel = bestskill.nextSkill.reqLevel;
+			if (HeroInfo[bestskill.owner].heroLevel == bestskill.reqLevel)
+			{
+			bestskill.isActive = true;
+			//HeroInfo[bestskill.owner].heroLevel = bestskill.reqLevel;
 			if (x==0)
 			{
-				output.push({name: bestskill.name, level: bestskill.heroLevel});
-				output.push({name: bestskill.nextSkill.name + " - " + bestskill.nextSkill.reqLevel, level: bestskill.name});
+				output.push({name: HeroInfo[bestskill.owner].name, level: HeroInfo[bestskill.owner].heroLevel});
+				output.push({name: bestskill.name + " - " + bestskill.reqLevel, level: HeroInfo[bestskill.owner].name});
 			}
 			else
 			{
-				if (output[output.length-1].name == bestskill.name)
+				if (output[output.length-1].name == HeroInfo[bestskill.owner].name)
 				{
-					output[output.length-1].level = bestskill.heroLevel;
-					output.push({name: bestskill.nextSkill.name + " - " + bestskill.nextSkill.reqLevel, level: bestskill.name});
+					output[output.length-1].level = HeroInfo[bestskill.owner].heroLevel;
+					output.push({name: bestskill.name + " - " + bestskill.reqLevel, level: HeroInfo[bestskill.owner].name});
 				}
 				else
 				{
-					output.push({name: bestskill.name, level: bestskill.heroLevel});
-					output.push({name: bestskill.nextSkill.name + " - " + bestskill.nextSkill.reqLevel, level: bestskill.name});
+					output.push({name: HeroInfo[bestskill.owner].name, level: HeroInfo[bestskill.owner].heroLevel});
+					output.push({name: bestskill.name + " - " + bestskill.reqLevel, level: HeroInfo[bestskill.owner].name});
 				}
 			}
-			bestskill.nextSkill.efficiency = 1000000;
+			bestskill.efficiency = 1000000;
+			}
+			else
+			{
+				HeroInfo[bestskill.owner].heroLevel += 1;
+				if (x==0)
+				{
+					output.push({name: HeroInfo[bestskill.owner].name, level: HeroInfo[bestskill.owner].heroLevel});
+				}
+				else
+				{
+					if (output[output.length-1].name == HeroInfo[bestskill.owner].name)
+					{
+						output[output.length-1].level = HeroInfo[bestskill.owner].heroLevel;
+					}
+					else
+					{
+						output.push({name: HeroInfo[bestskill.owner].name, level: HeroInfo[bestskill.owner].heroLevel});
+					}
+				}
+			}
 		}
 		else
 		{
@@ -544,6 +571,7 @@ function GetEfficiency()
 		GetStatBonusTapDamageFromDPS();
 		GetStatBonusCritChance();
 		GetStatBonusTapDamagePassive();
+		SetSkillsForEfficiency();
 		UpdateAllHeroesStats();
 		if (output.length > parseInt($("#numberofpredictions").val()))
 		{
@@ -620,13 +648,38 @@ function GetSkills()
 	}
 }
 
-function SetSkills()
+function SetSkillsForTable()
 {	
 	for (var x = 1; x < 31; x++)
 	{
 		for (var y = 1; y < 8; y++)
 		{
-			$("#Hero"+x+"skill"+y).prop("checked", HeroInfo[heroList[x-1]].skills[y-1].isActive);
+			if (HeroInfo[heroList[x-1]].skills[y-1].reqLevel < HeroInfo[heroList[x-1]].heroLevel)
+			{
+				HeroInfo[heroList[x-1]].skills[y-1].isActive = true;
+				$("#Hero"+x+"skill"+y).prop("checked", HeroInfo[heroList[x-1]].skills[y-1].isActive);
+			}
+			else if (HeroInfo[heroList[x-1]].skills[y-1].reqLevel > HeroInfo[heroList[x-1]].heroLevel)
+			{
+				HeroInfo[heroList[x-1]].skills[y-1].isActive = false;
+				$("#Hero"+x+"skill"+y).prop("checked", HeroInfo[heroList[x-1]].skills[y-1].isActive);
+			}
+			HeroInfo[heroList[x-1]].skills[y-1].isActive = $("#Hero"+x+"skill"+y).is(":checked");
+			//$("#Hero1skill1").prop("checked", HeroInfo[heroList[0]].skills[0].isActive);
+		}
+	}
+}
+function SetSkillsForEfficiency()
+{	
+	for (var x = 1; x < 31; x++)
+	{
+		for (var y = 1; y < 8; y++)
+		{
+			if (HeroInfo[heroList[x-1]].skills[y-1].reqLevel < HeroInfo[heroList[x-1]].heroLevel)
+			{
+				HeroInfo[heroList[x-1]].skills[y-1].isActive = true;
+			}
+			//$("#Hero"+x+"skill"+y).prop("checked", HeroInfo[heroList[x-1]].skills[y-1].isActive);
 			//$("#Hero1skill1").prop("checked", HeroInfo[heroList[0]].skills[0].isActive);
 		}
 	}

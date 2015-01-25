@@ -50,6 +50,22 @@
 </head>
 <body>
 	<div class="wrapper">
+		<div class="panel panel-danger">
+			<div class="panel-heading">Read me!</div>
+			<div class="panel-body">
+				<p>
+				This calculator is based on <b>1.2.1</b> of the game. Be aware of difference between it and iOS version. <br><br> 
+				<b>Instructions:</b> <br> 
+				- fill levels and skills of your heroes and artifact. Calculator automaticly assume that you own the skill if the hero level is higher than the skill req. It doesnt if the hero level is same as skill level req. Be aware of that. <br> 
+				- Tapping options can be found under Player tab. If you dont plan to tap, set number of clicks to 0. <br>
+				- save panel is solely used for the calculator info. It saves time from filling all the required info, like artifact levels, every time you refresh the page. <br>
+				- Update Tables button only updates informations in the 3 tables. <br>
+				- Update Button on save panel calculates the best leveling sequence for the heroes, including skills. You have to manually fill the positions you completed for now. <br>
+				<!-- If the calculator asks you to upgrade hero to level when you can buy a skill, it usually means it also wants you to buy it. -->
+				
+				</p>
+			</div>
+		</div>
 		<div style="width: 500px; display: inline-block;">
 			<div class="panel panel-primary">
 				<div class="panel-heading">Save panel</div>
@@ -159,10 +175,12 @@ function printHeroInfo(hero)
 	//$("#Hero"+hero.heroID+"name").prop("title", hero.efficiency)
 	for (var x = 0; x < 7; x++)
 	{
+		//$("#Hero"+hero.heroID+"skill"+(x+1)).prop("checked", hero.skills[x].isActive);
 		$("#Hero"+(hero.heroID)+"skill"+(x+1)).prop("title", 
 															hero.skills[x].name + "\n" + 
 															hero.skills[x].bonusType + "\n" + 
-															hero.skills[x].magnitude + "\n"
+															hero.skills[x].magnitude + "\n" +
+															hero.skills[x].nextUpgradeCost
 															// + hero.skills[x].efficiency
 															);
 	}
@@ -360,45 +378,13 @@ function UpdateAllHeroesStats()
 			hero.isActive = true; 
 		}	
 		currentAllHeroDPS += HeroInfo[heroList[i]].currentDPS;
-		hero.nextSkill = hero.skills[0];
-		if (hero.heroLevel > 10)
-		{
-			hero.skills[0].isActive = true;
-			hero.nextSkill = hero.skills[1];
-		}
-		if (hero.heroLevel > 25)
-		{
-			hero.skills[1].isActive = true;
-			hero.nextSkill = hero.skills[2];
-		}
-		if (hero.heroLevel > 50)
-		{
-			hero.skills[2].isActive = true;
-			hero.nextSkill = hero.skills[3];
-		}
-		if (hero.heroLevel > 100)
-		{
-			hero.skills[3].isActive = true;
-			hero.nextSkill = hero.skills[4];
-		}
-		if (hero.heroLevel > 200)
-		{
-			hero.skills[4].isActive = true;
-			hero.nextSkill = hero.skills[5];
-		}
-		if (hero.heroLevel > 400)
-		{
-			hero.skills[5].isActive = true;
-			hero.nextSkill = hero.skills[6];
-		}
-		if (hero.heroLevel > 800)
-		{
-			hero.skills[6].isActive = true;
-		}
+		//hero.nextSkill = hero.skills[0];
+		//$("#Hero1skill1").prop("checked", HeroInfo[heroList[0]].skills[0].isActive);
 	}
 	//if (currentAllHeroDPS == 0) { currentAllHeroDPS = 1e-100; }
 	UpdatePlayerStats();
 	currentAllHeroDPS += getPlayerTrueDamage(HeroInfo[heroList[30]].clicks, HeroInfo[heroList[30]].heroLevel);
+	if (currentAllHeroDPS == 0) { currentAllHeroDPS = 1e-100; }
 	var player = HeroInfo[heroList[30]];
 		player.currentSalary = currentAllHeroDPS  * (1 + StatBonusGoldAll);
 		player.nextLevelSalaryDiff = (currentAllHeroDPS + player.nextLeveltrueDamageDiff) * (1 + StatBonusGoldAll);
@@ -412,113 +398,86 @@ function UpdateAllHeroesStats()
 		for (var x = 0; x < hero.skills.length; x++)
 		{	
 			var skill = hero.skills[x];
-			//
-			if (!(skill.isActive) && skill.bonusType == "AllDamage")
-			{
-				skill.isActive = true;
-				GetStatBonusAllDamage();
-				skill.dps = getPlayerTrueDamage(HeroInfo[heroList[30]].clicks, HeroInfo[heroList[30]].heroLevel);
-				for (var y = 0; y < 30; y++)
-				{
-					var hero2 = HeroInfo[heroList[y]];
-					if (!(hero2.name == HeroInfo[skill.owner].name))
-					{
-						skill.dps+=GetDPSByLevel(hero2, hero2.heroLevel);
-					}
-					else
-					{
-						if (skill.reqLevel >= hero2.heroLevel)
-						{
-							skill.dps+=GetDPSByLevel(hero2, skill.reqLevel);
-						}
-						else
-						{
-							skill.dps+=GetDPSByLevel(hero2, hero2.heroLevel);
-						}
-					}
-				}
-				skill.isActive = false;
-				GetStatBonusAllDamage();
-				//var hero = HeroInfo[heroList[i]];
-				skill.currentSalary = currentAllHeroDPS  * (1 + StatBonusGoldAll);
-				skill.nextLevelSalaryDiff = skill.dps * (1 + StatBonusGoldAll);
-				skill.nextUpgradeCost = GetUpgradeCostByMultiLevel(hero.heroLevel, skill.reqLevel, hero.cost) + (GetUpgradeCostByLevel(skill.reqLevel, hero.cost)*5);
-				skill.efficiency = skill.nextUpgradeCost/(skill.nextLevelSalaryDiff - skill.currentSalary);
-				if(hero.heroLevel == skill.reqLevel) { skill.efficiency = 0; }
-				//skill.dps -= currentAllHeroDPS;
-			}
-			
-			if (!(skill.isActive) && skill.bonusType == "GoldAll")
-			{
-				skill.isActive = true;
-				GetStatBonusAllGold();
-				skill.dps = getPlayerTrueDamage(HeroInfo[heroList[30]].clicks, HeroInfo[heroList[30]].heroLevel);;
-				for (var y = 0; y < 30; y++)
-				{
-					var hero2 = HeroInfo[heroList[y]];
-					if (!(hero2.name == HeroInfo[skill.owner].name))
-					{
-						skill.dps+=GetDPSByLevel(hero2, hero2.heroLevel);
-					}
-					else
-					{
-						if (skill.reqLevel >= hero2.heroLevel)
-						{
-							skill.dps+=GetDPSByLevel(hero2, skill.reqLevel);
-						}
-						else
-						{
-							skill.dps+=GetDPSByLevel(hero2, hero2.heroLevel);
-						}
-					}
-				}
-				skill.isActive = false;
-				GetStatBonusAllGold();
-				skill.currentSalary = currentAllHeroDPS  * (1 + StatBonusGoldAll);
-				skill.nextLevelSalaryDiff = skill.dps * (1 + StatBonusGoldAll);
-				skill.nextUpgradeCost = GetUpgradeCostByMultiLevel(hero.heroLevel, skill.reqLevel, hero.cost) + (GetUpgradeCostByLevel(skill.reqLevel, hero.cost)*5);
-				skill.efficiency = skill.nextUpgradeCost/(skill.nextLevelSalaryDiff - skill.currentSalary);
-				if(hero.heroLevel == skill.reqLevel) { skill.efficiency = 0; }
-			}
-			
-			if (!(skill.isActive) && skill.bonusType == "ThisHeroDamage")
-			{
-				skill.isActive = true;
-				skill.dps = getPlayerTrueDamage(HeroInfo[heroList[30]].clicks, HeroInfo[heroList[30]].heroLevel);;
-				for (var y = 0; y < 30; y++)
-				{
-					var hero2 = HeroInfo[heroList[y]];
-					if (!(hero2.name == HeroInfo[skill.owner].name))
-					{
-						skill.dps+=GetDPSByLevel(hero2, hero2.heroLevel);
-					}
-					else
-					{
-						if (skill.reqLevel >= hero2.heroLevel)
-						{
-							skill.dps+=GetDPSByLevel(hero2, skill.reqLevel);
-						}
-						else
-						{
-							skill.dps+=GetDPSByLevel(hero2, hero2.heroLevel);
-						}
-					}
-				}
-				skill.isActive = false;
-				skill.currentSalary = currentAllHeroDPS  * (1 + StatBonusGoldAll);
-				skill.nextLevelSalaryDiff = skill.dps * (1 + StatBonusGoldAll);
-				skill.nextUpgradeCost = GetUpgradeCostByMultiLevel(hero.heroLevel, skill.reqLevel, hero.cost) + (GetUpgradeCostByLevel(skill.reqLevel, hero.cost)*5);
-				skill.efficiency = skill.nextUpgradeCost/(skill.nextLevelSalaryDiff - skill.currentSalary);
-				if(hero.heroLevel == skill.reqLevel) { skill.efficiency = 0; }
-			}
+			updateSkill("AllDamage", skill, hero);
+			updateSkill("GoldAll", skill, hero);
+			updateSkill("ThisHeroDamage", skill, hero);
+			updateSkill("CritDamagePassive", skill, hero);
+			updateSkill("TapDamageFromDPS", skill, hero);
+			updateSkill("CritChance", skill, hero);
+			updateSkill("TapDamagePassive", skill, hero);
+			updateSkill("GoldTreasurePassive", skill, hero);
 		}	
 	}
 }
 
+function updateSkill(bonusType, skill, hero)
+{
+if (!(skill.isActive) && skill.bonusType == bonusType)
+	{
+		skill.isActive = true;
+		GetStatBonusAllDamage();
+		GetStatBonusAllGold();
+		GetStatBonusCritDamagePassive();
+		GetStatBonusTapDamageFromDPS();
+		GetStatBonusCritChance();
+		GetStatBonusTapDamagePassive();
+		skill.dps = getPlayerTrueDamage(HeroInfo[heroList[30]].clicks, HeroInfo[heroList[30]].heroLevel);;
+		for (var y = 0; y < 30; y++)
+		{
+			var hero2 = HeroInfo[heroList[y]];
+			if (!(hero2.name == HeroInfo[skill.owner].name))
+			{
+				skill.dps+=GetDPSByLevel(hero2, hero2.heroLevel);
+			}
+			else
+			{
+				if (skill.reqLevel >= hero2.heroLevel)
+				{
+					skill.dps+=GetDPSByLevel(hero2, skill.reqLevel);
+				}
+				else
+				{
+					skill.dps+=GetDPSByLevel(hero2, hero2.heroLevel);
+				}
+			}
+		}
+		skill.isActive = false;
+		GetStatBonusAllDamage();
+		GetStatBonusAllGold();
+		GetStatBonusCritDamagePassive();
+		GetStatBonusTapDamageFromDPS();
+		GetStatBonusCritChance();
+		GetStatBonusTapDamagePassive();
+		skill.currentSalary = currentAllHeroDPS  * (1 + StatBonusGoldAll);
+		skill.nextLevelSalaryDiff = skill.dps * (1 + StatBonusGoldAll);
+		//skill.nextUpgradeCost = GetUpgradeCostByMultiLevel(hero.heroLevel, skill.reqLevel, hero.cost) + (GetUpgradeCostByLevel(skill.reqLevel, hero.cost)*5);
+		skill.nextUpgradeCost = GetSkillCost(skill, hero);
+		skill.efficiency = skill.nextUpgradeCost/(skill.nextLevelSalaryDiff - skill.currentSalary);
+		if(hero.heroLevel == skill.reqLevel) { skill.efficiency = 0; }
+	}
+}
+
+function GetSkillCost(skill, hero)
+{
+	//alert(GetUpgradeCostByLevel(hero.skills[x].reqLevel, hero.cost)*5);
+	var num = GetUpgradeCostByMultiLevel(hero.heroLevel, skill.reqLevel, hero.cost);
+	var num2 = 0.0;
+	for (var x = 0; x < 7; x++)
+	{
+		if (!(hero.skills[x].isActive))
+		{
+			num2 += GetUpgradeCostByLevel(hero.skills[x].reqLevel, hero.cost)*5;
+		}
+		if (hero.skills[x].name == skill.name) { break; }
+	}
+	return num + num2;
+}
+
 function Save()
 {	
-	GetSkills();
-	GetLevels();
+	//SetSkillsForTable();
+	//GetLevels();
+	UpdateTables();
 	var text = [];
 	for (var x = 0; x < 30; x++)
 	{	
@@ -528,6 +487,11 @@ function Save()
 			temp.push(HeroInfo[heroList[x]].skills[y].isActive);
 		}
 		text.push({level: HeroInfo[heroList[x]].heroLevel, skills: temp})
+	}
+	text.push({level: HeroInfo[heroList[30]].heroLevel, clicks: HeroInfo[heroList[30]].clicks})
+	for (var y = 0; y < ArtifactInfo.length; y++)
+	{	
+		text.push({level: ArtifactInfo[y].level})
 	}
 	var save = JSON.stringify(text);
 	$("#savedata").val(save);
@@ -549,6 +513,15 @@ function Load()
 			$("#Hero"+(x+1)+"heroLevel").val(HeroInfo[heroList[x]].heroLevel);
 		}
 	}
+	HeroInfo[heroList[30]].clicks = txt2[30].clicks;
+	HeroInfo[heroList[30]].heroLevel = txt2[30].level;
+	$("#player0clicks").val(HeroInfo[heroList[30]].clicks);
+	$("#player0heroLevel").val(HeroInfo[heroList[30]].heroLevel);
+	for (var y = 0; y < ArtifactInfo.length; y++)
+	{	
+		ArtifactInfo[y].level = txt2[(y+31)].level; 
+		$("#Artifact"+(y+1)+"level").val(ArtifactInfo[y].level);
+	}
 	UpdateTables();
 }
 
@@ -556,8 +529,8 @@ buildArtifacts();
 BuildSkillBase();
 UpdateTables();
 function UpdateTables() {
-	GetSkills();
 	GetLevels();
+	SetSkillsForTable();
 	UpdateArtifactsStats();
 	GetStatBonusAllDamage();
 	GetStatBonusAllGold();
@@ -572,7 +545,7 @@ function UpdateTables() {
 function EfficiencyCalculations()
 {	
 	$("#output").html("");
-	UpdateTables()
+	UpdateTables();
 	GetEfficiency();
 }
 
