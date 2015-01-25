@@ -241,6 +241,10 @@
   border-bottom: 0;
 }
 
+.nav-tabs.nav-stacked:hover {
+  background-color: #000000;
+}
+
 .nav-tabs.nav-stacked > li > a {
   border: 1px solid #ddd;
   -webkit-border-radius: 0;
