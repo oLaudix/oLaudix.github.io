@@ -7,6 +7,12 @@
 <title>My Page</title>
   <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
 </head>
+
+<!-- refreshTexts() -->
+<!-- this.stoneText.setText("Value: $" + this.appState.toReadable(Double.valueOf(this.appState.getStoneValue())) + "\nHit points: " + this.appState.toReadable(Double.valueOf(this.appState.remainStoneStrength)) + "\nHardness: " + this.appState.toReadable(Double.valueOf(this.appState.getStoneHardness()))); -->
+      
+
+
 <body>
 	<div style="float: left; width: 180px">
 		<ul class="nav nav-tabs nav-stacked">
@@ -16,6 +22,10 @@
 		</ul>
 	</div>
 	<div class="wrapper">
+	<input type="text" id="stonelevel" value="1">
+	<div id="output"></div><br>
+	Tool Damage: <input type="text" id="tooldmg" value="1">
+	<div id="output2"></div>
 	</div>
   
   
@@ -25,6 +35,128 @@
 
 <script language="javascript">/* Write JavaScript here */
 //$(window).load(function start(){
+$( "#stonelevel" ).change(function() {
+  stoneData();
+});
+
+$( "#tooldmg" ).change(function() {
+  stoneData();
+  getBestStone();
+});
+
+var currentLevel = 1;
+
+var stonesNames = ["Sand","Clay","Chalk","Salt","Limestone","Sandstone","Basalt","Granite","Marble","Alabaster","Quartz","Sulfur","Coal","Copper","Tin","Lead","Antimony","Iron","Silver","Gold","Platinum","Malachite","Obsidian","Jade","Amethyst","Zircon","Opal","Topaz","Sapphire","Ruby","Emerald","Diamond","Postperovskite","Alien metal","Core Matter","Metallic Hydrogen","Elerium","Kryptonite","Dilithium","Naquadria","Living Crystal","Adamantium","Dark Matter","Quantium Mesh","Degenerated Matter","Strangelet","Neutronium","Quark Matter","Superstring Mesh","Unobtainium","Black Hole","Wormhole to 5.l.y","Wormhole to 20.l.y","Wormhole to 100.l.y","Wormhole to 1000.l.y","Wormhole to galactic core","Intergalactic Wormhole","Superclaster Wormhole","Hubble-Range Wormhole","Cross-Dimensional Wormhole","Pararell Universe","Anti Universe","Young Universe","Recombination Epoch","Nucleosythesis Epoch","Big Bang","Dark Universe","Paradoxical Universe","Crystal Universe","Living Universe","Thinking Universe"]
+
+function stoneData()
+{
+	var text = "";
+	text += "Stone Name: <b>" + getStoneName(getStoneLevel()-1) + "</b><br>";
+	text += "Stone level: " + numberWithCommas(getStoneLevel()) + "<br>";
+	text += "Stone Value: " + numberWithCommas(getStoneValue(getStoneLevel())) + "<br>";
+	text += "Stone Strength: " + numberWithCommas(getStoneStrength(getStoneLevel())) + "<br>";
+	text += "Stone Hardiness: " + numberWithCommas(getStoneHardness(getStoneLevel())) + "<br>";
+	text += "Tool damage on stone: " + numberWithCommas(GetToolDamageOnStone(getStoneLevel())) + "<br>";
+	text += "Hits needed to break stone: " + numberWithCommas(getHitsNeeded(getStoneLevel())) + "<br>";
+	text += "Gold per hit: " + numberWithCommas(getGoldPerHit(getStoneLevel())) + "<br>";
+	//text += "Stone Hardiness: " + formatNumber(getStoneValue()) + "<br>";
+	$("#output").html("");
+	$("#output").html(text);
+}
+
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+function getBestStone()
+{
+	currentLevel = 1;
+	var text = "";
+	var best = currentLevel;
+	while (getHitsNeeded(currentLevel) < 10000)
+	{
+		if (getGoldPerHit(best) < getGoldPerHit(currentLevel+1))
+		{
+			best = currentLevel+1;
+		}
+		currentLevel += 1;
+	}
+	text += "Stone Name: <b>" + getStoneName(best-1) + "</b><br>";
+	text += "Stone level: " + numberWithCommas(best) + "<br>";
+	text += "Stone Value: " + numberWithCommas(getStoneValue(best)) + "<br>";
+	text += "Stone Strength: " + numberWithCommas(getStoneStrength(best)) + "<br>";
+	text += "Stone Hardiness: " + numberWithCommas(getStoneHardness(best)) + "<br>";
+	text += "Tool damage on stone: " + numberWithCommas(GetToolDamageOnStone(best)) + "<br>";
+	text += "Hits needed to break stone: " + numberWithCommas(getHitsNeeded(best)) + "<br>";
+	text += "Gold per hit: " + numberWithCommas(getGoldPerHit(best)) + "<br>";
+	//text += "Stone Hardiness: " + formatNumber(getStoneValue()) + "<br>";
+	$("#output2").html("");
+	$("#output2").html(text);
+}
 
 
+function getStoneName(stoneLevel)
+  {
+    if (stoneLevel < -1 + stonesNames.length) {return stonesNames[stoneLevel];}
+    var i = 1 + (stoneLevel - stonesNames.length);
+    if (i == 1) {return "Transcendence";}
+    return "Transcendence level " + i;
+  }
+
+function computeMinus(paramInt1, paramInt2, paramDouble, paramInt3)
+{
+	return Math.round(Math.pow(paramDouble, paramInt1) * paramInt2 - paramInt3);
+}
+
+function getGoldPerHit(stoneLevel)
+{
+	return Math.round(Math.max(getStoneValue(stoneLevel)/getHitsNeeded(stoneLevel),0));
+}
+
+function getHitsNeeded(stoneLevel)
+{
+	return Math.max(Math.ceil(getStoneStrength(stoneLevel)/GetToolDamageOnStone(stoneLevel)),0.000001)
+}
+
+function GetToolDamageOnStone(stoneLevel)
+{
+	return Math.max(getToolDamage() - getStoneHardness(stoneLevel),1e-100);
+}
+
+function getToolDamage()
+{
+	return parseInt($("#tooldmg").val());
+}
+
+function getStoneLevel()
+{
+	return parseInt($("#stonelevel").val());
+}
+
+function getStoneHardness(level)
+  {
+    return formatNumber(computeMinus(level-1, 5, 1.35, 5));
+  }
+
+function getStoneStrength(level)
+  {
+    return formatNumber(computeMinus(level-1, 30, 1.44, 23));
+  }
+  
+function getStoneValue(level)
+  {
+    return formatNumber(computeMinus(level-1, 5, 1.8, 2));
+  }
+  
+  function formatNumber(number)
+  {
+	var length = number.toString().length;
+	var divider = Math.pow(10, length - 2);
+	if (divider < 0) {divider = 0}
+	var num3 = Math.round(number/divider)*divider;
+	return num3;
+  }
+  
+  stoneData();
+  getBestStone();
 </script></body></html>
