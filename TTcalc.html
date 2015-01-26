@@ -338,7 +338,7 @@ function UpdateAllHeroesStats()
 		hero.currentDPS = GetDPSByLevel(hero, hero.heroLevel);
 		hero.nextLevelDPSDiff = GetDPSByLevel(hero, hero.heroLevel + 1) - hero.currentDPS;
 		hero.nextUpgradeCost = GetUpgradeCostByLevel(hero.heroLevel, hero.cost);
-		hero.costPerDPS = hero.nextLevelDPSDiff / hero.nextUpgradeCost
+		hero.costPerDPS = hero.nextUpgradeCost / hero.nextLevelDPSDiff
 		if (hero.heroID >= 2) 
 		{	
 			hero.isActive = false;
