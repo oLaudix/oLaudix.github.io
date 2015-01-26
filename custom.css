@@ -11,6 +11,7 @@
 		.wrapper {
 			width: 1504px;
 			margin: 0px auto;
+			margin-left: 4px;
 		}
 		body {
 			margin: 15px;
