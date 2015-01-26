@@ -62,7 +62,7 @@
 			<div class="tab-content">
 				<div role="tabpanel" class="tab-pane active" id="heroes"><div> &nbsp </div>
 					<table id="ancienttbl" class="table table-striped">
-						<tbody><tr><th width="25%">Name</th><th width="20%">Skills</th><th width="15%">Upgrade Cost</th><th width="15%">DpS</th width="20%"><th>Next Level DpS Diff</th><th width="5%">Level</th></tr>
+						<tbody><tr><th width="25%">Name</th><th width="20%">Skills</th><th width="15%">Upgrade Cost</th><th width="15%">DpS</th width="20%"><th>Next Level DpS Diff</th><th>Cost per DPS</th><th width="5%">Level</th></tr>
 						</tbody>
 					</table>
 				</div>
@@ -115,6 +115,7 @@ for (var i = 0; i < 30; i++) {
   }
   tr.append($("<td></td>").append(HeroInfo[key].currentDPS).attr("id", key+"currentDPS"));
   tr.append($("<td></td>").append(HeroInfo[key].nextLevelDPSDiff).attr("id", key+"nextLevelDPSDiff"));
+  tr.append($("<td></td>").append(HeroInfo[key].costPerDPS).attr("id", key+"costPerDPS"));
   tr.append($("<td></td>").append($("<input></input>").attr("type", "text").val(0).attr("id", key+"heroLevel")));
   tr.append("\n\n");
   $("#ancienttbl").append(tr);
@@ -336,6 +337,7 @@ function UpdateAllHeroesStats()
 		hero.currentDPS = GetDPSByLevel(hero, hero.heroLevel);
 		hero.nextLevelDPSDiff = GetDPSByLevel(hero, hero.heroLevel + 1) - hero.currentDPS;
 		hero.nextUpgradeCost = GetUpgradeCostByLevel(hero.heroLevel, hero.cost);
+		hero.costPerDPS = hero.nextLevelDPSDiff / hero.nextUpgradeCost
 		if (hero.heroID >= 2) 
 		{	
 			hero.isActive = false;
