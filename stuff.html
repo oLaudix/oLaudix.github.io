@@ -3,59 +3,32 @@
 <head>
 <link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-1.16.0.css">
 <link rel="stylesheet" href="bootstrap.min.css">
-<style type="text/css"><style type="text/css">
-		
-		table input[type=text][readonly] {
-			background: transparent;
-			border: none;
-		}
-		table .hilite {
-			background-color: #dff0d8 !important;
-		}
-		#nonidle input {
-			width: 100px;
-		}
-		.wrapper {
-			width: 1504px;
-			margin: 0px auto;
-		}
-		body {
-			margin: 15px;
-		}
-		.btn + .btn {
-			margin-left: 10px;
-		}
-		.table > tbody > tr > td{
-			padding: 0px;
-			vertical-align: middle;
-		}
-		.panel-heading > * {
-			vertical-align: middle;
-		}
-		.panel-heading button {
-			border: none;
-			background: none;
-			padding: 0px 1px 0px 1px;
-		}
-		
-		input[type=text] {
-    width: 100px;
-    margin: 0px;
-}
-</style>
-
+<link rel="stylesheet" href="custom.css">
 <title>Tap Titans Stuff</title>
   <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
 </head>
 <body>
-	<div class="wrapper">
+	<div style="float: left; width: 180px;">
+		<ul class="nav nav-tabs nav-stacked">
+			<li><a href=".">Home</a></li>
+			<li><a href="TTcalc.html">Tap Titans Calculator</a></li>
+			<li><a href="stuff.html">Tap Titans usefull stuff</a></li>
+			<li><a href="MCcalc.html">Mine Clicker Calculator</a></li>
+		</ul>
+	</div>
+	<div class="wrapper" style="display: inline-block;">
 		<div style="width: 500px; display: inline-block;">
-		<!--<label><input type="checkbox" id="addsouls" checked="checked">Include souls gained after ascension</label>-->
 			<div class="panel panel-success">
-				<div class="panel-heading">Stuff</div>
+				<div class="panel-heading">Stage Base Gold and HP</div>
 				<div id="output" class="panel-body">
 					<div>Stage: <input type="text" id="stage" value="1"></div>
 					<div id="stage-result"></div>
+				</div>
+			</div>
+			<div class="panel panel-primary">
+				<div class="panel-heading">Hero Death Chance</div>
+				<div id="death-chance-table" class="panel-body">
+					<div id="dthchnctbl"></div>
 				</div>
 			</div>
 		</div>
@@ -71,6 +44,7 @@ $(window).load(
 	{ 
 		$("#stage-result").html("Stage " + $("#stage").val() + " base HP: " + GetStageBaseHP($("#stage").val()) + "<br>");
 		$("#stage-result").append("Stage " + $("#stage").val() + " base Gold: " + GetStageBaseGold($("#stage").val()) + "<br>");
+		populateHDT();
 	}
 );
 
@@ -89,6 +63,29 @@ function GetStageBaseGold(stage)
     var num2 = GetStageBaseHP($("#stage").val()) * (0.02 + (0.00045 * Math.min(stage, 150.0)));
     //return (num2 * Math.Ceiling((double) (1.0 + PlayerModel.instance.GetStatBonus(BonusType.GoldAll))));
 	return num2;
+}
+
+function populateHDT()
+{
+	var table = "\"Early start\" strategy: <br>";
+	table += "<table class=\"table table-striped\">";
+	table += "<tbody><tr><th>Second of the fight</th><th>Big Boss</th><th>Small Boss</th></tr>"
+	for (var x = 1; x <= 30; x++)
+	{
+		table += "<tr><td>" + x + "</td><td>" + ( x < 5 || x > 25 ? 0 : Math.round(( 0.2 * ((1/21) + ((1/21) * (x - 5))) )*1000)/10 ) + "%</td><td>" + ( x < 5 || x > 25 ? 0 : Math.round(( 0.05 * ((1/21) + ((1/21) * (x - 5))) )*1000)/10 ) + "%</td></tr>"
+	}
+	table += "</tbody></table>";
+	
+	table += "\"Late start\" strategy: <br>";
+	table += "<table class=\"table table-striped\">";
+	table += "<tbody><tr><th>Second of the fight</th><th>Big Boss</th><th>Small Boss</th></tr>"
+	for (var x = 1; x <= 30; x++)
+	{
+		table += "<tr><td>" + x + "</td><td>" + ( x < 5 || x > 25 ? 0 : Math.round(( 0.2 * ((1/21) + ((1/21) * (25 - x))) )*1000)/10 ) + "%</td><td>" + ( x < 5 || x > 25 ? 0 : Math.round(( 0.05 * ((1/21) + ((1/21) * (25 - x))) )*1000)/10 ) + "%</td></tr>"
+	}
+	table += "</tbody></table>";
+	
+	$("#dthchnctbl").html(table);
 }
 
 </script></body></html>
