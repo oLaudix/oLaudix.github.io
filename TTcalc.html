@@ -63,7 +63,7 @@
 			<div class="tab-content">
 				<div role="tabpanel" class="tab-pane active" id="heroes"><div> &nbsp </div>
 					<table id="ancienttbl" class="table table-striped">
-						<tbody><tr><th width="25%">Name</th><th width="20%">Skills</th><th width="15%">Upgrade Cost</th><th width="15%">DpS</th width="20%"><th>Next Level DpS Diff</th><th width="5%">Level</th></tr>
+						<tbody><tr><th width="25%">Name</th><th width="20%">Skills</th><th width="15%">Upgrade Cost</th><th width="15%">DpS</th width="20%"><th>Next Level DpS Diff</th><th>Cost per DPS</th><th width="5%">Level</th></tr>
 						</tbody>
 					</table>
 				</div>
@@ -116,6 +116,7 @@ for (var i = 0; i < 30; i++) {
   }
   tr.append($("<td></td>").append(HeroInfo[key].currentDPS).attr("id", key+"currentDPS"));
   tr.append($("<td></td>").append(HeroInfo[key].nextLevelDPSDiff).attr("id", key+"nextLevelDPSDiff"));
+  tr.append($("<td></td>").append(HeroInfo[key].costPerDPS).attr("id", key+"costPerDPS"));
   tr.append($("<td></td>").append($("<input></input>").attr("type", "text").val(0).attr("id", key+"heroLevel")));
   tr.append("\n\n");
   $("#ancienttbl").append(tr);
@@ -141,6 +142,7 @@ function printHeroInfo(hero)
 	if (hero.currentDPS > 1000) { $("#Hero"+(hero.heroID)+"currentDPS").html(numberFormat(hero.currentDPS)); } else { $("#Hero"+hero.heroID+"currentDPS").html(Math.floor(hero.currentDPS)); }
 	if (hero.nextLevelDPSDiff > 1000) { $("#Hero"+(hero.heroID)+"nextLevelDPSDiff").html("+ "+numberFormat(hero.nextLevelDPSDiff)); } else { $("#Hero"+hero.heroID+"nextLevelDPSDiff").html("+ "+Math.floor(hero.nextLevelDPSDiff)); }
 	$("#Hero"+(hero.heroID)+"nextUpgradeCost").html(numberFormat(hero.nextUpgradeCost));
+	$("#Hero"+(hero.heroID)+"costPerDPS").html(numberFormat(hero.costPerDPS));
 	//$("#Hero"+hero.heroID+"name").prop("title", hero.efficiency)
 	for (var x = 0; x < 7; x++)
 	{
@@ -149,7 +151,7 @@ function printHeroInfo(hero)
 															hero.skills[x].name + "\n" + 
 															hero.skills[x].bonusType + "\n" + 
 															hero.skills[x].magnitude + "\n" +
-															hero.skills[x].nextUpgradeCost
+															numberFormat(hero.skills[x].nextUpgradeCost)
 															// + hero.skills[x].efficiency
 															);
 	}
@@ -337,6 +339,7 @@ function UpdateAllHeroesStats()
 		hero.currentDPS = GetDPSByLevel(hero, hero.heroLevel);
 		hero.nextLevelDPSDiff = GetDPSByLevel(hero, hero.heroLevel + 1) - hero.currentDPS;
 		hero.nextUpgradeCost = GetUpgradeCostByLevel(hero.heroLevel, hero.cost);
+		hero.costPerDPS = hero.nextUpgradeCost / hero.nextLevelDPSDiff
 		if (hero.heroID >= 2) 
 		{	
 			hero.isActive = false;
