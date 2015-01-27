@@ -87,7 +87,7 @@ function getHeroReviveTime()
     }
     var num3 = num2 * ($("#revivetime").val()/100);
     num2 -= num3;
-	if ($("#stage").val() < 50)
+	if ($("#stage").val() <= 50)
 	{
 		return "hero can't die";
 	}
