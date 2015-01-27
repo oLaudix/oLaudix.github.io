@@ -21,7 +21,7 @@
 			<div class="panel panel-success">
 				<div class="panel-heading">Stage Base Gold and HP</div>
 				<div id="output" class="panel-body">
-					<div>Stage: <input type="text" id="stage" value="1"></div>
+					<div>Stage: <input type="text" id="stage" value="1"> <br> Hero revive time reduction: <input type="text" id="revivetime" value="0">%</div>
 					<div id="stage-result"></div>
 				</div>
 			</div>
@@ -44,16 +44,25 @@
 $(window).load(
 	function start()
 	{ 
-		$("#stage-result").html("Stage " + $("#stage").val() + " base HP: " + GetStageBaseHP($("#stage").val()) + "<br>");
-		$("#stage-result").append("Stage " + $("#stage").val() + " base Gold: " + GetStageBaseGold($("#stage").val()) + "<br>");
+		getStageData();
 		populateHDT();
 	}
 );
 
 $( "#stage" ).change(function() {
+	getStageData();
+});
+
+$( "#revivetime" ).change(function() {
+	getStageData();
+});
+
+function getStageData()
+{
 	$("#stage-result").html("Stage " + $("#stage").val() + " base HP: " + GetStageBaseHP($("#stage").val()) + "<br>");
 	$("#stage-result").append("Stage " + $("#stage").val() + " base Gold: " + GetStageBaseGold($("#stage").val()) + "<br>");
-});
+	$("#stage-result").append("Hero revive time: " + getHeroReviveTime() + "<br>");
+}
 
 function GetStageBaseHP(stage)
 {
@@ -65,6 +74,38 @@ function GetStageBaseGold(stage)
     var num2 = GetStageBaseHP($("#stage").val()) * (0.02 + (0.00045 * Math.min(stage, 150.0)));
     //return (num2 * Math.Ceiling((double) (1.0 + PlayerModel.instance.GetStatBonus(BonusType.GoldAll))));
 	return num2;
+}
+
+function getHeroReviveTime()
+{
+	//Random.Range(1, 5) + 
+    var num = (Math.ceil(((($("#stage").val() - 50)) / 10.0)));
+    var num2 = num * 3600;
+    if (num2 > 86400.0)
+    {
+        num2 = 86400.0;
+    }
+    var num3 = num2 * ($("#revivetime").val()/100);
+    num2 -= num3;
+	if ($("#stage").val() < 50)
+	{
+		return "hero can't die";
+	}
+	else
+	{
+		//return formatTime(num2);
+		return formatTime(num2);
+	}
+}
+
+function formatTime(seconds)
+{
+	seconds = Number(seconds);
+	var h = Math.floor(seconds / 3600);
+	var m = Math.floor(seconds % 3600 / 60);
+	var s = Math.floor(seconds % 3600 % 60);
+	return ((h > 0 ? h + ":" : "") + (m > 0 ? (h > 0 && m < 10 ? "0" : "") + m + ":" : "00:") + (s < 10 ? "0" : "") + s); 
+
 }
 
 function populateHDT()
