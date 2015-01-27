@@ -124,7 +124,7 @@ function populateHDT()
 	table += "<tbody><tr><th>Second of the fight</th><th>Big Boss</th><th>Small Boss</th></tr>"
 	for (var x = 1; x <= 30; x++)
 	{
-		table += "<tr><td>" + x + "</td><td>" + ( x < 5 || x > 25 ? 0 : Math.round(( 0.2 * ((1/21) + ((1/21) * (25 - x))) )*1000)/10 ) + "%</td><td>" + ( x < 5 || x > 25 ? 0 : Math.round(( 0.05 * ((1/21) + ((1/21) * (25 - x))) )*1000)/10 ) + "%</td></tr>"
+		table += "<tr><td>" + (x == 30 ? x + "+" : x) + "</td><td>" + ( x < 5 || x > 25 ? 0 : Math.round(( 0.2 * ((1/21) + ((1/21) * (25 - x))) )*1000)/10 ) + "%</td><td>" + ( x < 5 || x > 25 ? 0 : Math.round(( 0.05 * ((1/21) + ((1/21) * (25 - x))) )*1000)/10 ) + "%</td></tr>"
 	}
 	table += "</tbody></table>";
 	
