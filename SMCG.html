@@ -17,7 +17,18 @@
 			<li><a href="SMCG.html">Simulation Craft Stuff</a></li>
 		</ul>
 	</div>
-	<div class="wrapper">
+	<div class="wrapper" style="display: inline-block;">
+		<div style="width: 500px; display: inline-block; vertical-align: top;">
+			<div class="panel panel-primary">
+				<div class="panel-heading">Save panel</div>
+				<div class="panel-body">
+					<textarea id="output" style="width: 100%; height: 50px"></textarea>
+					<div style="margin-top: 10px;">
+						<button type="button" onclick="Generate()" class="btn btn-default">Generate</button>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
   
   
@@ -25,8 +36,43 @@
 <script type="text/javascript" src="bootstrap.min.js"></script>
 <script src="common.js"></script>
 
-<script language="javascript">/* Write JavaScript here */
-//$(window).load(function start(){
+<script language="javascript">
+
+function Generate()
+{
+	var text = "";	
+	text += "hunter=\"Current Gear\"" + "\n"
+	text += "origin=\"https://eu.api.battle.net/wow/character/draenor/Inaire/advanced\"" + "\n"
+	text += "thumbnail=\"http://eu.battle.net/static-render/eu/gnomeregan/45/87701037-avatar.jpg\"" + "\n"
+	text += "level=100" + "\n"
+	text += "race=blood_elf" + "\n"
+	text += "role=attack" + "\n"
+	text += "position=ranged_back" + "\n"
+	text += "professions=engineering=700/enchanting=710" + "\n"
+	text += "talents=http://eu.battle.net/wow/en/tool/talent-calculator#Ya!0021222" + "\n"
+	text += "glyphs=animal_bond/deterrence/tranquilizing_shot/lesser_proportion/play_dead/stampede" + "\n"
+	text += "spec=beast_mastery" + "\n"
+	text += "head=,id=115545,bonus_id=566" + "\n"
+	text += "neck=,id=113647,bonus_id=564/566" + "\n"
+	text += "shoulders=,id=115547,bonus_id=564/566" + "\n"
+	text += "back=,id=113929,bonus_id=566" + "\n"
+	text += "chest=,id=115548,bonus_id=566" + "\n"
+	text += "wrists=,id=113968,bonus_id=566" + "\n"
+	text += "hands=,id=113593,bonus_id=567" + "\n"
+	text += "waist=,id=113955,bonus_id=566" + "\n"
+	text += "legs=,id=115546,bonus_id=566" + "\n"
+	text += "feet=,id=113954,bonus_id=566" + "\n"
+	text += "finger1=,id=118302" + "\n"
+	text += "finger2=,id=113611,bonus_id=567" + "\n"
+	text += "trinket1=,id=118114,bonus_id=566" + "\n"
+	text += "trinket2=,id=113931,bonus_id=566" + "\n"
+	text += "main_hand=,id=113652,bonus_id=561/566" + "\n"
+	text += "summon_pet=cat" + "\n"
+	
+	
+	$("#output").html("");
+	$("#output").html(text);
+}
 
 
 </script></body></html>
