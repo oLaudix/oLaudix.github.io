@@ -1,78 +1,48 @@
-<!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-1.16.0.css">
-<link rel="stylesheet" href="bootstrap.min.css">
-<link rel="stylesheet" href="custom.css">
-<title>Simulation Craft Stuff</title>
-  <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
-</head>
-<body>
-	<div style="float: left; width: 180px;">
-		<ul class="nav nav-tabs nav-stacked">
-			<li><a href=".">Home</a></li>
-			<li><a href="TTcalc.html">Tap Titans Calculator</a></li>
-			<li><a href="stuff.html">Tap Titans usefull stuff</a></li>
-			<li><a href="MCcalc.html">Mine Clicker Calculator</a></li>
-			<li><a href="SMCG.html">Simulation Craft Stuff</a></li>
-		</ul>
-	</div>
-	<div class="wrapper" style="display: inline-block;">
-		<div style="width: 500px; display: inline-block; vertical-align: top;">
-			<div class="panel panel-primary">
-				<div class="panel-heading">Save panel</div>
-				<div class="panel-body">
-					<textarea id="output" style="width: 100%; height: 50px"></textarea>
-					<div style="margin-top: 10px;">
-						<button type="button" onclick="Generate()" class="btn btn-default">Generate</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-  
-  
-<script type="text/javascript" src="jquery-latest.min.js"></script>
-<script type="text/javascript" src="bootstrap.min.js"></script>
-<script src="common.js"></script>
+<meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+<script type="application/javascript">
 
-<script language="javascript">
-
-function Generate()
-{
-	var text = "";	
-	text += "hunter=\"Current Gear\"" + "\n"
-	text += "origin=\"https://eu.api.battle.net/wow/character/draenor/Inaire/advanced\"" + "\n"
-	text += "thumbnail=\"http://eu.battle.net/static-render/eu/gnomeregan/45/87701037-avatar.jpg\"" + "\n"
-	text += "level=100" + "\n"
-	text += "race=blood_elf" + "\n"
-	text += "role=attack" + "\n"
-	text += "position=ranged_back" + "\n"
-	text += "professions=engineering=700/enchanting=710" + "\n"
-	text += "talents=http://eu.battle.net/wow/en/tool/talent-calculator#Ya!0021222" + "\n"
-	text += "glyphs=animal_bond/deterrence/tranquilizing_shot/lesser_proportion/play_dead/stampede" + "\n"
-	text += "spec=beast_mastery" + "\n"
-	text += "head=,id=115545,bonus_id=566" + "\n"
-	text += "neck=,id=113647,bonus_id=564/566" + "\n"
-	text += "shoulders=,id=115547,bonus_id=564/566" + "\n"
-	text += "back=,id=113929,bonus_id=566" + "\n"
-	text += "chest=,id=115548,bonus_id=566" + "\n"
-	text += "wrists=,id=113968,bonus_id=566" + "\n"
-	text += "hands=,id=113593,bonus_id=567" + "\n"
-	text += "waist=,id=113955,bonus_id=566" + "\n"
-	text += "legs=,id=115546,bonus_id=566" + "\n"
-	text += "feet=,id=113954,bonus_id=566" + "\n"
-	text += "finger1=,id=118302" + "\n"
-	text += "finger2=,id=113611,bonus_id=567" + "\n"
-	text += "trinket1=,id=118114,bonus_id=566" + "\n"
-	text += "trinket2=,id=113931,bonus_id=566" + "\n"
-	text += "main_hand=,id=113652,bonus_id=561/566" + "\n"
-	text += "summon_pet=cat" + "\n"
-	
-	
-	$("#output").html("");
-	$("#output").html(text);
+var httpRequest;
+if (window.XMLHttpRequest) { // Mozilla, Safari, IE7+ ...
+    httpRequest = new XMLHttpRequest();
+	alert("test");
+} else if (window.ActiveXObject) { // IE 6 and older
+    httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
 }
 
+httpRequest.onreadystatechange = function(){
+    if (httpRequest.readyState === 4) {
+		alert(httpRequest.status)
+		if (httpRequest.status === 200) {
+			alert("perfecct")
+		} else {
+			alert("perfecct2")
+		// there was a problem with the request,
+		// for example the response may contain a 404 (Not Found)
+		// or 500 (Internal Server Error) response code
+		}
+    // everything is good, the response is received
+	} else {
+    // still not ready
+	}
+};
 
-</script></body></html>
+httpRequest.open("GET", "www.google.pl", true);
+httpRequest.send(null);
+
+</script>
+<title>tutorialspoint.com JSON</title>
+</head>
+<body>
+<h1>Cricketer Details</h1>
+<table class="src">
+<tr><th>Name</th><th>Country</th></tr>
+<tr><td><div id="Name">Sachin</div></td>
+<td><div id="Country">India</div></td></tr>
+</table>
+
+<div class="central">
+<button type="button" onclick="loadJSON()">Update Details </button>
+</body>
+</html>
