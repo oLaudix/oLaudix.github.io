@@ -7,52 +7,20 @@
 <script type="application/javascript">
 
 // Create the XHR object.
-function createCORSRequest(method, url) {
-  var xhr = new XMLHttpRequest();
-  if ("withCredentials" in xhr) {
-    // XHR for Chrome/Firefox/Opera/Safari.
-    xhr.open(method, url, true);
-  } else if (typeof XDomainRequest != "undefined") {
-    // XDomainRequest for IE.
-    xhr = new XDomainRequest();
-    xhr.open(method, url);
-  } else {
-    // CORS not supported.
-    xhr = null;
-  }
-  return xhr;
-}
+function getSite(){
+            $.ajax({                
+                url: "http://eu.battle.net/api/wow/character/Draenor/Inaire?fields=titles&jsonp=GoGet",
+                type: 'GET',
+                dataType: 'jsonp',
+                });
+            }
 
-// Helper method to parse the title tag from the response.
-function getTitle(text) {
-  return text.match('<title>(.*)?</title>')[1];
-}
 
-// Make the actual CORS request.
-function makeCorsRequest() {
-  // All HTML5 Rocks properties support CORS.
-  var url = "http://eu.battle.net/api/wow/character/Draenor/Inaire?fields=titles&jsonp=GoGet";
+        function GoGet(data) {
+		alert(data.titles.name)
 
-  var xhr = createCORSRequest('GET', url);
-  if (!xhr) {
-    alert('CORS not supported');
-    return;
-  }
-
-  // Response handlers.
-  xhr.onload = function() {
-    var text = xhr.responseText;
-	//alert(responseText)
-    var title = getTitle(text);
-    alert('Response from CORS request to ' + url + ': ' + title);
-  };
-
-  xhr.onerror = function() {
-    alert('Woops, there was an error making the request.');
-  };
-
-  xhr.send();
-}
+            $("#title").html(data.titles.name)              
+        ;}
 
 </script>
 <title>tutorialspoint.com JSON</title>
@@ -66,6 +34,7 @@ function makeCorsRequest() {
 </table>
 
 <div class="central">
-<button type="button" onclick="makeCorsRequest()">Update Details </button>
+<button type="button" onclick="getSite()">Update Details </button>
+<div id="title"></div>
 </body>
 </html>
