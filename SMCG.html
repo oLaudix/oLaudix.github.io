@@ -1,35 +1,58 @@
 <html>
 <head>
+<link rel="stylesheet" href="DarkTip.all.min.css"
+	type="text/css" media="screen" />
+<script type="text/javascript" src="DarkTip.all.js"></script>
 <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
 <script type="application/javascript">
 
-var httpRequest;
-if (window.XMLHttpRequest) { // Mozilla, Safari, IE7+ ...
-    httpRequest = new XMLHttpRequest();
-	alert("test");
-} else if (window.ActiveXObject) { // IE 6 and older
-    httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
+// Create the XHR object.
+function createCORSRequest(method, url) {
+  var xhr = new XMLHttpRequest();
+  if ("withCredentials" in xhr) {
+    // XHR for Chrome/Firefox/Opera/Safari.
+    xhr.open(method, url, true);
+  } else if (typeof XDomainRequest != "undefined") {
+    // XDomainRequest for IE.
+    xhr = new XDomainRequest();
+    xhr.open(method, url);
+  } else {
+    // CORS not supported.
+    xhr = null;
+  }
+  return xhr;
 }
 
-httpRequest.onreadystatechange = function(){
-    if (httpRequest.readyState === 4) {
-		alert(httpRequest.status)
-		if (httpRequest.status === 200) {
-			alert("perfecct")
-		} else {
-			alert("perfecct2")
-		// there was a problem with the request,
-		// for example the response may contain a 404 (Not Found)
-		// or 500 (Internal Server Error) response code
-		}
-    // everything is good, the response is received
-	} else {
-    // still not ready
-	}
-};
+// Helper method to parse the title tag from the response.
+function getTitle(text) {
+  return text.match('<title>(.*)?</title>')[1];
+}
 
-httpRequest.open("GET", "http://olaudix.github.io/SMCG.html", true);
-httpRequest.send(null);
+// Make the actual CORS request.
+function makeCorsRequest() {
+  // All HTML5 Rocks properties support CORS.
+  var url = "http://raffy.antistupid.com/wow/items.php?id=94532";
+
+  var xhr = createCORSRequest('GET', url);
+  if (!xhr) {
+    alert('CORS not supported');
+    return;
+  }
+
+  // Response handlers.
+  xhr.onload = function() {
+    var text = xhr.responseText;
+	//alert(responseText)
+    var title = getTitle(text);
+    alert('Response from CORS request to ' + url + ': ' + title);
+  };
+
+  xhr.onerror = function() {
+    alert('Woops, there was an error making the request.');
+  };
+
+  xhr.send();
+}
 
 </script>
 <title>tutorialspoint.com JSON</title>
@@ -43,6 +66,7 @@ httpRequest.send(null);
 </table>
 
 <div class="central">
-<button type="button" onclick="loadJSON()">Update Details </button>
+<button type="button" onclick="makeCorsRequest()">Update Details </button>
+<a href="http://eu.battle.net/wow/en/item/60288">&lt;a href="http://eu.battle.net/wow/en/item/60288"&gt;</a>
 </body>
 </html>
