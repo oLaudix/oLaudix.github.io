@@ -31,7 +31,7 @@ function getTitle(text) {
 // Make the actual CORS request.
 function makeCorsRequest() {
   // All HTML5 Rocks properties support CORS.
-  var url = "http://eu.battle.net/api/wow/character/server/character?fields=titles&jsonp=GoGet";
+  var url = "http://eu.battle.net/api/wow/character/Draenor/Inaire?fields=titles&jsonp=GoGet";
 
   var xhr = createCORSRequest('GET', url);
   if (!xhr) {
