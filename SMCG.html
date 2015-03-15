@@ -4,23 +4,51 @@
 	type="text/css" media="screen" />
 <script type="text/javascript" src="DarkTip.all.js"></script>
 <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+
 <script type="application/javascript">
 
 // Create the XHR object.
-function getSite(){
-            $.ajax({                
-                url: "http://eu.battle.net/api/wow/character/Draenor/Inaire?fields=titles&jsonp=GoGet",
-                type: 'GET',
-                dataType: 'jsonp',
-                });
-            }
+//var data_file = "http://www.tutorialspoint.com/json/data.json";
+function loadJSON()
+{
+   var data_file = "http://www.tutorialspoint.com/json/data.json";
+   var http_request = new XMLHttpRequest();
+   try{
+      // Opera 8.0+, Firefox, Chrome, Safari
+      http_request = new XMLHttpRequest();
+   }catch (e){
+      // Internet Explorer Browsers
+      try{
+         http_request = new ActiveXObject("Msxml2.XMLHTTP");
+      }catch (e) {
+         try{
+            http_request = new ActiveXObject("Microsoft.XMLHTTP");
+         }catch (e){
+            // Something went wrong
+            alert("Your browser broke!");
+            return false;
+         }
+      }
+   }
+   http_request.onreadystatechange  = function(){
+      if (http_request.readyState == 4  )
+      {
+	  alert(http_request)
+	  alert(http_request.responseText)
+        // Javascript function JSON.parse to parse JSON data
+		//alert(http_request.responseText)
+        var jsonObj = JSON.parse(http_request.responseText);
+		
 
-
-        function GoGet(data) {
-		alert(data.titles.name)
-
-            $("#title").html(data.titles.name)              
-        ;}
+        // jsonObj variable now contains the data structure and can
+        // be accessed as jsonObj.name and jsonObj.country.
+        document.getElementById("Name").innerHTML =  jsonObj.name;
+        document.getElementById("Country").innerHTML = jsonObj.country;
+      }
+   }
+   http_request.open("GET", data_file, true);
+   http_request.send(null);
+}   
 
 </script>
 <title>tutorialspoint.com JSON</title>
@@ -34,7 +62,7 @@ function getSite(){
 </table>
 
 <div class="central">
-<button type="button" onclick="getSite()">Update Details </button>
+<button type="button" onclick="loadJSON()">Update Details </button>
 <div id="title"></div>
 </body>
 </html>
