@@ -9,9 +9,12 @@
 
 // Create the XHR object.
 //var data_file = "http://www.tutorialspoint.com/json/data.json";
-function loadJSON()
+var itemIDS = [];
+var z = 0;
+function loadJSON(item)
 {
-   var data_file = "http://www.tutorialspoint.com/json/data.json";
+   var data_file = "http://www.wowhead.com/item="+ item +"&xml";
+   //alert(items[x])
    var http_request = new XMLHttpRequest();
    try{
       // Opera 8.0+, Firefox, Chrome, Safari
@@ -30,25 +33,52 @@ function loadJSON()
          }
       }
    }
+   http_request.open("GET", data_file, true);
+   http_request.send(null);
+
+   function getItemID(item)
+   {
+		var result = item.substring(item.indexOf("item=") + 5)
+		return result;
+   }
+   
    http_request.onreadystatechange  = function(){
       if (http_request.readyState == 4  )
       {
-	  alert(http_request)
-	  alert(http_request.responseText)
+	  xmlDoc=http_request.responseXML;
+		txt="";
+		itemid=""
+		x=xmlDoc.getElementsByTagName("subclass");
+		for (i=0;i<x.length;i++)
+		{
+			txt=txt + x[i].childNodes[0].nodeValue + "<br>";
+		}
+		x=xmlDoc.getElementsByTagName("link");
+		for (i=0;i<x.length;i++)
+		{
+			itemid=itemid + getItemID(x[i].childNodes[0].nodeValue);
+		}
+		//document.getElementById("output").innerHTML=txt + "<br>";
+		$("#output").append("<a href=\"http://www.wowhead.com/item=" + itemid + "\">\"http://www.wowhead.com/item=" + itemid + "\"</a> " + z +"<br>");
         // Javascript function JSON.parse to parse JSON data
 		//alert(http_request.responseText)
-        var jsonObj = JSON.parse(http_request.responseText);
 		
+		//$("#output").html("");
+		//$("#output").html(http_request.responseXML);
 
         // jsonObj variable now contains the data structure and can
         // be accessed as jsonObj.name and jsonObj.country.
-        document.getElementById("Name").innerHTML =  jsonObj.name;
-        document.getElementById("Country").innerHTML = jsonObj.country;
+        //document.getElementById("title").innerHTML =  http_request.responseText;
       }
    }
-   http_request.open("GET", data_file, true);
-   http_request.send(null);
+   z += 1;
 }   
+
+function clicks(items)
+{
+	//for (x = 0; x < items.length; x++) { loadJSON(items[x]) } 
+	for (x = 113891; x < 113950; x++) { loadJSON(x) }
+}
 
 </script>
 <title>tutorialspoint.com JSON</title>
@@ -62,7 +92,7 @@ function loadJSON()
 </table>
 
 <div class="central">
-<button type="button" onclick="loadJSON()">Update Details </button>
-<div id="title"></div>
+<button type="button" onclick="clicks([113891,113892,113893])">Update Details </button>
+<div id="output"></div>
 </body>
 </html>
