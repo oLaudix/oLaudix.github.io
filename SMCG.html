@@ -146,7 +146,7 @@ function loadJSON(item)
 		{
 			item = item + x[i].childNodes[0].nodeValue;
 		}
-		var result = item;
+		var result = item.replace(/"/g, "");
 		return result;
    }
    
@@ -204,8 +204,15 @@ function loadJSON(item)
 		var x=xmlDoc.getElementsByTagName("inventorySlot");
 		for (i=0;i<x.length;i++)
 		{
-			if (!typeof x[i].childNodes[0] === "undefined")
-			{item = item + x[i].childNodes[0].nodeValue;}
+			alert(typeof x[i].childNodes[0])
+			if (typeof x[i].childNodes[0] === "undefined")
+			{
+
+			}
+			else
+			{
+				item = item + x[i].childNodes[0].nodeValue;
+			}
 		}
 		var result = item;
 		return result;
@@ -231,7 +238,7 @@ function loadJSON(item)
 		{
 			item = item + x[i].childNodes[0].nodeValue;
 		}
-		var result = item.replace(/"/g, "");;
+		var result = item.replace(/"/g, "");
 		return result;
    }
    
@@ -251,7 +258,8 @@ function loadJSON(item)
 													"json: \"" + getItemJsonEquip(xmlDoc) + "\", " + 
 													"link: \"" + getItemLink(xmlDoc) + "\"}, " + 											
 													"\n");
-		}										
+		}
+													
       }
    }
 }   
@@ -296,6 +304,7 @@ function testButton(g)
 
 function clicks(items)
 {
+	//for (x = 0; x < items.length; x++) { loadJSON(items[x]) }
 	$("#output").html("")	
 	$("#output2").html("")
 	current = 0;
