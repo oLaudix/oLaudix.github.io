@@ -1,14 +1,104 @@
+<!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="DarkTip.all.min.css"
-	type="text/css" media="screen" />
-<script type="text/javascript" src="DarkTip.all.js"></script>
-<meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+<link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-1.16.0.css">
+<link rel="stylesheet" href="bootstrap.min.css">
+<link rel="stylesheet" href="custom.css">
+<title>Simulation Craft Stuff</title>
+
+<script type="text/javascript" src="http://static.wowhead.com/widgets/power.js"></script><script>var wowhead_tooltips = { "colorlinks": true, "iconizelinks": true, "renamelinks": true }</script>
+
+  <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
+</head>
+<body>
+	<div style="float: left; width: 180px;">
+		<ul class="nav nav-tabs nav-stacked">
+			<li><a href=".">Home</a></li>
+			<li><a href="TTcalc.html">Tap Titans Calculator</a></li>
+			<li><a href="stuff.html">Tap Titans usefull stuff</a></li>
+			<li><a href="MCcalc.html">Mine Clicker Calculator</a></li>
+			<li><a href="SMCG.html">Simulation Craft Stuff</a></li>
+		</ul>
+	</div>
+	<div class="wrapper" style="display: inline-block;">
+		<div style="width: 500px; display: inline-block; vertical-align: top;">
+			<div class="panel panel-primary">
+				<div class="panel-heading">Save panel</div>
+				<div class="panel-body">
+					<textarea id="output" style="width: 100%; height: 50px"></textarea>
+					<div style="margin-top: 10px;">
+						<button type="button" onclick="clicks([113891,113892,113893])" class="btn btn-default">Generate</button>
+						<button type="testbutton" onclick="testButton(1048)" class="btn btn-default">Test Button</button>
+					</div>
+					<div>From: <input type="text" id="from" value="0"><br></div>
+					<div>To: <input type="text" id="to" value="1"></div>
+					<div id="startend">123858 - highest Item ID as for 6.1 (16/03/2015)<div>
+				</div>
+			</div>
+		</div>
+		<div id="output2" class="panel-body"></div>
+	</div>
+  
+  
+<script type="text/javascript" src="jquery-latest.min.js"></script>
+<script type="text/javascript" src="bootstrap.min.js"></script>
+<script src="wowdb.js"></script>
 
 <script type="application/javascript">
+//<button type="button" onclick="clicks([113891,113892,113893])" class="btn btn-default">Generate</button>
+function Generate()
+{
+	var url = "http://www.wowhead.com/item=113954/railwalkers-ratcheted-boots&bonus=0"
+	var text = "";	
+	text += "hunter=\"Current Gear\"" + "\n"
+	text += "origin=\"https://eu.api.battle.net/wow/character/draenor/Inaire/advanced\"" + "\n"
+	text += "thumbnail=\"http://eu.battle.net/static-render/eu/gnomeregan/45/87701037-avatar.jpg\"" + "\n"
+	text += "level=100" + "\n"
+	text += "race=blood_elf" + "\n"
+	text += "role=attack" + "\n"
+	text += "position=ranged_back" + "\n"
+	text += "professions=engineering=700/enchanting=710" + "\n"
+	text += "talents=http://eu.battle.net/wow/en/tool/talent-calculator#Ya!0021222" + "\n"
+	text += "glyphs=animal_bond/deterrence/tranquilizing_shot/lesser_proportion/play_dead/stampede" + "\n"
+	text += "spec=beast_mastery" + "\n"
+	text += "head=,id=115545,bonus_id=566" + "\n"
+	text += "neck=,id=113647,bonus_id=564/566" + "\n"
+	text += "shoulders=,id=115547,bonus_id=564/566" + "\n"
+	text += "back=,id=113929,bonus_id=566" + "\n"
+	text += "chest=,id=115548,bonus_id=566" + "\n"
+	text += "wrists=,id=113968,bonus_id=566" + "\n"
+	text += "hands=,id=113593,bonus_id=567" + "\n"
+	text += "waist=,id=113955,bonus_id=566" + "\n"
+	text += "legs=,id=115546,bonus_id=566" + "\n"
+	text += "feet=,id=113954,bonus_id=566" + "\n"
+	text += "finger1=,id=118302" + "\n"
+	text += "finger2=,id=113611,bonus_id=567" + "\n"
+	text += "trinket1=,id=118114,bonus_id=566" + "\n"
+	text += "trinket2=,id=113931,bonus_id=566" + "\n"
+	text += "main_hand=,id=113652,bonus_id=561/566" + "\n"
+	text += "summon_pet=cat" + "\n"
+	
+	var text2 = "";
+	for (x=0; x < 6; x++)
+	{
+		text2 += "<a href=\"http://wod.wowhead.com/item=113954\" rel=\"bonus=" + bonus_ids[x] + "\">link</a>" + "<br>"
+	}
+	
+	
+	
+	
+	$("#output").html("");
+	$("#output").html(text);
+	$("#output2").html("");
+	//$("#output2").html(headlinks);
+	//$("#output2").html(url.substring(url.lastIndexOf("/") + 1, url.indexOf("&")) + " " + url.match(/[0-9]+/g));
 
-// Create the XHR object.
-//var data_file = "http://www.tutorialspoint.com/json/data.json";
+	$("#div").load("http://www.wowhead.com/item=113954/railwalkers-ratcheted-boots&bonus=0", function() {
+	alert("test")
+  $(this).find(".class").remove(); //just an example
+});
+}
+
 var itemIDS = [];
 var z = 0;
 function loadJSON(item)
@@ -36,9 +126,112 @@ function loadJSON(item)
    http_request.open("GET", data_file, true);
    http_request.send(null);
 
-   function getItemID(item)
-   {
+   function getItemID(xmlDoc)
+   {	
+		var item = "";
+		var x=xmlDoc.getElementsByTagName("link");
+		for (i=0;i<x.length;i++)
+		{
+			item = item + x[i].childNodes[0].nodeValue;
+		}
 		var result = item.substring(item.indexOf("item=") + 5)
+		return result;
+   }
+   
+   function getItemName(xmlDoc)
+   {	
+		var item = "";
+		var x=xmlDoc.getElementsByTagName("name");
+		for (i=0;i<x.length;i++)
+		{
+			item = item + x[i].childNodes[0].nodeValue;
+		}
+		var result = item;
+		return result;
+   }
+   
+   function getItemLevel(xmlDoc)
+   {	
+		var item = "";
+		var x=xmlDoc.getElementsByTagName("level");
+		for (i=0;i<x.length;i++)
+		{
+			item = item + x[i].childNodes[0].nodeValue;
+		}
+		var result = item;
+		return result;
+   }
+   
+   function getItemClass(xmlDoc)
+   {	
+		var item = "";
+		var x=xmlDoc.getElementsByTagName("class");
+		for (i=0;i<x.length;i++)
+		{
+			item = item + x[i].childNodes[0].nodeValue;
+		}
+		var result = item;
+		return result;
+   }
+   
+   function getItemSubclass(xmlDoc)
+   {	
+		var item = "";
+		var x=xmlDoc.getElementsByTagName("subclass");
+		for (i=0;i<x.length;i++)
+		{
+			item = item + x[i].childNodes[0].nodeValue;
+		}
+		var result = item;
+		return result;
+   }
+   
+   function getItemIcon(xmlDoc)
+   {	
+		var item = "";
+		var x=xmlDoc.getElementsByTagName("icon");
+		for (i=0;i<x.length;i++)
+		{
+			item = item + x[i].childNodes[0].nodeValue;
+		}
+		var result = item;
+		return result;
+   }
+   
+   function getItemInventorySlot(xmlDoc)
+   {	
+		var item = "";
+		var x=xmlDoc.getElementsByTagName("inventorySlot");
+		for (i=0;i<x.length;i++)
+		{
+			if (!typeof x[i].childNodes[0] === "undefined")
+			{item = item + x[i].childNodes[0].nodeValue;}
+		}
+		var result = item;
+		return result;
+   }
+   
+   function getItemLink(xmlDoc)
+   {	
+		var item = "";
+		var x=xmlDoc.getElementsByTagName("link");
+		for (i=0;i<x.length;i++)
+		{
+			item = item + x[i].childNodes[0].nodeValue;
+		}
+		var result = item;
+		return result;
+   }
+      
+   function getItemJsonEquip(xmlDoc)
+   {	
+		var item = "";
+		var x=xmlDoc.getElementsByTagName("jsonEquip");
+		for (i=0;i<x.length;i++)
+		{
+			item = item + x[i].childNodes[0].nodeValue;
+		}
+		var result = item.replace(/"/g, "");;
 		return result;
    }
    
@@ -46,53 +239,79 @@ function loadJSON(item)
       if (http_request.readyState == 4  )
       {
 	  xmlDoc=http_request.responseXML;
-		txt="";
-		itemid=""
-		x=xmlDoc.getElementsByTagName("subclass");
-		for (i=0;i<x.length;i++)
+		current += 1;
+		$("#output2").html("Item " + item + " done!<br>" + parseInt((current*100)/(end - start)) + "% done!<br>");
+		if (getItemName(xmlDoc).length > 0)
 		{
-			txt=txt + x[i].childNodes[0].nodeValue + "<br>";
-		}
-		x=xmlDoc.getElementsByTagName("link");
-		for (i=0;i<x.length;i++)
-		{
-			itemid=itemid + getItemID(x[i].childNodes[0].nodeValue);
-		}
-		//document.getElementById("output").innerHTML=txt + "<br>";
-		$("#output").append("<a href=\"http://www.wowhead.com/item=" + itemid + "\">\"http://www.wowhead.com/item=" + itemid + "\"</a> " + z +"<br>");
-        // Javascript function JSON.parse to parse JSON data
-		//alert(http_request.responseText)
-		
-		//$("#output").html("");
-		//$("#output").html(http_request.responseXML);
-
-        // jsonObj variable now contains the data structure and can
-        // be accessed as jsonObj.name and jsonObj.country.
-        //document.getElementById("title").innerHTML =  http_request.responseText;
+			$("#output").append(item + ": {name: \"" + getItemName(xmlDoc) + "\", " + 
+													"level: \"" + getItemLevel(xmlDoc) + "\", " + 
+													"type: \"" + getItemSubclass(xmlDoc) + "\", " + 
+													"slot: \"" + getItemInventorySlot(xmlDoc) + "\", " + 
+													"icon: \"" + getItemIcon(xmlDoc) + "\", " + 
+													"json: \"" + getItemJsonEquip(xmlDoc) + "\", " + 
+													"link: \"" + getItemLink(xmlDoc) + "\"}, " + 											
+													"\n");
+		}										
       }
    }
-   z += 1;
 }   
+
+function cacheCheck(itemID)
+{
+		return HeroInfo.hasOwnProperty(itemID)
+}
+
+var start = 0;
+var end = 0;
+var current = 0;
+var max = 0;
+
+$( "#from" ).change(function() {
+	setStartEnd()
+});
+
+$( "#to" ).change(function() {
+	setStartEnd()
+});
+
+function setStartEnd()
+{
+	start = parseInt($("#from").val())
+	end = parseInt($("#to").val())
+	$("#startend").html("From: " + start + " to: " + end)
+}
+
+function testButton(g)
+{
+	$("#output2").html("")
+	var heroList = [];
+	for (var k in HeroInfo) {
+  if (HeroInfo.hasOwnProperty(k)) {
+    heroList.push(k);
+	//alert(Heroes['solomon'].name);
+  }
+}
+	$("#output2").html(HeroInfo[17].name)
+}
 
 function clicks(items)
 {
-	//for (x = 0; x < items.length; x++) { loadJSON(items[x]) } 
-	for (x = 113891; x < 113950; x++) { loadJSON(x) }
+	$("#output").html("")	
+	$("#output2").html("")
+	current = 0;
+	for (x = start; x <= end; x++) 
+	{
+		if (!cacheCheck(x)) 
+		{ 
+			//alert(x + " doesnt exist")
+			loadJSON(x);			
+		}
+		else
+		{
+			current += 1;
+		}
+	}
+	$("#output2").append("Done!")
 }
 
-</script>
-<title>tutorialspoint.com JSON</title>
-</head>
-<body>
-<h1>Cricketer Details</h1>
-<table class="src">
-<tr><th>Name</th><th>Country</th></tr>
-<tr><td><div id="Name">Sachin</div></td>
-<td><div id="Country">India</div></td></tr>
-</table>
-
-<div class="central">
-<button type="button" onclick="clicks([113891,113892,113893])">Update Details </button>
-<div id="output"></div>
-</body>
-</html>
+</script></body></html>
