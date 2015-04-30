@@ -1,0 +1,4 @@
+var gearInfo = [
+{name: "Current gear", head: ["115545", "heroic", ""], neck: ["115545", "heroic", ""], shoulder: ["115545", "heroic", ""], back: ["115545", "heroic", ""], chest: ["115545", "heroic", ""], wrist: ["115545", "heroic", ""], hands: ["115545", "heroic", ""], waist: ["115545", "heroic", ""], legs: ["115545", "heroic", ""], feet: ["115545", "heroic", ""], finger1: ["115545", "heroic", ""], finger2: ["115545", "heroic", ""], trinket1: ["115545", "heroic", ""], trinket2: ["115545", "heroic", ""], weapon: ["115545", "heroic", ""]}
+];
+//http://eu.battle.net/api/wow/character/Draenor/Inaire?fields=items
