@@ -19,16 +19,89 @@
 		</ul>
 	</div>
 	<div class="wrapper" style="display: inline-block;">
+		<div class="panel panel-primary" style="float: left; width: 498px; display: inline-block; margin-right: 4px">
+			<div class="panel-heading">THORP</div>
+			<div class="panel-body">
+				<div id="thorpoutput" style="width: 100%"></div>
+				<div style="margin-top: 10px;">
+				<button type="button" onclick="CalcThorp()" class="btn btn-default">Update</button><input id="thorppop" type="text" value="10000000" style="margin-left: 10px"></input>
+			</div>
+			</div>
+		</div>
+		
+		<div class="panel panel-primary" style="float: left; width: 498px; display: inline-block; margin-right: 4px">
+			<div class="panel-heading">HAMLET</div>
+			<div class="panel-body">
+				<div id="hamletoutput" style="width: 100%"></div>
+				<div style="margin-top: 10px;">
+				<button type="button" onclick="CalcHamlet()" class="btn btn-default">Update</button><input id="hamletpop" type="text" value="10000000" style="margin-left: 10px"></input>
+			</div>
+			</div>
+		</div>
+		
+		<div class="panel panel-primary" style="float: left; width: 498px; display: inline-block;">
+			<div class="panel-heading">VILLAGE</div>
+			<div class="panel-body">
+				<div id="villageoutput" style="width: 100%"></div>
+				<div style="margin-top: 10px;">
+				<button type="button" onclick="CalcVillage()" class="btn btn-default">Update</button><input id="villagepop" type="text" value="10000000" style="margin-left: 10px"></input>
+			</div>
+			</div>
+		</div>
+		
+		<div class="panel panel-primary" style="float: left; width: 498px; display: inline-block; margin-right: 4px">
+			<div class="panel-heading">SUBURB</div>
+			<div class="panel-body">
+				<div id="suburboutput" style="width: 100%"></div>
+				<div style="margin-top: 10px;">
+				<button type="button" onclick="CalcSuburb()" class="btn btn-default">Update</button><input id="suburbpop" type="text" value="10000000" style="margin-left: 10px"></input>
+			</div>
+			</div>
+		</div>
+		
 	</div>
   
   
 <script type="text/javascript" src="jquery-latest.min.js"></script>
 <script type="text/javascript" src="bootstrap.min.js"></script>
-<script src="common.js"></script>
 <script src="CivCrafter.js"></script>
 
 <script language="javascript">/* Write JavaScript here */
 //$(window).load(function start(){
+//$("#thorpoutput").html(CalcCiv(parseInt($("#thorppop").val()),civs[0]))
+$("#thorpoutput").html(clearCiv(civs[0]))
+$("#hamletoutput").html(clearCiv(civs[1]))
+$("#villageoutput").html(clearCiv(civs[2]))
+$("#suburboutput").html(clearCiv(civs[3]))
+	
+function CalcThorp()
+{
+	$("#thorpoutput").html("")
+	$("#thorpoutput").append(CalcCiv(parseInt($("#thorppop").val()),civs[0]))
+	//for (var a = 0; a < civs.length; a++)
+	//{
+	//	$("#thorpoutput").append(CalcCiv(parseInt($("#thorppop").val()),civs[a]))
+	//}
+}
+
+function CalcHamlet()
+{
+	$("#hamletoutput").html("")
+	$("#hamletoutput").append(CalcCiv(parseInt($("#hamletpop").val()),civs[1]))
+}
+
+
+function CalcVillage()
+{
+	$("#villageoutput").html("")
+	$("#villageoutput").append(CalcCiv(parseInt($("#villagepop").val()),civs[2]))
+}
+
+function CalcSuburb()
+{
+	$("#suburboutput").html("")
+	$("#suburboutput").append(CalcCiv(parseInt($("#suburbpop").val()),civs[3]))
+}
 
 
 </script></body></html>

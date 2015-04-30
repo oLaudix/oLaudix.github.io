@@ -798,7 +798,7 @@ function numberFormat(number)
 
 
 $( "input[type=text]" ).focusout(function() {
-	alert("test");
+	//alert("test");
 	for (var a = 0; a < 30; a++)
 	{
 		printHeroInfo(HeroInfo[heroList[a]]);
