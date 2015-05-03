@@ -20,30 +20,82 @@
 		</ul>
 	</div>	
 	<div class="wrapper" style="display: inline-block;">
-		<div class="panel panel-primary" style="float: left; width: 498px; display: inline-block; margin-right: 4px">
+		<div class="panel panel-danger">
+			<div class="panel-heading"></div>
+			<div class="panel-body" style="margin-top: 10px;">
+				<p align="center">
+				Last Update: 03/05/2015 10:00
+				<!-- If the calculator asks you to upgrade hero to level when you can buy a skill, it usually means it also wants you to buy it. -->	
+				</p>
+			</div>
+		</div>
+		<div class="panel panel-primary" style="float: left; width: 500px; display: inline-block; margin-right: 4px">
 			<div class="panel-heading">What to Farm</div>
 			<div class="panel-body">
-				<div style="margin-top: 10px;">
+				<div>
+					<button type="button" onclick="reset()" class="btn btn-primary" style="float: right;">Reset</button>
 					Attack:<input id="attack" type="text" value="1" style="margin-left: 10px"></input>
 				</div>
 				<div id="attackoutput" style="width: 100%; margin-top: 10px;"></div>
 			</div>
-		</div>		
-	</div>
-  
+		</div>
+		<div role="tabpanel" style="width: 1000px; display: inline-block; vertical-align: top;">
+			<ul class="nav nav-tabs" role="tablist">
+				<li role="presentation" class="active"><a href="#attackskills" aria-controls="attackskills" role="tab" data-toggle="tab">Attack Skills</a></li>
+				<li role="presentation"><a href="#defence" aria-controls="defence" role="tab" data-toggle="tab">Defence Skills</a></li>
+				<li role="presentation"><a href="#health" aria-controls="health" role="tab" data-toggle="tab">Health Skills</a></li>
+			</ul>
+			<div class="tab-content">
+				<div role="tabpanel" class="tab-pane active" id="attackskills"><div> &nbsp </div>
+					<table id="attacktbl" class="table table-striped">
+						<tbody><tr><th width="25%">Name</th><th width="20%">Skills</th><th width="15%">Upgrade Cost</th><th width="15%">Damage</th width="20%"><th>+ Damage</th><th width="5%">Level</th></tr>
+						</tbody>
+					</table>
+				</div>
+				<div role="tabpanel" class="tab-pane" id="defence"><div> &nbsp </div>
+					<table id="defencetbl" class="table table-striped">
+						<tbody><tr><th width="25%">Name</th><th width="20%">Skills</th><th width="15%">Upgrade Cost</th><th width="15%">Damage</th width="20%"><th>+ Damage</th><th width="5%">Level</th></tr>
+						</tbody>
+					</table>
+					<div id="playerdata">
+					</div>
+				</div>
+				<div role="tabpanel" class="tab-pane" id="health"><div> &nbsp </div>
+					<table id="healthtbl" class="table table-striped">
+						<tbody><tr><th width="25%">Name</th><th width="20%">Skills</th><th width="15%">Upgrade Cost</th><th width="15%">Damage</th width="20%"><th>+ Damage</th><th width="5%">Level</th></tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<button type="button" onclick="UpdateTables()" class="btn btn-default">Update Tables</button>
+		</div>
+	</div>  
   
 <script type="text/javascript" src="jquery-latest.min.js"></script>
 <script type="text/javascript" src="bootstrap.min.js"></script>
 <script src="ShonenIdle.js"></script>
 
 <script language="javascript">/* Write JavaScript here */
+//<button type="button" onclick="saveData()" class="btn btn-default">Save</button><button type="button" onclick="loadData()" class="btn btn-default">Load</button>
 //$(window).load(function start(){
 //$("#thorpoutput").html(CalcCiv(parseInt($("#thorppop").val()),civs[0]))
-
-
+//focusout
 $( "input[type=text]" ).focusout(function() {
 	//alert("test");
 	//$("#output").html("");
 	CalcMonster()
+	saveData()
 });
+
+loadData();
+skillInfoCalcs();
+createTable();
+
+function reset()
+{
+	$("#attack").val(1)
+	CalcMonster();
+	saveData();
+	//$("#"+(skillsInfo[2].name)+"").css("backgroundColor", "");
+}
 </script></body></html>
