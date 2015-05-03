@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-1.16.0.css">
+<link rel="stylesheet" href="bootstrap.min.css">
+<link rel="stylesheet" href="custom.css">
+<title>My Page</title>
+  <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
+</head>
+<body>
+	<div style="float: left; width: 180px;">
+		<ul class="nav nav-tabs nav-stacked">
+			<li><a href=".">Home</a></li>
+			<li><a href="TTcalc.html">Tap Titans Calculator</a></li>
+			<li><a href="stuff.html">Tap Titans usefull stuff</a></li>
+			<li><a href="MCcalc.html">Mine Clicker Calculator</a></li>
+			<li><a href="SMCG.html">Simulation Craft Stuff</a></li>
+			<li><a href="CivCrafter.html">Civ Crafter Stuff</a></li>
+			<li><a href="ShonenIdle.html">Shonen Idle Stuff</a></li>
+		</ul>
+	</div>	
+	<div class="wrapper" style="display: inline-block;">
+		<div class="panel panel-primary" style="float: left; width: 498px; display: inline-block; margin-right: 4px">
+			<div class="panel-heading">What to Farm</div>
+			<div class="panel-body">
+				<div style="margin-top: 10px;">
+					<button type="button" onclick="CalcMonster()" class="btn btn-default">Update</button><input id="attack" type="text" value="1" style="margin-left: 10px"></input>
+				</div>
+				<div id="attackoutput" style="width: 100%; margin-top: 10px;"></div>
+			</div>
+		</div>		
+	</div>
+  
+  
+<script type="text/javascript" src="jquery-latest.min.js"></script>
+<script type="text/javascript" src="bootstrap.min.js"></script>
+<script src="ShonenIdle.js"></script>
+
+<script language="javascript">/* Write JavaScript here */
+//$(window).load(function start(){
+//$("#thorpoutput").html(CalcCiv(parseInt($("#thorppop").val()),civs[0]))
+var MonsterNames = ["Snail"]
+function CalcMonster()
+{
+	$("#attackoutput").html("")
+	var heroAttack = parseInt($("#attack").val())
+	var bestMonster = 0
+	var mAttack = 0
+	var mDefence = 0
+	var mHp = 0
+	var mKi = 0
+	var mEff = 0
+	while (bestMonster < 99999999999)
+	{
+		if (calcEff(bestMonster) >= calcEff(bestMonster+1))
+		{
+			var text = ""
+			text += MonsterNames[0] + " " + bestMonster + "<br>"
+			text += " - Attack: " + calcAtt(bestMonster) + "<br>"
+			text += " - Defence: " + calcDef(bestMonster) + "<br>"
+			text += " - Health: " + calcHp(bestMonster) + "<br>"
+			text += " - Ki Reward: " + calcKi(bestMonster) + "<br>"
+			text += " - Efficiency: " + (Math.round(calcEff(bestMonster)*100))/100 + "<br>"
+			$("#attackoutput").append(text)
+			return
+		}
+		bestMonster = bestMonster + 1;
+	}
+}
+
+function calcAtt(level)
+{
+	return Math.floor(1*(Math.pow(1.8,level)))
+}
+
+function calcDef(level)
+{
+	return Math.floor(1*(Math.pow(1.65,level)))
+}
+
+function calcHp(level)
+{
+	return Math.floor(100*(Math.pow(1.5,level)))
+}
+
+function calcKi(level)
+{
+	return Math.floor(150*(Math.pow(1.55,level)))
+}
+
+function calcEff(level)
+{
+	return calcKi(level)/(0.25+(calcHp(level)/(parseInt($("#attack").val())-calcDef(level))))
+}
+
+$( "input[type=text]" ).focusout(function() {
+	//alert("test");
+	//$("#output").html("");
+	CalcMonster()
+});
+</script></body></html>
