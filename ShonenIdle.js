@@ -259,3 +259,29 @@ function calcEff(level)
 	return calcKi(level)/(0.25+(calcHp(level)/(parseInt($("#attack").val())-calcDef(level))))
 }
 
+function saveData()
+{
+	var saveVar = 
+	{
+		attack:parseInt($("#attack").val()),
+		skills:skillsInfo
+	}
+	localStorage.setItem("shonendata", JSON.stringify(saveVar));	
+}
+
+function loadData()
+{
+	var loadVar = {}
+	try 
+	{
+		loadString = localStorage.getItem("shonendata")
+		parsedString = JSON.parse(loadString)
+		$("#attack").val(parsedString.attack)
+	}
+	catch(err)
+	{
+		CalcMonster();
+	}
+	CalcMonster();
+}
+
