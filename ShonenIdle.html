@@ -75,7 +75,14 @@ function calcAtt(level)
 
 function calcDef(level)
 {
-	return Math.floor(1*(Math.pow(1.65,level)))
+	if (level === 1)
+	{
+		return 0
+	}
+	else
+	{
+		return Math.floor(1*(Math.pow(1.65,level)))
+	}
 }
 
 function calcHp(level)
