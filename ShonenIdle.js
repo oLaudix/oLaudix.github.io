@@ -184,7 +184,7 @@ function createTable()
 {
 	for (var i = 0; i < skillsInfo.length; i++) 
 	{
-		var tr = $("<tr></tr>");
+		var tr = $("<tr></tr>").attr("id", skillsInfo[i].name);
 		tr.append($("<td></td>").append(skillsInfo[i].name).attr("id", skillsInfo[i].name+"name"));
 		used1 = $("<input></input>").attr("type", "checkbox").attr("id", skillsInfo[i].name+"skill1").attr("title", "ha");
 		used2 = $("<input></input>").attr("type", "checkbox").attr("id", skillsInfo[i].name+"skill2").attr("title", "ha");
@@ -348,5 +348,42 @@ function updateTable()
 		$("#" + skillsInfo[i].name+"cost").html((skillsInfo[i].cost > 999999) ? skillsInfo[i].cost.toExponential(2) : skillsInfo[i].cost);
 		$("#" + skillsInfo[i].name+"damage").html((skillsInfo[i].damage > 999999) ? skillsInfo[i].damage.toExponential(2) : skillsInfo[i].damage);
 		$("#" + skillsInfo[i].name+"nextDamageDiff").html((skillsInfo[i].nextDamageDiff > 999999) ? skillsInfo[i].nextDamageDiff.toExponential(2) : skillsInfo[i].nextDamageDiff);
+		$("#"+(skillsInfo[i].name)).css("backgroundColor", "");
 	}
+	updateEfficiency()
+}
+
+
+function updateEfficiency()
+{
+	var bestEfficiency = [0,1,2]
+	for (var i = 0; i < skillsInfo.length; i++) 
+	{
+		skillsInfo[i].efficiency = skillsInfo[i].cost/skillsInfo[i].nextDamageDiff
+		//$("#" + skillsInfo[i].name+"nextDamageDiff").html((skillsInfo[i].efficiency > 999999) ? skillsInfo[i].efficiency.toExponential(2) : skillsInfo[i].efficiency);
+	}
+	for (var i = 0; i < skillsInfo.length; i++) 
+	{
+		if ((skillsInfo[bestEfficiency[0]].efficiency > skillsInfo[i].efficiency) && (((i)%3) === 0))
+		{
+			bestEfficiency[0] = i;
+		}
+	}
+	for (var i = 0; i < skillsInfo.length; i++) 
+	{
+		if ((skillsInfo[bestEfficiency[1]].efficiency > skillsInfo[i].efficiency) && (((i+2)%3) === 0))
+		{
+			bestEfficiency[1] = i;
+		}
+	}
+	for (var i = 0; i < skillsInfo.length; i++) 
+	{
+		if ((skillsInfo[bestEfficiency[2]].efficiency > skillsInfo[i].efficiency) && (((i+1)%3) === 0))
+		{
+			bestEfficiency[2] = i;
+		}
+	}
+	$("#"+(skillsInfo[bestEfficiency[0]].name)).css("backgroundColor", "#9acd32");
+	$("#"+(skillsInfo[bestEfficiency[1]].name)).css("backgroundColor", "#9acd32");
+	$("#"+(skillsInfo[bestEfficiency[2]].name)).css("backgroundColor", "#9acd32");
 }
