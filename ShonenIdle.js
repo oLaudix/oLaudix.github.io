@@ -60,8 +60,24 @@ function skillInfoCalcs()
 	skillsUpdate()
 }
 
+function extraUpdate()
+{
+	for (var a = 0; a < skillsInfo.length; a++) 
+	{
+		skillsInfo[a].extra = 1;
+		for (var b = 0; b < skillsInfo[a].upgrades.length; b++) 
+		{
+			if (skillsInfo[a].upgrades[b].bought === 1)
+			{
+				skillsInfo[a].extra = skillsInfo[a].extra * 2;
+			}
+		}
+	}
+}
+
 function skillsUpdate()
 {
+	extraUpdate();
     skillsInfo[0].damage = (skillsInfo[0].tecCost * skillsInfo[0].level) * skillsInfo[0].extra;
     skillsInfo[0].cost = Math.floor((50 * Math.pow(1.1, skillsInfo[0].level)));
     skillsInfo[1].damage = (skillsInfo[1].tecCost * skillsInfo[1].level) * skillsInfo[1].extra;
@@ -194,6 +210,13 @@ function createTable()
 		{
 			$("#healthtbl").append(tr);
 		}
+		for (var b = 0; b < skillsInfo[i].upgrades.length; b++) 
+		{
+			if (skillsInfo[i].upgrades[b].bought == 1)
+			{
+				$("#" + skillsInfo[i].name + "skill" + (b+1)).prop("checked", skillsInfo[i].upgrades[b].bought);
+			}
+		}
 	  //$("#"+(skillsInfo[i].name)+"skill1").prop("title", skillsInfo[i].name);
 	  //$("#"+(skillsInfo[2].name)+"").css("backgroundColor", "red");
 	}
@@ -281,11 +304,14 @@ function loadData()
 		for (var i = 0; i < skillsInfo.length; i++) 
 		{
 			skillsInfo[i].level = parseInt(parsedString.skills[i].level);
-			//alert(skillsInfo[i].level)
 			$("#" + skillsInfo[i].name + "level").val(skillsInfo[i].level);
-		}
+			for (var b = 0; b < skillsInfo[i].upgrades.length; b++) 
+			{
+				skillsInfo[i].upgrades[b].bought = parsedString.skills[i].upgrades[b].bought
+			}
 		//alert(parsedString.skills[0].level)
 		//$("#testing").html(parsedString.skills[0].level)
+		}
 	}
 	catch(err)
 	{
@@ -296,17 +322,19 @@ function loadData()
 
 function updateLevels()
 {
+	//$("#testing").html("")
 	for (var i = 0; i < skillsInfo.length; i++) 
 	{
 		if (isNaN(parseInt($("#" + skillsInfo[i].name + "level").val()))) {$("#" + skillsInfo[i].name + "level").val(0);}
 		skillsInfo[i].level = parseInt($("#" + skillsInfo[i].name + "level").val());
-		/*for (var y = 0; y < 7; y++)
+		for (var y = 0; y < skillsInfo[i].upgrades.length; y++)
 		{
-			HeroInfo[heroList[x]].skills[y].isActive = txt2[x].skills[y];
-			HeroInfo[heroList[x]].heroLevel = txt2[x].level;
-			$("#Hero"+(x+1)+"skill"+(y+1)).prop("checked", HeroInfo[heroList[x]].skills[y].isActive);
-			$("#Hero"+(x+1)+"heroLevel").val(HeroInfo[heroList[x]].heroLevel);
-		}*/
+			//alert("test")
+			skillsInfo[i].upgrades[y].bought = ($("#" + skillsInfo[i].name+"skill"+(y+1)).is(":checked")) ? 1 : 0;
+			//alert($("#" + skillsInfo[i].name+"skill"+(y+1)).is(":checked"))
+			//$("#Hero"+(x+1)+"skill"+(y+1)).prop("checked", HeroInfo[heroList[x]].skills[y].isActive);
+			//$("#Hero"+(x+1)+"heroLevel").val(HeroInfo[heroList[x]].heroLevel);
+		}
 		//alert($("#" + skillsInfo[i].name + "level").val())
 		//"<td><input type=\"text\" id=\"" + skillsInfo[i].name + "level\" value=" + skillsInfo[i].level +"></td>"
 	}

@@ -93,6 +93,12 @@ function reset()
 	{
 		$("#" + skillsInfo[i].name + "level").val(0)
 		skillsInfo[i].level = 0;
+		skillsInfo[i].extra = 1;
+		for (var b = 0; b < skillsInfo[i].upgrades.length; b++) 
+		{
+			skillsInfo[i].upgrades[b].bought = 0
+			$("#" + skillsInfo[i].name + "skill" + (b+1)).prop("checked", skillsInfo[i].upgrades[b].bought);
+		}
 	}
 	$("#attack").val(1)
 	CalcMonster();
@@ -107,6 +113,13 @@ $( "input[type=text]" ).focusout(function() {
 	//$("#output").html("");
 	updateLevels()
 	CalcMonster()
+	skillsUpdate()
+	updateTable()
+	saveData()
+});
+
+$( "input[type=checkbox]" ).change(function() {
+	updateLevels()
 	skillsUpdate()
 	updateTable()
 	saveData()
