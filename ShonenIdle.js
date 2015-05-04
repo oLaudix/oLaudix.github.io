@@ -238,10 +238,10 @@ function CalcMonster()
 		{
 			var text = ""
 			text += MonsterNames[0] + " " + bestMonster + "<br>"
-			text += " - Attack: " + calcAtt(bestMonster) + "<br>"
-			text += " - Defence: " + calcDef(bestMonster) + "<br>"
-			text += " - Health: " + calcHp(bestMonster) + "<br>"
-			text += " - Ki Reward: " + calcKi(bestMonster) + "<br>"
+			//text += " - Attack: " + calcAtt(bestMonster) + "<br>"
+			//text += " - Defence: " + calcDef(bestMonster) + "<br>"
+			//text += " - Health: " + calcHp(bestMonster) + "<br>"
+			//text += " - Ki Reward: " + calcKi(bestMonster) + "<br>"
 			//text += " - Efficiency: " + (Math.round(calcEff(bestMonster)*100))/100 + "<br>"
 			$("#attackoutput").append(text)
 			return
@@ -325,6 +325,7 @@ function updateLevels()
 	//$("#testing").html("")
 	for (var i = 0; i < skillsInfo.length; i++) 
 	{
+		
 		if (isNaN(parseInt($("#" + skillsInfo[i].name + "level").val()))) {$("#" + skillsInfo[i].name + "level").val(0);}
 		skillsInfo[i].level = parseInt($("#" + skillsInfo[i].name + "level").val());
 		for (var y = 0; y < skillsInfo[i].upgrades.length; y++)
