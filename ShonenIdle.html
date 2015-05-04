@@ -37,6 +37,7 @@
 					Attack:<input id="attack" type="text" value="1" style="margin-left: 10px"></input>
 				</div>
 				<div id="attackoutput" style="width: 100%; margin-top: 10px;"></div>
+				<div id="testing" style="width: 100%; margin-top: 10px;"></div>
 			</div>
 		</div>
 		<div role="tabpanel" style="width: 1000px; display: inline-block; vertical-align: top;">
@@ -54,7 +55,7 @@
 				</div>
 				<div role="tabpanel" class="tab-pane" id="defence"><div> &nbsp </div>
 					<table id="defencetbl" class="table table-striped">
-						<tbody><tr><th width="25%">Name</th><th width="20%">Skills</th><th width="15%">Upgrade Cost</th><th width="15%">Damage</th width="20%"><th>+ Damage</th><th width="5%">Level</th></tr>
+						<tbody><tr><th width="25%">Name</th><th width="20%">Skills</th><th width="15%">Upgrade Cost</th><th width="15%">Defence</th width="20%"><th>+ Defence</th><th width="5%">Level</th></tr>
 						</tbody>
 					</table>
 					<div id="playerdata">
@@ -62,7 +63,7 @@
 				</div>
 				<div role="tabpanel" class="tab-pane" id="health"><div> &nbsp </div>
 					<table id="healthtbl" class="table table-striped">
-						<tbody><tr><th width="25%">Name</th><th width="20%">Skills</th><th width="15%">Upgrade Cost</th><th width="15%">Damage</th width="20%"><th>+ Damage</th><th width="5%">Level</th></tr>
+						<tbody><tr><th width="25%">Name</th><th width="20%">Skills</th><th width="15%">Upgrade Cost</th><th width="15%">Health</th width="20%"><th>+ Health</th><th width="5%">Level</th></tr>
 						</tbody>
 					</table>
 				</div>
@@ -80,12 +81,6 @@
 //$(window).load(function start(){
 //$("#thorpoutput").html(CalcCiv(parseInt($("#thorppop").val()),civs[0]))
 //focusout
-$( "input[type=text]" ).focusout(function() {
-	//alert("test");
-	//$("#output").html("");
-	CalcMonster()
-	saveData()
-});
 
 loadData();
 skillInfoCalcs();
@@ -93,9 +88,27 @@ createTable();
 
 function reset()
 {
+	//alert(parseInt($("#" + skillsInfo[0].name + "level").val()))
+	for (var i = 0; i < skillsInfo.length; i++) 
+	{
+		$("#" + skillsInfo[i].name + "level").val(0)
+		skillsInfo[i].level = 0;
+	}
 	$("#attack").val(1)
 	CalcMonster();
+	skillsUpdate()
+	updateTable()
 	saveData();
 	//$("#"+(skillsInfo[2].name)+"").css("backgroundColor", "");
 }
+
+$( "input[type=text]" ).focusout(function() {
+	//alert("test");
+	//$("#output").html("");
+	updateLevels()
+	CalcMonster()
+	skillsUpdate()
+	updateTable()
+	saveData()
+});
 </script></body></html>

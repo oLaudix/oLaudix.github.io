@@ -5,50 +5,50 @@ var skillsInfo = [
 {skillID: 2, name: "Block", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
 {skillID: 3, name: "Run", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
 {skillID: 4, name: "Kick", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
-{skillID: 5, name: "Block", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
-{skillID: 6, name: "Run", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
-{skillID: 7, name: "Punch", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
-{skillID: 8, name: "Block", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
-{skillID: 9, name: "Run", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
-{skillID: 10, name: "Punch", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
-{skillID: 11, name: "Block", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
-{skillID: 12, name: "Run", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
-{skillID: 13, name: "Punch", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
-{skillID: 14, name: "Block", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
-{skillID: 15, name: "Run", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
-{skillID: 16, name: "Punch", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
-{skillID: 17, name: "Block", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
-{skillID: 18, name: "Run", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
-{skillID: 19, name: "Punch", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
-{skillID: 20, name: "Block", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
-{skillID: 21, name: "Run", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
-{skillID: 22, name: "Punch", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
-{skillID: 23, name: "Block", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
-{skillID: 24, name: "Run", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
-{skillID: 25, name: "Punch", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
-{skillID: 26, name: "Block", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
-{skillID: 27, name: "Run", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
-{skillID: 28, name: "Punch", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
-{skillID: 29, name: "Block", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
-{skillID: 30, name: "Run", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
-{skillID: 31, name: "Punch", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
-{skillID: 32, name: "Block", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
-{skillID: 33, name: "Run", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
-{skillID: 34, name: "Punch", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
-{skillID: 35, name: "Block", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
-{skillID: 36, name: "Run", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
-{skillID: 37, name: "Punch", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
-{skillID: 38, name: "Block", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
-{skillID: 39, name: "Run", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
-{skillID: 40, name: "Punch", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
-{skillID: 41, name: "Block", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
-{skillID: 42, name: "Run", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
-{skillID: 43, name: "Punch", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
-{skillID: 44, name: "Block", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
-{skillID: 45, name: "Run", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
-{skillID: 46, name: "Punch", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
-{skillID: 47, name: "Block", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
-{skillID: 48, name: "Run", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
+{skillID: 5, name: "Block2", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
+{skillID: 6, name: "Run2", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
+{skillID: 7, name: "Punch3", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
+{skillID: 8, name: "Block3", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
+{skillID: 9, name: "Run3", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
+{skillID: 10, name: "Punch4", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
+{skillID: 11, name: "Block4", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
+{skillID: 12, name: "Run4", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
+{skillID: 13, name: "Punch5", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
+{skillID: 14, name: "Block5", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
+{skillID: 15, name: "Run5", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
+{skillID: 16, name: "Punch6", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
+{skillID: 17, name: "Block6", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
+{skillID: 18, name: "Run6", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
+{skillID: 19, name: "Punch7", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
+{skillID: 20, name: "Block7", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
+{skillID: 21, name: "Run7", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
+{skillID: 22, name: "Punch8", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
+{skillID: 23, name: "Block8", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
+{skillID: 24, name: "Run8", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
+{skillID: 25, name: "Punch9", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
+{skillID: 26, name: "Block9", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
+{skillID: 27, name: "Run9", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
+{skillID: 28, name: "Punch10", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
+{skillID: 29, name: "Block10", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
+{skillID: 30, name: "Run10", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
+{skillID: 31, name: "Punch11", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
+{skillID: 32, name: "Block11", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
+{skillID: 33, name: "Run11", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
+{skillID: 34, name: "Punch12", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
+{skillID: 35, name: "Block12", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
+{skillID: 36, name: "Run12", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
+{skillID: 37, name: "Punch13", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
+{skillID: 38, name: "Block13", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
+{skillID: 39, name: "Run13", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
+{skillID: 40, name: "Punch14", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
+{skillID: 41, name: "Block14", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
+{skillID: 42, name: "Run14", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
+{skillID: 43, name: "Punch15", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
+{skillID: 44, name: "Block15", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
+{skillID: 45, name: "Run15", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
+{skillID: 46, name: "Punch16", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
+{skillID: 47, name: "Block16", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
+{skillID: 48, name: "Run16", tecCost: 0, level: 0, extra: 1, cost: 0, damage: 0, nextDamageDiff: 0, upgrades: [{cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}, {cost: 0, bought: 0}]},
 ]
 
 function skillInfoCalcs()
@@ -168,21 +168,20 @@ function createTable()
 {
 	for (var i = 0; i < skillsInfo.length; i++) 
 	{
-		var tr = "<tr id=\"" + skillsInfo[i].name + "\">"
-		tr += "<td id=\"" + skillsInfo[i].name + "name\"" + ">" + skillsInfo[i].name + "</td>"
-		tr += "<td>"
-		tr += "<input type=\"checkbox\" id=\"" + skillsInfo[i].name + "skill1\">"
-		tr += "<input type=\"checkbox\" id=\"" + skillsInfo[i].name + "skill2\">"
-		tr += "<input type=\"checkbox\" id=\"" + skillsInfo[i].name + "skill3\">"
-		tr += "<input type=\"checkbox\" id=\"" + skillsInfo[i].name + "skill4\">"
-		tr += "<input type=\"checkbox\" id=\"" + skillsInfo[i].name + "skill5\">"
-		tr += "<input type=\"checkbox\" id=\"" + skillsInfo[i].name + "skill6\">"
-		tr += "</td>"
-		tr += "<td id=\"" + skillsInfo[i].name + "cost\"" + ">" + skillsInfo[i].cost.toExponential(2) + "</td>"
-		tr += "<td id=\"" + skillsInfo[i].name + "damage\"" + ">" + skillsInfo[i].damage.toExponential(2) + "</td>"
-		tr += "<td id=\"" + skillsInfo[i].name + "nextDamageDiff\"" + ">" + skillsInfo[i].nextDamageDiff.toExponential(2) + "</td>"
-		tr += "<td><input type=\"text\" id=\"" + skillsInfo[i].name + "level\" value=" + skillsInfo[i].level +"></td>"
-		tr += "</tr>";
+		var tr = $("<tr></tr>");
+		tr.append($("<td></td>").append(skillsInfo[i].name).attr("id", skillsInfo[i].name+"name"));
+		used1 = $("<input></input>").attr("type", "checkbox").attr("id", skillsInfo[i].name+"skill1").attr("title", "ha");
+		used2 = $("<input></input>").attr("type", "checkbox").attr("id", skillsInfo[i].name+"skill2").attr("title", "ha");
+		used3 = $("<input></input>").attr("type", "checkbox").attr("id", skillsInfo[i].name+"skill3").attr("title", "ha");
+		used4 = $("<input></input>").attr("type", "checkbox").attr("id", skillsInfo[i].name+"skill4").attr("title", "ha");
+		used5 = $("<input></input>").attr("type", "checkbox").attr("id", skillsInfo[i].name+"skill5").attr("title", "ha");
+		used6 = $("<input></input>").attr("type", "checkbox").attr("id", skillsInfo[i].name+"skill6").attr("title", "ha");
+		tr.append($("<td></td>").append(used1).append(used2).append(used3).append(used4).append(used5).append(used6));
+		tr.append($("<td></td>").append(skillsInfo[i].cost).attr("id", skillsInfo[i].name+"cost"));
+		tr.append($("<td></td>").append(skillsInfo[i].damage).attr("id", skillsInfo[i].name+"damage"));
+		tr.append($("<td></td>").append(skillsInfo[i].nextDamageDiff).attr("id", skillsInfo[i].name+"nextDamageDiff"));
+		tr.append($("<td></td>").append($("<input></input>").attr("type", "text").val(skillsInfo[i].level).attr("id", skillsInfo[i].name+"level")));
+		tr.append("\n\n");
 		if (((i)%3) === 0) 
 		{  
 			$("#attacktbl").append(tr);
@@ -198,6 +197,7 @@ function createTable()
 	  //$("#"+(skillsInfo[i].name)+"skill1").prop("title", skillsInfo[i].name);
 	  //$("#"+(skillsInfo[2].name)+"").css("backgroundColor", "red");
 	}
+	updateTable()
 }
 function CalcMonster()
 {
@@ -266,7 +266,8 @@ function saveData()
 		attack:parseInt($("#attack").val()),
 		skills:skillsInfo
 	}
-	localStorage.setItem("shonendata", JSON.stringify(saveVar));	
+	localStorage.setItem("shonendata", JSON.stringify(saveVar));
+	//alert("saved")
 }
 
 function loadData()
@@ -277,6 +278,14 @@ function loadData()
 		loadString = localStorage.getItem("shonendata")
 		parsedString = JSON.parse(loadString)
 		$("#attack").val(parsedString.attack)
+		for (var i = 0; i < skillsInfo.length; i++) 
+		{
+			skillsInfo[i].level = parseInt(parsedString.skills[i].level);
+			//alert(skillsInfo[i].level)
+			$("#" + skillsInfo[i].name + "level").val(skillsInfo[i].level);
+		}
+		//alert(parsedString.skills[0].level)
+		//$("#testing").html(parsedString.skills[0].level)
 	}
 	catch(err)
 	{
@@ -285,3 +294,30 @@ function loadData()
 	CalcMonster();
 }
 
+function updateLevels()
+{
+	for (var i = 0; i < skillsInfo.length; i++) 
+	{
+		if (isNaN(parseInt($("#" + skillsInfo[i].name + "level").val()))) {$("#" + skillsInfo[i].name + "level").val(0);}
+		skillsInfo[i].level = parseInt($("#" + skillsInfo[i].name + "level").val());
+		/*for (var y = 0; y < 7; y++)
+		{
+			HeroInfo[heroList[x]].skills[y].isActive = txt2[x].skills[y];
+			HeroInfo[heroList[x]].heroLevel = txt2[x].level;
+			$("#Hero"+(x+1)+"skill"+(y+1)).prop("checked", HeroInfo[heroList[x]].skills[y].isActive);
+			$("#Hero"+(x+1)+"heroLevel").val(HeroInfo[heroList[x]].heroLevel);
+		}*/
+		//alert($("#" + skillsInfo[i].name + "level").val())
+		//"<td><input type=\"text\" id=\"" + skillsInfo[i].name + "level\" value=" + skillsInfo[i].level +"></td>"
+	}
+}
+
+function updateTable()
+{
+	for (var i = 0; i < skillsInfo.length; i++) 
+	{
+		$("#" + skillsInfo[i].name+"cost").html((skillsInfo[i].cost > 999999) ? skillsInfo[i].cost.toExponential(2) : skillsInfo[i].cost);
+		$("#" + skillsInfo[i].name+"damage").html((skillsInfo[i].damage > 999999) ? skillsInfo[i].damage.toExponential(2) : skillsInfo[i].damage);
+		$("#" + skillsInfo[i].name+"nextDamageDiff").html((skillsInfo[i].nextDamageDiff > 999999) ? skillsInfo[i].nextDamageDiff.toExponential(2) : skillsInfo[i].nextDamageDiff);
+	}
+}
