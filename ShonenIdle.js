@@ -448,11 +448,11 @@ function CalcMonster()
 			//alert(calcEff(101 + 100 + 1) - calcEff(101 + 100))
 			var text = ""
 			text += MonsterNames[0] + " " + bestMonster + "<br>"
-			text += " - Attack: " + calcAtt(bestMonster + mapchange) + "<br>"
-			text += " - Defence: " + calcDef(bestMonster + mapchange) + "<br>"
-			text += " - Health: " + calcHp(bestMonster + mapchange) + "<br>"
-			text += " - Ki Reward: " + calcKi(bestMonster + mapchange) + "<br>"
-			text += " - Efficiency: " + (Math.round(calcEff(bestMonster + mapchange)*100))/100 + "<br><br>"
+			//text += " - Attack: " + calcAtt(bestMonster + mapchange) + "<br>"
+			//text += " - Defence: " + calcDef(bestMonster + mapchange) + "<br>"
+			//text += " - Health: " + calcHp(bestMonster + mapchange) + "<br>"
+			//text += " - Ki Reward: " + calcKi(bestMonster + mapchange) + "<br>"
+			//text += " - Efficiency: " + (Math.round(calcEff(bestMonster + mapchange)*100))/100 + "<br><br>"
 			$("#attackoutput").append(text)
 			return
 			
