@@ -241,8 +241,8 @@ function updateTable()
 		$("#"+(skillsInfo[i].skillID)).css("backgroundColor", "");
 		$("#" + skillsInfo[i].skillID+"button").html("");
 		$("#" + skillsInfo[i].skillID + "cost").prop("title", 
-																"x10: " + GetUpgradeCostByMultiLevel(skillsInfo[i].level, skillsInfo[i].level + 10, skillsInfo[i]) + "\n" +
-																"x100: " + GetUpgradeCostByMultiLevel(skillsInfo[i].level, skillsInfo[i].level + 100, skillsInfo[i]) + "\n"
+																"x10: " + (GetUpgradeCostByMultiLevel(skillsInfo[i].level, skillsInfo[i].level + 10, skillsInfo[i]) > 999999 ? GetUpgradeCostByMultiLevel(skillsInfo[i].level, skillsInfo[i].level + 10, skillsInfo[i]).toExponential(2) : GetUpgradeCostByMultiLevel(skillsInfo[i].level, skillsInfo[i].level + 10, skillsInfo[i])) + "\n" +
+																"x100: " + (GetUpgradeCostByMultiLevel(skillsInfo[i].level, skillsInfo[i].level + 100, skillsInfo[i]) > 999999 ? GetUpgradeCostByMultiLevel(skillsInfo[i].level, skillsInfo[i].level + 100, skillsInfo[i]).toExponential(2) : GetUpgradeCostByMultiLevel(skillsInfo[i].level, skillsInfo[i].level + 100, skillsInfo[i])) + "\n"
 																);
 		/*for (var b = 0; b < skillsInfo[i].upgrades.length; b++) 
 		{
