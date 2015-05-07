@@ -179,7 +179,7 @@ function saveData()
 {
 	var saveVar = 
 	{
-		attack:parseFloat($("#attack").val()),
+		attack:$("#attack").val(),
 		skills:skillsInfo
 	}
 	localStorage.setItem("shonendata", JSON.stringify(saveVar));
@@ -431,42 +431,61 @@ function updateEfficiency()
 	updateLevels();
 }
 
+var monsterCount = 0
+var monsterArray = []
+var mapchange = 0
+while (monsterCount < 410)
+{
+	if (monsterCount == 100) { mapchange += 100 }
+	if (monsterCount == 200) { mapchange += 100 }
+	if (monsterCount == 300) { mapchange += 100 }
+	if (monsterCount == 400) { mapchange += 100 }
+	monsterArray.push({attack: calcAtt(monsterCount + mapchange), defence: calcDef(monsterCount + mapchange), health: calcHp(monsterCount + mapchange), ki: calcKi(monsterCount + mapchange)})
+	monsterCount += 1;
+}
 function CalcMonster()
 {
 	$("#attackoutput").html("")
-	var heroAttack = parseFloat($("#attack").val())
+	//var heroAttack = parseFloat($("#attack").val())
 	var bestMonster = 0
-	var mAttack = 0
-	var mDefence = 0
-	var mHp = 0
-	var mKi = 0
 	var mEff = 0
-	var mapchange = 0
+	var map = 1
+	var city = 1
+	var monster = 0
 	while (bestMonster < 401)
 	{
-		mapchange = 0
-		if (bestMonster > 100) { mapchange = 100 }
-		if (bestMonster > 200) { mapchange = 200 }
-		if (bestMonster > 300) { mapchange = 300 }
-		if (bestMonster > 400) { mapchange = 400 }
-		//alert(mapchange)
-		if (calcEff(bestMonster + mapchange) - calcEff(bestMonster + mapchange + 1) > 0)
+		if (monster == 11)
 		{
+			monster = 1;
+			city += 1;
+		}
+		if (city == 11)
+		{
+			city = 1;
+			map += 1;
+		}
+
+		if ((calcEff(bestMonster) - calcEff(bestMonster + 1) > 0) || (bestMonster == 400))
+		{
+			//alert(bestMonster)
 			//alert(calcEff(101 + 100 + 1) - calcEff(101 + 100))
 			var text = ""
-			text += MonsterNames[0] + " " + bestMonster + "<br>"
-			//text += " - Attack: " + calcAtt(bestMonster + mapchange) + "<br>"
-			//text += " - Defence: " + calcDef(bestMonster + mapchange) + "<br>"
-			//text += " - Health: " + calcHp(bestMonster + mapchange) + "<br>"
-			//text += " - Ki Reward: " + calcKi(bestMonster + mapchange) + "<br>"
-			//text += " - Efficiency: " + (Math.round(calcEff(bestMonster + mapchange)*100))/100 + "<br><br>"
+			text += "Map: " + map + "<br>"
+			text += "City: " + city + "<br>"
+			text += "Monster: " + monster + "<br>"
+			//text += MonsterNames[0] + " " + bestMonster + "<br>"
+			//text += " - Attack: " + formatNumber(monsterArray[bestMonster].attack) + "<br>"
+			//text += " - Defence: " + formatNumber(monsterArray[bestMonster].defence) + "<br>"
+			//text += " - Health: " + formatNumber(monsterArray[bestMonster].health) + "<br>"
+			//text += " - Ki Reward: " + formatNumber(monsterArray[bestMonster].ki) + "<br>"
+			//text += " - Efficiency: " + (Math.round(calcEff(bestMonster)*100))/100 + "<br>"
+			//text += " - Hero Attack: " + parseAttack() + "<br><br>"
 			$("#attackoutput").append(text)
 			return
-			
 		}
 		bestMonster = bestMonster + 1;
+		monster += 1
 	}
-	//alert(calcKi(800)/(0.25+(calcHp(800)/(parseFloat($("#attack").val())-calcDef(800)))))
 }
 
 function calcAtt(level)
@@ -498,23 +517,25 @@ function calcKi(level)
 
 function calcEff(level)
 {
-	if (parseFloat($("#attack").val()) < calcDef(level))
+	//alert(parseFloat($("#attack").val()))
+	if (parseAttack() <= monsterArray[level].defence)
 	{
-		return 0
+		return -1
 	}
 	else
 	{
-		return calcKi(level)/(0.25+(calcHp(level)/(parseFloat($("#attack").val())-calcDef(level))))
+		return monsterArray[level].ki/(monsterArray[level].health/(parseAttack()-monsterArray[level].defence))
 	}
 }
 
-function formatNumber(number)
-{
-	var labels = ["", "M", "B", "T", "Qa", "Qi", "Sx", "Sp", "Oc", "No", "Dc", "UD", "DD", "TD", "QaD", "QiD", 
+var labels = ["", "M", "B", "T", "Qa", "Qi", "Sx", "Sp", "Oc", "No", "Dc", "UD", "DD", "TD", "QaD", "QiD", 
         "SxD", "SpD", "OcD", "NoD", "Vg", "UV", "DV", "TV", "QaV", "QiV", "SxV", "SpV", "OcV", "NoV", "Tg", "UT", 
         "DT", "TT", "QaT", "QiT", "SxT", "SpT", "OcT", "NoT", "Qg", "UQ", "DQ", "TQ", "QaQ", "QiQ", "SxQ", "SpQ", 
         "OcQ", "NoQ", "Ig", "UI", "DI", "TI", "QaI", "QiI", "SxI", "SpI", "OcI", "NoI", "Xg", "UX", "DX", "TX", 
         "QaX", "QiX", "SxX", "SpX", "OcX", "NoX", "Sg"]
+
+function formatNumber(number)
+{
     var index = 0;
     if (number >= 1000000)
     {
@@ -532,4 +553,25 @@ function formatNumber(number)
     {
 		return number
     }
+}
+
+function parseAttack()
+{
+	var attack = $("#attack").val()
+	var index = 0;
+	for (var a=0; a < labels.length; a++)
+	{
+		if ((attack.toLowerCase().match(labels[a].toLowerCase()) != null) && (attack.match(labels[a]) != ""))
+		{
+			//alert(attack.match(labels[a]))
+			index = a;
+		}
+	}
+	attack = parseFloat(attack)
+	if (index > 0)
+	{
+		attack = attack * Math.pow(1000, index + 1)
+	}
+	//alert(attack + " \"" + formatNumber(attack) + "\"")
+	return attack
 }
