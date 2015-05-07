@@ -123,6 +123,7 @@ function skillsUpdate()
 			//if (a === 0) { alert(skillsInfo[a].upgrades[b].cost) }
 		}
 	}
+	//alert(skillsInfo[0].upgrades[0].cost)
 }
 
 function createTable()
@@ -369,8 +370,9 @@ function updateEfficiency()
 							$("#" + skillsInfo[bestEfficiencyUpgrade[z][0]].skillID+"nextDamageDiff").html(skillsInfo[bestEfficiencyUpgrade[z][0]].level + " (+" + (skillsInfo[bestEfficiencyUpgrade[z][0]].level - parseInt($("#" + skillsInfo[bestEfficiencyUpgrade[z][0]].skillID + "level").val())) + ") + Upgrade");
 							$("#" + skillsInfo[bestEfficiencyUpgrade[z][0]].skillID+"button").html("<button type=\"button\" onclick=\"nextSkillButton('" + bestEfficiencyUpgrade[z][0] + "'," + level + ")\" class=\"btn btn-primary\" style=\"float: middle;\">Done</button>");
 						}
-						$("#" + skillsInfo[bestEfficiencyUpgrade[z][0]].skillID+"cost").html(formatNumber(skillsInfo[bestEfficiencyUpgrade[z][0]].upgrades[bestEfficiencyUpgrade[z][1]].cost));
+						$("#" + skillsInfo[bestEfficiencyUpgrade[z][0]].skillID+"cost").html(formatNumber((GetUpgradeCostByMultiLevel(parseInt($("#" + skillsInfo[bestEfficiencyUpgrade[z][0]].skillID + "level").val()), 25*(bestEfficiencyUpgrade[z][1]+1), skillsInfo[bestEfficiencyUpgrade[z][0]]) + (skillCost(skillsInfo[bestEfficiencyUpgrade[z][0]].vars, 25*(bestEfficiencyUpgrade[z][1]+1)) * 10))));
 						con = false
+						//alert(parseInt($("#" + skillsInfo[bestEfficiencyUpgrade[z][0]].skillID + "level").val()))
 						//alert(skillsInfo[bestEfficiency[z]].efficiency)
 					}
 					else
@@ -404,7 +406,7 @@ function updateEfficiency()
 							$("#" + skillsInfo[bestEfficiencyUpgrade[z][0]].skillID+"nextDamageDiff").html(skillsInfo[bestEfficiencyUpgrade[z][0]].level + " (+" + (skillsInfo[bestEfficiencyUpgrade[z][0]].level - parseInt($("#" + skillsInfo[bestEfficiencyUpgrade[z][0]].skillID + "level").val())) + ") + Upgrade");
 							$("#" + skillsInfo[bestEfficiencyUpgrade[z][0]].skillID+"button").html("<button type=\"button\" onclick=\"nextSkillButton('" + bestEfficiencyUpgrade[z][0] + "'," + level + ")\" class=\"btn btn-primary\" style=\"float: middle;\">Done</button>");
 						}
-						$("#" + skillsInfo[bestEfficiencyUpgrade[z][0]].skillID+"cost").html(formatNumber(skillsInfo[bestEfficiencyUpgrade[z][0]].upgrades[bestEfficiencyUpgrade[z][1]].cost));
+						$("#" + skillsInfo[bestEfficiencyUpgrade[z][0]].skillID+"cost").html(formatNumber((GetUpgradeCostByMultiLevel(parseInt($("#" + skillsInfo[bestEfficiencyUpgrade[z][0]].skillID + "level").val()), 25*(bestEfficiencyUpgrade[z][1]+1), skillsInfo[bestEfficiencyUpgrade[z][0]]) + (skillCost(skillsInfo[bestEfficiencyUpgrade[z][0]].vars, 25*(bestEfficiencyUpgrade[z][1]+1)) * 10))));
 						con = false
 					}
 					else
