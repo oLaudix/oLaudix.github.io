@@ -240,7 +240,7 @@ function updateTable()
 		$("#" + skillsInfo[i].skillID+"nextDamageDiff").html("");
 		$("#"+(skillsInfo[i].skillID)).css("backgroundColor", "");
 		$("#" + skillsInfo[i].skillID+"button").html("");
-		$("#" + skillsInfo[i].skillID + "cost").prop("title", 
+		$("#" + skillsInfo[i].skillID + "cost").prop("title", 	"x1: " + formatNumber(GetUpgradeCostByMultiLevel(skillsInfo[i].level, skillsInfo[i].level + 1, skillsInfo[i])) + "\n" +
 																"x10: " + formatNumber(GetUpgradeCostByMultiLevel(skillsInfo[i].level, skillsInfo[i].level + 10, skillsInfo[i])) + "\n" +
 																"x100: " + formatNumber(GetUpgradeCostByMultiLevel(skillsInfo[i].level, skillsInfo[i].level + 100, skillsInfo[i])) + "\n"
 																);
