@@ -75,10 +75,13 @@ function skillInfoCalcs()
 {
     for (var a = 0; a < skillsInfo.length; a++)
     {
-        this.skillsInfo[a].tecCost = Math.floor((1.3 * Math.pow(1.8, a)));
+        this.skillsInfo[a].tecCost = (Math.floor((1.9 * Math.pow(1.8,a))) + Math.floor((1.9 * Math.pow(1.8,a)))) - 1;
+		
     }
 	skillsUpdate()
 }
+
+
 
 function extraUpdate()
 {
@@ -244,6 +247,7 @@ function updateTable()
 		$("#" + skillsInfo[i].skillID + "cost").prop("title", 	"x1: " + formatNumber(GetUpgradeCostByMultiLevel(skillsInfo[i].level, skillsInfo[i].level + 1, skillsInfo[i])) + "\n" +
 																"x10: " + formatNumber(GetUpgradeCostByMultiLevel(skillsInfo[i].level, skillsInfo[i].level + 10, skillsInfo[i])) + "\n" +
 																"x100: " + formatNumber(GetUpgradeCostByMultiLevel(skillsInfo[i].level, skillsInfo[i].level + 100, skillsInfo[i])) + "\n"
+																//+ skillsInfo[i].damage
 																);
 		/*for (var b = 0; b < skillsInfo[i].upgrades.length; b++) 
 		{
@@ -529,4 +533,3 @@ function formatNumber(number)
 		return number
     }
 }
-//alert(formatNumber(152374465287400000000))
