@@ -234,15 +234,15 @@ function updateTable()
 {
 	for (var i = 0; i < skillsInfo.length; i++) 
 	{
-		$("#" + skillsInfo[i].skillID+"cost").html((skillsInfo[i].cost > 999999) ? skillsInfo[i].cost.toExponential(2) : skillsInfo[i].cost);
+		$("#" + skillsInfo[i].skillID+"cost").html(formatNumber(skillsInfo[i].cost));
 		//$("#" + skillsInfo[i].skillID+"damage").html((skillsInfo[i].damage > 999999) ? skillsInfo[i].damage.toExponential(2) : skillsInfo[i].damage);
 		//$("#" + skillsInfo[i].skillID+"nextDamageDiff").html((skillsInfo[i].nextDamageDiff > 999999) ? skillsInfo[i].nextDamageDiff.toExponential(2) : skillsInfo[i].nextDamageDiff);
 		$("#" + skillsInfo[i].skillID+"nextDamageDiff").html("");
 		$("#"+(skillsInfo[i].skillID)).css("backgroundColor", "");
 		$("#" + skillsInfo[i].skillID+"button").html("");
 		$("#" + skillsInfo[i].skillID + "cost").prop("title", 
-																"x10: " + (GetUpgradeCostByMultiLevel(skillsInfo[i].level, skillsInfo[i].level + 10, skillsInfo[i]) > 999999 ? GetUpgradeCostByMultiLevel(skillsInfo[i].level, skillsInfo[i].level + 10, skillsInfo[i]).toExponential(2) : GetUpgradeCostByMultiLevel(skillsInfo[i].level, skillsInfo[i].level + 10, skillsInfo[i])) + "\n" +
-																"x100: " + (GetUpgradeCostByMultiLevel(skillsInfo[i].level, skillsInfo[i].level + 100, skillsInfo[i]) > 999999 ? GetUpgradeCostByMultiLevel(skillsInfo[i].level, skillsInfo[i].level + 100, skillsInfo[i]).toExponential(2) : GetUpgradeCostByMultiLevel(skillsInfo[i].level, skillsInfo[i].level + 100, skillsInfo[i])) + "\n"
+																"x10: " + formatNumber(GetUpgradeCostByMultiLevel(skillsInfo[i].level, skillsInfo[i].level + 10, skillsInfo[i])) + "\n" +
+																"x100: " + formatNumber(GetUpgradeCostByMultiLevel(skillsInfo[i].level, skillsInfo[i].level + 100, skillsInfo[i])) + "\n"
 																);
 		/*for (var b = 0; b < skillsInfo[i].upgrades.length; b++) 
 		{
@@ -369,7 +369,7 @@ function updateEfficiency()
 							$("#" + skillsInfo[bestEfficiencyUpgrade[z][0]].skillID+"nextDamageDiff").html(skillsInfo[bestEfficiencyUpgrade[z][0]].level + " (+" + (skillsInfo[bestEfficiencyUpgrade[z][0]].level - parseInt($("#" + skillsInfo[bestEfficiencyUpgrade[z][0]].skillID + "level").val())) + ") + Upgrade");
 							$("#" + skillsInfo[bestEfficiencyUpgrade[z][0]].skillID+"button").html("<button type=\"button\" onclick=\"nextSkillButton('" + bestEfficiencyUpgrade[z][0] + "'," + level + ")\" class=\"btn btn-primary\" style=\"float: right;\">Done</button>");
 						}
-						$("#" + skillsInfo[bestEfficiencyUpgrade[z][0]].skillID+"cost").html((skillsInfo[bestEfficiencyUpgrade[z][0]].upgrades[bestEfficiencyUpgrade[z][1]].cost > 999999) ? skillsInfo[bestEfficiencyUpgrade[z][0]].upgrades[bestEfficiencyUpgrade[z][1]].cost.toExponential(2) : skillsInfo[bestEfficiencyUpgrade[z][0]].upgrades[bestEfficiencyUpgrade[z][1]].cost);
+						$("#" + skillsInfo[bestEfficiencyUpgrade[z][0]].skillID+"cost").html(formatNumber(skillsInfo[bestEfficiencyUpgrade[z][0]].upgrades[bestEfficiencyUpgrade[z][1]].cost));
 						con = false
 						//alert(skillsInfo[bestEfficiency[z]].efficiency)
 					}
@@ -379,7 +379,7 @@ function updateEfficiency()
 						$("#"+(skillsInfo[bestEfficiency[z]].skillID)).css("backgroundColor", "#9acd32");
 						var level = skillsInfo[bestEfficiency[z]].level
 						$("#" + skillsInfo[bestEfficiency[z]].skillID+"button").html("<button type=\"button\" onclick=\"nextSkillButton('" + bestEfficiency[z] + "'," + level + ")\" class=\"btn btn-primary\" style=\"float: right;\">Done</button>");
-						$("#" + skillsInfo[bestEfficiency[z]].skillID+"cost").html((GetUpgradeCostByMultiLevel(parseInt($("#" + skillsInfo[bestEfficiency[z]].skillID + "level").val()), skillsInfo[bestEfficiency[z]].level, skillsInfo[bestEfficiency[z]]) > 999999) ? GetUpgradeCostByMultiLevel(parseInt($("#" + skillsInfo[bestEfficiency[z]].skillID + "level").val()), skillsInfo[bestEfficiency[z]].level, skillsInfo[bestEfficiency[z]]).toExponential(2) : GetUpgradeCostByMultiLevel(parseInt($("#" + skillsInfo[bestEfficiency[z]].skillID + "level").val()), skillsInfo[bestEfficiency[z]].level, skillsInfo[bestEfficiency[z]]));
+						$("#" + skillsInfo[bestEfficiency[z]].skillID+"cost").html(formatNumber(GetUpgradeCostByMultiLevel(parseInt($("#" + skillsInfo[bestEfficiency[z]].skillID + "level").val()), skillsInfo[bestEfficiency[z]].level, skillsInfo[bestEfficiency[z]])));
 						con = false
 					}
 				}
@@ -404,7 +404,7 @@ function updateEfficiency()
 							$("#" + skillsInfo[bestEfficiencyUpgrade[z][0]].skillID+"nextDamageDiff").html(skillsInfo[bestEfficiencyUpgrade[z][0]].level + " (+" + (skillsInfo[bestEfficiencyUpgrade[z][0]].level - parseInt($("#" + skillsInfo[bestEfficiencyUpgrade[z][0]].skillID + "level").val())) + ") + Upgrade");
 							$("#" + skillsInfo[bestEfficiencyUpgrade[z][0]].skillID+"button").html("<button type=\"button\" onclick=\"nextSkillButton('" + bestEfficiencyUpgrade[z][0] + "'," + level + ")\" class=\"btn btn-primary\" style=\"float: right;\">Done</button>");
 						}
-						$("#" + skillsInfo[bestEfficiencyUpgrade[z][0]].skillID+"cost").html((skillsInfo[bestEfficiencyUpgrade[z][0]].upgrades[bestEfficiencyUpgrade[z][1]].cost > 999999) ? skillsInfo[bestEfficiencyUpgrade[z][0]].upgrades[bestEfficiencyUpgrade[z][1]].cost.toExponential(2) : skillsInfo[bestEfficiencyUpgrade[z][0]].upgrades[bestEfficiencyUpgrade[z][1]].cost);
+						$("#" + skillsInfo[bestEfficiencyUpgrade[z][0]].skillID+"cost").html(formatNumber(skillsInfo[bestEfficiencyUpgrade[z][0]].upgrades[bestEfficiencyUpgrade[z][1]].cost));
 						con = false
 					}
 					else
@@ -413,7 +413,7 @@ function updateEfficiency()
 						$("#"+(skillsInfo[bestEfficiency[z]].skillID)).css("backgroundColor", "#9acd32");
 						var level = skillsInfo[bestEfficiency[z]].level
 						$("#" + skillsInfo[bestEfficiency[z]].skillID+"button").html("<button type=\"button\" onclick=\"nextSkillButton('" + bestEfficiency[z] + "'," + level + ")\" class=\"btn btn-primary\" style=\"float: right;\">Done</button>");
-						$("#" + skillsInfo[bestEfficiency[z]].skillID+"cost").html((GetUpgradeCostByMultiLevel(parseInt($("#" + skillsInfo[bestEfficiency[z]].skillID + "level").val()), skillsInfo[bestEfficiency[z]].level, skillsInfo[bestEfficiency[z]]) > 999999) ? GetUpgradeCostByMultiLevel(parseInt($("#" + skillsInfo[bestEfficiency[z]].skillID + "level").val()), skillsInfo[bestEfficiency[z]].level, skillsInfo[bestEfficiency[z]]).toExponential(2) : GetUpgradeCostByMultiLevel(parseInt($("#" + skillsInfo[bestEfficiency[z]].skillID + "level").val()), skillsInfo[bestEfficiency[z]].level, skillsInfo[bestEfficiency[z]]));
+						$("#" + skillsInfo[bestEfficiency[z]].skillID+"cost").html(formatNumber(GetUpgradeCostByMultiLevel(parseInt($("#" + skillsInfo[bestEfficiency[z]].skillID + "level").val()), skillsInfo[bestEfficiency[z]].level, skillsInfo[bestEfficiency[z]])));
 						con = false
 					}
 				}
@@ -501,3 +501,30 @@ function calcEff(level)
 		return calcKi(level)/(0.25+(calcHp(level)/(parseFloat($("#attack").val())-calcDef(level))))
 	}
 }
+
+function formatNumber(number)
+{
+	var labels = ["", "M", "B", "T", "Qa", "Qi", "Sx", "Sp", "Oc", "No", "Dc", "UD", "DD", "TD", "QaD", "QiD", 
+        "SxD", "SpD", "OcD", "NoD", "Vg", "UV", "DV", "TV", "QaV", "QiV", "SxV", "SpV", "OcV", "NoV", "Tg", "UT", 
+        "DT", "TT", "QaT", "QiT", "SxT", "SpT", "OcT", "NoT", "Qg", "UQ", "DQ", "TQ", "QaQ", "QiQ", "SxQ", "SpQ", 
+        "OcQ", "NoQ", "Ig", "UI", "DI", "TI", "QaI", "QiI", "SxI", "SpI", "OcI", "NoI", "Xg", "UX", "DX", "TX", 
+        "QaX", "QiX", "SxX", "SpX", "OcX", "NoX", "Sg"]
+    var index = 0;
+    if (number >= 1000000)
+    {
+        number /= 1000;
+        while (Math.round(number) >= 1000)
+        {
+            number /= 1000;
+            index++;
+        }
+        //num2 = (number * 1000) / (1000);
+		number = (Math.round(number * 100))/100
+		return number + " " + labels[index]
+    }
+    else
+    {
+		return number
+    }
+}
+//alert(formatNumber(152374465287400000000))
