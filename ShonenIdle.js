@@ -250,7 +250,7 @@ function updateTable()
 																"x100: " + formatNumber(GetUpgradeCostByMultiLevel(skillsInfo[i].level, skillsInfo[i].level + 100, skillsInfo[i])) + "\n"
 																//+ skillsInfo[i].damage
 																);
-		for (var b = 0; b < skillsInfo[i].upgrades.length; b++) 
+		/*for (var b = 0; b < skillsInfo[i].upgrades.length; b++) 
 		{
 			$("#" + skillsInfo[i].skillID + "skill" + (b+1)).prop("title", 
 																//skillsInfo[i].upgrades[b].cost + "\n" +
@@ -258,7 +258,7 @@ function updateTable()
 																skillsInfo[i].nextDamageDiff + "\n"// +
 																//skillsInfo[i].upgrades[b].efficiency + "\n"
 																);
-		}
+		}*/
 	}
 	updateEfficiency()
 }
@@ -475,10 +475,10 @@ function CalcMonster()
 			text += "City: " + city + "<br>"
 			text += "Monster: " + monster + "<br>"
 			//text += MonsterNames[0] + " " + bestMonster + "<br>"
-			text += " - Attack: " + formatNumber(monsterArray[bestMonster].attack) + "<br>"
-			text += " - Defence: " + formatNumber(monsterArray[bestMonster].defence) + "<br>"
-			text += " - Health: " + formatNumber(monsterArray[bestMonster].health) + "<br>"
-			text += " - Ki Reward: " + formatNumber(monsterArray[bestMonster].ki) + "<br>"
+			//text += " - Attack: " + formatNumber(monsterArray[bestMonster].attack) + "<br>"
+			//text += " - Defence: " + formatNumber(monsterArray[bestMonster].defence) + "<br>"
+			//text += " - Health: " + formatNumber(monsterArray[bestMonster].health) + "<br>"
+			//text += " - Ki Reward: " + formatNumber(monsterArray[bestMonster].ki) + "<br>"
 			//text += " - Efficiency: " + (Math.round(calcEff(bestMonster)*100))/100 + "<br>"
 			//text += " - Hero Attack: " + parseAttack() + "<br><br>"
 			$("#attackoutput").append(text)
