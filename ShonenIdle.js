@@ -75,7 +75,8 @@ function skillInfoCalcs()
 {
     for (var a = 0; a < skillsInfo.length; a++)
     {
-        this.skillsInfo[a].tecCost = (Math.floor((1.9 * Math.pow(1.8,a))) + Math.floor((1.9 * Math.pow(1.8,a)))) - 1;
+        this.skillsInfo[a].tecCost = (Math.floor((1.9 * Math.pow(1.84,a))) + Math.floor((1.9 * Math.pow(1.84,a)))) - 1;
+
 		
     }
 	skillsUpdate()
@@ -249,15 +250,15 @@ function updateTable()
 																"x100: " + formatNumber(GetUpgradeCostByMultiLevel(skillsInfo[i].level, skillsInfo[i].level + 100, skillsInfo[i])) + "\n"
 																//+ skillsInfo[i].damage
 																);
-		/*for (var b = 0; b < skillsInfo[i].upgrades.length; b++) 
+		for (var b = 0; b < skillsInfo[i].upgrades.length; b++) 
 		{
 			$("#" + skillsInfo[i].skillID + "skill" + (b+1)).prop("title", 
-																skillsInfo[i].upgrades[b].cost + "\n" +
-																skillsInfo[i].upgrades[b].damage + "\n" +
-																skillsInfo[i].upgrades[b].nextDamageDiff + "\n" +
-																skillsInfo[i].upgrades[b].efficiency + "\n"
+																//skillsInfo[i].upgrades[b].cost + "\n" +
+																skillsInfo[i].damage + "\n" +
+																skillsInfo[i].nextDamageDiff + "\n"// +
+																//skillsInfo[i].upgrades[b].efficiency + "\n"
 																);
-		}*/
+		}
 	}
 	updateEfficiency()
 }
@@ -474,10 +475,10 @@ function CalcMonster()
 			text += "City: " + city + "<br>"
 			text += "Monster: " + monster + "<br>"
 			//text += MonsterNames[0] + " " + bestMonster + "<br>"
-			//text += " - Attack: " + formatNumber(monsterArray[bestMonster].attack) + "<br>"
-			//text += " - Defence: " + formatNumber(monsterArray[bestMonster].defence) + "<br>"
-			//text += " - Health: " + formatNumber(monsterArray[bestMonster].health) + "<br>"
-			//text += " - Ki Reward: " + formatNumber(monsterArray[bestMonster].ki) + "<br>"
+			text += " - Attack: " + formatNumber(monsterArray[bestMonster].attack) + "<br>"
+			text += " - Defence: " + formatNumber(monsterArray[bestMonster].defence) + "<br>"
+			text += " - Health: " + formatNumber(monsterArray[bestMonster].health) + "<br>"
+			text += " - Ki Reward: " + formatNumber(monsterArray[bestMonster].ki) + "<br>"
 			//text += " - Efficiency: " + (Math.round(calcEff(bestMonster)*100))/100 + "<br>"
 			//text += " - Hero Attack: " + parseAttack() + "<br><br>"
 			$("#attackoutput").append(text)
@@ -512,7 +513,7 @@ function calcHp(level)
 
 function calcKi(level)
 {
-	return Math.floor(150*(Math.pow(1.6,level)))
+	return Math.floor(150*(Math.pow(1.63,level)))
 }
 
 function calcEff(level)
