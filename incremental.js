@@ -1,19 +1,25 @@
 var counter = 0;
 var new_tick = 0;
 var old_tick = 0;
+var next_tick = 0;
 var adder = 1;
 //$("#testing").html(counter);
 loadData();
+//setTimeout(counterr, 1);
 function counterr()
 {
-	var start_tick = Date.now()
-	counter += adder;
-	counter = Math.round(counter * 100)/100;
-	adder = Math.floor((adder*1.01)*100)/100;
-	$("#testing").html(counter);
-	saveData();
-	var end_tick = Date.now();
-	$("#testing2").html(adder);
+	if (next_tick < Date.now())
+	{
+		var start_tick = Date.now()
+		counter += adder;
+		next_tick = Date.now() + 1000
+		counter = Math.round(counter * 100)/100;
+		adder = Math.floor((adder*1.01)*100)/100;
+		$("#testing").html(counter);
+		saveData();
+		var end_tick = Date.now();
+		$("#testing2").html(adder);
+	}
 	setTimeout(counterr, 1);
 };
 
