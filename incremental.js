@@ -52,7 +52,9 @@ function loadData()
 	}
 	catch(err)
 	{
-		
+		$("#testing").html(counter)
+		$("#testing2").html(adder);
+		setTimeout(counterr, 1);
 	}
 }
 //counter();
