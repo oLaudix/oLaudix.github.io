@@ -24,7 +24,7 @@
 	Max Mobs: <input id="mobs" type="text" value="1" style="margin-left: 10px"></input>
 	<div id="testing"></div>
 	<div id="testing2"></div>
-	<canvas id="myCanvas" width="1000" height="500" style="border:1px solid #000000;">
+	<canvas id="myCanvas" width="1500" height="700" style="border:1px solid #000000;">
 	<canvas id="buffer" width="400" height="500">
 	
 	</canvas>
@@ -125,9 +125,9 @@ function animation2(monsterList)
 			{
 				monsterList[x].positionX += monsterList[x].speed
 			}
-			drawHpBar(monsterList[x])
+			//drawHpBar(monsterList[x])
 			monsterList[x].cycle = (monsterList[x].cycle + 1) % 8;
-			next_tick = Date.now() + 50
+			next_tick = Date.now() + 120
 			//alert("narysowane")
 			//var $monsterList[x] = monsterList[x];
 		}
