@@ -21,9 +21,10 @@
 		</ul>
 	</div>
 	<div class="wrapper" style="display: inline-block;">
+	Max Mobs: <input id="mobs" type="text" value="1000" style="margin-left: 10px"></input>
 	<div id="testing"></div>
 	<div id="testing2"></div>
-	<canvas id="myCanvas" width="400" height="500" style="border:1px solid #000000;">
+	<canvas id="myCanvas" width="1000" height="500" style="border:1px solid #000000;">
 	<canvas id="buffer" width="400" height="500">
 	
 	</canvas>
@@ -44,7 +45,7 @@ var monster = function()
 	this.cycle = 0;
 	this.positionX = RandomIntRange(-100,-50);
 	this.old_positionX = -50;
-	this.positionY = RandomIntRange(0,450)
+	this.positionY = RandomIntRange(0,470)
 	this.old_positionY = this.positionY
 	this.img1 = new Image();
 	this.img1.src = "img/player.png";
@@ -90,7 +91,7 @@ var monster = function()
 							// destination rectangle
 							this.positionX, this.positionY, this.spriteW, this.spriteH);
 		this.old_positionX = this.positionX
-		if (this.positionX > 400)
+		if (this.positionX > 1050)
 		{
 			//this.ctx.clearRect(this.old_positionX, this.old_positionY, this.spriteW, this.spriteH);
 			this.positionX = RandomIntRange(-100,-50);;
@@ -109,9 +110,9 @@ var monster = function()
 }
 	
 var monsters = []
-for (var x = 0; x < 90; x++)
+for (var x = 0; x < 2000; x++)
 {
-	monsters.push(new monster)
+	//monsters.push(new monster)
 	//monsters[x].animation();
 }
 
@@ -121,34 +122,50 @@ for (var x = 0; x < 90; x++)
 var c = document.getElementById("myCanvas");
 var ctx = c.getContext("2d");
 
+var next_tick = 0;
+
 function animation2(monsterList)
 {
-	ctx.clearRect(0, 0, c.width, c.height);
-	for (var x = 0; x < monsterList.length; x++)
+	if (monsterList.length < parseInt($("#mobs").val()))
 	{
-		//ctx.clearRect(monsterList[x].old_positionX, monsterList[x].old_positionY, monsterList[x].spriteW, monsterList[x].spriteH);
-		ctx.drawImage(	monsterList[x].img1,
-							// source rectangle
-							monsterList[x].cycle * monsterList[x].spriteW, 0, monsterList[x].spriteW, monsterList[x].spriteH,
-							// destination rectangle
-							monsterList[x].positionX, monsterList[x].positionY, monsterList[x].spriteW, monsterList[x].spriteH);
-		monsterList[x].old_positionX = monsterList[x].positionX
-		if (monsterList[x].positionX > 400)
-		{
-			//monsterList[x].ctx.clearRect(monsterList[x].old_positionX, monsterList[x].old_positionY, monsterList[x].spriteW, monsterList[x].spriteH);
-			monsterList[x].positionX = RandomIntRange(-100,-50);;
-			monsterList[x].positionY = RandomIntRange(0,450)
-			monsterList[x].old_positionY = monsterList[x].positionY
-		}
-		else
-		{
-			monsterList[x].positionX += monsterList[x].speed
-		}
-		monsterList[x].cycle = (monsterList[x].cycle + 1) % 8;
-		//alert("narysowane")
-		//var $monsterList[x] = monsterList[x];
+		monsters.push(new monster)
+		//monsters[x].animation();
 	}
-	setTimeout(function() { animation2(monsterList) }, 60)
+	if (Date.now() >= next_tick)
+	{
+		$("#testing").html(monsterList.length + " mobs")
+		var tick_start = Date.now()
+		ctx.clearRect(0, 0, c.width, c.height);
+		for (var x = 0; x < monsterList.length; x++)
+		{
+			ctx.drawImage(	monsterList[x].img1,
+								monsterList[x].cycle * monsterList[x].spriteW, 0, monsterList[x].spriteW, monsterList[x].spriteH,
+								monsterList[x].positionX, monsterList[x].positionY, monsterList[x].spriteW, monsterList[x].spriteH);
+			monsterList[x].old_positionX = monsterList[x].positionX
+			if (monsterList[x].positionX > 1050)
+			{
+				monsterList[x].positionX = RandomIntRange(-100,-50);;
+				monsterList[x].positionY = RandomIntRange(0,470)
+				monsterList[x].old_positionY = monsterList[x].positionY
+				//if (monsterList.length > parseInt($("#mobs").val()))
+				//{
+					//monsters.splice(x, 1)
+					//continue;
+				//}
+			}
+			else
+			{
+				monsterList[x].positionX += monsterList[x].speed
+			}
+			monsterList[x].cycle = (monsterList[x].cycle + 1) % 8;
+			next_tick = Date.now() + 50
+			//alert("narysowane")
+			//var $monsterList[x] = monsterList[x];
+		}
+		var tick_end = Date.now()
+		$("#testing2").html("render time: " + (tick_end - tick_start) + " ms")
+	}
+	setTimeout(function() { animation2(monsterList) }, 1)
 }
 
 animation2(monsters)
