@@ -117,6 +117,17 @@ function main()
 }
 
 main();
+//randomAttack();
+
+function randomAttack()
+{
+	//monsters[RandomIntRange(0,monsters.length-1)].Hp = 10
+	if (monsters.length > 0)
+	{	
+		monsters[RandomIntRange(0,monsters.length-1)].Hp -= 1
+	}
+	setTimeout(function() { randomAttack() }, 1)
+}
 
 function calculateMonsters()
 {
