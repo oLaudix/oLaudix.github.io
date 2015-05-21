@@ -24,7 +24,7 @@
 	Max Mobs: <input id="mobs" type="text" value="1" style="margin-left: 10px"></input>
 	<div id="testing"></div>
 	<div id="testing2"></div>
-	<div><canvas id="myCanvas" width="1500" height="700" style="border:1px solid #000000; cursor: url(crosshair.png) 25 25, crosshair;"></div>
+	<div><canvas id="myCanvas" width="1500" height="700" style="border:1px solid #000000; cursor: none"></div>
 	<div id="monster_stats">"test"</div>
 
 	
@@ -59,6 +59,18 @@ var monster = function()
 	this.c = document.getElementById("myCanvas");
 	this.ctx = this.c.getContext("2d");
 }
+
+var Cursor = function()
+{
+	this.X = 0
+	this.sprite = new Image();
+	this.sprite.src = "crosshair.png";
+	this.Y = 0
+	this.c = document.getElementById("myCanvas");
+	this.ctx = this.c.getContext("2d");
+}
+
+var cursor = new Cursor();
 	
 var monsters = []
 for (var x = 0; x < 2000; x++)
@@ -93,54 +105,66 @@ var ctx = c.getContext("2d");
 
 var next_tick = 0;
 
-function animation2(monsterList)
+function main()
 {
-	if (monsterList.length < parseInt($("#mobs").val()))
+	var tick_start = Date.now()
+	calculateMonsters()
+	drawFrame(monsters)
+	var tick_end = Date.now()
+	$("#testing2").html("render time: " + (tick_end - tick_start) + " ms")
+	setTimeout(function() { main() }, 0)
+}
+
+main();
+
+function calculateMonsters()
+{
+	if (monsters.length < parseInt($("#mobs").val()))
 	{
 		monsters.push(new monster)
-		//monsters[x].animation();
 	}
 	if (Date.now() >= next_tick)
 	{
-		$("#testing").html(monsterList.length + " mobs")
 		var tick_start = Date.now()
-		ctx.clearRect(0, 0, c.width, c.height);
-		for (var x = 0; x < monsterList.length; x++)
+		for (var x = 0; x < monsters.length; x++)
 		{
-			ctx.drawImage(	monsterList[x].img1,
-								monsterList[x].cycle * monsterList[x].spriteW, 0, monsterList[x].spriteW, monsterList[x].spriteH,
-								monsterList[x].positionX, monsterList[x].positionY, monsterList[x].spriteW, monsterList[x].spriteH);
-			monsterList[x].old_positionX = monsterList[x].positionX
-			if (monsterList[x].positionX > c.width + monsterList[x].spriteW)
+			monsters[x].old_positionX = monsters[x].positionX
+			if (monsters[x].positionX > c.width + monsters[x].spriteW)
 			{
 				monsters.splice(x, 1)
 				continue;
 			}
 			else
 			{
-				monsterList[x].positionX += monsterList[x].speed
+				monsters[x].positionX += monsters[x].speed
 			}
-			if (monsterList[x].HP <= 0)
+			if (monsters[x].HP <= 0)
 			{
 				monsters.splice(x, 1)
 				continue;
 			}
-			drawHpBar(monsterList[x])
-			monsterList[x].cycle = (monsterList[x].cycle + 1) % 8;
+			monsters[x].cycle = (monsters[x].cycle + 1) % 8;
 			next_tick = Date.now() + 120
-			//alert("narysowane")
-			//var $monsterList[x] = monsterList[x];
 		}
-		var tick_end = Date.now()
-		$("#testing2").html("render time: " + (tick_end - tick_start) + " ms")
 	}
-	setTimeout(function() { animation2(monsterList) }, 1)
 }
 
-animation2(monsters)
+function drawFrame()
+{
+	$("#testing").html(monsters.length + " mobs")
+	ctx.clearRect(0, 0, c.width, c.height);
+	ctx.drawImage(cursor.sprite, cursor.X - 20, cursor.Y - 20)
+	for (var x = 0; x < monsters.length; x++)
+	{
+		ctx.drawImage(	monsters[x].img1,
+							monsters[x].cycle * monsters[x].spriteW, 0, monsters[x].spriteW, monsters[x].spriteH,
+							monsters[x].positionX, monsters[x].positionY, monsters[x].spriteW, monsters[x].spriteH);
+		monsters[x].old_positionX = monsters[x].positionX
+		drawHpBar(monsters[x])
+	}
+}
 
-var mouseX = 0;
-var mouseY = 0;
+//animation2(monsters)
 
 function getMousePos(canvas, evt) {
         var rect = canvas.getBoundingClientRect();
@@ -169,7 +193,9 @@ canvas.addEventListener('mousedown',
 canvas.addEventListener('mousemove', 
 	function(evt) 
 	{
-        var mousePos = getMousePos(canvas, evt);
+        cursor.X = getMousePos(canvas, evt).x;
+		cursor.Y = getMousePos(canvas, evt).y;
+		var mousePos = getMousePos(canvas, evt);
         for (var x = 0; x < monsters.length; x++)
 		{
 			if ( ((monsters[x].positionX <= mousePos.x) && (mousePos.x <= monsters[x].positionX + monsters[x].spriteW)) && ((monsters[x].positionY <= mousePos.y) && (mousePos.y <= monsters[x].positionY + monsters[x].spriteH)) )
