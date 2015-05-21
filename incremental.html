@@ -24,7 +24,7 @@
 	Max Mobs: <input id="mobs" type="text" value="1" style="margin-left: 10px"></input>
 	<div id="testing"></div>
 	<div id="testing2"></div>
-	<div><canvas id="myCanvas" width="1500" height="700" style="border:1px solid #000000; cursor: none"></div>
+	<div><canvas id="myCanvas" width="1500" height="700" style="border:1px solid #000000; cursor: none; background-color: #00FFFF"></div>
 	<div id="monster_stats">"test"</div>
 
 	
@@ -41,20 +41,22 @@
 <script language="javascript">/* Write JavaScript here */
 //$(window).load(function start(){
 	//<canvas id="buffer" width="400" height="500">
-var monster = function()
+var monster = function(HpMax, img, speed)
 {
-	this.HP = RandomIntRange(100,100)
-	this.HpMax = 100
+	this.HpMax = HpMax
+	this.Hp = HpMax
 	this.cycle = 0;
 	this.positionX = RandomIntRange(-100,-50);
 	this.old_positionX = -50;
 	this.old_positionY = this.positionY
 	this.img1 = new Image();
-	this.img1.src = "img/player.png";
-	this.spriteW = 24;
-	this.spriteH = 30;
+	this.img1.src = img[0];
+	//this.spriteW = 24;
+	//this.spriteH = 30;
+	this.spriteW = img[1];
+	this.spriteH = img[2];
 	this.positionY = RandomIntRange(0,c.height - this.spriteH)
-	this.speed = RandomIntRange(33,66)
+	this.speed = speed//RandomIntRange(33,66)
 	this.next_tick = 0;
 	this.c = document.getElementById("myCanvas");
 	this.ctx = this.c.getContext("2d");
@@ -76,11 +78,11 @@ var monsters = []
 
 function drawHpBar(mob)
 {
-	if (mob.HP > mob.HpMax/3*2)
+	if (mob.Hp > mob.HpMax/3*2)
 	{
 		mob.ctx.fillStyle="#00FF00";
 	}
-	else if (mob.HP > mob.HpMax/3)
+	else if (mob.Hp > mob.HpMax/3)
 	{
 		mob.ctx.fillStyle="#FF9900";
 	}
@@ -88,7 +90,7 @@ function drawHpBar(mob)
 	{
 		mob.ctx.fillStyle="#FF0000";
 	}
-	mob.ctx.fillRect(mob.positionX,mob.positionY - 5,24*mob.HP/100,3);
+	mob.ctx.fillRect(mob.positionX,mob.positionY - 5,24*mob.Hp/100,3);
 	mob.ctx.beginPath();
 	mob.ctx.rect(mob.positionX,mob.positionY - 5,24,3);
 	mob.ctx.stroke();
@@ -120,12 +122,14 @@ function calculateMonsters()
 {
 	if (monsters.length < parseInt($("#mobs").val()))
 	{
-		monsters.push(new monster)
+		monsters.push(new monster(100, ["img/greenstickman.png",40,40],RandomIntRange(33,66)))
+		insertionSort(monsters)
+		//alert(monsters)
 	}
 	for (var x = 0; x < monsters.length; x++)
 	{
 		monsters[x].old_positionX = monsters[x].positionX
-		if (monsters[x].positionX > c.width + monsters[x].spriteW)
+		if (monsters[x].positionX > c.width + monsters[x].spriteW)//
 		{
 			monsters.splice(x, 1)
 			continue;
@@ -136,15 +140,15 @@ function calculateMonsters()
 			var distance = (monsters[x].speed / 1000) * elapsed;
 			monsters[x].positionX += distance;
 		}
-		if (monsters[x].HP <= 0)
+		if (monsters[x].Hp <= 0)
 		{
 			monsters.splice(x, 1)
 			continue;
 		}
 		if (Date.now() >= monsters[x].next_tick)
 		{
-			monsters[x].cycle = (monsters[x].cycle + 1) % 8;
-			monsters[x].next_tick = Date.now() + 100
+			monsters[x].cycle = (monsters[x].cycle + 1) % 10;
+			monsters[x].next_tick = Date.now() + 60
 		}
 	}
 }
@@ -159,12 +163,18 @@ function drawFrame()
 							monsters[x].cycle * monsters[x].spriteW, 0, monsters[x].spriteW, monsters[x].spriteH,
 							monsters[x].positionX, monsters[x].positionY, monsters[x].spriteW, monsters[x].spriteH);
 		monsters[x].old_positionX = monsters[x].positionX
-		//drawHpBar(monsters[x])
+		if (monsters[x].mouseOver)
+		{
+			drawHpBar(monsters[x])
+		}
 	}
 	ctx.drawImage(cursor.sprite, cursor.X - 20, cursor.Y - 20)
 }
 
 //animation2(monsters)
+
+var canvas = document.getElementById('myCanvas');
+var context = canvas.getContext('2d');
 
 function getMousePos(canvas, evt) {
         var rect = canvas.getBoundingClientRect();
@@ -173,19 +183,19 @@ function getMousePos(canvas, evt) {
           y: evt.clientY - rect.top
         };
       }
-var canvas = document.getElementById('myCanvas');
-var context = canvas.getContext('2d');
 
 canvas.addEventListener('mousedown', 
 	function(evt) 
 	{
         var mousePos = getMousePos(canvas, evt);
-        for (var x = 0; x < monsters.length; x++)
+        for (var x = monsters.length - 1; x >= 0; x--)
 		{
 			if ( ((monsters[x].positionX <= mousePos.x) && (mousePos.x <= monsters[x].positionX + monsters[x].spriteW)) && ((monsters[x].positionY <= mousePos.y) && (mousePos.y <= monsters[x].positionY + monsters[x].spriteH)) )
 			{
-				monsters[x].HP -= 10;
-				break;
+				//alert("test")
+				monsters[x].Hp -= 10;
+				$("#monster_stats").html("HP: " + (monsters[x].Hp))
+				return
 			}
 		}
      }, 
@@ -197,14 +207,35 @@ canvas.addEventListener('mousemove',
         cursor.X = getMousePos(canvas, evt).x;
 		cursor.Y = getMousePos(canvas, evt).y;
 		var mousePos = getMousePos(canvas, evt);
+		//$("#monster_stats").html("")
         for (var x = 0; x < monsters.length; x++)
 		{
 			if ( ((monsters[x].positionX <= mousePos.x) && (mousePos.x <= monsters[x].positionX + monsters[x].spriteW)) && ((monsters[x].positionY <= mousePos.y) && (mousePos.y <= monsters[x].positionY + monsters[x].spriteH)) )
 			{
-				$("#monster_stats").html("HP: " + (monsters[x].HP))
+				$("#monster_stats").html("HP: " + (monsters[x].Hp))
+				monsters[x].mouseOver = true;
 			}
+			else
+			{
+				monsters[x].mouseOver = false;
+			}
+			if ((monsters[x].Hp < monsters[x].HpMax) || (monsters[x].mouseOver))
+			{
+				monsters[x].mouseOver = true;
+			}
+			//$("#monster_stats").append(monsters[x].positionY + ",")
 		}
      }, 
 	 false);
 
+function insertionSort(a) {
+    for (var i = 0; i < a.length; i++) {
+        var k = a[i];
+        for (var j = i; j > 0 && k.positionY < a[j - 1].positionY; j--)
+            a[j] = a[j - 1];
+        a[j] = k;
+    }
+    return a;
+}
+	 
 </script></body></html>
