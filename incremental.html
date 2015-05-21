@@ -159,7 +159,7 @@ function calculateMonsters()
 		if (Date.now() >= monsters[x].next_tick)
 		{
 			monsters[x].cycle = (monsters[x].cycle + 1) % 10;
-			monsters[x].next_tick = Date.now() + 60
+			monsters[x].next_tick = Date.now() + (90 - monsters[x].speed)
 		}
 	}
 }
