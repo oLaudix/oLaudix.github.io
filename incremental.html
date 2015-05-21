@@ -24,8 +24,9 @@
 	Max Mobs: <input id="mobs" type="text" value="1" style="margin-left: 10px"></input>
 	<div id="testing"></div>
 	<div id="testing2"></div>
-	<canvas id="myCanvas" width="1500" height="700" style="border:1px solid #000000;">
-	<canvas id="buffer" width="400" height="500">
+	<div><canvas id="myCanvas" width="1500" height="700" style="border:1px solid #000000;"></div>
+	<div id="monster_stats">"test"</div>
+
 	
 	</canvas>
 	</div>
@@ -39,10 +40,10 @@
 
 <script language="javascript">/* Write JavaScript here */
 //$(window).load(function start(){
-
+	//<canvas id="buffer" width="400" height="500">
 var monster = function()
 {
-	this.HP = RandomIntRange(10,100)
+	this.HP = RandomIntRange(100,100)
 	this.HpMax = 100
 	this.cycle = 0;
 	this.positionX = RandomIntRange(-100,-50);
@@ -112,20 +113,19 @@ function animation2(monsterList)
 			monsterList[x].old_positionX = monsterList[x].positionX
 			if (monsterList[x].positionX > c.width + monsterList[x].spriteW)
 			{
-				monsterList[x].positionX = RandomIntRange(-100,-50);;
-				monsterList[x].positionY = RandomIntRange(0,c.height - monsterList[x].spriteH)
-				monsterList[x].old_positionY = monsterList[x].positionY
-				//if (monsterList.length > parseInt($("#mobs").val()))
-				//{
-					//monsters.splice(x, 1)
-					//continue;
-				//}
+				monsters.splice(x, 1)
+				continue;
 			}
 			else
 			{
 				monsterList[x].positionX += monsterList[x].speed
 			}
-			//drawHpBar(monsterList[x])
+			if (monsterList[x].HP <= 0)
+			{
+				monsters.splice(x, 1)
+				continue;
+			}
+			drawHpBar(monsterList[x])
 			monsterList[x].cycle = (monsterList[x].cycle + 1) % 8;
 			next_tick = Date.now() + 120
 			//alert("narysowane")
@@ -139,5 +139,45 @@ function animation2(monsterList)
 
 animation2(monsters)
 
+var mouseX = 0;
+var mouseY = 0;
+
+function getMousePos(canvas, evt) {
+        var rect = canvas.getBoundingClientRect();
+        return {
+          x: evt.clientX - rect.left,
+          y: evt.clientY - rect.top
+        };
+      }
+var canvas = document.getElementById('myCanvas');
+var context = canvas.getContext('2d');
+
+canvas.addEventListener('mousedown', 
+	function(evt) 
+	{
+        var mousePos = getMousePos(canvas, evt);
+        for (var x = 0; x < monsters.length; x++)
+		{
+			if ( ((monsters[x].positionX <= mousePos.x) && (mousePos.x <= monsters[x].positionX + monsters[x].spriteW)) && ((monsters[x].positionY <= mousePos.y) && (mousePos.y <= monsters[x].positionY + monsters[x].spriteH)) )
+			{
+				monsters[x].HP -= 10;
+			}
+		}
+     }, 
+	 false);
+	 
+canvas.addEventListener('mousemove', 
+	function(evt) 
+	{
+        var mousePos = getMousePos(canvas, evt);
+        for (var x = 0; x < monsters.length; x++)
+		{
+			if ( ((monsters[x].positionX <= mousePos.x) && (mousePos.x <= monsters[x].positionX + monsters[x].spriteW)) && ((monsters[x].positionY <= mousePos.y) && (mousePos.y <= monsters[x].positionY + monsters[x].spriteH)) )
+			{
+				$("#monster_stats").html("HP: " + (monsters[x].HP))
+			}
+		}
+     }, 
+	 false);
 
 </script></body></html>
