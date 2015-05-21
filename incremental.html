@@ -54,18 +54,18 @@ var monster = function()
 	this.spriteW = 24;
 	this.spriteH = 30;
 	this.positionY = RandomIntRange(0,c.height - this.spriteH)
-	this.speed = RandomIntRange(4,8)
-	//alert(this.img1.src)
+	this.speed = RandomIntRange(40,80)
+	this.next_tick = 0;
 	this.c = document.getElementById("myCanvas");
 	this.ctx = this.c.getContext("2d");
 }
 
 var Cursor = function()
 {
-	this.X = 0
+	this.X = -100
 	this.sprite = new Image();
 	this.sprite.src = "crosshair.png";
-	this.Y = 0
+	this.Y = -100
 	this.c = document.getElementById("myCanvas");
 	this.ctx = this.c.getContext("2d");
 }
@@ -103,16 +103,25 @@ function drawHpBar(mob)
 var c = document.getElementById("myCanvas");
 var ctx = c.getContext("2d");
 
-var next_tick = 0;
+var lastUpdate = Date.now();
+var elapsed = 0;
+var counter = 0;
+var medium = 0;
 
 function main()
 {
 	var tick_start = Date.now()
+	var now = Date.now();
+	elapsed = (now - this.lastUpdate);
+	medium += elapsed;
+	counter += 1;
+	lastUpdate = now;
 	calculateMonsters()
 	drawFrame(monsters)
 	var tick_end = Date.now()
-	$("#testing2").html("render time: " + (tick_end - tick_start) + " ms")
-	setTimeout(function() { main() }, 0)
+	$("#testing2").html("render time: " + (medium/counter) + " ms")
+	//alert(elapsed)
+	setTimeout(function() { main() }, 1)
 }
 
 main();
@@ -123,7 +132,7 @@ function calculateMonsters()
 	{
 		monsters.push(new monster)
 	}
-	if (Date.now() >= next_tick)
+	//if (Date.now() >= next_tick)
 	{
 		var tick_start = Date.now()
 		for (var x = 0; x < monsters.length; x++)
@@ -136,15 +145,20 @@ function calculateMonsters()
 			}
 			else
 			{
-				monsters[x].positionX += monsters[x].speed
+			
+				var distance = (monsters[x].speed / 1000) * elapsed;
+				monsters[x].positionX += distance;
 			}
 			if (monsters[x].HP <= 0)
 			{
 				monsters.splice(x, 1)
 				continue;
 			}
-			monsters[x].cycle = (monsters[x].cycle + 1) % 8;
-			next_tick = Date.now() + 120
+			if (Date.now() >= monsters[x].next_tick)
+			{
+				monsters[x].cycle = (monsters[x].cycle + 1) % 8;
+				monsters[x].next_tick = Date.now() + 100
+			}
 		}
 	}
 }
