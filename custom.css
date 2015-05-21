@@ -413,6 +413,9 @@ input[type="color"]:focus,
 }
 		
 		
-		
+canvas {
+  cursor: url(crosshair.png) 25 25, 
+		  crosshair;
+  }
 		
 		
