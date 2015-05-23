@@ -292,10 +292,18 @@ function drawFrame()
 		monsters[x].old_positionX = monsters[x].positionX
 		if (monsters[x].mouseOver)
 		{
+			var imgData = ctx.getImageData(cursor.X,cursor.Y,1,1);
+			if ((imgData.data[0] != 0) || (imgData.data[1] != 0) || (imgData.data[2] != 0) || (imgData.data[3] != 0))
 			drawHpBar(monsters[x])
+			//targetedMob = x
 		}
 	}
-	ctx.drawImage(cursor.sprite, cursor.X - 20, cursor.Y - 20)	
+	var imgData = ctx.getImageData(cursor.X,cursor.Y,1,1);
+	$("#monster_stats").html("")
+	$("#monster_stats").append(imgData.data[0] + "," + imgData.data[1] + "," + imgData.data[2] + "," + imgData.data[3])
+		//ctx.putImageData(imgData,40,40);
+	ctx.drawImage(cursor.sprite, cursor.X - 20, cursor.Y - 20)
+		//alert(imgData.data[0] + "," + imgData.data[1] + "," + imgData.data[2] + "," + imgData.data[3])
 	//var imgData = ctx.getImageData(cursor.X-20,cursor.Y-20,40,40);
 	//ctx.drawImage(	monsters[0].img1, 0, 0 )
 	//var imgData = ctx.getImageData(0,0,400,40);
@@ -316,19 +324,20 @@ function getMousePos(canvas, evt) {
         };
       }
 
+var targetedMob = -1;
+	  
 canvas.addEventListener('mousedown', 
 	function(evt) 
 	{
         var mousePos = getMousePos(canvas, evt);
-		var imgData = ctx.getImageData(mousePos.x,mousePos.y,1,1);
-		alert(imgData.data[1])
         for (var x = monsters.length - 1; x >= 0; x--)
 		{
 			if ( ((monsters[x].positionX <= mousePos.x) && (mousePos.x <= monsters[x].positionX + monsters[x].spriteW)) && ((monsters[x].positionY <= mousePos.y) && (mousePos.y <= monsters[x].positionY + monsters[x].spriteH)) )
 			{
 				//alert("test")
-				monsters[x].Hp -= 10;
-				$("#monster_stats").html("HP: " + (monsters[x].Hp))
+				targetedMob = x
+				//monsters[x].Hp -= 10;
+				//$("#monster_stats").html("HP: " + (monsters[x].Hp))
 				return
 			}
 		}
@@ -346,7 +355,7 @@ canvas.addEventListener('mousemove',
 		{
 			if ( ((monsters[x].positionX <= mousePos.x) && (mousePos.x <= monsters[x].positionX + monsters[x].spriteW)) && ((monsters[x].positionY <= mousePos.y) && (mousePos.y <= monsters[x].positionY + monsters[x].spriteH)) )
 			{
-				$("#monster_stats").html("HP: " + (monsters[x].Hp))
+				//$("#monster_stats").html("HP: " + (monsters[x].Hp))
 				monsters[x].mouseOver = true;
 			}
 			else
