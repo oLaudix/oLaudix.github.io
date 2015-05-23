@@ -26,7 +26,7 @@
 	<div id="testing2"></div>
 	<div id="level"></div>
 	<div id="wave"></div>
-	<div><canvas id="myCanvas" width="1500" height="700" style="border:1px solid #000000; cursor: none; background-color: #00FFFF"></div>
+	<div><canvas id="myCanvas" width="1500" height="700" style="border:1px solid #000000; background-color: #00FFFF"></div>
 	<div id="monster_stats">"test"</div>
 	<canvas id="buffer" width="400" height="500">
 
@@ -67,7 +67,7 @@ var monster = function(HpMax, img, speed, type)
 	this.img1.crossOrigin="Anonymous";
 	this.spriteW = img[0];
 	this.spriteH = img[1];
-	this.positionX = RandomIntRange(-100,-50);
+	this.positionX = 100;
 	this.positionY = RandomIntRange(0,c.height - this.spriteH)
 	this.speed = speed//RandomIntRange(33,66)
 	this.next_tick = 0;
@@ -262,6 +262,7 @@ function calculateMonsters()
 		else
 		{	
 			var distance = (monsters[x].speed / 1000) * elapsed;
+			//monsters[x].positionX += distance;
 			monsters[x].positionX += distance;
 		}
 		if (monsters[x].Hp <= 0)
@@ -275,7 +276,10 @@ function calculateMonsters()
 			monsters[x].cycle = (monsters[x].cycle + 1) % 4;
 			//monsters[x].next_tick = Date.now() + (90 - monsters[x].speed)
 			//alert(monsters[x].speed)
-			monsters[x].next_tick = Date.now() + ((40/(monsters[x].speed))*125)
+			//monsters[x].next_tick = Date.now() + ((40/(monsters[x].speed))*125)
+			monsters[x].speed = 1500/30
+			monsters[x].next_tick = Date.now() + ((monsters[x].spriteW/2*1000/4)/monsters[x].speed)
+			$("#monster_stats").html(5000/monsters[x].speed + "," + monsters[x].speed)
 		}
 	}
 }
@@ -299,10 +303,10 @@ function drawFrame()
 		}
 	}
 	var imgData = ctx.getImageData(cursor.X,cursor.Y,1,1);
-	$("#monster_stats").html("")
-	$("#monster_stats").append(imgData.data[0] + "," + imgData.data[1] + "," + imgData.data[2] + "," + imgData.data[3])
+	//$("#monster_stats").html("")
+	//$("#monster_stats").append(imgData.data[0] + "," + imgData.data[1] + "," + imgData.data[2] + "," + imgData.data[3])
 		//ctx.putImageData(imgData,40,40);
-	ctx.drawImage(cursor.sprite, cursor.X - 20, cursor.Y - 20)
+	//ctx.drawImage(cursor.sprite, cursor.X - 20, cursor.Y - 20)
 		//alert(imgData.data[0] + "," + imgData.data[1] + "," + imgData.data[2] + "," + imgData.data[3])
 	//var imgData = ctx.getImageData(cursor.X-20,cursor.Y-20,40,40);
 	//ctx.drawImage(	monsters[0].img1, 0, 0 )
@@ -334,11 +338,14 @@ canvas.addEventListener('mousedown',
 		{
 			if ( ((monsters[x].positionX <= mousePos.x) && (mousePos.x <= monsters[x].positionX + monsters[x].spriteW)) && ((monsters[x].positionY <= mousePos.y) && (mousePos.y <= monsters[x].positionY + monsters[x].spriteH)) )
 			{
-				//alert("test")
-				targetedMob = x
-				//monsters[x].Hp -= 10;
-				//$("#monster_stats").html("HP: " + (monsters[x].Hp))
-				return
+				$("#monster_stats").html("sprite")
+				var imgData = ctx.getImageData(mousePos.x,mousePos.y,1,1);
+				if ((imgData.data[0] != 0) || (imgData.data[1] != 0) || (imgData.data[2] != 0) || (imgData.data[3] != 0))
+				{
+					monsters[x].Hp -= 10;
+					//$("#monster_stats").html("HP: " + (monsters[x].Hp))
+					return
+				}
 			}
 		}
      }, 
