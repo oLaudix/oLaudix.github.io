@@ -28,6 +28,7 @@
 	<div id="wave"></div>
 	<div><canvas id="myCanvas" width="1500" height="700" style="border:1px solid #000000; cursor: none; background-color: #00FFFF"></div>
 	<div id="monster_stats">"test"</div>
+	<canvas id="buffer" width="400" height="500">
 
 	
 	</canvas>
@@ -54,7 +55,8 @@ var monster = function(HpMax, img, speed, type)
 	switch(type) 
 	{
     case 0:
-        this.img1.src = "img/greenstickman.png";
+        //this.img1.src = "img/greenstickman.png";
+		this.img1.src = "img/testanimation.png";
         break;
     case 1:
         this.img1.src = "img/redstickman.png";
@@ -62,6 +64,7 @@ var monster = function(HpMax, img, speed, type)
     default:
         this.img1.src = "img/yellowstickman.png";
 	}
+	this.img1.crossOrigin="Anonymous";
 	this.spriteW = img[0];
 	this.spriteH = img[1];
 	this.positionX = RandomIntRange(-100,-50);
@@ -269,10 +272,10 @@ function calculateMonsters()
 		}
 		if (Date.now() >= monsters[x].next_tick)
 		{
-			monsters[x].cycle = (monsters[x].cycle + 1) % 10;
+			monsters[x].cycle = (monsters[x].cycle + 1) % 4;
 			//monsters[x].next_tick = Date.now() + (90 - monsters[x].speed)
 			//alert(monsters[x].speed)
-			monsters[x].next_tick = Date.now() + ((40/(monsters[x].speed))*50)
+			monsters[x].next_tick = Date.now() + ((40/(monsters[x].speed))*125)
 		}
 	}
 }
@@ -292,8 +295,10 @@ function drawFrame()
 			drawHpBar(monsters[x])
 		}
 	}
-	ctx.drawImage(cursor.sprite, cursor.X - 20, cursor.Y - 20)
+	ctx.drawImage(cursor.sprite, cursor.X - 20, cursor.Y - 20)	
 	//var imgData = ctx.getImageData(cursor.X-20,cursor.Y-20,40,40);
+	//ctx.drawImage(	monsters[0].img1, 0, 0 )
+	//var imgData = ctx.getImageData(0,0,400,40);
 	//ctx.putImageData(imgData,40,40);
 	//ctx.drawImage(imgData, 0, 0)
 }
@@ -315,6 +320,8 @@ canvas.addEventListener('mousedown',
 	function(evt) 
 	{
         var mousePos = getMousePos(canvas, evt);
+		var imgData = ctx.getImageData(mousePos.x,mousePos.y,1,1);
+		alert(imgData.data[1])
         for (var x = monsters.length - 1; x >= 0; x--)
 		{
 			if ( ((monsters[x].positionX <= mousePos.x) && (mousePos.x <= monsters[x].positionX + monsters[x].spriteW)) && ((monsters[x].positionY <= mousePos.y) && (mousePos.y <= monsters[x].positionY + monsters[x].spriteH)) )
