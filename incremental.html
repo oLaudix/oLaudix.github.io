@@ -62,11 +62,13 @@ var monster = function(HpMax, img, speed, type)
     case 0:
         //this.img1.src = "img/greenstickman.png";
 		this.img1.src = "img/mob1.png";
-		this.animationCount = 18
+		this.animationCount = 18;
+		this.animationAdjust = 2;
         break;
     case 1:
         this.img1.src = "img/mob2.png";
-		this.animationCount = 18
+		this.animationCount = 9;
+		this.animationAdjust = 1;
         break;
     default:
         this.img1.src = "img/yellowstickman.png";
@@ -184,20 +186,43 @@ var monsters = []
 var levels = new Level(arena)
 //new Level(15)
 //levels[0].getEnemies();
+
+
+function parseHexColor(c) {
+  var j = {};
+
+  var s = c.replace(/^#([0-9A-Fa-f]{2})([0-9A-Fa-f]{2})([0-9A-Fa-f]{2})$/, function(_, r, g, b) {
+    j.red = parseInt(r, 16);
+    j.green = parseInt(g, 16);
+    j.blue = parseInt(b, 16);
+
+    return "";
+  });
+
+  if(s.length == 0) {
+    return j;
+  }
+};
+
+function colorDifference(a, b, prcnt) {
+  var a = parseHexColor(a);
+  var b = parseHexColor(b);
+  var c = {}
+  c.red = Math.round(b.red - ((b.red - a.red)*prcnt))
+  c.green = Math.round(b.green - ((b.green - a.green)*prcnt))
+  c.blue = Math.round(b.blue - ((b.blue - a.blue)*prcnt))
+  c.string = "#" + ((c.red.toString(16).length < 2) ? "0" + c.red.toString(16) : c.red.toString(16))
+  c.string += ((c.green.toString(16).length < 2) ? "0" + c.green.toString(16) : c.green.toString(16))
+  c.string += ((c.blue.toString(16).length < 2) ? "0" + c.blue.toString(16) : c.blue.toString(16))
+  if(typeof(a) != 'undefined' && typeof(b) != 'undefined') {
+  //
+    return c.string;
+  }
+};
+
 function drawHpBar(mob)
 {
-	if (mob.Hp > mob.HpMax/3*2)
-	{
-		mob.ctx.fillStyle="#088A29";
-	}
-	else if (mob.Hp > mob.HpMax/3)
-	{
-		mob.ctx.fillStyle="#FF9900";
-	}
-	else
-	{
-		mob.ctx.fillStyle="#FF0000";
-	}
+	mob.ctx.fillStyle=colorDifference("#FF0000","#088A29",1 - mob.Hp/mob.HpMax)
 	mob.ctx.fillRect(mob.positionX,mob.positionY - 5,24*mob.Hp/mob.HpMax,3);
 	mob.ctx.beginPath();
 	mob.ctx.rect(mob.positionX,mob.positionY - 5,24,3);
@@ -289,7 +314,7 @@ function calculateMonsters()
 			//monsters[x].next_tick = Date.now() + (90 - monsters[x].speed)
 			//alert(monsters[x].speed)
 			//monsters[x].next_tick = Date.now() + ((40/(monsters[x].speed))*125)
-			monsters[x].next_tick = Date.now() + ((monsters[x].spriteW/2*1000/monsters[x].animationCount*2)/monsters[x].speed)
+			monsters[x].next_tick = Date.now() + ((monsters[x].spriteW/2*1000/monsters[x].animationCount*monsters[x].animationAdjust)/monsters[x].speed)
 		}
 	}
 }
