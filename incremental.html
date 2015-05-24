@@ -60,13 +60,13 @@ var monster = function(HpMax, img, speed, type)
 	switch(type) 
 	{
     case 0:
-        this.img1.src = "img/greenstickman.png";
-		//this.img1.src = "img/testanimation.png";
-		this.animationCount = 10
+        //this.img1.src = "img/greenstickman.png";
+		this.img1.src = "img/mob1.png";
+		this.animationCount = 18
         break;
     case 1:
-        this.img1.src = "img/redstickman.png";
-		this.animationCount = 10
+        this.img1.src = "img/mob2.png";
+		this.animationCount = 18
         break;
     default:
         this.img1.src = "img/yellowstickman.png";
@@ -289,7 +289,7 @@ function calculateMonsters()
 			//monsters[x].next_tick = Date.now() + (90 - monsters[x].speed)
 			//alert(monsters[x].speed)
 			//monsters[x].next_tick = Date.now() + ((40/(monsters[x].speed))*125)
-			monsters[x].next_tick = Date.now() + ((monsters[x].spriteW/2*1000/monsters[x].animationCount)/monsters[x].speed)
+			monsters[x].next_tick = Date.now() + ((monsters[x].spriteW/2*1000/monsters[x].animationCount*2)/monsters[x].speed)
 		}
 	}
 }
