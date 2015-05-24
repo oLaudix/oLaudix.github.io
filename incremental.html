@@ -26,7 +26,7 @@
 	<div id="testing2"></div>
 	<div id="level"></div>
 	<div id="wave"></div>
-	<div><canvas id="myCanvas" width="1500" height="700" style="border:1px solid #000000; background-color: #00FFFF"></div>
+	<div><canvas id="myCanvas" width="1500" height="700" style="border:1px solid #000000; background-image: url('img/background.png')"></div>
 	<div id="monster_stats">"test"</div>
 	<canvas id="buffer" width="400" height="500">
 
@@ -44,6 +44,11 @@
 <script language="javascript">/* Write JavaScript here */
 //$(window).load(function start(){
 	//<canvas id="buffer" width="400" height="500">
+	
+
+//http://www.kongregate.com/games/StickpageDOTcom/dry-fire-reloaded
+	
+
 var monster = function(HpMax, img, speed, type)
 {
 	this.HpMax = HpMax
@@ -109,6 +114,7 @@ var Level = function(level)
 		var lastEnemiesRequired = [];
 		var hp = this.totalHP()
 		var min = ((this.level % 10) != 0) ? 40 : 100;
+		//var min = ((this.level % 10) != 0) ? 10 : 0;
 		var max = min + 20;
 		var num = 670 * (max / 40);
 		var d = hp / num;
@@ -134,7 +140,7 @@ var Level = function(level)
 			}
 		}
 		var num5 = (this.monsters[2] + this.monsters[1]) + this.monsters[0];
-		while ((num5 < min) && (this.monsters[1] > 0))
+		/*while ((num5 < min) && (this.monsters[1] > 0))
 		{
 			this.monsters[1]--;
 			this.monsters[0] += 10;
@@ -145,7 +151,7 @@ var Level = function(level)
 			this.monsters[0] -= 10;
 			this.monsters[1]++;
 			num5 = (this.monsters[2] + this.monsters[1]) + this.monsters[0];
-		}
+		}*/
 		for (var a = 0; a < 3; a++)
 		{
 			var num9 = this.minHP * Math.pow(10.0, a);
@@ -303,7 +309,6 @@ function drawFrame()
 			var hitbox = false;
 			var imgData = ctx.getImageData(cursor.X-1,cursor.Y-1,3,3);
 			ctx.putImageData(imgData,10,10)
-			$("#monster_stats").html(imgData.data.length)
 			for (var data = 0; data < imgData.data.length; data += 4)
 			{
 				//$("#monster_stats").append(data + ",")
@@ -314,7 +319,7 @@ function drawFrame()
 				}
 				
 			}
-			$("#monster_stats").append(imgData.data[0])
+			//$("#monster_stats").append(imgData.data[0])
 			//if ((imgData.data[0] != 0) || (imgData.data[1] != 0) || (imgData.data[2] != 0) || (imgData.data[3] != 0))
 			if (hitbox)
 			drawHpBar(monsters[x])
@@ -357,7 +362,7 @@ canvas.addEventListener('mousedown',
 		{
 			if ( ((monsters[x].positionX <= mousePos.x) && (mousePos.x <= monsters[x].positionX + monsters[x].spriteW)) && ((monsters[x].positionY <= mousePos.y) && (mousePos.y <= monsters[x].positionY + monsters[x].spriteH)) )
 			{
-				$("#monster_stats").html("sprite")
+				//$("#monster_stats").html("sprite")
 				var imgData = ctx.getImageData(mousePos.x,mousePos.y,1,1);
 				if ((imgData.data[0] != 0) || (imgData.data[1] != 0) || (imgData.data[2] != 0) || (imgData.data[3] != 0))
 				{
@@ -381,7 +386,7 @@ canvas.addEventListener('mousemove',
 		{
 			if ( ((monsters[x].positionX <= mousePos.x) && (mousePos.x <= monsters[x].positionX + monsters[x].spriteW)) && ((monsters[x].positionY <= mousePos.y) && (mousePos.y <= monsters[x].positionY + monsters[x].spriteH)) )
 			{
-				//$("#monster_stats").html("HP: " + (monsters[x].Hp))
+				$("#monster_stats").html("HP: " + (monsters[x].Hp) + "<br>" + (levels.totalHP()))
 				monsters[x].mouseOver = true;
 			}
 			else
