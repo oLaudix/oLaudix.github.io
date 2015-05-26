@@ -49,7 +49,7 @@
 //http://www.kongregate.com/games/StickpageDOTcom/dry-fire-reloaded
 	
 
-var monster = function(HpMax, img, speed, type)
+var monster = function(HpMax, speed, type)
 {
 	this.HpMax = HpMax
 	this.Hp = HpMax
@@ -64,19 +64,25 @@ var monster = function(HpMax, img, speed, type)
 		this.img1.src = "img/mob1.png";
 		this.animationCount = 18;
 		this.animationAdjust = 2;
+		this.hpBarX = 11
+		this.hpBarY = -5
+		this.spriteW = 40;
+		this.spriteH = 40;
         break;
     case 1:
         this.img1.src = "img/mob2.png";
 		this.animationCount = 9;
 		this.animationAdjust = 1;
+		this.hpBarX = 6
+		this.hpBarY = -5
+		this.spriteW = 43;
+		this.spriteH = 40;
         break;
     default:
         this.img1.src = "img/yellowstickman.png";
 		this.animationCount = 10
 	}
 	this.img1.crossOrigin="Anonymous";
-	this.spriteW = img[0];
-	this.spriteH = img[1];
 	this.positionX = RandomIntRange(-100,-50);
 	this.positionY = RandomIntRange(0,c.height - this.spriteH)
 	this.speed = speed//RandomIntRange(33,66)
@@ -223,9 +229,9 @@ function colorDifference(a, b, prcnt) {
 function drawHpBar(mob)
 {
 	mob.ctx.fillStyle=colorDifference("#FF0000","#088A29",1 - mob.Hp/mob.HpMax)
-	mob.ctx.fillRect(mob.positionX,mob.positionY - 5,24*mob.Hp/mob.HpMax,3);
+	mob.ctx.fillRect(mob.positionX + mob.hpBarX,mob.positionY + mob.hpBarY,30*mob.Hp/mob.HpMax,3);
 	mob.ctx.beginPath();
-	mob.ctx.rect(mob.positionX,mob.positionY - 5,24,3);
+	mob.ctx.rect(mob.positionX + mob.hpBarX,mob.positionY + mob.hpBarY,30,3);
 	mob.ctx.stroke();
 }
 
@@ -281,7 +287,7 @@ function calculateMonsters()
 			{
 				//if (monsters.length < 20 )
 				{
-					monsters.push(new monster(levels.monstersHP[a], [40,40],RandomIntRange(33,66), a))
+					monsters.push(new monster(levels.monstersHP[a],RandomIntRange(33,66), a))
 					insertionSort(monsters)
 				}
 			}
@@ -330,11 +336,12 @@ function drawFrame()
 							monsters[x].positionX, monsters[x].positionY, monsters[x].spriteW, monsters[x].spriteH);
 		monsters[x].old_positionX = monsters[x].positionX
 		if (monsters[x].mouseOver)
-		{
+		{	
+			var imgData = ctx.getImageData(cursor.X-20,cursor.Y-20,40,40);
+			//alert(imgData.width)
+			//ctx.putImageData(imgData,10,10)
 			var hitbox = false;
-			var imgData = ctx.getImageData(cursor.X-1,cursor.Y-1,3,3);
-			ctx.putImageData(imgData,10,10)
-			for (var data = 0; data < imgData.data.length; data += 4)
+			for (var data = 3; data < imgData.data.length; data += 4)
 			{
 				//$("#monster_stats").append(data + ",")
 				if (imgData.data[data] != 0)
@@ -346,12 +353,13 @@ function drawFrame()
 			}
 			//$("#monster_stats").append(imgData.data[0])
 			//if ((imgData.data[0] != 0) || (imgData.data[1] != 0) || (imgData.data[2] != 0) || (imgData.data[3] != 0))
-			if (hitbox)
+			//if (hitbox)
 			drawHpBar(monsters[x])
 			//targetedMob = x
 		}
 	}
-	var imgData = ctx.getImageData(cursor.X,cursor.Y,1,1);
+	//var imgData = ctx.getImageData(cursor.X,cursor.Y,1,1);
+	//ctx.putImageData(imgData,10,10)
 	//$("#monster_stats").html("")
 	//$("#monster_stats").append(imgData.data[0] + "," + imgData.data[1] + "," + imgData.data[2] + "," + imgData.data[3])
 		//ctx.putImageData(imgData,40,40);

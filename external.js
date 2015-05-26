@@ -2,10 +2,35 @@ setInterval(
 
 function()
 {
-	alert("test")
+	//alert("test")
 },
 3000
 );
+
+
+document.addEventListener('mousemove', function(e){ 
+    mouse.x = e.clientX || e.pageX; 
+    mouse.y = e.clientY || e.pageY 
+	console.log(mouse.x + ", " + mouse.y)
+}, false);
+
+
+
+
+function click(x,y){
+    var ev = document.createEvent("MouseEvent");
+    var el = document.elementFromPoint(x,y);
+    ev.initMouseEvent(
+        "click",
+        true /* bubble */, true /* cancelable */,
+        window, null,
+        x, y, 0, 0, /* coordinates */
+        false, false, false, false, /* modifier keys */
+        0 /*left*/, null
+    );
+    el.dispatchEvent(ev);
+}
+
 
 
 /*
