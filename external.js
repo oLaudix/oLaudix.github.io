@@ -2,13 +2,9 @@ setInterval(
 
 function()
 {
-	click(525,409);
-	click(525,490);
-	click(525,567);
-	click(525,647);
-	click(525,728);
+	click(651, 126);
 },
-1000
+10
 );
 
 var mouse = {x: 0, y: 0};
