@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-1.16.0.css">
+<link rel="stylesheet" href="bootstrap.min.css">
+<link rel="stylesheet" href="custom.css">
+<title>My Page</title>
+  <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
+</head>
+<body>
+	<div style="float: left; width: 180px;">
+		<ul class="nav nav-tabs nav-stacked">
+			<li><a href=".">Home</a></li>
+			<li><a href="TTcalc.html">Tap Titans Calculator</a></li>
+			<li><a href="stuff.html">Tap Titans usefull stuff</a></li>
+			<li><a href="MCcalc.html">Mine Clicker Calculator</a></li>
+			<li><a href="SMCG.html">Simulation Craft Stuff</a></li>
+			<li><a href="CivCrafter.html">Civ Crafter Stuff</a></li>
+			<li><a href="ShonenIdle.html">Shonen Idle Stuff</a></li>
+			<li><a href="incremental.html">Testing</a></li>
+		</ul>
+	</div>
+	<div class="wrapper" style="display: inline-block;">
+		<div id="test"></div>
+	</div>
+  
+  
+<script type="text/javascript" src="jquery-latest.min.js"></script>
+<script type="text/javascript" src="bootstrap.min.js"></script>
+<script src="common.js"></script>
+
+
+
+<script language="javascript">/* Write JavaScript here */
+//$(window).load(function start(){
+
+
+var items = {
+Blue_Circuit: {name: "Blue_Circuit", recipe: [], craftingTime: 15, quantity: 7}, 
+Red_Circuit: {name: "Red_Circuit", recipe: [], craftingTime: 8, quantity: 0},
+Green_Circuit: {name: "Green_Circuit", recipe: [], craftingTime: 0.5, quantity: 0},
+Batteries: {name: "Batteries", recipe: [], craftingTime: 5, quantity: 0},
+FRF: {name: "FRF", recipe: [], craftingTime: 20, quantity: 0},
+Electric_Engine: {name: "Electric_Engine", recipe: [], craftingTime: 20, quantity: 0},
+Lubricant: {name: "Lubricant", recipe: [], craftingTime: 1, quantity: 0},
+Sulfuric_Acid: {name: "Sulfuric_Acid", recipe: [], craftingTime: 1/5, quantity: 0},
+Sulfur: {name: "Sulfur", recipe: [], craftingTime: 1/2, quantity: 0},
+Plastic: {name: "Plastic", recipe: [], craftingTime: 1/2, quantity: 0},
+Solar_Panel: {name: "Solar_Panel", recipe: [], craftingTime: 10, quantity: 0},
+Solar_PanelMk2: {name: "Solar_PanelMk2", recipe: [], craftingTime: 12.5, quantity: 0},
+Solar_PanelMk3: {name: "Solar_PanelMk3", recipe: [], craftingTime: 16, quantity: 0},
+Solar_PanelMk4: {name: "Solar_PanelMk4", recipe: [], craftingTime: 20, quantity: 0},
+Accumulator: {name: "Accumulator", recipe: [], craftingTime: 10, quantity: 0},
+AccumulatorMk2: {name: "AccumulatorMk2", recipe: [], craftingTime: 12.5, quantity: 0},
+AccumulatorMk3: {name: "AccumulatorMk3", recipe: [], craftingTime: 16, quantity: 0},
+AccumulatorMk4: {name: "AccumulatorMk4", recipe: [], craftingTime: 20, quantity: 0},
+Heavy_Oil: {name: "Heavy_Oil", recipe: [], craftingTime: 5/3, quantity: 0},
+Light_Oil: {name: "Light_Oil", recipe: [], craftingTime: 5/3, quantity: 0},
+Petrol_Gas: {name: "Petrol_Gas", recipe: [], craftingTime: 5/4, quantity: 0},
+Advanced_Heavy_Oil: {name: "Advanced_Heavy_Oil", recipe: [], craftingTime: 5/1, quantity: 0},
+Advanced_Light_Oil: {name: "Advanced_Light_Oil", recipe: [], craftingTime: 5/4.5, quantity: 0},
+Advanced_Petrol_Gas: {name: "Advanced_Petrol_Gas", recipe: [], craftingTime: 5/5.5, quantity: 0},
+Rafinery: {name: "Basic_Rafinery", recipe: [], craftingTime: 1, quantity: 0},
+};
+
+items['Blue_Circuit'].recipe.push({ name: items['Red_Circuit'].name, quantity: 2})
+items['Blue_Circuit'].recipe.push({ name: items['Green_Circuit'].name, quantity: 20})
+items['Blue_Circuit'].recipe.push({ name: items['Sulfuric_Acid'].name, quantity: 0.5})
+
+for (var k in items) {
+  if (items.hasOwnProperty(k)) {
+    $("#test").append(items[k].quantity + " " + items[k].name + ": <br>")
+	for (x = 0; x < items[k].recipe.length; x++)
+	{
+		$("#test").append( items[k].recipe[x].name + " " + (items[k].recipe[x].quantity * items[k].quantity / items[k].craftingTime * items[items[k].recipe[x].name].craftingTime) + "<br>")
+	}
+	$("#test").append("<br>")
+  }
+}
+
+
+
+</script></body></html>
