@@ -127,7 +127,7 @@ var Level = function(level)
 	{
 		var lastEnemiesRequired = [];
 		var hp = this.totalHP()
-		var min = ((this.level % 10) != 0) ? 40 : 100;
+		var min = ((this.level % 10) != 0) ? 1 : 10;
 		var max = min + 20;
 		var num = 670 * (max / 40);
 		var d = hp / num;
@@ -193,7 +193,7 @@ var Cursor = function()
 }
 
 var cursor = new Cursor();
-var arena = 1;
+var arena = 10;
 var monsters = []
 var levels = new Level(arena)
 //new Level(15)
