@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-1.16.0.css">
+<link rel="stylesheet" href="bootstrap.min.css">
+<link rel="stylesheet" href="custom.css">
+<title>My Page</title>
+  <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
+</head>
+<body>
+	<div style="float: left; width: 180px;">
+		<ul class="nav nav-tabs nav-stacked">
+			<li><a href=".">Home</a></li>
+			<li><a href="TTcalc.html">Tap Titans Calculator</a></li>
+			<li><a href="stuff.html">Tap Titans usefull stuff</a></li>
+			<li><a href="MCcalc.html">Mine Clicker Calculator</a></li>
+			<li><a href="SMCG.html">Simulation Craft Stuff</a></li>
+			<li><a href="CivCrafter.html">Civ Crafter Stuff</a></li>
+			<li><a href="ShonenIdle.html">Shonen Idle Stuff</a></li>
+			<li><a href="incremental.html">Testing</a></li>
+			<li><a href="przekazy.html">Praca</a></li>
+		</ul>
+	</div>
+	<div class="wrapper" style="display: inline-block;">
+	01. <input type="text" id="przekaz1" value="0"><input type="checkbox" id="check1">|
+	02. <input type="text" id="przekaz2" value="0"><input type="checkbox" id="check2">|
+	03. <input type="text" id="przekaz3" value="0"><input type="checkbox" id="check3">|
+	04. <input type="text" id="przekaz4" value="0"><input type="checkbox" id="check4">|
+	05. <input type="text" id="przekaz5" value="0"><input type="checkbox" id="check5"><br>
+	06. <input type="text" id="przekaz6" value="0"><input type="checkbox" id="check6">|
+	07. <input type="text" id="przekaz7" value="0"><input type="checkbox" id="check7">|
+	08. <input type="text" id="przekaz8" value="0"><input type="checkbox" id="check8">|
+	09. <input type="text" id="przekaz9" value="0"><input type="checkbox" id="check9">|
+	10. <input type="text" id="przekaz10" value="0"><input type="checkbox" id="check10"><br>
+	11. <input type="text" id="przekaz11" value="0"><input type="checkbox" id="check11">|
+	12. <input type="text" id="przekaz12" value="0"><input type="checkbox" id="check12">|
+	13. <input type="text" id="przekaz13" value="0"><input type="checkbox" id="check13">|
+	14. <input type="text" id="przekaz14" value="0"><input type="checkbox" id="check14">|
+	15. <input type="text" id="przekaz15" value="0"><input type="checkbox" id="check15"><br>
+	16. <input type="text" id="przekaz16" value="0"><input type="checkbox" id="check16">|
+	17. <input type="text" id="przekaz17" value="0"><input type="checkbox" id="check17">|
+	18. <input type="text" id="przekaz18" value="0"><input type="checkbox" id="check18">|
+	19. <input type="text" id="przekaz19" value="0"><input type="checkbox" id="check19">|
+	20. <input type="text" id="przekaz20" value="0"><input type="checkbox" id="check20"><br>
+	21. <input type="text" id="przekaz21" value="0"><input type="checkbox" id="check21">|
+	22. <input type="text" id="przekaz22" value="0"><input type="checkbox" id="check22">|
+	23. <input type="text" id="przekaz23" value="0"><input type="checkbox" id="check23">|
+	24. <input type="text" id="przekaz24" value="0"><input type="checkbox" id="check24">|
+	25. <input type="text" id="przekaz25" value="0"><input type="checkbox" id="check25"><br>
+	26. <input type="text" id="przekaz26" value="0"><input type="checkbox" id="check26">|
+	27. <input type="text" id="przekaz27" value="0"><input type="checkbox" id="check27">|
+	28. <input type="text" id="przekaz28" value="0"><input type="checkbox" id="check28">|
+	29. <input type="text" id="przekaz29" value="0"><input type="checkbox" id="check29">|
+	30. <input type="text" id="przekaz30" value="0"><input type="checkbox" id="check30"><br><br>
+	
+	<div id="output"></div><br>
+	</div>
+  
+  
+<script type="text/javascript" src="jquery-latest.min.js"></script>
+<script type="text/javascript" src="bootstrap.min.js"></script>
+<script src="common.js"></script>
+
+<script language="javascript">/* Write JavaScript here */
+//$(window).load(function start(){
+$( "input[type=text]" ).change(function() {
+	//alert(Math.floor(1.6));
+	oblicz()
+});
+$( "input[type=checkbox]" ).change(function() {
+	//alert(Math.floor(1.6));
+	oblicz()
+});
+
+var reszta = 0;
+
+var nominaly = {
+  "10000zl": 0,
+  "5000zl": 0,
+  "2000zl": 0,
+  "1000zl": 0,
+  "500zl": 0,
+  "200zl": 0,
+  "100zl": 0,
+  "50zl": 0,
+  "20zl": 0,
+  "10zl": 0,
+  "5zl": 0,
+  "2zl": 0,
+  "1zl": 0,
+  }
+
+  var nom = [10000, 5000, 2000, 1000, 500, 200, 100, 50, 20, 10, 5, 2, 1]
+  
+function przekazy()
+{
+	var text = "";
+	for (var i = 0; i < nom.length; i++)
+	{
+		if (nominaly[nom[i] + 'zl'] > 0)
+		text += nominaly[nom[i] + 'zl'] + " * " + nom[i]/100 + " zl = " + nominaly[nom[i] + 'zl'] * nom[i]/100 + "<br>";
+	}
+	var total = 0;
+	for (var i = 0; i < nom.length; i++)
+	{
+		total += nominaly[nom[i] + 'zl'] * nom[i];
+	}
+	text += "<br>Reszta - " + reszta/100 + "<br>"
+	text += "<b>Razem - " + total/100 + "</b><br>"
+	$("#output").html("");
+	$("#output").html(text);
+}
+
+function getKwota(przekaz)
+{
+	var temp2 = Math.floor(parseFloat($("#przekaz" + przekaz).val())*100);
+	//alert(temp2);
+	return temp2;
+}
+
+function policzNominaly(kwota, pelnaKwota)
+{	
+	var temp = kwota;
+	var max = 7;
+	if (pelnaKwota)
+	{
+		//alert(nom.length)
+		max = nom.length;
+	}
+	for (var i = 0; i < max; i++)
+	{
+		if (temp > (nom[i] - 1))
+		{
+			//var temp1 = "'" + nom[i] + "zl'"
+			nominaly[nom[i] + 'zl'] = nominaly[nom[i] + 'zl'] + Math.floor(temp / nom[i]);
+			temp = temp - (Math.floor(temp / nom[i]) * nom[i])
+			//alert(nominaly[nom[i] + 'zl'])
+		}
+	}
+	reszta = reszta + (temp % 100);
+}
+
+function policzReszte(kwota)
+{
+	for (var i = 1; i < nom.length; i++)
+	{
+		if (kwota > nom[i] - 1)
+		{
+			//alert(kwota)
+			//var temp1 = "'" + nom[i] + "zl'"
+			nominaly[nom[i] + 'zl'] = nominaly[nom[i] + 'zl'] + Math.floor(kwota / nom[i]);
+			//alert(nom[i])
+			kwota = kwota - (Math.floor(kwota / nom[i]) * nom[i])
+		}
+	}
+}
+
+function oblicz()
+{
+	var temp1 = 0;
+	for (var a = 1; a <= 30; a++)
+	{
+		temp1 = getKwota(a);
+		policzNominaly(temp1, $("#check" + a).is(":checked"));
+	}
+	policzReszte(reszta);
+	przekazy()
+	nominaly = {
+  "10000zl": 0,
+  "5000zl": 0,
+  "2000zl": 0,
+  "1000zl": 0,
+  "500zl": 0,
+  "200zl": 0,
+  "100zl": 0,
+  "50zl": 0,
+  "20zl": 0,
+  "10zl": 0,
+  "5zl": 0,
+  "2zl": 0,
+  "1zl": 0,
+  }
+  reszta = 0;
+}
+
+przekazy()
+</script></body></html>
