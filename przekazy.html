@@ -27,34 +27,34 @@
 				<div class="panel-heading">Save panel</div>
 				<div class="panel-body">
 					01. <input type="text" id="przekaz1" value="0"><input type="checkbox" id="check1">|
-					02. <input type="text" id="przekaz2" value="0"><input type="checkbox" id="check2">|
-					03. <input type="text" id="przekaz3" value="0"><input type="checkbox" id="check3">|
-					04. <input type="text" id="przekaz4" value="0"><input type="checkbox" id="check4">|
-					05. <input type="text" id="przekaz5" value="0"><input type="checkbox" id="check5"><br>
-					06. <input type="text" id="przekaz6" value="0"><input type="checkbox" id="check6">|
-					07. <input type="text" id="przekaz7" value="0"><input type="checkbox" id="check7">|
-					08. <input type="text" id="przekaz8" value="0"><input type="checkbox" id="check8">|
-					09. <input type="text" id="przekaz9" value="0"><input type="checkbox" id="check9">|
-					10. <input type="text" id="przekaz10" value="0"><input type="checkbox" id="check10"><br>
-					11. <input type="text" id="przekaz11" value="0"><input type="checkbox" id="check11">|
-					12. <input type="text" id="przekaz12" value="0"><input type="checkbox" id="check12">|
-					13. <input type="text" id="przekaz13" value="0"><input type="checkbox" id="check13">|
-					14. <input type="text" id="przekaz14" value="0"><input type="checkbox" id="check14">|
-					15. <input type="text" id="przekaz15" value="0"><input type="checkbox" id="check15"><br>
-					16. <input type="text" id="przekaz16" value="0"><input type="checkbox" id="check16">|
-					17. <input type="text" id="przekaz17" value="0"><input type="checkbox" id="check17">|
-					18. <input type="text" id="przekaz18" value="0"><input type="checkbox" id="check18">|
-					19. <input type="text" id="przekaz19" value="0"><input type="checkbox" id="check19">|
-					20. <input type="text" id="przekaz20" value="0"><input type="checkbox" id="check20"><br>
-					21. <input type="text" id="przekaz21" value="0"><input type="checkbox" id="check21">|
-					22. <input type="text" id="przekaz22" value="0"><input type="checkbox" id="check22">|
-					23. <input type="text" id="przekaz23" value="0"><input type="checkbox" id="check23">|
-					24. <input type="text" id="przekaz24" value="0"><input type="checkbox" id="check24">|
-					25. <input type="text" id="przekaz25" value="0"><input type="checkbox" id="check25"><br>
-					26. <input type="text" id="przekaz26" value="0"><input type="checkbox" id="check26">|
-					27. <input type="text" id="przekaz27" value="0"><input type="checkbox" id="check27">|
-					28. <input type="text" id="przekaz28" value="0"><input type="checkbox" id="check28">|
-					29. <input type="text" id="przekaz29" value="0"><input type="checkbox" id="check29">|
+					07. <input type="text" id="przekaz2" value="0"><input type="checkbox" id="check2">|
+					13. <input type="text" id="przekaz3" value="0"><input type="checkbox" id="check3">|
+					19. <input type="text" id="przekaz4" value="0"><input type="checkbox" id="check4">|
+					25. <input type="text" id="przekaz5" value="0"><input type="checkbox" id="check5"><br>
+					02. <input type="text" id="przekaz6" value="0"><input type="checkbox" id="check6">|
+					08. <input type="text" id="przekaz7" value="0"><input type="checkbox" id="check7">|
+					14. <input type="text" id="przekaz8" value="0"><input type="checkbox" id="check8">|
+					20. <input type="text" id="przekaz9" value="0"><input type="checkbox" id="check9">|
+					26. <input type="text" id="przekaz10" value="0"><input type="checkbox" id="check10"><br>
+					03. <input type="text" id="przekaz11" value="0"><input type="checkbox" id="check11">|
+					09. <input type="text" id="przekaz12" value="0"><input type="checkbox" id="check12">|
+					15. <input type="text" id="przekaz13" value="0"><input type="checkbox" id="check13">|
+					21. <input type="text" id="przekaz14" value="0"><input type="checkbox" id="check14">|
+					27. <input type="text" id="przekaz15" value="0"><input type="checkbox" id="check15"><br>
+					04. <input type="text" id="przekaz16" value="0"><input type="checkbox" id="check16">|
+					10. <input type="text" id="przekaz17" value="0"><input type="checkbox" id="check17">|
+					16. <input type="text" id="przekaz18" value="0"><input type="checkbox" id="check18">|
+					22. <input type="text" id="przekaz19" value="0"><input type="checkbox" id="check19">|
+					28. <input type="text" id="przekaz20" value="0"><input type="checkbox" id="check20"><br>
+					05. <input type="text" id="przekaz21" value="0"><input type="checkbox" id="check21">|
+					11. <input type="text" id="przekaz22" value="0"><input type="checkbox" id="check22">|
+					17. <input type="text" id="przekaz23" value="0"><input type="checkbox" id="check23">|
+					23. <input type="text" id="przekaz24" value="0"><input type="checkbox" id="check24">|
+					29. <input type="text" id="przekaz25" value="0"><input type="checkbox" id="check25"><br>
+					06. <input type="text" id="przekaz26" value="0"><input type="checkbox" id="check26">|
+					12. <input type="text" id="przekaz27" value="0"><input type="checkbox" id="check27">|
+					18. <input type="text" id="przekaz28" value="0"><input type="checkbox" id="check28">|
+					24. <input type="text" id="przekaz29" value="0"><input type="checkbox" id="check29">|
 					30. <input type="text" id="przekaz30" value="0"><input type="checkbox" id="check30"><br><br>
 					<div id="output"></div>
 				</div>
@@ -119,14 +119,15 @@ function przekazy()
 
 function getKwota(przekaz)
 {
-	var temp2 = Math.floor(parseFloat($("#przekaz" + przekaz).val())*100);
-	//alert(temp2);
+	var temp2 = Math.round(parseFloat($("#przekaz" + przekaz).val())*100);
+	//alert(Math.round(parseFloat($("#przekaz" + przekaz).val())*100));
 	return temp2;
 }
 
 function policzNominaly(kwota, pelnaKwota)
 {	
 	var temp = kwota;
+	//if ( kwota > 0 ) alert(kwota)
 	var max = 7;
 	if (pelnaKwota)
 	{
