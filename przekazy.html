@@ -25,6 +25,7 @@
 		<div style="width: 1000px; display: inline-block;">
 			<div class="panel panel-primary">
 				<div class="panel-body">
+					<input type="checkbox" id="all"><br>
 					01. <input type="text" id="przekaz1" value="0"><input type="checkbox" id="check1">|
 					07. <input type="text" id="przekaz2" value="0"><input type="checkbox" id="check2">|
 					13. <input type="text" id="przekaz3" value="0"><input type="checkbox" id="check3">|
@@ -74,6 +75,25 @@ $( "input[type=text]" ).change(function() {
 });
 $( "input[type=checkbox]" ).change(function() {
 	//alert(Math.floor(1.6));
+	oblicz()
+});
+
+$( "#all" ).change(function() {
+	//alert(Math.floor(1.6));
+	if ($("#all").is(":checked"))
+	{
+		for (var i = 1; i<31; i++)
+		{
+			$("#check" + i).prop("checked", true)
+		}
+	}
+	else
+	{
+		for (var i = 1; i<31; i++)
+		{
+			$("#check" + i).prop("checked", false)
+		}
+	}
 	oblicz()
 });
 
