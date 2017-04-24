@@ -91,7 +91,13 @@
 <script language="javascript">/* Write JavaScript here */
 //$(window).load(function start(){
 
-var items = $.extend({}, items_recipies1, items_recipies2, items_recipies3, items_recipies4, items_replication);
+var items = $.extend({}, items_recipies1);
+
+jQuery.get('base.txt', function(data) {
+   alert(data);
+   //process text file line by line
+   $('#test').html(data.replace('n',''));
+});
 	
 function changeFunc() 
 {
