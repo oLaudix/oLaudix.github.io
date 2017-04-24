@@ -79,7 +79,7 @@
 <script type="text/javascript" src="countingshit_recipies_1.js"></script>
 <script type="text/javascript" src="countingshit_recipies_2.js"></script>
 <script type="text/javascript" src="countingshit_recipies_3.js"></script>
-<script type="text/javascript" src="countingshit_recipies_4.js"></script>
+<script type="text/javascript" src="locale.js"></script>
 <script type="text/javascript" src="countingshit_recipies_replication.js"></script>
 <script type="text/javascript" src="countingshit_ams.js"></script>
 <script type="text/javascript" src="bootstrap.min.js"></script>
@@ -92,13 +92,16 @@
 //$(window).load(function start(){
 
 var items = $.extend({}, items_recipies1);
-
-jQuery.get('base.txt', function(data) {
-   alert(data);
-   //process text file line by line
-   $('#test').html(data.replace('n',''));
-});
-	
+var locale = locale.split("/");
+var locale2 = {}
+//alert(locale[5].slice(0, locale[5].indexOf("=")))
+//alert(locale[5].slice(locale[5].indexOf("=")+1))
+for (var a = 0; a < locale.length; a++)
+{
+	locale[locale[a].slice(0, locale[a].indexOf("="))] = locale[a].slice(locale[a].indexOf("=")+1)
+	//alert(a)
+}
+//alert(locale['synthetic-wood'])
 function changeFunc() 
 {
 	//table = []
@@ -127,10 +130,15 @@ function changeFunc()
 function populateSelect()
 {
 	var selectOptions = []
+	
 	for (var k in items)
 	{
 		if (items.hasOwnProperty(k))
-		{
+		{	
+			if (locale.hasOwnProperty(k))
+			{
+				items[k].name = locale[k]
+			}
 			selectOptions.push([items[k].name, k])
 		}
 	}
