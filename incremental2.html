@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="qunit-1.16.0.css">
+<link rel="stylesheet" href="bootstrap.min.css">
+<link rel="stylesheet" href="custom.css">
+<title>My Page</title>
+  <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
+</head>
+<body>
+	<div style="float: left; width: 180px;">
+		<ul class="nav nav-tabs nav-stacked">
+			<li><a href=".">Home</a></li>
+			<li><a href="TTcalc.html">Tap Titans Calculator</a></li>
+			<li><a href="stuff.html">Tap Titans usefull stuff</a></li>
+			<li><a href="MCcalc.html">Mine Clicker Calculator</a></li>
+			<li><a href="SMCG.html">Simulation Craft Stuff</a></li>
+			<li><a href="CivCrafter.html">Civ Crafter Stuff</a></li>
+			<li><a href="ShonenIdle.html">Shonen Idle Stuff</a></li>
+			<li><a href="incremental.html">Storm the House attempt</a></li>
+			<li><a href="incremental2.html">Factorio Incremental</a></li>
+		</ul>
+	</div>
+	<div class="wrapper" style="display: inline-block;">
+	Max Mobs: <input id="mobs" type="text" value="1" style="margin-left: 10px"></input>
+	<div id="iron-ore-count">Iron Ore: 0</div>
+	<div id="testing2"></div>
+	<div id="level"></div>
+	<div id="wave"></div>
+	<input type="button" onclick="handCraft('iron-ore')" value ="Iron Ore" class="btn btn-primary" id="iron-ore-button"></input><br><br>
+	</div>
+  
+  
+<script type="text/javascript" src="jquery-latest.min.js"></script>
+<script type="text/javascript" src="bootstrap.min.js"></script>
+<script src="incremental.js"></script>
+
+
+
+<script language="javascript">/* Write JavaScript here */
+//$(window).load(function start(){
+	//<canvas id="buffer" width="400" height="500">
+	
+
+//http://www.kongregate.com/games/StickpageDOTcom/dry-fire-reloaded
+
+var items_recipies1 = {
+	"iron-ore": { category : "ore", quantity : 0, name : "Iron Ore", id : "iron-ore", recipe : "repl-iron-ore", energy_required : 2.5, ingredients : [], am_type : "replicator5", result : 1, },
+	"copper-ore": { category : "ore", quantity : 0, name : "Copper Ore", id : "copper-ore", recipe : "repl-copper-ore", energy_required : 2.5, ingredients : [], am_type : "replicator5", result : 1, },
+}
+
+var craftingList = {};
+function handCraft(itemID)
+{
+	var temp = new _item(items_recipies1[itemID])
+	temp.quantity = 0
+	craftingList[temp.id] = temp
+}
+
+var _item = function(item_id)
+{
+	this.name = item_id.name
+	this.id = item_id.id
+	this.recipe = item_id.recipe
+	//this.crafting_time = 0
+	this.energy_required = item_id.energy_required*1000
+	this.ingredients = item_id.ingredients
+	this.result = item_id.result
+	//this.quantity = 0;
+}
+
+var time = 0;
+function main()
+{
+
+	$("#level").html(time/1000)
+	time = time + 20
+	//console.log(mainLoop)
+	for (var a in craftingList)
+	{
+		//alert(a)
+		//craftingList[a]
+		if (craftingList[a].energy_required > 0)
+		{
+			document.getElementById(a + "-button").value=craftingList[a].name + " - " + (craftingList[a].energy_required/1000).toFixed(1);
+			craftingList[a].energy_required -= 20
+		}
+		else
+		{
+			document.getElementById(a + "-button").value=items_recipies1[a].name;
+			items_recipies1[a].quantity += items_recipies1[a].result
+			$("#" + a + "-count").html(items_recipies1[a].name + ": " + items_recipies1[a].quantity);
+			delete craftingList[a];
+		}
+		console.log(JSON.stringify(craftingList))
+	}
+	//setTimeout(function() { main() }, 1)
+}
+
+var mainLoop = setInterval(function() {main()}, 20);
+//randomAttack();
+
+
+function insertionSort(a) {
+    for (var i = 0; i < a.length; i++) {
+        var k = a[i];
+        for (var j = i; j > 0 && k.positionY < a[j - 1].positionY; j--)
+            a[j] = a[j - 1];
+        a[j] = k;
+    }
+    return a;
+}
+	 
+</script></body></html>

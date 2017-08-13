@@ -22,6 +22,9 @@
 		</ul>
 	</div>
 	<div class="wrapper" style="display: inline-block;">
+	
+	<div class="panel-body" id="test2" style="padding-bottom: 0px"></div>
+	
 		<select class="selectpicker" id="selection-test" onchange="changeFunc();" data-live-search="true">
 			<option id="start">None</option>
 		</select>
@@ -29,8 +32,12 @@
 		
 		<div class="panel panel-primary" style="margin-bottom: 5px; width: 1000px;">
 			<div class="panel-heading">Options</div>
+				Starter options <input type="checkbox" id="starter"><br>
+				Endgame blueprint <input type="checkbox" id="endgameblueprint"><br>
+				Expansion Bay <input type="checkbox" id="expansionbays"><br>
+				Rows <input type="text" id="blueprintrows" value="10"><br>
+				<textarea id="endgameoutput" style="width: 100px; height: 20px; display: none"></textarea><br>
 			<div class="panel-body" style="display: inline-block;">
-				Starter options <input type="checkbox" id="starter"><br><br>
 				<div style="display: inline-block;">
 					Assemblers:<br>
 					Assembling machine 1 <input type="checkbox" id="as1"><br>
@@ -38,12 +45,13 @@
 					Assembling machine 3 <input type="checkbox" id="as3"><br>
 					Assembling machine 4 <input type="checkbox" id="as4"><br>
 					Assembling machine 5 <input type="checkbox" id="as5"><br>
-					Assembling machine 6 <input type="checkbox" id="as6"checked><br>
+					Assembling machine 6 <input type="checkbox" id="as6" checked><br>
 					Additional Speed <input type="text" id="asmspeed" value="1920">%<br>
 					Additional Productivity <input type="text" id="asmprod" value="240">%<br>
 				</div>
 				<div style="display: inline-block;">
 					Furnace:<br>
+					Stone Furnace <input type="checkbox" id="fur0"><br>
 					Electric Furnace <input type="checkbox" id="fur1"><br>
 					Electric multipurpous furnace Mk2 <input type="checkbox" id="fur2" checked><br>
 					Additional Speed <input type="text" id="furspeed" value="1920">%<br>
@@ -71,6 +79,12 @@
 		<div id="nietest">
 			<div class="panel panel-primary" style="display: inline-block; width: 1000px; margin-top: -1px">
 				<div class="panel-body" id="test" style="padding-bottom: 0px"></div>
+				<textarea id="savedata" style="width: 49%; height: 250px"></textarea>
+				<textarea id="savedata2" style="width: 49%; height: 250px"></textarea>
+				<button type="button" onclick="blueprintify()" class="btn btn-primary">String to Blueprint</button>
+				<button type="button" onclick="stringiffy()" class="btn btn-primary">Blueprint to String</button><br><br>
+				
+				
 			</div>			
 		</div>
 	</div>
@@ -81,6 +95,7 @@
 <script type="text/javascript" src="countingshit_recipies_3.js"></script>
 <script type="text/javascript" src="countingshit_recipies_4.js"></script>
 <script type="text/javascript" src="locale.js"></script>
+<script type="text/javascript" src="pako.js"></script>
 <script type="text/javascript" src="countingshit_recipies_replication.js"></script>
 <script type="text/javascript" src="countingshit_ams.js"></script>
 <script type="text/javascript" src="bootstrap.min.js"></script>
@@ -91,41 +106,322 @@
 
 <script language="javascript">/* Write JavaScript here */
 //$(window).load(function start(){
-
+//var pako = require('pako');
 var items = $.extend({}, items_recipies1);
+//var str = "do local _={entities={{name=\"constant-combinator\",position={x=-3,y=-1},direction=2,control_behavior={filters={{signal={type=\"virtual\",name=\"signal-black\"},count=-3,index=1},{signal={type=\"item\",name=\"copper-plate\"},count=-4,index=2},{signal={type=\"item\",name=\"iron-plate\"},count=-4,index=3}}},connections={[\"1\"]={red={{entity_id=2,circuit_id=1}}}}},{name=\"decider-combinator\",position={x=-1.5,y=-1},direction=2,control_behavior={decider_conditions={first_signal={type=\"virtual\",name=\"signal-each\"},constant=0,comparator=\">\",output_signal={type=\"item\",name=\"copper-plate\"},copy_count_from_input=true}},connections={[\"1\"]={red={{entity_id=1}},green={{entity_id=3,circuit_id=1}}},[\"2\"]={green={{entity_id=3,circuit_id=2}}}}},{name=\"decider-combinator\",position={x=-1.5,y=0},direction=2,control_behavior={decider_conditions={first_signal={type=\"virtual\",name=\"signal-each\"},constant=4,comparator=\"<\",output_signal={type=\"virtual\",name=\"signal-each\"},copy_count_from_input=true}},connections={[\"1\"]={green={{entity_id=3,circuit_id=2},{entity_id=2,circuit_id=1}}},[\"2\"]={green={{entity_id=3,circuit_id=1},{entity_id=2,circuit_id=2},{entity_id=4,circuit_id=1}}}}},{name=\"decider-combinator\",position={x=0.5,y=0},direction=2,control_behavior={decider_conditions={first_signal={type=\"virtual\",name=\"signal-anything\"},constant=3,comparator=\">\",output_signal={type=\"virtual\",name=\"signal-black\"},copy_count_from_input=false}},connections={[\"1\"]={green={{entity_id=3,circuit_id=2}}},[\"2\"]={green={{entity_id=5,circuit_id=1}}}}},{name=\"decider-combinator\",position={x=2.5,y=0},direction=2,control_behavior={decider_conditions={first_signal={type=\"virtual\",name=\"signal-black\"},constant=2,comparator=\"<\",output_signal={type=\"virtual\",name=\"signal-black\"},copy_count_from_input=true}},connections={[\"1\"]={green={{entity_id=4,circuit_id=2},{entity_id=5,circuit_id=2}}},[\"2\"]={green={{entity_id=5,circuit_id=1}}}}}},icons={{signal={type=\"item\",name=\"decider-combinator\"},index=1}}};return _;end"
+var test = "0eNpljsEKwyAQRP9lzh6SYAPxV0opSboUIa6iplTEf6/aS6GXZWeZebMZ23GS85ojVIbeLQeoa0bQT16PdovJERR0JAMBXk1XHMhH8iii7g96Q43lJkAcddT0ZXSR7nyarTrV+J8WcDbUgOXWVCGDQKqzNFZvVD8PCrzIh26epZwuw7JMsyzlAwY2QYY="
+
+function gzip_inflate(blueprintInput)
+{
+	var version = blueprintInput[0];
+	var decoded = atob(blueprintInput.slice(1));
+	var arrayBuffer = new Uint8Array(new ArrayBuffer(decoded.length));
+	for (var i = 0; i < decoded.length; i++) 
+	{
+		arrayBuffer[i] = decoded.charCodeAt(i);
+    }
+	var data = JSON.parse(pako.inflate(arrayBuffer, { to: "string" }));
+	return data;
+}
+function gzip_deflate(string)
+{
+	var output = pako.deflate(JSON.stringify(string),{ to: 'string' });
+	var output64base = btoa(output)
+	return btoa(pako.deflate(JSON.stringify(string), { to: "string" }));
+}
+//alert(JSON.stringify(gzip_inflate(test).blueprint.icons))
+var test = gzip_inflate(test)
+//$("#savedata").html(JSON.stringify(test))
+//alert(test2.blueprint)
+function blueprintify()
+{
+	//alert($("#savedata").val() === "")
+	$("#savedata").html(JSON.stringify(gzip_inflate($("#savedata2").val())))
+}
+
+var _item = function(item_id, _quantity)
+{
+	if (typeof _quantity == "undefined")
+	{ this.quantity = 0} else { this.quantity = _quantity }
+	this.name = item_id.name
+	//{ name : "Science Pack 1", id : "science-pack-1", recipe : "science-pack-1", energy_required : 5, ingredients : [["copper-plate", 1], ["iron-gear-wheel", 1], ], am_type : "am6", result : 1, },
+	this.id = item_id.id
+	this.recipe = item_id.recipe
+	this.energy_required = item_id.energy_required
+	this.ingredients = item_id.ingredients
+	this.productionList = []
+	this.am_type = item_id.am_type
+	this.result = item_id.result
+	//this.quantity = 0;
+	if (typeof item_id.category == "undefined")
+	{
+		this.category = "item"
+	}
+	else
+	{
+		this.category = item_id.category
+	}
+	this.getProduction = function()
+	{
+		try
+		{
+			//alert(ams[this.am_type].speed)
+			var real_prod_time = this.energy_required / ams[this.am_type].speed;
+		}
+		catch(err)
+		{
+			alert(err.message)
+			alert(this.name)
+		}
+		//alert(ams[this.am_type].speed)
+		//Normal Production
+		var real_ticks = Math.ceil(real_prod_time*60);
+		var items_per_sec = 60/real_ticks * this.result;
+		var items_per_min = items_per_sec * 60;
+		//Productivity bonus
+		var prod_ticks = real_prod_time * 60 / (ams[this.am_type].productivity - 1)
+		var prod_per_sec = Math.min(60 / prod_ticks, 60) * this.result;
+		var prod_per_min = prod_per_sec * 60;
+		var total_production = Math.min(items_per_min + prod_per_min, 37500)
+		return total_production
+	}
+	this.getPureProd = function()
+	{
+		try
+		{
+			//alert(ams[this.am_type].speed)
+			var real_prod_time = this.energy_required / ams[this.am_type].speed;
+		}
+		catch(err)
+		{
+			alert(err.message)
+			alert(this.name)
+		}
+		//alert(ams[this.am_type].speed)
+		//Normal Production
+		var real_ticks = Math.ceil(real_prod_time*60);
+		var items_per_sec = 60/real_ticks * this.result;
+		var items_per_min = items_per_sec * 60;
+		//Productivity bonus
+		var prod_ticks = real_prod_time * 60 / (ams[this.am_type].productivity - 1)
+		var prod_per_sec = Math.min(60 / prod_ticks, 60) * this.result;
+		var prod_per_min = prod_per_sec * 60;
+		var total_production = items_per_min + prod_per_min
+		return items_per_min
+	}
+	this.asmNeeded = function()
+	{
+		//alert(this.quantity)
+		return this.quantity/this.getProduction()
+	}
+	this.returnIngredients = function()
+	{
+		var temp = {}
+		var tempQuantity = this.quantity / ams[this.am_type].productivity
+		for (var a in this.ingredients)
+		{
+			try{
+				var temp1 = new _item(items_recipies1[this.ingredients[a][0]])//.returnIngredients(temp[this.ingredients[a][0]])
+			}
+			catch(e)
+			{
+				//alert(this.ingredients[a][0])
+				throw new Error(this.ingredients[a][0]);
+			}
+			temp1.quantity = round_num(this.ingredients[a][1]*tempQuantity)
+			if (typeof temp[this.ingredients[a][0]] == "undefined")
+			{
+				temp[this.ingredients[a][0]] = {quantity:temp1.quantity/this.result}
+			}
+			else
+			{
+				temp[this.ingredients[a][0]].quantity += temp1.quantity/this.result
+			}
+			var temp2 = temp1.returnIngredients()
+			for (var b in temp2)
+			{
+				if (typeof temp[b] == "undefined")
+				{
+					temp[b] = {quantity:temp2[b].quantity/this.result}
+				}
+				else
+				{
+					temp[b].quantity += (temp2[b].quantity/this.result)
+				}
+			}
+		}
+		//alert(JSON.stringify(this.productionList))
+		return temp
+	}
+}
+
+var _blueprint = function(_name)
+{
+	this.blueprint = {icons:[], entities:[], item:"blueprint", label:_name, version:64425099264}
+	this.addIcon = function(_name)
+	{
+		this.blueprint.icons[this.blueprint.icons.length] = {signal:{type:"item",name:_name},index:this.blueprint.icons.length+1}
+	}
+	//inserter_type, position, direction, item_type, item_number, operator
+	this.addInserter = function(_name, _position, _direction, _item_type, _item_number, _operator)
+	{
+		//2 - lewo
+		//4 - góra
+		//6 - prawo
+		//0 - dol
+		this.blueprint.entities[this.blueprint.entities.length] = { entity_number:this.blueprint.entities.length+1, name:_name, position:{x:_position.x,y:_position.y}, direction:_direction,control_behavior:{logistic_condition:{first_signal:{type:"item",name:_item_type},constant:_item_number,comparator:_operator},connect_to_logistic_network:true}}
+		var _entity_number = this.blueprint.entities.length
+		/*this.blueprint.entities[_entity_number] = {entity_number:null, name:null, position:null, direction:null, control_behavior:null}
+		this.blueprint.entities[_entity_number].entity_number = _entity_number+1, 
+		this.blueprint.entities[_entity_number].name = _name, 
+		this.blueprint.entities[_entity_number].position = {x:_position.x,y:_position.y}, 
+		this.blueprint.entities[_entity_number].direction = _direction,
+		this.blueprint.entities[_entity_number].control_behavior = {logistic_condition:{first_signal:{type:"item",name:_item_type},constant:_item_number,comparator:_operator},connect_to_logistic_network:true}*/
+	}
+	this.addRequester = function(_requester)
+	{
+		var _entity_number = this.blueprint.entities.length
+		this.blueprint.entities[_entity_number] = {entity_number:null, name:null, position:null, request_filters:null}
+		this.blueprint.entities[_entity_number].entity_number = _entity_number+1
+		this.blueprint.entities[_entity_number].name = _requester.name
+		this.blueprint.entities[_entity_number].position = {x:_requester.position.x,y:_requester.position.y}
+		this.blueprint.entities[_entity_number].request_filters = _requester.request_filters
+	}
+	this.addProvider = function(_position)
+	{
+		var _entity_number = this.blueprint.entities.length
+		this.blueprint.entities[_entity_number] = {entity_number:null, name:null, position:null}
+		this.blueprint.entities[_entity_number].entity_number = _entity_number+1
+		this.blueprint.entities[_entity_number].name = "wooden-chest-active-provider"
+		this.blueprint.entities[_entity_number].position = {x:_position.x,y:_position.y}
+	}
+	this.addExpansionBay = function(_position)
+	{
+		var _entity_number = this.blueprint.entities.length
+		this.blueprint.entities[_entity_number] = {entity_number:null, name:null, position:null}
+		this.blueprint.entities[_entity_number].entity_number = _entity_number+1
+		this.blueprint.entities[_entity_number].name = "expansion-bay"
+		this.blueprint.entities[_entity_number].position = {x:_position.x,y:_position.y}
+	}
+	this.addEntity = function(_position,id)
+	{
+		var _entity_number = this.blueprint.entities.length
+		this.blueprint.entities[_entity_number] = {entity_number:null, name:null, position:null}
+		this.blueprint.entities[_entity_number].entity_number = _entity_number+1
+		this.blueprint.entities[_entity_number].name = id
+		this.blueprint.entities[_entity_number].position = {x:_position.x,y:_position.y}
+	}
+	this.addAssembler = function(_name, _position, _direction, _recipe)
+	{
+		var _entity_number = this.blueprint.entities.length
+		this.blueprint.entities[_entity_number] = {entity_number:null, name:null, position:null, direction:null, recipe:null}
+		this.blueprint.entities[_entity_number].entity_number = _entity_number+1
+		this.blueprint.entities[_entity_number].name = _name
+		this.blueprint.entities[_entity_number].direction = _direction
+		this.blueprint.entities[_entity_number].position = {x:_position.x,y:_position.y}
+		//alert(_name.search("replicator"))
+		//if (_name.search("replicator")>-1)
+		//{
+			//this.blueprint.entities[_entity_number].position = {x:_position.x+0.5,y:_position.y+0.5}
+		//}
+		this.blueprint.entities[_entity_number].recipe = _recipe
+	}
+	this.moveBlueprint = function(_x,_y)
+	{
+		for (var a = 0; a < this.blueprint.entities.length; a++)
+		{
+			this.blueprint.entities[a].position.x = this.blueprint.entities[a].position.x + _x
+			this.blueprint.entities[a].position.y = this.blueprint.entities[a].position.y + _y
+			//alert("test")
+		}
+	}
+	this.centerBlueprint = function()
+	{
+		var max_x = 0;
+		var min_x = 0;
+		var min_y = 0;
+		var max_y = 0;
+		for (var a = 0; a < this.blueprint.entities.length; a++)
+		{
+			if (this.blueprint.entities[a].position.x < min_x)
+			{
+				min_x = this.blueprint.entities[a].position.x
+			}
+			if (this.blueprint.entities[a].position.x > max_x)
+			{
+				max_x = this.blueprint.entities[a].position.x
+			}
+			
+			if (this.blueprint.entities[a].position.y < min_y)
+			{
+				min_y = this.blueprint.entities[a].position.y
+			}
+			if (this.blueprint.entities[a].position.y > max_y)
+			{
+				max_y = this.blueprint.entities[a].position.y
+			}
+		}
+		var width = Math.floor((Math.abs(min_x) + Math.abs(max_x))/2)
+		var height = Math.floor((Math.abs(min_y) + Math.abs(max_y))/2)
+		/*if (Math.abs(min_x) > Math.abs(max_x))
+		{
+			this.moveBlueprint(width+max_x,0)
+		}
+		{
+			this.moveBlueprint(-width-min_x,0)
+		}*/
+		this.moveBlueprint(0-width,0-height)
+		
+	}
+}
+
+var _requester = function(_position)
+{
+	this.name = "wooden-chest-requester"
+	this.position = _position
+	this.request_filters = [];
+	this.addRequest = function(_item_type, _item_number)
+	{
+		this.request_filters[this.request_filters.length] = {index:this.request_filters.length+1,name:_item_type,count:_item_number}
+	}
+}
+
+var _position = function(x,y)
+{
+	this.x = x
+	this.y = y
+}
+
+function stringiffy()
+{
+	$("#savedata2").html("0" + gzip_deflate(JSON.parse($("#savedata").val())))
+}
+
 var locale = locale.split("/");
 var locale2 = {}
-//alert(locale[5].slice(0, locale[5].indexOf("=")))
-//alert(locale[5].slice(locale[5].indexOf("=")+1))
 for (var a = 0; a < locale.length; a++)
 {
 	locale[locale[a].slice(0, locale[a].indexOf("="))] = locale[a].slice(locale[a].indexOf("=")+1)
-	//alert(a)
 }
-//alert(locale['synthetic-wood'])
 function changeFunc() 
 {
-	//table = []
     var selectBox = document.getElementById("selection-test");
     var selectedValue = selectBox.options[selectBox.selectedIndex].value;
-	//alert(selectedValue)
 	if (selectBox.selectedIndex > 0)
 	{
 		if (!selectedList.hasOwnProperty(selectBox.options[selectBox.selectedIndex].value))
 		{
-			//delete raw_materials[item_id]
-			selectedList[selectBox.options[selectBox.selectedIndex].value] = [selectBox.options[selectBox.selectedIndex].value, 1, false];
+			selectedList[selectBox.options[selectBox.selectedIndex].value] = [selectBox.options[selectBox.selectedIndex].value, itemObjects[selectBox.options[selectBox.selectedIndex].value].getProduction(), false];
 			table = [];
 			for (var k in selectedList)
 			{
 				table.push(selectedList[k])
+				//alert(table.toString())
 			}
 		}
 	}
-	//table.push([selectBox.options[selectBox.selectedIndex].value, 100, false]);
 	selectBox.selectedIndex = 0;
 	printSelected();
-    //alert(selectBox.options[selectBox.selectedIndex].value);
 }
    
 function populateSelect()
@@ -159,7 +455,15 @@ function populateSelect()
 function make_tree(item_id, quantity, test)
 {
 	//$("#test").html(items[item_id].name)
-	var real_prod_time = items[item_id].energy_required / ams[items[item_id].am_type].speed;
+	try
+	{
+		var real_prod_time = items[item_id].energy_required / ams[items[item_id].am_type].speed;
+	}
+	catch(err)
+	{
+		alert(err.message)
+		alert(items[item_id].name)
+	}
 	//alert(items[item_id].name)
 	//Normal Production
 	var real_ticks = Math.ceil(real_prod_time*60);
@@ -233,6 +537,7 @@ function make_tree(item_id, quantity, test)
 			//alert(items[item_id].name + "\n" + items[item_id].ingredients)
 			if (items.hasOwnProperty(items[item_id].ingredients[a][0]))
 			{
+				//alert((items[item_id].ingredients[a][1]))
 				summary += make_tree(items[item_id].ingredients[a][0], (items[item_id].ingredients[a][1] * (items_per_min * asms_needed / items[item_id].result)), false)
 			}
 			else
@@ -305,6 +610,9 @@ function calc_asm(item_id, quantity)
 		case "electric-chemical-mixing-furnace-2":
 			summary += "<font color=\"purple\", style=\"font-weight: bold;\"> furnaces </font>needed for " 
 			break;
+		case "stone-furnace":
+			summary += "<font color=\"purple\", style=\"font-weight: bold;\"> furnaces </font>needed for " 
+			break;
 		case "electric-furnace":
 			summary += "<font color=\"purple\", style=\"font-weight: bold;\"> furnaces </font>needed for " 
 			break;
@@ -322,11 +630,84 @@ function calc_asm(item_id, quantity)
 	{
 		all_replicators += Math.ceil(asms_needed);
 	}
+	
+	
+	switch (ams[items[item_id].am_type].name)
+	{
+		case "electric-chemical-mixing-furnace-2":
+			break;
+		case "electric-furnace":
+			break;
+		case "steel-furnace":
+			break;
+		case "stone-furnace":
+			break;
+		case "replicator-5":
+			if (typeof replIngredients[items[item_id].id] == "undefined")
+			{
+				if (items[item_id].category != "ore")
+				{
+					replIngredients[items[item_id].id] = {now:Math.ceil(asms_needed), past:0, diff:null}
+					replIngredients[items[item_id].id].diff = replIngredients[items[item_id].id].now - replIngredients[items[item_id].id].past
+					if (replIngredients[items[item_id].id].diff > 0)
+					{
+						blueprintStringgggg[0].push(items[item_id].id)
+					}
+				}
+			}
+			else
+			{
+				replIngredients[items[item_id].id].past = replIngredients[items[item_id].id].now
+				replIngredients[items[item_id].id].now = Math.ceil(asms_needed)
+				replIngredients[items[item_id].id].diff = replIngredients[items[item_id].id].now - replIngredients[items[item_id].id].past
+				if (replIngredients[items[item_id].id].diff > 0)
+				{
+					blueprintStringgggg[0].push(items[item_id].id)
+				}
+				//stepIngredients[items[item_id].id].quantity = stepIngredients[items[item_id].id].quantity + Math.ceil(asms_needed)
+			}
+			break;
+		default:
+			//stepIngredients.push([items[item_id].id, Math.ceil(asms_needed)])
+			//var blueprintStringgggg = [];
+			if (typeof stepIngredients[items[item_id].id] == "undefined")
+			{
+				stepIngredients[items[item_id].id] = {now:Math.ceil(asms_needed), past:0, diff:null}
+				stepIngredients[items[item_id].id].diff = stepIngredients[items[item_id].id].now - stepIngredients[items[item_id].id].past
+				for (var a = 0; a < stepIngredients[items[item_id].id].diff; a++)
+				{
+					blueprintStringgggg[1].push(items[item_id].id)
+					//alert("test1")
+				}
+			}
+			else
+			{
+				stepIngredients[items[item_id].id].past = stepIngredients[items[item_id].id].now
+				stepIngredients[items[item_id].id].now = Math.ceil(asms_needed)
+				stepIngredients[items[item_id].id].diff = stepIngredients[items[item_id].id].now - stepIngredients[items[item_id].id].past
+				for (var a = 0; a < stepIngredients[items[item_id].id].diff; a++)
+				{
+					blueprintStringgggg[1].push(items[item_id].id)
+					//alert("test2")
+				}
+				//stepIngredients[items[item_id].id].quantity = stepIngredients[items[item_id].id].quantity + Math.ceil(asms_needed)
+			}
+			//alert(items[item_id].id + "," + Math.ceil(asms_needed))
+	}
+	//alert(JSON.stringify(replIngredients))
+	
+	//alert(JSON.stringify(blueprintStringgggg))
+	
+	//alert(stepIngredients[items[item_id].id].quantity)
+	//$("#savedata").html(JSON.stringify(blueprintStringgggg))
+	//alert(JSON.stringify(blueprintStringgggg))
 	return summary;
 }
 
 function calc_total(items_table)
 {
+	var blueprints = [null]
+	//stepIngredients = {}
 	all_assembling_machines = 0;
 	all_replicators = 0;
 	total = {};
@@ -336,6 +717,7 @@ function calc_total(items_table)
 	for (var a = 0; a < items_table.length; a++)
 	{
 		//$("#test").append(make_tree(items_table[a][0], items_table[a][1]))
+		//alert(items_table[a][1] + "test1")
 		make_tree(items_table[a][0], items_table[a][1], items_table[a][2])
 	}
 	for (var k in total)
@@ -344,11 +726,14 @@ function calc_total(items_table)
 		var temp = calc_asm(k, total[k][1])
 		if ($("#starter").is(":checked"))
 		{
-			make_starter_blueprint(k)
+			//make_starter_blueprint(k)
+			make_compact_blueprint(k)
 		}
 		else
 		{
+			
 			make_blueprint(k)
+			//alert(k)
 		}
 		$("#test").append(temp)
 	}
@@ -366,7 +751,104 @@ function calc_total(items_table)
 		$("#test").append(missing[a] + "<br>")
 	}
 	alert(all_assembling_machines + " assembling machines(" + (all_assembling_machines/10) + ") + " + all_replicators + " replicators.(" + (all_replicators/18) + ")")
+	var temp = ""
+	for (var k in raw_materials)
+	{
+		temp += raw_materials[k][1] + ", "
+	}
+	//alert(JSON.stringify(stepIngredients))
 	//make_blueprint(items_table[0][0])
+	//generateBlueprint()
+	$("#endgameoutput").css("display","none")
+	if ($("#endgameblueprint").is(":checked"))
+	{
+		endgameblueprint(total, raw_materials)
+		$("#endgameoutput").css("display","")
+	}
+
+}
+
+function endgameblueprint(materials, basic_materials)
+{
+	//alert(JSON.stringify(materials))
+	var output = ""
+	var totalY = 0
+	var pos_x = 0
+	var pos_y = 0
+	var blueprintTable = []
+	var replicatorTable =[]
+	for (var k in materials)
+	{
+		//alert(materials[k][1])
+		//alert(ams[items[k].am_type].name)
+		if(ams[items[k].am_type].name != "stone-furnace")
+		{
+			var tempItem = new _item(items[k], materials[k][1])
+			//alert(tempItem.quantity)
+			//alert(tempItem.asmNeeded())
+			for (var a = 0; a < Math.ceil(tempItem.asmNeeded()); a++)
+			{
+				if ($("#starter").is(":checked"))
+				{
+					blueprintTable.push(make_compact_blueprint(k))
+				}
+				else
+				{
+					blueprintTable.push(make_blueprint(k))
+				}
+			}	
+		}
+	}
+	//alert(Object.keys(materials)[0])
+	var stepBlueprint = new _blueprint(items[Object.keys(materials)[0]].name)
+	stepBlueprint.addIcon(items[Object.keys(materials)[0]].id)
+	for (b=0; b<blueprintTable.length; b++)
+	{
+		for (var a = 0; a < blueprintTable[b].blueprint.entities.length; a++)
+		{
+			blueprintTable[b].blueprint.entities[a].entity_number = blueprintTable[b].blueprint.entities[a].entity_number + (29*(b))
+			stepBlueprint.blueprint.entities.push(blueprintTable[b].blueprint.entities[a])
+		}
+		//alert(pos_x)
+		//alert(pos_x)
+		var rows = parseInt($( "#blueprintrows" ).val())
+		var space = 7
+		if ($("#starter").is(":checked"))
+		{
+			if ($("#expansionbays").is(":checked"))
+			{
+				space = 4
+			}
+			else
+			{
+				space = 3
+			}
+		}
+		else
+		{
+			space = 7
+		}
+		if (b > -1)
+		{
+			//if(pos_x == 9)
+			if(pos_x == rows-1)
+			{
+				//stepBlueprint.moveBlueprint(+63, -7)
+				stepBlueprint.moveBlueprint((rows-1)*space, -7)
+				pos_x = 0
+				pos_y += 7
+			}
+			else
+			{
+				stepBlueprint.moveBlueprint(-space, 0)
+				pos_x += 1
+			}
+		}
+	}
+	var steps = 0;
+	stepBlueprint.moveBlueprint(0, pos_y)
+	$("#endgameoutput").html("0" + gzip_deflate(stepBlueprint))
+	
 }
 
 function round_num(num)
@@ -379,7 +861,8 @@ function calculate_recipe(item_id)
 	var length = 9;
 	var recipe = [];
 	var fluids = [];
-	var keysSorted = items[item_id].ingredients.sort(function(a, b){    var x=a[1];    var y=b[1];    return y-x;});
+	//var keysSorted = items[item_id].ingredients.sort(function(a, b){    var x=a[1];    var y=b[1];    return y-x;});
+	var keysSorted = [];
 	for (var a = 0; a < items[item_id].ingredients.length; a++)
 	{
 		//alert(item_id)
@@ -412,6 +895,10 @@ function calculate_recipe(item_id)
 		{
 			b += 1;
 		}
+		if ( typeof items[items[item_id].ingredients[b][0]] == "undefined")
+		{
+			//alert("test")
+		}
 		if (items[items[item_id].ingredients[b][0]].category == "fluid")
 		{
 			fluids.push(items[item_id].ingredients[b][0])
@@ -439,127 +926,17 @@ function calculate_recipe(item_id)
     };
 }
 
-/*
-directions
-2 - left
-4 - up
-6 - right
-*/
 
-function add_assembler(type, recipe, position, direction)
-{
-	entity_number += 1
-	return "[" + entity_number + "]={entity_number=" + entity_number + ",name=\"" + type + "\",position={x=" + position[0] + ",y=" + position[1] + "},recipe=\"" + recipe + "\",direction=\"" + direction + "\"},"
-}
 
-function add_icon(icons)
-{
-	var text = "icons={";
-	for (var a = 0; a < icons.length; a++)
-	{
-		text += "[" + a + "]={name=\"" + icons[a] + "\",index=" + (a+1) + ","
-	}
-	text += "}},"
-	return text
-}
+//$("#savedata2").html("0" + gzip_deflate(kupa[0]))
 
-function add_entity(type, position, direction, connection, conditions, requester)
-{
-	entity_number += 1
-	var txt = "[" + entity_number + "]={entity_number=" + entity_number + ",name=\"" + type + "\",position={x=" + position[0] + ",y=" + position[1] + "},direction=\"" + direction + "\","
-	if (connection.length > 0)
-	{
-		txt += "connections={[\"1\"]={red={[1]={entity_id=" + connection + "}}}},"
-	}
-	if (conditions.length > 0)
-	{
-		txt += "conditions={" + conditions[0] + "={first_signal={type=\"item\",name=\"" + conditions[1] + "\"},constant=" + conditions[2] + ",comparator=\"" + conditions[3] + "\"}}"
-		// logistics, circuit
-	} 
-	if (requester.length > 0)
-	{
-	txt += "request_filters={[1]={index=1,name=\"" + requester[0] + "\",count=" + requester[1] + "}}"
-	}
-	txt += "},"
-	return txt;
-}
 
-function add_name(name)
-{
-	return "name=\"" + name + "\""
-}
-
-var inserter_type = "basic-inserter"
-function make_starter_blueprint(item_id)
-{
-	var output = 100;
-	var input = 100;
-	entity_number = -1;	
-	var input_positions = {
-	"4": { inserter: { x:-1, y:2, vector:4 }, chest: { x:-1 ,y:3  } },
-	"5": { inserter: { x:0, y:2, vector:4 }, chest: { x:0 ,y:3  } },
-	"6": { inserter: { x:1, y:2, vector:4 }, chest: { x:1 ,y:3  } },
-	}
-	var name = items[item_id].id
-	var recipe = calculate_recipe(item_id)
-	$("#test").append("<textarea id=\"" + item_id + "\" style=\"width: 10px; height: 10px; display: none\"></textarea><button type=\"button\" id=\"" + item_id + "blueprintButton\" onclick=\"copyBlueprint('" + item_id + "')\" class=\"btn btn-primary\" style=\" padding: 0px; \">c</button>")
-	
-	var blueprint = "do local blueprintData={"
-	blueprint +=  add_icon([items[item_id].id])
-	blueprint += "entities={"
-	blueprint += add_assembler(ams[items[item_id].am_type].name, items[item_id].recipe, [0,0], 4)
-	blueprint += add_entity("wooden-chest-passive", [-0,-3], 2, [(entity_number + 2)],[],[])
-	blueprint += add_entity(inserter_type, [-0,-2], 4, [(entity_number)],["circuit", items[item_id].id, output, "<"],[])
-	if (recipe.fluid.length > 0)
-	{
-		if (ams[items[item_id].am_type].name == "chemical-plant")
-		{
-			blueprint += add_assembler("replicator-5", items[recipe.fluid[0]].recipe, [0,3], 4)
-			delete input_positions['4']
-			delete input_positions['5']
-		}
-		else
-		{
-			blueprint += add_assembler("replicator-5", items[recipe.fluid[0]].recipe, [1,3], 4)
-			delete input_positions['5']
-			delete input_positions['6']
-		}
-	}
-	else
-	{
-		delete input_positions['4']
-		delete input_positions['6']	
-	}
-	var z=0;
-	for(var k in input_positions)
-	{
-		{
-			entity_number += 1
-			blueprint += "[" + entity_number + "]={entity_number=" + entity_number + ",name=\"" + "wooden-chest-requester" + "\",position={x=" + input_positions[k].chest.x + ",y=" + input_positions[k].chest.y + "},direction=\"" + 2 + "\","
-			blueprint += "request_filters={"
-			for (var t in recipe.normal)
-			{
-				blueprint += "[" + (parseInt(t, 10) + parseInt(1, 10)) + "]={index=" + (parseInt(t, 10) + parseInt(1, 10)) + ",name=\"" + recipe.normal[t] + "\",count=" + 10 + "},"
-			}
-			blueprint += "}},"
-		}
-		blueprint += add_entity(inserter_type, [input_positions[k].inserter.x,input_positions[k].inserter.y], input_positions[k].inserter.vector, [],["logistics", recipe.normal[z], input, ">"],[])
-		z++;
-	}
-	
-	blueprint += "},"
-	blueprint += add_name("ZZZ - " + items[item_id].name)
-	blueprint += "};return blueprintData;end"
-	//blueprint += recipe.normal.length
-	$("#" + item_id).append(blueprint + "<br>")	
-}
 
 function make_blueprint(item_id)
 {
-	var output = 100;
-	var input = 100;
-	entity_number = -1;
-	//var inserter_type = "smart-inserter"
+	var output = 1000;
+	var input = 500;
+	//
 	var input_positions = {
 	"1": { inserter: { x:-2, y:-1, vector:6 }, chest: { x:-3 ,y:-1  } },
 	"2": { inserter: { x:-2, y:0, vector:6 }, chest: { x:-3 ,y:0  } },
@@ -579,85 +956,184 @@ function make_blueprint(item_id)
 	//alert(recipe)
 	$("#test").append("<textarea id=\"" + item_id + "\" style=\"width: 10px; height: 10px; display: none\"></textarea><button type=\"button\" id=\"" + item_id + "blueprintButton\" onclick=\"copyBlueprint('" + item_id + "')\" class=\"btn btn-primary\" style=\" padding: 0px; \">c</button>")
 	
-	var blueprint = "do local blueprintData={"
-	blueprint +=  add_icon([items[item_id].id])
-	blueprint += "entities={"
-	blueprint += add_assembler(ams[items[item_id].am_type].name, items[item_id].recipe, [0,0], 4)
-	blueprint += add_entity("wooden-chest-passive", [-1,-3], 2, [(entity_number + 2)],[],[])
-	blueprint += add_entity(inserter_type, [-1,-2], 4, [(entity_number)],["circuit", items[item_id].id, output, "<"],[])
-	blueprint += add_entity("wooden-chest-passive", [-0,-3], 2, [(entity_number + 2)],[],[])
-	blueprint += add_entity(inserter_type, [-0,-2], 4, [(entity_number)],["circuit", items[item_id].id, output, "<"],[])
-	blueprint += add_entity("wooden-chest-passive", [1,-3], 2, [(entity_number + 2)],[],[])
-	blueprint += add_entity(inserter_type, [1,-2], 4, [(entity_number)],["circuit", items[item_id].id, output, "<"],[])
+	var blueprint = new _blueprint("ZZZ - " + items[item_id].name);
+	blueprint.addIcon(items[item_id].id)
+	if ($("#expansionbays").is(":checked"))
+	{
+		blueprint.addExpansionBay(new _position(-2,-2))
+		blueprint.addExpansionBay(new _position(2,2))
+		blueprint.addExpansionBay(new _position(-2,2))
+		blueprint.addExpansionBay(new _position(2,-2))
+	}
+	blueprint.addProvider(new _position(-1,-3))
+	blueprint.addProvider(new _position(1,-3))
+	blueprint.addProvider(new _position(0,-3))
+	blueprint.addInserter(inserter_type, new _position(-1,-2), 4, items[item_id].id, output, "<")
+	blueprint.addInserter(inserter_type, new _position(0,-2), 4, items[item_id].id, output, "<")
+	blueprint.addInserter(inserter_type, new _position(1,-2), 4, items[item_id].id, output, "<")
+	//blueprint.addAssembler(ams[items[item_id].am_type].name, new _position(0,0),4,items[item_id].recipe)
+	if(ams[items[item_id].am_type].name == "electric-furnace")
+	{
+		//alert("debug")
+		if ((item_id == "zinc-plate") || (item_id == "carbon") || (item_id == "alumina") || (item_id == "gold-plate"))
+		{
+			blueprint.addAssembler("chemical-furnace", new _position(0,0),4,items[item_id].recipe)
+		}
+		else
+		{
+			blueprint.addAssembler("electric-mixing-furnace", new _position(0,0),4,items[item_id].recipe)
+		}
+	}
+	else
+	{
+		blueprint.addAssembler(ams[items[item_id].am_type].name, new _position(0,0),4,items[item_id].recipe)
+	}
 	if (recipe.fluid.length > 0)
 	{
-		if (ams[items[item_id].am_type].name == "chemical-plant-4")
+		if ((ams[items[item_id].am_type].name == "chemical-plant-4") || (ams[items[item_id].am_type].name == "chemical-plant"))
 		{
-			blueprint += add_assembler("replicator-5", items[recipe.fluid[0]].recipe, [0,3], 4)
+			blueprint.addAssembler("machine-1", new _position(-0.5,2.5),0,items[recipe.fluid[0]].recipe)
 			delete input_positions['4']
 			delete input_positions['5']
 		}
 		else
 		{
-			blueprint += add_assembler("replicator-5", items[recipe.fluid[0]].recipe, [1,3], 4)
+			blueprint.addAssembler("machine-1", new _position(0.5,2.5),0,items[recipe.fluid[0]].recipe)
 			delete input_positions['5']
 			delete input_positions['6']
 		}
 	}
 	if (items[item_id].production > 17280)
 	{
-		blueprint += add_entity("wooden-chest-passive", [input_positions['1'].chest.x,input_positions['1'].chest.y], 2, [(entity_number + 2)],[],[])
-		blueprint += add_entity(inserter_type, [input_positions['1'].inserter.x,input_positions['1'].inserter.y], 2, [(entity_number)],["circuit", items[item_id].id, output, "<"],[])
-		blueprint += add_entity("wooden-chest-passive", [input_positions['9'].chest.x,input_positions['9'].chest.y], 2, [(entity_number + 2)],[],[])
-		blueprint += add_entity(inserter_type, [input_positions['9'].inserter.x,input_positions['9'].inserter.y], 6, [(entity_number)],["circuit", items[item_id].id, output, "<"],[])
+		blueprint.addProvider(new _position(input_positions['1'].chest.x,input_positions['1'].chest.y))
+		blueprint.addProvider(new _position(input_positions['9'].chest.x,input_positions['9'].chest.y))
+		blueprint.addInserter(inserter_type, new _position(input_positions['1'].inserter.x,input_positions['1'].inserter.y), input_positions['9'].inserter.vector, items[item_id].id, output, "<")
+		blueprint.addInserter(inserter_type, new _position(input_positions['9'].inserter.x,input_positions['9'].inserter.y), input_positions['1'].inserter.vector, items[item_id].id, output, "<")
 		delete input_positions['1']
 		delete input_positions['9']
 	}
 	var z=0;
 	for(var k in input_positions)
 	{
-		blueprint += add_entity("wooden-chest-requester", [input_positions[k].chest.x,input_positions[k].chest.y], 2, [],[],[recipe.normal[z], 50])
-		blueprint += add_entity(inserter_type, [input_positions[k].inserter.x,input_positions[k].inserter.y], input_positions[k].inserter.vector, [],["logistics", recipe.normal[z], input, ">"],[])
+		var requester = new _requester(new _position(input_positions[k].chest.x,input_positions[k].chest.y))
+		requester.addRequest(recipe.normal[z], input/10)
+		//multipleRequests(items_recipies1[item_id].ingredients, requester, input/10)
+		blueprint.addRequester(requester)
+		blueprint.addInserter(inserter_type, new _position(input_positions[k].inserter.x,input_positions[k].inserter.y), input_positions[k].inserter.vector, recipe.normal[z], input/20, ">")
+		//blueprint.addInserter(inserter_type, new _position(input_positions[k].inserter.x,input_positions[k].inserter.y), input_positions[k].inserter.vector, items[item_id].id, output/10, "<")
 		z++;
 	}
-	blueprint += add_entity("expansion-bay", [-2,-2], 2, [],[],[])
-	blueprint += add_entity("expansion-bay", [-2,2], 2, [],[],[])
-	blueprint += add_entity("expansion-bay", [2,-2], 2, [],[],[])
-	blueprint += add_entity("expansion-bay", [2,2], 2, [],[],[])
+	$("#" + item_id).append("0" + gzip_deflate(blueprint) + "<br>")
+	//blueprint.moveBlueprint(space*_shift.x, 7*_shift.y)
+	return blueprint
+}
+
+function make_compact_blueprint(item_id)
+{
+	//alert(item_id)
+	var multipleRequests = function(ingredients, requster, input)
+		{
+			for (var a = 0; a < ingredients.length; a++)
+			{
+				if (items_recipies1[ingredients[a][0]].category != "fluid")
+				{
+					requester.addRequest(ingredients[a][0], input)
+				}
+			}
+		}
+	var output = 1000;
+	var input = 100;
+	var input_positions = {
+	"4": { inserter: { x:-1, y:2, vector:4 }, chest: { x:-1 ,y:3  } },
+	"5": { inserter: { x:0, y:2, vector:4 }, chest: { x:0 ,y:3  } },
+	"6": { inserter: { x:1, y:2, vector:4 }, chest: { x:1 ,y:3  } },
+	}
+	var name = items[item_id].id
+	//alert(name)
+	var recipe = calculate_recipe(item_id)
+	//alert(recipe)
+	$("#test").append("<textarea id=\"" + item_id + "\" style=\"width: 10px; height: 10px; display: none\"></textarea><button type=\"button\" id=\"" + item_id + "blueprintButton\" onclick=\"copyBlueprint('" + item_id + "')\" class=\"btn btn-primary\" style=\" padding: 0px; \">c</button>")
 	
-	blueprint += "},"
-	blueprint += add_name("ZZZ - " + items[item_id].name)
-	blueprint += "};return blueprintData;end"
-	//blueprint += recipe.normal.length
-	$("#" + item_id).append(blueprint + "<br>")
+	var blueprint = new _blueprint("ZZZ - " + items[item_id].name);
+	blueprint.addIcon(items[item_id].id)
+	blueprint.addProvider(new _position(0,-3))
+	blueprint.addProvider(new _position(-1,-3))
+	blueprint.addProvider(new _position(1,-3))
+	if ($("#expansionbays").is(":checked"))
+	{
+		blueprint.addExpansionBay(new _position(-2,-2))
+		blueprint.addExpansionBay(new _position(2,2))
+		blueprint.addExpansionBay(new _position(-2,2))
+		blueprint.addExpansionBay(new _position(2,-2))
+	}
+	blueprint.addInserter(inserter_type, new _position(-1,-2), 4, items[item_id].id, output*10, "<")
+	blueprint.addInserter(inserter_type, new _position(0,-2), 4, items[item_id].id, output*10, "<")
+	blueprint.addInserter(inserter_type, new _position(1,-2), 4, items[item_id].id, output*10, "<")
+	if(ams[items[item_id].am_type].name == "electric-furnace")
+	{
+		//alert("debug")
+		if ((item_id == "zinc-plate") || (item_id == "carbon") || (item_id == "alumina") || (item_id == "gold-plate"))
+		{
+			blueprint.addAssembler("chemical-furnace", new _position(0,0),4,items[item_id].recipe)
+		}
+		else
+		{
+			blueprint.addAssembler("electric-mixing-furnace", new _position(0,0),4,items[item_id].recipe)
+		}
+	}
+	else
+	{
+		blueprint.addAssembler(ams[items[item_id].am_type].name, new _position(0,0),4,items[item_id].recipe)
+	}
+	if (recipe.fluid.length > 0)
+	{
+		if ((ams[items[item_id].am_type].name == "chemical-plant-4") || (ams[items[item_id].am_type].name == "chemical-plant"))
+		{
+			blueprint.addAssembler("machine-1", new _position(-0.5,2.5),0,items[recipe.fluid[0]].recipe)
+			delete input_positions['4']
+			delete input_positions['5']
+		}
+		else
+		{
+			blueprint.addAssembler("machine-1", new _position(0.5,2.5),0,items[recipe.fluid[0]].recipe)
+			delete input_positions['5']
+			delete input_positions['6']
+		}
+	}
+	var z=0;
+	for(var k in input_positions)
+	{
+		var requester = new _requester(new _position(input_positions[k].chest.x,input_positions[k].chest.y))
+		//requester.addRequest(recipe.normal[z], input/10)
+		multipleRequests(items_recipies1[item_id].ingredients, requester, input/10)
+		blueprint.addRequester(requester)
+		//blueprint.addInserter(inserter_type, new _position(input_positions[k].inserter.x,input_positions[k].inserter.y), input_positions[k].inserter.vector, recipe.normal[z], output, ">")
+		blueprint.addInserter(inserter_type, new _position(input_positions[k].inserter.x,input_positions[k].inserter.y), input_positions[k].inserter.vector, items[item_id].id, output, "<")
+		z++;
+	}
+	$("#" + item_id).append("0" + gzip_deflate(blueprint) + "<br>")
+	//blueprint.moveBlueprint(space*_shift.x, 7*_shift.y)
+	return blueprint
 }
 
 function make_replicator_blueprint(item_id)
 {
-	var name = items[item_id].id
 	$("#test").append("<textarea id=\"" + item_id + "\" style=\"width: 10px; height: 10px; display: none\"></textarea><button type=\"button\" id=\"" + item_id + "blueprintButton\" onclick=\"copyBlueprint('" + item_id + "')\" class=\"btn btn-primary\" style=\" padding: 0px; \">c</button>")
-	var blueprint = "do local blueprintData={"
-	blueprint +=  add_icon([items[item_id].id])
-	blueprint += "entities={"
-	
-	blueprint += add_assembler("replicator-5", items[item_id].recipe, [-1,0], 4)
-	blueprint += add_entity("wooden-chest-passive", [1,-1], 6, [(entity_number + 2)],[],[])
-	blueprint += add_entity("smart-inserter", [0,-1], 6, [(entity_number)],["circuit", items[item_id].id, 100, "<"],[])
-	blueprint += add_entity("wooden-chest-passive", [1,0], 6, [(entity_number + 2)],[],[])
-	blueprint += add_entity("smart-inserter", [0,0], 6, [(entity_number)],["circuit", items[item_id].id, 100, "<"],[])
-	for(var a=0; a < 4; a++)
+	var blueprint = new _blueprint("ZZZ - " + items[item_id].name)
+	for (var a = -2; a < 2; a++)
 	{
-		blueprint += add_entity("expansion-bay", [-3+a,-2], 2, [],[],[])
-		blueprint += add_entity("expansion-bay", [-3+a,1], 2, [],[],[])
+		blueprint.addExpansionBay(new _position(a,-2))
+		blueprint.addExpansionBay(new _position(a,1))
 	}
-	
-	
-	blueprint += "},"
-	blueprint += add_name("ZZZ - " + items[item_id].name)
-	blueprint += "};return blueprintData;end"
-	$("#" + item_id).append(blueprint + "<br>")
+	blueprint.addIcon( items[item_id].id)
+	blueprint.addInserter("stack-inserter", new _position(1,0), 6, items[item_id].id, 1000, "<")
+	blueprint.addInserter("stack-inserter", new _position(1,-1), 6, items[item_id].id, 1000, "<")
+	blueprint.addAssembler("replicator-5", new _position(-0.5,-0.5),4,items[item_id].recipe)
+	blueprint.addProvider(new _position(2,0))
+	blueprint.addProvider(new _position(2,-1))
+	$("#" + item_id).append(gzip_deflate(blueprint) + "<br>")
+	return blueprint
 }
-
 
 function copyBlueprint(text_id)
 {
@@ -671,11 +1147,17 @@ function copyBlueprint(text_id)
 	{
 		var successful = document.execCommand('copy');
 		var msg = successful ? 'successful' : 'unsuccessful';
+		if (!successful)
+		{
+			$("#savedata2").html((copyTextarea.value))
+		}
 		console.log('Copying text command was ' + msg);
+		//alert(copyTextarea.value)
 	} 
 	catch (err) 
 	{
 		console.log('Oops, unable to copy');
+		console.log(copyTextarea.value)
 	}
 	copyTextarea.style.display = "none";
 	var button = document.getElementById(text_id + "blueprintButton");
@@ -700,9 +1182,17 @@ function printSelected()
 	$("#selectedTable").html("")
 	var text = "<div class=\"panel panel-primary\" style=\"margin-bottom: 0px; width: 1000px;\">";
 	text += "<div class=\"panel-heading\">Selected Items</div><div class=\"panel-body\" style=\"display: inline-block;\">";
+	//alert(table.toString())
 	for (var a = 0; a < table.length; a++)
 	{
-		text += items[table[a][0]].name + " -- "
+		try
+		{
+			text += items[table[a][0]].name + " -- "
+		}
+		catch(e)
+		{
+			alert(table[a][0])
+		}
 		text += "<input value=\"" + selectedList[table[a][0]][1] + "\" type=\"text\" id=\"" + table[a][0] + "input\"></input>"
 		//alert(parseInt($( "#"+(table[a][0]) + "input").val()))
 		text += "<button type=\"button\" onclick=\"removeItem('" + table[a][0] + "')\" class=\"btn btn-primary\" style=\"float: middle; padding-bottom: 0px; padding-top: 0px; padding-right: 6px; padding-left: 6px\">-</button>" + "<br>"
@@ -757,7 +1247,11 @@ function updateLevels()
 			ams['electric_furnace'].name = "electric-chemical-mixing-furnace-2"
 			ams['electric_furnace'].speed = 4
 		}
-		
+		if ($("#fur0").is(":checked"))
+		{
+			ams['electric_furnace'].name = "stone-furnace"
+			ams['electric_furnace'].speed = 1
+		}
 		if ($("#chem1").is(":checked"))
 		{
 			ams['chemical_plant'].name = "chemical-plant"
@@ -781,7 +1275,7 @@ function updateLevels()
 		
 		if ($("#basicinserter").is(":checked"))
 		{
-			inserter_type = "basic-inserter"
+			inserter_type = "inserter"
 		}
 		if ($("#fastinserter").is(":checked"))
 		{
@@ -789,7 +1283,7 @@ function updateLevels()
 		}
 		if ($("#smartinserter").is(":checked"))
 		{
-			inserter_type = "smart-inserter"
+			inserter_type = "stack-inserter"
 		}
 		ams['am6'].productivity = 1 + (parseInt($( "#asmprod" ).val())/100)
 		ams['am6'].speed = ams['am6'].speed * (1 + (parseInt($( "#asmspeed" ).val())/100))
@@ -804,9 +1298,13 @@ function updateLevels()
 	
 	for (var k in selectedList)
 	{	
+		//alert(parseInt($( "#"+(k) + "input").val()))
 		selectedList[k][1] = parseInt($( "#"+(k) + "input").val())
 		//alert(selectedList[k][1])
 	}
+	//alert(JSON.stringify(selectedList))
+	ams['replicator5'].productivity = 2.2
+	ams['replicator5'].speed = 16 * (1+38.4)
 	//alert($("#starter").is(":checked"))
 	changeFunc();
 	calc_total(table);
@@ -826,12 +1324,112 @@ function updateLevels()
 	//alert(Object.keys(items).length)
 }
 
+
+function preLoad(_table)
+{
+	for (var k in _table)
+	{	
+		selectedList[_table[k][0]] = [_table[k][0],_table[k][1],false]
+		table.push(selectedList[_table[k][0]])
+	}
+}
+
 var tick = 1/60
 var table = [];
+//table.push("assembling-machine-6")
 var selectedList = {};
-
+//table.push(["assembling-machine-6",100,false])
 populateSelect()
+var preList = []
+/*preList.push(["assembling-machine-6",2000])
+preList.push(["electric-chemical-mixing-furnace-2",1418])
+preList.push(["chemical-plant-4",1418])
+preList.push(["bob-mining-drill-4",2000])
+preList.push(["expansion-bay",955])
+preList.push(["small-lamp",2000])
+preList.push(["bob-logistic-zone-expander",1418])
+preList.push(["bob-robochest",1418])
+preList.push(["stack-inserter",2000])
+preList.push(["repair-pack",2000])
+preList.push(["Biological-bullet-magazine",13780])
+preList.push(["stone-wall",7200])
+preLoad(preList)*/
+
+/*preList.push(["low-density-structure",477])
+preList.push(["rocket-fuel",477])
+preList.push(["rocket-control-unit",477])
+preList.push(["science-pack-1",2756])
+preList.push(["science-pack-2",2296])
+preList.push(["science-pack-3",2350])
+preList.push(["military-science-pack",2836])
+preList.push(["production-science-pack",2054])
+preList.push(["high-tech-science-pack",2054])
+preList.push(["satellite",1])
+preList.push(["repair-pack",100])
+preList.push(["Biological-bullet-magazine",13780])*/
+
+/*preList.push(["bob-laser-turret-5",720])
+preList.push(["bob-laser-robot-capsule",1000])
+preList.push(["bob-sniper-turret-3",720])
+preList.push(["radar-5",720])
+preLoad(preList)*/
+
+/*for (var k in ores)
+{
+	var itemmm = k
+	var blueprint = new _blueprint(ores[itemmm].name)
+		for (var a = -7; a <= 7; a++)
+		{
+			blueprint.addEntity(new _position(a,0),itemmm)
+		}
+		blueprint.addIcon(itemmm)
+	$("#savedata").append(JSON.stringify(blueprint) + ",\n")
+}*/
+
+/*moduleSpeed = 1.6;
+moduleProd = 0.4;
+var testresult = ""
+var test1000 = new _item(items_recipies1["raw-productivity-module-4"])
+var speed = 0;
+var prod = 0;
+ams['am6'].productivity = 1 * (1+(speed*moduleProd))
+ams['am6'].speed = 2 * (1+(prod*moduleSpeed))
+alert("Clean Production: " + test1000.getProduction())
+for (var a = 0; a < 6; a++)
+{
+	var tempSpeed = 0;
+	var tempProd = 0;
+	{
+		speed++
+		ams['am6'].productivity = 1 * (1+(prod*moduleProd))
+		ams['am6'].speed = 2 * (1+(speed*moduleSpeed))
+		//alert("Speed: " + ams['am6'].speed + "Prod: " + ams['am6'].productivity)
+		tempSpeed = test1000.getProduction();
+		//alert("Speed: " + tempSpeed + "Prod: " + tempProd)
+		speed--
+	}
+	{
+		prod++
+		ams['am6'].productivity = 1 * (1+(prod*moduleProd))
+		ams['am6'].speed = 2 * (1+(speed*moduleSpeed))
+		//alert("Speed: " + ams['am6'].speed + "Prod: " + ams['am6'].productivity)
+		tempProd = test1000.getProduction();
+		prod--
+	}
+	//alert("Speed: " + tempSpeed + "Prod: " + tempProd)
+	if (tempSpeed > tempProd)
+	{
+		speed++
+		testresult += "speed "
+	} 
+	else 
+	{
+		prod++
+		testresult += "prod "
+	}
+}*/
+//alert(testresult)
 printSelected();
-//calc_total([['am-mk6',1000,false]]);
-//make_blueprint('battery')
-</script></body></html>
+</script>
+<script type="text/javascript" src="early_game_blueprints.js"></script>
+</body></html>
