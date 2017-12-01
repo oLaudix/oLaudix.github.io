@@ -1,0 +1,168 @@
+1.
+Alberran Rein
+Aether Corruptions
+Boss
+2.
+Bollag, Keeper of the Gates
+Aether Corruptions
+Boss
+3.
+Commander Lucius
+Aether Corruptions
+Boss
+4.
+Councilman Garl
+Aether Corruptions
+Boss
+5.
+Councilman Hallos
+Aether Corruptions
+Boss
+6.
+Cyrian Marcan
+Aether Corruptions
+Boss
+7.
+Dralgar, the Keeper of Burrwitch
+Aether Corruptions
+Boss
+8.
+Dreven Cole
+Aether Corruptions
+Boss
+9.
+Galakros, the Mountain
+Aether Corruptions
+Boss
+10.
+Hagalvar, the Bone Monger
+Aether Corruptions
+Boss
+11.
+Harrath the Slaughterer
+Beastkin, Aether Corruptions
+Boss
+12.
+Harrath, the Returned
+Beastkin, Aether Corruptions
+Boss
+13.
+Jarren the Plaguewarped
+Aether Corruptions
+Boss
+14.
+Kyzogg the Reanimator
+Aether Corruptions
+Boss
+15.
+Overlord Van Aldritch
+Aether Corruptions
+Boss
+16.
+Rodalgar, the Flesh Collector
+Aether Corruptions
+Boss
+17.
+The Amalgamation
+Beasts, Aether Corruptions
+Boss
+18.
+The Master of Flesh ~ Theodin Marcell
+Aether Corruptions
+Boss
+21.
+Venarius, the Backbreaker
+Aether Corruptions
+Boss
+22.
+Watcher Brandis
+Aether Corruptions
+Boss
+23.
+Watcher Ordas
+Aether Corruptions
+Boss
+24.
+Watcher Ygraad
+Aether Corruptions
+Boss
+1.
+Allostria, the Mindthief(First Phase)
+Aetherials, Humans
+Boss
+2.
+Allostria, the Mindthief(Second Phase)
+Aetherials
+Boss
+3.
+Darius Cronley
+Humans, Aetherials
+Boss
+4.
+Fleshshaper Hinissius
+Aetherials
+Boss
+5.
+Fleshweaver Haraxis
+Aetherials
+Boss
+6.
+Fleshweaver Krieg(Player Level 1-75)
+Aetherials
+Boss
+7.
+Fleshweaver Krieg(Player Level 75+)
+Aetherials
+Boss
+8.
+Herald of Destruction(First Phase)
+Aetherials
+Boss
+9.
+Herald of Destruction(Second Phase)
+Aetherials
+Boss
+10.
+Herald of the Flame(First Phase)
+Aetherials
+Boss
+11.
+Herald of the Flame(Second Phase)
+Aetherials
+Boss
+12.
+Herald of the Stars(First Phase)
+Aetherials
+Boss
+13.
+Herald of the Stars(Second Phase)
+Aetherials
+Boss
+14.
+Noveria Stormfire
+Aetherials, Humans
+Boss
+15.
+Terrnox(Player Level 1-75)
+Aetherials, Humans
+Boss
+16.
+Terrnox(Player Level 75+)
+Aetherials, Humans
+Boss
+17.
+Valaxteria(Player Level 1-75)
+Aetherials, Humans
+Boss
+18.
+Valaxteria(Player Level 75+)
+Aetherials, Humans
+Boss
+19.
+Warden Krieg(First Phase)
+Aetherials
+Boss
+20.
+Warden Krieg(Second Phase)
+Aetherials
+Boss

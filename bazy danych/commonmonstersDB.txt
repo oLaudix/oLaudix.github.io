@@ -1,0 +1,792 @@
+1.
+Aetherial Bloater
+Aether Corruptions
+Common
+2.
+Aetherial Bloater
+Aether Corruptions
+Common
+3.
+Aetherial Bloatworm
+Aether Corruptions
+Common
+4.
+Aetherial Guardian
+Aether Corruptions
+Common
+5.
+Aetherial Gutburrower
+Aether Corruptions
+Common
+6.
+Corruption
+Aether Corruptions
+Common
+7.
+Corruption
+Aether Corruptions
+Common
+8.
+Corruption
+Aether Corruptions
+Common
+9.
+Fleshwarped Corruption
+Aether Corruptions
+Common
+10.
+Fleshwarped Corruption
+Aether Corruptions
+Common
+11.
+Fleshwarped Manticore
+Aether Corruptions
+Common
+12.
+Fleshwarped Troll
+Beastkin, Aether Corruptions
+Common
+13.
+Haunted Scarecrow
+Aether Corruptions
+Common
+14.
+Obsidian Anomaly
+Aether Corruptions
+Common
+15.
+Plague Walker
+Aether Corruptions
+Common
+16.
+Plague Walker
+Aether Corruptions
+Common
+17.
+Plague Walker
+Aether Corruptions
+Common
+18.
+Plague Walker
+Aether Corruptions
+Common
+19.
+Rotting Soldier
+Aether Corruptions
+Common
+20.
+Rotting Soldier
+Aether Corruptions
+Common
+21.
+Tainted Hound
+Aether Corruptions
+Common
+22.
+Tainted Pack Leader
+Aether Corruptions
+Common
+23.
+Walking Dead
+Aether Corruptions
+Common
+24.
+Walking Dead
+Aether Corruptions
+Common
+25.
+Walking Dead
+Aether Corruptions
+Common
+26.
+Walking Dead
+Aether Corruptions
+Common
+27.
+Walking Dead
+Aether Corruptions
+Common
+28.
+Walking Dead
+Aether Corruptions
+Common
+29.
+Walking Dead
+Aether Corruptions
+Common
+30.
+Walking Dead
+Aether Corruptions
+Common
+31.
+Walking Dead
+Aether Corruptions
+Common
+32.
+Walking Dead
+Aether Corruptions
+Common
+33.
+Walking Dead
+Aether Corruptions
+Common
+34.
+Walking Dead
+Aether Corruptions
+Common
+35.
+Walking Dead
+Aether Corruptions
+Common
+36.
+Wretcher
+Aether Corruptions
+Common
+37.
+Wretcher
+Aether Corruptions
+Common
+38.
+Wretcher
+Aether Corruptions
+Common
+1.
+Aetherial Crawler
+Aetherials
+Common
+2.
+Aetherial Scamp
+Aetherials
+Common
+3.
+Ascended Attendant
+Aetherials, Humans
+Common
+4.
+Ascended Attendant
+Aetherials, Humans
+Common
+5.
+Possessed Apprentice
+Aetherials, Humans
+Common
+6.
+Possessed Arcanist
+Aetherials, Humans
+Common
+1.
+Arkovian Rocktalon
+Beasts
+Common
+2.
+Arkovian Rocktalon
+Beasts
+Common
+3.
+Arkovian Rocktalon
+Beasts
+Common
+4.
+Boneback
+Beasts
+Common
+5.
+Boneback Gnasher
+Beasts
+Common
+6.
+Chilltusk
+Beasts
+Common
+7.
+Eldritch Alpha
+Beasts, Eldritch
+Common
+8.
+Eldritch Hound
+Beasts, Eldritch
+Common
+9.
+Eldritch Hound
+Beasts, Eldritch
+Common
+10.
+Eldritch Mongrel
+Beasts, Eldritch
+Common
+11.
+Eldritch Mongrel
+Beasts, Eldritch
+Common
+12.
+Frenzied Plaguebeast
+Beasts, Eldritch
+Common
+13.
+Frenzied Plaguebeast
+Beasts, Eldritch
+Common
+14.
+Frenzied Scavenger
+Beasts
+Common
+15.
+Gargantuan Chilltusk
+Beasts
+Common
+16.
+Gargantuan Stonetusk
+Beasts
+Common
+17.
+Gargantuan Stonetusk
+Beasts
+Common
+18.
+Groble ~ Snake Clan Scavenger
+Beasts
+Common
+19.
+Groble ~ Snake Clan Tracker
+Beasts
+Common
+20.
+Haunted Crab
+Undead, Beasts
+Common
+21.
+Haunted Spikeshell
+Undead, Beasts
+Common
+22.
+Juvenile Basilisk
+Beasts
+Common
+23.
+Manticore Blackmane
+Beasts
+Common
+24.
+Manticore Whitemane
+Beasts
+Common
+25.
+Mogdrogen''s Boneback
+Beasts
+Common
+26.
+Scavenger
+Beasts
+Common
+27.
+Stonetusk
+Beasts
+Common
+28.
+Stonetusk
+Beasts
+Common
+29.
+Ugdenbog Crab
+Beasts
+Common
+30.
+Ugdenbog Crabling
+Beasts
+Common
+31.
+Ugdenbog Pitcreeper
+Beasts
+Common
+32.
+Ugdenbog Spikeshell
+Beasts
+Common
+33.
+Ugdenbog Spikeshell
+Beasts
+Common
+34.
+Wendigo
+Undead, Beasts
+Common
+35.
+Wendigo
+Undead, Beasts
+Common
+36.
+Winged Horror
+Beasts, Eldritch
+Common
+37.
+Winged Horror
+Beasts, Eldritch
+Common
+1.
+Chthonian Hungerer
+Chthonics
+Common
+2.
+Chthonian Hungerer
+Chthonics
+Common
+3.
+Chthonian Hungerer
+Chthonics
+Common
+4.
+Chthonian Swarmer
+Chthonics
+Common
+5.
+Chthonian Vanguard
+Chthonics
+Common
+6.
+Chthonian Vanguard
+Chthonics
+Common
+7.
+Obsidian Anomaly
+Chthonics
+Common
+8.
+Obsidian Anomaly
+Chthonics
+Common
+9.
+Obsidian Anomaly
+Chthonics
+Common
+10.
+Obsidian Anomaly
+Chthonics
+Common
+11.
+Obsidian Anomaly
+Chthonics
+Common
+12.
+Obsidian Anomaly
+Chthonics
+Common
+13.
+Obsidian Cluster
+Chthonics
+Common
+14.
+Obsidian Cluster
+Chthonics
+Common
+15.
+Obsidian Shard
+Chthonics
+Common
+16.
+Obsidian Shard
+Chthonics
+Common
+17.
+Void Parasite
+Chthonics
+Common
+18.
+Void Parasite
+Chthonics
+Common
+19.
+Void Rylok
+Chthonics
+Common
+20.
+Voidfiend
+Chthonics
+Common
+21.
+Voidfiend
+Chthonics
+Common
+22.
+Voidlurker
+Chthonics
+Common
+23.
+Writhing Tentacle
+Chthonics
+Common
+1.
+Blade Spirit
+Eldritch
+Common
+2.
+Carnivorous Plant
+Plants, Eldritch
+Common
+3.
+Carnivorous Plant
+Plants, Eldritch
+Common
+4.
+Eldritch Alpha
+Beasts, Eldritch
+Common
+5.
+Eldritch Arachnid
+Arachnids, Eldritch
+Common
+6.
+Eldritch Crawler
+Arachnids, Eldritch
+Common
+7.
+Eldritch Hound
+Beasts, Eldritch
+Common
+8.
+Eldritch Hound
+Beasts, Eldritch
+Common
+9.
+Eldritch Mongrel
+Beasts, Eldritch
+Common
+10.
+Eldritch Mongrel
+Beasts, Eldritch
+Common
+11.
+Eldritch Swarmer
+Insectoids, Eldritch
+Common
+12.
+Entropic Void
+Eldritch
+Common
+13.
+Entropic Void
+Eldritch
+Common
+14.
+Frenzied Plaguebeast
+Beasts, Eldritch
+Common
+15.
+Frenzied Plaguebeast
+Beasts, Eldritch
+Common
+16.
+Great Raven
+Eldritch
+Common
+17.
+Great Raven
+Eldritch
+Common
+18.
+Hellhound
+Eldritch
+Common
+19.
+Hellhound
+Eldritch
+Common
+20.
+Hellspawn
+Eldritch
+Common
+21.
+Nightmare Crawler
+Insectoids, Eldritch
+Common
+22.
+Obsidian Pylon
+Eldritch
+Common
+23.
+Poisonous Bloom
+Plants, Eldritch
+Common
+24.
+Poisonous Bloom
+Plants, Eldritch
+Common
+25.
+Raven
+Eldritch
+Common
+26.
+Sentinel''s Beacon
+Eldritch
+Common
+27.
+Wind Devil
+Eldritch
+Common
+28.
+Wind Devil
+Eldritch
+Common
+29.
+Wind Devil
+Eldritch
+Common
+30.
+Wind Devil
+Eldritch
+Common
+31.
+Winged Horror
+Beasts, Eldritch
+Common
+32.
+Winged Horror
+Beasts, Eldritch
+Common
+2.
+Ascended Attendant
+Aetherials, Humans
+Common
+3.
+Ascended Attendant
+Aetherials, Humans
+Common
+20.
+Bloodsworn Adulant
+Bloodsworn, Humans
+Common
+21.
+Convict ~ Gunman
+Humans
+Common
+22.
+Convict ~ Gunman
+Humans
+Common
+23.
+Convict ~ Lackey
+Humans
+Common
+24.
+Convict ~ Lackey
+Humans
+Common
+25.
+Convict ~ Thug
+Humans
+Common
+28.
+Cronley''s Gang ~ Chosen
+Humans
+Common
+29.
+Cronley''s Gang ~ Chosen
+Humans
+Common
+30.
+Cronley''s Gang ~ Gunman
+Humans
+Common
+31.
+Cronley''s Gang ~ Gunman
+Humans
+Common
+32.
+Cronley''s Gang ~ Gunman
+Humans
+Common
+33.
+Cronley''s Gang ~ Lackey
+Humans
+Common
+34.
+Cronley''s Gang ~ Lackey
+Humans
+Common
+35.
+Cronley''s Gang ~ Thug
+Humans
+Common
+36.
+Cult of the Wendigo ~ Aspirant
+Humans
+Common
+37.
+Cult of the Wendigo ~ Aspirant
+Humans
+Common
+38.
+Cult of the Wendigo ~ Aspirant
+Humans
+Common
+39.
+Cult of the Wendigo ~ Aspirant
+Humans
+Common
+40.
+Death''s Vigil ~ Neophyte
+Humans
+Common
+41.
+Death''s Vigil ~ Neophyte
+Humans
+Common
+42.
+Death''s Vigil ~ Neophyte
+Humans
+Common
+43.
+Death''s Vigil ~ Neophyte
+Humans
+Common
+44.
+Death''s Vigil ~ Neophyte
+Humans
+Common
+45.
+Death''s Vigil ~ Neophyte
+Humans
+Common
+48.
+Kymon''s Chosen ~ Zealot
+Humans
+Common
+67.
+Possessed Apprentice
+Aetherials, Humans
+Common
+68.
+Possessed Arcanist
+Aetherials, Humans
+Common
+72.
+Ugdenbog Cannibal ~ Fleshcrazed
+Humans
+Common
+73.
+Ugdenbog Cannibal ~ Fleshcrazed
+Humans
+Common
+74.
+Ugdenbog Turned
+Undead, Humans
+Common
+75.
+Ugdenbog Turned
+Undead, Humans
+Common
+76.
+Ugdenbog Wretch
+Undead, Humans
+Common
+77.
+Ugdenbog Wretch
+Undead, Humans
+Common
+1.
+Apparition
+Undead
+Common
+2.
+Apparition
+Undead
+Common
+3.
+Apparition
+Undead
+Common
+4.
+Ghoul
+Undead
+Common
+5.
+Haunted Crab
+Undead, Beasts
+Common
+6.
+Haunted Spikeshell
+Undead, Beasts
+Common
+7.
+Robert
+Undead
+Common
+8.
+Rockford
+Undead
+Common
+9.
+Ryan
+Undead
+Common
+10.
+Silvie
+Undead, Humans
+Common
+11.
+Skeletal Archer
+Undead
+Common
+12.
+Skeletal Archer
+Undead
+Common
+13.
+Skeletal Archer
+Undead
+Common
+14.
+Skeletal Archer
+Undead
+Common
+15.
+Skeletal Warrior
+Undead
+Common
+16.
+Skeletal Warrior
+Undead
+Common
+17.
+Skeletal Warrior
+Undead
+Common
+18.
+Skeletal Warrior
+Undead
+Common
+19.
+Ugdenbog Turned
+Undead, Humans
+Common
+20.
+Ugdenbog Turned
+Undead, Humans
+Common
+21.
+Ugdenbog Wretch
+Undead, Humans
+Common
+22.
+Ugdenbog Wretch
+Undead, Humans
+Common
+23.
+Vile Soul
+Undead
+Common
+24.
+Wendigo
+Undead, Beasts
+Common
+25.
+Wendigo
+Undead, Beasts
+Common
+26.
+Wraith
+Undead
+Common
+27.
+Wraith
+Undead
+Common

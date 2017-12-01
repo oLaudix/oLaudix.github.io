@@ -1,0 +1,1682 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-1.16.0.css">
+<link rel="stylesheet" href="bootstrap.min.css">
+<link rel="stylesheet" href="custom.css">
+<title>My Page</title>
+  <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
+</head>
+
+<!-- refreshTexts() -->
+<!-- this.stoneText.setText("Value: $" + this.appState.toReadable(Double.valueOf(this.appState.getStoneValue())) + "\nHit points: " + this.appState.toReadable(Double.valueOf(this.appState.remainStoneStrength)) + "\nHardness: " + this.appState.toReadable(Double.valueOf(this.appState.getStoneHardness()))); -->
+      
+
+
+<body>
+	<div style="float: left; width: 180px;">
+		<ul class="nav nav-tabs nav-stacked">
+			<li><a href=".">Home</a></li>
+			<li><a href="TTcalc.html">Tap Titans Calculator</a></li>
+			<li><a href="stuff.html">Tap Titans usefull stuff</a></li>
+			<li><a href="MCcalc.html">Mine Clicker Calculator</a></li>
+			<li><a href="SMCG.html">Simulation Craft Stuff</a></li>
+			<li><a href="CivCrafter.html">Civ Crafter Stuff</a></li>
+			<li><a href="ShonenIdle.html">Shonen Idle Stuff</a></li>
+			<li><a href="incremental.html">Testing</a></li>
+		</ul>
+	</div>
+	<div class="wrapper" style="display: inline-block;">
+		<textarea id="input" style="height:200px; width: 300px"></textarea><br>
+		<textarea id="output" style="height:500px; width: 1000px"></textarea><br>
+		<textarea id="counter">1</textarea><br>
+		<button type="button" onclick="Add()" class="btn btn-default">Add</button><br>
+		
+	</div>
+  
+  
+<script type="text/javascript" src="jquery-latest.min.js"></script>
+<script type="text/javascript" src="bootstrap.min.js"></script>
+<script src="common.js"></script>
+
+<script language="javascript">/* Write JavaScript here */
+//$(window).load(function start(){
+/*==========================================
+///////////////MONSTERS TABLE///////////////
+==========================================*/
+var Monsters = []
+Monsters.push(["CM01","Aetherial Bloater","Aether Corruptions","Common"]);
+Monsters.push(["CM02","Aetherial Bloatworm","Aether Corruptions","Common"]);
+Monsters.push(["CM03","Aetherial Guardian","Aether Corruptions","Common"]);
+Monsters.push(["CM04","Aetherial Gutburrower","Aether Corruptions","Common"]);
+Monsters.push(["CM05","Corruption","Aether Corruptions","Common"]);
+Monsters.push(["CM06","Fleshwarped Corruption","Aether Corruptions","Common"]);
+Monsters.push(["CM07","Fleshwarped Manticore","Aether Corruptions","Common"]);
+Monsters.push(["CM08","Fleshwarped Troll","Aether Corruptions","Common"]);
+Monsters.push(["CM09","Haunted Scarecrow","Aether Corruptions","Common"]);
+Monsters.push(["CM10","Obsidian Anomaly","Aether Corruptions","Common"]);
+Monsters.push(["CM11","Plague Walker","Aether Corruptions","Common"]);
+Monsters.push(["CM12","Rotting Soldier","Aether Corruptions","Common"]);
+Monsters.push(["CM13","Tainted Hound","Aether Corruptions","Common"]);
+Monsters.push(["CM14","Tainted Pack Leader","Aether Corruptions","Common"]);
+Monsters.push(["CM15","Walking Dead","Aether Corruptions","Common"]);
+Monsters.push(["CM16","Wretcher","Aether Corruptions","Common"]);
+Monsters.push(["CM17","Aetherial Crawler","Aetherials","Common"]);
+Monsters.push(["CM18","Aetherial Scamp","Aetherials","Common"]);
+Monsters.push(["CM19","Ascended Attendant","Aetherials","Common"]);
+Monsters.push(["CM20","Possessed Apprentice","Aetherials","Common"]);
+Monsters.push(["CM21","Possessed Arcanist","Aetherials","Common"]);
+Monsters.push(["CM22","Arkovian Rocktalon","Beasts","Common"]);
+Monsters.push(["CM23","Boneback","Beasts","Common"]);
+Monsters.push(["CM24","Boneback Gnasher","Beasts","Common"]);
+Monsters.push(["CM25","Chilltusk","Beasts","Common"]);
+Monsters.push(["CM26","Eldritch Alpha","Beasts","Common"]);
+Monsters.push(["CM27","Eldritch Hound","Beasts","Common"]);
+Monsters.push(["CM28","Eldritch Mongrel","Beasts","Common"]);
+Monsters.push(["CM29","Frenzied Plaguebeast","Beasts","Common"]);
+Monsters.push(["CM30","Frenzied Scavenger","Beasts","Common"]);
+Monsters.push(["CM31","Gargantuan Chilltusk","Beasts","Common"]);
+Monsters.push(["CM32","Gargantuan Stonetusk","Beasts","Common"]);
+Monsters.push(["CM33","Groble ~ Snake Clan Scavenger","Beasts","Common"]);
+Monsters.push(["CM34","Groble ~ Snake Clan Tracker","Beasts","Common"]);
+Monsters.push(["CM35","Haunted Crab","Beasts","Common"]);
+Monsters.push(["CM36","Haunted Spikeshell","Beasts","Common"]);
+Monsters.push(["CM37","Juvenile Basilisk","Beasts","Common"]);
+Monsters.push(["CM38","Manticore Blackmane","Beasts","Common"]);
+Monsters.push(["CM39","Manticore Whitemane","Beasts","Common"]);
+Monsters.push(["CM40","Mogdrogen''s Boneback","Beasts","Common"]);
+Monsters.push(["CM41","Scavenger","Beasts","Common"]);
+Monsters.push(["CM42","Stonetusk","Beasts","Common"]);
+Monsters.push(["CM43","Ugdenbog Crab","Beasts","Common"]);
+Monsters.push(["CM44","Ugdenbog Crabling","Beasts","Common"]);
+Monsters.push(["CM45","Ugdenbog Pitcreeper","Beasts","Common"]);
+Monsters.push(["CM46","Ugdenbog Spikeshell","Beasts","Common"]);
+Monsters.push(["CM47","Wendigo","Beasts","Common"]);
+Monsters.push(["CM48","Winged Horror","Beasts","Common"]);
+Monsters.push(["CM49","Chthonian Hungerer","Chthonics","Common"]);
+Monsters.push(["CM50","Chthonian Swarmer","Chthonics","Common"]);
+Monsters.push(["CM51","Chthonian Vanguard","Chthonics","Common"]);
+Monsters.push(["CM52","Obsidian Cluster","Chthonics","Common"]);
+Monsters.push(["CM53","Obsidian Shard","Chthonics","Common"]);
+Monsters.push(["CM54","Void Parasite","Chthonics","Common"]);
+Monsters.push(["CM55","Void Rylok","Chthonics","Common"]);
+Monsters.push(["CM56","Voidfiend","Chthonics","Common"]);
+Monsters.push(["CM57","Voidlurker","Chthonics","Common"]);
+Monsters.push(["CM58","Writhing Tentacle","Chthonics","Common"]);
+Monsters.push(["CM59","Blade Spirit","Eldritch","Common"]);
+Monsters.push(["CM60","Carnivorous Plant","Eldritch","Common"]);
+Monsters.push(["CM61","Eldritch Arachnid","Eldritch","Common"]);
+Monsters.push(["CM62","Eldritch Crawler","Eldritch","Common"]);
+Monsters.push(["CM63","Eldritch Swarmer","Eldritch","Common"]);
+Monsters.push(["CM64","Entropic Void","Eldritch","Common"]);
+Monsters.push(["CM65","Great Raven","Eldritch","Common"]);
+Monsters.push(["CM66","Hellhound","Eldritch","Common"]);
+Monsters.push(["CM67","Hellspawn","Eldritch","Common"]);
+Monsters.push(["CM68","Nightmare Crawler","Eldritch","Common"]);
+Monsters.push(["CM69","Obsidian Pylon","Eldritch","Common"]);
+Monsters.push(["CM70","Poisonous Bloom","Eldritch","Common"]);
+Monsters.push(["CM71","Raven","Eldritch","Common"]);
+Monsters.push(["CM72","Sentinel''s Beacon","Eldritch","Common"]);
+Monsters.push(["CM73","Wind Devil","Eldritch","Common"]);
+Monsters.push(["CM75","Convict ~ Gunman","Humans","Common"]);
+Monsters.push(["CM76","Convict ~ Lackey","Humans","Common"]);
+Monsters.push(["CM77","Convict ~ Thug","Humans","Common"]);
+Monsters.push(["CM78","Cronley''s Gang ~ Chosen","Humans","Common"]);
+Monsters.push(["CM79","Cronley''s Gang ~ Gunman","Humans","Common"]);
+Monsters.push(["CM80","Cronley''s Gang ~ Lackey","Humans","Common"]);
+Monsters.push(["CM81","Cronley''s Gang ~ Thug","Humans","Common"]);
+Monsters.push(["CM82","Cult of the Wendigo ~ Aspirant","Humans","Common"]);
+Monsters.push(["CM83","Death''s Vigil ~ Neophyte","Humans","Common"]);
+Monsters.push(["CM84","Kymon''s Chosen ~ Zealot","Humans","Common"]);
+Monsters.push(["CM85","Ugdenbog Cannibal ~ Fleshcrazed","Humans","Common"]);
+Monsters.push(["CM86","Ugdenbog Turned","Humans","Common"]);
+Monsters.push(["CM87","Ugdenbog Wretch","Humans","Common"]);
+Monsters.push(["CM88","Apparition","Undead","Common"]);
+Monsters.push(["CM89","Ghoul","Undead","Common"]);
+Monsters.push(["CM90","Robert","Undead","Common"]);
+Monsters.push(["CM91","Rockford","Undead","Common"]);
+Monsters.push(["CM92","Ryan","Undead","Common"]);
+Monsters.push(["CM93","Silvie","Humans","Common"]);
+Monsters.push(["CM94","Skeletal Archer","Undead","Common"]);
+Monsters.push(["CM95","Skeletal Warrior","Undead","Common"]);
+Monsters.push(["CM96","Vile Soul","Undead","Common"]);
+Monsters.push(["CM97","Wraith","Undead","Common"]);
+Monsters.push(["RM001","Abner, the Forsaken One","Aether Corruptions","Hero"]);
+Monsters.push(["RM002","Aetheros","Aether Corruptions","Hero"]);
+Monsters.push(["RM003","Aethoran, the Plaguebearer ~ Diseased","Aether Corruptions","Hero"]);
+Monsters.push(["RM004","Agalgaraz","Aether Corruptions","Hero"]);
+Monsters.push(["RM005","Aldanar, the Undying","Aether Corruptions","Hero"]);
+Monsters.push(["RM006","Alrick Magefire","Aether Corruptions","Hero"]);
+Monsters.push(["RM007","Archanis ~ Arcane","Aether Corruptions","Hero"]);
+Monsters.push(["RM008","Asper ~ Swift","Aether Corruptions","Hero"]);
+Monsters.push(["RM009","Azgalogg, the Corruptor ~ Defender","Aether Corruptions","Hero"]);
+Monsters.push(["RM010","Balgargol the Plaguebearer","Aether Corruptions","Hero"]);
+Monsters.push(["RM011","Ballior ~ Burning","Aether Corruptions","Hero"]);
+Monsters.push(["RM012","Balros, the Malformed","Aether Corruptions","Hero"]);
+Monsters.push(["RM013","Bane''Zal, the Hellborn","Aether Corruptions","Hero"]);
+Monsters.push(["RM014","Barrog, the Bloodied","Aether Corruptions","Hero"]);
+Monsters.push(["RM015","Barrostrandt, the Ascended","Aether Corruptions","Hero"]);
+Monsters.push(["RM016","Beholdan ~ Reflective","Aether Corruptions","Hero"]);
+Monsters.push(["RM017","Blazragarus","Aether Corruptions","Hero"]);
+Monsters.push(["RM018","Blightfeast ~ Charger","Aether Corruptions","Hero"]);
+Monsters.push(["RM019","Bloodhowl ~ Regenerator","Aether Corruptions","Hero"]);
+Monsters.push(["RM020","Bluggraag Blazebarf","Aether Corruptions","Hero"]);
+Monsters.push(["RM021","Bolvaris, the Glacierborn","Aether Corruptions","Hero"]);
+Monsters.push(["RM022","Bonebreaker","Aether Corruptions","Hero"]);
+Monsters.push(["RM023","Caladrak ~ Unstoppable","Aether Corruptions","Hero"]);
+Monsters.push(["RM024","Challdrus the Coldheart","Aether Corruptions","Hero"]);
+Monsters.push(["RM025","Chilldread","Aether Corruptions","Hero"]);
+Monsters.push(["RM026","Chromallus ~ Timewarped","Aether Corruptions","Hero"]);
+Monsters.push(["RM027","Corpsefire ~ Reflective","Aether Corruptions","Hero"]);
+Monsters.push(["RM028","Corruptis","Aether Corruptions","Hero"]);
+Monsters.push(["RM029","Crimson Bane","Aether Corruptions","Hero"]);
+Monsters.push(["RM030","Crognoth, the Blazing Vanguard","Aether Corruptions","Hero"]);
+Monsters.push(["RM031","Crowfiend ~ Bruiser","Aether Corruptions","Hero"]);
+Monsters.push(["RM032","Darlax, Devourer of Dreams","Aether Corruptions","Hero"]);
+Monsters.push(["RM033","Disallus ~ Diseased","Aether Corruptions","Hero"]);
+Monsters.push(["RM034","Effigus, the Infested","Aether Corruptions","Hero"]);
+Monsters.push(["RM035","Embrallis ~ Burning","Aether Corruptions","Hero"]);
+Monsters.push(["RM036","Faldonir Aetherborn","Aether Corruptions","Hero"]);
+Monsters.push(["RM037","Faldrak ~ Reflective","Aether Corruptions","Hero"]);
+Monsters.push(["RM038","Farros, the Rotted","Aether Corruptions","Hero"]);
+Monsters.push(["RM039","Festerlis ~ Bruiser","Aether Corruptions","Hero"]);
+Monsters.push(["RM040","Fleshshaper Igilvur","Aether Corruptions","Hero"]);
+Monsters.push(["RM041","Fragh ~ Frozen","Aether Corruptions","Hero"]);
+Monsters.push(["RM042","Frenazad ~ Burning","Aether Corruptions","Hero"]);
+Monsters.push(["RM043","Furz Venomdrinker ~ Supporter","Aether Corruptions","Hero"]);
+Monsters.push(["RM044","Garminix ~ Regenerator","Aether Corruptions","Hero"]);
+Monsters.push(["RM045","Gastris, the Foul","Aether Corruptions","Hero"]);
+Monsters.push(["RM046","Gethrand, the Betrayed","Aether Corruptions","Hero"]);
+Monsters.push(["RM047","Gilisten, the Reborn","Aether Corruptions","Hero"]);
+Monsters.push(["RM048","Gollorg, the Undiminished ~ Unstoppable","Aether Corruptions","Hero"]);
+Monsters.push(["RM049","Gornax, the Nightmare","Aether Corruptions","Hero"]);
+Monsters.push(["RM050","Gutripper ~ Unstoppable","Aether Corruptions","Hero"]);
+Monsters.push(["RM051","Hagra, the Tormented","Aether Corruptions","Hero"]);
+Monsters.push(["RM052","Hauldros the Burningbile","Aether Corruptions","Hero"]);
+Monsters.push(["RM053","Horcris, the Terror","Aether Corruptions","Hero"]);
+Monsters.push(["RM054","Hungeron ~ Vampiric","Aether Corruptions","Hero"]);
+Monsters.push(["RM055","Illumin ~ Electrified","Aether Corruptions","Hero"]);
+Monsters.push(["RM056","Jillius, the Decayed","Aether Corruptions","Hero"]);
+Monsters.push(["RM057","Joxallus ~ Electrified","Aether Corruptions","Hero"]);
+Monsters.push(["RM058","Malnotris ~ Unstoppable","Aether Corruptions","Hero"]);
+Monsters.push(["RM059","Mesmer","Aether Corruptions","Hero"]);
+Monsters.push(["RM060","Milton Hart","Aether Corruptions","Hero"]);
+Monsters.push(["RM061","Nalloth, the Frostbound","Aether Corruptions","Hero"]);
+Monsters.push(["RM062","Narroth, the Behemoth","Aether Corruptions","Hero"]);
+Monsters.push(["RM063","Nazagrad, the Fallen","Aether Corruptions","Hero"]);
+Monsters.push(["RM064","Neegan, the Withered","Aether Corruptions","Hero"]);
+Monsters.push(["RM065","Nemedian, the Reaper","Aether Corruptions","Hero"]);
+Monsters.push(["RM066","Noxraderad ~ Frozen","Aether Corruptions","Hero"]);
+Monsters.push(["RM067","Oppressius ~ Unstoppable","Aether Corruptions","Hero"]);
+Monsters.push(["RM068","Phabius","Aether Corruptions","Hero"]);
+Monsters.push(["RM069","Sharn, the Cursed","Aether Corruptions","Hero"]);
+Monsters.push(["RM070","Stormfist ~ Electrified","Aether Corruptions","Hero"]);
+Monsters.push(["RM071","Stormtitan","Aether Corruptions","Hero"]);
+Monsters.push(["RM072","Sulkarr, the Stormtouched","Aether Corruptions","Hero"]);
+Monsters.push(["RM073","Teselon ~ Electrified","Aether Corruptions","Hero"]);
+Monsters.push(["RM074","Theodin''s Creation","Aether Corruptions","Hero"]);
+Monsters.push(["RM075","Vanallius the Voracious","Aether Corruptions","Hero"]);
+Monsters.push(["RM076","Vanoxxis Bile","Aether Corruptions","Hero"]);
+Monsters.push(["RM077","Verkazol ~ Vampiric","Aether Corruptions","Hero"]);
+Monsters.push(["RM078","Zanbrandt, the Ascended","Aether Corruptions","Hero"]);
+Monsters.push(["RM079","The Bruiser Romanov","Aetherials","Hero"]);
+Monsters.push(["RM080","Aetherblaze","Aetherials","Hero"]);
+Monsters.push(["RM081","Allara Starfire","Aetherials","Hero"]);
+Monsters.push(["RM082","Archivist Thelon","Aetherials","Hero"]);
+Monsters.push(["RM083","Azar, the Wrathful","Aetherials","Hero"]);
+Monsters.push(["RM084","Conastaria","Aetherials","Hero"]);
+Monsters.push(["RM085","Corpusia ~ Reflective","Aetherials","Hero"]);
+Monsters.push(["RM086","Eldon Snakeskin ~ Regenerator","Aetherials","Hero"]);
+Monsters.push(["RM087","Espiria ~ Supporter","Aetherials","Hero"]);
+Monsters.push(["RM088","Ghalbar ~ Regenerator","Aetherials","Hero"]);
+Monsters.push(["RM089","Hagras Aetherflame","Aetherials","Hero"]);
+Monsters.push(["RM090","Halvastra Wrathfire","Aetherials","Hero"]);
+Monsters.push(["RM091","Intesius","Aetherials","Hero"]);
+Monsters.push(["RM092","Kamladris, the Rimeheart","Aetherials","Hero"]);
+Monsters.push(["RM093","Loxmere Nightmage","Aetherials","Hero"]);
+Monsters.push(["RM094","Ludia Starfire","Aetherials","Hero"]);
+Monsters.push(["RM095","Meric Aether-Touched ~ Charger","Aetherials","Hero"]);
+Monsters.push(["RM096","Mondrak, the Everburning","Aetherials","Hero"]);
+Monsters.push(["RM097","Ounasteria Stormtouch ~ Electrified","Aetherials","Hero"]);
+Monsters.push(["RM098","Padmanestia","Aetherials","Hero"]);
+Monsters.push(["RM099","Pavros Undylon, Flamespeaker","Aetherials","Hero"]);
+Monsters.push(["RM100","Phanolg the Iceborn","Aetherials","Hero"]);
+Monsters.push(["RM101","Phigillius Stormbile","Aetherials","Hero"]);
+Monsters.push(["RM102","Rostov, the Aetherflame","Aetherials","Hero"]);
+Monsters.push(["RM103","Torraxsteria","Aetherials","Hero"]);
+Monsters.push(["RM104","Ullana Everfreeze ~ Frozen","Aetherials","Hero"]);
+Monsters.push(["RM105","Wourble ~ Reflective","Aetherials","Hero"]);
+Monsters.push(["RM106","Aetherean ~ Corrupted","Beasts","Hero"]);
+Monsters.push(["RM107","Aethermane ~ Corrupted","Beasts","Hero"]);
+Monsters.push(["RM108","Anaxius ~ Corrupted","Beasts","Hero"]);
+Monsters.push(["RM109","Ar''kall, the Black Heart","Beasts","Hero"]);
+Monsters.push(["RM110","Aregos ~ Corrupted","Beasts","Hero"]);
+Monsters.push(["RM111","Bilewart ~ Swift","Beasts","Hero"]);
+Monsters.push(["RM112","Blazara Firemane","Beasts","Hero"]);
+Monsters.push(["RM113","Bloodclaw","Beasts","Hero"]);
+Monsters.push(["RM114","Bonechill","Beasts","Hero"]);
+Monsters.push(["RM115","Bonegnash","Beasts","Hero"]);
+Monsters.push(["RM116","Chaosshell ~ Voidtouched","Beasts","Hero"]);
+Monsters.push(["RM117","Chillblood ~ Regenerator","Beasts","Hero"]);
+Monsters.push(["RM118","Chillpincer","Beasts","Hero"]);
+Monsters.push(["RM119","Corrupshell ~ Corrupted","Beasts","Hero"]);
+Monsters.push(["RM120","Crimsontail ~ Supporter","Beasts","Hero"]);
+Monsters.push(["RM121","Dreadtusk, the Hunter''s Bane","Beasts","Hero"]);
+Monsters.push(["RM122","Ernol Carrioneater ~ Diseased","Beasts","Hero"]);
+Monsters.push(["RM123","Foll the Burningshell","Beasts","Hero"]);
+Monsters.push(["RM124","Goll the Stormshell","Beasts","Hero"]);
+Monsters.push(["RM125","Harrowbeak ~ Unstoppable","Beasts","Hero"]);
+Monsters.push(["RM126","Hellmane ~ Burning","Beasts","Hero"]);
+Monsters.push(["RM127","Iceskorn","Beasts","Hero"]);
+Monsters.push(["RM128","Icesnap","Beasts","Hero"]);
+Monsters.push(["RM129","Maledictus","Beasts","Hero"]);
+Monsters.push(["RM130","Mallus ~ Corrupted","Beasts","Hero"]);
+Monsters.push(["RM131","Mudflinger ~ Reflective","Beasts","Hero"]);
+Monsters.push(["RM132","Mudrock ~ Defender","Beasts","Hero"]);
+Monsters.push(["RM133","Mutallor ~ Regenerator","Beasts","Hero"]);
+Monsters.push(["RM134","Neleron, the Eyes of Death","Beasts","Hero"]);
+Monsters.push(["RM135","Ragesnout ~ Swift","Beasts","Hero"]);
+Monsters.push(["RM136","Ranaxus ~ Voidtouched","Beasts","Hero"]);
+Monsters.push(["RM137","Rav ~ Voidtouched","Beasts","Hero"]);
+Monsters.push(["RM138","Ravagrad ~ Unstoppable","Beasts","Hero"]);
+Monsters.push(["RM139","Raxa, the Jade Huntress","Beasts","Hero"]);
+Monsters.push(["RM140","Razorback","Beasts","Hero"]);
+Monsters.push(["RM141","Riftsnout ~ Voidtouched","Beasts","Hero"]);
+Monsters.push(["RM142","Rimeclaw ~ Frozen","Beasts","Hero"]);
+Monsters.push(["RM143","Rotbite ~ Diseased","Beasts","Hero"]);
+Monsters.push(["RM144","Rotblood ~ Vampiric","Beasts","Hero"]);
+Monsters.push(["RM145","Rotmane ~ Diseased","Beasts","Hero"]);
+Monsters.push(["RM146","Rotmouth","Beasts","Hero"]);
+Monsters.push(["RM147","Rotspew","Beasts","Hero"]);
+Monsters.push(["RM148","Scarsnout, the Cannibal","Beasts","Hero"]);
+Monsters.push(["RM149","Sllancar the Tainted","Beasts","Hero"]);
+Monsters.push(["RM150","Stonemane ~ Defender","Beasts","Hero"]);
+Monsters.push(["RM151","Stormslither","Beasts","Hero"]);
+Monsters.push(["RM152","Uroxis Swiftclaw ~ Swift","Beasts","Hero"]);
+Monsters.push(["RM153","Vagarroth the Insatiable","Beasts","Hero"]);
+Monsters.push(["RM154","Vileclaw","Beasts","Hero"]);
+Monsters.push(["RM155","Vollarius ~ Arcane","Beasts","Hero"]);
+Monsters.push(["RM156","Waraplius ~ Timewarped","Beasts","Hero"]);
+Monsters.push(["RM157","Waroxis Crimsonclaw ~ Bruiser","Beasts","Hero"]);
+Monsters.push(["RM158","Whitemane, the Thunderstruck","Beasts","Hero"]);
+Monsters.push(["RM159","Wrathclaw ~ Corrupted","Beasts","Hero"]);
+Monsters.push(["RM160","Wrathtalon ~ Corrupted","Beasts","Hero"]);
+Monsters.push(["RM161","Yoknar","Beasts","Hero"]);
+Monsters.push(["RM162","Ch''thallis, the Usurper","Chthonics","Hero"]);
+Monsters.push(["RM163","Chthonian Unraveler","Chthonics","Hero"]);
+Monsters.push(["RM164","Dar''Vagol the Mageclaw","Chthonics","Hero"]);
+Monsters.push(["RM165","Drygol''Ukog ~ Charger","Chthonics","Hero"]);
+Monsters.push(["RM166","Ekket''Anatu","Chthonics","Hero"]);
+Monsters.push(["RM167","Fos''Daroth","Chthonics","Hero"]);
+Monsters.push(["RM168","Galar''Bargok, the Black Fiend","Chthonics","Hero"]);
+Monsters.push(["RM169","Gawok''Mal ~ Electrified","Chthonics","Hero"]);
+Monsters.push(["RM170","Gawtok''Anatu","Chthonics","Hero"]);
+Monsters.push(["RM171","Gluttrius''Maw","Chthonics","Hero"]);
+Monsters.push(["RM172","Harak''Bargoth, Guardian of the Bastion","Chthonics","Hero"]);
+Monsters.push(["RM173","Haval''Aldos ~ Arcane","Chthonics","Hero"]);
+Monsters.push(["RM174","Innu''Garbal","Chthonics","Hero"]);
+Monsters.push(["RM175","Innugaru, Terror of the Void","Chthonics","Hero"]);
+Monsters.push(["RM176","Jugak''Siin ~ Reflective","Chthonics","Hero"]);
+Monsters.push(["RM177","Kelphat''Idoth ~ Electrified","Chthonics","Hero"]);
+Monsters.push(["RM178","Loghorrean''s Vanguard","Chthonics","Hero"]);
+Monsters.push(["RM179","Luthus''Balok","Chthonics","Hero"]);
+Monsters.push(["RM180","Metasis''Mal the Mageblood","Chthonics","Hero"]);
+Monsters.push(["RM181","Narl''Maash, the Engorged","Chthonics","Hero"]);
+Monsters.push(["RM182","Narl''Sarroth","Chthonics","Hero"]);
+Monsters.push(["RM183","Nii''Thel ~ Bruiser","Chthonics","Hero"]);
+Monsters.push(["RM184","Nucus''Dal","Chthonics","Hero"]);
+Monsters.push(["RM185","Nur''Garu, Jaws of Oblivion","Chthonics","Hero"]);
+Monsters.push(["RM186","Nye''Kazul, the Maw of Fire","Chthonics","Hero"]);
+Monsters.push(["RM187","Obsidius, the Titan","Chthonics","Hero"]);
+Monsters.push(["RM188","Odus''Aldos ~ Swift","Chthonics","Hero"]);
+Monsters.push(["RM189","Olithot''Mal the Tormentor","Chthonics","Hero"]);
+Monsters.push(["RM190","Ordran''Daroth","Chthonics","Hero"]);
+Monsters.push(["RM191","Orudin''Idoth ~ Frozen","Chthonics","Hero"]);
+Monsters.push(["RM192","Pulv''Daroth","Chthonics","Hero"]);
+Monsters.push(["RM193","Rhidal''Gulvor the Stormblood","Chthonics","Hero"]);
+Monsters.push(["RM194","Rydal''Aldos ~ Vampiric","Chthonics","Hero"]);
+Monsters.push(["RM195","Sargo''Din, the Hungering Maw","Chthonics","Hero"]);
+Monsters.push(["RM196","Sarmaz''Din ~ Frozen","Chthonics","Hero"]);
+Monsters.push(["RM197","Sen''Thel Voidbringer","Chthonics","Hero"]);
+Monsters.push(["RM198","Shar''Luthol ~ Shielded","Chthonics","Hero"]);
+Monsters.push(["RM199","Shar''Oruuth","Chthonics","Hero"]);
+Monsters.push(["RM200","Vom''Anatu","Chthonics","Hero"]);
+Monsters.push(["RM201","Vom''Zul","Chthonics","Hero"]);
+Monsters.push(["RM202","Waban''Ak, the Sparkmaw","Chthonics","Hero"]);
+Monsters.push(["RM203","Wallon''Aldos the Voidbringer","Chthonics","Hero"]);
+Monsters.push(["RM204","Wen''Kazul, the Hungering Blade","Chthonics","Hero"]);
+Monsters.push(["RM205","Yakwa''Anatu ~ Unstoppable","Chthonics","Hero"]);
+Monsters.push(["RM206","Yakwa''Mal ~ Arcane","Chthonics","Hero"]);
+Monsters.push(["RM207","Zal''Naroth, Guardian of the Bastion","Chthonics","Hero"]);
+Monsters.push(["RM208","Zalyth''Uthax ~ Electrified","Chthonics","Hero"]);
+Monsters.push(["RM209","Bloodthirsty Bloom","Eldritch","Hero"]);
+Monsters.push(["RM210","Burning Bloom","Eldritch","Hero"]);
+Monsters.push(["RM211","Ferrosius ~ Swift","Eldritch","Hero"]);
+Monsters.push(["RM212","Garrl ~ Voidtouched","Eldritch","Hero"]);
+Monsters.push(["RM213","Habnor the Void-Chosen","Eldritch","Hero"]);
+Monsters.push(["RM214","Haldras Flamespitter","Eldritch","Hero"]);
+Monsters.push(["RM215","Hammerton","Eldritch","Hero"]);
+Monsters.push(["RM216","Jormundur ~ Diseased","Eldritch","Hero"]);
+Monsters.push(["RM217","Rimestone ~ Frozen","Eldritch","Hero"]);
+Monsters.push(["RM218","Stonegrinder ~ Charger","Eldritch","Hero"]);
+Monsters.push(["RM219","Stoneheart ~ Reflective","Eldritch","Hero"]);
+Monsters.push(["RM220","Swillius","Eldritch","Hero"]);
+Monsters.push(["RM221","Thunderbloom ~ Electrified","Eldritch","Hero"]);
+Monsters.push(["RM222","Titanius Steelskin ~ Defender","Eldritch","Hero"]);
+Monsters.push(["RM223","Virulent Growth ~ Diseased","Eldritch","Hero"]);
+Monsters.push(["RM224","Voidstone ~ Voidtouched","Eldritch","Hero"]);
+Monsters.push(["RM225","Boomer Slocum","Humans","Hero"]);
+Monsters.push(["RM226","Madman Wilcox","Humans","Hero"]);
+Monsters.push(["RM227","Allcadius the Unburied ~ Reflective","Humans","Hero"]);
+Monsters.push(["RM228","Ashe The Wall Farrell","Humans","Hero"]);
+Monsters.push(["RM229","Balvadar the Bloodthirsty ~ Regenerator","Humans","Hero"]);
+Monsters.push(["RM230","Bellia Everthirst ~ Vampiric","Humans","Hero"]);
+Monsters.push(["RM231","Bloody Jack","Humans","Hero"]);
+Monsters.push(["RM232","Bolla The Raven","Humans","Hero"]);
+Monsters.push(["RM233","Brother Baldris, Charge of Empyrion","Humans","Hero"]);
+Monsters.push(["RM234","Brother Handrick ~ Burning","Humans","Hero"]);
+Monsters.push(["RM235","Caspis, the Blooddrinker","Humans","Hero"]);
+Monsters.push(["RM236","Delnar Black Eye","Humans","Hero"]);
+Monsters.push(["RM237","Dravko The Torch","Humans","Hero"]);
+Monsters.push(["RM238","Dred One-Eye","Humans","Hero"]);
+Monsters.push(["RM239","Edmund Shanks Doyle","Humans","Hero"]);
+Monsters.push(["RM240","Everett, the Bloodbound ~ Burning","Humans","Hero"]);
+Monsters.push(["RM241","Haldra the Bloodlust","Humans","Hero"]);
+Monsters.push(["RM242","Handaar Bloodweaver","Humans","Hero"]);
+Monsters.push(["RM243","Holvuur Bonespeaker","Humans","Hero"]);
+Monsters.push(["RM244","Horvald Shieldbreaker","Humans","Hero"]);
+Monsters.push(["RM245","Hudson Fury","Humans","Hero"]);
+Monsters.push(["RM246","Ignacius ~ Burning","Humans","Hero"]);
+Monsters.push(["RM247","Ignafius Mageblood ~ Arcane","Humans","Hero"]);
+Monsters.push(["RM248","Igniaa Venomtongue","Humans","Hero"]);
+Monsters.push(["RM249","Igor The Brawler","Humans","Hero"]);
+Monsters.push(["RM250","Jakala Bonesinger","Humans","Hero"]);
+Monsters.push(["RM251","Javos Bonesplinter","Humans","Hero"]);
+Monsters.push(["RM252","Julius Crowley, the Mindbender","Humans","Hero"]);
+Monsters.push(["RM253","Leander Blackwater Greene","Humans","Hero"]);
+Monsters.push(["RM254","Lucius Bloodboil","Humans","Hero"]);
+Monsters.push(["RM255","Ludia Bloodwhisper","Humans","Hero"]);
+Monsters.push(["RM256","Misonaak ~ Shielded","Humans","Hero"]);
+Monsters.push(["RM257","Naakala ~ Regenerator","Humans","Hero"]);
+Monsters.push(["RM258","Nadra, the Shadow","Humans","Hero"]);
+Monsters.push(["RM259","Nathalian, the Houndcaller","Humans","Hero"]);
+Monsters.push(["RM260","Nokultaak, the Reaper","Humans","Hero"]);
+Monsters.push(["RM261","Olga Flamebearer","Humans","Hero"]);
+Monsters.push(["RM262","Palros, Protector of the Pack ~ Defender","Humans","Hero"]);
+Monsters.push(["RM263","Rift-Claimed Adherent","Humans","Hero"]);
+Monsters.push(["RM264","Serul Shadesong","Humans","Hero"]);
+Monsters.push(["RM265","Silas The Skinner","Humans","Hero"]);
+Monsters.push(["RM266","Sister Oseltia, the Storm Maiden","Humans","Hero"]);
+Monsters.push(["RM267","Sister Thandria ~ Defender","Humans","Hero"]);
+Monsters.push(["RM268","Sleyvak The Breaker","Humans","Hero"]);
+Monsters.push(["RM269","Thullon, Chosen of Ch''thon","Humans","Hero"]);
+Monsters.push(["RM270","Tollia Splittongue","Humans","Hero"]);
+Monsters.push(["RM271","Tridia the Skorned","Humans","Hero"]);
+Monsters.push(["RM272","Ulda Emberclaw","Humans","Hero"]);
+Monsters.push(["RM273","Urokoraa, Speaker for the Dead","Humans","Hero"]);
+Monsters.push(["RM274","Verona Bloodskewer","Humans","Hero"]);
+Monsters.push(["RM275","Wiley, the Slasher ~ Swift","Humans","Hero"]);
+Monsters.push(["RM276","Abathis, the Withered","Undead","Hero"]);
+Monsters.push(["RM277","Aetherwraith ~ Corrupted","Undead","Hero"]);
+Monsters.push(["RM278","Allos Sadarin ~ Reflective","Undead","Hero"]);
+Monsters.push(["RM279","Alya Dugald","Undead","Hero"]);
+Monsters.push(["RM280","Arcanom the Soulthief","Undead","Hero"]);
+Monsters.push(["RM281","Ballan Voros ~ Reflective","Undead","Hero"]);
+Monsters.push(["RM282","Balrazar, Eternal Servant of Dreeg","Undead","Hero"]);
+Monsters.push(["RM283","Bralgarr, the Flame Watcher ~ Burning","Undead","Hero"]);
+Monsters.push(["RM284","Chillheart ~ Frozen","Undead","Hero"]);
+Monsters.push(["RM285","Corpran ~ Corrupted","Undead","Hero"]);
+Monsters.push(["RM286","Corprus","Undead","Hero"]);
+Monsters.push(["RM287","Corpselick","Undead","Hero"]);
+Monsters.push(["RM288","Death Revenant","Undead","Hero"]);
+Monsters.push(["RM289","Falgarr, the Ice Watcher ~ Frozen","Undead","Hero"]);
+Monsters.push(["RM290","Gravvis, the Decayed","Undead","Hero"]);
+Monsters.push(["RM291","Grulgor, the Tormented ~ Diseased","Undead","Hero"]);
+Monsters.push(["RM292","Grum","Undead","Hero"]);
+Monsters.push(["RM293","Harros Dred, the Damned","Undead","Hero"]);
+Monsters.push(["RM294","Hellwraith ~ Burning","Undead","Hero"]);
+Monsters.push(["RM295","Laudos Vagra","Undead","Hero"]);
+Monsters.push(["RM296","Mortallis","Undead","Hero"]);
+Monsters.push(["RM297","Neak Dugald","Undead","Hero"]);
+Monsters.push(["RM298","Necrolask","Undead","Hero"]);
+Monsters.push(["RM299","Nomos Dred","Undead","Hero"]);
+Monsters.push(["RM300","Obliterus","Undead","Hero"]);
+Monsters.push(["RM301","Olagarr, the Chaosbringer ~ Voidtouched","Undead","Hero"]);
+Monsters.push(["RM302","Oldrakan Pald ~ Swift","Undead","Hero"]);
+Monsters.push(["RM303","Oligeane Dar","Undead","Hero"]);
+Monsters.push(["RM304","Phris Dugald","Undead","Hero"]);
+Monsters.push(["RM305","Polterrios","Undead","Hero"]);
+Monsters.push(["RM306","Rhovena Kur","Undead","Hero"]);
+Monsters.push(["RM307","Rosena Malgos ~ Regenerator","Undead","Hero"]);
+Monsters.push(["RM308","Rot-Eye","Undead","Hero"]);
+Monsters.push(["RM309","Shade of Elnadrin","Undead","Hero"]);
+Monsters.push(["RM310","Stormshriek ~ Electrified","Undead","Hero"]);
+Monsters.push(["RM311","Sulvar the Endless Hungerer ~ Vampiric","Undead","Hero"]);
+Monsters.push(["RM312","Tenebris, the Blood Drinker","Undead","Hero"]);
+Monsters.push(["RM313","Tildoom ~ Timewarped","Undead","Hero"]);
+Monsters.push(["RM314","Valavan, the Wandering Soul","Undead","Hero"]);
+Monsters.push(["RM315","Vilnius ~ Voidtouched","Undead","Hero"]);
+Monsters.push(["RM316","Vladris","Undead","Hero"]);
+Monsters.push(["RM317","Wralgarr, the Aethertouched ~ Corrupted","Undead","Hero"]);
+Monsters.push(["EM01","Alberran Rein","Aether Corruptions","Boss"]);
+Monsters.push(["EM02","Bollag, Keeper of the Gates","Aether Corruptions","Boss"]);
+Monsters.push(["EM03","Commander Lucius","Aether Corruptions","Boss"]);
+Monsters.push(["EM04","Councilman Garl","Aether Corruptions","Boss"]);
+Monsters.push(["EM05","Councilman Hallos","Aether Corruptions","Boss"]);
+Monsters.push(["EM06","Cyrian Marcan","Aether Corruptions","Boss"]);
+Monsters.push(["EM07","Dralgar, the Keeper of Burrwitch","Aether Corruptions","Boss"]);
+Monsters.push(["EM08","Dreven Cole","Aether Corruptions","Boss"]);
+Monsters.push(["EM09","Galakros, the Mountain","Aether Corruptions","Boss"]);
+Monsters.push(["EM10","Hagalvar, the Bone Monger","Aether Corruptions","Boss"]);
+Monsters.push(["EM11","Harrath the Slaughterer","Aether Corruptions","Boss"]);
+Monsters.push(["EM12","Harrath, the Returned","Aether Corruptions","Boss"]);
+Monsters.push(["EM13","Jarren the Plaguewarped","Aether Corruptions","Boss"]);
+Monsters.push(["EM14","Kyzogg the Reanimator","Aether Corruptions","Boss"]);
+Monsters.push(["EM15","Overlord Van Aldritch","Aether Corruptions","Boss"]);
+Monsters.push(["EM16","Rodalgar, the Flesh Collector","Aether Corruptions","Boss"]);
+Monsters.push(["EM17","The Amalgamation","Aether Corruptions","Boss"]);
+Monsters.push(["EM18","The Master of Flesh ~ Theodin Marcell","Aether Corruptions","Boss"]);
+Monsters.push(["EM19","Venarius, the Backbreaker","Aether Corruptions","Boss"]);
+Monsters.push(["EM20","Watcher Brandis","Aether Corruptions","Boss"]);
+Monsters.push(["EM21","Watcher Ordas","Aether Corruptions","Boss"]);
+Monsters.push(["EM22","Watcher Ygraad","Aether Corruptions","Boss"]);
+Monsters.push(["EM23","Darius Cronley","Aetherials","Boss"]);
+Monsters.push(["EM24","Fleshshaper Hinissius","Aetherials","Boss"]);
+Monsters.push(["EM25","Fleshweaver Haraxis","Aetherials","Boss"]);
+Monsters.push(["EM26","Noveria Stormfire","Aetherials","Boss"]);
+Monsters.push(["EM27","Carraxus Foul","Beasts","Boss"]);
+Monsters.push(["EM28","Connivius Earthshell","Beasts","Boss"]);
+Monsters.push(["EM29","Handarroth","Beasts","Boss"]);
+Monsters.push(["EM30","Kra''vall''s Tentacle","Beasts","Boss"]);
+Monsters.push(["EM31","Kra''vall, Ancient of the Waters","Beasts","Boss"]);
+Monsters.push(["EM32","Mogara, the Prime Matriarch","Beasts","Boss"]);
+Monsters.push(["EM33","Namadea, the Screecher","Beasts","Boss"]);
+Monsters.push(["EM34","Naxen Shade","Beasts","Boss"]);
+Monsters.push(["EM35","Ollivioth","Beasts","Boss"]);
+Monsters.push(["EM36","Pusquill the Hoarder","Beasts","Boss"]);
+Monsters.push(["EM37","Ragrathar Rageblood","Beasts","Boss"]);
+Monsters.push(["EM38","Scorv, Servant of Ravager","Beasts","Boss"]);
+Monsters.push(["EM39","Trapped Wraith","Beasts","Boss"]);
+Monsters.push(["EM40","Yuvolloth","Beasts","Boss"]);
+Monsters.push(["EM41","Ballog''Nath, the Hellfire","Chthonics","Boss"]);
+Monsters.push(["EM42","Balok''Anatu, Bloodfiend","Chthonics","Boss"]);
+Monsters.push(["EM43","Bane''Galgalor, Guardian of the Gates","Chthonics","Boss"]);
+Monsters.push(["EM44","Bane''Gargoth","Chthonics","Boss"]);
+Monsters.push(["EM45","Ekket''Zul, Progenitor of Darkness","Chthonics","Boss"]);
+Monsters.push(["EM46","Gabal''Thunn, the Visage of Madness","Chthonics","Boss"]);
+Monsters.push(["EM47","Lagoth''Ak, Harbinger of Blood","Chthonics","Boss"]);
+Monsters.push(["EM48","Lunal''Valgoth, Steward of Darkness","Chthonics","Boss"]);
+Monsters.push(["EM49","Rag''Nadar, the Great Maw","Chthonics","Boss"]);
+Monsters.push(["EM50","Rakka''Valgoth the Fleshdrinker","Chthonics","Boss"]);
+Monsters.push(["EM51","Shar''Zul, Harbinger of Chaos","Chthonics","Boss"]);
+Monsters.push(["EM52","Sharanatu, Harbinger of the Void","Chthonics","Boss"]);
+Monsters.push(["EM53","Thall''Nosh, the Unraveler","Chthonics","Boss"]);
+Monsters.push(["EM54","Bargoll, the Mouldering Mound","Eldritch","Boss"]);
+Monsters.push(["EM55","Gargabol, Heart of the Wild","Eldritch","Boss"]);
+Monsters.push(["EM56","Guardian of Bysmiel","Eldritch","Boss"]);
+Monsters.push(["EM57","Guardian of Dreeg","Eldritch","Boss"]);
+Monsters.push(["EM58","Guardian of Solael","Eldritch","Boss"]);
+Monsters.push(["EM59","Sylvarria''s Vine","Eldritch","Boss"]);
+Monsters.push(["EM60","Sylvarria, Queen of the Undergrowth","Eldritch","Boss"]);
+Monsters.push(["EM61","The Sentinel","Eldritch","Boss"]);
+Monsters.push(["EM62","Moneybags Martin","Humans","Boss"]);
+Monsters.push(["EM63","Anasteria","Humans","Boss"]);
+Monsters.push(["EM64","Anasteria, Harbinger of the North","Humans","Boss"]);
+Monsters.push(["EM65","Anasteria, Wrath of the Aether","Humans","Boss"]);
+Monsters.push(["EM66","Avris Marrowill","Humans","Boss"]);
+Monsters.push(["EM67","Bloodlord Thalonis","Humans","Boss"]);
+Monsters.push(["EM68","Bolvar, the Bloodbinder","Humans","Boss"]);
+Monsters.push(["EM69","Boris, Master of the Pit","Humans","Boss"]);
+Monsters.push(["EM70","Direni","Humans","Boss"]);
+Monsters.push(["EM71","Halion The Rat","Humans","Boss"]);
+Monsters.push(["EM72","Janaxia, the Betrayer","Humans","Boss"]);
+Monsters.push(["EM73","Karroz, Sigil of Ch''thon","Humans","Boss"]);
+Monsters.push(["EM74","Larria, the Hexxer","Humans","Boss"]);
+Monsters.push(["EM75","Master Ravok, the Death''s Whisper","Humans","Boss"]);
+Monsters.push(["EM76","Nicholas Balthazar","Humans","Boss"]);
+Monsters.push(["EM77","Packla, the Turning","Humans","Boss"]);
+Monsters.push(["EM78","Salazar, Blade of Ch''thon","Humans","Boss"]);
+Monsters.push(["EM79","Sister Bravna, the Skybreaker","Humans","Boss"]);
+Monsters.push(["EM80","Ulgrim","Humans","Boss"]);
+Monsters.push(["EM81","Zaria, the Carver","Humans","Boss"]);
+Monsters.push(["EM82","Archon Barthollem","Undead","Boss"]);
+Monsters.push(["EM83","Bandragos, Thrall of Dravis","Undead","Boss"]);
+Monsters.push(["EM84","Baros Wradlith, Lord of the Lost Souls","Undead","Boss"]);
+Monsters.push(["EM85","Grand Priest Zarthuzellan","Undead","Boss"]);
+Monsters.push(["EM86","Harvoul, the Earthshaker","Undead","Boss"]);
+Monsters.push(["EM87","High Priest Rolderathis","Undead","Boss"]);
+Monsters.push(["EM88","Kilrian, the Tainted Soul","Undead","Boss"]);
+Monsters.push(["EM89","Malkadarr, Champion of Death''s Vigil","Undead","Boss"]);
+Monsters.push(["EM90","Nacrathan, the Timeless","Undead","Boss"]);
+Monsters.push(["EM91","Plagius, the Decrepit","Undead","Boss"]);
+Monsters.push(["EM92","Ugdall, Wrath of the Ugdenbog","Undead","Boss"]);
+Monsters.push(["EM93","Uroboruuk''s Guardian","Undead","Boss"]);
+Monsters.push(["EM94","Wraith of Sorrows","Undead","Boss"]);
+Monsters.push(["LM01","Archmage Aleksander","Aetherials","Nemesis"]);
+Monsters.push(["LM02","Benn''Jahr, the Colossal","Chthonics","Nemesis"]);
+Monsters.push(["LM03","Fabius the Unseen Gonzar","Humans","Nemesis"]);
+Monsters.push(["LM04","Grava''Thul, the Voiddrinker","Chthonics","Nemesis"]);
+Monsters.push(["LM05","Kubacabra, the Endless Menace","Beasts","Nemesis"]);
+Monsters.push(["LM06","Kubacabra, the Enduring","Beasts","Nemesis"]);
+Monsters.push(["LM07","Kubacabra, the Tenacious","Beasts","Nemesis"]);
+Monsters.push(["LM08","Moosilauke, the Chillwind","Undead","Nemesis"]);
+Monsters.push(["LM09","Reaper of the Lost","Beasts","Nemesis"]);
+Monsters.push(["LM10","The Iron Maiden","Humans","Nemesis"]);
+Monsters.push(["LM11","Valdaran, the Storm Scourge","Aether Corruptions","Nemesis"]);
+Monsters.push(["LM12","Zantarin, the Immortal","Undead","Nemesis"]);
+
+function createMonsters()
+{
+	var temp = ""
+	for (var a = 0; a < Monsters.length; a++)
+	{
+		temp = temp + "INSERT INTO dbo.Monsters VALUES (" + a + ",'" + Monsters[a][1] + "','" + Monsters[a][2] + "','" + Monsters[a][3] + "');\n"
+	}
+	$("textarea[id='output']").append("\n" + temp)
+}
+
+/*==========================================
+///////////////MONSTERS TABLE///////////////
+==========================================*/
+
+
+var ReadyItems = [];
+
+//alert(getRandomArray(Classes,"Tactician"))
+
+/*============================================
+///////////////ENEMY TYPE TABLE///////////////
+============================================*/
+var EnemyType = []
+EnemyType.push(["COMMON"])//0
+EnemyType.push(["HERO"])//1
+EnemyType.push(["BOSS"])//2
+EnemyType.push(["NEMESIS"])//3
+
+function createEnemyType()
+{
+	var temp = ""
+	for (var a = 0; a < EnemyType.length; a++)
+	{
+		temp = temp + "INSERT INTO dbo.EnemyType VALUES ('" + EnemyType[a] + "');\n"
+	}
+	$("textarea[id='output']").append("\n" + temp)
+}
+
+/*============================================
+///////////////ENEMY TYPE TABLE///////////////
+============================================*/
+
+/*==========================================
+///////////////FACTIONS TABLE///////////////
+==========================================*/
+var Factions = []
+Factions.push("Aether Corruptions")//0
+Factions.push("Aetherials")//1
+Factions.push("Beasts")//2
+Factions.push("Chthonics")//3
+Factions.push("Eldritch")//3
+Factions.push("Humans")//3
+Factions.push("Undead")//3
+
+function createFactions()
+{
+	var temp = ""
+	for (var a = 0; a < Factions.length; a++)
+	{
+		temp = temp + "INSERT INTO dbo.Factions VALUES ('" + Factions[a] + "');\n"
+	}
+	$("textarea[id='output']").append("\n" + temp)
+}
+
+/*==========================================
+///////////////FACTIONS TABLE///////////////
+==========================================*/
+
+/*=======================================
+///////////////CLASS TABLE///////////////
+=======================================*/
+var Classes = []
+Classes.push("Necromancer")
+Classes.push("Inquisitor")
+Classes.push("Shaman")
+Classes.push("Arcanist")
+Classes.push("Nightblade")
+Classes.push("Occultist")
+Classes.push("Demolitionist")
+Classes.push("Soldier")
+Classes.push("Witchblade")
+Classes.push("Blademaster")
+Classes.push("Battlemage")
+Classes.push("Warder")
+Classes.push("Tactician")
+Classes.push("Death Knight")
+Classes.push("Pyromancer")
+Classes.push("Saboteur")
+Classes.push("Sorcerer")
+Classes.push("Elementalist")
+Classes.push("Purifier")
+Classes.push("Defiler")
+Classes.push("Witch Hunter")
+Classes.push("Warlock")
+Classes.push("Conjurer")
+Classes.push("Deceiver")
+Classes.push("Cabalist")
+Classes.push("Spellbreaker")
+Classes.push("Trickster")
+Classes.push("Infiltrator")
+Classes.push("Reaper")
+Classes.push("Druid")
+Classes.push("Mage Hunter")
+Classes.push("Spellbinder")
+Classes.push("Vindicator")
+Classes.push("Ritualist")
+Classes.push("Apostate")
+function createClasses()
+{
+	var temp = ""
+	for (var a = 0; a < Classes.length; a++)
+	{
+		temp = temp + "INSERT INTO dbo.Classes VALUES ('" + Classes[a] + "');\n"
+	}
+	$("textarea[id='output']").append("\n" + temp)
+}
+
+/*=======================================
+///////////////CLASS TABLE///////////////
+=======================================*/
+
+/*=======================================
+///////////////SLOTS TABLE///////////////
+=======================================*/
+var Slots = []
+Slots.push("WEAPON")
+Slots.push("OFFHAND")
+Slots.push("HEAD")
+Slots.push("SHOULDERS")
+Slots.push("CHEST")
+Slots.push("HANDS")
+Slots.push("FEET")
+Slots.push("LEGS")
+
+function createSlots()
+{
+	var temp = ""
+	for (var a = 0; a < Slots.length; a++)
+	{
+		//alert("test")
+		temp = temp + "INSERT INTO dbo.Slots VALUES ('" + Slots[a] + "');\n"
+	}
+	$("textarea[id='output']").append("\n" + temp)
+}
+
+/*=======================================
+///////////////SLOTS TABLE///////////////
+=======================================*/
+
+/*=============================================
+///////////////BASIC ITEMS TABLE///////////////
+=============================================*/
+var BaseItems = []
+BaseItems.push(["Honed Longsword","WEAPON"])
+BaseItems.push(["Boneblade","WEAPON"])
+BaseItems.push(["Dermapteran Slicer","WEAPON"])
+BaseItems.push(["Spectral Longsword","WEAPON"])
+BaseItems.push(["Malkadarr''s Dreadblade","WEAPON"])
+BaseItems.push(["Salazar''s Sovereign Blade","WEAPON"])
+BaseItems.push(["Chosen Blade","WEAPON"])
+BaseItems.push(["Devil''s Bargain","WEAPON"])
+BaseItems.push(["Honed Broadsword","WEAPON"])
+BaseItems.push(["Wendigo Claw","WEAPON"])
+BaseItems.push(["Wendigo Barb","WEAPON"])
+BaseItems.push(["Bloodlord''s Blade","WEAPON"])
+BaseItems.push(["Legion Carver","WEAPON"])
+BaseItems.push(["Legion Slicer","WEAPON"])
+BaseItems.push(["Honed Conqueror","WEAPON"])
+BaseItems.push(["Olman''s Axe","WEAPON"])
+BaseItems.push(["Spectral Battle Axe","WEAPON"])
+BaseItems.push(["Bonescythe","WEAPON"])
+BaseItems.push(["Pit Master''s Axe","WEAPON"])
+BaseItems.push(["Rhowari Justice","WEAPON"])
+BaseItems.push(["Solar Edge","WEAPON"])
+BaseItems.push(["Death''s Crescent","WEAPON"])
+BaseItems.push(["Servitor''s Slicer","WEAPON"])
+BaseItems.push(["Servitor''s Corruptor","WEAPON"])
+BaseItems.push(["Aetherwarped Cleaver","WEAPON"])
+
+BaseItems.push(["Leather Helm","HEAD"])
+BaseItems.push(["Scrapmetal Casque","HEAD"])
+BaseItems.push(["Cloth Cap","HEAD"])
+BaseItems.push(["Quilted Circlet","HEAD"])
+BaseItems.push(["Hide Cap","HEAD"])
+BaseItems.push(["Restored Hat","HEAD"])
+BaseItems.push(["Woven Coif","HEAD"])
+BaseItems.push(["Steel Helm","HEAD"])
+BaseItems.push(["Fur-lined Cap","HEAD"])
+BaseItems.push(["Salvaged Helmet","HEAD"])
+BaseItems.push(["Savage Diadem","HEAD"])
+BaseItems.push(["Studded Helmet","HEAD"])
+BaseItems.push(["Plate Basinet","HEAD"])
+BaseItems.push(["Embroidered Hat","HEAD"])
+BaseItems.push(["Leather Hood","HEAD"])
+BaseItems.push(["Incendiary Helm","HEAD"])
+BaseItems.push(["Ascended Helm","HEAD"])
+BaseItems.push(["Murderer''s Coif","HEAD"])
+BaseItems.push(["Spiked Mask","HEAD"])
+BaseItems.push(["Infantry Helm","HEAD"])
+BaseItems.push(["Hinterland Coronet","HEAD"])
+BaseItems.push(["Fleshwarped Helm","HEAD"])
+BaseItems.push(["Ascended Circlet","HEAD"])
+BaseItems.push(["Frontier Mask","HEAD"])
+BaseItems.push(["Chainmail Casque","HEAD"])
+BaseItems.push(["Ornate Hat","HEAD"])
+BaseItems.push(["Brigandine Mask","HEAD"])
+BaseItems.push(["Plated Helm","HEAD"])
+BaseItems.push(["Heavy Basinet","HEAD"])
+BaseItems.push(["Gilded Diadem","HEAD"])
+BaseItems.push(["Raider Coif","HEAD"])
+BaseItems.push(["Assault Helm","HEAD"])
+BaseItems.push(["Imperial Hat","HEAD"])
+BaseItems.push(["Gilded Visage","HEAD"])
+BaseItems.push(["Assault Basinet","HEAD"])
+BaseItems.push(["Imperial Casque","HEAD"])
+BaseItems.push(["Imperial Coronet","HEAD"])
+BaseItems.push(["Exalted Basinet","HEAD"])
+BaseItems.push(["Exalted Helm","HEAD"])
+BaseItems.push(["Exalted Hat","HEAD"])
+BaseItems.push(["Exalted Visage","HEAD"])
+BaseItems.push(["Preserver Helmet","HEAD"])
+BaseItems.push(["Preserver Basinet","HEAD"])
+BaseItems.push(["Preserver Hat","HEAD"])
+BaseItems.push(["Preserver Mask","HEAD"])
+BaseItems.push(["Redeemer Helm","HEAD"])
+BaseItems.push(["Redeemer Casque","HEAD"])
+BaseItems.push(["Redeemer Diadem","HEAD"])
+
+BaseItems.push(["Scrapmetal Shoulderplates","SHOULDERS"])
+BaseItems.push(["Leather Spaulders","SHOULDERS"])
+BaseItems.push(["Fur-lined Mantle","SHOULDERS"])
+BaseItems.push(["Studded Shoulderguard","SHOULDERS"])
+BaseItems.push(["Plated Spaulders","SHOULDERS"])
+BaseItems.push(["Incendiary Spaulders","SHOULDERS"])
+BaseItems.push(["Ascended Spaulders","SHOULDERS"])
+BaseItems.push(["Raider Shoulderguard","SHOULDERS"])
+BaseItems.push(["Salvaged Pauldrons","SHOULDERS"])
+BaseItems.push(["Murderer''s Spaulders","SHOULDERS"])
+BaseItems.push(["Haunted Mantle","SHOULDERS"])
+BaseItems.push(["Fleshwarped Spaulders","SHOULDERS"])
+BaseItems.push(["Field Spaulders","SHOULDERS"])
+BaseItems.push(["Heavy Spaulders","SHOULDERS"])
+BaseItems.push(["Ascended Mantle","SHOULDERS"])
+BaseItems.push(["Ornate Mantle","SHOULDERS"])
+BaseItems.push(["Hinterland Shoulderplates","SHOULDERS"])
+BaseItems.push(["Assault Epaulets","SHOULDERS"])
+BaseItems.push(["Raider Pauldrons","SHOULDERS"])
+BaseItems.push(["Imperial Spaulders","SHOULDERS"])
+BaseItems.push(["Assault Shoulderplates","SHOULDERS"])
+BaseItems.push(["Exalted Spaulders","SHOULDERS"])
+BaseItems.push(["Exalted Shoulderplates","SHOULDERS"])
+BaseItems.push(["Preserver Epaulets","SHOULDERS"])
+BaseItems.push(["Preserver Pauldrons","SHOULDERS"])
+BaseItems.push(["Redeemer Spaulders","SHOULDERS"])
+BaseItems.push(["Redeemer Shoulderplates","SHOULDERS"])
+
+BaseItems.push(["Patchwork Jacket","CHEST"])
+BaseItems.push(["Novice Tunic","CHEST"])
+BaseItems.push(["Quilted Coat","CHEST"])
+BaseItems.push(["Leather Jacket","CHEST"])
+BaseItems.push(["Quilted Armor","CHEST"])
+BaseItems.push(["Leather Coat","CHEST"])
+BaseItems.push(["Salvaged Armor","CHEST"])
+BaseItems.push(["Hide Jacket","CHEST"])
+BaseItems.push(["Apprentice Tunic","CHEST"])
+BaseItems.push(["Brigandine Armor","CHEST"])
+BaseItems.push(["Patchwork Doublet","CHEST"])
+BaseItems.push(["Padded Trenchcoat","CHEST"])
+BaseItems.push(["Brigandine Jacket","CHEST"])
+BaseItems.push(["Leather Vestment","CHEST"])
+BaseItems.push(["Engraved Coat","CHEST"])
+BaseItems.push(["Plate Armor","CHEST"])
+BaseItems.push(["Salvaged Breastplate","CHEST"])
+BaseItems.push(["Restored Raiment","CHEST"])
+BaseItems.push(["Murderer''s Armor","CHEST"])
+BaseItems.push(["Infantry Doublet","CHEST"])
+BaseItems.push(["Chain Armor","CHEST"])
+BaseItems.push(["Combat Trenchcoat","CHEST"])
+BaseItems.push(["Infantry Chestguard","CHEST"])
+BaseItems.push(["Embroidered Raiment","CHEST"])
+BaseItems.push(["Fleshwarped Cuirass","CHEST"])
+BaseItems.push(["Haunted Robes","CHEST"])
+BaseItems.push(["Ascended Robes","CHEST"])
+BaseItems.push(["Bronze Cuirass","CHEST"])
+BaseItems.push(["Splinted Surcoat","CHEST"])
+BaseItems.push(["Plate Harness","CHEST"])
+BaseItems.push(["Ornate Robe","CHEST"])
+BaseItems.push(["Bloodsworn Robes","CHEST"])
+BaseItems.push(["Frontier Hauberk","CHEST"])
+BaseItems.push(["Heavy Surcoat","CHEST"])
+BaseItems.push(["Gilded Vestment","CHEST"])
+BaseItems.push(["Hinterland Breastplate","CHEST"])
+BaseItems.push(["Assault Chainmail","CHEST"])
+BaseItems.push(["Opulent Robe","CHEST"])
+BaseItems.push(["Imperial Hauberk","CHEST"])
+BaseItems.push(["Imperial Platemail","CHEST"])
+BaseItems.push(["Imperial Raiment","CHEST"])
+BaseItems.push(["Assault Hauberk","CHEST"])
+BaseItems.push(["Exalted Platemail","CHEST"])
+BaseItems.push(["Exalted Vestment","CHEST"])
+BaseItems.push(["Preserver Cuirass","CHEST"])
+BaseItems.push(["Preserver Breastplate","CHEST"])
+BaseItems.push(["Preserver Robe","CHEST"])
+BaseItems.push(["Redeemer Chestguard","CHEST"])
+BaseItems.push(["Redeemer Platemail","CHEST"])
+BaseItems.push(["Redeemer Raiment","CHEST"])
+
+BaseItems.push(["Leather Grips","HANDS"])
+BaseItems.push(["Scrapmetal Grips","HANDS"])
+BaseItems.push(["Hide Gloves","HANDS"])
+BaseItems.push(["Plated Gauntlets","HANDS"])
+BaseItems.push(["Infantry Vambraces","HANDS"])
+BaseItems.push(["Salvaged Gloves","HANDS"])
+BaseItems.push(["Studded Gloves","HANDS"])
+BaseItems.push(["Restored Gauntlets","HANDS"])
+BaseItems.push(["Scalemail Vambraces","HANDS"])
+BaseItems.push(["Hinterland Handguards","HANDS"])
+BaseItems.push(["Scalemail Gloves","HANDS"])
+BaseItems.push(["Heavy Gauntlets","HANDS"])
+BaseItems.push(["Raider Gauntlets","HANDS"])
+BaseItems.push(["Assault Handguards","HANDS"])
+BaseItems.push(["Chainmail Gauntlets","HANDS"])
+BaseItems.push(["Imperial Handguards","HANDS"])
+BaseItems.push(["Exalted Vambraces","HANDS"])
+BaseItems.push(["Exalted Handguards","HANDS"])
+BaseItems.push(["Preserver Gloves","HANDS"])
+BaseItems.push(["Preserver Grips","HANDS"])
+BaseItems.push(["Redeemer Gauntlets","HANDS"])
+BaseItems.push(["Redeemer Handguards","HANDS"])
+
+BaseItems.push(["Leather Pants","LEGS"])
+BaseItems.push(["Padded Breeches","LEGS"])
+BaseItems.push(["Patchwork Leggings","LEGS"])
+BaseItems.push(["Combat Pants","LEGS"])
+BaseItems.push(["Studded Legwraps","LEGS"])
+BaseItems.push(["Infantry Breeches","LEGS"])
+BaseItems.push(["Brigandine Legwraps","LEGS"])
+BaseItems.push(["Splinted Chausses","LEGS"])
+BaseItems.push(["Frontier Pants","LEGS"])
+BaseItems.push(["Restored Legguards","LEGS"])
+BaseItems.push(["Raider Leggings","LEGS"])
+BaseItems.push(["Plated Chausses","LEGS"])
+BaseItems.push(["Ornate Leggings","LEGS"])
+BaseItems.push(["Assault Legguards","LEGS"])
+BaseItems.push(["Imperial Leggings","LEGS"])
+BaseItems.push(["Imperial Legguards","LEGS"])
+BaseItems.push(["Exalted Leggings","LEGS"])
+BaseItems.push(["Exalted Chausses","LEGS"])
+BaseItems.push(["Preserver Legwraps","LEGS"])
+BaseItems.push(["Preserver Breeches","LEGS"])
+BaseItems.push(["Redeemer Leggings","LEGS"])
+BaseItems.push(["Redeemer Legguards","LEGS"])
+
+BaseItems.push(["Salvaged Footpads","FEET"])
+BaseItems.push(["Padded Boots","FEET"])
+BaseItems.push(["Leather Boots","FEET"])
+BaseItems.push(["Reinforced Greaves","FEET"])
+BaseItems.push(["Infantry Greaves","FEET"])
+BaseItems.push(["Steel Treads","FEET"])
+BaseItems.push(["Fur-lined Boots","FEET"])
+BaseItems.push(["Splinted Boots","FEET"])
+BaseItems.push(["Brigandine Greaves","FEET"])
+BaseItems.push(["Plated Boots","FEET"])
+BaseItems.push(["Frontier Sabatons","FEET"])
+BaseItems.push(["Heavy Treads","FEET"])
+BaseItems.push(["Raider Greaves","FEET"])
+BaseItems.push(["Assault Greaves","FEET"])
+BaseItems.push(["Imperial Sabatons","FEET"])
+BaseItems.push(["Imperial Treads","FEET"])
+BaseItems.push(["Exalted Sabatons","FEET"])
+BaseItems.push(["Exalted Treads","FEET"])
+BaseItems.push(["Preserver Boots","FEET"])
+BaseItems.push(["Preserver Treads","FEET"])
+BaseItems.push(["Intrepid Warboots","FEET"])
+BaseItems.push(["Stoneplate Greaves","FEET"])
+BaseItems.push(["Redeemer Greaves","FEET"])
+BaseItems.push(["Redeemer Treads","FEET"])
+
+BaseItems.push(["Plank Shield","OFFHAND"])
+BaseItems.push(["Tarnished Round Shield","OFFHAND"])
+BaseItems.push(["Scrapmetal Buckler","OFFHAND"])
+BaseItems.push(["Tarnished Heater Shield","OFFHAND"])
+BaseItems.push(["Improvised Round Shield","OFFHAND"])
+BaseItems.push(["Weathered Tower Shield","OFFHAND"])
+BaseItems.push(["Tarnished War Shield","OFFHAND"])
+BaseItems.push(["Warden''s Bulwark","OFFHAND"])
+BaseItems.push(["Reinforced Heater Shield","OFFHAND"])
+BaseItems.push(["Fortified Rondache","OFFHAND"])
+BaseItems.push(["Obsidian Guard","OFFHAND"])
+BaseItems.push(["Spectral Shield","OFFHAND"])
+BaseItems.push(["Trog Bonewall","OFFHAND"])
+BaseItems.push(["Fleshwarped Shield","OFFHAND"])
+BaseItems.push(["Improvised Tower Shield","OFFHAND"])
+BaseItems.push(["Raider Heater Shield","OFFHAND"])
+BaseItems.push(["Raider Aegis","OFFHAND"])
+BaseItems.push(["Fortified Tower Shield","OFFHAND"])
+BaseItems.push(["Assault Kite Shield","OFFHAND"])
+BaseItems.push(["Assault Aegis","OFFHAND"])
+BaseItems.push(["Imperial Kite Shield","OFFHAND"])
+BaseItems.push(["Imperial Tower Shield","OFFHAND"])
+BaseItems.push(["Exalted Rondache","OFFHAND"])
+BaseItems.push(["Stonewall Defender","OFFHAND"])
+BaseItems.push(["Preserver Aegis","OFFHAND"])
+function CreateBaseItemsDB()
+{
+	var temp = ""
+	for (var a = 0; a < BaseItems.length; a++)
+	{
+		temp = temp + "INSERT INTO dbo.BaseItems VALUES (" + a + ",'" + BaseItems[a][0] + "','" + BaseItems[a][1] + "');\n"
+	}
+	$("textarea[id='output']").append("\n" + temp)
+}
+
+/*=============================================
+///////////////BASIC ITEMS TABLE///////////////
+=============================================*/
+
+/*==================================================
+///////////////ATTRIBUTES ITEMS TABLE///////////////
+==================================================*/
+var Attributes = []
+Attributes.push(["NULL","NULL",16," Damage"])
+Attributes.push(["NULL","NULL",17," Armor"])
+Attributes.push(["Prefix","Superior",6," Bonus Damage"])
+Attributes.push(["Prefix","Puncturing",4," Piercing Damage"])
+Attributes.push(["Prefix","Chilled",10," Physical Damage converted to Cold Damage"])
+Attributes.push(["Prefix","Chilled",3," Cold Damage"])
+Attributes.push(["Prefix","Searing",10," Physical Damage converted to Fire Damage"])
+Attributes.push(["Prefix","Searing",4," Fire Damage"])
+Attributes.push(["Prefix","Poisoned",10," Physical Damage converted to Acid Damage"])
+Attributes.push(["Prefix","Poisoned",15," Poison Damage Over 5 Seconds (3 Per Second)"])
+Attributes.push(["Prefix","Charged",10," Physical Damage converted to Lightning Damage"])
+Attributes.push(["Prefix","Charged",5," Lightning Damage"])
+Attributes.push(["Prefix","Vampiric",5," of Attack Damage converted to Health"])
+Attributes.push(["Prefix","Draining",6," Energy Burn"])
+Attributes.push(["Prefix","Sapping",5," Reduction to Enemy''s Health"])
+Attributes.push(["Prefix","Corrosive",4," Acid Damage"])
+Attributes.push(["Prefix","Warped",10," Physical Damage converted to Aether Damage"])
+Attributes.push(["Prefix","Warped",3," Aether Damage"])
+Attributes.push(["Prefix","Void-Touched",10," Physical Damage converted to Chaos Damage"])
+Attributes.push(["Prefix","Void-Touched",5," Chaos Damage"])
+Attributes.push(["Prefix","Tyrant''s",8," Total Damage"])
+Attributes.push(["Prefix","Tyrant''s",9," Bonus Damage"])
+Attributes.push(["Prefix","Tyrant''s",15," Reduced target''s Damage For 3 Seconds"])
+Attributes.push(["Prefix","Tyrant''s",12," Cunning"])
+Attributes.push(["Prefix","Relentless",12," Physical Damage"])
+Attributes.push(["Prefix","Relentless",10," Chance of 56 Bonus Damage"])
+Attributes.push(["Prefix","Relentless",5," Attack Speed"])
+Attributes.push(["Prefix","Relentless",1," to Fighting Spirit"])
+Attributes.push(["Prefix","Runecaster''s",12," Elemental Damage"])
+Attributes.push(["Prefix","Runecaster''s",4," Elemental Damage"])
+Attributes.push(["Prefix","Runecaster''s",10," Chance of Disrupt target''s skills for 1.5 Seconds"])
+Attributes.push(["Prefix","Runecaster''s",5," Casting Speed"])
+Attributes.push(["Prefix","Runecaster''s",10," Damage to Aetherial & Chthonic"])
+Attributes.push(["Prefix","Plaguebearer''s",20," Poison Damage Over 5 Seconds (4 Per Second)"])
+Attributes.push(["Prefix","Plaguebearer''s",12," Poison Damage With +15% Improved Duration"])
+Attributes.push(["Prefix","Plaguebearer''s",15," Reduced target''s Resistance For 5 Seconds"])
+Attributes.push(["Prefix","Barbaric",12," Physical Damage"])
+Attributes.push(["Prefix","Barbaric",6," Bonus Damage"])
+Attributes.push(["Prefix","Barbaric",5," Chance of Stun target for 1.5 Seconds"])
+Attributes.push(["Prefix","Barbaric",5," Physique"])
+Attributes.push(["Prefix","Barbaric",4," Health"])
+Attributes.push(["Prefix","Bloodthirsty",12," Bleeding Damage Over 3 Seconds (4 Per Second)"])
+Attributes.push(["Prefix","Bloodthirsty",18," Bleeding Damage With +20% Improved Duration"])
+Attributes.push(["Prefix","Bloodthirsty",4," of Attack Damage converted to Health"])
+Attributes.push(["Prefix","Officer''s",8," Total Damage"])
+Attributes.push(["Prefix","Officer''s",7," Bonus Damage"])
+Attributes.push(["Prefix","Officer''s",5," Increased Experience"])
+Attributes.push(["Prefix","Officer''s",14," Offensive Ability"])
+Attributes.push(["Prefix","Demonic",15," Physical Damage converted to Chaos Damage"])
+Attributes.push(["Prefix","Demonic",12," Vitality Damage"])
+Attributes.push(["Prefix","Demonic",12," Chaos Damage"])
+Attributes.push(["Prefix","Demonic",7," Chaos Damage"])
+Attributes.push(["Prefix","Demonic",2," Offensive Ability"])
+Attributes.push(["Prefix","Infernal",15," Physical Damage converted to Fire Damage"])
+Attributes.push(["Prefix","Infernal",12," Fire Damage"])
+Attributes.push(["Prefix","Infernal",6," Fire Damage"])
+Attributes.push(["Prefix","Infernal",12," Spirit"])
+Attributes.push(["Prefix","Infernal",15," Physical Damage converted to Fire Damage"])
+Attributes.push(["Prefix","Infernal",36," Burn Damage"])
+Attributes.push(["Prefix","Infernal",36," Fire Damage"])
+Attributes.push(["Prefix","Infernal",17," Fire Damage"])
+Attributes.push(["Prefix","Infernal",35," Spirit"])
+Attributes.push(["Prefix","Enchanter''s",15," Physical Damage converted to Elemental Damage"])
+Attributes.push(["Prefix","Enchanter''s",12," Elemental Damage"])
+Attributes.push(["Prefix","Enchanter''s",4," Elemental Damage"])
+Attributes.push(["Prefix","Enchanter''s",14," Offensive Ability"])
+Attributes.push(["Prefix","Eldritch",15," Physical Damage converted to Health"])
+Attributes.push(["Prefix","Eldritch",12," Poison Damage"])
+Attributes.push(["Prefix","Eldritch",12," Vitality Damage"])
+Attributes.push(["Prefix","Eldritch",4," Vitality Damage"])
+Attributes.push(["Prefix","Eldritch",2," Spirit"])
+Attributes.push(["Prefix","Skyfallen",15," Physical Damage converted to Lightning Damage"])
+Attributes.push(["Prefix","Skyfallen",12," Lightning Damage"])
+Attributes.push(["Prefix","Skyfallen",7," Lightning Damage"])
+Attributes.push(["Prefix","Skyfallen",18," Offensive Ability"])
+Attributes.push(["Prefix","Frostborn",15," Physical Damage converted to Cold Damage"])
+Attributes.push(["Prefix","Frostborn",12," Cold Damage"])
+Attributes.push(["Prefix","Frostborn",4," Cold Damage"])
+Attributes.push(["Prefix","Frostborn",14," Defensive Ability"])
+Attributes.push(["Prefix","Earthbound",4," Physical Resistance"])
+Attributes.push(["Prefix","Earthbound",12," Physical Damage"])
+Attributes.push(["Prefix","Earthbound",9," Bonus Damage"])
+Attributes.push(["Prefix","Stormcharged",15," Physical Damage converted to Lightning Damage"])
+Attributes.push(["Prefix","Stormcharged",18," Cold Damage"])
+Attributes.push(["Prefix","Stormcharged",18," Lightning Damage"])
+Attributes.push(["Prefix","Stormcharged",9," Lightning Damage"])
+Attributes.push(["Prefix","Stormcharged",5," Casting Speed"])
+Attributes.push(["Prefix","Hellfire",15," Physical Damage converted to Fire Damage"])
+Attributes.push(["Prefix","Hellfire",15," Burn Damage Over 3 Seconds (5 Per Second)"])
+Attributes.push(["Prefix","Hellfire",24," Burn Damage With +20% Improved Duration"])
+Attributes.push(["Prefix","Hellfire",14," Offensive Ability"])
+Attributes.push(["Prefix","Incanter''s",15," Physical Damage converted to Elemental Damage"])
+Attributes.push(["Prefix","Incanter''s",16," Elemental Damage"])
+Attributes.push(["Prefix","Incanter''s",5," Elemental Damage"])
+Attributes.push(["Prefix","Incanter''s",2," Spirit"])
+Attributes.push(["Prefix","Venomfang",15," Physical Damage converted to Acid Damage"])
+Attributes.push(["Prefix","Venomfang",25," Poison Damage Over 5 Seconds (5 Per Second)"])
+Attributes.push(["Prefix","Venomfang",12," Poison Damage"])
+Attributes.push(["Prefix","Venomfang",12," Acid Damage"])
+Attributes.push(["Prefix","Venomfang",33," Chance of 40 Reduced target''s Defensive Ability For 3 Seconds"])
+Attributes.push(["Prefix","Aetherfire",15," Physical Damage converted to Aether Damage"])
+Attributes.push(["Prefix","Aetherfire",18," Aether Damage"])
+Attributes.push(["Prefix","Aetherfire",5," Aether Damage"])
+Attributes.push(["Prefix","Aetherfire",14," Offensive Ability"])
+Attributes.push(["Prefix","Sinister",10," Pierce Damage"])
+Attributes.push(["Prefix","Sinister",25," Armor Piercing"])
+Attributes.push(["Prefix","Sinister",5," Piercing Damage"])
+Attributes.push(["Prefix","Sinister",6," Cunning"])
+Attributes.push(["Prefix","Sinister",10," Damage to Human"])
+Attributes.push(["Prefix","Heart Piercing",10," Pierce Damage"])
+Attributes.push(["Prefix","Heart Piercing",15," Chance of 39 Bleeding Damage Over 3 Seconds (13 Per Second)"])
+Attributes.push(["Prefix","Heart Piercing",5," Piercing Damage"])
+Attributes.push(["Prefix","Heart Piercing",12," Cunning"])
+Attributes.push(["Prefix","Frenzied",9," Bonus Damage"])
+Attributes.push(["Prefix","Frenzied",5," Cunning"])
+Attributes.push(["Prefix","Frenzied",14," Offensive Ability"])
+Attributes.push(["Prefix","Frenzied",5," Attack Speed"])
+Attributes.push(["Prefix","Glacial",15," Physical Damage converted to Cold Damage"])
+Attributes.push(["Prefix","Glacial",12," Cold Damage"])
+Attributes.push(["Prefix","Glacial",18," Frostburn Damage"])
+Attributes.push(["Prefix","Glacial",12," Frostburn Damage Over 3 Seconds (4 Per Second)"])
+Attributes.push(["Prefix","Glacial",14," Offensive Ability"])
+Attributes.push(["Prefix","Thunderstruck",15," Physical Damage converted to Lightning Damage"])
+Attributes.push(["Prefix","Thunderstruck",18," Electrocute Damage With +20% Improved Duration"])
+Attributes.push(["Prefix","Thunderstruck",15," Stun Duration"])
+Attributes.push(["Prefix","Thunderstruck",12," Electrocute Damage Over 3 Seconds (4 Per Second)"])
+Attributes.push(["Prefix","Thunderstruck",14," Offensive Ability"])
+Attributes.push(["Prefix","Rimefrost",15," Physical Damage converted to Cold Damage"])
+Attributes.push(["Prefix","Rimefrost",24," Frostburn Damage"])
+Attributes.push(["Prefix","Rimefrost",15," Frostburn Damage Over 3 Seconds (5 Per Second)"])
+Attributes.push(["Prefix","Rimefrost",12," Spirit"])
+Attributes.push(["Prefix","Rimefrost",5," Casting Speed"])
+Attributes.push(["Prefix","Essence Drinker''s",15," Physical Damage converted to Aether Damage"])
+Attributes.push(["Prefix","Essence Drinker''s",12," Vitality Damage"])
+Attributes.push(["Prefix","Essence Drinker''s",12," Aether Damage"])
+Attributes.push(["Prefix","Essence Drinker''s",4," Aether Damage"])
+Attributes.push(["Prefix","Essence Drinker''s",1," to Drain Essence"])
+Attributes.push(["Prefix","Stonefaced",12," Physical Damage"])
+Attributes.push(["Prefix","Stonefaced",14," Defensive Ability"])
+Attributes.push(["Prefix","Runecarved",15," Physical Damage converted to Elemental Damage"])
+Attributes.push(["Prefix","Runecarved",12," Elemental Damage"])
+Attributes.push(["Prefix","Runecarved",4," Elemental Damage"])
+Attributes.push(["Prefix","Runecarved",4," Health"])
+Attributes.push(["Prefix","Wraithbound",15," Physical Damage converted to Health"])
+Attributes.push(["Prefix","Wraithbound",12," Vitality Damage"])
+Attributes.push(["Prefix","Wraithbound",12," Aether Damage"])
+Attributes.push(["Prefix","Magestorm",15," Physical Damage converted to Aether Damage"])
+Attributes.push(["Prefix","Magestorm",12," Lightning Damage"])
+Attributes.push(["Prefix","Magestorm",12," Aether Damage"])
+Attributes.push(["Prefix","Magestorm",4," Aether Damage"])
+Attributes.push(["Suffix","of Alacrity",9," Attack Speed"])
+Attributes.push(["Suffix","of Celerity",12," Casting Speed"])
+Attributes.push(["Suffix","of Attack",10," Offensive Ability"])
+Attributes.push(["Suffix","of Protection",7," Defensive Ability"])
+Attributes.push(["Suffix","of Readiness",7," Offensive Ability"])
+Attributes.push(["Suffix","of Readiness",5," Defensive Ability"])
+Attributes.push(["Suffix","of Ruin",16," Physical Damage"])
+Attributes.push(["Suffix","of Frostbite",16," Cold Damage"])
+Attributes.push(["Suffix","of Scorching",16," Fire Damage"])
+Attributes.push(["Suffix","of Thunder",16," Lightning Damage"])
+Attributes.push(["Suffix","of Corrosion",16," Acid Damage"])
+Attributes.push(["Suffix","of Decay",16," Vitality Damage"])
+Attributes.push(["Suffix","of Venom",16," Poison Damage"])
+Attributes.push(["Suffix","of Blood",16," Bleeding Damage"])
+Attributes.push(["Suffix","of the Aether",16," Aether Damage"])
+Attributes.push(["Suffix","of the Void",16," Chaos Damage"])
+Attributes.push(["Suffix","of Spines",13," Pierce Damage"])
+Attributes.push(["Suffix","of Trauma",16," Internal Trauma Damage"])
+Attributes.push(["Suffix","of Conflagration",10," Chance of 126 Burn Damage Over 3 Seconds (42 Per Second)"])
+Attributes.push(["Suffix","of Conflagration",14," Burn Damage"])
+Attributes.push(["Suffix","of Conflagration",14," Fire Damage"])
+Attributes.push(["Suffix","of Conflagration",5," Fire Damage"])
+Attributes.push(["Suffix","of Insanity",14," Aether Damage"])
+Attributes.push(["Suffix","of Insanity",5," Chance of Confuse target for 3 Seconds"])
+Attributes.push(["Suffix","of Insanity",4," Aether Damage"])
+Attributes.push(["Suffix","of Insanity",8," Casting Speed"])
+Attributes.push(["Suffix","of Insanity",15," Damage to Aetherial & Aether Corruption"])
+Attributes.push(["Suffix","of Sanctification",8," Total Damage"])
+Attributes.push(["Suffix","of Sanctification",4," Reduction to Enemy''s Health"])
+Attributes.push(["Suffix","of Sanctification",22," Offensive Ability"])
+Attributes.push(["Suffix","of Sanctification",15," Damage to Chthonic"])
+Attributes.push(["Suffix","of the Abyss",26," Chaos Damage"])
+Attributes.push(["Suffix","of the Abyss",12," Reduced target''s Damage For 3 Seconds"])
+Attributes.push(["Suffix","of the Abyss",12," Reduced target''s Resistance For 3 Seconds"])
+Attributes.push(["Suffix","of the Abyss",9," Chaos Damage"])
+Attributes.push(["Suffix","of the Sage",22," Elemental Damage"])
+Attributes.push(["Suffix","of the Sage",5," Elemental Damage"])
+Attributes.push(["Suffix","of the Sage",8," Casting Speed"])
+Attributes.push(["Suffix","of the Slayer",15," Chance of +80% Pierce Damage"])
+Attributes.push(["Suffix","of the Slayer",4," Piercing Damage"])
+Attributes.push(["Suffix","of the Slayer",4," Reduction to Enemy''s Health"])
+Attributes.push(["Suffix","of the Slayer",5," Attack Speed"])
+Attributes.push(["Suffix","of Voracity",4," Vitality Damage"])
+Attributes.push(["Suffix","of Voracity",4," of Attack Damage converted to Health"])
+Attributes.push(["Suffix","of Voracity",10," Attack Speed"])
+Attributes.push(["Suffix","of Fervor",12," Physical Damage"])
+Attributes.push(["Suffix","of Fervor",10," Chance of 30 Bonus Damage"])
+Attributes.push(["Suffix","of Fervor",50," Health"])
+Attributes.push(["Suffix","of Fervor",6," Attack Speed"])
+Attributes.push(["Suffix","of Cruelty",12," Bleeding Damage Over 3 Seconds (4 Per Second)"])
+Attributes.push(["Suffix","of Cruelty",17," Bleeding Damage With +20% Improved Duration"])
+Attributes.push(["Suffix","of Cruelty",15," Damage to Beastkin & Beast"])
+Attributes.push(["Suffix","of Ruthlessness",20," Pierce Damage"])
+Attributes.push(["Suffix","of Ruthlessness",10," Chance of 22 Piercing Damage"])
+Attributes.push(["Suffix","of Ruthlessness",12," Cunning"])
+Attributes.push(["Suffix","of Ruthlessness",5," Attack Speed"])
+Attributes.push(["Suffix","of Ruthlessness",15," Damage to Human"])
+Attributes.push(["Suffix","of Bestial Rage",50," Health"])
+Attributes.push(["Suffix","of Bestial Rage",14," Offensive Ability"])
+Attributes.push(["Suffix","of Fury",4," Total Damage"])
+Attributes.push(["Suffix","of Fury",7," Offensive Ability"])
+Attributes.push(["Suffix","of Fury",12," Attack Speed"])
+Attributes.push(["Suffix","of Fury",12," Casting Speed"])
+Attributes.push(["Suffix","of Ferocity",7," Bonus Damage"])
+Attributes.push(["Suffix","of Ferocity",18," Offensive Ability"])
+Attributes.push(["Suffix","of Ferocity",5," Attack Speed"])
+Attributes.push(["Suffix","of Ferocity",3," Movement Speed"])
+Attributes.push(["Suffix","of Slaughter",10," Chance of 132 Bleeding Damage Over 3 Seconds (44 Per Second)"])
+Attributes.push(["Suffix","of Slaughter",17," Bleeding Damage"])
+Attributes.push(["Suffix","of Slaughter",4," Piercing Damage"])
+Attributes.push(["Suffix","of Slaughter",14," Offensive Ability"])
+Attributes.push(["Suffix","of Onslaught",8," Total Damage"])
+Attributes.push(["Suffix","of Onslaught",14," Offensive Ability"])
+Attributes.push(["Suffix","of Onslaught",5," Attack Speed"])
+Attributes.push(["Suffix","of Onslaught",5," Casting Speed"])
+Attributes.push(["Suffix","of Wildfire",14," Burn Damage"])
+Attributes.push(["Suffix","of Wildfire",14," Fire Damage"])
+Attributes.push(["Suffix","of Wildfire",5," Fire Damage"])
+Attributes.push(["Suffix","of Wildfire",8," Attack Speed"])
+Attributes.push(["Suffix","of Wildfire",8," Casting Speed"])
+Attributes.push(["Suffix","of Torrents",14," Lightning Damage"])
+Attributes.push(["Suffix","of Torrents",14," Electrocute Damage"])
+Attributes.push(["Suffix","of Torrents",7," Lightning Damage"])
+Attributes.push(["Suffix","of Torrents",8," Casting Speed"])
+Attributes.push(["Suffix","of Shattering",14," Cold Damage"])
+Attributes.push(["Suffix","of Shattering",14," Frostburn Damage"])
+Attributes.push(["Suffix","of Shattering",4," Cold Damage"])
+Attributes.push(["Suffix","of Shattering",5," Chance of Freeze target for 2 Seconds"])
+Attributes.push(["Suffix","of Shattering",8," Attack Speed"])
+Attributes.push(["Suffix","of Blight",20," Poison Damage Over 5 Seconds (4 Per Second)"])
+Attributes.push(["Suffix","of Blight",14," Poison Damage With +20% Improved Duration"])
+Attributes.push(["Suffix","of Blight",14," Vitality Damage"])
+Attributes.push(["Suffix","of Blight",8," Casting Speed"])
+Attributes.push(["Suffix","of the Venomclaw",4," Acid Damage"])
+Attributes.push(["Suffix","of the Venomclaw",14," Poison Damage"])
+Attributes.push(["Suffix","of the Venomclaw",14," Acid Damage"])
+Attributes.push(["Suffix","of the Venomclaw",7," Offensive Ability"])
+Attributes.push(["Suffix","of the Venomclaw",8," Attack Speed"])
+Attributes.push(["Suffix","of the Abomination",7," Physical Damage"])
+Attributes.push(["Suffix","of the Abomination",14," Aether Damage"])
+Attributes.push(["Suffix","of the Abomination",4," Aether Damage"])
+Attributes.push(["Suffix","of the Abomination",7," Physique"])
+Attributes.push(["Suffix","of the Abomination",14," Offensive Ability"])
+Attributes.push(["Suffix","of Annihilation",14," Vitality Damage"])
+Attributes.push(["Suffix","of Annihilation",14," Reduction to Enemy''s Health"])
+Attributes.push(["Suffix","of Annihilation",4," Vitality Damage"])
+Attributes.push(["Suffix","of Annihilation",5," Spirit"])
+Attributes.push(["Suffix","of Annihilation",8," Casting Speed"])
+Attributes.push(["Suffix","of the Elements",5," Damage Reflected"])
+Attributes.push(["Suffix","of the Elements",12," Elemental Damage"])
+Attributes.push(["Suffix","of the Elements",4," Elemental Damage"])
+Attributes.push(["Suffix","of the Elements",8," Attack Speed"])
+Attributes.push(["Suffix","of the Elements",8," Casting Speed"])
+Attributes.push(["Suffix","of Binding",12," Spirit"])
+Attributes.push(["Suffix","of Piercing Darkness",14," Pierce Damage"])
+Attributes.push(["Suffix","of Piercing Darkness",14," Vitality Damage"])
+Attributes.push(["Suffix","of Piercing Darkness",5," Piercing Damage"])
+Attributes.push(["Suffix","of Piercing Darkness",14," Offensive Ability"])
+Attributes.push(["Suffix","of Arcane Balance",31," Fire Damage"])
+Attributes.push(["Suffix","of Arcane Balance",31," Cold Damage"])
+Attributes.push(["Suffix","of Arcane Balance",5," Elemental Damage"])
+Attributes.push(["Suffix","of Arcane Balance",5," Attack Speed"])
+Attributes.push(["Suffix","of Arcane Balance",9," Casting Speed"])
+Attributes.push(["Suffix","of the Flamecaller",8," Elemental Resistance"])
+Attributes.push(["Suffix","of the Flamecaller",4," Crit Damage"])
+Attributes.push(["Suffix","of the Flamecaller",31," Fire Damage"])
+Attributes.push(["Suffix","of the Flamecaller",31," Lightning Damage"])
+Attributes.push(["Suffix","of the Flamecaller",22," Offensive Ability"])
+Attributes.push(["Suffix","of the Arcane Blaze",31," Fire Damage"])
+Attributes.push(["Suffix","of the Arcane Blaze",31," Aether Damage"])
+Attributes.push(["Suffix","of the Arcane Blaze",5," Fire Damage"])
+Attributes.push(["Suffix","of the Arcane Blaze",5," Aether Damage"])
+Attributes.push(["Suffix","of Voidfire",31," Fire Damage"])
+Attributes.push(["Suffix","of Voidfire",31," Chaos Damage"])
+Attributes.push(["Suffix","of Voidfire",5," Chaos Damage"])
+Attributes.push(["Suffix","of Voidfire",7," Casting Speed"])
+Attributes.push(["Suffix","of Fallen Skies",4," Crit Damage"])
+Attributes.push(["Suffix","of Fallen Skies",31," Cold Damage"])
+Attributes.push(["Suffix","of Fallen Skies",31," Lightning Damage"])
+Attributes.push(["Suffix","of Fallen Skies",22," Offensive Ability"])
+Attributes.push(["Suffix","of Solael''s Malice",31," Vitality Damage"])
+Attributes.push(["Suffix","of Solael''s Malice",31," Chaos Damage"])
+Attributes.push(["Suffix","of Solael''s Malice",5," Vitality Damage"])
+Attributes.push(["Suffix","of Solael''s Malice",5," Chaos Damage"])
+Attributes.push(["Suffix","of Solael''s Malice",22," Offensive Ability"])
+Attributes.push(["Suffix","of Shattered Reality",31," Aether Damage"])
+Attributes.push(["Suffix","of Shattered Reality",31," Chaos Damage"])
+Attributes.push(["Suffix","of Shattered Reality",5," Aether Damage"])
+Attributes.push(["Suffix","of Shattered Reality",5," Attack Speed"])
+Attributes.push(["Suffix","of Shattered Reality",9," Casting Speed"])
+Attributes.push(["Suffix","of the Cabal",4," Crit Damage"])
+Attributes.push(["Suffix","of the Cabal",31," Poison Damage"])
+Attributes.push(["Suffix","of the Cabal",31," Chaos Damage"])
+Attributes.push(["Suffix","of the Cabal",22," Offensive Ability"])
+Attributes.push(["Suffix","of Tormented Souls",5," Crit Damage"])
+Attributes.push(["Suffix","of Tormented Souls",14," Vitality Damage"])
+Attributes.push(["Suffix","of Tormented Souls",14," Aether Damage"])
+Attributes.push(["Suffix","of Tormented Souls",14," Offensive Ability"])
+Attributes.push(["Suffix","of Soulwarding",14," Physical Damage"])
+Attributes.push(["Suffix","of Soulwarding",14," Vitality Damage"])
+Attributes.push(["Suffix","of Soulwarding",50," Health"])
+Attributes.push(["Suffix","of Scorched Runes",14," Elemental Damage"])
+Attributes.push(["Suffix","of Scorched Runes",5," Elemental Damage"])
+Attributes.push(["Suffix","of Scorched Runes",8," Attack Speed"])
+Attributes.push(["Suffix","of Scorched Runes",8," Casting Speed"])
+Attributes.push(["Suffix","of Caged Souls",14," Vitality Damage"])
+Attributes.push(["Suffix","of Caged Souls",14," Aether Damage"])
+Attributes.push(["Suffix","of Caged Souls",8," Casting Speed"])
+Attributes.push(["Suffix","of Celestial Wrath",14," Lightning Damage"])
+Attributes.push(["Suffix","of Celestial Wrath",14," Aether Damage"])
+Attributes.push(["Suffix","of Celestial Wrath",14," Offensive Ability"])
+function CreateAttributesDB()
+{
+	var temp = ""
+	for (var a = 0; a < Attributes.length; a++)
+	{
+		temp = temp + "INSERT INTO dbo.Attributes VALUES (" + a + ",'" + Attributes[a][0] + "','" + Attributes[a][1] + "'," + Attributes[a][2] + ",'" + Attributes[a][3] + "');\n"
+	}
+	$("textarea[id='output']").append("\n" + temp)
+}
+/*==================================================
+///////////////ATTRIBUTES ITEMS TABLE///////////////
+==================================================*/
+
+/*==============================================
+///////////////PRIZES ITEMS TABLE///////////////
+==============================================*/
+var Item = function(Prefix, Name, Suffix, iLvl, slot, owner)
+{
+	this.Prefix = Prefix
+	this.Name = Name
+	this.Suffix = Suffix
+	this.iLvl = iLvl
+	this.slot = slot
+	this.owner = owner
+}
+
+function CreateItem(iLvl, slot, owner)
+{
+	var prefixIndex = 0;
+	var tempPrefix = ""
+	while (tempPrefix != "Prefix")
+	{
+		prefixIndex = Math.floor(Math.random()*Attributes.length)
+		tempPrefix = Attributes[prefixIndex][0]
+	}
+	
+	var suffixIndex = 0;
+	var tempSuffix = ""
+	while (tempSuffix != "Suffix")
+	{
+		suffixIndex = Math.floor(Math.random()*Attributes.length)
+		tempSuffix = Attributes[suffixIndex][0]
+	}
+	var baseIndex = 0;
+	var tempBase = ""
+	while (tempBase != slot)
+	{
+		
+		baseIndex = Math.floor(Math.random()*BaseItems.length)
+		tempBase = BaseItems[baseIndex][1]
+		//alert("test")
+	}
+	
+	//alert(prefixIndex + " " + baseIndex + " " + suffixIndex)
+	//Math.floor(Math.random()*Attributes.length)
+	var tmpItem = new Item(prefixIndex, baseIndex, suffixIndex, iLvl, slot, owner)
+	ReadyItems.push([tmpItem.Prefix, tmpItem.Name, tmpItem.Suffix, tmpItem.iLvl, tmpItem.slot, tmpItem.owner])
+}
+
+function CreatePrizes()
+{
+	var temp = ""
+	for (var a = 0; a < ReadyItems.length; a++)
+	{
+		temp = temp + "INSERT INTO dbo.Prizes VALUES (" + a + "," + ReadyItems[a][0] + "," + ReadyItems[a][1] + "," + ReadyItems[a][2] + "," + ReadyItems[a][3] + ",'" + ReadyItems[a][4] + "'," + ReadyItems[a][5] + ");\n"
+	}
+	$("textarea[id='output']").append("\n" + temp)
+}
+
+/*==============================================
+///////////////PRIZES ITEMS TABLE///////////////
+==============================================*/
+
+/*============================================
+///////////////CHARACTERS TABLE///////////////
+============================================*/
+
+var Character = function(Name,Class)
+{
+	//this.ID = ID;
+	this.Name = Name;
+	this.Class = Class;
+	this.Level = 1;
+	this.WEAPON = 0,
+	this.OFFHAND = 0,
+	this.HEAD = 0,
+	this.SHOULDERS = 0,
+	this.CHEST = 0,
+	this.HANDS = 0,
+	this.FEET = 0,
+	this.LEGS = 0
+}
+var Characters = []
+//$("textarea[id='counter']").val(Characters[0].Class)
+function CreateCharacters()
+{
+	var temp = ""
+	for (var a = 0; a < Characters.length; a++)
+	{
+		temp = temp + "INSERT INTO dbo.Characters VALUES (" + a + ",'" + Characters[a].Name + "','" + Characters[a].Class + "'," + Characters[a].Level + "," + Characters[a].WEAPON + "," + Characters[a].OFFHAND + "," + Characters[a].HEAD + "," + Characters[a].SHOULDERS + "," + Characters[a].CHEST + "," + Characters[a].HANDS + "," + Characters[a].FEET + "," + Characters[a].LEGS + ");\n"
+	}
+	$("textarea[id='output']").append("\n" + temp)
+}
+//alert(Characters[0].Weapon)
+//CreateItem(Characters[0].Level, "WEAPON")
+/*============================================
+///////////////CHARACTERS TABLE///////////////
+============================================*/
+
+/*==========================================
+///////////////BOUNTIES TABLE///////////////
+==========================================*/
+
+var Bounty = function(Goal,Monster,Difficulty,Prize,Assigned)
+{
+	this.Goal = Goal
+	this.Monster = Monster
+	this.Prize = Prize
+	this.Assigned = Assigned
+	this.Difficulty = Difficulty
+}
+var Bounties = [];
+
+function CreateBounties()
+{
+	var temp = ""
+	for (var a = 0; a < Bounties.length; a++)
+	{
+		temp = temp + "INSERT INTO dbo.Bounties VALUES (" + Bounties[a].Goal + ",'" + Bounties[a].Monster + "','" + Bounties[a].Difficulty + "'," + Bounties[a].Prize + "," + Bounties[a].Assigned + ");\n"
+	}
+	$("textarea[id='output']").append("\n" + temp)
+}
+//alert(Math.floor(Math.random()*100))
+/*==========================================
+///////////////BOUNTIES TABLE///////////////
+==========================================*/
+
+function CreateBounty()
+{
+	var tmpDifficulty = Math.floor(Math.random()*100)
+	var tempMonster = 0
+	var tmpCount = 10+(Math.floor(Math.random()*31))
+	var tmpCharacter = Math.floor(Math.random()*Characters.length)
+	var tmpSlot = Slots[Math.floor(Math.random()*Slots.length)]
+	Characters[tmpCharacter].Level++
+	CreateItem(Characters[tmpCharacter].Level, tmpSlot, tmpCharacter)
+	switch (tmpSlot)
+	{
+		case "WEAPON":
+			Characters[tmpCharacter].WEAPON = ReadyItems.length-1
+			break;
+		case "OFFHAND":
+			Characters[tmpCharacter].OFFHAND = ReadyItems.length-1
+			break;
+		case "HEAD":
+			Characters[tmpCharacter].HEAD = ReadyItems.length-1
+			break;
+		case "SHOULDERS":
+			Characters[tmpCharacter].SHOULDERS = ReadyItems.length-1
+			break;
+		case "CHEST":
+			Characters[tmpCharacter].CHEST = ReadyItems.length-1
+			break;
+		case "HANDS":
+			Characters[tmpCharacter].HANDS = ReadyItems.length-1
+			break;
+		case "FEET":
+			Characters[tmpCharacter].FEET = ReadyItems.length-1
+			break;
+		case "LEGS":
+			Characters[tmpCharacter].LEGS = ReadyItems.length-1
+			break;
+		default:
+			break
+	}
+	
+	if (tmpDifficulty < 40)
+	{
+		while (true)
+		{
+			tempMonster = Math.floor(Math.random()*Monsters.length)
+			if (Monsters[tempMonster][3] = "Common") break;
+		}
+		//alert(tmpDifficulty)
+	}
+	else if (tmpDifficulty < 70)
+	{
+		while (true)
+		{
+			tempMonster = Math.floor(Math.random()*Monsters.length)
+			if (Monsters[tempMonster][3] = "Hero") break;
+		}
+		tmpCount = 1
+		//alert(tmpDifficulty)
+	}
+	else if (tmpDifficulty < 90)
+	{
+		while (true)
+		{
+			tempMonster = Math.floor(Math.random()*Monsters.length)
+			if (Monsters[tempMonster][3] = "Boss") break;
+		}
+		tmpCount = 1
+		//alert(tmpDifficulty)
+	}
+	else if (tmpDifficulty < 100)
+	{
+		while (true)
+		{
+			tempMonster = Math.floor(Math.random()*Monsters.length)
+			if (Monsters[tempMonster][3] = "Nemesis") break;
+		}
+		tmpCount = 1
+		//alert(tmpDifficulty)
+	}
+	//ReadyItems.push()
+	//alert(tmpCharacter)
+	Bounties.push(new Bounty(tmpCount, Monsters[tempMonster][1], Monsters[tempMonster][3], ReadyItems.length-1, tmpCharacter))
+}
+
+/*======================================
+///////////////SIMULATION///////////////
+======================================*/
+Characters.push(new Character("Gyleon Caney", Classes[Math.floor(Math.random()*Classes.length)]))
+Characters.push(new Character("Rewill Drighte", Classes[Math.floor(Math.random()*Classes.length)]))
+Characters.push(new Character("Thomas Arnes", Classes[Math.floor(Math.random()*Classes.length)]))
+Characters.push(new Character("Ernard Wyne", Classes[Math.floor(Math.random()*Classes.length)]))
+Characters.push(new Character("Waltom Ginte", Classes[Math.floor(Math.random()*Classes.length)]))
+
+Characters.push(new Character("Marget Merdaye", Classes[Math.floor(Math.random()*Classes.length)]))
+Characters.push(new Character("Joane Skytsor", Classes[Math.floor(Math.random()*Classes.length)]))
+Characters.push(new Character("Beatra Lyone", Classes[Math.floor(Math.random()*Classes.length)]))
+Characters.push(new Character("Joycie Groby", Classes[Math.floor(Math.random()*Classes.length)]))
+Characters.push(new Character("Abeth Folcey", Classes[Math.floor(Math.random()*Classes.length)]))
+var end = 1;
+//alert(Characters[0])
+while (end < 100)
+{
+	CreateBounty()
+	for (var a = 0; a < Characters.length; a++)
+	{
+		if (Characters[a].Level > end) end++
+	}
+}
+
+/*======================================
+///////////////SIMULATION///////////////
+======================================*/
+
+function parseItem(string)
+{
+	var lines = string.split('\n');
+	var item = {name:lines[0], lvlreq:0, id:"CH", slot:"HEAD", quality:"Common", stats:''}
+	var range = [0,0];
+	for (var a = 0; a < lines.length;a++)
+	{
+		//alert(lines[a].indexOf("Item Level: "))
+		if (lines[a].indexOf("Item Level: ") != -1) 
+		{ 
+			lines[a] = lines[a].replace("Item Level: "," ") 
+			item.lvlreq = lines[a];
+			//alert(lines[a])
+		}		
+	}
+	for (var a = 0; a < lines.length;a++)
+	{
+		//alert(lines[a].indexOf("Item Level: "))
+		if ((lines[a].indexOf("Ring") != -1))
+		{ 
+			range[0] = a
+			//alert(lines[a])
+		}		
+	}
+	for (var a = 0; a < lines.length;a++)
+	{
+		//alert(lines[a].indexOf("Item Level: "))
+		if (lines[a].indexOf("Required ") != -1) 
+		{ 
+			range[1] = a
+			break;
+			//alert(lines[a])
+		}		
+	}
+	for (var a = range[0]+1; a < range[1];a++)
+	{
+		item.stats = item.stats + lines[a] + "; "
+	}
+	$("textarea[id='output']").append( "INSERT INTO dbo.Items VALUES ('LR" + $("textarea[id='counter']").val() + "','" + item.name + "','FINGER','Legendary'," + item.lvlreq + ",'" + item.stats + "');\n" )
+	$("textarea[id='counter']").val((parseInt($("textarea[id='counter']").val())+1))
+	//return string;
+}
+
+function parseMonster(string)
+{
+	var lines = string.split('\n');
+	//var item = {name:lines[0], lvlreq:0, id:"CH", slot:"HEAD", quality:"Common", stats:''}
+	//alert(lines[1])
+	//$("textarea[id='output']").append(string)
+	if (!monsters2.hasOwnProperty(lines[1]) && (lines[1].indexOf("Player Level") == -1) && (lines[1].indexOf("Phase") == -1))
+	{
+		monsters2[lines[1]] = {id:$("textarea[id='counter']").val() }
+		$("textarea[id='output']").append( "INSERT INTO dbo.Monsters VALUES ('LM" + $("textarea[id='counter']").val() + "','" + lines[1] + "','" + lines[2] + "','" + lines[3] + "');\n" )
+		$("textarea[id='counter']").val((parseInt($("textarea[id='counter']").val())+1))
+	}
+}
+
+function parseName(string)
+{
+	var lines = string.split('\n');
+	//var item = {name:lines[0], lvlreq:0, id:"CH", slot:"HEAD", quality:"Common", stats:''}
+	//alert(lines[1])
+	//$("textarea[id='output']").append(string)
+	//alert(lines)
+	for (var a = 1; a < lines.length; a++)
+	{
+		var temp = lines[a].split(' ')
+		var substring = temp[0].split('-')
+		var substring1 = parseFloat(substring[substring.length-1])
+		var substring2 = ''
+		for (var b = 1; b < temp.length; b++)
+		{
+			substring2 = substring2 + " " + temp[b]
+		}
+		//alert(substring2)
+		//if (!monsters2.hasOwnProperty(substring2))
+		{
+			//monsters2[substring2] = {id:$("textarea[id='counter']").val() }
+			$("textarea[id='output']").append( "INSERT INTO dbo.Attributes2 VALUES ('Prefix','" + lines[0] + "'," + substring1 + ",'" + substring2 + "');\n" )
+			$("textarea[id='counter']").val((parseInt($("textarea[id='counter']").val())+1))
+		}
+	}
+	//alert(JSON.stringify(monsters2))
+}
+
+monsters2 = {};
+$( '#input' ).focusout(function() {
+	//var items = $("textarea[id='input']").val().split(';');
+	//var monsters = $("textarea[id='input']").val().split('\n');
+	//var Monsters = _.shuffle(Monsters)[0];
+	var temp = ""
+	var counter = 0
+	var temp2 = 0
+	while (temp != "Soldier")
+	{
+		temp2 = Math.floor(Math.random()*Classes.length)
+		temp = Classes[temp2]
+		counter++
+	}
+	alert( Classes[temp2] + " " + counter)
+	//for (var a = 1; a < monsters.length; a++)
+	{
+		//alert(items[a])
+		//parseItem(items[a])
+		//parseMonster(monsters[a])
+		parseName($("textarea[id='input']").val());
+	}
+	//alert(JSON.stringify(monsters2))
+	//var lines = $("textarea[id='input']").val().split('\n');
+});
+createEnemyType()
+createFactions()
+createMonsters()
+createClasses()
+createSlots()
+CreateBaseItemsDB()
+CreateAttributesDB()
+CreateCharacters()
+CreatePrizes()
+CreateBounties()
+//^.*(item level).*$ --> $0\n;
+//;\r\n --> ;
+//INSERT INTO dbo.Items VALUES ('CH01','Redeemer Casque','HEAD','Common',915,0,0,'1586 Armor');
+</script></body></html>
