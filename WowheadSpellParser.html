@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-1.16.0.css">
+<link rel="stylesheet" href="bootstrap.min.css">
+<link rel="stylesheet" href="custom.css">
+<title>Simulation Craft Stuff</title>
+
+<script type="text/javascript" src="http://static.wowhead.com/widgets/power.js"></script><script>var wowhead_tooltips = { "colorlinks": true, "iconizelinks": true, "renamelinks": true }</script>
+
+  <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
+</head>
+<body>
+	<div class="wrapper" style="display: inline-block;">
+		<div style="width: 500px; display: inline-block; vertical-align: top;">
+			<div class="panel panel-primary">
+				<div class="panel-heading">Save panel</div>
+				<div class="panel-body">
+					<textarea id="output" style="width: 100%; height: 50px"></textarea>
+					<div style="margin-top: 10px;">
+						<button type="button" onclick="clicks()" class="btn btn-default">Generate</button>
+						<button type="testbutton" onclick="generateHeads(1024)" class="btn btn-default">Generate Heads</button>
+					</div>
+					<div>From: <input type="text" id="from" value="0"><br></div>
+					<div>To: <input type="text" id="to" value="1"></div>
+					<div id="startend">123858 - highest Item ID as for 6.1 (16/03/2015)<div>
+				</div>
+			</div>
+		</div>
+		<textarea id="output2" class="panel-body"></textarea>
+	</div>
+  
+  
+<script type="text/javascript" src="jquery-latest.min.js"></script>
+<script type="text/javascript" src="bootstrap.min.js"></script>
+<script src="wowdb.js"></script>
+<script src="smcg.js"></script>
+
+<script type="application/javascript">
+//<button type="button" onclick="clicks([113891,113892,113893])" class="btn btn-default">Generate</button>
+function Generate()
+{
+	var url = "http://www.wowhead.com/item=113954/railwalkers-ratcheted-boots&bonus=0"
+	var text = "";	
+	text += "hunter=\"Current Gear\"" + "\n"
+	text += "origin=\"https://eu.api.battle.net/wow/character/draenor/Inaire/advanced\"" + "\n"
+	text += "thumbnail=\"http://eu.battle.net/static-render/eu/gnomeregan/45/87701037-avatar.jpg\"" + "\n"
+	text += "level=100" + "\n"
+	text += "race=blood_elf" + "\n"
+	text += "role=attack" + "\n"
+	text += "position=ranged_back" + "\n"
+	text += "professions=engineering=700/enchanting=710" + "\n"
+	text += "talents=http://eu.battle.net/wow/en/tool/talent-calculator#Ya!0021222" + "\n"
+	text += "glyphs=animal_bond/deterrence/tranquilizing_shot/lesser_proportion/play_dead/stampede" + "\n"
+	text += "spec=beast_mastery" + "\n"
+	text += "head=,id=115545,bonus_id=566" + "\n"
+	text += "neck=,id=113647,bonus_id=564/566" + "\n"
+	text += "shoulders=,id=115547,bonus_id=564/566" + "\n"
+	text += "back=,id=113929,bonus_id=566" + "\n"
+	text += "chest=,id=115548,bonus_id=566" + "\n"
+	text += "wrists=,id=113968,bonus_id=566" + "\n"
+	text += "hands=,id=113593,bonus_id=567" + "\n"
+	text += "waist=,id=113955,bonus_id=566" + "\n"
+	text += "legs=,id=115546,bonus_id=566" + "\n"
+	text += "feet=,id=113954,bonus_id=566" + "\n"
+	text += "finger1=,id=118302" + "\n"
+	text += "finger2=,id=113611,bonus_id=567" + "\n"
+	text += "trinket1=,id=118114,bonus_id=566" + "\n"
+	text += "trinket2=,id=113931,bonus_id=566" + "\n"
+	text += "main_hand=,id=113652,bonus_id=561/566" + "\n"
+	text += "summon_pet=cat" + "\n"
+	
+	var text2 = "";
+	for (x=0; x < 6; x++)
+	{
+		text2 += "<a href=\"http://wod.wowhead.com/item=113954\" rel=\"bonus=" + bonus_ids[x] + "\">link</a>" + "<br>"
+	}
+
+	$("#output").html("");
+	$("#output").html(text);
+	$("#output2").html("");
+	//$("#output2").html(headlinks);
+	//$("#output2").html(url.substring(url.lastIndexOf("/") + 1, url.indexOf("&")) + " " + url.match(/[0-9]+/g));
+
+	$("#div").load("http://www.wowhead.com/item=113954/railwalkers-ratcheted-boots&bonus=0", function() {
+	alert("test")
+  $(this).find(".class").remove(); //just an example
+});
+}
+
+var itemIDS = [];
+var z = 0;
+function loadJSON(item)
+{
+   var data_file = "http://www.wowhead.com/item="+ item +"&xml";
+   //alert(items[x])
+   var http_request = new XMLHttpRequest();
+   try{
+      // Opera 8.0+, Firefox, Chrome, Safari
+      http_request = new XMLHttpRequest();
+   }catch (e){
+      // Internet Explorer Browsers
+      try{
+         http_request = new ActiveXObject("Msxml2.XMLHTTP");
+      }catch (e) {
+         try{
+            http_request = new ActiveXObject("Microsoft.XMLHTTP");
+         }catch (e){
+            // Something went wrong
+            alert("Your browser broke!");
+            return false;
+         }
+      }
+   }
+   http_request.open("GET", data_file, true);
+   http_request.send(null);
+
+   function getItemID(xmlDoc)
+   {	
+		var item = "";
+		var x=xmlDoc.getElementsByTagName("link");
+		for (i=0;i<x.length;i++)
+		{
+			item = item + x[i].childNodes[0].nodeValue;
+		}
+		var result = item.substring(item.indexOf("item=") + 5)
+		return result;
+   }
+   
+   function getItemName(xmlDoc)
+   {	
+		var item = "";
+		var x=xmlDoc.getElementsByTagName("name");
+		for (i=0;i<x.length;i++)
+		{
+			item = item + x[i].childNodes[0].nodeValue;
+		}
+		var result = item.replace(/"/g, "");
+		return result;
+   }
+   
+   function getItemLevel(xmlDoc)
+   {	
+		var item = "";
+		var x=xmlDoc.getElementsByTagName("level");
+		for (i=0;i<x.length;i++)
+		{
+			item = item + x[i].childNodes[0].nodeValue;
+		}
+		var result = item;
+		return result;
+   }
+   
+   function getItemClass(xmlDoc)
+   {	
+		var item = "";
+		var x=xmlDoc.getElementsByTagName("class");
+		for (i=0;i<x.length;i++)
+		{
+			item = item + x[i].childNodes[0].nodeValue;
+		}
+		var result = item;
+		return result;
+   }
+   
+   function getItemSubclass(xmlDoc)
+   {	
+		var item = "";
+		var x=xmlDoc.getElementsByTagName("subclass");
+		for (i=0;i<x.length;i++)
+		{
+			item = item + x[i].childNodes[0].nodeValue;
+		}
+		var result = item;
+		return result;
+   }
+   
+   function getItemIcon(xmlDoc)
+   {	
+		var item = "";
+		var x=xmlDoc.getElementsByTagName("icon");
+		for (i=0;i<x.length;i++)
+		{
+			item = item + x[i].childNodes[0].nodeValue;
+		}
+		var result = item;
+		return result;
+   }
+   
+   function getItemInventorySlot(xmlDoc)
+   {	
+		var item = "";
+		var x=xmlDoc.getElementsByTagName("inventorySlot");
+		for (i=0;i<x.length;i++)
+		{
+			//alert(typeof x[i].childNodes[0])
+			if (typeof x[i].childNodes[0] === "undefined")
+			{
+
+			}
+			else
+			{
+				item = item + x[i].childNodes[0].nodeValue;
+			}
+		}
+		var result = item;
+		return result;
+   }
+   
+   function getItemLink(xmlDoc)
+   {	
+		var item = "";
+		var x=xmlDoc.getElementsByTagName("link");
+		for (i=0;i<x.length;i++)
+		{
+			item = item + x[i].childNodes[0].nodeValue;
+		}
+		var result = item;
+		return result;
+   }
+      
+   function getItemJsonEquip(xmlDoc)
+   {	
+		var item = "";
+		var x=xmlDoc.getElementsByTagName("jsonEquip");
+		for (i=0;i<x.length;i++)
+		{
+			item = item + x[i].childNodes[0].nodeValue;
+		}
+		var result = item.replace(/"/g, "");
+		return result;
+   }
+   
+   http_request.onreadystatechange  = function(){
+      if (http_request.readyState == 4  )
+      {
+	  xmlDoc=http_request.responseXML;
+		current += 1;
+		$("#output2").html("Item " + item + " done!<br>" + parseInt((current*100)/(end - start)) + "% done!<br>");
+		if (getItemName(xmlDoc).length > 0)
+		{
+			$("#output").append(item + ": {name: \"" + getItemName(xmlDoc) + "\", " + 
+													"level: \"" + getItemLevel(xmlDoc) + "\", " + 
+													"type: \"" + getItemSubclass(xmlDoc) + "\", " + 
+													"slot: \"" + getItemInventorySlot(xmlDoc) + "\", " + 
+													"icon: \"" + getItemIcon(xmlDoc) + "\", " + 
+													"json: \"" + getItemJsonEquip(xmlDoc) + "\", " + 
+													"link: \"" + getItemLink(xmlDoc) + "\"}, " + 											
+													"\n");
+		}
+													
+      }
+   }
+}   
+
+function cacheCheck(itemID)
+{
+		return HeroInfo.hasOwnProperty(itemID)
+}
+
+var start = 0;
+var end = 0;
+var current = 0;
+var max = 0;
+
+$( "#from" ).change(function() {
+	setStartEnd()
+});
+
+$( "#to" ).change(function() {
+	setStartEnd()
+});
+
+function setStartEnd()
+{
+	start = parseInt($("#from").val())
+	end = parseInt($("#to").val())
+	$("#startend").html("From: " + start + " to: " + end)
+}
+
+/*
+449 or 566 - Heroic
+450 or 567 - Mythic
+451 - Raid Finder
+40 - Avoidance
+41 - Leech
+42 - Speed
+43 - Indestructible
+562 - Warforged
+565 - Extra socket
+*/
+
+bonusInfo = ["566", "566:561", "567", "567:561", "568", "568:561"]
+
+function generateHeads(g)
+{
+	$("#output2").html("")
+	var headList = [];
+	for (var k in HeroInfo) 
+	{
+		if (HeroInfo.hasOwnProperty(k)) 
+		{
+			var temp = HeroInfo[k]
+			if (temp.type == "Mail Armor" && temp.slot == "Head" && parseInt(temp.level) > 660)
+			{
+				for (var z in bonusInfo)
+				{
+					$("#output2").append("<a href=" + temp.link + "&bonus="+bonusInfo[z]+">"+temp.link+"&bonus="+bonusInfo[z]+"</a><br>")
+				}
+				headList.push(k);
+			}
+		}
+	}
+	for (x = 0; x < 1; x++) 
+	{
+		//$("#output2").append(gearInfo[0].name)
+	}
+	//alert("test");
+	//$("#output2").append(headList)
+}
+
+function copytext(text_id)
+{
+	var copyTextarea = document.getElementById(text_id);
+	//copyTextarea.style.display = "block";
+    //var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+	//var copyTextarea = document.querySelector(text_id);
+	copyTextarea.select();
+
+	try 
+	{
+		var successful = document.execCommand('copy');
+		var msg = successful ? 'successful' : 'unsuccessful';
+		if (!successful)
+		{
+			$("#savedata2").html((copyTextarea.value))
+		}
+		console.log('Copying text command was ' + msg);
+		//alert(copyTextarea.value)
+	} 
+	catch (err) 
+	{
+		console.log('Oops, unable to copy');
+		console.log(copyTextarea.value)
+	}
+	//copyTextarea.style.display = "none";
+	//var button = document.getElementById(text_id + "blueprintButton");
+	//button.style.display = "none";
+}
+
+function clicks()
+{
+	//for (x = 0; x < items.length; x++) { loadJSON(items[x]) }
+	$("#output").html("")	
+	$("#output2").html("")
+	var myTextBox = document.getElementById("output")
+	var value = $("#output").val();
+	//alert(value)
+	var string = "wowhead-tooltip-requirements"
+	//alert(string.length)
+	
+	//spell name
+	var search_start = value.indexOf("og:title\" content=")
+	var value2 = value.slice(search_start + 19, search_start + 100)
+	var spell_name = value2.slice(0, value2.indexOf("\""))
+	
+	//spell ID
+	var search_start = value.indexOf("og:url\" content=\"http://www.wowhead.com/spell=")
+	var value2 = value.slice(search_start + 46, search_start + 500)
+	var spell_id = value2.slice(0, value2.indexOf("/"))
+	//title="Global Cooldown">GCD</dfn></th><td>
+	//check passive
+	if (value.indexOf("Passive spell") > -1)
+		var spell_passive = "TRUE"
+	else
+		var spell_passive = "FALSE"
+		
+	//global cooldown
+	var search_start = value.indexOf("title=\"Global Cooldown\">GCD</dfn></th><td>")
+	var value2 = value.slice(search_start + 42, search_start + 500)
+	var spell_gcd = value2.slice(0, value2.indexOf(" "))
+	
+	//specialization
+	var search_start = value.indexOf("wowhead-tooltip-requirements")
+	var value2 = value.slice(search_start + 28, search_start + 100)
+	if (value2.indexOf("(") > -1)
+		var spell_spec = value2.slice(value2.indexOf("(") + 1, value2.indexOf(")"))
+	else
+		var spell_spec = "ALL"
+	$("#output2").html(spell_spec)
+	
+	$("#output2").html(spell_name + "\t" + spell_id + "\t" + spell_gcd + "\t" + spell_passive + "\t" + spell_spec)
+	copytext("output2")
+
+}
+
+
+
+</script></body></html>
