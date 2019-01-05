@@ -278,7 +278,7 @@ var _item = function(item_id, _quantity)
 
 var _blueprint = function(_name)
 {
-	this.blueprint = {icons:[], tiles:[], entities:[], item:"blueprint", label:_name, version:64425099264}
+	this.blueprint = {icons:[], entities:[], item:"blueprint", label:_name, version:64425099264}
 	this.addIcon = function(_name)
 	{
 		this.blueprint.icons[this.blueprint.icons.length] = {signal:{type:"item",name:_name},index:this.blueprint.icons.length+1}
@@ -299,14 +299,7 @@ var _blueprint = function(_name)
 		this.blueprint.entities[_entity_number].direction = _direction,
 		this.blueprint.entities[_entity_number].control_behavior = {logistic_condition:{first_signal:{type:"item",name:_item_type},constant:_item_number,comparator:_operator},connect_to_logistic_network:true}*/
 	}
-	this.addTile = function(_name, _position)
-	{
-		//2 - lewo
-		//4 - góra
-		//6 - prawo
-		//0 - dol
-		this.blueprint.tiles[this.blueprint.tiles.length] = { name:_name, position:{x:_position.x,y:_position.y}}
-	}
+	
 	this.addBuffer = function(_requester)
 	{
 		var _entity_number = this.blueprint.entities.length
@@ -603,7 +596,6 @@ function make_tree(item_id, quantity, test)
 function mining_drills_needed(ore)
 {
 	var speed = ((ams['replicator5'].mining_power - ore.mining_hardness)*ams['replicator5'].speed)/ore.mining_time;
-	//alert(ams['replicator5'].mining_power - ore.mining_hardness)
 	return speed
 }
 
@@ -656,22 +648,22 @@ function calc_asm(item_id, quantity)
 			break;		
 		case "electric-mining-drill":
 			summary += "<font color=\"blue\", style=\"font-weight: bold;\"> replicators </font" 
-			summary += "<font color=\"blue\", style=\"font-weight: bold;\"> (T1: " + mining_drills_needed(items_recipies1[item_id]) + ") </font>" 
+			summary += "<font color=\"blue\", style=\"font-weight: bold;\"> (T1: " + Math.ceil(round_num(quantity)/mining_drills_needed(items_recipies1[item_id])) + ") </font>" 
 			break;
 		case "bob-mining-drill-1":
 			summary += "<font color=\"blue\", style=\"font-weight: bold;\"> replicators </font" 
-			summary += "<font color=\"blue\", style=\"font-weight: bold;\"> (T2: " + mining_drills_needed(items_recipies1[item_id]) + ") </font>" 
+			summary += "<font color=\"blue\", style=\"font-weight: bold;\"> (T2: " + Math.ceil(round_num(quantity)/mining_drills_needed(items_recipies1[item_id])) + ") </font>" 
 			break;
 		case "bob-mining-drill-2":
 			summary += "<font color=\"blue\", style=\"font-weight: bold;\"> replicators </font" 
-			summary += "<font color=\"blue\", style=\"font-weight: bold;\"> (T3: " + mining_drills_needed(items_recipies1[item_id]) + ") </font>"  
+			summary += "<font color=\"blue\", style=\"font-weight: bold;\"> (T3: " + Math.ceil(round_num(quantity)/mining_drills_needed(items_recipies1[item_id])) + ") </font>"  
 			break;
 		case "bob-mining-drill-3":
 			summary += "<font color=\"blue\", style=\"font-weight: bold;\"> replicators </font" 
-			summary += "<font color=\"blue\", style=\"font-weight: bold;\"> (T4: " + mining_drills_needed(items_recipies1[item_id]) + ") </font>" 
+			summary += "<font color=\"blue\", style=\"font-weight: bold;\"> (T4: " + Math.ceil(round_num(quantity)/mining_drills_needed(items_recipies1[item_id])) + ") </font>" 
 			break;
 		case "bob-mining-drill-4":
-			summary += "<font color=\"blue\", style=\"font-weight: bold;\"> (T5: " + mining_drills_needed(items_recipies1[item_id]) + ") </font>" 
+			summary += "<font color=\"blue\", style=\"font-weight: bold;\"> (T5: " + Math.ceil(round_num(quantity)/mining_drills_needed(items_recipies1[item_id])) + ") </font>" 
 			break;
 		case "chemical-plant-4":
 			summary += "<font color=\"orange\", style=\"font-weight: bold;\"> chemical plants </font>needed for " 
@@ -852,136 +844,101 @@ function endgameblueprint(materials, basic_materials)
 	var totalY = 0
 	var pos_x = 0
 	var pos_y = 0
-	var max_x = 0;
-	var width = 7;
-	var fur_width = 7;
-	if ($("#starter").is(":checked"))
-		{
-			if ($("#expansionbays").is(":checked"))
-			{
-				width = 4
-				fur_width = 4;
-			}
-			else
-			{
-				width = 3
-				fur_width = 2;
-			}
-		}
-		else
-		{
-			width = 7
-		}
-	var assemblersTable = []
-	var furnaceTable = []
-	var drillsTable = []
-	var stepBlueprint = new _blueprint(items[Object.keys(materials)[0]].name)
-	stepBlueprint.addIcon(items[Object.keys(materials)[0]].id)
-	var max_x = (parseInt($( "#blueprintrows" ).val()) - 1) * width
+	var blueprintTable = []
+	var replicatorTable =[]
 	//alert(JSON.stringify(materials))
 	for (var k in materials)
 	{
+		//alert(materials[k][1])
+		//alert(ams[items[k].am_type].name)
 		if(ams[items[k].am_type].name != "stone-furnace")
 		{
 			var tempItem = new _item(items[k], materials[k][1])
+			//alert(tempItem.quantity)
+			//alert(tempItem.asmNeeded())
 			for (var a = 0; a < Math.ceil(tempItem.asmNeeded()); a++)
 			{
 				if ($("#starter").is(":checked"))
 				{
-					assemblersTable.push(make_compact_blueprint(k))
+					blueprintTable.push(make_compact_blueprint(k))
 				}
 				else
 				{
-					assemblersTable.push(make_blueprint(k))
+					blueprintTable.push(make_blueprint(k))
 				}
 			}	
-		}
-	}
-	for (b=0; b<assemblersTable.length; b++)
-	{
-		assemblersTable[b].moveBlueprint(pos_x,pos_y)
-		pos_x = pos_x + width;
-		if (pos_x + width > max_x + width)
-		{
-			pos_x = 0;
-			pos_y = pos_y + 7
-		}
-		for (var a = 0; a < assemblersTable[b].blueprint.entities.length; a++)
-		{
-			stepBlueprint.blueprint.entities.push(assemblersTable[b].blueprint.entities[a])
 		}
 	}
 	for (var k in materials)
 	{
+		//alert(materials[k][1])
+		//alert(ams[items[k].am_type].name)
 		if(ams[items[k].am_type].name == "stone-furnace")
 		{
 			var tempItem = new _item(items[k], materials[k][1])
-			var temp_asmNeeded = Math.ceil(tempItem.asmNeeded()/2)
-			if ((tempItem.id == 'carbon') || (tempItem.id == 'gold-plate'))
-				temp_asmNeeded = temp_asmNeeded * 2
-			for (var a = 0; a < temp_asmNeeded; a++)
+			for (var a = 0; a < Math.ceil(tempItem.asmNeeded()/2); a++)
 			{
-				furnaceTable.push(stone_furnace_blueprint(k))
+				blueprintTable.push(stone_furnace_blueprint(k))
 			}	
 		}
-	}
-	for (b=0; b<furnaceTable.length; b++)
-	{
-		furnaceTable[b].moveBlueprint(pos_x,pos_y)
-		pos_x = pos_x + fur_width;
-		if (pos_x + fur_width > max_x + width)
-		{
-			pos_x = 0;
-			pos_y = pos_y + 7
-		}
-		for (var a = 0; a < furnaceTable[b].blueprint.entities.length; a++)
-		{
-			//assemblersTable[b].blueprint.entities[a].entity_number = assemblersTable[b].blueprint.entities[a].entity_number + (29*(b))
-			stepBlueprint.blueprint.entities.push(furnaceTable[b].blueprint.entities[a])
-		}
-		//alert(pos_x)
-		//alert(pos_x)
 	}
 	for (var k in basic_materials)
 	{
 		var tempItem = new _item(items[k], basic_materials[k][1])
 		for (var a = 0; a < Math.ceil(tempItem.asmNeeded()/2); a++)
 		{
-			drillsTable.push(make_replicator_blueprint(k))
+			blueprintTable.push(make_replicator_blueprint(k))
 		}	
 	}
-	for (b=0; b<drillsTable.length; b++)
+	//alert(Object.keys(materials)[0])
+	var stepBlueprint = new _blueprint(items[Object.keys(materials)[0]].name)
+	stepBlueprint.addIcon(items[Object.keys(materials)[0]].id)
+	for (b=0; b<blueprintTable.length; b++)
 	{
-		drillsTable[b].moveBlueprint(pos_x,pos_y)
-		pos_x = pos_x + width;
-		if ((pos_x + width > max_x + width) && (b < drillsTable.length - 1))
+		for (var a = 0; a < blueprintTable[b].blueprint.entities.length; a++)
 		{
-			pos_x = 0;
-			pos_y = pos_y + 7
+			blueprintTable[b].blueprint.entities[a].entity_number = blueprintTable[b].blueprint.entities[a].entity_number + (29*(b))
+			stepBlueprint.blueprint.entities.push(blueprintTable[b].blueprint.entities[a])
 		}
-		for (var a = 0; a < drillsTable[b].blueprint.entities.length; a++)
+		//alert(pos_x)
+		//alert(pos_x)
+		var rows = parseInt($( "#blueprintrows" ).val())
+		var space = 7
+		if ($("#starter").is(":checked"))
 		{
-			stepBlueprint.blueprint.entities.push(drillsTable[b].blueprint.entities[a])
+			if ($("#expansionbays").is(":checked"))
+			{
+				space = 4
+			}
+			else
+			{
+				space = 3
+			}
+		}
+		else
+		{
+			space = 7
+		}
+		if (b > -1)
+		{
+			//if(pos_x == 9)
+			if(pos_x == rows-1)
+			{
+				//stepBlueprint.moveBlueprint(+63, -7)
+				stepBlueprint.moveBlueprint((rows-1)*space, -7)
+				pos_x = 0
+				pos_y += 7
+			}
+			else
+			{
+				stepBlueprint.moveBlueprint(-space, 0)
+				pos_x += 1
+			}
 		}
 	}
 	var steps = 0;
-	for (var a = -2; a < max_x + 3; a++)
-	{
-		for (var b = -4; b < pos_y + 5; b++)
-		{
-			stepBlueprint.addTile("concrete-white", new _position(a,b))
-		}
-	}
-	for (var a = -5; a < max_x + 6; a++)
-	{
-		for (var b = -7; b < pos_y + 8; b++)
-		{
-			if ((a < -3 || a > max_x + 3) || (b < -5 || b > pos_y + 5))
-				stepBlueprint.addTile("concrete-black", new _position(a,b))
-		}
-	}
-	//stepBlueprint.moveBlueprint(0, pos_y)
-	$("#endgameoutput").val("0" + gzip_deflate(stepBlueprint))
+	stepBlueprint.moveBlueprint(0, pos_y)
+	$("#endgameoutput").html("0" + gzip_deflate(stepBlueprint))
 	
 }
 
@@ -1185,16 +1142,6 @@ function make_blueprint(item_id)
 
 function stone_furnace_blueprint(item_id)
 {
-	var multipleRequests = function(ingredients, requster, input)
-	{
-		for (var a = 0; a < ingredients.length; a++)
-		{
-			if (items_recipies1[ingredients[a][0]].category != "fluid")
-			{
-				requester.addRequest(ingredients[a][0], input)
-			}
-		}
-	}
 	if(ams[items[item_id].am_type].name == "stone-furnace")
 	{
 		$("#test").append("<textarea id=\"" + item_id + "\" style=\"width: 10px; height: 10px; display: none\"></textarea><button type=\"button\" id=\"" + item_id + "blueprintButton\" onclick=\"copyBlueprint('" + item_id + "')\" class=\"btn btn-primary\" style=\" padding: 0px; \">c</button>")
@@ -1207,50 +1154,22 @@ function stone_furnace_blueprint(item_id)
 		blueprint.addIcon( items[item_id].id)
 		blueprint.addInserter(inserter_type, new _position(-1,1), 4, items[item_id].id, 100000, "<")
 		blueprint.addInserter(inserter_type, new _position(0,1), 0, items[item_id].id, 10000, "<")
-
+		
+		blueprint.addInserter(inserter_type, new _position(0,-1), 4, items[item_id].id, 100000, "<")
+		blueprint.addInserter(inserter_type, new _position(1,-1), 0, items[item_id].id, 10000, "<")
 		//blueprint.addAssembler("replicator-5", new _position(-0.5,-0.5),4,items[item_id].recipe)
 		if ($("#upgrade").is(":checked"))
 			var name = "electric-steel-furnace"
 		else
 			var name = "electric-stone-furnace"
-		//alert(item_id)
-		if ((item_id == 'solder-alloy') || (item_id == 'silicon') || (item_id == 'aluminium-plate'))
-			if ($("#upgrade").is(":checked"))
-				var name = "mixing-steel-furnace"
-			else
-				var name = "mixing-furnace"
-		if ((item_id == 'carbon') || (item_id == 'gold-plate'))
-		{
-			if ($("#upgrade").is(":checked"))
-				var name = "chemical-steel-furnace"
-			else
-				var name = "chemical-boiler"
-			blueprint.addAssembler("machine-1", new _position(-0.5,4.5),0,'water-alt')
-			blueprint.addAssembler(name, new _position(-0.5,2.5),4,items[item_id].recipe)
-			blueprint.addProvider(new _position(-1,0))
-			var requester = new _requester(new _position(0,0))
-			//requester.addRequest(recipe.normal[z], input/10)
-			//alert(items[item_id].ingredients[0][0])
-			//requester.addRequest(items[item_id].ingredients[0][0], 10)
-			multipleRequests(items_recipies1[item_id].ingredients, requester, 10)
-			blueprint.addRequester(requester)
-			blueprint.moveBlueprint(0,-2)
-			$("#" + item_id).append("0" + gzip_deflate(blueprint) + "<br>")
-			return blueprint	
-		}
-				
-		blueprint.addInserter(inserter_type, new _position(0,-1), 4, items[item_id].id, 10000, "<")
-		blueprint.addInserter(inserter_type, new _position(-1,-1), 0, items[item_id].id, 100000, "<")
 		blueprint.addAssembler(name, new _position(-0.5,2.5),4,items[item_id].recipe)
-		blueprint.addAssembler(name, new _position(-0.5,-2.5),4,items[item_id].recipe)
+		blueprint.addAssembler(name, new _position(0.5,-2.5),4,items[item_id].recipe)
 		blueprint.addProvider(new _position(-1,0))
+		blueprint.addProvider(new _position(1,0))
 		var requester = new _requester(new _position(0,0))
 		//requester.addRequest(recipe.normal[z], input/10)
 		//alert(items[item_id].ingredients[0][0])
-		//requester.addRequest(items[item_id].ingredients[0][0], 10)
-		multipleRequests(items_recipies1[item_id].ingredients, requester, 10)
-		if ((item_id == 'solder-alloy') || (item_id == 'silicon') || (item_id == 'aluminium-plate') || (item_id == 'gold-plate'))
-			requester.addRequest('coal', 10)
+		requester.addRequest(items[item_id].ingredients[0][0], 10)
 		blueprint.addRequester(requester)
 		$("#" + item_id).append("0" + gzip_deflate(blueprint) + "<br>")
 		return blueprint
@@ -1270,7 +1189,7 @@ function make_compact_blueprint(item_id)
 				}
 			}
 		}
-	var output = 500;
+	var output = 1000;
 	var input = 100;
 	var input_positions = {
 	"4": { inserter: { x:-1, y:2, vector:4 }, chest: { x:-1 ,y:3  } },
@@ -1350,14 +1269,9 @@ function make_replicator_blueprint(item_id)
 	$("#test").append("<textarea id=\"" + item_id + "\" style=\"width: 10px; height: 10px; display: none\"></textarea><button type=\"button\" id=\"" + item_id + "blueprintButton\" onclick=\"copyBlueprint('" + item_id + "')\" class=\"btn btn-primary\" style=\" padding: 0px; \">c</button>")
 	var blueprint = new _blueprint("ZZZ - " + items[item_id].name)
 	for (var a = -2; a < 2; a++)
-	if ($("#expansionbays").is(":checked"))
 	{
-		blueprint.addExpansionBay(new _position(-2,0))
-		blueprint.addExpansionBay(new _position(2,0))
-		blueprint.addExpansionBay(new _position(-2,-3))
-		blueprint.addExpansionBay(new _position(2,-3))
-		blueprint.addExpansionBay(new _position(-2,3))
-		blueprint.addExpansionBay(new _position(2,3))
+		//blueprint.addExpansionBay(new _position(a,-2))
+		//blueprint.addExpansionBay(new _position(a,1))
 	}
 	blueprint.addIcon( items[item_id].id)
 	//blueprint.addInserter("stack-inserter", new _position(1,0), 6, items[item_id].id, 1000, "<")
@@ -1679,7 +1593,94 @@ var selectedList = {};
 //table.push(["assembling-machine-6",100,false])
 populateSelect()
 var preList = []
+/*preList.push(["assembling-machine-6",2000])
+preList.push(["electric-chemical-mixing-furnace-2",1418])
+preList.push(["chemical-plant-4",1418])
+preList.push(["bob-mining-drill-4",2000])
+preList.push(["expansion-bay",955])
+preList.push(["small-lamp",2000])
+preList.push(["bob-logistic-zone-expander",1418])
+preList.push(["bob-robochest",1418])
+preList.push(["stack-inserter",2000])
+preList.push(["repair-pack",2000])
+preList.push(["Biological-bullet-magazine",13780])
+preList.push(["stone-wall",7200])
+preLoad(preList)*/
 
+/*preList.push(["low-density-structure",477])
+preList.push(["rocket-fuel",477])
+preList.push(["rocket-control-unit",477])
+preList.push(["science-pack-1",2756])
+preList.push(["science-pack-2",2296])
+preList.push(["science-pack-3",2350])
+preList.push(["military-science-pack",2836])
+preList.push(["production-science-pack",2054])
+preList.push(["high-tech-science-pack",2054])
+preList.push(["satellite",1])
+preList.push(["repair-pack",100])
+preList.push(["Biological-bullet-magazine",13780])*/
+
+/*preList.push(["bob-laser-turret-5",720])
+preList.push(["bob-laser-robot-capsule",1000])
+preList.push(["bob-sniper-turret-3",720])
+preList.push(["radar-5",720])
+preLoad(preList)*/
+
+/*for (var k in ores)
+{
+	var itemmm = k
+	var blueprint = new _blueprint(ores[itemmm].name)
+		for (var a = -7; a <= 7; a++)
+		{
+			blueprint.addEntity(new _position(a,0),itemmm)
+		}
+		blueprint.addIcon(itemmm)
+	$("#savedata").append(JSON.stringify(blueprint) + ",\n")
+}*/
+
+/*moduleSpeed = 1.6;
+moduleProd = 0.4;
+var testresult = ""
+var test1000 = new _item(items_recipies1["raw-productivity-module-4"])
+var speed = 0;
+var prod = 0;
+ams['am6'].productivity = 1 * (1+(speed*moduleProd))
+ams['am6'].speed = 2 * (1+(prod*moduleSpeed))
+alert("Clean Production: " + test1000.getProduction())
+for (var a = 0; a < 6; a++)
+{
+	var tempSpeed = 0;
+	var tempProd = 0;
+	{
+		speed++
+		ams['am6'].productivity = 1 * (1+(prod*moduleProd))
+		ams['am6'].speed = 2 * (1+(speed*moduleSpeed))
+		//alert("Speed: " + ams['am6'].speed + "Prod: " + ams['am6'].productivity)
+		tempSpeed = test1000.getProduction();
+		//alert("Speed: " + tempSpeed + "Prod: " + tempProd)
+		speed--
+	}
+	{
+		prod++
+		ams['am6'].productivity = 1 * (1+(prod*moduleProd))
+		ams['am6'].speed = 2 * (1+(speed*moduleSpeed))
+		//alert("Speed: " + ams['am6'].speed + "Prod: " + ams['am6'].productivity)
+		tempProd = test1000.getProduction();
+		prod--
+	}
+	//alert("Speed: " + tempSpeed + "Prod: " + tempProd)
+	if (tempSpeed > tempProd)
+	{
+		speed++
+		testresult += "speed "
+	} 
+	else 
+	{
+		prod++
+		testresult += "prod "
+	}
+}*/
+//alert(testresult)
 printSelected();
 buffer_all_the_things()
 </script>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-1.16.0.css">
+<link rel="stylesheet" href="bootstrap.min.css">
+<link rel="stylesheet" href="custom.css">
+<title>My Page</title>
+  <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
+</head>
+
+<!-- refreshTexts() -->
+<!-- this.stoneText.setText("Value: $" + this.appState.toReadable(Double.valueOf(this.appState.getStoneValue())) + "\nHit points: " + this.appState.toReadable(Double.valueOf(this.appState.remainStoneStrength)) + "\nHardness: " + this.appState.toReadable(Double.valueOf(this.appState.getStoneHardness()))); -->
+      
+
+
+<body>
+	<div style="float: left; width: 180px;">
+		<ul class="nav nav-tabs nav-stacked">
+			<li><a href=".">Home</a></li>
+			<li><a href="TTcalc.html">Tap Titans Calculator</a></li>
+			<li><a href="stuff.html">Tap Titans usefull stuff</a></li>
+			<li><a href="MCcalc.html">Mine Clicker Calculator</a></li>
+			<li><a href="SMCG.html">Simulation Craft Stuff</a></li>
+			<li><a href="CivCrafter.html">Civ Crafter Stuff</a></li>
+			<li><a href="ShonenIdle.html">Shonen Idle Stuff</a></li>
+			<li><a href="incremental.html">Testing</a></li>
+		</ul>
+	</div>
+	<div class="wrapper" style="display: inline-block;">
+		<textarea id="input" style="height:200px; width: 300px"></textarea><br>
+		<textarea id="output" style="height:500px; width: 1000px"></textarea><br>
+		<textarea id="counter">1</textarea><br>
+		<button type="button" onclick="Add()" class="btn btn-default">Add</button><br>
+		
+	</div>
+  
+  
+<script type="text/javascript" src="jquery-latest.min.js"></script>
+<script type="text/javascript" src="bootstrap.min.js"></script>
+<script src="common.js"></script>
+
+<script language="javascript">/* Write JavaScript here */
+
+
+var jewels = [
+  [0,"Antidote Jewel 1",""],
+  [1,"Antipara Jewel 1",""],
+  [2,"Pep Jewel 1",""],
+  [3,"Steadfast Jewel 1",""],
+  [4,"Antiblast Jewel 1",""],
+  [5,"Suture Jewel 1",""],
+  [6,"Def Lock Jewel 1",""],
+  [7,"Earplug Jewel 3","Earplugs"],
+  [8,"Wind Resist Jewel 2","Windproof"],
+  [9,"Footing Jewel 2","Tremor Resistance"],
+  [10,"Attack Jewel 1","Attack Boost"],
+  [11,"Defense Jewel 1","Defense Boost"],
+  [12,"Vitality Jewel 1","Health Boost"],
+  [13,"Recovery Jewel 1","Recovery Speed"],
+  [14,"Fire Res Jewel 1",""],
+  [15,"Water Res Jewel 1",""],
+  [16,"Ice Res Jewel 1",""],
+  [17,"Thunder Res Jewel 1",""],
+  [18,"Dragon Res Jewel 1",""],
+  [19,"Resistor Jewel 1",""],
+  [20,"Blaze Jewel 1","Fire Attack"],
+  [21,"Stream Jewel 1","Water Attack"],
+  [22,"Frost Jewel 1","Ice Attack"],
+  [23,"Bolt Jewel 1","Thunder Attack"],
+  [24,"Dragon Jewel 1","Dragon Attack"],
+  [25,"Venom Jewel 1",""],
+  [26,"Paralyzer Jewel 1",""],
+  [27,"Sleep Jewel 1",""],
+  [28,"Blast Jewel 1","Blast Attack"],
+  [29,"Poisoncoat Jewel 3",""],
+  [30,"Paracoat Jewel 3",""],
+  [31,"Sleepcoat Jewel 3",""],
+  [32,"Blastcoat Jewel 3",""],
+  [33,"Release Jewel 3","Free Elem/Ammo Up"],
+  [34,"Expert Jewel 1","Critical Eye"],
+  [35,"Critical Jewel 2","Critical Boost"],
+  [36,"Tenderizer Jewel 2","Weakness Exploit"],
+  [37,"Charger Jewel 2","Focus"],
+  [38,"Handicraft Jewel 3","Handicraft"],
+  [39,"Draw Jewel 2","Critical Draw"],
+  [40,"Destroyer Jewel 2","Partbreaker"],
+  [41,"KO Jewel 2","Slugger"],
+  [42,"Drain Jewel 1","Stamina Thief"],
+  [43,"Flight Jewel 2",""],
+  [44,"Throttle Jewel 2",""],
+  [45,"Challenger Jewel 2","Agitator"],
+  [46,"Flawless Jewel 2","Peak Performance"],
+  [47,"Potential Jewel 2","Heroics"],
+  [48,"Fortitude Jewel 1","Fortify"],
+  [49,"Furor Jewel 2",""],
+  [50,"Sonorous Jewel 1",""],
+  [51,"Magazine Jewel 2","Capacity Boost"],
+  [52,"Trueshot Jewel 1","Special Ammo Boost"],
+  [53,"Artillery Jewel 1","Artillery"],
+  [54,"Heavy Artillery Jewel 1",""],
+  [55,"Sprinter Jewel 2","Marathon Runner"],
+  [56,"Physique Jewel 2","Constitution"],
+  [57,"Refresh Jewel 2","Stamina Surge"],
+  [58,"Hungerless Jewel 1",""],
+  [59,"Evasion Jewel 2","Evade Window"],
+  [60,"Jumping Jewel 2","Evade Extender"],
+  [61,"Ironwall Jewel 1","Guard"],
+  [62,"Sheath Jewel 1","Quick Sheath"],
+  [63,"Friendship Jewel 1","Wide-Range"],
+  [64,"Enduring Jewel 1","Item Prolonger"],
+  [65,"Satiated Jewel 1",""],
+  [66,"Gobbler Jewel 1","Speed Eating"],
+  [67,"Grinder Jewel 1","Speed Sharpening"],
+  [68,"Bomber Jewel 1","Bombardier"],
+  [69,"Fungiform Jewel 1","Mushroomancer"],
+  [70,"Protection Jewel 1","Divine Blessing"],
+  [71,"Meowster Jewel 1","Palico Rally"],
+  [72,"Botany Jewel 1",""],
+  [73,"Geology Jewel 1",""],
+  [74,"Mighty Jewel 2","Maximum Might"],
+  [75,"Stonethrower Jewel 1",""],
+  [76,"Tip Toe Jewel 1",""],
+  [77,"Brace Jewel 3","Flinch Free"],
+  [78,"Smoke Jewel 1",""],
+  [79,"Mirewalker Jewel 1",""],
+  [80,"Specimen Jewel 1",""],
+  [81,"Scent Jewel 1",""],
+  [82,"Intimidator Jewel 1",""],
+  [83,"Slider Jewel 2",""],
+  [84,"Medicine Jewel 1","Recovery Up"],
+  [85,"Forceshot Jewel 3","Normal Shots"],
+  [86,"Pierce Jewel 3","Piercing Shots"],
+  [87,"Spread Jewel 3","Spread/Power Shots"],
+  [88,"Enhancer Jewel 2","Power Prolonger"],
+  [89,"Crisis Jewel 1",""],
+  [90,"Dragonseal Jewel 3",""],
+  [91,"Maintenance Jewel 1","Tool Specialist"],
+  [92,"Mighty Bow Jewel 2","Bow Charge Plus"],
+  [93,"Mind's Eye Jewel 2","Mind Eye/Ballistic"],
+  [94,"Shield Jewel 2","Guard Up"],
+  [95,"Sharp Jewel 2","Protective Polish"],
+  [96,"Elementless Jewel 2","Non-Elemental Boost"],
+  [97,"Miasma Jewel 1","Effluvia Resistance"],
+  ]
+
+function myFunction(_table) {
+  var dane = _table
+  var test = dane
+  //searchSkill("Effluvia Resistance")
+  var bow_build = getBuild(["Attack Boost","Critical Eye","Constitution","Critical Boost","Partbreaker","Evade Extender", "Divine Blessing", "Effluvia Resistance", "Special Ammo Boost", "Normal Shots", "Piercing Shots", "Spread/Power Shots", "Weakness Exploit", "Bow Charge Plus", "Flinch Free", "Mind Eye/Ballistic", "Earplugs", "Fire Attack","Agitator","Health Boost","Recovery Speed"])
+  var hbg_pierce = getBuild(["Attack Boost","Critical Eye","Constitution","Critical Boost","Partbreaker","Evade Extender", "Divine Blessing", "Maximum Might", "Special Ammo Boost", "Guard", "Piercing Shots", "Guard Up", "Weakness Exploit", "Health Boost", "Flinch Free", "Mind Eye/Ballistic", "Earplugs", "Recovery Speed","Agitator","Defense Boost","Free Elem/Ammo Up"])
+  var hbg_sticky = getBuild(["Guard","Constitution","Critical Boost","Attack Boost","Partbreaker","Evade Extender", "Divine Blessing", "Artillery", "Special Ammo Boost", "Wide-Range", "Speed Eating", "Recovery Speed", "Guard Up", "Health Boost", "Flinch Free", "Mind Eye/Ballistic", "Earplugs","Peak Performance","Agitator","Quick Sheath","Free Elem/Ammo Up"])
+  
+  var lbg_slice = getBuild(["Critical Eye","Constitution","Critical Boost","Attack Boost","Partbreaker","Evade Extender", "Divine Blessing", "Maximum Might", "Special Ammo Boost", "Wide-Range", "Speed Eating", "Recovery Speed", "Weakness Exploit", "Health Boost", "Flinch Free", "Mind Eye/Ballistic", "Earplugs","Peak Performance","Agitator","Quick Sheath","Free Elem/Ammo Up"])
+  var lbg_thunder = getBuild(["Critical Eye","Constitution","Critical Boost","Attack Boost","Partbreaker","Evade Extender", "Divine Blessing", "Maximum Might", "Thunder Attack", "Wide-Range", "Speed Eating", "Recovery Speed", "Weakness Exploit", "Health Boost", "Flinch Free", "Mind Eye/Ballistic", "Earplugs","Peak Performance","Agitator","Quick Sheath","Free Elem/Ammo Up"])
+  var lbg_water = getBuild(["Critical Eye","Constitution","Critical Boost","Attack Boost","Partbreaker","Evade Extender", "Divine Blessing", "Maximum Might", "Water Attack", "Wide-Range", "Speed Eating", "Recovery Speed", "Weakness Exploit", "Health Boost", "Flinch Free", "Mind Eye/Ballistic", "Earplugs","Peak Performance","Agitator","Quick Sheath","Free Elem/Ammo Up"])
+  var greatsword = getBuild(["Attack Boost","Critical Eye","Constitution","Critical Boost","Partbreaker","Evade Extender", "Divine Blessing", "Maximum Might", "Handicraft", "Focus", "Protective Polish", "Guard Up", "Weakness Exploit", "Health Boost", "Flinch Free", "Mind Eye/Ballistic", "Earplugs", "Quick Sheath","Agitator","Focus","Speed Sharpening"])
+  var lance = getBuild(["Attack Boost","Critical Eye","Constitution","Critical Boost","Partbreaker","Evade Extender", "Divine Blessing", "Recovery Speed", "Handicraft", "Guard", "Protective Polish", "Guard Up", "Weakness Exploit", "Health Boost", "Flinch Free", "Mind Eye/Ballistic", "Earplugs", "Marathon Runner","Agitator","Non-Elemental Boost","Speed Sharpening"])
+  var chargeblade = getBuild(["Attack Boost","Critical Eye","Constitution","Critical Boost","Partbreaker","Evade Extender", "Divine Blessing", "Recovery Speed", "Handicraft", "Guard", "Protective Polish", "Guard Up", "Artillery", "Health Boost", "Flinch Free", "Mind Eye/Ballistic", "Earplugs", "Capacity Boost","Agitator","Non-Elemental Boost","Speed Sharpening"])
+  var longsword = getBuild(["Attack Boost","Critical Eye","Constitution","Critical Boost","Partbreaker","Evade Extender", "Divine Blessing", "Recovery Speed", "Handicraft", "Dragon Attack", "Protective Polish", "Maximum Might", "Peak Performance", "Health Boost", "Flinch Free", "Mind Eye/Ballistic", "Earplugs", "Windproof","Agitator","Non-Elemental Boost","Speed Sharpening"])
+  //var bow_build = ""
+  //bow_build += searchSkill("Windproof") + ","
+  //bow_build += searchSkill("Protective Polish (Odo 4✦)") + ","
+  $("#output").val(hbg_sticky)
+}
+
+function getBuild(skills)
+{
+	var tempBuild = ""
+	for (var i = 0; i < skills.length; i++)
+	{
+		var temp = searchSkill(skills[i])
+		tempBuild += "-- " + (i+1) + " "
+		tempBuild = tempBuild + skills[i] + " - " + temp + "\n"
+	}
+	return tempBuild
+}
+
+function searchSkill(name)
+{
+ for (var i = 0; i < jewels.length; i++) 
+ {
+   var tempName = jewels[i][2]
+   console.log(tempName)
+   if (tempName.toUpperCase() === name.toUpperCase())
+   //if (name.toUpperCase().indexOf(tempName.toUpperCase()) > -1)
+   {
+     return jewels[i][0]
+   }
+ }
+ return -1
+}
+
+myFunction("test")
+
+
+//^.*(item level).*$ --> $0\n;
+//;\r\n --> ;
+//INSERT INTO dbo.Items VALUES ('CH01','Redeemer Casque','HEAD','Common',915,0,0,'1586 Armor');
+</script></body></html>

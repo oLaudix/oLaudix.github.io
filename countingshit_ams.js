@@ -7,6 +7,7 @@ am6: {
 replicator5: {
     //speed : 16 * (1+38.4),
 	//productivity : 2.2,
+	mining_power : 3,
 	speed : 16,
 	productivity : 1,
 	name : "replicator-5"
@@ -41,18 +42,18 @@ quantum_composer: {
 	name : "y-atomic-quantum-composer"
   },
 washer: {
-    speed : 1 * (1+19.2),
-	productivity : 1.8,
+    speed : 1,
+	productivity : 1,
 	name : "y-dirtwasher"
   },
 formpress: {
-    speed : 3 * (1+19.2),
-	productivity : 1.8,
+    speed : 3,
+	productivity : 1,
 	name : "y_formpress2"
   },
 crusher: {
-    speed : 3.5 * (1+19.2),
-	productivity : 1.8,
+    speed : 3.5,
+	productivity : 1,
 	name : "y_crusher2"
   },
 maintance_workshop: {
@@ -61,8 +62,8 @@ maintance_workshop: {
 	name : "y_maintance_workshop"
   },
 smelter: {
-    speed : 1 * (1+19.2),
-	productivity : 1.8,
+    speed : 1,
+	productivity : 1,
 	name : "y_smelter"
   },
 charger: {
@@ -80,6 +81,11 @@ basemenet_factory: {
 	productivity : 1.4,
 	name : "y_basement_factory"
   },
+drill_t1: {mining_speed : 0.5, mining_power : 3},
+drill_t2: {mining_speed : 1, mining_power : 4.5},
+drill_t3: {mining_speed : 2, mining_power : 6},
+drill_t4: {mining_speed : 3, mining_power : 8},
+drill_t5: {mining_speed : 4, mining_power : 10},
 };
 
 
