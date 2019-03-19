@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="qunit-1.16.0.css">
+<link rel="stylesheet" href="bootstrap.min.css">
+<link rel="stylesheet" href="custom.css">
+<title>My Page</title>
+  <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
+</head>
+<body>
+	<div style="float: left; width: 180px;">
+		<ul class="nav nav-tabs nav-stacked">
+			<li><a href=".">Home</a></li>
+			<li><a href="TTcalc.html">Tap Titans Calculator</a></li>
+			<li><a href="stuff.html">Tap Titans usefull stuff</a></li>
+			<li><a href="MCcalc.html">Mine Clicker Calculator</a></li>
+			<li><a href="SMCG.html">Simulation Craft Stuff</a></li>
+			<li><a href="CivCrafter.html">Civ Crafter Stuff</a></li>
+			<li><a href="ShonenIdle.html">Shonen Idle Stuff</a></li>
+			<li><a href="incremental.html">Storm the House attempt</a></li>
+			<li><a href="incremental2.html">Factorio Incremental</a></li>
+		</ul>
+	</div>
+	<div class="wrapper" style="display: inline-block;">
+	Max Calories: <input id="cals" type="text" value="1500" style="margin-left: 10px"></input>
+	Max Time: <input id="clock" type="text" value="90" style="margin-left: 10px"></input>
+	Kms Needed: <input id="kms" type="text" value="2150" style="margin-left: 10px"></input>
+	<div id="time_div"></div>
+	<div id="kms_div"></div>
+	<div id="calories_div"></div>
+	<div id="average_speed_needed_div"></div>
+	<input type="button" onclick="start_stop_rest(1)" value ="Start" class="btn btn-primary" id="iron-ore-button"></input>
+	<input type="button" onclick="start_stop_rest(2)" value ="Stop" class="btn btn-primary" id="iron-ore-button"></input>
+	<input type="button" onclick="start_stop_rest(3)" value ="Reset" class="btn btn-primary" id="iron-ore-button"></input><br><br>
+	</div>
+  
+  
+<script type="text/javascript" src="jquery-latest.min.js"></script>
+<script type="text/javascript" src="bootstrap.min.js"></script>
+<script src="incremental.js"></script>
+
+
+
+<script language="javascript">/* Write JavaScript here */
+//$(window).load(function start(){
+	//<canvas id="buffer" width="400" height="500">
+	
+
+//http://www.kongregate.com/games/StickpageDOTcom/dry-fire-reloaded
+
+function start_stop_rest(itemID)
+{
+	if (itemID == 1)
+		{
+			started = true;
+			cal_per_time = 100 * getMaxCal() / (getMaxTime() * 60 * 1000)
+		}
+	else if (itemID == 2)
+		{
+			count = false;
+		}
+	else if (itemID == 3)
+		{
+			count = false;
+			started = false;
+			time = 0;
+			current_km = 0;
+			current_calories = 0;
+		}
+	
+}
+
+var max_time
+var time = 0;
+var max_km
+var current_km = 0;
+var max_kalories
+var current_calories = 0;
+var average_speed_needed
+var cal_per_time = 0;
+var count = false;
+var started = false;
+
+
+function main()
+{
+	//max_time = getMaxTime() * 60
+	//max_km = getMaxKm() / 100
+	//average_speed_needed = (max_km - current_km)
+	
+	if (started)
+	{
+		time = time + 100
+		current_calories = current_calories + cal_per_time
+		average_speed_needed
+	}
+	if (count)
+	{
+		current_km = current_km + average_speed_needed
+	}
+	var date = new Date(null);
+	date.setSeconds(Math.floor(time/1000)); // specify value for SECONDS here
+	var result = date.toISOString().substr(11, 8);
+	$("#time_div").html(result)
+	$("#kms_div").html(current_km + "/" + max_km)
+	$("#calories_div").html(Math.floor(current_calories*100)/100)
+	$("#average_speed_needed_div").html(average_speed_needed)
+	//console.log(mainLoop)
+	//setTimeout(function() { main() }, 1)
+}
+
+var mainLoop = setInterval(function() {main()}, 100);
+//randomAttack();
+
+
+function getMaxKm()
+{
+	return parseInt($("#kms").val());
+}
+
+function getMaxCal()
+{
+	return parseInt($("#cals").val());
+}
+
+function getMaxTime()
+{
+	return parseInt($("#clock").val());
+}
+	 
+</script></body></html>
