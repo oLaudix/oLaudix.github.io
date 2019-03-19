@@ -82,7 +82,7 @@ function main()
 	{
 		time = time + 100
 		current_calories = current_calories + cal_per_time
-		average_speed_needed = 100 * (max_km - current_km) / ((getMaxTime() * 60 * 1000) - time)
+		average_speed_needed = 100 * (max_km/100 - current_km) / ((getMaxTime() * 60 * 1000) - time)
 	}
 	if (count)
 	{
@@ -94,7 +94,7 @@ function main()
 	$("#time_div").html(result)
 	$("#kms_div").html("Kilometry: " + Math.floor(current_km*100)/100 + "/" + (max_km/100))
 	$("#calories_div").html("Kalorie: " + Math.floor(current_calories*100)/100)
-	$("#average_speed_needed_div").html(Math.round(average_speed_needed*3600000/100)/100 + " km/h")
+	$("#average_speed_needed_div").html(Math.round(average_speed_needed*3600000/100*100)/100 + " km/h")
 	//console.log(mainLoop)
 	//setTimeout(function() { main() }, 1)
 }
