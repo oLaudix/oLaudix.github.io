@@ -11,14 +11,12 @@
 	<div class="wrapper" style="display: inline-block;">
 	Max Calories: <input id="cals" type="text" value="1600" style="margin-left: 10px"></input>
 	Max Time: <input id="clock" type="text" value="90" style="margin-left: 10px"></input>
-	Kms Needed: <input id="kms" type="text" value="2300" style="margin-left: 10px"></input>
 	<div id="time_div"></div>
 	<div id="kms_div"></div>
 	<div id="calories_div"></div>
 	<div id="average_speed_needed_div"></div>
 	<input type="button" onclick="start_stop_rest(1)" value ="Start" class="btn btn-primary" id="iron-ore-button"></input>
 	<input type="button" onclick="start_stop_rest(2)" value ="Stop" class="btn btn-primary" id="iron-ore-button"></input>
-	<input type="button" onclick="start_stop_rest(3)" value ="Reset" class="btn btn-primary" id="iron-ore-button"></input><br><br>
 	</div>
   
   
@@ -38,74 +36,91 @@
 function start_stop_rest(itemID)
 {
 	if (itemID == 1)
-		{
-			started = true;
-			count = true;
-			cal_per_time = 100 * getMaxCal() / (getMaxTime() * 60 * 1000)
-			max_time = (getMaxTime() * 60 * 1000)
-			max_km = getMaxKm()
-		}
+	{
+		if (time == 0)
+			var mainLoop = setTimeout(main, 100);
+		start = new Date().getTime(),
+		time = 0,
+		elapsed = '0.0';
+		calories = 0
+		kilometers = 0
+	}
 	else if (itemID == 2)
-		{
-			count = false;
-		}
-	else if (itemID == 3)
-		{
-			count = false;
-			started = false;
-			time = 0;
-			current_km = 0;
-			current_calories = 0;
-		}
+	{
+		if (not_paused == true)
+			not_paused = false
+		else
+			not_paused = true
+	}
 	
 }
 
-var max_time
-var time = 0;
-var max_km
-var current_km = 0;
-var max_kalories
-var current_calories = 0;
-var average_speed_needed
-var cal_per_time = 0;
-var count = false;
-var started = false;
-
-
+var not_paused = true
+var start = new Date().getTime(),
+	time = 0,
+	elapsed = '0.0';
+var calories = 0;
+var kilometers = 0
 function main()
 {
+	time += 100;
+	elapsed = Math.floor(time / 100) / 10;
+    if(Math.round(elapsed) == elapsed) { elapsed += '.0'; }
 	
-	//max_km = getMaxKm() / 100
-	//average_speed_needed = (max_km - current_km)
-	
-	if (started)
-	{
-		time = time + 100
-		current_calories = current_calories + cal_per_time
-		average_speed_needed = 100 * (max_km/100 - current_km) / ((getMaxTime() * 60 * 1000) - time)
-	}
-	if (count)
-	{
-		current_km = current_km + average_speed_needed
-	}
+	if (not_paused == true)
+		{calories += getCalsStep()
+		kilometers += getKmStep()}
 	var date = new Date(null);
 	date.setSeconds(Math.floor(time/1000)); // specify value for SECONDS here
 	var result = date.toISOString().substr(11, 8);
 	$("#time_div").html(result)
-	$("#kms_div").html("Kilometry: " + Math.floor(current_km*100)/100 + "/" + (max_km/100))
-	$("#calories_div").html("Kalorie: " + Math.floor(current_calories*100)/100)
-	$("#average_speed_needed_div").html(Math.round(average_speed_needed*3600000/100*100)/100 + " km/h")
-	//console.log(mainLoop)
-	//setTimeout(function() { main() }, 1)
+	$("#calories_div").html("Kalorie: " + Math.round(calories*100)/100)
+	$("#kms_div").html("Trasa: " + Math.round(kilometers*100)/100 + "/" + Math.round(getMaxKm()*100)/100)
+	$("#average_speed_needed_div").html(Math.round(getAvgSpeed()*100)/100)
+	
+	
+	
+	var diff = (new Date().getTime() - start) - time;
+    setTimeout(main, (100 - diff));
 }
 
-var mainLoop = setInterval(function() {main()}, 100);
+
 //randomAttack();
 
+function getAvgSpeed()
+{
+	return (getKmLeft() * 60 * 60 * 1000)/getTimeLeft()
+}
+
+function getCalsStep()
+{
+	return (getCalsLeft() * 100)/getTimeLeft()
+}
+
+function getKmStep()
+{
+	return (getKmLeft() * 100)/getTimeLeft()
+}
+
+function getTimeLeft()
+{
+	return getMaxTime() - time
+}
+
+function getCalsLeft()
+{
+	return getMaxCal() - calories
+}
+
+function getKmLeft()
+{
+	return getMaxKm() - kilometers
+}
 
 function getMaxKm()
 {
-	return parseInt($("#kms").val());
+	var cal_per_km = 69.81
+	return parseInt($("#cals").val())/cal_per_km
 }
 
 function getMaxCal()
@@ -115,7 +130,7 @@ function getMaxCal()
 
 function getMaxTime()
 {
-	return parseInt($("#clock").val());
+	return parseInt($("#clock").val()) * 60 * 1000;
 }
 	 
 </script></body></html>
