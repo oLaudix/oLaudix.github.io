@@ -15,6 +15,7 @@
 	<div id="kms_div"></div>
 	<div id="calories_div"></div>
 	<div id="average_speed_needed_div"></div>
+	<div id="test"></div>
 	<input type="button" onclick="start_stop_rest(1)" value ="Start" class="btn btn-primary" id="iron-ore-button"></input>
 	<input type="button" onclick="start_stop_rest(2)" value ="Stop" class="btn btn-primary" id="iron-ore-button"></input>
 	</div>
@@ -80,8 +81,10 @@ function main()
 	
 	
 	
+	
 	var diff = (new Date().getTime() - start) - time;
-    setTimeout(main, (100 - diff));
+	if (getCalsLeft() > 0)
+		setTimeout(main, (100 - diff));
 }
 
 
