@@ -69,8 +69,10 @@ function main()
     if(Math.round(elapsed) == elapsed) { elapsed += '.0'; }
 	
 	if (not_paused == true)
-		{calories += getCalsStep()
-		kilometers += getKmStep()}
+		{
+			calories += getCalsStep()
+			kilometers += getKmStep()
+		}
 	var date = new Date(null);
 	date.setSeconds(Math.floor(time/1000)); // specify value for SECONDS here
 	var result = date.toISOString().substr(11, 8);
