@@ -85,7 +85,7 @@ function main()
 	
 	
 	var diff = (new Date().getTime() - start) - time;
-	if (getCalsLeft() >= 0)
+	if (getCalsLeft() > 0)
 		setTimeout(main, (100 - diff));
 }
 
