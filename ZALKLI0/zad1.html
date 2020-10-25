@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-1.16.0.css">
+<link rel="stylesheet" href="bootstrap.min.css">
+<link rel="stylesheet" href="custom.css">
+<title>My Page</title>
+</head>
+
+
+<body>
+	<div class="wrapper" style="display: inline-block;">
+		n: <input type="text" id="n" value="10"><br>
+		N1 <input type="text" id="N1" value="128"><br>
+		N2 <input type="text" id="N2" value="131"><br><br>
+		<div id="output"></div>
+	</div>
+  
+  
+<script type="text/javascript" src="jquery-latest.min.js"></script>
+<script type="text/javascript" src="bootstrap.min.js"></script>
+<script src="common.js"></script>
+
+<script language="javascript">
+$( "#N1" ).change(function() {
+  processData();
+});
+
+$( "#n" ).change(function() {
+  processData();
+});
+
+$( "#N2" ).change(function() {
+  processData();
+});
+
+function nCheck()
+{
+	if (BigInt($("#n").val()) < BigInt($("#N2").val()).toString(2).length)
+		$("#n").val(BigInt($("#N2").val()).toString(2).length);
+}
+
+function unrank(pLength, pNumber)
+{
+	var text = []
+	var temp2 = pNumber.toString(2)
+	for (x = 0; x < pLength - BigInt(pNumber.toString(2).length); x++)
+	{
+		temp2 = "0" + temp2
+	}
+	text = temp2.toString(2).split('')
+	zbiory = []
+	for (x = 0; x < text.length; x++)
+	{
+		if (text[x] != 0)
+			zbiory.push((x+1))
+	}
+	return (pNumber + " - " + temp2 + " - {" + zbiory + "}<br><br>")
+}
+
+function processData()
+{
+	nCheck()
+	var length = BigInt($("#n").val())
+	var number1 = BigInt($("#N1").val());
+	var number2 = BigInt($("#N2").val());
+	var output = ""
+	var test = number2 - number1
+	$("#output").html("");
+	if (test < 10000){
+		for (k = 0; k <= test; k++)
+		{
+			$("#output").append(unrank(length, number1 + BigInt(k)));
+		}
+	}
+	else
+	{
+		$("#output").append("Liczby nie mogą różnić się o więcej niż 10000");
+	}
+	
+}
+  
+    //99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
+	//100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  processData();
+</script></body></html>
