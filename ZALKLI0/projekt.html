@@ -4,33 +4,47 @@
 <link rel="stylesheet" href="http://code.jquery.com/qunit/qunit-1.16.0.css">
 <link rel="stylesheet" href="bootstrap.min.css">
 <link rel="stylesheet" href="custom.css">
-<title>My Page</title>
+<title>Permutacje – porządek leksykograficzny</title>
 </head>
 
 
 <body>
-	<div class="wrapper" style="display: inline-block;">
-		<div id="output"></div>
-		<div role="tabpanel" style="width: 100%; display: inline-block; vertical-align: top;">
+	<div class="wrapper" style="width: 1000px">
+		<div role="tabpanel" style="width: 500px; vertical-align: top;">
 			<ul class="nav nav-tabs" role="tablist">
 				<li role="presentation" class="active"><a href="#attackskills" aria-controls="attackskills" role="tab" data-toggle="tab">Permutacje – porządek leksykograficzny</a></li>
+				
 			</ul>
 			<div class="tab-content">
 				<div role="tabpanel" class="tab-pane active" id="attackskills"><div> &nbsp </div>
 					<table id="attacktbl" class="table table-striped">
 						<tbody>
 							<tr><th width="100%">Permutacja: <button type="button" onclick="randomPerm()">Random</button></th></tr>
-							<tr><td width="100%" id="permutacjaTabela"><input type="text" id="permutacja" value="1 3 2 5 4"></td></tr>
+							<tr><td width="90%" id="permutacjaTabela" style="word-wrap:break-word"><input type="text" id="permutacja" value="1 3 2 5 4"></td></tr>
 							<tr><th width="100%">Rank: <button type="button" onclick="randomRank()">Random</button></th></tr>
-							<tr><td width="100%" id="rankTabela"><input type="text" id="rank" value="7"></td></tr>
+							<tr><td width="90%" id="rankTabela"><input type="text" id="rank" value="7"></td></tr>
 							<tr><th width="100%">N: <button type="button" onclick="randomN()">Random</button></th></tr>
-							<tr><td width="100%" id="NTabela"><input type="text" id="N" value="5"></td></tr>
+							<tr><td width="90%" id="NTabela"><input type="text" id="N" value="5"></td></tr>
 							<tr><th width="100%">Nastepniki: <input type="text" id="nast" value="5" style="width:100px"></th></tr>
-							<tr><td width="100%" id="successorsTabela"></td></tr>
+							<tr><td width="90%" id="successorsTabela"></td></tr>
 							<tr><th width="100%">Poprzedniki: <input type="text" id="pop" value="5" style="width:100px"></th></tr>
-							<tr><td width="100%" id="predecessorTabela"></td></tr>
+							<tr><td width="90%" id="predecessorTabela"></td></tr>
 						</tbody>
 					</table>
+				</div>
+				<div role="tabpanel" class="tab-pane" id="defence"><div> &nbsp </div>
+					<div class="panel panel-primary" style="float: left; width: 498px; display: inline-block; margin-right: 4px">
+						<div class="panel-heading">Funkcja rank</div>
+						<div class="panel-body">
+							<div id="thorpoutput" style="width: 100%">
+							
+								<code>
+									
+								</code
+							
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -45,7 +59,7 @@
 $( "#nast" ).change(function() {
 	_permutacja()
 });
-
+//<li role="presentation"><a href="#defence" aria-controls="defence" role="tab" data-toggle="tab">Funkcje</a></li>
 $( "#pop" ).change(function() {
 	_permutacja()
 });
@@ -120,7 +134,6 @@ function randomN()
 
 function randomRank()
 {
-	//$("#rank").val(randomInRange(BigInt(0), (factorial(BigInt($("#N").val()))-BigInt(1))))
 	$("#rank").val(generateRandomBigInt(BigInt(0), factorial(BigInt($("#N").val()))-BigInt(1)))
 	_rank()
 }
@@ -157,7 +170,6 @@ function _permutacja()
 		var tempPermutation = predecessor(permutation)
 		$("#predecessorTabela").append(tempPermutation + "<br>")
 	}
-	//processData();
 }
 
 function _rank()
@@ -165,14 +177,9 @@ function _rank()
 	var rank = BigInt($("#rank").val())
 	var elNum = factorial(BigInt($("#N").val()))
 	if (rank >= elNum)
-		//if ($("#rank").val() > 9999999999999999999999999999999999999999999999999999999)
-			//$("#rank").val((factorial($("#N").val())-1)*0.999999999)
-		//else
 		$("#rank").val(factorial(BigInt($("#N").val()))-BigInt(1))
 	$("#permutacja").val(unrank(BigInt($("#rank").val()), BigInt($("#N").val())))
 	_permutacja()
-	//console.log(unrank(BigInt($("#rank").val()), BigInt($("#N").val())))
-	//processData();
 }
 
 function rank(permutationArray)
@@ -189,7 +196,6 @@ function rank(permutationArray)
 		digits.splice(digitRank, 1);
 		var temp = BigInt(digitRank) * factorial(BigInt(digits.length))
 		rank = BigInt(rank) + temp
-		//console.log((permutationArray[i]-(i+1))*factorial((permutationArray.length-(i+1))))
 	}
 	return rank
 }
@@ -206,11 +212,8 @@ function unrank(rank, permutationLength)
 	}
 	for (var i = 0; i < permutationLength; i++)
 	{
-		//var digitRank = Math.floor(tempRank/factorial(BigInt(digits.length-1)))
-		//console.log(factorial(BigInt(0)))
 		var digitRank = tempRank/factorial(BigInt(digits.length-1))
 		permutationFinal.push(digits[digitRank])
-		//console.log(typeof(digitRank))
 		digits.splice(parseInt(digitRank), 1);
 		tempRank = tempRank%factorial(BigInt(digits.length))
 	}
@@ -269,6 +272,19 @@ function _N()
 	_permutacja()
 }
 
+function removeDuplicates(permutationArray)
+{
+	var uniqueChars = [];
+	permutationArray.forEach((c) => 
+	{
+		if (!uniqueChars.includes(c)) 
+		{
+			uniqueChars.push(c);
+		}
+	});
+	return uniqueChars
+}
+
 function readPermutation()
 {
 	var permutationString = $("#permutacja").val()
@@ -292,9 +308,9 @@ function readPermutation()
 		{
 		if (!(repetitionCheck(permutationArray, permutationArray.length, i)))
 			permutationArray.push(i)
-		//console.log(permutationArray)
 		}
 	}
+	permutationArray = removeDuplicates(permutationArray)
 	return permutationArray
 }
 
@@ -337,7 +353,6 @@ function successor(permutationArray)
 		}
 	}
 	return increase(permutationArray, index)
-	//console.log(increase(permutationArray, index) + " - " + index)
 }
 
 function decrease(permutationArray, index)
@@ -369,7 +384,6 @@ function predecessor(permutationArray)
 		}
 	}
 	return decrease(permutationArray, index)
-	//console.log(increase(permutationArray, index) + " - " + index)
 }
 
 _permutacja()
