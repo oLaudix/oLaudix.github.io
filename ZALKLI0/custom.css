@@ -21,6 +21,7 @@
 		}
 		.table > tbody > tr > td{
 			padding: 0px;
+			padding-right:5px;
 			vertical-align: middle;
 		}
 		.panel-heading > * {
@@ -63,11 +64,10 @@
 		} */
 		
 		input[type=text] {
-			width: 100%;
+			width: calc(100% + 5px);
 			margin: 0px;
 			border:none;
 		}
-		
 		.nav {
   margin-bottom: 20px;
   margin-left: 0;
