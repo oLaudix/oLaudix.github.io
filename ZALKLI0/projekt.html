@@ -21,7 +21,13 @@
 						<tbody>
 							<tr><th width="100%">Permutacja: <button type="button" onclick="randomPerm()">Random</button></th></tr>
 							<tr><td width="90%" id="permutacjaTabela" style="word-wrap:break-word"><input type="text" id="permutacja" value="1 3 2 5 4"></td></tr>
-							<tr><th width="100%">Rank: <button type="button" onclick="randomRank()">Random</button></th></tr>
+							<tr>
+								<th width="100%">
+									Rank: 
+									<button type="button" onclick="randomRank()">Random</button>
+									<button type="button" onclick="maxRank()">Max</button>
+								</th>
+							</tr>
 							<tr><td width="90%" id="rankTabela"><input type="text" id="rank"></td></tr>
 							<tr><th width="100%">N: <button type="button" onclick="randomN()">Random</button></th></tr>
 							<tr><td width="90%" id="NTabela"><input type="text" id="N"></td></tr>
@@ -130,6 +136,12 @@ function randomN()
 function randomRank()
 {
 	$("#rank").val(generateRandomBigInt(BigInt(0), factorial(BigInt($("#N").val()))-BigInt(1)))
+	_rank()
+}
+
+function maxRank()
+{
+	$("#rank").val(factorial(BigInt($("#N").val()))-BigInt(1))
 	_rank()
 }
 
