@@ -290,7 +290,7 @@ function removeDuplicates(permutationArray)
 	var uniqueChars = [];
 	permutationArray.forEach((c) => 
 	{
-		if (!uniqueChars.includes(c) && (c != 0)) 
+		if (!uniqueChars.includes(c) && (c != 0) && (!(isNaN(c)))) 
 		{
 			uniqueChars.push(c);
 		}
