@@ -393,10 +393,6 @@ function generateRandomBigInt(lowBigInt, highBigInt)
 	const divisor = '1' + '0'.repeat(differenceLength);
 	const randomDifference = (difference * BigInt(multiplier)) / BigInt(divisor);
 	return lowBigInt + randomDifference;
-	/*var test = Math.random()
-	console.log(test.toString() + " - " + test.toString().length)
-	console.log(BigInt(test * Math.pow(10, (test.toString().length - 2))))
-	return (BigInt(Math.random() * 10000000000000000000) * (highBigInt - lowBigInt + BigInt(1)))/BigInt(10000000000000000000) + lowBigInt;*/
 }
 //funkcja zwracajaca najwiekszy mozliwy rank dla danej permutacji
 function maxRank()
