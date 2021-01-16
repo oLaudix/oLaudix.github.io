@@ -81,87 +81,145 @@ $( "#rank" ).change(function() {
 $( "#N" ).change(function() {
 	_N()
 });
-
-function shuffle(array) {
-	var m = array.length, t, i;
-	while (m) {
-		i = Math.floor(Math.random() * m--);
-		t = array[m];
-		array[m] = array[i];
-		array[i] = t;
-	}
-	return array;
-}
-
-function randomInRange(min, max) {
-	min = Math.ceil(min);
-	max = Math.floor(max);
-	return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-function generateRandomBigInt(lowBigInt, highBigInt) 
+////funkcje zwiazane z rank i unrank
+function rank(permutationArray)
 {
-	const difference = highBigInt - lowBigInt;
-	const differenceLength = difference.toString().length;
-	let multiplier = '';
-	while (multiplier.length < differenceLength) 
-	{
-		multiplier += Math.random()
-		.toString()
-		.split('.')[1];
-	}
-	multiplier = multiplier.slice(0, differenceLength);
-	const divisor = '1' + '0'.repeat(differenceLength);
-	const randomDifference = (difference * BigInt(multiplier)) / BigInt(divisor);
-	return lowBigInt + randomDifference;
-	/*var test = Math.random()
-	console.log(test.toString() + " - " + test.toString().length)
-	console.log(BigInt(test * Math.pow(10, (test.toString().length - 2))))
-	return (BigInt(Math.random() * 10000000000000000000) * (highBigInt - lowBigInt + BigInt(1)))/BigInt(10000000000000000000) + lowBigInt;*/
-}
-
-function randomPerm()
-{
+	var rank = 0;
+	//tablica pomocnicza liczb od 1 do n (dlugosc permutacji)
 	var digits = [];
-	for (var i = 0; i < parseInt($("#N").val()); i++)
-	{
-		digits.push(i + 1)
-	}
-	$("#permutacja").val(shuffle(digits))
-	_permutacja()
-}
-
-function randomN()
-{
-	$("#N").val(randomInRange(2, 100))
-	_N()
-}
-
-function randomRank()
-{
-	$("#rank").val(generateRandomBigInt(BigInt(0), factorial(BigInt($("#N").val()))-BigInt(1)))
-	_rank()
-}
-
-function maxRank()
-{
-	$("#rank").val(factorial(BigInt($("#N").val()))-BigInt(1))
-	_rank()
-}
-
-function biggestNumber(permutationArray)
-{
-	var bn = 0;
 	for (var i = 0; i < permutationArray.length; i++)
 	{
-		if (permutationArray[i] > bn)
-		{
-			bn = permutationArray[i]
-		}
+		digits.push(i+1)
 	}
-	return bn
+	for (var i = 0; i < permutationArray.length-1; i++)
+	{
+		//indeks liczby z permutacji, na ktorym stoi w tablicy pomocniczej
+		var digitRank = digits.indexOf(permutationArray[i])
+		//usuwamy te liczbe z tablicy pomocniczej, poniewaz juz ja wykorzystalismy
+		digits.splice(digitRank, 1);
+		//po kolei obliczamy ranki poszczegolnych liczb z permutacji (indeks z tabeli pomocniczej x silnia ilosci liczb pozostalych w tabeli pomocniczej)
+		var temp = BigInt(digitRank) * factorial(BigInt(digits.length))
+		//sumujemy ranki poszczegolnych liczb
+		rank = BigInt(rank) + temp
+	}
+	return rank
 }
 
+function unrank(rank, permutationLength)
+{
+	var tempRank = rank
+	var rest = 0;
+	//tablica pomocnicza liczb od 1 do n (dlugosc permutacji)
+	var digits = [];
+	//permutacja
+	var permutationFinal = []
+	for (var i = 0; i < permutationLength; i++)
+	{
+		digits.push(i+1)
+	}
+	for (var i = 0; i < permutationLength; i++)
+	{
+		//indeks liczby z tabeli pomocniczej, ktory wpisujemy do ostatecznej permutacji, to czesc calkowita z operacji dzielenia rankingu permutacji przez silnie dlugosci liczb z tabeli pomocniczej pomniejszonej o 1
+		var digitRank = tempRank/factorial(BigInt(digits.length-1))
+		//wpisujemy do permutacji liczbe o wyliczonym wczesniej indeksie
+		permutationFinal.push(digits[digitRank])
+		//usuwamy wykorzystana juz liczbe z tabeli pomocniczej
+		digits.splice(parseInt(digitRank), 1);
+		//nowa liczba potrzebna do wyliczenia kolejnego indeksu to reszta z operacji dzielenia rankingu permutacji przez silnie dlugosci liczb pozostalych w tabeli pomocniczej
+		tempRank = tempRank%factorial(BigInt(digits.length))
+	}
+	return permutationFinal
+}
+//funkcja liczaca silnie
+function factorial(num)
+{
+	if (num === BigInt(0) || num === BigInt(1))
+		return BigInt(1);
+	for (var i = num - BigInt(1); i >= 1; i--) 
+	{
+		num *= i;
+	}
+	return num;	
+}
+
+////funkcje zwiazane z nastepnikiem i poprzednikiem
+//nastepnik
+function successor(permutationArray)
+{
+	var index = -1
+	for (var i = permutationArray.length - 1; i >= 0; i--)
+	{
+		//sprawdzamy od konca czy dana liczba jest wieksza od liczby ja poprzedzajaca
+		if (permutationArray[i] > permutationArray[i-1])
+		{
+			index = i-1
+			break
+		}
+	}
+	//kiedy znajdziemy taka liczbe probujemy ja zwiekszyc
+	return increase(permutationArray, index)
+}
+
+function increase(permutationArray, index)
+{
+	//zwikeszamy liczbe i jezeli sie nie powtorzyla przechodzimy dalej, w przeciwnym wypadku zwiekszamy ja ponownie
+	do
+	{
+		permutationArray[index]++
+	} while (repetitionCheck(permutationArray, index, permutationArray[index]))
+	//dopisujemy do permutacji reszte liczb w porzadku rosnacym
+	for (var i = index + 1; i < permutationArray.length; i++)
+	{
+		for (var j = permutationArray.length; j > 0; j--)
+		{
+			if (!(repetitionCheck(permutationArray, i, j)))
+				permutationArray[i] = j
+		}
+	}
+	return permutationArray
+}
+//w przypadku poprzednika operacje wykonujemy w odwrotnej kolejnosci
+function predecessor(permutationArray)
+{
+	var index = -1
+	for (var i = permutationArray.length - 1; i >= 0; i--)
+	{
+		if (permutationArray[i] < permutationArray[i-1])
+		{
+			index = i-1
+			break
+		}
+	}
+	return decrease(permutationArray, index)
+}
+
+function decrease(permutationArray, index)
+{
+	do
+	{
+		permutationArray[index]--
+	} while (repetitionCheck(permutationArray, index, permutationArray[index]))
+	for (var i = index + 1; i < permutationArray.length; i++)
+	{
+		for (var j = 1; j <= permutationArray.length; j++)
+		{
+			if (!(repetitionCheck(permutationArray, i, j)))
+				permutationArray[i] = j
+		}
+	}
+	return permutationArray
+}
+//funkcja sprawdzajaca unikatowosc liczb w ciagu
+function repetitionCheck(permutationArray, index, number)
+{
+	for (var i = 0; i < index; i++)
+	{
+		if (permutationArray[i] == number)
+			return true
+	}
+	return false
+}
+//funcja zwracajaca rank po manualnym podaniu permutacji
 function _permutacja()
 {
 	var permutationArray = readPermutation()
@@ -182,7 +240,7 @@ function _permutacja()
 		$("#predecessorTabela").append(tempPermutation + "<br>")
 	}
 }
-
+//funkcja zwracajaca permutacje po manualnym podaniu rank
 function _rank()
 {
 	var rank = BigInt($("#rank").val())
@@ -192,56 +250,7 @@ function _rank()
 	$("#permutacja").val(unrank(BigInt($("#rank").val()), BigInt($("#N").val())))
 	_permutacja()
 }
-
-function rank(permutationArray)
-{
-	var rank = 0;
-	var digits = [];
-	for (var i = 0; i < permutationArray.length; i++)
-	{
-		digits.push(i+1)
-	}
-	for (var i = 0; i < permutationArray.length-1; i++)
-	{
-		var digitRank = digits.indexOf(permutationArray[i])
-		digits.splice(digitRank, 1);
-		var temp = BigInt(digitRank) * factorial(BigInt(digits.length))
-		rank = BigInt(rank) + temp
-	}
-	return rank
-}
-
-function unrank(rank, permutationLength)
-{
-	var tempRank = rank
-	var rest = 0;
-	var digits = [];
-	var permutationFinal = []
-	for (var i = 0; i < permutationLength; i++)
-	{
-		digits.push(i+1)
-	}
-	for (var i = 0; i < permutationLength; i++)
-	{
-		var digitRank = tempRank/factorial(BigInt(digits.length-1))
-		permutationFinal.push(digits[digitRank])
-		digits.splice(parseInt(digitRank), 1);
-		tempRank = tempRank%factorial(BigInt(digits.length))
-	}
-	return permutationFinal
-}
-
-function factorial(num)
-{
-	if (num === BigInt(0) || num === BigInt(1))
-		return BigInt(1);
-	for (var i = num - BigInt(1); i >= 1; i--) 
-	{
-		num *= i;
-	}
-	return num;	
-}
-
+//funkcja skracajaca lub wydluzajca permutacje przy manualnej zmianie dlugosci
 function _N()
 {
 	if (parseInt($("#N").val()) < 1)
@@ -284,7 +293,7 @@ function _N()
 	$("#permutacja").val(shuffle(permutationArray) + "")
 	_permutacja()
 }
-
+//funkcja usuwajaca duplikaty z podanej permutacji
 function removeDuplicates(permutationArray)
 {
 	var uniqueChars = [];
@@ -297,7 +306,7 @@ function removeDuplicates(permutationArray)
 	});
 	return uniqueChars
 }
-
+//funkcja przetwarzajca podana permutacje
 function readPermutation()
 {
 	var permutationString = $("#permutacja").val()
@@ -327,78 +336,87 @@ function readPermutation()
 	return permutationArray
 }
 
-function repetitionCheck(permutationArray, index, number)
+//funkcja zwracajaca losowa permutacje
+function randomPerm()
 {
-	for (var i = 0; i < index; i++)
+	var digits = [];
+	for (var i = 0; i < parseInt($("#N").val()); i++)
 	{
-		if (permutationArray[i] == number)
-			return true
+		digits.push(i + 1)
 	}
-	return false
+	$("#permutacja").val(shuffle(digits))
+	_permutacja()
+}
+//funkcja zwracajaca losowa dlugosc permutacji
+function randomN()
+{
+	$("#N").val(randomInRange(2, 100))
+	_N()
+}
+//funkcja zwracajaca losowy rank
+function randomRank()
+{
+	$("#rank").val(generateRandomBigInt(BigInt(0), factorial(BigInt($("#N").val()))-BigInt(1)))
+	_rank()
 }
 
-function increase(permutationArray, index)
+//funkcja mieszajaca tablice z permutacja
+function shuffle(array) {
+	var m = array.length, t, i;
+	while (m) {
+		i = Math.floor(Math.random() * m--);
+		t = array[m];
+		array[m] = array[i];
+		array[i] = t;
+	}
+	return array;
+}
+//funkcja zwracajaca losowa liczbe z podanego zakresu
+function randomInRange(min, max) {
+	min = Math.ceil(min);
+	max = Math.floor(max);
+	return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+//funkcja zwracajaca losowa liczbe typu BigInt
+function generateRandomBigInt(lowBigInt, highBigInt) 
 {
-	do
+	const difference = highBigInt - lowBigInt;
+	const differenceLength = difference.toString().length;
+	let multiplier = '';
+	while (multiplier.length < differenceLength) 
 	{
-		permutationArray[index]++
-	} while (repetitionCheck(permutationArray, index, permutationArray[index]))
-	for (var i = index + 1; i < permutationArray.length; i++)
+		multiplier += Math.random()
+		.toString()
+		.split('.')[1];
+	}
+	multiplier = multiplier.slice(0, differenceLength);
+	const divisor = '1' + '0'.repeat(differenceLength);
+	const randomDifference = (difference * BigInt(multiplier)) / BigInt(divisor);
+	return lowBigInt + randomDifference;
+	/*var test = Math.random()
+	console.log(test.toString() + " - " + test.toString().length)
+	console.log(BigInt(test * Math.pow(10, (test.toString().length - 2))))
+	return (BigInt(Math.random() * 10000000000000000000) * (highBigInt - lowBigInt + BigInt(1)))/BigInt(10000000000000000000) + lowBigInt;*/
+}
+//funkcja zwracajaca najwiekszy mozliwy rank dla danej permutacji
+function maxRank()
+{
+	$("#rank").val(factorial(BigInt($("#N").val()))-BigInt(1))
+	_rank()
+}
+//funkcja zwracajaca najwieksza liczbe z podanej permutacji
+function biggestNumber(permutationArray)
+{
+	var bn = 0;
+	for (var i = 0; i < permutationArray.length; i++)
 	{
-		for (var j = permutationArray.length; j > 0; j--)
+		if (permutationArray[i] > bn)
 		{
-			if (!(repetitionCheck(permutationArray, i, j)))
-				permutationArray[i] = j
+			bn = permutationArray[i]
 		}
 	}
-	return permutationArray
+	return bn
 }
-
-function successor(permutationArray)
-{
-	var index = -1
-	for (var i = permutationArray.length - 1; i >= 0; i--)
-	{
-		if (permutationArray[i] > permutationArray[i-1])
-		{
-			index = i-1
-			break
-		}
-	}
-	return increase(permutationArray, index)
-}
-
-function decrease(permutationArray, index)
-{
-	do
-	{
-		permutationArray[index]--
-	} while (repetitionCheck(permutationArray, index, permutationArray[index]))
-	for (var i = index + 1; i < permutationArray.length; i++)
-	{
-		for (var j = 1; j <= permutationArray.length; j++)
-		{
-			if (!(repetitionCheck(permutationArray, i, j)))
-				permutationArray[i] = j
-		}
-	}
-	return permutationArray
-}
-
-function predecessor(permutationArray)
-{
-	var index = -1
-	for (var i = permutationArray.length - 1; i >= 0; i--)
-	{
-		if (permutationArray[i] < permutationArray[i-1])
-		{
-			index = i-1
-			break
-		}
-	}
-	return decrease(permutationArray, index)
-}
-
 _permutacja()
  //1 3 2 5 4 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 89 80
 </script></body></html>
