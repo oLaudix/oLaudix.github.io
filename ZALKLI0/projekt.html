@@ -93,7 +93,7 @@ function rank(permutationArray)
 	}
 	for (var i = 0; i < permutationArray.length-1; i++)
 	{
-		//indeks liczby z permutacji, na ktorym stoi w tablicy pomocniczej
+		//indeks liczby z permutacji, na ktorym stoi w tablicy pomocniczej (liczony od 0)
 		var digitRank = digits.indexOf(permutationArray[i])
 		//usuwamy te liczbe z tablicy pomocniczej, poniewaz juz ja wykorzystalismy
 		digits.splice(digitRank, 1);
@@ -219,7 +219,7 @@ function repetitionCheck(permutationArray, index, number)
 	}
 	return false
 }
-//funcja zwracajaca rank po manualnym podaniu permutacji
+//funcja zwracajaca rank oraz nastepniki i poprzedniki po manualnym podaniu permutacji
 function _permutacja()
 {
 	var permutationArray = readPermutation()
@@ -250,48 +250,12 @@ function _rank()
 	$("#permutacja").val(unrank(BigInt($("#rank").val()), BigInt($("#N").val())))
 	_permutacja()
 }
-//funkcja skracajaca lub wydluzajca permutacje przy manualnej zmianie dlugosci
+//funkcja zwracajaca permutacje o danym rank po zmianie dlugosci permutacji
 function _N()
 {
 	if (parseInt($("#N").val()) < 1)
 		$("#N").val(1)
-	var permutationString = $("#permutacja").val()
-	var permutationArray = []
-	if (permutationString.indexOf(' ') != -1)
-	{
-		permutationArray = permutationString.split(' ').map(Number);
-	}
-	else if (permutationString.indexOf(',') != -1)
-	{
-		permutationArray = permutationString.split(',').map(Number);
-	}
-	else
-	{
-		permutationArray = [parseInt(permutationString)]
-	}
-	if (permutationArray.length > $("#N").val())
-	{
-		var digits = [];
-		for (var i = parseInt($("#N").val()); i < permutationArray.length; i++)
-		{
-			digits.push(i + 1)
-		}
-		for (var i = 0; i < digits.length; i++)
-		{
-			var index = permutationArray.indexOf(digits[i])
-			permutationArray.splice(index, 1);
-		}
-	}
-	else
-	{
-		for (var i = 1; i <= $("#N").val(); i++)
-		{
-			if (!(repetitionCheck(permutationArray, permutationArray.length, i)))
-				permutationArray.push(i)
-		}
-	}
-	$("#permutacja").val(shuffle(permutationArray) + "")
-	_permutacja()
+	_rank()
 }
 //funkcja usuwajaca duplikaty z podanej permutacji
 function removeDuplicates(permutationArray)
@@ -311,13 +275,9 @@ function readPermutation()
 {
 	var permutationString = $("#permutacja").val()
 	var permutationArray = []
-	if (permutationString.indexOf(' ') != -1)
+	if (permutationString.search(/,| /) != -1)
 	{
-		permutationArray = permutationString.split(' ').map(Number);
-	}
-	else if (permutationString.indexOf(',') != -1)
-	{
-		permutationArray = permutationString.split(',').map(Number);
+		permutationArray = permutationString.split(/,| /).map(Number);
 	}
 	else
 	{
@@ -333,6 +293,10 @@ function readPermutation()
 		}
 	}
 	permutationArray = removeDuplicates(permutationArray)
+	if (permutationArray.length == 0)
+	{
+		_N()
+	}
 	return permutationArray
 }
 
@@ -351,6 +315,7 @@ function randomPerm()
 function randomN()
 {
 	$("#N").val(randomInRange(2, 100))
+	//randomRank();
 	_N()
 }
 //funkcja zwracajaca losowy rank
