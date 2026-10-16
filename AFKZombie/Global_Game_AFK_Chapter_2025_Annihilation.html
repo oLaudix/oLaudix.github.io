@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<html data-theme="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/><meta content="#171719" name="theme-color"/><title>Chapter 2025 — Annihilation | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+</style></head><body><header class="topbar" role="banner"><div class="toolbar"><a aria-label="Previous chapter 2024" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2024_Uproar.html#start" title="Previous chapter">‹</a><select aria-label="Choose a chapter" id="chapter-picker"><option value="Global_Game_AFK_Chapter_2000_Control.html">2000 · Control</option><option value="Global_Game_AFK_Chapter_2001_Lockdown.html">2001 · Lockdown</option><option value="Global_Game_AFK_Chapter_2002_Details.html">2002 · Details</option><option value="Global_Game_AFK_Chapter_2003_Restart.html">2003 · Restart</option><option value="Global_Game_AFK_Chapter_2004_Eighth_Level.html">2004 · Eighth Level</option><option value="Global_Game_AFK_Chapter_2005_Cold_Storage.html">2005 · Cold Storage</option><option value="Global_Game_AFK_Chapter_2006_Into_the_Backpack.html">2006 · Into the Backpack</option><option value="Global_Game_AFK_Chapter_2007_Through.html">2007 · Through</option><option value="Global_Game_AFK_Chapter_2008_Attributes.html">2008 · Attributes</option><option value="Global_Game_AFK_Chapter_2009_Shattered.html">2009 · Shattered</option><option value="Global_Game_AFK_Chapter_2010_Summoning.html">2010 · Summoning</option><option value="Global_Game_AFK_Chapter_2011_Destruction.html">2011 · Destruction</option><option value="Global_Game_AFK_Chapter_2012_Fluctuations.html">2012 · Fluctuations</option><option value="Global_Game_AFK_Chapter_2013_Conversion.html">2013 · Conversion</option><option value="Global_Game_AFK_Chapter_2014_Weakened.html">2014 · Weakened</option><option value="Global_Game_AFK_Chapter_2015_Condensation.html">2015 · Condensation</option><option value="Global_Game_AFK_Chapter_2016_Interception.html">2016 · Interception</option><option value="Global_Game_AFK_Chapter_2017_Tremors.html">2017 · Tremors</option><option value="Global_Game_AFK_Chapter_2018_Advancement.html">2018 · Advancement</option><option value="Global_Game_AFK_Chapter_2019_Blood.html">2019 · Blood</option><option value="Global_Game_AFK_Chapter_2020_Teleportation.html">2020 · Teleportation</option><option value="Global_Game_AFK_Chapter_2021_Transfer_Ability.html">2021 · Transfer Ability</option><option value="Global_Game_AFK_Chapter_2022_Preparations.html">2022 · Preparations</option><option value="Global_Game_AFK_Chapter_2023_The_Offensive_Begins.html">2023 · The Offensive Begins</option><option value="Global_Game_AFK_Chapter_2024_Uproar.html">2024 · Uproar</option><option selected="selected" value="Global_Game_AFK_Chapter_2025_Annihilation.html">2025 · Annihilation</option><option value="Global_Game_AFK_Chapter_2026_Assembly.html">2026 · Assembly</option><option value="Global_Game_AFK_Chapter_2027_Critical.html">2027 · Critical</option><option value="Global_Game_AFK_Chapter_2028_Activation.html">2028 · Activation</option></select><a aria-label="Next chapter 2026" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2026_Assembly.html#start" title="Next chapter">›</a><button aria-label="Decrease font size" class="toolbtn" id="smaller" title="Smaller text">A−</button><button aria-label="Increase font size" class="toolbtn" id="larger" title="Larger text">A+</button><button aria-label="Toggle dark/light mode" class="toolbtn" id="theme" title="Toggle theme">◐</button></div><div id="progress-track"><div id="progress"></div></div></header><main><section class="chapter-section" data-reading-anchor="" id="chapter-2025"><div class="chapter-num">Chapter 2025</div><h2 class="chapter-title">Annihilation</h2><p class="source-identity">From original Chinese Chapter 2026 · 全灭</p><article class="prose"><p data-reading-anchor="" id="ch2025-p001">A massive hand formed entirely from blood suddenly swept toward the paladins from the right!</p><p data-reading-anchor="" id="ch2025-p002">Several elite paladins were unable to dodge. The crimson hand seized them together and squeezed them tightly in its palm.</p><p class="sound" data-reading-anchor="" id="ch2025-p003">Hiss… hiss, hiss…</p><p data-reading-anchor="" id="ch2025-p004">The paladins screamed in agony as their bodies rapidly dissolved into the twisting mass of liquid blood, accompanied by continuous sizzling sounds.</p><p data-reading-anchor="" id="ch2025-p005">Hunter stared at the roiling blood suspended in midair, seized by terror. He could feel the auras of those elite Holy Court paladins fading away!</p><p data-reading-anchor="" id="ch2025-p006">The players behind him were too frightened even to breathe properly. Their bodies trembled involuntarily.</p><p data-reading-anchor="" id="ch2025-p007">Those had been elite Holy Court paladins!</p><p data-reading-anchor="" id="ch2025-p008">Elites from high-tier games!</p><p data-reading-anchor="" id="ch2025-p009">And they'd just…</p><p data-reading-anchor="" id="ch2025-p010">Been completely annihilated?</p><p data-reading-anchor="" id="ch2025-p011">Was World Lord Fang Heng really that powerful?</p><p data-reading-anchor="" id="ch2025-p012">The players shuddered as they imagined what would have happened if they'd followed the paladins into the attack. Would they have met the same fate?</p><p data-reading-anchor="" id="ch2025-p013">“Retreat!”</p><p data-reading-anchor="" id="ch2025-p014">Hunter made the decision instantly. He shouted the order and crushed an Emergency Escape Scroll in his hand.</p><p data-reading-anchor="" id="ch2025-p015">The other players came to their senses and crushed their own scrolls, desperate to flee before that terrifying player noticed them!</p><p class="system" data-reading-anchor="" id="ch2025-p016">[Hint: You have eliminated a Holy Court elite combat squad. You have obtained 14,500 Honor Points.]</p><p data-reading-anchor="" id="ch2025-p017">The notification flashed before Fang Heng's eyes.</p><p data-reading-anchor="" id="ch2025-p018">Excellent. Another 145 Main God Points!</p><p data-reading-anchor="" id="ch2025-p019">Fang Heng glanced at the players fleeing rapidly with their scrolls and curled his lip.</p><p data-reading-anchor="" id="ch2025-p020">“They ran pretty fast.”</p><p data-reading-anchor="" id="ch2025-p021">The Domain of Blood really was useful, but it did have drawbacks. Highly concentrated blood was ultimately a consumable resource.</p><p data-reading-anchor="" id="ch2025-p022">He'd fought at full strength to save time just now, and the battle had used up another small portion of his blood.</p><p data-reading-anchor="" id="ch2025-p023">Killing more than twenty elite paladins had replenished some of it, but the purity of that fresh blood was far below what he'd lost.</p><p class="sound" data-reading-anchor="" id="ch2025-p024">Whoosh… whoosh…</p><p data-reading-anchor="" id="ch2025-p025">The remaining blood once again condensed into a greatsword and settled behind Fang Heng's back.</p><p data-reading-anchor="" id="ch2025-p026">Li Qingran came up behind him. She'd witnessed the entire battle.</p><p data-reading-anchor="" id="ch2025-p027">The greatsword on his back contained a deeply unsettling power. When she'd seen him just two days earlier, he hadn't been carrying anything like it.</p><p data-reading-anchor="" id="ch2025-p028">Had his ability to control blood improved yet again? In only two days?</p><p data-reading-anchor="" id="ch2025-p029">If she'd been facing those twenty elite Holy Court paladins, she never could have defeated them alone—especially not in so little time.</p><p data-reading-anchor="" id="ch2025-p030">Without her realizing it, Fang Heng's strength had already far surpassed hers.</p><p data-reading-anchor="" id="ch2025-p031">His rate of progress was frightening…</p><p data-reading-anchor="" id="ch2025-p032">The necromancer players behind her approached as well. They all looked at Fang Heng differently now.</p><p data-reading-anchor="" id="ch2025-p033">Several of them had encountered him at the Necromancer Association just over two months ago.</p><p data-reading-anchor="" id="ch2025-p034">Was this really the same Fang Heng?</p><p data-reading-anchor="" id="ch2025-p035">How could his strength have changed so much?</p><p data-reading-anchor="" id="ch2025-p036">“Senior, preparations are almost complete. We can set off too.”</p><p data-reading-anchor="" id="ch2025-p037">Li Qingran looked toward the seemingly endless zombie army behind them and nodded. “All right.”</p><p data-reading-anchor="" id="ch2025-p038">Under Fang Heng's direction, the zombie clones continued pouring out of the valley, slowly making their way toward the outskirts of the Forest of Bewilderment.</p><p data-reading-anchor="" id="ch2025-p039">Over the past two days, the clones had carried out basic modifications to the terrain in a small part of the forest, slightly increasing the movement speed of ordinary zombie clones there.</p><p data-reading-anchor="" id="ch2025-p040">Time to get moving!</p><p class="scene" data-reading-anchor="" id="ch2025-p041">…</p><p data-reading-anchor="" id="ch2025-p042">Not far from the Forest of Bewilderment, several flashes of white light appeared.</p><p data-reading-anchor="" id="ch2025-p043">Hunter and a few players had escaped the battlefield using their emergency scrolls.</p><p data-reading-anchor="" id="ch2025-p044">Recalling how Fang Heng had disposed of the Holy Court elite squad, they still felt shaken.</p><p data-reading-anchor="" id="ch2025-p045">There was no question about it: their mission had failed.</p><p data-reading-anchor="" id="ch2025-p046">Even if the reward were increased tenfold, they wouldn't go anywhere near that Ghost Tower again!</p><p data-reading-anchor="" id="ch2025-p047">The man they'd encountered was simply too terrifying. Whether he really was Fang Heng no longer mattered.</p><p data-reading-anchor="" id="ch2025-p048">Staying alive was more important!</p><p data-reading-anchor="" id="ch2025-p049">“Let's go!”</p><p data-reading-anchor="" id="ch2025-p050">Hunter led the group back the way they'd come.</p><p data-reading-anchor="" id="ch2025-p051">They needed to report the squad's destruction to the Holy Court, but there was also the strange movement of the zombie horde.</p><p data-reading-anchor="" id="ch2025-p052">They'd seen large numbers of zombies pouring out of the valley. Something was clearly wrong with them!</p><p data-reading-anchor="" id="ch2025-p053">Judging by their direction, they were probably heading toward the outskirts of the Forest of Bewilderment.</p><p data-reading-anchor="" id="ch2025-p054">That meant the undead faction might be preparing another invasion into the Brighton Empire's heartland!</p><p data-reading-anchor="" id="ch2025-p055">Another attack every few days—and each stronger than the last?</p><p data-reading-anchor="" id="ch2025-p056">Who could put up with that?</p><p data-reading-anchor="" id="ch2025-p057">Hunter grimaced and hurried his people out of the forest to report to Gulanchi, the commander of the army guarding its perimeter.</p><p data-reading-anchor="" id="ch2025-p058">Gulanchi knew nothing about Hunter's operation that night. The Holy Court had ordered him to defend the approaches to the Forest of Bewilderment and prevent another undead invasion of the Brighton Empire's interior.</p><p data-reading-anchor="" id="ch2025-p059">The area was so broad that deploying a reliable defense was extremely difficult.</p><p data-reading-anchor="" id="ch2025-p060">After hearing Hunter's report, Gulanchi thought for a moment, summoned his personal guards, and ordered his troops to concentrate on defending a small surrounding area.</p><p data-reading-anchor="" id="ch2025-p061">Hunter was baffled.</p><p data-reading-anchor="" id="ch2025-p062">Was that it? Just tighten the defenses and call it a day?</p><p data-reading-anchor="" id="ch2025-p063">Wasn't the commander taking the warning far too lightly? Shouldn't he at least issue an alert and request reinforcements?</p><p data-reading-anchor="" id="ch2025-p064">Gulanchi noticed his expression and nodded. “You may go. I have my own arrangements.”</p><p data-reading-anchor="" id="ch2025-p065">Hunter frowned, then bowed and withdrew.</p><p data-reading-anchor="" id="ch2025-p066">He knew Gulanchi didn't trust him. Their favorability rating hadn't been high to begin with, and failing the mission had cost him more than half of what remained.</p><p data-reading-anchor="" id="ch2025-p067">Perhaps Gulanchi thought he was merely making excuses for his failure.</p><p data-reading-anchor="" id="ch2025-p068">Hunter snorted inwardly. He'd done all he could. Whether the commander believed him was the commander's business.</p><p data-reading-anchor="" id="ch2025-p069">Fang Heng would probably come marching out with his undead army soon enough. There was no profit in sticking around here. He might as well leave!</p><p data-reading-anchor="" id="ch2025-p070">Yes!</p><p data-reading-anchor="" id="ch2025-p071">Get back to the city, prepare early, and keep an eye out for the special missions that were sure to appear afterward. Maybe there would be something to gain!</p><p data-reading-anchor="" id="ch2025-p072">“Let's go!”</p><p data-reading-anchor="" id="ch2025-p073">Having weighed the risks and rewards, Hunter led his players back toward their temporary base city.</p><p data-reading-anchor="" id="ch2025-p074">Gulanchi watched them leave, thinking they were a bunch of useless fools.</p><p data-reading-anchor="" id="ch2025-p075">Small zombie disturbances had occurred frequently around the Forest of Bewilderment over the past two days, wasting a good deal of his time.</p><p data-reading-anchor="" id="ch2025-p076">Was a little unusual movement from a handful of zombies really worth such a fuss?</p><p data-reading-anchor="" id="ch2025-p077">What a joke!</p><p data-reading-anchor="" id="ch2025-p078">Gulanchi didn't take Hunter seriously. Still, he had other considerations.</p><p data-reading-anchor="" id="ch2025-p079">Fresh news from the main front confirmed that the undead's usual nightly offensive had begun—and tonight's attack was unusually fierce. There might be some change in the situation on the front lines.</p><p data-reading-anchor="" id="ch2025-p080">Best not to make any rash deployments.</p><p data-reading-anchor="" id="ch2025-p081">As Gulanchi pondered this, a commotion arose outside his tent.</p><p data-reading-anchor="" id="ch2025-p082">He frowned and called out, “What's going on out there?”</p></article><p class="end" data-reading-anchor="" id="ch2018-end">— End of Chapter 2018 —</p><details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li><strong>Original-source typo. </strong>The Chinese has 亨特并没有将亨特放在眼里, literally “Hunter did not take Hunter seriously,” although the subject of this paragraph is Gulanchi. The translation uses Gulanchi as the intended subject.</li><li><strong>Honor conversion. </strong>The game shows 14,500 Honor Points, and Fang Heng subsequently counts this as 145 Main God Points. Both values are preserved.</li><li><strong>Names. </strong>古兰奇 is rendered Gulanchi, a provisional Romanization rather than an established Latin-script name.</li><li><strong>Source. </strong>Complete original Chinese Chapter 2026 · 全灭, supplied as GBK-encoded HTML; translated without abridgment.</li></ul></details><nav aria-label="Chapter navigation" class="chapter-nav"><a href="Global_Game_AFK_Chapter_2024_Uproar.html#start">← Previous chapter (2024)</a><a class="next" href="Global_Game_AFK_Chapter_2026_Assembly.html#start">Next chapter (2026) →</a></nav></section><footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>Keep the HTML files together in one folder. Reading position, font size and theme are saved wherever browser storage is supported; Android local-file behavior may vary.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer></main><div aria-live="polite" id="reading-toast" role="status"></div><script>(()=>{
+'use strict';
+const storeKey='afk-reader-position:chapter-2025:v2';
+const sizeKey='afk-reader-font-size:compact-v3';
+const themeKey='afk-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem('afk-reader-test','ok');localStorage.removeItem('afk-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored('afk-last-chapter', "Global_Game_AFK_Chapter_2025_Annihilation.html");
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();</script></body></html>

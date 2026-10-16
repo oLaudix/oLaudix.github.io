@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<html data-theme="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/><meta content="#171719" name="theme-color"/><title>Chapter 2027 — Critical | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+</style></head><body><header class="topbar" role="banner"><div class="toolbar"><a aria-label="Previous chapter 2026" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2026_Assembly.html#start" title="Previous chapter">‹</a><select aria-label="Choose a chapter" id="chapter-picker"><option value="Global_Game_AFK_Chapter_2000_Control.html">2000 · Control</option><option value="Global_Game_AFK_Chapter_2001_Lockdown.html">2001 · Lockdown</option><option value="Global_Game_AFK_Chapter_2002_Details.html">2002 · Details</option><option value="Global_Game_AFK_Chapter_2003_Restart.html">2003 · Restart</option><option value="Global_Game_AFK_Chapter_2004_Eighth_Level.html">2004 · Eighth Level</option><option value="Global_Game_AFK_Chapter_2005_Cold_Storage.html">2005 · Cold Storage</option><option value="Global_Game_AFK_Chapter_2006_Into_the_Backpack.html">2006 · Into the Backpack</option><option value="Global_Game_AFK_Chapter_2007_Through.html">2007 · Through</option><option value="Global_Game_AFK_Chapter_2008_Attributes.html">2008 · Attributes</option><option value="Global_Game_AFK_Chapter_2009_Shattered.html">2009 · Shattered</option><option value="Global_Game_AFK_Chapter_2010_Summoning.html">2010 · Summoning</option><option value="Global_Game_AFK_Chapter_2011_Destruction.html">2011 · Destruction</option><option value="Global_Game_AFK_Chapter_2012_Fluctuations.html">2012 · Fluctuations</option><option value="Global_Game_AFK_Chapter_2013_Conversion.html">2013 · Conversion</option><option value="Global_Game_AFK_Chapter_2014_Weakened.html">2014 · Weakened</option><option value="Global_Game_AFK_Chapter_2015_Condensation.html">2015 · Condensation</option><option value="Global_Game_AFK_Chapter_2016_Interception.html">2016 · Interception</option><option value="Global_Game_AFK_Chapter_2017_Tremors.html">2017 · Tremors</option><option value="Global_Game_AFK_Chapter_2018_Advancement.html">2018 · Advancement</option><option value="Global_Game_AFK_Chapter_2019_Blood.html">2019 · Blood</option><option value="Global_Game_AFK_Chapter_2020_Teleportation.html">2020 · Teleportation</option><option value="Global_Game_AFK_Chapter_2021_Transfer_Ability.html">2021 · Transfer Ability</option><option value="Global_Game_AFK_Chapter_2022_Preparations.html">2022 · Preparations</option><option value="Global_Game_AFK_Chapter_2023_The_Offensive_Begins.html">2023 · The Offensive Begins</option><option value="Global_Game_AFK_Chapter_2024_Uproar.html">2024 · Uproar</option><option value="Global_Game_AFK_Chapter_2025_Annihilation.html">2025 · Annihilation</option><option value="Global_Game_AFK_Chapter_2026_Assembly.html">2026 · Assembly</option><option selected="selected" value="Global_Game_AFK_Chapter_2027_Critical.html">2027 · Critical</option><option value="Global_Game_AFK_Chapter_2028_Activation.html">2028 · Activation</option></select><a aria-label="Next chapter 2028" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2028_Activation.html#start" title="Next chapter">›</a><button aria-label="Decrease font size" class="toolbtn" id="smaller" title="Smaller text">A−</button><button aria-label="Increase font size" class="toolbtn" id="larger" title="Larger text">A+</button><button aria-label="Toggle dark/light mode" class="toolbtn" id="theme" title="Toggle theme">◐</button></div><div id="progress-track"><div id="progress"></div></div></header><main><section class="chapter-section" data-reading-anchor="" id="chapter-2027"><div class="chapter-num">Chapter 2027</div><h2 class="chapter-title">Critical</h2><p class="source-identity">From original Chinese Chapter 2028 · 关键</p><article class="prose"><p data-reading-anchor="" id="ch2027-p001">For the Holy Court, Canmu City was critically important right now!</p><p data-reading-anchor="" id="ch2027-p002">The first teleportation passage to Duncha was about to be completed there. Once it opened, Holy Court reinforcements would begin arriving in the Chiboreya game world without end.</p><p data-reading-anchor="" id="ch2027-p003">If Gulanchi remembered correctly, construction was due to finish tonight!</p><p data-reading-anchor="" id="ch2027-p004">They had to find a way to stop this zombie horde!</p><p data-reading-anchor="" id="ch2027-p005">“We need support from the nearby cities and the front line! Warn Canmu City that the undead are coming their way. Tell them to prepare their defenses!”</p><p data-reading-anchor="" id="ch2027-p006">Fortunately, the undead army appeared to consist of nothing but zombies. With no other troop types, its movement was extremely slow. They still had enough time to prepare and try to intercept it before it reached Canmu City.</p><p class="scene" data-reading-anchor="" id="ch2027-p007">…</p><p data-reading-anchor="" id="ch2027-p008">News of the massive zombie horde in the Forest of Bewilderment quickly spread through the Holy Court faction across Chiboreya.</p><p data-reading-anchor="" id="ch2027-p009">The Holy Court commanders who received the requests for reinforcements were baffled.</p><p data-reading-anchor="" id="ch2027-p010">Was a group of zombies really worth this much fuss?</p><p data-reading-anchor="" id="ch2027-p011">Nevertheless, they immediately assembled troops and sent them to support the forces on the forest's perimeter.</p><p data-reading-anchor="" id="ch2027-p012">And it wasn't just the Holy Court. Players received related missions as well.</p><p data-reading-anchor="" id="ch2027-p013">So…</p><p data-reading-anchor="" id="ch2027-p014">Was the undead faction making a last desperate stand?</p><p data-reading-anchor="" id="ch2027-p015">Holy Court-aligned players grew nervous. But the rewards were excellent, and guilds large and small quickly mobilized toward the forest.</p><p data-reading-anchor="" id="ch2027-p016">Besides, the mission descriptions weren't particularly clear. At first, most players assumed they would be facing ordinary low-level undead.</p><p data-reading-anchor="" id="ch2027-p017">When the nearest group finally arrived after a difficult journey and entered the combat zone, they were stunned.</p><p data-reading-anchor="" id="ch2027-p018">All they could see ahead was a vast black mass.</p><p data-reading-anchor="" id="ch2027-p019">Zombies blanketed the hills and fields! More continued emerging from the depths of the Forest of Bewilderment, with no end in sight.</p><p data-reading-anchor="" id="ch2027-p020">This…</p><p data-reading-anchor="" id="ch2027-p021">The arriving players exchanged looks.</p><p data-reading-anchor="" id="ch2027-p022">There were so many zombies packed together!</p><p data-reading-anchor="" id="ch2027-p023">At a rough estimate, at least a million!</p><p data-reading-anchor="" id="ch2027-p024">And the horde still hadn't reached its full size.</p><p data-reading-anchor="" id="ch2027-p025">Was World Lord Fang Heng controlling all of these zombies by himself? Could he really do something like that?</p><p data-reading-anchor="" id="ch2027-p026">“You lot over there! Get over here! Stop standing around!”</p><p data-reading-anchor="" id="ch2027-p027">The Holy Court squad captain's shout brought the players back to their senses. They hurried over and joined the battle.</p><p data-reading-anchor="" id="ch2027-p028">By then, Gulanchi had gathered successive waves of Holy Court reinforcements and established a forward defensive line.</p><p data-reading-anchor="" id="ch2027-p029">Fluctuations of sacred power exploded repeatedly inside the zombie horde.</p><p data-reading-anchor="" id="ch2027-p030">Naturally, the players didn't dare approach the zombies for fear of being swept up by them. They hid toward the rear and hurled area-of-effect abilities into the crowd.</p><p data-reading-anchor="" id="ch2027-p031">The denser a group of targets, the greater the total damage from area attacks—and the easier it was to earn rewards in the confusion.</p><p data-reading-anchor="" id="ch2027-p032">But this time was different.</p><p data-reading-anchor="" id="ch2027-p033">After several rounds of area attacks, the players' expressions turned bitter.</p><p data-reading-anchor="" id="ch2027-p034">They had emptied their entire mana bars and killed only one or two zombies, earning barely a dozen faction contribution points.</p><p data-reading-anchor="" id="ch2027-p035">How could zombies be this tough?!</p><p data-reading-anchor="" id="ch2027-p036">They had heard rumors about the extraordinary durability of Fang Heng's zombie horde before, but seeing it firsthand left them speechless.</p><p data-reading-anchor="" id="ch2027-p037">The reality was far worse than the rumors!</p><p data-reading-anchor="" id="ch2027-p038">How were they supposed to fight this?</p><p data-reading-anchor="" id="ch2027-p039">“Focus your fire! Stop wasting your Spirit! Pick one zombie and attack it together!”</p><p data-reading-anchor="" id="ch2027-p040">Two nearby NPC Holy Court guards watched the players blasting randomly into the horde and shouted angrily.</p><p data-reading-anchor="" id="ch2027-p041">The players shrank back and obediently concentrated their attacks.</p><p data-reading-anchor="" id="ch2027-p042">Even then, the entire Holy Court army couldn't stop the zombie horde's slow advance!</p><p data-reading-anchor="" id="ch2027-p043">“Aido Town is right behind us! You must hold them! Don't let them get close to the town!”</p><p data-reading-anchor="" id="ch2027-p044">Individually, these were merely low-tier zombies. Their attack power wasn't especially high.</p><p data-reading-anchor="" id="ch2027-p045">But with enough of them gathered together, the horde became a gigantic meat grinder.</p><p data-reading-anchor="" id="ch2027-p046">It crawled steadily forward, consuming anything unfortunate enough to stand in its way!</p><p data-reading-anchor="" id="ch2027-p047">The guards on the walls of Aido Town watched the black mass draw closer and fired arrow after arrow, desperately hoping to slow it down.</p><p data-reading-anchor="" id="ch2027-p048">The zombies advanced through the attacks, simply absorbing the damage. They crashed into the town and began raking the walls with their claws.</p><p data-reading-anchor="" id="ch2027-p049">Within five minutes, the entire town had fallen and been completely swallowed by the horde.</p><p data-reading-anchor="" id="ch2027-p050">The players were so shocked they could barely speak.</p><p data-reading-anchor="" id="ch2027-p051">They couldn't stop it!</p><p data-reading-anchor="" id="ch2027-p052">There was no stopping it!</p><p data-reading-anchor="" id="ch2027-p053">Even a major imperial city would struggle to withstand that many zombies endlessly clawing at its walls!</p><p data-reading-anchor="" id="ch2027-p054">How were they supposed to fight this war?</p><p data-reading-anchor="" id="ch2027-p055">Could the balance between the Holy Court and the undead really be about to reverse?</p><p data-reading-anchor="" id="ch2027-p056">“This is bad! They're heading for Canmu City!”</p><p data-reading-anchor="" id="ch2027-p057">“Quick! Slow them down! Buy Canmu City more time!”</p><p class="scene" data-reading-anchor="" id="ch2027-p058">…</p><p data-reading-anchor="" id="ch2027-p059">Meanwhile, in Canmu City, Chu Yan's Devout Guild already controlled more than half the city.</p><p data-reading-anchor="" id="ch2027-p060">Fang Heng had arrived not long before and met up with Chu Yan.</p><p data-reading-anchor="" id="ch2027-p061">“Boss Fang.”</p><p data-reading-anchor="" id="ch2027-p062">Suppressing his excitement, Chu Yan stepped up beside him and spoke quietly.</p><p data-reading-anchor="" id="ch2027-p063">“We've finished the advance arrangements around the teleportation passage. They'll run the final tests shortly, and then it should go into operation.”</p><p data-reading-anchor="" id="ch2027-p064">Chu Yan had contributed a great deal toward completing Canmu City's passage so quickly over the past two days. Of course, many of the rare materials had been secretly supplied through Fang Heng himself.</p><p data-reading-anchor="" id="ch2027-p065">In other words, Fang Heng deserved a large share of the credit.</p><p data-reading-anchor="" id="ch2027-p066">“Our biggest problem right now is the city lord, Saino,” Chu Yan continued. “Although we've accepted the mission to defend Canmu City, the Holy Court still keeps its guard up around players. As city lord, Saino has absolute command over the city.”</p><p data-reading-anchor="" id="ch2027-p067">Fang Heng nodded. “All right. Take me to have a look.”</p><p data-reading-anchor="" id="ch2027-p068">They soon reached the newly built teleportation area in the north of the city.</p><p data-reading-anchor="" id="ch2027-p069">A three-meter-tall teleportation gate stood at the center. Several maintenance workers were inspecting a large spatial tearing device beside it.</p><p data-reading-anchor="" id="ch2027-p070">“The passage will open soon. It's most unstable immediately after construction, so we'll carry out a trial first. Our people accepted the mission to build the passage and will be assisting with its activation throughout the test.”</p><p data-reading-anchor="" id="ch2027-p071">“Mm.”</p><p data-reading-anchor="" id="ch2027-p072">Fang Heng glanced across the spatial tearing apparatus toward Saino, who was surrounded by guards.</p><p data-reading-anchor="" id="ch2027-p073">“So that's the city lord? I hope we can lure him away.”</p><p data-reading-anchor="" id="ch2027-p074">Chu Yan didn't have a high favorability rating with the new city lord. “It might be difficult, but I'll try.”</p><p data-reading-anchor="" id="ch2027-p075">With that, he took two subordinates and walked toward Saino.</p><p data-reading-anchor="" id="ch2027-p076">Several mechanics were still performing the final checks. Saino had just learned that an undead army was advancing toward Canmu City, and he was uneasy enough to come personally to inspect the teleportation passage's operation.</p></article><p class="end" data-reading-anchor="" id="ch2018-end">— End of Chapter 2018 —</p><details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li><strong>Regional place names. </strong>灿木城 is Canmu City, 艾多小镇 is Aido Town, and 敦查 is Duncha; the Chinese provides no original Latin spelling.</li><li><strong>Player combat detail. </strong>Players empty their mana bars to kill only one or two zombies, earning a little over ten faction contribution points.</li><li><strong>Plot detail. </strong>Fang Heng is secretly responsible for supplying rare materials to speed the construction of the Holy Court’s own teleportation passage.</li><li><strong>Source. </strong>Complete original Chinese Chapter 2028 · 关键, supplied as GBK-encoded HTML; translated without abridgment.</li></ul></details><nav aria-label="Chapter navigation" class="chapter-nav"><a href="Global_Game_AFK_Chapter_2026_Assembly.html#start">← Previous chapter (2026)</a><a class="next" href="Global_Game_AFK_Chapter_2028_Activation.html#start">Next chapter (2028) →</a></nav></section><footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>Keep the HTML files together in one folder. Reading position, font size and theme are saved wherever browser storage is supported; Android local-file behavior may vary.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer></main><div aria-live="polite" id="reading-toast" role="status"></div><script>(()=>{
+'use strict';
+const storeKey='afk-reader-position:chapter-2027:v2';
+const sizeKey='afk-reader-font-size:compact-v3';
+const themeKey='afk-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem('afk-reader-test','ok');localStorage.removeItem('afk-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored('afk-last-chapter', "Global_Game_AFK_Chapter_2027_Critical.html");
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();</script></body></html>

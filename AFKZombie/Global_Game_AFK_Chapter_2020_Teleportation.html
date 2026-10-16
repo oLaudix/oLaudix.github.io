@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<html data-theme="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/><meta content="#171719" name="theme-color"/><title>Chapter 2020 — Teleportation | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+</style></head><body><header class="topbar" role="banner"><div class="toolbar"><a aria-label="Previous chapter 2019" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2019_Blood.html#start" title="Previous chapter">‹</a><select aria-label="Choose a chapter" id="chapter-picker"><option value="Global_Game_AFK_Chapter_2000_Control.html">2000 · Control</option><option value="Global_Game_AFK_Chapter_2001_Lockdown.html">2001 · Lockdown</option><option value="Global_Game_AFK_Chapter_2002_Details.html">2002 · Details</option><option value="Global_Game_AFK_Chapter_2003_Restart.html">2003 · Restart</option><option value="Global_Game_AFK_Chapter_2004_Eighth_Level.html">2004 · Eighth Level</option><option value="Global_Game_AFK_Chapter_2005_Cold_Storage.html">2005 · Cold Storage</option><option value="Global_Game_AFK_Chapter_2006_Into_the_Backpack.html">2006 · Into the Backpack</option><option value="Global_Game_AFK_Chapter_2007_Through.html">2007 · Through</option><option value="Global_Game_AFK_Chapter_2008_Attributes.html">2008 · Attributes</option><option value="Global_Game_AFK_Chapter_2009_Shattered.html">2009 · Shattered</option><option value="Global_Game_AFK_Chapter_2010_Summoning.html">2010 · Summoning</option><option value="Global_Game_AFK_Chapter_2011_Destruction.html">2011 · Destruction</option><option value="Global_Game_AFK_Chapter_2012_Fluctuations.html">2012 · Fluctuations</option><option value="Global_Game_AFK_Chapter_2013_Conversion.html">2013 · Conversion</option><option value="Global_Game_AFK_Chapter_2014_Weakened.html">2014 · Weakened</option><option value="Global_Game_AFK_Chapter_2015_Condensation.html">2015 · Condensation</option><option value="Global_Game_AFK_Chapter_2016_Interception.html">2016 · Interception</option><option value="Global_Game_AFK_Chapter_2017_Tremors.html">2017 · Tremors</option><option value="Global_Game_AFK_Chapter_2018_Advancement.html">2018 · Advancement</option><option value="Global_Game_AFK_Chapter_2019_Blood.html">2019 · Blood</option><option selected="selected" value="Global_Game_AFK_Chapter_2020_Teleportation.html">2020 · Teleportation</option><option value="Global_Game_AFK_Chapter_2021_Transfer_Ability.html">2021 · Transfer Ability</option><option value="Global_Game_AFK_Chapter_2022_Preparations.html">2022 · Preparations</option><option value="Global_Game_AFK_Chapter_2023_The_Offensive_Begins.html">2023 · The Offensive Begins</option><option value="Global_Game_AFK_Chapter_2024_Uproar.html">2024 · Uproar</option><option value="Global_Game_AFK_Chapter_2025_Annihilation.html">2025 · Annihilation</option><option value="Global_Game_AFK_Chapter_2026_Assembly.html">2026 · Assembly</option><option value="Global_Game_AFK_Chapter_2027_Critical.html">2027 · Critical</option><option value="Global_Game_AFK_Chapter_2028_Activation.html">2028 · Activation</option></select><a aria-label="Next chapter 2021" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2021_Transfer_Ability.html#start" title="Next chapter">›</a><button aria-label="Decrease font size" class="toolbtn" id="smaller" title="Smaller text">A−</button><button aria-label="Increase font size" class="toolbtn" id="larger" title="Larger text">A+</button><button aria-label="Toggle dark/light mode" class="toolbtn" id="theme" title="Toggle theme">◐</button></div><div id="progress-track"><div id="progress"></div></div></header><main><section class="chapter-section" data-reading-anchor="" id="chapter-2020"><div class="chapter-num">Chapter 2020</div><h2 class="chapter-title">Teleportation</h2><p class="source-identity">From original Chinese Chapter 2021 · 传送</p><article class="prose"><p data-reading-anchor="" id="ch2020-p001">He had clearly dodged the first wave of attacks, yet the crimson spears made a wide turn in midair and came straight back at him!</p><p data-reading-anchor="" id="ch2020-p002">The moment he managed to evade one wave, the next was already upon him. And all the while he was running for his life!</p><p data-reading-anchor="" id="ch2020-p003">This was bad!</p><p data-reading-anchor="" id="ch2020-p004">He couldn't dodge them all!</p><p data-reading-anchor="" id="ch2020-p005">Resolve flashed through Ji Shaojie's eyes. He raised the blade in his right hand, bracing it against his left.</p><p data-reading-anchor="" id="ch2020-p006">“Dragon's Roar! Slash!”</p><p data-reading-anchor="" id="ch2020-p007">An enormous streak of cyan blade light shot forward.</p><p class="sound" data-reading-anchor="" id="ch2020-p008">BOOM!</p><p data-reading-anchor="" id="ch2020-p009">Accompanied by a faint dragon's roar, the slash collided with several of the pursuing blood spears and exploded. The spears scattered into droplets.</p><p class="sound" data-reading-anchor="" id="ch2020-p010">Whoosh! Whoosh!</p><p data-reading-anchor="" id="ch2020-p011">But a moment later the scattered droplets gathered into spears again, spun several times in the air, and flew after him once more!</p><p data-reading-anchor="" id="ch2020-p012">Ji Shaojie's face stiffened. Even attacking with all his strength, he had only barely managed to break apart three blood spears! And the delay had allowed the sea of blood behind him to draw even closer.</p><p data-reading-anchor="" id="ch2020-p013">What was he supposed to do?!</p><p data-reading-anchor="" id="ch2020-p014">How had things turned out like this?</p><p data-reading-anchor="" id="ch2020-p015">He had come here to hunt down Fang Heng while Fang Heng was weakened. How had he ended up being the one desperately fleeing for his life?</p><p data-reading-anchor="" id="ch2020-p016">Gritting his teeth, Ji Shaojie turned and sprinted as hard as he could.</p><p class="sound" data-reading-anchor="" id="ch2020-p017">Whoosh!</p><p data-reading-anchor="" id="ch2020-p018">Fang Heng rapidly closed the distance.</p><p data-reading-anchor="" id="ch2020-p019">In truth, he could have ended this fight long ago. He was simply testing his new skills and seeing exactly what they could do.</p><p data-reading-anchor="" id="ch2020-p020">He had only just acquired them. Like a child with a new toy, naturally he wanted to play with them and learn how they worked.</p><p data-reading-anchor="" id="ch2020-p021">In his experience, what a skill description claimed and what the ability could actually accomplish were often two very different things.</p><p data-reading-anchor="" id="ch2020-p022">Ji Shaojie was a high-tier player. He made a pretty good test subject!</p><p data-reading-anchor="" id="ch2020-p023">And Fang Heng was delighted with the results.</p><p data-reading-anchor="" id="ch2020-p024">Take his Blood Manipulation ability, for example. Although its description hadn't changed much after his bloodline advancement, his control over blood had improved dramatically.</p><p data-reading-anchor="" id="ch2020-p025">Previously, using it required him to stand still and maintain his casting posture. Now he could continue casting while moving and making basic attacks, without interrupting the skill.</p><p data-reading-anchor="" id="ch2020-p026">That was a major improvement.</p><p data-reading-anchor="" id="ch2020-p027">Then there was Mark of Blood. It could mark multiple targets simultaneously. In fact, Fang Heng had already marked all the Federation players who'd fled earlier.</p><p data-reading-anchor="" id="ch2020-p028">Not one of them would escape!</p><p data-reading-anchor="" id="ch2020-p029">Of course, the trick worked partly because the players weren't especially strong. After marking nine people simultaneously, Fang Heng could already sense the marks growing weaker.</p><p data-reading-anchor="" id="ch2020-p030">By now he had tried nearly every new ability and had a pretty good idea of their strengths.</p><p data-reading-anchor="" id="ch2020-p031">Ji Shaojie soon realized Fang Heng was toying with him like a cat playing with a mouse. Rage boiled up inside him. Instead of fleeing any farther, he suddenly turned and glared at Fang Heng.</p><p data-reading-anchor="" id="ch2020-p032">He understood now. If he kept running, he would only exhaust himself!</p><p data-reading-anchor="" id="ch2020-p033">Better to risk everything in one desperate stand than be caught after he had no strength left. There might still be a slim chance of survival!</p><p data-reading-anchor="" id="ch2020-p034">“Fang Heng!”</p><p data-reading-anchor="" id="ch2020-p035">Ji Shaojie spread his hands, conjuring a dark shield around himself. A ball of scarlet energy formed in each palm.</p><p data-reading-anchor="" id="ch2020-p036">“Fang Heng, I acknowledge your strength! But don't push me! If I die, you won't come out of this unscathed either!”</p><p data-reading-anchor="" id="ch2020-p037">Naturally, Fang Heng wasn't frightened by a few threats. He noticed the strange energies gathering in Ji Shaojie's palms and temporarily halted his blood manipulation within the domain.</p><p class="sound" data-reading-anchor="" id="ch2020-p038">Whoosh… whoosh…</p><p data-reading-anchor="" id="ch2020-p039">The blood spears that had been flying toward Ji Shaojie came to a halt in midair.</p><p data-reading-anchor="" id="ch2020-p040">Gu Qingzhu hurried over and stopped beside Fang Heng.</p><p data-reading-anchor="" id="ch2020-p041">“Careful, Fang Heng! Those are Yin-Yang Orbs. If the two touch, they'll cause a violent explosion. Don't get close.”</p><p data-reading-anchor="" id="ch2020-p042">Ji Shaojie saw Fang Heng hesitate and seized the chance to gulp down air. His mind raced as he searched for something that might persuade Fang Heng to spare him.</p><p data-reading-anchor="" id="ch2020-p043">“Fang Heng, there's no personal grudge between us. I lost this time, and I admit it. From now on, whenever I see you, I'll go the other way.”</p><p data-reading-anchor="" id="ch2020-p044">Fang Heng said nothing. Ji Shaojie's brow furrowed.</p><p data-reading-anchor="" id="ch2020-p045">Then his expression changed as a powerful sense of danger seized him.</p><p data-reading-anchor="" id="ch2020-p046">What was that?!</p><p class="sound" data-reading-anchor="" id="ch2020-p047">Whoosh!</p><p data-reading-anchor="" id="ch2020-p048">A spot of scarlet suddenly appeared between Fang Heng's eyebrows.</p><p data-reading-anchor="" id="ch2020-p049">Blood!</p><p data-reading-anchor="" id="ch2020-p050">Drops of blood seeped from his brow and floated into the air, joining more blood that rapidly gathered from the surroundings. Together they formed a fist-sized sphere.</p><p data-reading-anchor="" id="ch2020-p051">The sphere rose slowly.</p><p class="sound" data-reading-anchor="" id="ch2020-p052">Hiss… hiss, hiss…</p><p data-reading-anchor="" id="ch2020-p053">Strange ripples spread through the space around it. The air gradually twisted into chaos.</p><p class="sound" data-reading-anchor="" id="ch2020-p054">Hiss!</p><p data-reading-anchor="" id="ch2020-p055">A chaotic teleportation passage, about two meters high, appeared!</p><p data-reading-anchor="" id="ch2020-p056">Ji Shaojie's heart lurched.</p><p data-reading-anchor="" id="ch2020-p057">Was that… a special spatial teleportation portal?!</p><p data-reading-anchor="" id="ch2020-p058">Whoosh! Whoosh, whoosh!</p><p data-reading-anchor="" id="ch2020-p059">In the next instant, swarms of crimson bats poured continuously out of the passage.</p><p data-reading-anchor="" id="ch2020-p060">Ji Shaojie's expression changed again and again.</p><p data-reading-anchor="" id="ch2020-p061">And those weren't just bats. He could even see Lickers whose bodies were shrouded in crimson blood!</p><p data-reading-anchor="" id="ch2020-p062">Large numbers of Lickers burst through the portal.</p><p class="sound" data-reading-anchor="" id="ch2020-p063">Hiss! Hiss, hiss!</p><p data-reading-anchor="" id="ch2020-p064">The dense swarms of bats and Lickers surged toward him!</p><p data-reading-anchor="" id="ch2020-p065">“Then we'll die together!”</p><p data-reading-anchor="" id="ch2020-p066">Ji Shaojie knew his death was imminent. A vicious light burned in his eyes as he slammed both hands toward each other.</p><p data-reading-anchor="" id="ch2020-p067">Two entirely different sources of power converged between his palms.</p><p data-reading-anchor="" id="ch2020-p068">Gu Qingzhu was horrified. “Fang Heng! Watch out!”</p><p data-reading-anchor="" id="ch2020-p069">BOOOOM!</p><p data-reading-anchor="" id="ch2020-p070">At the instant the two energies met, an enormous explosion erupted around Ji Shaojie!</p><p data-reading-anchor="" id="ch2020-p071">Almost simultaneously, the crimson spears surrounding him fused into a huge curtain of blood. It formed a hemispherical barrier enclosing him completely.</p><p data-reading-anchor="" id="ch2020-p072">Gu Qingzhu's entire field of vision was covered by scarlet.</p><p class="sound" data-reading-anchor="" id="ch2020-p073">Hiss… hiss, hiss…</p><p data-reading-anchor="" id="ch2020-p074">The explosion battered against the blood curtain, producing thick clouds of cyan mist. Every bit of the explosive damage was absorbed by the barrier.</p><p data-reading-anchor="" id="ch2020-p075">Fang Heng stared at the hemisphere of blood, his brows tightly knit.</p><p data-reading-anchor="" id="ch2020-p076">The Domain of Blood was undoubtedly powerful. The stronger the blood he controlled, the stronger he became inside the domain.</p><p data-reading-anchor="" id="ch2020-p077">But this battle had taught him something: blood was a consumable resource too.</p><p data-reading-anchor="" id="ch2020-p078">Blocking Ji Shaojie's self-destruct attack head-on had consumed a full third of that precious, highly refined blood!</p><p data-reading-anchor="" id="ch2020-p079">What a waste!</p><p data-reading-anchor="" id="ch2020-p080">If he'd known, he would have simply killed Ji Shaojie with blood spikes earlier.</p><p data-reading-anchor="" id="ch2020-p081">Thinking back, Fang Heng couldn't help feeling the loss. At least it was still within acceptable limits.</p><p data-reading-anchor="" id="ch2020-p082">On the other hand, the teleportation passage opened by his Blood Sacrifice skill had given him an enormous surprise!</p><p data-reading-anchor="" id="ch2020-p083">A circular portal with a radius of approximately two meters—and its transport capacity was unexpectedly impressive. It should be able to bring large numbers of vampires onto the battlefield at high speed in bat form.</p></article><p class="end" data-reading-anchor="" id="ch2018-end">— End of Chapter 2018 —</p><details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li><strong>Yin-Yang Orbs. </strong>阴阳之球 is translated as “Yin-Yang Orbs”; the Chinese does not establish an alternative proper-name spelling.</li><li><strong>Blood Sacrifice. </strong>血之祭祀 is kept as Blood Sacrifice, consistent with the previous skill panel. The summoned bats and Lickers emerge through its portal.</li><li><strong>Portal size. </strong>The original specifies a radius of about two meters, rather than a diameter. This is preserved.</li><li><strong>Source. </strong>Complete original Chinese Chapter 2021 · 传送, supplied as GBK-encoded HTML; translated without abridgment.</li></ul></details><nav aria-label="Chapter navigation" class="chapter-nav"><a href="Global_Game_AFK_Chapter_2019_Blood.html#start">← Previous chapter (2019)</a><a class="next" href="Global_Game_AFK_Chapter_2021_Transfer_Ability.html#start">Next chapter (2021) →</a></nav></section><footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>Keep the HTML files together in one folder. Reading position, font size and theme are saved wherever browser storage is supported; Android local-file behavior may vary.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer></main><div aria-live="polite" id="reading-toast" role="status"></div><script>(()=>{
+'use strict';
+const storeKey='afk-reader-position:chapter-2020:v2';
+const sizeKey='afk-reader-font-size:compact-v3';
+const themeKey='afk-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem('afk-reader-test','ok');localStorage.removeItem('afk-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored('afk-last-chapter', "Global_Game_AFK_Chapter_2020_Teleportation.html");
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();</script></body></html>
