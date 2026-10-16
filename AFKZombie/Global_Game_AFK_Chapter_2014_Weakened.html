@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html data-theme="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/><meta content="#171719" name="theme-color"/><title>Chapter 2014 — Weakened | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+</style></head><body><header class="topbar" role="banner"><div class="toolbar"><a aria-label="Previous chapter 2013" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2013_Conversion.html#start" title="Previous chapter">‹</a><select aria-label="Choose a chapter" id="chapter-picker"><option value="Global_Game_AFK_Chapter_2000_Control.html">2000 · Control</option><option value="Global_Game_AFK_Chapter_2001_Lockdown.html">2001 · Lockdown</option><option value="Global_Game_AFK_Chapter_2002_Details.html">2002 · Details</option><option value="Global_Game_AFK_Chapter_2003_Restart.html">2003 · Restart</option><option value="Global_Game_AFK_Chapter_2004_Eighth_Level.html">2004 · Eighth Level</option><option value="Global_Game_AFK_Chapter_2005_Cold_Storage.html">2005 · Cold Storage</option><option value="Global_Game_AFK_Chapter_2006_Into_the_Backpack.html">2006 · Into the Backpack</option><option value="Global_Game_AFK_Chapter_2007_Through.html">2007 · Through</option><option value="Global_Game_AFK_Chapter_2008_Attributes.html">2008 · Attributes</option><option value="Global_Game_AFK_Chapter_2009_Shattered.html">2009 · Shattered</option><option value="Global_Game_AFK_Chapter_2010_Summoning.html">2010 · Summoning</option><option value="Global_Game_AFK_Chapter_2011_Destruction.html">2011 · Destruction</option><option value="Global_Game_AFK_Chapter_2012_Fluctuations.html">2012 · Fluctuations</option><option value="Global_Game_AFK_Chapter_2013_Conversion.html">2013 · Conversion</option><option selected="selected" value="Global_Game_AFK_Chapter_2014_Weakened.html">2014 · Weakened</option><option value="Global_Game_AFK_Chapter_2015_Condensation.html">2015 · Condensation</option><option value="Global_Game_AFK_Chapter_2016_Interception.html">2016 · Interception</option><option value="Global_Game_AFK_Chapter_2017_Tremors.html">2017 · Tremors</option><option value="Global_Game_AFK_Chapter_2018_Advancement.html">2018 · Advancement</option></select><a aria-label="Next chapter 2015" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2015_Condensation.html#start" title="Next chapter">›</a><button aria-label="Decrease font size" class="toolbtn" id="smaller" title="Smaller text">A−</button><button aria-label="Increase font size" class="toolbtn" id="larger" title="Larger text">A+</button><button aria-label="Toggle dark/light mode" class="toolbtn" id="theme" title="Toggle theme">◐</button></div><div id="progress-track"><div id="progress"></div></div></header><main><section class="chapter-section" data-reading-anchor="" id="chapter-2014"><div class="chapter-num">Chapter 2014</div><h2 class="chapter-title">Weakened</h2><p class="source-identity">From original Chinese Chapter 2015 · 削弱</p><article class="prose"><p data-reading-anchor="" id="ch2014-p001">And that man had been using the power of Sacred Studies!</p><p data-reading-anchor="" id="ch2014-p002">Could the Holy Court be involved in this affair?</p><p data-reading-anchor="" id="ch2014-p003">Miyamoto Teru sank into thought. He rarely had dealings with the Holy Court.</p><p data-reading-anchor="" id="ch2014-p004">His subordinate continued, "Mr. Miyamoto, everything is ready. We can set out at any time."</p><p data-reading-anchor="" id="ch2014-p005">"Good. Begin immediately. Have Watt lead the team."</p><p data-reading-anchor="" id="ch2014-p006">The subordinate hesitated instead of leaving. "Sir, Ji Shaojie also wants to take part in this operation."</p><p data-reading-anchor="" id="ch2014-p007">Miyamoto seemed surprised. "Oh?"</p><p data-reading-anchor="" id="ch2014-p008">"Ji Shaojie believes the technique the enemy used yesterday carries severe negative consequences. The man must have suffered an enormous backlash and couldn't possibly use the same move again in the near future. He might not even have recovered yet and may be incapable of fighting at all."</p><p data-reading-anchor="" id="ch2014-p009">"Very well." Miyamoto nodded. "His sensitivity to the Dragon Soul Crystal is the strongest. Let him join the operation."</p><p data-reading-anchor="" id="ch2014-p010">"There's one more thing…"</p><p data-reading-anchor="" id="ch2014-p011">"Another?"</p><p data-reading-anchor="" id="ch2014-p012">"Mr. Lei Yu from the Federal Crisis Incident Investigation Department is waiting outside. He seems to want to…"</p><p data-reading-anchor="" id="ch2014-p013">Miyamoto Teru gripped his staff so tightly that the veins bulged on his hand.</p><p data-reading-anchor="" id="ch2014-p014">In truth, he didn't want too many outsiders involved in the Dragon Soul Crystal affair.</p><p data-reading-anchor="" id="ch2014-p015">A full six hours had passed since the invasion, and the Dragon Soul Crystal had been completely shattered.</p><p data-reading-anchor="" id="ch2014-p016">Still, the situation wasn't beyond recovery.</p><p data-reading-anchor="" id="ch2014-p017">There was a backup game teleportation passage at the nearest branch research institute.</p><p data-reading-anchor="" id="ch2014-p018">If they could find a way back into that game and use the tracking ability of players who had accepted the dragon-bloodline inheritance quest, they might be able to locate the site of the shattered crystal.</p><p data-reading-anchor="" id="ch2014-p019">If they collected all the fragments and crystal dust, there might still be hope of restoring its power.</p><p data-reading-anchor="" id="ch2014-p020">But…</p><p data-reading-anchor="" id="ch2014-p021">Could Fox Hunting Squad Team C really retrieve it on their own?</p><p data-reading-anchor="" id="ch2014-p022">For the first time, Miyamoto doubted the elite team under his command.</p><p data-reading-anchor="" id="ch2014-p023">And there was another concern: the shadow of the Holy Court hung over the affair.</p><p data-reading-anchor="" id="ch2014-p024">Only an artifact could break the Dragon Soul Crystal. Was he supposed to believe that the wielder of a Holy Court artifact had nothing to do with the Holy Court? That might fool a three-year-old child, but not him.</p><p data-reading-anchor="" id="ch2014-p025">This was his last chance.</p><p data-reading-anchor="" id="ch2014-p026">"I won't see him. Pass a message to Lei Yu on my behalf. The teleportation passage requires demi-human power to operate. Without the Dragon Soul Crystal, the demi-humans will soon die, and the remaining power is only enough to transport one group into the passage. It won't remain open for long. If he intends to go, he needs to be mentally prepared: he may be trapped in the game world for two or three months."</p><p data-reading-anchor="" id="ch2014-p027">"Yes, sir!"</p><p class="scene" data-reading-anchor="" id="ch2014-p028">· · ·</p><p data-reading-anchor="" id="ch2014-p029">Zombie Apocalypse.</p><p data-reading-anchor="" id="ch2014-p030">"It's all right now. You're going to get better."</p><p data-reading-anchor="" id="ch2014-p031">Under the divine tree's shade, Klevi gently stroked a demi-human child's cheek.</p><p data-reading-anchor="" id="ch2014-p032">The child's eyebrows twitched a few times, then their eyes slowly opened.</p><p data-reading-anchor="" id="ch2014-p033">A look of delighted surprise flashed in Klevi's eyes. She turned and cried excitedly, "Sister Qingzhu, he's awake!"</p><p data-reading-anchor="" id="ch2014-p034">Gu Qingzhu approached and looked warmly at the newly awakened child. "How do you feel? Are you all right?"</p><p data-reading-anchor="" id="ch2014-p035">The child nodded slightly, a weak smile on his face.</p><p data-reading-anchor="" id="ch2014-p036">"Thank you, Klevi."</p><p data-reading-anchor="" id="ch2014-p037">The divine tree Abe Akaya possessed powerful healing abilities. With its assistance, Klevi had worked continuously for more than ten hours to save the rescued demi-humans, stabilizing their conditions and keeping them alive for now.</p><p data-reading-anchor="" id="ch2014-p038">The backlash Gu Qingzhu suffered had also been greatly reduced through the divine tree's help.</p><p data-reading-anchor="" id="ch2014-p039">Unfortunately, they hadn't dealt with Miyamoto Teru or demolished the entire undersea research institute. The cancer had yet to be removed completely!</p><p data-reading-anchor="" id="ch2014-p040">"I'll keep watching him."</p><p data-reading-anchor="" id="ch2014-p041">Gu Qingzhu had no intention of letting Miyamoto Teru go.</p><p data-reading-anchor="" id="ch2014-p042">The destruction of the Dragon Soul Crystal had dealt a devastating blow to the relocation scheme he'd pursued for more than a decade. His series of furious actions the previous night had made that clear.</p><p data-reading-anchor="" id="ch2014-p043">Gu Qingzhu turned to look beside her.</p><p data-reading-anchor="" id="ch2014-p044">A dim yellow light flashed.</p><p data-reading-anchor="" id="ch2014-p045">Because Fang Heng couldn't log out directly from the unknown game world, he'd had to return to the Zombie Apocalypse to do so.</p><p data-reading-anchor="" id="ch2014-p046">After a long sleep, the splitting headache had eased a little. He'd immediately logged back into the game.</p><p data-reading-anchor="" id="ch2014-p047">"Fang Heng, how's your recovery?" Gu Qingzhu asked.</p><p data-reading-anchor="" id="ch2014-p048">"Better. What about you?"</p><p data-reading-anchor="" id="ch2014-p049">Klevi replied, "Brother Fang Heng, the injured patients' conditions have stabilized, but they'll need some time to recover. Let them stay here a little longer. With the divine tree looking after them, it'll be safer."</p><p data-reading-anchor="" id="ch2014-p050">"All right."</p><p data-reading-anchor="" id="ch2014-p051">Fang Heng turned toward Gu Qingzhu. Seeing the weariness on her face, he felt a little embarrassed.</p><p data-reading-anchor="" id="ch2014-p052">"I still have some unfinished business in the game. I'll need your help keeping the passage operating for a while longer."</p><p data-reading-anchor="" id="ch2014-p053">"No problem."</p><p data-reading-anchor="" id="ch2014-p054">After dealing with Miyamoto Teru's underground institute, Gu Qingzhu had nowhere else she urgently needed to go. She also needed time to settle the rescued demi-humans. This was an opportunity for her people to catch their breath and recover their strength.</p><p data-reading-anchor="" id="ch2014-p055">Meanwhile, they would keep gathering information about the Federation's experiments and investigating Miyamoto Teru.</p><p data-reading-anchor="" id="ch2014-p056">"There's no need to be so polite," she said.</p><p data-reading-anchor="" id="ch2014-p057">"Time is short. I need to get back to the unknown world right away."</p><p data-reading-anchor="" id="ch2014-p058">As Fang Heng prepared to return, Gu Qingzhu stood up as well.</p><p data-reading-anchor="" id="ch2014-p059">"Fang Heng, I suspect Miyamoto Teru has other teleportation passages into the game somewhere in the real world. I'll go with you."</p><p data-reading-anchor="" id="ch2014-p060">"All right. The zombies are already patrolling. I'll let you know immediately if they discover anything."</p><p class="scene" data-reading-anchor="" id="ch2014-p061">· · ·</p><p data-reading-anchor="" id="ch2014-p062">Unknown game world.</p><p data-reading-anchor="" id="ch2014-p063">Ji Shaojie's twenty-person team was moving rapidly in the direction of the Dragon Soul Crystal, following its blood-vitality signature.</p><p data-reading-anchor="" id="ch2014-p064">The teleportation passage could remain open for only two hours. Judging from the direction and distance Ji Shaojie sensed, it would take them at least six hours to reach the crystal at their present speed.</p><p data-reading-anchor="" id="ch2014-p065">So they'd made a straightforward decision: they wouldn't go back!</p><p data-reading-anchor="" id="ch2014-p066">They would use all the passage's remaining energy for the initial transport. Everyone had accepted the possibility of being trapped in the game world for at least two months, and the team hurried onward along the crystal's trail.</p><p data-reading-anchor="" id="ch2014-p067">There was good news and bad news.</p><p data-reading-anchor="" id="ch2014-p068">The good news was that they could still sense the Dragon Soul Crystal within this world. At the very least, that meant the demi-humans hadn't yet had time to move all its fragments away.</p><p data-reading-anchor="" id="ch2014-p069">The bad news was that its power had weakened drastically—by at least thirty percent compared with yesterday!</p><p data-reading-anchor="" id="ch2014-p070">And it was still declining rapidly!</p><p data-reading-anchor="" id="ch2014-p071">What was happening? Was the crystal losing power quickly because it had been shattered? Or had some of the fragments already been moved elsewhere?</p><p data-reading-anchor="" id="ch2014-p072">Uneasy, everyone increased their pace, desperate to confirm the crystal's condition.</p><p data-reading-anchor="" id="ch2014-p073">Then, halfway to their destination, Ji Shaojie suddenly sensed something. He slowed down and stared into the distance.</p><p data-reading-anchor="" id="ch2014-p074">"What's that?!"</p></article><p class="end" data-reading-anchor="" id="ch2014-end">— End of Chapter 2014 —</p><details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li><strong>Watt / Klevi. </strong>华特 and 克莱薇 are phonetic representations of foreign-style names. “Watt” and “Klevi” are tentative English spellings; the original Chinese does not determine the Latin letters uniquely.</li><li><strong>Gu Qingzhu. </strong>Female pronouns are supported directly by the original text. No gender inference from the character’s name is needed.</li><li><strong>Portal limitations. </strong>The backup passage may strand anyone using it in the game for two or three months due to depleted energy.</li><li><strong>Source. </strong>Translated from your complete uploaded GBK-encoded HTML file, original Chinese Chapter 2015.</li></ul></details><nav aria-label="Chapter navigation" class="chapter-nav"><a href="Global_Game_AFK_Chapter_2013_Conversion.html#start">← Previous chapter (2013)</a><a class="next" href="Global_Game_AFK_Chapter_2015_Condensation.html#start">Next chapter (2015) →</a></nav></section><footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>Keep the HTML files together in one folder. Reading position, font size and theme are saved wherever browser storage is supported; Android local-file behavior may vary.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer></main><div aria-live="polite" id="reading-toast" role="status"></div><script>(()=>{
+'use strict';
+const storeKey='afk-reader-position:chapter-2014:v2';
+const sizeKey='afk-reader-font-size:compact-v3';
+const themeKey='afk-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem('afk-reader-test','ok');localStorage.removeItem('afk-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();</script></body></html>

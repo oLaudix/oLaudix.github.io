@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html data-theme="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/><meta content="#171719" name="theme-color"/><title>Chapter 2017 — Tremors | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+</style></head><body><header class="topbar" role="banner"><div class="toolbar"><a aria-label="Previous chapter 2016" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2016_Interception.html#start" title="Previous chapter">‹</a><select aria-label="Choose a chapter" id="chapter-picker"><option value="Global_Game_AFK_Chapter_2000_Control.html">2000 · Control</option><option value="Global_Game_AFK_Chapter_2001_Lockdown.html">2001 · Lockdown</option><option value="Global_Game_AFK_Chapter_2002_Details.html">2002 · Details</option><option value="Global_Game_AFK_Chapter_2003_Restart.html">2003 · Restart</option><option value="Global_Game_AFK_Chapter_2004_Eighth_Level.html">2004 · Eighth Level</option><option value="Global_Game_AFK_Chapter_2005_Cold_Storage.html">2005 · Cold Storage</option><option value="Global_Game_AFK_Chapter_2006_Into_the_Backpack.html">2006 · Into the Backpack</option><option value="Global_Game_AFK_Chapter_2007_Through.html">2007 · Through</option><option value="Global_Game_AFK_Chapter_2008_Attributes.html">2008 · Attributes</option><option value="Global_Game_AFK_Chapter_2009_Shattered.html">2009 · Shattered</option><option value="Global_Game_AFK_Chapter_2010_Summoning.html">2010 · Summoning</option><option value="Global_Game_AFK_Chapter_2011_Destruction.html">2011 · Destruction</option><option value="Global_Game_AFK_Chapter_2012_Fluctuations.html">2012 · Fluctuations</option><option value="Global_Game_AFK_Chapter_2013_Conversion.html">2013 · Conversion</option><option value="Global_Game_AFK_Chapter_2014_Weakened.html">2014 · Weakened</option><option value="Global_Game_AFK_Chapter_2015_Condensation.html">2015 · Condensation</option><option value="Global_Game_AFK_Chapter_2016_Interception.html">2016 · Interception</option><option selected="selected" value="Global_Game_AFK_Chapter_2017_Tremors.html">2017 · Tremors</option><option value="Global_Game_AFK_Chapter_2018_Advancement.html">2018 · Advancement</option></select><a aria-label="Next chapter 2018" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2018_Advancement.html#start" title="Next chapter">›</a><button aria-label="Decrease font size" class="toolbtn" id="smaller" title="Smaller text">A−</button><button aria-label="Increase font size" class="toolbtn" id="larger" title="Larger text">A+</button><button aria-label="Toggle dark/light mode" class="toolbtn" id="theme" title="Toggle theme">◐</button></div><div id="progress-track"><div id="progress"></div></div></header><main><section class="chapter-section" data-reading-anchor="" id="chapter-2017"><div class="chapter-num">Chapter 2017</div><h2 class="chapter-title">Tremors</h2><p class="source-identity">From original Chinese Chapter 2018 · 震动</p><article class="prose"><p data-reading-anchor="" id="ch2017-p001">Hiss! Hiss, hiss!</p><p data-reading-anchor="" id="ch2017-p002">Gu Qingzhu sent several arcs of sword light slicing through the air. The two players at the front didn't dare underestimate her and immediately dodged to either side.</p><p data-reading-anchor="" id="ch2017-p003">"Hmph!"</p><p data-reading-anchor="" id="ch2017-p004">After several attacks failed to achieve anything, Gu Qingzhu sent another barrage of sword light forward, then darted to the right and fled!</p><p data-reading-anchor="" id="ch2017-p005">Huh?! She was running?! Just like that?</p><p data-reading-anchor="" id="ch2017-p006">The Fox Hunting Squad wasn't about to let her go so easily. Its members immediately gave chase.</p><p data-reading-anchor="" id="ch2017-p007">Ji Shaojie hesitated. Something felt wrong, but the others had already started pursuing her. He followed while remaining extremely vigilant for changes in their surroundings.</p><p data-reading-anchor="" id="ch2017-p008">"Heh, heh!"</p><p data-reading-anchor="" id="ch2017-p009">Gu Qingzhu laughed disdainfully as she sped away in front of them. She unleashed another round of ranged sword-energy attacks, then turned and fled again as soon as the barrage ended.</p><p data-reading-anchor="" id="ch2017-p010">"Damn it!"</p><p data-reading-anchor="" id="ch2017-p011">"Catch her! Let's see how long she can keep running!"</p><p data-reading-anchor="" id="ch2017-p012">"Sword energy uses a lot of stamina. She can't keep this up for long!"</p><p data-reading-anchor="" id="ch2017-p013">"Avenge our fallen brothers!"</p><p data-reading-anchor="" id="ch2017-p014">Gu Qingzhu had wiped out Fox Hunting Squad Team A the day before. Now that the survivors had come face-to-face with their enemy, their hatred blazed. Her taunts only drove them further into a frenzy, and they prepared to pursue her again.</p><p data-reading-anchor="" id="ch2017-p015">"WAIT!"</p><p data-reading-anchor="" id="ch2017-p016">Ji Shaojie realized something and shouted for them to stop. But the Fox Hunting Squad ignored his command and continued forward.</p><p data-reading-anchor="" id="ch2017-p017">Frowning, Ji Shaojie accelerated and landed in front of their group to block the way.</p><p data-reading-anchor="" id="ch2017-p018">The squad's captain, Watt, looked impatient. "What's wrong? Mr. Ji, why are you stopping us? Can't you see she's almost exhausted?"</p><p data-reading-anchor="" id="ch2017-p019">Anyone could tell that Gu Qingzhu couldn't keep attacking so recklessly for much longer. Besides, the terrain ahead was a broad, open plain with no ambushes visible to the naked eye.</p><p data-reading-anchor="" id="ch2017-p020">Why shouldn't they chase her?</p><p data-reading-anchor="" id="ch2017-p021">Before Ji Shaojie could explain, Tarr, the Federation's deputy leader, spoke gravely.</p><p data-reading-anchor="" id="ch2017-p022">"Everyone, please calm down. Gu Qingzhu is here entirely alone, and her appearance is far too convenient. From what she's doing, there's a good chance she's simply trying to buy time."</p><p data-reading-anchor="" id="ch2017-p023">Ji Shaojie nodded. "Our mission is to recover the Dragon Soul Crystal. Let's find it first. We can settle accounts with Gu Qingzhu later."</p><p data-reading-anchor="" id="ch2017-p024">"Hmph! Fine, we'll do it your way!"</p><p data-reading-anchor="" id="ch2017-p025">Tarr's warning finally cooled the Fox Hunting Squad's heads. They stopped chasing her and continued toward the source of the Dragon Soul Crystal's aura.</p><p data-reading-anchor="" id="ch2017-p026">Gu Qingzhu frowned when she saw the group abandon their pursuit.</p><p data-reading-anchor="" id="ch2017-p027">Troublesome.</p><p data-reading-anchor="" id="ch2017-p028">The backlash from yesterday still hadn't fully healed, so she couldn't enter her explosive-power state again. She wasn't strong enough to stop Miyamoto Teru's people outright.</p><p data-reading-anchor="" id="ch2017-p029">Gritting her teeth, she followed the team from a distance.</p><p data-reading-anchor="" id="ch2017-p030">Ji Shaojie and the others could sense her behind them, but they had no good way to deal with her. For now, they ignored her and pressed onward.</p><p data-reading-anchor="" id="ch2017-p031">Soon, they saw a vast region covered in a bloody red glow.</p><p data-reading-anchor="" id="ch2017-p032">The acrid smell of blood struck their nostrils.</p><p data-reading-anchor="" id="ch2017-p033">Vampires?! What was going on?</p><p data-reading-anchor="" id="ch2017-p034">It hadn't looked anything like this when they'd come yesterday. How had it changed so much?</p><p data-reading-anchor="" id="ch2017-p035">Hundreds of bats circled overhead. The whole area was shrouded in a hellish crimson haze.</p><p data-reading-anchor="" id="ch2017-p036">The group fell silent.</p><p data-reading-anchor="" id="ch2017-p037">Tarr's gaze settled on a distant hillside. "Over there! That coffin!"</p><p data-reading-anchor="" id="ch2017-p038">A coffin?!</p><p data-reading-anchor="" id="ch2017-p039">Everyone looked toward the massive coffin on the hill.</p><p data-reading-anchor="" id="ch2017-p040">A gigantic alchemical magic array covered the ground ahead. At its center hovered an enormous coffin.</p><p data-reading-anchor="" id="ch2017-p041">Vast quantities of blood floated in the air under the array's power, constantly pouring into the coffin with a hissing sound. Above it, a red canopy dozens of meters wide churned continuously.</p><p data-reading-anchor="" id="ch2017-p042">The entire canopy was made of condensed blood!</p><p data-reading-anchor="" id="ch2017-p043">Ji Shaojie stared at the sinister coffin.</p><p data-reading-anchor="" id="ch2017-p044">The great mass of blood contained a significant portion of the Dragon Soul Crystal's power. Yet when that blood entered the coffin and evaporated, he could no longer sense the crystal's power within it.</p><p data-reading-anchor="" id="ch2017-p045">His brow tightened as realization dawned.</p><p data-reading-anchor="" id="ch2017-p046">The vampires were using some special method to transform the Dragon Soul Crystal's power!</p><p data-reading-anchor="" id="ch2017-p047">Compared with yesterday, two-thirds of the power they had sensed in the crystal had already disappeared!</p><p data-reading-anchor="" id="ch2017-p048">What kind of coffin was this? It could actually convert and absorb the power of an artifact like the Dragon Soul Crystal?</p><p data-reading-anchor="" id="ch2017-p049">The others also sensed something wrong. It was as though some kind of life was being nurtured within the coffin.</p><p data-reading-anchor="" id="ch2017-p050">Whatever happened, they couldn't let the process continue!</p><p data-reading-anchor="" id="ch2017-p051">"Everyone, attack together! Stop them!"</p><p data-reading-anchor="" id="ch2017-p052">"Charge!"</p><p data-reading-anchor="" id="ch2017-p053">More than thirty players immediately rushed toward the Vampire King's Coffin.</p><p data-reading-anchor="" id="ch2017-p054">Whoosh! Whoosh, whoosh!</p><p data-reading-anchor="" id="ch2017-p055">The vampires who had been circling above it resumed their human forms and attacked the invaders. Dense volleys of Blood Bombs rained down on the approaching players!</p><p data-reading-anchor="" id="ch2017-p056">Defensive shields sprang up around the players.</p><p data-reading-anchor="" id="ch2017-p057">Everyone qualified to participate in this mission to recover the Dragon Soul Crystal was a top-class fighter!</p><p data-reading-anchor="" id="ch2017-p058">Their objective was clear: the Vampire King's Coffin.</p><p data-reading-anchor="" id="ch2017-p059">They dashed through gaps in the barrage of Blood Bombs, using their shields to withstand any attacks they couldn't avoid.</p><p data-reading-anchor="" id="ch2017-p060">This was bad!</p><p data-reading-anchor="" id="ch2017-p061">Gu Qingzhu, following behind the group, frowned and entered the battle, trying to stop Ji Shaojie and the others from reaching the coffin.</p><p data-reading-anchor="" id="ch2017-p062">In the air, Prince Jia'er saw that the ranged attacks weren't accomplishing much. He led the vampires down into close combat!</p><p data-reading-anchor="" id="ch2017-p063">"Get out of the way!"</p><p data-reading-anchor="" id="ch2017-p064">Seeing Gu Qingzhu interfere again only confirmed the players' suspicion that something was terribly important about the Vampire King's Coffin.</p><p data-reading-anchor="" id="ch2017-p065">"I'll hold them off!" Tarr shouted. "The rest of you destroy that coffin first!"</p><p data-reading-anchor="" id="ch2017-p066">The Federation players separated from the group and rushed to intercept the vampires and Gu Qingzhu behind them.</p><p data-reading-anchor="" id="ch2017-p067">Meanwhile, Ji Shaojie and the surviving Fox Hunting Squad players sped toward the coffin.</p><p data-reading-anchor="" id="ch2017-p068">Closer…</p><p data-reading-anchor="" id="ch2017-p069">Destroy it!</p><p data-reading-anchor="" id="ch2017-p070">With the coffin directly before him, Ji Shaojie swung his slashing blade down with tremendous force!</p><p class="sound" data-reading-anchor="" id="ch2017-p071">BANG!</p><p data-reading-anchor="" id="ch2017-p072">The iron rod struck the coffin with a dull, heavy thud.</p><p data-reading-anchor="" id="ch2017-p073">The coffin remained completely intact.</p><p data-reading-anchor="" id="ch2017-p074">Damn it!</p><p data-reading-anchor="" id="ch2017-p075">Ji Shaojie frowned. The special restrictions of the game and the crossing passage prevented them from using their inventories or carrying items through the teleportation passage. The weapons his team held were therefore inferior equipment taken from the camp Miyamoto Teru's people had established.</p><p data-reading-anchor="" id="ch2017-p076">The coffin before them was clearly no ordinary object. Without a sufficiently powerful weapon, he couldn't break through it directly!</p><p data-reading-anchor="" id="ch2017-p077">"Keep going! Attack it!"</p><p data-reading-anchor="" id="ch2017-p078">If one strike wasn't enough, they'd continue!</p><p data-reading-anchor="" id="ch2017-p079">Ji Shaojie shouted and hacked at the coffin again with his long blade.</p><p data-reading-anchor="" id="ch2017-p080">"Let's see how long you last!"</p><p data-reading-anchor="" id="ch2017-p081">The remaining players broke free from their clashes with the vampires and converged on the Vampire King's Coffin, swinging their weapons at it wildly.</p><p data-reading-anchor="" id="ch2017-p082">BANG! BANG, BANG!</p><p data-reading-anchor="" id="ch2017-p083">The Vampire King's Coffin's health began to fall!</p><p data-reading-anchor="" id="ch2017-p084">"It's working!"</p><p data-reading-anchor="" id="ch2017-p085">Seeing this, the players attacked with renewed vigor.</p></article><p class="end" data-reading-anchor="" id="ch2017-end">— End of Chapter 2017 —</p><details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li><strong>Weapon continuity issue. </strong>The original says Ji Shaojie swings a slashing blade (斩刀), then calls the striking weapon an iron rod (铁棍). This discrepancy is present in the Chinese source.</li><li><strong>Crystalline-energy conversion. </strong>The source says the power sensed in the Dragon Soul Crystal disappears after blood is refined in the coffin; this does not itself establish that all the energy has been destroyed.</li><li><strong>Gu Qingzhu. </strong>The text specifies that she is still suffering yesterday’s backlash and cannot return to her temporary power-surging state.</li><li><strong>Source. </strong>Translated from your complete uploaded GBK-encoded HTML file, original Chinese Chapter 2018.</li></ul></details><nav aria-label="Chapter navigation" class="chapter-nav"><a href="Global_Game_AFK_Chapter_2016_Interception.html#start">← Previous chapter (2016)</a><a class="next" href="Global_Game_AFK_Chapter_2018_Advancement.html#start">Next chapter (2018) →</a></nav></section><footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>Keep the HTML files together in one folder. Reading position, font size and theme are saved wherever browser storage is supported; Android local-file behavior may vary.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer></main><div aria-live="polite" id="reading-toast" role="status"></div><script>(()=>{
+'use strict';
+const storeKey='afk-reader-position:chapter-2017:v2';
+const sizeKey='afk-reader-font-size:compact-v3';
+const themeKey='afk-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem('afk-reader-test','ok');localStorage.removeItem('afk-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();</script></body></html>

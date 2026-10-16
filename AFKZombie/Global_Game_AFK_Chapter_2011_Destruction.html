@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html data-theme="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/><meta content="#171719" name="theme-color"/><title>Chapter 2011 — Destruction | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+</style></head><body><header class="topbar" role="banner"><div class="toolbar"><a aria-label="Previous chapter 2010" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2010_Summoning.html#start" title="Previous chapter">‹</a><select aria-label="Choose a chapter" id="chapter-picker"><option value="Global_Game_AFK_Chapter_2000_Control.html">2000 · Control</option><option value="Global_Game_AFK_Chapter_2001_Lockdown.html">2001 · Lockdown</option><option value="Global_Game_AFK_Chapter_2002_Details.html">2002 · Details</option><option value="Global_Game_AFK_Chapter_2003_Restart.html">2003 · Restart</option><option value="Global_Game_AFK_Chapter_2004_Eighth_Level.html">2004 · Eighth Level</option><option value="Global_Game_AFK_Chapter_2005_Cold_Storage.html">2005 · Cold Storage</option><option value="Global_Game_AFK_Chapter_2006_Into_the_Backpack.html">2006 · Into the Backpack</option><option value="Global_Game_AFK_Chapter_2007_Through.html">2007 · Through</option><option value="Global_Game_AFK_Chapter_2008_Attributes.html">2008 · Attributes</option><option value="Global_Game_AFK_Chapter_2009_Shattered.html">2009 · Shattered</option><option value="Global_Game_AFK_Chapter_2010_Summoning.html">2010 · Summoning</option><option selected="selected" value="Global_Game_AFK_Chapter_2011_Destruction.html">2011 · Destruction</option><option value="Global_Game_AFK_Chapter_2012_Fluctuations.html">2012 · Fluctuations</option><option value="Global_Game_AFK_Chapter_2013_Conversion.html">2013 · Conversion</option><option value="Global_Game_AFK_Chapter_2014_Weakened.html">2014 · Weakened</option><option value="Global_Game_AFK_Chapter_2015_Condensation.html">2015 · Condensation</option><option value="Global_Game_AFK_Chapter_2016_Interception.html">2016 · Interception</option><option value="Global_Game_AFK_Chapter_2017_Tremors.html">2017 · Tremors</option><option value="Global_Game_AFK_Chapter_2018_Advancement.html">2018 · Advancement</option></select><a aria-label="Next chapter 2012" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2012_Fluctuations.html#start" title="Next chapter">›</a><button aria-label="Decrease font size" class="toolbtn" id="smaller" title="Smaller text">A−</button><button aria-label="Increase font size" class="toolbtn" id="larger" title="Larger text">A+</button><button aria-label="Toggle dark/light mode" class="toolbtn" id="theme" title="Toggle theme">◐</button></div><div id="progress-track"><div id="progress"></div></div></header><main><section class="chapter-section" data-reading-anchor="" id="chapter-2011"><div class="chapter-num">Chapter 2011</div><h2 class="chapter-title">Destruction</h2><p class="source-identity">From original Chinese Chapter 2012 · 破坏</p><article class="prose"><p data-reading-anchor="" id="ch2011-p001">Huh?</p><p data-reading-anchor="" id="ch2011-p002">Gu Qingzhu looked up toward a figure lying on the ground not far away. Whoever it was seemed badly injured.</p><p data-reading-anchor="" id="ch2011-p003">It was Fang Heng!</p><p data-reading-anchor="" id="ch2011-p004">Her heart sank, and she hurried over. He was still breathing!</p><p data-reading-anchor="" id="ch2011-p005">She crouched beside him and examined him briefly, relieved that he was alive. But almost immediately, she discovered something astonishing: his wounds were healing at an unbelievably strange speed!</p><p class="scene" data-reading-anchor="" id="ch2011-p006">· · ·</p><p data-reading-anchor="" id="ch2011-p007">On the other side of the teleportation passage, inside the secret undersea research institute—</p><p class="sound" data-reading-anchor="" id="ch2011-p008">BANG!</p><p data-reading-anchor="" id="ch2011-p009">Ji Shaojie was hurled out of the passage!</p><p data-reading-anchor="" id="ch2011-p010">He was still shaken by what had just happened.</p><p data-reading-anchor="" id="ch2011-p011">A sacred dragon!</p><p data-reading-anchor="" id="ch2011-p012">Surviving a single attack from an adult sacred dragon had been an extraordinary stroke of luck. Fortunately, he'd used a secret technique a moment before the blow landed, buying himself one second. In that second, he'd crossed the spatial passage and escaped back here.</p><p data-reading-anchor="" id="ch2011-p013">Who on earth was that man? How could he possess such a technique?</p><p data-reading-anchor="" id="ch2011-p014">Ji Shaojie turned back toward the teleportation passage with lingering fear. He had come within a hair's breadth of death!</p><p data-reading-anchor="" id="ch2011-p015">The image of that adult dragon about to unleash dragonfire was engraved in his mind. Had he hesitated even slightly, he would certainly have died inside. Without question!</p><p data-reading-anchor="" id="ch2011-p016">Wait a moment.</p><p data-reading-anchor="" id="ch2011-p017">That man had been in terrible condition after using his secret technique. If Ji Shaojie went back now… could he finish him off?</p><p data-reading-anchor="" id="ch2011-p018">He abruptly turned to Dudley, who was operating the main controls.</p><p data-reading-anchor="" id="ch2011-p019">"Quick! Switch the teleportation passage's mode! I need to go back inside!"</p><p data-reading-anchor="" id="ch2011-p020">Sweat soaked Dudley's back. "A-all right! Stop rushing me. I'm adjusting it. It takes time…"</p><p data-reading-anchor="" id="ch2011-p021">While Dudley worked, Ji Shaojie demanded, "Who were those people just now? Where did they come from?"</p><p data-reading-anchor="" id="ch2011-p022">Dudley became even more nervous at his hostile tone. "I don't know! They were all demi-human invaders. They forced me to keep the passage open! They originally broke in through the entrance on the other side…"</p><p data-reading-anchor="" id="ch2011-p023">So all the people he'd seen had been demi-humans?</p><p data-reading-anchor="" id="ch2011-p024">Ji Shaojie frowned. "And Miyamoto Teru? Didn't he make any arrangements?"</p><p data-reading-anchor="" id="ch2011-p025">"The demi-humans forced the research institute into lockdown mode. There are still fifteen minutes before the people outside can release it, and even after that it'll take them time to get inside…"</p><p data-reading-anchor="" id="ch2011-p026">Ji Shaojie listened, his brow tightening. A thousand questions crowded his mind.</p><p data-reading-anchor="" id="ch2011-p027">Lockdown mode? That wasn't right!</p><p data-reading-anchor="" id="ch2011-p028">He knew something about the system. Once lockdown mode was activated, wasn't the whole research institute supposed to lose power?</p><p data-reading-anchor="" id="ch2011-p029">The freezer where they'd been staying would then warm up. The Dragon Soul Crystal's power would intensify, awakening them from their state of sensing the dragon soul, so they could join the fight against the intruders.</p><p data-reading-anchor="" id="ch2011-p030">That had been part of their longstanding agreement with Miyamoto Teru.</p><p data-reading-anchor="" id="ch2011-p031">Yet for some reason, the freezer hadn't lost power earlier. When they awakened, they'd discovered the Dragon Soul Crystal was missing and immediately pursued it by following their connection to its aura…</p><p data-reading-anchor="" id="ch2011-p032">Then they'd encountered those two people…</p><p data-reading-anchor="" id="ch2011-p033">"Is it ready yet?!"</p><p data-reading-anchor="" id="ch2011-p034">Another half-minute went by. Before Ji Shaojie could untangle his thoughts, he turned to urge Dudley on. Then his pupils suddenly contracted.</p><p data-reading-anchor="" id="ch2011-p035">What?!</p><p class="sound" data-reading-anchor="" id="ch2011-p036">BOOM!</p><p data-reading-anchor="" id="ch2011-p037">A violent explosion thundered beside him. The ground shook under his feet!</p><p data-reading-anchor="" id="ch2011-p038">"What?!"</p><p data-reading-anchor="" id="ch2011-p039">When the blast subsided, Ji Shaojie regained his balance and looked around.</p><p data-reading-anchor="" id="ch2011-p040">The entire teleportation passage had been reduced to rubble. There was no longer any possibility of returning to the game through it!</p><p data-reading-anchor="" id="ch2011-p041">Fury surged through him. Clenching his fists, he asked in an icy voice, "Can someone tell me what the hell just happened?"</p><p data-reading-anchor="" id="ch2011-p042">"A small timed explosive."</p><p data-reading-anchor="" id="ch2011-p043">Dudley had been thrown about during the explosion and struck his forehead on the corner of a wall. He was now holding both hands against the bleeding wound, looking utterly miserable.</p><p data-reading-anchor="" id="ch2011-p044">He remembered seeing Fang Heng inspect the teleportation passage earlier and apparently do something to it. At the time, he'd assumed Fang Heng was checking its structural integrity. Now it seemed he'd planted a timed explosive.</p><p data-reading-anchor="" id="ch2011-p045">The countdown had ended, and the entire passage had exploded.</p><p data-reading-anchor="" id="ch2011-p046">Ji Shaojie suppressed his rage. "How long would it take to repair the passage and enter the game again?"</p><p data-reading-anchor="" id="ch2011-p047">"In its current condition?"</p><p data-reading-anchor="" id="ch2011-p048">Dudley glanced at the shattered remains of the passage and the main control console, now a heap of charred wreckage. His mouth twisted bitterly.</p><p data-reading-anchor="" id="ch2011-p049">Forget repairing the passage and returning to the game. It would take at least ten days to half a month just to rebuild the main control console!</p><p class="scene" data-reading-anchor="" id="ch2011-p050">· · ·</p><p data-reading-anchor="" id="ch2011-p051">Back in the game world, the red haze before Fang Heng's eyes slowly receded.</p><p data-reading-anchor="" id="ch2011-p052">"Your Majesty! Your Majesty!"</p><p data-reading-anchor="" id="ch2011-p053">Fang Heng opened his eyes groggily and found Vampire Prince Jia'er kneeling on one knee before him.</p><p data-reading-anchor="" id="ch2011-p054">"Your Majesty, you're awake."</p><p data-reading-anchor="" id="ch2011-p055">Jia'er sighed in relief and spoke carefully. "There was an enormous explosion here earlier. Lady Gu Qingzhu found you and carried you out of the area covered in Dragon Soul Crystal dust."</p><p data-reading-anchor="" id="ch2011-p056">Fang Heng frowned and tried to remember what had happened.</p><p data-reading-anchor="" id="ch2011-p057">It seemed he'd drained his mental strength completely while controlling Everlasting Moon, causing a severe backlash that knocked him unconscious.</p><p data-reading-anchor="" id="ch2011-p058">He'd pushed himself too far. His current mental strength wasn't enough to control an adult sacred dragon fully. No wonder he'd suffered such a backlash.</p><p data-reading-anchor="" id="ch2011-p059">Still, he'd been lucky. He hadn't expected the creature he summoned to be quite so powerful.</p><p data-reading-anchor="" id="ch2011-p060">"Where's Gu Qingzhu? Why isn't she here?"</p><p data-reading-anchor="" id="ch2011-p061">"Lady Gu Qingzhu appeared seriously injured. She returned to the Zombie Apocalypse earlier to seek treatment. She instructed us to wait here and said you would wake soon."</p><p data-reading-anchor="" id="ch2011-p062">"Mm."</p><p data-reading-anchor="" id="ch2011-p063">Fang Heng nodded thoughtfully. Gu Qingzhu had once again used the secret technique Xia Xi had left inside her body to buy him time. Her condition was probably quite bad now.</p><p data-reading-anchor="" id="ch2011-p064">She had also rescued a group of her people from the third underground floor of the institute. It looked as though Miyamoto Teru had tampered with those demi-humans in advance.</p><p data-reading-anchor="" id="ch2011-p065">Hopefully the divine tree, Abe Akaya, would be able to heal them.</p><p data-reading-anchor="" id="ch2011-p066">That's right—the Dragon Soul Crystal!</p><p data-reading-anchor="" id="ch2011-p067">Remembering something, Fang Heng glanced toward the region covered in red crystalline powder. Fragments of the Dragon Soul Crystal were still scattered across the ground.</p><p data-reading-anchor="" id="ch2011-p068">They had probably dropped from the players who died.</p><p data-reading-anchor="" id="ch2011-p069">His voice grew colder. "Have you checked? Are there any survivors nearby?"</p><p data-reading-anchor="" id="ch2011-p070">"No. I've had my vampire subordinates search the area. So far, we haven't found any survivors."</p><p data-reading-anchor="" id="ch2011-p071">Fang Heng looked toward the Fox Hunting Squad's former temporary camp. The aftereffects of the dragonfire had reduced it to ruins. The teleportation passage had also disappeared completely.</p><p data-reading-anchor="" id="ch2011-p072">So the concentrated button-sized explosives he'd planted on the passage had worked.</p><p data-reading-anchor="" id="ch2011-p073">They were a precautionary backup plan. Fang Heng always took care to arrange contingencies, and this time the preparation had paid off.</p></article><p class="end" data-reading-anchor="" id="ch2011-end">— End of Chapter 2011 —</p><details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li><strong>Vampire Prince Jia’er. </strong>迦尔 is the Chinese spelling of this prince’s name. “Jia’er” follows the written Mandarin sound; a canonical fantasy-name spelling such as Garr is not confirmed by this chapter.</li><li><strong>Abe Akaya. </strong>阿部赤耶 is a Japanese-sounding name. The reading Abe Akaya is retained from earlier terminology.</li><li><strong>Timed explosives. </strong>The Chinese identifies the passage-destroying devices as concentrated button explosives (浓缩纽扣炸药), planted beforehand by Fang Heng.</li><li><strong>Source. </strong>Translated from your complete uploaded GBK-encoded HTML file, original Chinese Chapter 2012.</li></ul></details><nav aria-label="Chapter navigation" class="chapter-nav"><a href="Global_Game_AFK_Chapter_2010_Summoning.html#start">← Previous chapter (2010)</a><a class="next" href="Global_Game_AFK_Chapter_2012_Fluctuations.html#start">Next chapter (2012) →</a></nav></section><footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>Keep the HTML files together in one folder. Reading position, font size and theme are saved wherever browser storage is supported; Android local-file behavior may vary.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer></main><div aria-live="polite" id="reading-toast" role="status"></div><script>(()=>{
+'use strict';
+const storeKey='afk-reader-position:chapter-2011:v2';
+const sizeKey='afk-reader-font-size:compact-v3';
+const themeKey='afk-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem('afk-reader-test','ok');localStorage.removeItem('afk-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();</script></body></html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html data-theme="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/><meta content="#171719" name="theme-color"/><title>Chapter 2007 — Through | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+</style></head><body><header class="topbar" role="banner"><div class="toolbar"><a aria-label="Previous chapter 2006" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2006_Into_the_Backpack.html#start" title="Previous chapter">‹</a><select aria-label="Choose a chapter" id="chapter-picker"><option value="Global_Game_AFK_Chapter_2000_Control.html">2000 · Control</option><option value="Global_Game_AFK_Chapter_2001_Lockdown.html">2001 · Lockdown</option><option value="Global_Game_AFK_Chapter_2002_Details.html">2002 · Details</option><option value="Global_Game_AFK_Chapter_2003_Restart.html">2003 · Restart</option><option value="Global_Game_AFK_Chapter_2004_Eighth_Level.html">2004 · Eighth Level</option><option value="Global_Game_AFK_Chapter_2005_Cold_Storage.html">2005 · Cold Storage</option><option value="Global_Game_AFK_Chapter_2006_Into_the_Backpack.html">2006 · Into the Backpack</option><option selected="selected" value="Global_Game_AFK_Chapter_2007_Through.html">2007 · Through</option><option value="Global_Game_AFK_Chapter_2008_Attributes.html">2008 · Attributes</option><option value="Global_Game_AFK_Chapter_2009_Shattered.html">2009 · Shattered</option><option value="Global_Game_AFK_Chapter_2010_Summoning.html">2010 · Summoning</option><option value="Global_Game_AFK_Chapter_2011_Destruction.html">2011 · Destruction</option><option value="Global_Game_AFK_Chapter_2012_Fluctuations.html">2012 · Fluctuations</option><option value="Global_Game_AFK_Chapter_2013_Conversion.html">2013 · Conversion</option><option value="Global_Game_AFK_Chapter_2014_Weakened.html">2014 · Weakened</option><option value="Global_Game_AFK_Chapter_2015_Condensation.html">2015 · Condensation</option><option value="Global_Game_AFK_Chapter_2016_Interception.html">2016 · Interception</option><option value="Global_Game_AFK_Chapter_2017_Tremors.html">2017 · Tremors</option><option value="Global_Game_AFK_Chapter_2018_Advancement.html">2018 · Advancement</option></select><a aria-label="Next chapter 2008" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2008_Attributes.html#start" title="Next chapter">›</a><button aria-label="Decrease font size" class="toolbtn" id="smaller" title="Smaller text">A−</button><button aria-label="Increase font size" class="toolbtn" id="larger" title="Larger text">A+</button><button aria-label="Toggle dark/light mode" class="toolbtn" id="theme" title="Toggle theme">◐</button></div><div id="progress-track"><div id="progress"></div></div></header><main><section class="chapter-section" data-reading-anchor="" id="chapter-2007">
+<div class="chapter-num">Chapter 2007</div>
+<h2 class="chapter-title">Through</h2>
+<p class="source-identity">Translated from Chinese Chapter 2008</p>
+<article class="prose"><p class="sound" data-reading-anchor="" id="ch2007-p001">BANG!</p>
+<p data-reading-anchor="" id="ch2007-p002">Gu Qingzhu's sword shook again and again. Her pupils suddenly narrowed into vertical slits! She had entered her slit-pupiled state once more. The power Xia Xi had left within her erupted again. In her berserk state, Gu Qingzhu clashed head-on with Ji Shaojie several times, forcing him backward.</p>
+<p data-reading-anchor="" id="ch2007-p003">Gu Qingzhu's expression remained grave.</p>
+<p data-reading-anchor="" id="ch2007-p004">Ji Shaojie was a recognized powerhouse even among players from high-tier game worlds.</p>
+<p data-reading-anchor="" id="ch2007-p005">His reputation was well deserved.</p>
+<p data-reading-anchor="" id="ch2007-p006">Unlike the others, almost no energy fluctuations escaped from his body.</p>
+<p data-reading-anchor="" id="ch2007-p007">That suggested he'd reached a much higher level of control over the Dragon Soul Crystal's power.</p>
+<p data-reading-anchor="" id="ch2007-p008">Ji Shaojie studied Gu Qingzhu in astonishment. He was already formidable, and with the Dragon Soul Crystal extract enhancing him, he'd thought there were few people who could match him. Yet this stranger who'd appeared out of nowhere made him feel as though he was losing.</p>
+<p data-reading-anchor="" id="ch2007-p009">Of course, she was clearly using some secret technique to boost her strength for a short time.</p>
+<p data-reading-anchor="" id="ch2007-p010">Wait! That brat who'd stolen the Dragon Soul Crystal…</p>
+<p data-reading-anchor="" id="ch2007-p011">Ji Shaojie suddenly realized that Gu Qingzhu was deliberately buying time. “Attack together! Don't let him escape!”</p>
+<p data-reading-anchor="" id="ch2007-p012">Gu Qingzhu glanced sideways at Fang Heng, who was sprinting for the far end of the passage. An idea struck her, and she shouted, “Kikemi!”</p>
+<p data-reading-anchor="" id="ch2007-p013">*Whoosh!* The Shadow Demon Rat responded immediately, darting out from beneath Fang Heng's collar. It climbed onto his shoulder and puffed out its cheeks.</p>
+<p class="sound" data-reading-anchor="" id="ch2007-p014">Fwoooo!</p>
+<p data-reading-anchor="" id="ch2007-p015">Thick black mist poured from Kikemi's mouth. In an instant, Gu Qingzhu's figure disappeared into the dark fog that filled the corridor.</p>
+<p data-reading-anchor="" id="ch2007-p016">Ji Shaojie's expression changed.</p>
+<p data-reading-anchor="" id="ch2007-p017">This was bad!</p>
+<p data-reading-anchor="" id="ch2007-p018">The mist not only interfered with perception, it was poisonous too!</p>
+<p data-reading-anchor="" id="ch2007-p019">“After them!” Ji Shaojie shouted.</p>
+<p data-reading-anchor="" id="ch2007-p020">Gu Qingzhu used the fog to delay the pursuers for a moment, giving Fang Heng time to reach the entrance of the teleportation hall.</p>
+<p data-reading-anchor="" id="ch2007-p021">By now, Fang Heng felt as though his whole body were on fire. Angry-red patches kept appearing across his skin.</p>
+<p data-reading-anchor="" id="ch2007-p022">Just a little longer! The flames raged inside him, burning through his body and even eating away at his consciousness. He could no longer spare any attention for the fighting behind him. Relying on sheer willpower to preserve his last shred of awareness, he staggered into the teleportation hall.</p>
+<p data-reading-anchor="" id="ch2007-p023">There it was!</p>
+<p data-reading-anchor="" id="ch2007-p024">Through his blurred vision, he made out a figure standing near the portal.</p>
+<p data-reading-anchor="" id="ch2007-p025">It had to be Jimmy.</p>
+<p data-reading-anchor="" id="ch2007-p026">“Jimmy! Get into the portal!”</p>
+<p data-reading-anchor="" id="ch2007-p027">Jimmy saw someone wrapped in what looked like flames rushing toward him and hesitated, unsure what he was seeing. Then he recognized Fang Heng's voice and immediately turned and leaped into the portal behind him.</p>
+<p data-reading-anchor="" id="ch2007-p028">Fang Heng shouted and forced himself to run faster across the hall.</p>
+<p data-reading-anchor="" id="ch2007-p029">The teleportation gate was getting closer. Escape was almost within reach.</p>
+<p data-reading-anchor="" id="ch2007-p030">*Whoosh!* Suddenly, he sensed an explosive surge of spatial energy beside him, followed by a dark flash emerging directly out of space!</p>
+<p data-reading-anchor="" id="ch2007-p031">It was coming straight for him! His danger sense screamed a warning, but his body and mind were too badly impaired to react.</p>
+<p data-reading-anchor="" id="ch2007-p032">At the critical moment, Fang Heng glimpsed another figure appearing directly in the attacker's path.</p>
+<p class="sound" data-reading-anchor="" id="ch2007-p033">BANG!</p>
+<p data-reading-anchor="" id="ch2007-p034">Ji Shaojie narrowed his eyes. An overwhelming force struck him, compelling him to retreat. He stared at the powerful opponent now blocking his way.</p>
+<p data-reading-anchor="" id="ch2007-p035">A terrifying aura radiated from Gu Qingzhu.</p>
+<p data-reading-anchor="" id="ch2007-p036">“You are…?”</p>
+<p data-reading-anchor="" id="ch2007-p037">Ji Shaojie regarded her with intense caution.</p>
+<p data-reading-anchor="" id="ch2007-p038">Cold light glittered in Gu Qingzhu's slit-shaped pupils.</p>
+<p data-reading-anchor="" id="ch2007-p039">“Move!”</p>
+<p data-reading-anchor="" id="ch2007-p040">“Don't waste time talking to her! Everyone, attack!”</p>
+<p data-reading-anchor="" id="ch2007-p041">Anxious to stop Fang Heng, Ji Shaojie struck first. Several other players joined him, attacking Gu Qingzhu together.</p>
+<p class="sound" data-reading-anchor="" id="ch2007-p042">Whoosh!</p>
+<p data-reading-anchor="" id="ch2007-p043">A dark teal shield unfolded in front of Gu Qingzhu, enclosing both her and Fang Heng in its protection.</p>
+<p data-reading-anchor="" id="ch2007-p044">A barrage of attacks hammered against the shield, exploding one after another.</p>
+<p data-reading-anchor="" id="ch2007-p045">Blood ran from Gu Qingzhu's eyes, nose, and mouth as she struggled to maintain it.</p>
+<p data-reading-anchor="" id="ch2007-p046">Ji Shaojie and the other players could only watch as Fang Heng drew closer to the teleportation portal under her protection. Their desperation grew, and they attacked with everything they had, holding nothing back.</p>
+<p data-reading-anchor="" id="ch2007-p047">“DIE!”</p>
+<p data-reading-anchor="" id="ch2007-p048">*BOOM!* With a final punch, they smashed through Gu Qingzhu's defensive barrier. The impact hurled her backward, knocking her out of her berserk state.</p>
+<p data-reading-anchor="" id="ch2007-p049">But during the few precious seconds she'd bought him, Fang Heng had passed through the teleportation barrier.</p>
+<p data-reading-anchor="" id="ch2007-p050">The pursuing players were horrified.</p>
+<p data-reading-anchor="" id="ch2007-p051">He'd escaped into the portal?!</p>
+<p data-reading-anchor="" id="ch2007-p052">With the Dragon Soul Crystal?! They were practically burning with fury.</p>
+<p data-reading-anchor="" id="ch2007-p053">Almost everyone present had a quest related to it, and they could all sense that the Dragon Soul Crystal was on Fang Heng.</p>
+<p data-reading-anchor="" id="ch2007-p054">But the instant he vanished through the portal, their ability to sense the crystal disappeared completely.</p>
+<p data-reading-anchor="" id="ch2007-p055">“After him! He's taken the Dragon Soul Crystal! Don't let him get away!”</p>
+<p data-reading-anchor="" id="ch2007-p056">Gu Qingzhu slammed into the wall behind her. Seeing Fang Heng successfully retreat into the portal, she felt a little of the tension leave her body. A self-mocking smile flickered across her face.</p>
+<p data-reading-anchor="" id="ch2007-p057">She'd never imagined a day when she would go this far for a human.</p>
+<p data-reading-anchor="" id="ch2007-p058">When she looked up again, her expression was cold. She watched the crowd rushing toward the portal, then raised both hands in front of her.</p>
+<p data-reading-anchor="" id="ch2007-p059">Several dark spheres of energy formed in her palms.</p>
+<p class="sound" data-reading-anchor="" id="ch2007-p060">Whoosh! Whoosh, whoosh!</p>
+<p data-reading-anchor="" id="ch2007-p061">The spheres shot toward the teleportation machinery on the right side of the hall. “Not good! She's trying to destroy the portal!”</p>
+<p data-reading-anchor="" id="ch2007-p062">Someone noticed Gu Qingzhu's move and shouted in alarm.</p>
+<p data-reading-anchor="" id="ch2007-p063">“Stop her!”</p>
+<p data-reading-anchor="" id="ch2007-p064">“Quick!”</p>
+<p data-reading-anchor="" id="ch2007-p065">Before the words were out, more than a dozen dark energy spheres had already launched from Gu Qingzhu's hands, heading straight for the portal's control equipment!</p>
+<p data-reading-anchor="" id="ch2007-p066">The pursuing players immediately changed course to intercept them.</p>
+<p data-reading-anchor="" id="ch2007-p067">“Help!”</p>
+<p data-reading-anchor="" id="ch2007-p068">Dudley, still at his workbench trying to keep the equipment running, ducked, covered his head, and screamed at the top of his lungs.</p>
+<p data-reading-anchor="" id="ch2007-p069">Everyone in the hall went rigid with tension.</p>
+<p data-reading-anchor="" id="ch2007-p070">They had no idea how the institute had ended up in such a state.</p>
+<p data-reading-anchor="" id="ch2007-p071">But there was only one one-way teleportation portal available to them now.</p>
+<p data-reading-anchor="" id="ch2007-p072">If it was destroyed, they would have no way of recovering the Dragon Soul Crystal!</p>
+<p class="sound" data-reading-anchor="" id="ch2007-p073">Whoosh! Whoosh, whoosh!</p>
+<p data-reading-anchor="" id="ch2007-p074">The players rushed forward, throwing up barriers and using other skills to neutralize the dark projectiles before they struck. Those who couldn't reach them in time even hurled themselves into their path, taking the impacts with their own bodies.</p>
+<p class="sound" data-reading-anchor="" id="ch2007-p075">BOOM! BOOM, BOOM!</p>
+<p data-reading-anchor="" id="ch2007-p076">When the final energy sphere had been blocked, everyone breathed a sigh of relief. But when they looked up again, Gu Qingzhu was gone.</p>
+<p data-reading-anchor="" id="ch2007-p077">“Damn it!”</p>
+<p data-reading-anchor="" id="ch2007-p078">They'd been tricked!</p>
+<p data-reading-anchor="" id="ch2007-p079">Their faces darkened.</p>
+<p data-reading-anchor="" id="ch2007-p080">While they were busy protecting the teleportation equipment, Gu Qingzhu had slipped into the portal and escaped.</p>
+<p data-reading-anchor="" id="ch2007-p081">Ji Shaojie stared at the portal.</p>
+<p data-reading-anchor="" id="ch2007-p082">That woman had been extraordinarily strong.</p>
+<p data-reading-anchor="" id="ch2007-p083">She'd even risked her life to hold them back. He had to admit that losing to her wasn't entirely unjustified.</p>
+<p data-reading-anchor="" id="ch2007-p084">But this wasn't over yet!</p>
+<p data-reading-anchor="" id="ch2007-p085">“Everyone.”</p></article>
+<p class="end" data-reading-anchor="" id="ch2007-end">— End of Chapter 2007 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li><strong>Kikemi.</strong> 基克米 is provisionally rendered “Kikemi,” the Shadow Demon Rat (幽影魔鼠). There is no single certain Latin spelling for this invented name.</li><li><strong>Xia Xi.</strong> 夏曦 is transliterated Xia Xi; the text specifically states that Gu Qingzhu draws on power Xia Xi left within her.</li><li><strong>Slit-pupiled state.</strong> 竖瞳 is “vertical/slit pupils.” The novel pairs it with a berserk state. I retained the visible pupil change rather than renaming it as a new official skill.</li><li><strong>Pronoun inconsistency.</strong> The original occasionally uses 他 (“he”) while referring to Gu Qingzhu in the combat sequence. This edition uses “she” in context.</li><li><strong>Source.</strong> Translated in full from the Chinese PDF you uploaded, original Chapter 2008. The original Chinese chapter number is one ahead of the established English numbering.</li></ul></details>
+
+<nav aria-label="Chapter navigation" class="chapter-nav"><a href="Global_Game_AFK_Chapter_2006_Into_the_Backpack.html#start">← Previous chapter (2006)</a><a class="next" href="Global_Game_AFK_Chapter_2008_Attributes.html#start">Next chapter (2008) →</a></nav></section><footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>Keep the HTML files together in one folder. Reading position, font size and theme are saved wherever browser storage is supported; Android local-file behavior may vary.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer></main><div aria-live="polite" id="reading-toast" role="status"></div><script>(()=>{
+'use strict';
+const storeKey='afk-reader-position:chapter-2007:v2';
+const sizeKey='afk-reader-font-size:compact-v3';
+const themeKey='afk-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem('afk-reader-test','ok');localStorage.removeItem('afk-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();</script></body></html>

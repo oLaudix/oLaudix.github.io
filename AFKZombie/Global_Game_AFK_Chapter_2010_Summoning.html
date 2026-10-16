@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html data-theme="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/><meta content="#171719" name="theme-color"/><title>Chapter 2010 — Summoning | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+</style></head><body><header class="topbar" role="banner"><div class="toolbar"><a aria-label="Previous chapter 2009" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2009_Shattered.html#start" title="Previous chapter">‹</a><select aria-label="Choose a chapter" id="chapter-picker"><option value="Global_Game_AFK_Chapter_2000_Control.html">2000 · Control</option><option value="Global_Game_AFK_Chapter_2001_Lockdown.html">2001 · Lockdown</option><option value="Global_Game_AFK_Chapter_2002_Details.html">2002 · Details</option><option value="Global_Game_AFK_Chapter_2003_Restart.html">2003 · Restart</option><option value="Global_Game_AFK_Chapter_2004_Eighth_Level.html">2004 · Eighth Level</option><option value="Global_Game_AFK_Chapter_2005_Cold_Storage.html">2005 · Cold Storage</option><option value="Global_Game_AFK_Chapter_2006_Into_the_Backpack.html">2006 · Into the Backpack</option><option value="Global_Game_AFK_Chapter_2007_Through.html">2007 · Through</option><option value="Global_Game_AFK_Chapter_2008_Attributes.html">2008 · Attributes</option><option value="Global_Game_AFK_Chapter_2009_Shattered.html">2009 · Shattered</option><option selected="selected" value="Global_Game_AFK_Chapter_2010_Summoning.html">2010 · Summoning</option><option value="Global_Game_AFK_Chapter_2011_Destruction.html">2011 · Destruction</option><option value="Global_Game_AFK_Chapter_2012_Fluctuations.html">2012 · Fluctuations</option><option value="Global_Game_AFK_Chapter_2013_Conversion.html">2013 · Conversion</option><option value="Global_Game_AFK_Chapter_2014_Weakened.html">2014 · Weakened</option><option value="Global_Game_AFK_Chapter_2015_Condensation.html">2015 · Condensation</option><option value="Global_Game_AFK_Chapter_2016_Interception.html">2016 · Interception</option><option value="Global_Game_AFK_Chapter_2017_Tremors.html">2017 · Tremors</option><option value="Global_Game_AFK_Chapter_2018_Advancement.html">2018 · Advancement</option></select><a aria-label="Next chapter 2011" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2011_Destruction.html#start" title="Next chapter">›</a><button aria-label="Decrease font size" class="toolbtn" id="smaller" title="Smaller text">A−</button><button aria-label="Increase font size" class="toolbtn" id="larger" title="Larger text">A+</button><button aria-label="Toggle dark/light mode" class="toolbtn" id="theme" title="Toggle theme">◐</button></div><div id="progress-track"><div id="progress"></div></div></header><main><section class="chapter-section" data-reading-anchor="" id="chapter-2010"><div class="chapter-num">Chapter 2010</div><h2 class="chapter-title">Summoning</h2><p class="source-identity">From original Chinese Chapter 2011 · 召唤</p><article class="prose"><p data-reading-anchor="" id="ch2010-p001">It's him!</p><p data-reading-anchor="" id="ch2010-p002">Everyone recognized Fang Heng, the man who had just shattered the Dragon Soul Crystal. Their expressions filled with anger.</p><p data-reading-anchor="" id="ch2010-p003">Fang Heng gave a derisive laugh. "You can leave. Just hand over what you've got first!"</p><p data-reading-anchor="" id="ch2010-p004">Ji Shaojie fixed him with a murderous glare. "Are you threatening me?"</p><p class="sound" data-reading-anchor="" id="ch2010-p005">Whoosh!</p><p data-reading-anchor="" id="ch2010-p006">Ji Shaojie's pupils contracted sharply. Fang Heng suddenly brought his hands together before his chest, forming a hand seal.</p><p data-reading-anchor="" id="ch2010-p007">"Gather!"</p><p data-reading-anchor="" id="ch2010-p008">A powerful surge of energy erupted from Fang Heng's body.</p><p data-reading-anchor="" id="ch2010-p009">This was bad! Ji Shaojie felt immense power gathering rapidly around him.</p><p class="system" data-reading-anchor="" id="ch2010-p010">[Hint: Player has activated the skill — Everlasting Moon.]</p><p class="system" data-reading-anchor="" id="ch2010-p011">[Hint: Player is currently in a low-sequence game world…]</p><p class="system" data-reading-anchor="" id="ch2010-p012">[Hint: Adapting to the current world. The skill's form is changing. Integration in progress…]</p><p class="system" data-reading-anchor="" id="ch2010-p013">[Hint: Player's current state detected: Sacred Studies. Skill integration in progress…]</p><p class="system" data-reading-anchor="" id="ch2010-p014">[Hint: Unknown environment detected. An unknown high-concentration aura is present… Skill integration in progress…]</p><p class="system" data-reading-anchor="" id="ch2010-p015">[Hint: Player and teammates have entered the Reincarnation state.]</p><p class="system" data-reading-anchor="" id="ch2010-p016">[Hint: Everlasting Moon summoning skill: Ancient Sacred Dragon.]</p><p class="system" data-reading-anchor="" id="ch2010-p017">[Creature: Ancient Sacred Dragon]</p><p data-reading-anchor="" id="ch2010-p018">Description: A dragon species inhabiting the ancient divine realm. Having been baptized by sacred power, they are born possessing sacred-attribute abilities.</p><p data-reading-anchor="" id="ch2010-p019">Skills: Sacred Radiance, Dragon's Protection, Dragon Might…</p><p class="sound" data-reading-anchor="" id="ch2010-p020">BOOM!</p><p data-reading-anchor="" id="ch2010-p021">Everyone faintly heard a thunderous roar beside their ears. The spectral image of an enormous dragon with outstretched wings appeared behind Fang Heng!</p><p class="sound" data-reading-anchor="" id="ch2010-p022">ROAR!</p><p data-reading-anchor="" id="ch2010-p023">As the dragon roared, space distorted strangely above and to either side of Fang Heng's shoulders. Two chaotic sigils, each roughly six meters across, rapidly took shape within the distortion.</p><p data-reading-anchor="" id="ch2010-p024">Chaos teleportation passages!</p><p data-reading-anchor="" id="ch2010-p025">Whoosh! Whoosh, whoosh!</p><p data-reading-anchor="" id="ch2010-p026">In the next instant, a juvenile dragon about three meters long flew out of the chaotic portal and charged straight toward the players.</p><p data-reading-anchor="" id="ch2010-p027">What was that…?</p><p data-reading-anchor="" id="ch2010-p028">Everyone stared in shock, then felt their shoulders sink as if a tremendous weight had been placed on them.</p><p data-reading-anchor="" id="ch2010-p029">The young dragon that emerged from the chaos passage was covered in golden scales from head to tail.</p><p data-reading-anchor="" id="ch2010-p030">A sacred dragon hatchling!</p><p data-reading-anchor="" id="ch2010-p031">A dragon!</p><p data-reading-anchor="" id="ch2010-p032">He could actually summon dragons?!</p><p data-reading-anchor="" id="ch2010-p033">The players' hearts pounded wildly as they stared at Fang Heng, who was controlling the chaotic space.</p><p data-reading-anchor="" id="ch2010-p034">Who was this guy, exactly? Manipulating sacred power was astonishing enough, but he could even summon dragons to fight for him?!</p><p data-reading-anchor="" id="ch2010-p035">It might only have been a young dragon, but dragons were inherently formidable creatures. Their innate Dragon Might alone could overpower the vast majority of high-tier creatures. They stood at the very top of the food chain!</p><p data-reading-anchor="" id="ch2010-p036">The players had already exhausted themselves through their confrontations, and the dragon-crystal dust filling the air had weakened them even further. Many also carried Dragon Soul Crystal fragments in their bags. Under the passive suppression of Dragon Might, most could barely move.</p><p data-reading-anchor="" id="ch2010-p037">Not good!</p><p data-reading-anchor="" id="ch2010-p038">Ji Shaojie hadn't imagined Fang Heng possessed such a terrifying summoning ability. He made an immediate decision and threw the Dragon Soul Crystal fragments he'd seized out of his backpack.</p><p data-reading-anchor="" id="ch2010-p039">Dragon Might was intensifying the fragments' backlash against his body.</p><p data-reading-anchor="" id="ch2010-p040">Before Ji Shaojie could take another countermeasure, the pressure on his shoulders increased again!</p><p data-reading-anchor="" id="ch2010-p041">He looked up. The two chaotic portals showed no signs of closing. A second and third young dragon flew out in quick succession!</p><p data-reading-anchor="" id="ch2010-p042">Worse still, a third chaos portal began forming slowly above Fang Heng's head. It was several times larger than the previous two!</p><p class="sound" data-reading-anchor="" id="ch2010-p043">BOOM!</p><p data-reading-anchor="" id="ch2010-p044">Dragonfire!</p><p data-reading-anchor="" id="ch2010-p045">Although still juveniles, the sacred dragons breathed toward two players ahead of them. Scorching dragon breath infused with sacred power swept over the pair. Pinned in place by Dragon Might, neither could move, and both were instantly burned to ash!</p><p data-reading-anchor="" id="ch2010-p046">The Dragon Soul Crystal fragments they had looted burst out of their inventories and fell to the ground.</p><p data-reading-anchor="" id="ch2010-p047">By now, none of the surviving players had any thought of claiming those fragments.</p><p data-reading-anchor="" id="ch2010-p048">"RUN!"</p><p data-reading-anchor="" id="ch2010-p049">There was only one thought in everyone's mind: they couldn't win! There was no way to beat someone this terrifying!</p><p data-reading-anchor="" id="ch2010-p050">All the remaining players used whatever life-saving abilities they possessed and fled in every direction. The smarter ones abandoned their Dragon Soul Crystal fragments before running.</p><p data-reading-anchor="" id="ch2010-p051">But Fang Heng stood directly in front of the teleportation passage. There was no way to escape the predicament entirely.</p><p class="sound" data-reading-anchor="" id="ch2010-p052">Whoosh!</p><p data-reading-anchor="" id="ch2010-p053">Amid the confusion, Ji Shaojie focused his mind, resisted the negative effects of Dragon Might, and shot straight toward Fang Heng.</p><p data-reading-anchor="" id="ch2010-p054">One chance. A single strike!</p><p data-reading-anchor="" id="ch2010-p055">Dragons were troublesome opponents. With his current abilities, he couldn't defeat them. But if he killed the summoner, the remaining dragons would disappear along with him!</p><p data-reading-anchor="" id="ch2010-p056">Ji Shaojie could tell Fang Heng's condition was unstable. It would take only one hit to finish him!</p><p data-reading-anchor="" id="ch2010-p057">The distance between them shrank rapidly.</p><p data-reading-anchor="" id="ch2010-p058">Suddenly, Fang Heng opened his eyes and stared directly at Ji Shaojie.</p><p class="sound" data-reading-anchor="" id="ch2010-p059">ROAR!</p><p data-reading-anchor="" id="ch2010-p060">With a tremendous dragon roar, a fully grown sacred dragon burst from the chaos portal above Fang Heng's head!</p><p data-reading-anchor="" id="ch2010-p061">A violent wave of power spread outward from the portal.</p><p data-reading-anchor="" id="ch2010-p062">What?!</p><p data-reading-anchor="" id="ch2010-p063">Ji Shaojie's pupils contracted in horror.</p><p data-reading-anchor="" id="ch2010-p064">An adult sacred dragon!</p><p data-reading-anchor="" id="ch2010-p065">Compared with a hatchling, an adult dragon was dozens of times more powerful. Its overwhelming Dragon Might descended on him, nearly crushing the breath from his lungs.</p><p data-reading-anchor="" id="ch2010-p066">Who was this man? How could he possibly do something like this?!</p><p data-reading-anchor="" id="ch2010-p067">The next instant, Ji Shaojie realized with horror that the sacred dragon had locked onto him.</p><p class="sound" data-reading-anchor="" id="ch2010-p068">Whoosh!</p><p data-reading-anchor="" id="ch2010-p069">The enormous dragon opened its jaws toward him.</p><p data-reading-anchor="" id="ch2010-p070">DRAGONFIRE!</p><p class="scene" data-reading-anchor="" id="ch2010-p071">· · ·</p><p data-reading-anchor="" id="ch2010-p072">Far away, Gu Qingzhu and the retreating demi-humans sensed a tremendous surge of sacred power behind them.</p><p data-reading-anchor="" id="ch2010-p073">When they turned around, they saw a golden mushroom cloud rising into the distance. Then a visible wave of sacred power came racing toward them.</p><p class="sound" data-reading-anchor="" id="ch2010-p074">Hum!</p><p data-reading-anchor="" id="ch2010-p075">Gu Qingzhu raised her hand. Together, the demi-humans conjured a barrier in front of themselves.</p><p class="sound" data-reading-anchor="" id="ch2010-p076">BOOM!</p><p data-reading-anchor="" id="ch2010-p077">More than ten seconds later, the remnants of the sacred energy wave slammed into their barrier. The impact continued for a full three seconds before finally dissipating.</p><p data-reading-anchor="" id="ch2010-p078">The demi-humans stared toward the source of the blast, amazement in their eyes.</p><p data-reading-anchor="" id="ch2010-p079">That explosion just now… Was it Fang Heng? Had that human really become so absurdly powerful?</p><p data-reading-anchor="" id="ch2010-p080">Jimi swallowed nervously and glanced at Gu Qingzhu.</p><p data-reading-anchor="" id="ch2010-p081">She gazed into the distance, a trace of unease in her expression.</p><p data-reading-anchor="" id="ch2010-p082">"Jimi, take everyone back to the Zombie Apocalypse. I'll go and have a look."</p><p data-reading-anchor="" id="ch2010-p083">"Understood!"</p><p data-reading-anchor="" id="ch2010-p084">Gu Qingzhu sped toward the site of the explosion.</p><p data-reading-anchor="" id="ch2010-p085">Before long, she reached an area shrouded in Dragon Soul Crystal dust. Sensing the lingering traces of sacred power, she was utterly bewildered.</p><p data-reading-anchor="" id="ch2010-p086">What on earth had happened here?</p></article><p class="end" data-reading-anchor="" id="ch2010-end">— End of Chapter 2010 —</p><details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li><strong>Everlasting Moon. </strong>永续之月 is translated consistently as Everlasting Moon. Here its form changes according to the world, sacred attribute and surrounding energy.</li><li><strong>Ancient Sacred Dragon. </strong>远古·神圣之龙 describes the creature and its sacred attribute; the source distinguishes the small juvenile dragons from an adult dragon.</li><li><strong>Jimi. </strong>吉米 is phonetically compatible with Jimmy or Jimi. “Jimi” is a tentative spelling, not a verified original Latin spelling.</li><li><strong>Source. </strong>Translated from your complete uploaded GBK-encoded HTML file, original Chinese Chapter 2011.</li></ul></details><nav aria-label="Chapter navigation" class="chapter-nav"><a href="Global_Game_AFK_Chapter_2009_Shattered.html#start">← Previous chapter (2009)</a><a class="next" href="Global_Game_AFK_Chapter_2011_Destruction.html#start">Next chapter (2011) →</a></nav></section><footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>Keep the HTML files together in one folder. Reading position, font size and theme are saved wherever browser storage is supported; Android local-file behavior may vary.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer></main><div aria-live="polite" id="reading-toast" role="status"></div><script>(()=>{
+'use strict';
+const storeKey='afk-reader-position:chapter-2010:v2';
+const sizeKey='afk-reader-font-size:compact-v3';
+const themeKey='afk-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem('afk-reader-test','ok');localStorage.removeItem('afk-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();</script></body></html>

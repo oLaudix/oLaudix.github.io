@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html data-theme="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/><meta content="#171719" name="theme-color"/><title>Chapter 2000 — Control | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+</style></head><body><header class="topbar" role="banner"><div class="toolbar"><span aria-hidden="true" class="toolbtn jump-link disabled">‹</span><select aria-label="Choose a chapter" id="chapter-picker"><option selected="selected" value="Global_Game_AFK_Chapter_2000_Control.html">2000 · Control</option><option value="Global_Game_AFK_Chapter_2001_Lockdown.html">2001 · Lockdown</option><option value="Global_Game_AFK_Chapter_2002_Details.html">2002 · Details</option><option value="Global_Game_AFK_Chapter_2003_Restart.html">2003 · Restart</option><option value="Global_Game_AFK_Chapter_2004_Eighth_Level.html">2004 · Eighth Level</option><option value="Global_Game_AFK_Chapter_2005_Cold_Storage.html">2005 · Cold Storage</option><option value="Global_Game_AFK_Chapter_2006_Into_the_Backpack.html">2006 · Into the Backpack</option><option value="Global_Game_AFK_Chapter_2007_Through.html">2007 · Through</option><option value="Global_Game_AFK_Chapter_2008_Attributes.html">2008 · Attributes</option><option value="Global_Game_AFK_Chapter_2009_Shattered.html">2009 · Shattered</option><option value="Global_Game_AFK_Chapter_2010_Summoning.html">2010 · Summoning</option><option value="Global_Game_AFK_Chapter_2011_Destruction.html">2011 · Destruction</option><option value="Global_Game_AFK_Chapter_2012_Fluctuations.html">2012 · Fluctuations</option><option value="Global_Game_AFK_Chapter_2013_Conversion.html">2013 · Conversion</option><option value="Global_Game_AFK_Chapter_2014_Weakened.html">2014 · Weakened</option><option value="Global_Game_AFK_Chapter_2015_Condensation.html">2015 · Condensation</option><option value="Global_Game_AFK_Chapter_2016_Interception.html">2016 · Interception</option><option value="Global_Game_AFK_Chapter_2017_Tremors.html">2017 · Tremors</option><option value="Global_Game_AFK_Chapter_2018_Advancement.html">2018 · Advancement</option></select><a aria-label="Next chapter 2001" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2001_Lockdown.html#start" title="Next chapter">›</a><button aria-label="Decrease font size" class="toolbtn" id="smaller" title="Smaller text">A−</button><button aria-label="Increase font size" class="toolbtn" id="larger" title="Larger text">A+</button><button aria-label="Toggle dark/light mode" class="toolbtn" id="theme" title="Toggle theme">◐</button></div><div id="progress-track"><div id="progress"></div></div></header><main><section class="chapter-section" data-reading-anchor="" id="chapter-2000">
+<div class="chapter-num">Chapter 2000</div>
+<h2 class="chapter-title">Control</h2>
+<p class="source-identity">Translated from Chinese Chapter 2001</p>
+<article class="prose"><p data-reading-anchor="" id="ch2000-p001">Gu Qingzhu turned to look at Fang Heng once more. Her lips moved slightly, as though she wanted to say something, but when the words finally came, all she managed was a thank-you.</p>
+<p data-reading-anchor="" id="ch2000-p002">“Thank you, Fang Heng. You're my first human friend.”</p>
+<p data-reading-anchor="" id="ch2000-p003">With that, Gu Qingzhu stepped into the teleportation portal first.</p>
+<p data-reading-anchor="" id="ch2000-p004">Fang Heng watched the demi-humans file through one after another, then immediately followed them.</p>
+<p class="scene" data-reading-anchor="" id="ch2000-p005">· · ·</p>
+<p data-reading-anchor="" id="ch2000-p006">On the other side of the portal stood a large central research facility.</p>
+<p data-reading-anchor="" id="ch2000-p007">Deep beneath the sea.</p>
+<p data-reading-anchor="" id="ch2000-p008">Researchers were busy at work in its main hall. When a player suddenly emerged from the portal, they didn't react at first. They merely thought the man's face was unfamiliar.</p>
+<p data-reading-anchor="" id="ch2000-p009">Then everything changed!</p>
+<p data-reading-anchor="" id="ch2000-p010">Dark shadows suddenly poured from the player's body, sweeping toward the two guards standing nearby!</p>
+<p data-reading-anchor="" id="ch2000-p011">“Something's wrong!”</p>
+<p data-reading-anchor="" id="ch2000-p012">“Enemy attack! We're under attack!”</p>
+<p data-reading-anchor="" id="ch2000-p013">“Watch out!”</p>
+<p data-reading-anchor="" id="ch2000-p014">“Sound the alarm!”</p>
+<p data-reading-anchor="" id="ch2000-p015">The guards reacted at once, raising their firearms and returning fire.</p>
+<p data-reading-anchor="" id="ch2000-p016">The central research facility descended into chaos. Guards scrambled for cover and fired at the intruders while researchers fumbled to activate the alarms, unsure how to respond to what was happening.</p>
+<p data-reading-anchor="" id="ch2000-p017">They were being invaded!</p>
+<p data-reading-anchor="" id="ch2000-p018">Someone had actually broken in!</p>
+<p data-reading-anchor="" id="ch2000-p019">But that made no sense!</p>
+<p data-reading-anchor="" id="ch2000-p020">Every contingency plan, training session, drill, and simulated attack had been built around an invasion from outside.</p>
+<p data-reading-anchor="" id="ch2000-p021">Now that a real attack was happening, why were the enemies emerging from inside the teleportation portal?!</p>
+<p data-reading-anchor="" id="ch2000-p022">All that training had been for nothing!</p>
+<p data-reading-anchor="" id="ch2000-p023">As the alarms sounded, guards stationed around the perimeter poured into the research hall to reinforce their colleagues.</p>
+<p data-reading-anchor="" id="ch2000-p024">“Over there! Follow me!”</p>
+<p data-reading-anchor="" id="ch2000-p025">Gu Qingzhu and the demi-humans quickly subdued the guards around the portal. She glanced at Fang Heng behind her, then directed her people to attack toward the right, intercepting the incoming security team.</p>
+<p data-reading-anchor="" id="ch2000-p026">The enormous teleportation device stood in the center of the research hall.</p>
+<p data-reading-anchor="" id="ch2000-p027">Ideally, they would still need it to escape when the time came.</p>
+<p data-reading-anchor="" id="ch2000-p028">They had to keep the fighting away from the equipment and ensure the portal remained operational!</p>
+<p data-reading-anchor="" id="ch2000-p029">Seeing that the intruders had seized control of the hall, the researchers tried to flee. Large numbers rushed toward several emergency exits.</p>
+<p data-reading-anchor="" id="ch2000-p030">Amid the chaos, Fang Heng quickly surveyed the room, darted forward, and seized a researcher who looked like a supervisor, clamping a hand around his throat.</p>
+<p data-reading-anchor="" id="ch2000-p031">“Stop right there!”</p>
+<p data-reading-anchor="" id="ch2000-p032">The unfortunate researcher felt like crying.</p>
+<p data-reading-anchor="" id="ch2000-p033">Of all the people in the room, why had he been the one to get caught?!</p>
+<p data-reading-anchor="" id="ch2000-p034">“Please! I don't know anything! I'm just a hired researcher! Don't kill me, don't—”</p>
+<p data-reading-anchor="" id="ch2000-p035">“If you want to live, shut up. I'll ask the questions, and you'll answer them.”</p>
+<p data-reading-anchor="" id="ch2000-p036">The researcher immediately closed his mouth.</p>
+<p data-reading-anchor="" id="ch2000-p037">“Relax. What's your name, and what's your position?”</p>
+<p data-reading-anchor="" id="ch2000-p038">“Dudley. Dudley Cardle. I'm the head of the research team here.”</p>
+<p data-reading-anchor="" id="ch2000-p039">“See? Cooperating is easy, isn't it?” Fang Heng's tone softened slightly. “Now, Dudley, we're going to the main control console. I want to know everything about Frostmist Island's defensive arrangements.”</p>
+<p data-reading-anchor="" id="ch2000-p040">The researcher swallowed hard and pleaded, “I really don't know any of that. Please let me go. I don't have the necessary clearance. Security control for all of Frostmist Island is separate from the research institute's systems. Only Mr. Miyamoto has the highest authorization. I don't even have access to the alarm department. Without the key, I can't connect to the defense system.”</p>
+<p data-reading-anchor="" id="ch2000-p041">Fang Heng stared at him coldly. “Miyamoto Teru? He owns this place? Where is he?”</p>
+<p data-reading-anchor="" id="ch2000-p042">“I don't know. I've stayed inside the institute the whole time. I haven't left this place in five years. Mr. Miyamoto is the boss here, I—”</p>
+<p data-reading-anchor="" id="ch2000-p043">“Move! Over there!”</p>
+<p data-reading-anchor="" id="ch2000-p044">With Fang Heng holding him hostage, Dudley didn't dare resist. He was forced to lead the way to the institute's main control console.</p>
+<p data-reading-anchor="" id="ch2000-p045">“Turn off the institute's alarm first.”</p>
+<p data-reading-anchor="" id="ch2000-p046">Dudley quickly pressed several buttons on the console.</p>
+<p data-reading-anchor="" id="ch2000-p047">“Authorization confirmed. Passcode confirmed… Alarm deactivated…”</p>
+<p data-reading-anchor="" id="ch2000-p048">Once the internal alarm system was switched off, the blaring noise in the teleportation hall finally stopped, at least for the moment.</p>
+<p data-reading-anchor="" id="ch2000-p049">“Good,” Fang Heng continued. “Next question: where are the captive demi-humans being held?”</p>
+<p data-reading-anchor="" id="ch2000-p050">Dudley swallowed nervously. “On basement level three.”</p>
+<p data-reading-anchor="" id="ch2000-p051">“That was a quick answer. If I'm guessing correctly, there's an ambush waiting on the third level, isn't there?”</p>
+<p data-reading-anchor="" id="ch2000-p052">Dudley shook his head frantically. “I don't know! I really don't know anything!”</p>
+<p data-reading-anchor="" id="ch2000-p053">“Heh.” Fang Heng gave a dismissive laugh. “Bring up every blueprint of the laboratory's interior.”</p>
+<p data-reading-anchor="" id="ch2000-p054">Dudley didn't dare make any sudden movements. He quickly displayed the institute's floor plans on the large screen and pointed with a trembling finger at one of the levels.</p>
+<p data-reading-anchor="" id="ch2000-p055">“We're currently on basement level seven. The demi-humans are being held on level three. It's a restricted area. I only heard that it was built specifically to hold demi-humans. I don't know whether there's a trap. If you're looking for them, that's the only place to go… I really don't know anything else. Please let me go. I'm just someone they hired to do a job…”</p>
+<p data-reading-anchor="" id="ch2000-p056">Fang Heng glanced at the still-functioning portal beside them. “Shut up and keep it running. The moment that portal fails, you die.”</p>
+<p data-reading-anchor="" id="ch2000-p057">Dudley went pale and immediately bent over the main console, checking the portal's various operating indicators.</p>
+<p data-reading-anchor="" id="ch2000-p058">Meanwhile, Gu Qingzhu and her companions finished dealing with the first wave of research-institute guards.</p>
+<p data-reading-anchor="" id="ch2000-p059">She approached Fang Heng. “Did you find where they're holding our people?”</p>
+<p data-reading-anchor="" id="ch2000-p060">“Most likely on basement level three. Be careful—there could be an ambush.”</p>
+<p data-reading-anchor="" id="ch2000-p061">“I'll take our people there! You stay here, and be careful!”</p>
+<p data-reading-anchor="" id="ch2000-p062">Gu Qingzhu nodded to Fang Heng. She ordered three demi-humans to remain behind and protect him, then led the rest toward the lower passageways.</p>
+<p data-reading-anchor="" id="ch2000-p063">Fang Heng turned back to Dudley. “Switch to surveillance. I want to know what's happening outside this room.”</p>
+<p data-reading-anchor="" id="ch2000-p064">“I can't show you everything. We don't have clearance for the security department's systems. We can only access cameras covering the research institute itself…”</p>
+<p data-reading-anchor="" id="ch2000-p065">As he explained, Dudley rapidly worked the console.</p>
+<p data-reading-anchor="" id="ch2000-p066">Soon, the large screen displayed feeds from more than a dozen passageways and entrances.</p>
+<p data-reading-anchor="" id="ch2000-p067">Several showed guards hurrying toward basement level seven.</p>
+<p data-reading-anchor="" id="ch2000-p068">Elsewhere, Gu Qingzhu's group was running into considerable trouble on its way to level three.</p>
+<p data-reading-anchor="" id="ch2000-p069">As they raced down a corridor, dark points of light suddenly appeared along the surrounding walls.</p>
+<p class="sound" data-reading-anchor="" id="ch2000-p070">Whoosh! Whoosh, whoosh!</p>
+<p data-reading-anchor="" id="ch2000-p071">Hidden laser emitters embedded in the walls activated at once!</p>
+<p data-reading-anchor="" id="ch2000-p072">Gu Qingzhu and her companions sensed the danger and joined forces to form a defensive barrier. They barely managed to block the beams, and several demi-humans were injured in the process.</p>
+<p data-reading-anchor="" id="ch2000-p073">The group had no choice but to stop and heal their wounded companions, greatly slowing its advance.</p></article>
+<p class="end" data-reading-anchor="" id="ch2000-end">— End of Chapter 2000 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li><strong>The name Dudley Cardle.</strong> 达德利·卡德尔 is a phonetic rendering of a Western name. “Dudley Cardle” follows the English version you supplied; the exact original Western spelling cannot be proven from the Chinese alone.</li><li><strong>Building levels.</strong> 地下七层 / 地下三层 are basement levels seven and three. They are kept as separate locations.</li><li><strong>Portal terminology.</strong> 传送通道 is consistently “teleportation portal” or “portal,” not the stiff literal “teleportation passage.”</li><li><strong>Source.</strong> Translated in full from the Chinese PDF you uploaded, original Chapter 2001. The original Chinese chapter number is one ahead of the established English numbering.</li></ul></details>
+
+<nav aria-label="Chapter navigation" class="chapter-nav"><a class="next" href="Global_Game_AFK_Chapter_2001_Lockdown.html#start">Next chapter (2001) →</a></nav></section><footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>Keep the HTML files together in one folder. Reading position, font size and theme are saved wherever browser storage is supported; Android local-file behavior may vary.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer></main><div aria-live="polite" id="reading-toast" role="status"></div><script>(()=>{
+'use strict';
+const storeKey='afk-reader-position:chapter-2000:v2';
+const sizeKey='afk-reader-font-size:compact-v3';
+const themeKey='afk-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem('afk-reader-test','ok');localStorage.removeItem('afk-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();</script></body></html>

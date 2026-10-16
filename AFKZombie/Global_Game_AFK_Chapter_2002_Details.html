@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html data-theme="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/><meta content="#171719" name="theme-color"/><title>Chapter 2002 — Details | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+</style></head><body><header class="topbar" role="banner"><div class="toolbar"><a aria-label="Previous chapter 2001" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2001_Lockdown.html#start" title="Previous chapter">‹</a><select aria-label="Choose a chapter" id="chapter-picker"><option value="Global_Game_AFK_Chapter_2000_Control.html">2000 · Control</option><option value="Global_Game_AFK_Chapter_2001_Lockdown.html">2001 · Lockdown</option><option selected="selected" value="Global_Game_AFK_Chapter_2002_Details.html">2002 · Details</option><option value="Global_Game_AFK_Chapter_2003_Restart.html">2003 · Restart</option><option value="Global_Game_AFK_Chapter_2004_Eighth_Level.html">2004 · Eighth Level</option><option value="Global_Game_AFK_Chapter_2005_Cold_Storage.html">2005 · Cold Storage</option><option value="Global_Game_AFK_Chapter_2006_Into_the_Backpack.html">2006 · Into the Backpack</option><option value="Global_Game_AFK_Chapter_2007_Through.html">2007 · Through</option><option value="Global_Game_AFK_Chapter_2008_Attributes.html">2008 · Attributes</option><option value="Global_Game_AFK_Chapter_2009_Shattered.html">2009 · Shattered</option><option value="Global_Game_AFK_Chapter_2010_Summoning.html">2010 · Summoning</option><option value="Global_Game_AFK_Chapter_2011_Destruction.html">2011 · Destruction</option><option value="Global_Game_AFK_Chapter_2012_Fluctuations.html">2012 · Fluctuations</option><option value="Global_Game_AFK_Chapter_2013_Conversion.html">2013 · Conversion</option><option value="Global_Game_AFK_Chapter_2014_Weakened.html">2014 · Weakened</option><option value="Global_Game_AFK_Chapter_2015_Condensation.html">2015 · Condensation</option><option value="Global_Game_AFK_Chapter_2016_Interception.html">2016 · Interception</option><option value="Global_Game_AFK_Chapter_2017_Tremors.html">2017 · Tremors</option><option value="Global_Game_AFK_Chapter_2018_Advancement.html">2018 · Advancement</option></select><a aria-label="Next chapter 2003" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2003_Restart.html#start" title="Next chapter">›</a><button aria-label="Decrease font size" class="toolbtn" id="smaller" title="Smaller text">A−</button><button aria-label="Increase font size" class="toolbtn" id="larger" title="Larger text">A+</button><button aria-label="Toggle dark/light mode" class="toolbtn" id="theme" title="Toggle theme">◐</button></div><div id="progress-track"><div id="progress"></div></div></header><main><section class="chapter-section" data-reading-anchor="" id="chapter-2002">
+<div class="chapter-num">Chapter 2002</div>
+<h2 class="chapter-title">Details</h2>
+<p class="source-identity">Translated from Chinese Chapter 2003</p>
+<article class="prose"><p data-reading-anchor="" id="ch2002-p001">“Furthermore, the institute was specially modified more than ten years ago to counter the demi-humans' ability to enter game worlds. Anywhere inside the institute or within Frostmist Island's territory, they cannot use that ability to escape into a game.”</p>
+<p data-reading-anchor="" id="ch2002-p002">The Federal crisis-response team listened to the secretary's endless figures and specifications, silently marveling at them.</p>
+<p data-reading-anchor="" id="ch2002-p003">Good grief.</p>
+<p data-reading-anchor="" id="ch2002-p004">Whatever kind of man the old Miyamoto was, he certainly wasn't afraid to spend money.</p>
+<p data-reading-anchor="" id="ch2002-p005">He'd poured a fortune into turning the entire research institute into a nearly perfect prison!</p>
+<p data-reading-anchor="" id="ch2002-p006">“Impressive defenses. So what's next?”</p>
+<p data-reading-anchor="" id="ch2002-p007">Lei Yu stepped forward and looked at Miyamoto Teru. “If you've made it impossible for the demi-humans to escape by other means, shouldn't we be able to catch them all now?”</p>
+<p data-reading-anchor="" id="ch2002-p008">“I'm afraid we can't do that just yet,” the secretary replied apologetically. “When the institute's defenses were designed, they incorporated a lockdown procedure for surprise attacks. Once automatically activated, the lockdown must run for a full 120 minutes before it can be released using an external authorization code.”</p>
+<p data-reading-anchor="" id="ch2002-p009">Lei Yu frowned. “So all we can do is wait?”</p>
+<p data-reading-anchor="" id="ch2002-p010">“There's no need to worry.”</p>
+<p data-reading-anchor="" id="ch2002-p011">Miyamoto Teru finally spoke. “The two-hour mandatory lockdown was designed to buy us time to await reinforcements in the event of an attack. It also gives us time to calm down and think, so we don't make mistakes we can never undo.”</p>
+<p data-reading-anchor="" id="ch2002-p012">“I don't know how those demi-humans broke into the institute, but I can guarantee they won't be leaving.”</p>
+<p data-reading-anchor="" id="ch2002-p013">As he spoke, a player approached and whispered a few words in his ear.</p>
+<p data-reading-anchor="" id="ch2002-p014">The veins bulged on the hand Miyamoto had wrapped around his cane. He looked furious.</p>
+<p data-reading-anchor="" id="ch2002-p015">Watching his reaction, Lei Yu said, “I take it you've discovered how the demi-humans got in, Mr. Miyamoto?”</p>
+<p data-reading-anchor="" id="ch2002-p016">Miyamoto glanced at him. “They invaded through the other side of the game teleportation portal.”</p>
+<p data-reading-anchor="" id="ch2002-p017">“What?” Everyone's expressions turned serious.</p>
+<p data-reading-anchor="" id="ch2002-p018">That was possible?</p>
+<p data-reading-anchor="" id="ch2002-p019">How had they pulled it off? “During yesterday's attack on CXX Research Trading Company, a fragment of the World Heart went missing. It appears the demi-humans took it.”</p>
+<p data-reading-anchor="" id="ch2002-p020">Miyamoto's anger grew as he spoke. “I underestimated them. With a World Heart fragment, they can enter that world directly.”</p>
+<p data-reading-anchor="" id="ch2002-p021">It all came down to bloodlines!</p>
+<p data-reading-anchor="" id="ch2002-p022">Demi-humans! A race favored by fate!</p>
+<p data-reading-anchor="" id="ch2002-p023">Things humans struggled desperately to obtain came effortlessly to demi-humans through their inborn bloodline.</p>
+<p data-reading-anchor="" id="ch2002-p024">Why should creatures with such impure blood enjoy privilege after privilege?</p>
+<p data-reading-anchor="" id="ch2002-p025">It wasn't fair! Lei Yu thought for a moment and asked, “Then couldn't they use the same method to escape the institute's lockdown?”</p>
+<p data-reading-anchor="" id="ch2002-p026">“Don't worry. The institute was built to block their special means of entering games. They can't use it here. What's more, once lockdown begins, the facility's internal power and all network connections are cut off to prevent information leaks. That means they can't activate the game teleportation portal, either.”</p>
+<p data-reading-anchor="" id="ch2002-p027">Full of confidence, Miyamoto looked up at the sealed gate. “This entire institute is now one enormous prison. No one can escape from inside. When the two hours are up, all we'll need to do is collect their corpses.”</p>
+<p data-reading-anchor="" id="ch2002-p028">Everyone breathed a sigh of relief.</p>
+<p data-reading-anchor="" id="ch2002-p029">In that case, they simply needed to hold their position.</p>
+<p data-reading-anchor="" id="ch2002-p030">Once two hours had passed, more reinforcements would have arrived. They could surround Gu Qingzhu and her entire group and wipe them out! The plan had suffered a major setback at the start, but at least things were settling down again.</p>
+<p data-reading-anchor="" id="ch2002-p031">The only real loser was Miyamoto Teru.</p>
+<p data-reading-anchor="" id="ch2002-p032">He had sacrificed an entire research institute for nothing.</p>
+<p data-reading-anchor="" id="ch2002-p033">After giving instructions to a trusted subordinate, Miyamoto stationed a small detachment of Fox Hunting Squad members at the entrance. Then he waved for his secretary and entourage to follow him away.</p>
+<p data-reading-anchor="" id="ch2002-p034">“Hey, Miyamoto.”</p>
+<p data-reading-anchor="" id="ch2002-p035">Miyamoto turned back to face Lei Yu.</p>
+<p data-reading-anchor="" id="ch2002-p036">“That's quite a system you've built. Must have taken a lot of effort.”</p>
+<p data-reading-anchor="" id="ch2002-p037">“What are you getting at?”</p>
+<p data-reading-anchor="" id="ch2002-p038">“I'm saying I doubt you built this thing just to protect a teleportation portal.”</p>
+<p data-reading-anchor="" id="ch2002-p039">“Hmph.” Miyamoto sneered. “Whether I did or not doesn't matter anymore. It's already over.”</p>
+<p data-reading-anchor="" id="ch2002-p040">He started to leave, only to find Lei Yu's hand gripping his shoulder, preventing him from going.</p>
+<p data-reading-anchor="" id="ch2002-p041">Miyamoto spoke impatiently. “What now?”</p>
+<p data-reading-anchor="" id="ch2002-p042">Lei Yu fixed him with a solemn stare. “Listen, old man, I'm not joking. The demi-humans aren't going to use that thing, are they?”</p>
+<p data-reading-anchor="" id="ch2002-p043">“Relax. There are no finished specimens in there. No one could withstand that thing's power. Besides…”</p>
+<p data-reading-anchor="" id="ch2002-p044">“Besides what?”</p>
+<p data-reading-anchor="" id="ch2002-p045">“I told you, it's over. If you're hoping to capture the demi-humans alive, I'm afraid you'll be disappointed again.”</p>
+<p data-reading-anchor="" id="ch2002-p046">Lei Yu raised an eyebrow.</p>
+<p data-reading-anchor="" id="ch2002-p047">“Hmph!”</p>
+<p data-reading-anchor="" id="ch2002-p048">With another snort, Miyamoto led his people away.</p>
+<p data-reading-anchor="" id="ch2002-p049">The members of the crisis-response team immediately gathered around Lei Yu. “Boss, what do we do?”</p>
+<p data-reading-anchor="" id="ch2002-p050">“Request reinforcements from headquarters. These enemies are extremely strong—every reinforcement team needs at least an S rating. Ask the military for support too. This is our chance. We absolutely cannot let Gu Qingzhu escape!”</p>
+<p data-reading-anchor="" id="ch2002-p051">“Understood!”</p>
+<p class="scene" data-reading-anchor="" id="ch2002-p052">· · ·</p>
+<p data-reading-anchor="" id="ch2002-p053">Meanwhile, inside the underground research institute…</p>
+<p class="sound" data-reading-anchor="" id="ch2002-p054">Hummm…</p>
+<p data-reading-anchor="" id="ch2002-p055">As the rumble of machinery gradually died away, the entire facility was plunged into darkness.</p>
+<p data-reading-anchor="" id="ch2002-p056">“Y-you… What have you done?!”</p>
+<p data-reading-anchor="" id="ch2002-p057">Dudley, the research-team leader, stared at Fang Heng. It took him quite some time to force the words out.</p>
+<p data-reading-anchor="" id="ch2002-p058">Just moments earlier, Fang Heng had deliberately entered the wrong password twice, triggering Frostmist Island's highest-level security protocol and locking down the entire system.</p>
+<p data-reading-anchor="" id="ch2002-p059">“Nothing much.”</p>
+<p data-reading-anchor="" id="ch2002-p060">Fang Heng spoke casually, then glanced at the now-black monitor. “Good news: the people outside can't get in for the time being. We've got plenty of time. So please explain the security system to me again—in more detail this time.”</p>
+<p data-reading-anchor="" id="ch2002-p061">Dudley felt as though Fang Heng was driving him insane.</p>
+<p data-reading-anchor="" id="ch2002-p062">He had absolutely no idea what the man was planning. Bitterly, he repeated everything he knew and filled in the details he'd left out before.</p>
+<p data-reading-anchor="" id="ch2002-p063">Fang Heng listened, nodding from time to time.</p>
+<p data-reading-anchor="" id="ch2002-p064">“Excellent. Our cooperation has been very pleasant. Keep it up and I'm sure we'll find a solution that benefits us both.” Fang Heng clapped his hands once Dudley finished. “Now, we need to restart the machinery here.”</p></article>
+<p class="end" data-reading-anchor="" id="ch2002-end">— End of Chapter 2002 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li><strong>World Heart.</strong> 世界之心 is rendered “World Heart”; 世界之心碎片 means “World Heart fragment.”</li><li><strong>Deliberate mystery.</strong> Miyamoto and Lei Yu refer to “that thing” (那玩意儿) without identifying it. This edition deliberately does not resolve the reference.</li><li><strong>One-sided prejudice.</strong> Miyamoto’s thoughts about “impure blood” reflect his own viewpoint; the narration is not endorsing it.</li><li><strong>Source.</strong> Translated in full from the Chinese PDF you uploaded, original Chapter 2003. The original Chinese chapter number is one ahead of the established English numbering.</li></ul></details>
+
+<nav aria-label="Chapter navigation" class="chapter-nav"><a href="Global_Game_AFK_Chapter_2001_Lockdown.html#start">← Previous chapter (2001)</a><a class="next" href="Global_Game_AFK_Chapter_2003_Restart.html#start">Next chapter (2003) →</a></nav></section><footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>Keep the HTML files together in one folder. Reading position, font size and theme are saved wherever browser storage is supported; Android local-file behavior may vary.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer></main><div aria-live="polite" id="reading-toast" role="status"></div><script>(()=>{
+'use strict';
+const storeKey='afk-reader-position:chapter-2002:v2';
+const sizeKey='afk-reader-font-size:compact-v3';
+const themeKey='afk-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem('afk-reader-test','ok');localStorage.removeItem('afk-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();</script></body></html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html data-theme="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/><meta content="#171719" name="theme-color"/><title>Chapter 2013 — Conversion | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+</style></head><body><header class="topbar" role="banner"><div class="toolbar"><a aria-label="Previous chapter 2012" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2012_Fluctuations.html#start" title="Previous chapter">‹</a><select aria-label="Choose a chapter" id="chapter-picker"><option value="Global_Game_AFK_Chapter_2000_Control.html">2000 · Control</option><option value="Global_Game_AFK_Chapter_2001_Lockdown.html">2001 · Lockdown</option><option value="Global_Game_AFK_Chapter_2002_Details.html">2002 · Details</option><option value="Global_Game_AFK_Chapter_2003_Restart.html">2003 · Restart</option><option value="Global_Game_AFK_Chapter_2004_Eighth_Level.html">2004 · Eighth Level</option><option value="Global_Game_AFK_Chapter_2005_Cold_Storage.html">2005 · Cold Storage</option><option value="Global_Game_AFK_Chapter_2006_Into_the_Backpack.html">2006 · Into the Backpack</option><option value="Global_Game_AFK_Chapter_2007_Through.html">2007 · Through</option><option value="Global_Game_AFK_Chapter_2008_Attributes.html">2008 · Attributes</option><option value="Global_Game_AFK_Chapter_2009_Shattered.html">2009 · Shattered</option><option value="Global_Game_AFK_Chapter_2010_Summoning.html">2010 · Summoning</option><option value="Global_Game_AFK_Chapter_2011_Destruction.html">2011 · Destruction</option><option value="Global_Game_AFK_Chapter_2012_Fluctuations.html">2012 · Fluctuations</option><option selected="selected" value="Global_Game_AFK_Chapter_2013_Conversion.html">2013 · Conversion</option><option value="Global_Game_AFK_Chapter_2014_Weakened.html">2014 · Weakened</option><option value="Global_Game_AFK_Chapter_2015_Condensation.html">2015 · Condensation</option><option value="Global_Game_AFK_Chapter_2016_Interception.html">2016 · Interception</option><option value="Global_Game_AFK_Chapter_2017_Tremors.html">2017 · Tremors</option><option value="Global_Game_AFK_Chapter_2018_Advancement.html">2018 · Advancement</option></select><a aria-label="Next chapter 2014" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2014_Weakened.html#start" title="Next chapter">›</a><button aria-label="Decrease font size" class="toolbtn" id="smaller" title="Smaller text">A−</button><button aria-label="Increase font size" class="toolbtn" id="larger" title="Larger text">A+</button><button aria-label="Toggle dark/light mode" class="toolbtn" id="theme" title="Toggle theme">◐</button></div><div id="progress-track"><div id="progress"></div></div></header><main><section class="chapter-section" data-reading-anchor="" id="chapter-2013"><div class="chapter-num">Chapter 2013</div><h2 class="chapter-title">Conversion</h2><p class="source-identity">From original Chinese Chapter 2014 · 转化</p><article class="prose"><p data-reading-anchor="" id="ch2013-p001">More than half an hour later, Fang Heng opened his eyes again.</p><p data-reading-anchor="" id="ch2013-p002">The short rest had eased his dizziness somewhat. He raised his head and looked toward the sky on his right.</p><p data-reading-anchor="" id="ch2013-p003">In the distance, Prince Jia'er was returning from his assignment. He descended in bat form, rapidly transformed back into a human, and knelt on one knee before Fang Heng.</p><p data-reading-anchor="" id="ch2013-p004">"Your Majesty, everything has been arranged as you instructed. They'll be here soon."</p><p data-reading-anchor="" id="ch2013-p005">"Good."</p><p data-reading-anchor="" id="ch2013-p006">Fang Heng pushed himself upright. The backlash still hadn't entirely passed, and waves of weakness continued to wash over him.</p><p data-reading-anchor="" id="ch2013-p007">He looked toward the horizon, where a dark mass of creatures had appeared.</p><p data-reading-anchor="" id="ch2013-p008">Native creatures of this world—the steel-ant swarm!</p><p data-reading-anchor="" id="ch2013-p009">The ants were rushing toward them. More precisely, they were pursuing the dozen or so vampire marquises flying ahead of them.</p><p data-reading-anchor="" id="ch2013-p010">Following Fang Heng's instructions, the marquises had found an ant nest nearby and lured the swarm out. They shifted their route just enough to lead the ants toward the area covered in crystalline dust.</p><p data-reading-anchor="" id="ch2013-p011">The ants, their aggression fixed on the vampire marquises, had no idea what danger awaited them.</p><p data-reading-anchor="" id="ch2013-p012">They finally entered the region covered by Dragon Soul Crystal dust.</p><p data-reading-anchor="" id="ch2013-p013">Hiss! Hiss, hiss!</p><p data-reading-anchor="" id="ch2013-p014">Under the influence of the red particles drifting through the air, the swarm immediately began mutating. The ants' bodies swelled slightly, and a faint red sheen spread over their normally metallic carapaces.</p><p data-reading-anchor="" id="ch2013-p015">There it was!</p><p data-reading-anchor="" id="ch2013-p016">Fang Heng watched them closely. Just as he'd predicted, the crystal dust had caused a tremendous increase in the ants' blood vitality!</p><p data-reading-anchor="" id="ch2013-p017">"Jia'er!"</p><p data-reading-anchor="" id="ch2013-p018">"Yes!"</p><p data-reading-anchor="" id="ch2013-p019">Jia'er flew into the air and rapidly formed dozens of red spheres of blood in front of him.</p><p data-reading-anchor="" id="ch2013-p020">Blood Bombs!</p><p data-reading-anchor="" id="ch2013-p021">Whoosh! Whoosh, whoosh!</p><p data-reading-anchor="" id="ch2013-p022">The crimson spheres rained down on the densest parts of the swarm.</p><p data-reading-anchor="" id="ch2013-p023">BOOM! BOOM, BOOM!</p><p data-reading-anchor="" id="ch2013-p024">Blood-red lotus blossoms erupted across the ants below!</p><p data-reading-anchor="" id="ch2013-p025">The Dragon Soul Crystal had strengthened the swarm, but the ants were fundamentally still low-tier creatures with limited defenses. The prince's high-tier Blood Bombs killed enormous numbers of them.</p><p data-reading-anchor="" id="ch2013-p026">Jia'er didn't continue the attack. Instead, he brought his hands together in front of his chest.</p><p data-reading-anchor="" id="ch2013-p027">Crack… crack, crack…</p><p data-reading-anchor="" id="ch2013-p028">Tiny droplets of blood slowly separated from the fallen steel ants and rose into the air. The droplets gathered together, gradually forming a fist-sized sphere of blood before the prince.</p><p data-reading-anchor="" id="ch2013-p029">Hiss… hiss, hiss…</p><p data-reading-anchor="" id="ch2013-p030">He continued refining the sphere. Wisps of vapor rose from it as the blood grew purer.</p><p data-reading-anchor="" id="ch2013-p031">Jia'er sensed the blood vitality within it and nodded toward Fang Heng below.</p><p data-reading-anchor="" id="ch2013-p032">It worked!</p><p data-reading-anchor="" id="ch2013-p033">A smile appeared on Fang Heng's face. Success!</p><p data-reading-anchor="" id="ch2013-p034">It hadn't been a waste to go to such lengths, nearly getting himself killed to bring the Dragon Soul Crystal into the game.</p><p data-reading-anchor="" id="ch2013-p035">Completing the special quest granted by the crystal could award a dragon bloodline. That would have been a fine reward if he could obtain it.</p><p data-reading-anchor="" id="ch2013-p036">Unfortunately, he already possessed conflicting bloodlines and couldn't acquire another. Switching between his academic forms wouldn't circumvent the bloodline conflict either.</p><p data-reading-anchor="" id="ch2013-p037">He had no choice but to give up on that skill.</p><p data-reading-anchor="" id="ch2013-p038">But he wasn't about to let such a valuable prize go to waste.</p><p data-reading-anchor="" id="ch2013-p039">The Dragon Soul Crystal could mutate living creatures, rapidly strengthening their blood vitality!</p><p data-reading-anchor="" id="ch2013-p040">Powerful blood vitality—that was precisely what he lacked to advance his highest-level Vampire King bloodline!</p><p data-reading-anchor="" id="ch2013-p041">Naturally, he couldn't use the crystal directly. Instead, he could use the steel ants as intermediaries.</p><p data-reading-anchor="" id="ch2013-p042">First, the ants would absorb some of the crystal's power and become stronger. Then he'd extract their strengthened blood vitality and use it to refine his own vampire bloodline!</p><p data-reading-anchor="" id="ch2013-p043">Prince Jia'er descended and landed beside him.</p><p data-reading-anchor="" id="ch2013-p044">"Your Majesty, I've confirmed it. After the steel ants are mutated by the Dragon Soul Crystal, the blood vitality inside them increases severalfold. And the blood vitality that can be condensed from their bodies increases by dozens of times."</p><p data-reading-anchor="" id="ch2013-p045">"Good work." Fang Heng nodded in satisfaction. "Prepare for the next step."</p><p data-reading-anchor="" id="ch2013-p046">"Yes, Your Majesty!"</p><p data-reading-anchor="" id="ch2013-p047">Excitement flashed in Jia'er's eyes.</p><p data-reading-anchor="" id="ch2013-p048">Next, they would lure more steel ants into the dust-covered area, then build additional ritual altars nearby for blood refinement. They were about to witness their king complete the full refinement of his bloodline!</p><p data-reading-anchor="" id="ch2013-p049">Jia'er looked behind him. A densely packed horde of zombies had already arrived and was slowly gathering in their direction.</p><p data-reading-anchor="" id="ch2013-p050">As the zombies entered the Dragon Soul Crystal dust, game notifications appeared before Fang Heng.</p><p class="system" data-reading-anchor="" id="ch2013-p051">[Hint: Your zombie clone (normal form) has entered an unknown state. Some attributes have increased. It will receive additional damage each second, and that damage will gradually rise…]</p><p data-reading-anchor="" id="ch2013-p052">Fang Heng temporarily disabled the passive effect of his talent, Mutating Infection, and ordered the zombie horde to surge toward the ants within the crystal-dust area.</p><p data-reading-anchor="" id="ch2013-p053">At the same time, he separated a small number of zombies from the group to gather materials and begin constructing vampire altars on the spot.</p><p data-reading-anchor="" id="ch2013-p054">He patted his cheeks, forcing himself to focus.</p><p data-reading-anchor="" id="ch2013-p055">The last time he'd destroyed the Jiaoren camp, he'd obtained some refined blood, but he was still far short of the amount needed to advance the Vampire King bloodline.</p><p data-reading-anchor="" id="ch2013-p056">The amount of blood vitality contained in the Dragon Soul Crystal was immense. By his estimate, converting all of it would be enough to complete his final advancement!</p><p data-reading-anchor="" id="ch2013-p057">Unfortunately, this stage required manual intervention. That made things a little troublesome.</p><p data-reading-anchor="" id="ch2013-p058">With that in mind, Fang Heng raised his hand again.</p><p data-reading-anchor="" id="ch2013-p059">Hiss… hiss, hiss…</p><p data-reading-anchor="" id="ch2013-p060">The blood Jia'er had refined underwent a second round of refinement in his palm. Thin streams of bluish vapor rose from it until only a tiny droplet remained.</p><p data-reading-anchor="" id="ch2013-p061">Excellent. That was about right.</p><p data-reading-anchor="" id="ch2013-p062">Fang Heng wiped the sweat from his forehead. He was still suffering the backlash from Everlasting Moon and couldn't concentrate well enough for large-scale blood refinement.</p><p data-reading-anchor="" id="ch2013-p063">He'd log out and get some proper rest, then come back tomorrow.</p><p data-reading-anchor="" id="ch2013-p064">Time to grind!</p><p class="scene" data-reading-anchor="" id="ch2013-p065">· · ·</p><p data-reading-anchor="" id="ch2013-p066">The sky grew light, and the first rays of dawn fell across Frostmist Island. The blue glazed-tile roofs took on a faint orange tint against the tranquil sea.</p><p data-reading-anchor="" id="ch2013-p067">Miyamoto Teru's expression grew extremely grave as he listened to his subordinate's report.</p><p data-reading-anchor="" id="ch2013-p068">Fox Hunting Squad's entire elite Team A had been wiped out in the previous night's battle. Almost all the high-tier game-world players who had been cultivating their dragon bloodlines in the freezer had been killed as well.</p><p data-reading-anchor="" id="ch2013-p069">There was only one survivor: Ji Shaojie.</p><p data-reading-anchor="" id="ch2013-p070">According to his account, they'd seen only Gu Qingzhu and one companion of hers. That companion had taken the Dragon Soul Crystal and destroyed it completely.</p><p data-reading-anchor="" id="ch2013-p071">But destroying the Dragon Soul Crystal required an artifact-grade weapon in the first place. Would an ordinary person possess an artifact?</p><p data-reading-anchor="" id="ch2013-p072">Clearly, the attackers had come prepared!</p></article><p class="end" data-reading-anchor="" id="ch2013-end">— End of Chapter 2013 —</p><details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li><strong>Steel ants. </strong>刚蚁 literally resembles “steel ants” or “hard ants.” Steel ants is the working game-creature name; we can change it if an established English localization differs.</li><li><strong>Mutating Infection. </strong>异化感染 is the named passive talent. Its precise official English name is unconfirmed, so Mutating Infection is a functional rendering.</li><li><strong>Bloodline mechanics. </strong>Fang Heng cannot take the dragon-bloodline reward because of incompatible bloodlines, and switching academic forms does not bypass the incompatibility.</li><li><strong>Source. </strong>Translated from your complete uploaded GBK-encoded HTML file, original Chinese Chapter 2014.</li></ul></details><nav aria-label="Chapter navigation" class="chapter-nav"><a href="Global_Game_AFK_Chapter_2012_Fluctuations.html#start">← Previous chapter (2012)</a><a class="next" href="Global_Game_AFK_Chapter_2014_Weakened.html#start">Next chapter (2014) →</a></nav></section><footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>Keep the HTML files together in one folder. Reading position, font size and theme are saved wherever browser storage is supported; Android local-file behavior may vary.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer></main><div aria-live="polite" id="reading-toast" role="status"></div><script>(()=>{
+'use strict';
+const storeKey='afk-reader-position:chapter-2013:v2';
+const sizeKey='afk-reader-font-size:compact-v3';
+const themeKey='afk-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem('afk-reader-test','ok');localStorage.removeItem('afk-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();</script></body></html>

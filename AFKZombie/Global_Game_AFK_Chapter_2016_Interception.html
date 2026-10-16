@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html data-theme="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/><meta content="#171719" name="theme-color"/><title>Chapter 2016 — Interception | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+</style></head><body><header class="topbar" role="banner"><div class="toolbar"><a aria-label="Previous chapter 2015" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2015_Condensation.html#start" title="Previous chapter">‹</a><select aria-label="Choose a chapter" id="chapter-picker"><option value="Global_Game_AFK_Chapter_2000_Control.html">2000 · Control</option><option value="Global_Game_AFK_Chapter_2001_Lockdown.html">2001 · Lockdown</option><option value="Global_Game_AFK_Chapter_2002_Details.html">2002 · Details</option><option value="Global_Game_AFK_Chapter_2003_Restart.html">2003 · Restart</option><option value="Global_Game_AFK_Chapter_2004_Eighth_Level.html">2004 · Eighth Level</option><option value="Global_Game_AFK_Chapter_2005_Cold_Storage.html">2005 · Cold Storage</option><option value="Global_Game_AFK_Chapter_2006_Into_the_Backpack.html">2006 · Into the Backpack</option><option value="Global_Game_AFK_Chapter_2007_Through.html">2007 · Through</option><option value="Global_Game_AFK_Chapter_2008_Attributes.html">2008 · Attributes</option><option value="Global_Game_AFK_Chapter_2009_Shattered.html">2009 · Shattered</option><option value="Global_Game_AFK_Chapter_2010_Summoning.html">2010 · Summoning</option><option value="Global_Game_AFK_Chapter_2011_Destruction.html">2011 · Destruction</option><option value="Global_Game_AFK_Chapter_2012_Fluctuations.html">2012 · Fluctuations</option><option value="Global_Game_AFK_Chapter_2013_Conversion.html">2013 · Conversion</option><option value="Global_Game_AFK_Chapter_2014_Weakened.html">2014 · Weakened</option><option value="Global_Game_AFK_Chapter_2015_Condensation.html">2015 · Condensation</option><option selected="selected" value="Global_Game_AFK_Chapter_2016_Interception.html">2016 · Interception</option><option value="Global_Game_AFK_Chapter_2017_Tremors.html">2017 · Tremors</option><option value="Global_Game_AFK_Chapter_2018_Advancement.html">2018 · Advancement</option></select><a aria-label="Next chapter 2017" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2017_Tremors.html#start" title="Next chapter">›</a><button aria-label="Decrease font size" class="toolbtn" id="smaller" title="Smaller text">A−</button><button aria-label="Increase font size" class="toolbtn" id="larger" title="Larger text">A+</button><button aria-label="Toggle dark/light mode" class="toolbtn" id="theme" title="Toggle theme">◐</button></div><div id="progress-track"><div id="progress"></div></div></header><main><section class="chapter-section" data-reading-anchor="" id="chapter-2016"><div class="chapter-num">Chapter 2016</div><h2 class="chapter-title">Interception</h2><p class="source-identity">From original Chinese Chapter 2017 · 阻截</p><article class="prose"><p data-reading-anchor="" id="ch2016-p001">Begin!</p><p data-reading-anchor="" id="ch2016-p002">As Fang Heng poured his mental strength into the ritual, the earth beneath his feet shook violently.</p><p data-reading-anchor="" id="ch2016-p003">Crack… crack, crack!</p><p data-reading-anchor="" id="ch2016-p004">Fine fractures spread across the ground ahead. The Vampire King's Coffin slowly rose from the broken earth.</p><p data-reading-anchor="" id="ch2016-p005">A dark crimson glow washed across the sky, casting the entire area in a blood-red hue.</p><p class="system" data-reading-anchor="" id="ch2016-p006">[Hint: Player has summoned the Vampire King's Coffin. Maintaining the coffin consumes blood power. Estimated remaining duration: over 24 hours.]</p><p data-reading-anchor="" id="ch2016-p007">The huge vampire alchemical magic array beneath Fang Heng spun rapidly. He thrust out his hand and pointed toward the coffin.</p><p data-reading-anchor="" id="ch2016-p008">"Gather!"</p><p data-reading-anchor="" id="ch2016-p009">Whoosh! Whoosh, whoosh!</p><p data-reading-anchor="" id="ch2016-p010">Blood poured down from the enormous canopy like rain, flowing directly into the coffin below.</p><p class="sound" data-reading-anchor="" id="ch2016-p011">Hiss!</p><p data-reading-anchor="" id="ch2016-p012">Thick mist immediately began boiling inside the Vampire King's Coffin. Ash-gray and black smoke rose within it as the coffin's refining heat separated large quantities of impurities.</p><p data-reading-anchor="" id="ch2016-p013">Roughly two-thirds of the blood was consumed. The remaining liquid slowly accumulated inside the coffin.</p><p data-reading-anchor="" id="ch2016-p014">"That should do it…" Fang Heng muttered.</p><p data-reading-anchor="" id="ch2016-p015">He moved forward step by step until he could lower his entire body into the Vampire King's Coffin.</p><p data-reading-anchor="" id="ch2016-p016">Immersed in the repeatedly purified blood, he felt a warm current enter through the space between his eyebrows and nourish his internal organs.</p><p data-reading-anchor="" id="ch2016-p017">Lines of game notifications refreshed rapidly before his eyes.</p><p class="system" data-reading-anchor="" id="ch2016-p018">[Hint: Player has successfully purified and condensed blood through the Vampire King's Coffin.]</p><p class="system" data-reading-anchor="" id="ch2016-p019">[Hint: Player is refining their bloodline in the Vampire King's Coffin. Player's Vampire Prince bloodline level has reached LV: MAX. The next advancement stage has been activated. Please refine the bloodline to 100%.]</p><p class="system" data-reading-anchor="" id="ch2016-p020">[Hint: Current bloodline refinement completion: 0.91%.]</p><p class="system" data-reading-anchor="" id="ch2016-p021">[Hint: Player is refining blood through the Vampire King's Coffin…]</p><p data-reading-anchor="" id="ch2016-p022">The blood was slowly absorbed as though merging directly into Fang Heng's body, and his bloodline refinement percentage rose rapidly!</p><p data-reading-anchor="" id="ch2016-p023">Gu Qingzhu had originally intended to search for another exit from the game world. But after noticing that Fang Heng was using blood power to strengthen himself and seemed to be entering a deeper stage of advancement, she quietly stood guard behind him.</p><p data-reading-anchor="" id="ch2016-p024">Half an hour passed without incident.</p><p data-reading-anchor="" id="ch2016-p025">The blood canopy suspended high in the sky continued falling into the coffin like a fine, steady rain. By now, about two-thirds of the canopy had been used up.</p><p data-reading-anchor="" id="ch2016-p026">In the distance, Vampire Prince Maika flew toward them. He resumed his human form, knelt on one knee before the coffin and reported:</p><p data-reading-anchor="" id="ch2016-p027">"Your Majesty, we've discovered unknown enemies approaching this area."</p><p data-reading-anchor="" id="ch2016-p028">Enemies?</p><p data-reading-anchor="" id="ch2016-p029">Fang Heng was concentrating completely on advancing his bloodline, and his awareness of the outside world had sunk to its lowest level. He didn't hear Maika's report.</p><p data-reading-anchor="" id="ch2016-p030">Gu Qingzhu looked at Maika and asked in a serious voice, "Miyamoto Teru's people? The Fox Hunting Squad? Or the Federation?"</p><p data-reading-anchor="" id="ch2016-p031">Jia'er nodded to Maika, signaling that he could answer.</p><p data-reading-anchor="" id="ch2016-p032">"There are nearly thirty enemies, and they're quite strong. I didn't get close enough to observe them in detail, but I can confirm that seven of them are wearing Federation uniforms."</p><p data-reading-anchor="" id="ch2016-p033">So that confirmed it!</p><p data-reading-anchor="" id="ch2016-p034">Miyamoto Teru must have another passage into this game somewhere. These people had come following the Dragon Soul Crystal!</p><p data-reading-anchor="" id="ch2016-p035">Fang Heng was in the middle of his breakthrough. She couldn't allow them to disturb him.</p><p data-reading-anchor="" id="ch2016-p036">Gu Qingzhu turned to Jia'er. "I'll go with him and take a look. You stay here. Whatever happens, protect Fang Heng."</p><p data-reading-anchor="" id="ch2016-p037">"Understood!"</p><p data-reading-anchor="" id="ch2016-p038">Prince Jia'er nodded, sending out a pulse of blood vitality to summon the nearby vampires.</p><p data-reading-anchor="" id="ch2016-p039">Their king was at a crucial point in his advancement. They couldn't let anyone interrupt him!</p><p class="scene" data-reading-anchor="" id="ch2016-p040">· · ·</p><p data-reading-anchor="" id="ch2016-p041">Not far away, Tarr and the other players were converging rapidly on the area.</p><p data-reading-anchor="" id="ch2016-p042">Their expressions were grim.</p><p data-reading-anchor="" id="ch2016-p043">They'd already crossed one battlefield filled with zombies and assumed that was the end of it. Instead, the closer they came to the Dragon Soul Crystal, the denser the zombies became!</p><p data-reading-anchor="" id="ch2016-p044">Up ahead, they had even seen a gigantic horde spreading outward in every direction.</p><p data-reading-anchor="" id="ch2016-p045">There had to be hundreds of thousands of them!</p><p data-reading-anchor="" id="ch2016-p046">The zombies advanced slowly, wiping out every steel-ant nest along their route. Their special infection ability kept increasing the size of the horde. Just looking at it made the players' scalps tingle.</p><p data-reading-anchor="" id="ch2016-p047">There was no way around the horde.</p><p data-reading-anchor="" id="ch2016-p048">In the end, they had to use a temporary flight ability provided by Tarr to pass over the masses of zombies.</p><p data-reading-anchor="" id="ch2016-p049">Fortunately, the zombies couldn't fly and showed no hostility toward creatures in the air. Otherwise, crossing that sea of undead would have taken a great deal of additional time.</p><p data-reading-anchor="" id="ch2016-p050">They finally made it beyond the zombie tide.</p><p data-reading-anchor="" id="ch2016-p051">Ji Shaojie looked into the distance with a serious expression. The Dragon Soul Crystal's position wasn't far away now.</p><p data-reading-anchor="" id="ch2016-p052">It was over there!</p><p data-reading-anchor="" id="ch2016-p053">Powerful waves of blood vitality were coming from that direction. Looking toward them, the players could see an entire region covered in red clouds.</p><p data-reading-anchor="" id="ch2016-p054">What was that?</p><p data-reading-anchor="" id="ch2016-p055">Besides the Dragon Soul Crystal's signature, they could sense an extraordinarily concentrated mass of blood vitality. It felt as though something was being nurtured within the clouds.</p><p data-reading-anchor="" id="ch2016-p056">Had the Dragon Soul Crystal undergone yet another change?</p><p data-reading-anchor="" id="ch2016-p057">No one spoke, but their astonishment was evident in one another's eyes. Their apprehension deepened.</p><p data-reading-anchor="" id="ch2016-p058">Something was wrong.</p><p data-reading-anchor="" id="ch2016-p059">Compared with yesterday, the crystal's power had declined dramatically, and it was still falling!</p><p data-reading-anchor="" id="ch2016-p060">What had the demi-humans done to the Dragon Soul Crystal? They needed to stop them as quickly as possible!</p><p data-reading-anchor="" id="ch2016-p061">"Something may have changed. Let's go!" Ji Shaojie urged.</p><p data-reading-anchor="" id="ch2016-p062">They'd been moving for less than two minutes when everyone suddenly noticed something and turned to the right.</p><p data-reading-anchor="" id="ch2016-p063">Gu Qingzhu!</p><p data-reading-anchor="" id="ch2016-p064">She stood a short distance away, holding a silver longsword.</p><p data-reading-anchor="" id="ch2016-p065">Was she alone?!</p><p data-reading-anchor="" id="ch2016-p066">The Fox Hunting Squad members immediately slowed, maintaining their distance while cautiously surveying the surrounding terrain.</p><p data-reading-anchor="" id="ch2016-p067">Ji Shaojie also stared at her, filled with doubt.</p><p data-reading-anchor="" id="ch2016-p068">He was certain Gu Qingzhu had used a secret technique yesterday. Although it had briefly increased her power enormously, it had also caused severe backlash. She shouldn't have recovered this quickly.</p><p data-reading-anchor="" id="ch2016-p069">Yet the wounds on the woman before him seemed to have healed far faster than he'd expected.</p><p data-reading-anchor="" id="ch2016-p070">And it was obviously suspicious that she would appear here alone.</p><p data-reading-anchor="" id="ch2016-p071">What was going on? Was this an ambush?</p><p data-reading-anchor="" id="ch2016-p072">Ji Shaojie cautiously extended his perception to examine the surroundings.</p><p data-reading-anchor="" id="ch2016-p073">"Ji Shaojie."</p><p data-reading-anchor="" id="ch2016-p074">Gu Qingzhu swept her gaze across the crowd before fixing it on him.</p><p data-reading-anchor="" id="ch2016-p075">"You were lucky yesterday. You managed to escape with your life. But today, I think your luck has finally run out."</p><p class="sound" data-reading-anchor="" id="ch2016-p076">Hiss!</p><p data-reading-anchor="" id="ch2016-p077">Her longsword flashed from its sheath!</p><p data-reading-anchor="" id="ch2016-p078">Gu Qingzhu shot forward like a bolt of lightning, the tip of her sword darting through the air several times in quick succession!</p></article><p class="end" data-reading-anchor="" id="ch2016-end">— End of Chapter 2016 —</p><details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li><strong>Maika. </strong>迈卡 is a phonetic foreign-style name, potentially also spelled Micah or Mika. “Maika” remains provisional.</li><li><strong>Vampire King’s Coffin. </strong>血族君王的棺椁 is consistently rendered Vampire King’s Coffin. The original text describes an item with a duration and a blood-power upkeep cost.</li><li><strong>Player progression. </strong>The original specifies Vampire Prince bloodline LV MAX, then a separate bloodline-refinement percentage toward the next stage.</li><li><strong>Source. </strong>Translated from your complete uploaded GBK-encoded HTML file, original Chinese Chapter 2017.</li></ul></details><nav aria-label="Chapter navigation" class="chapter-nav"><a href="Global_Game_AFK_Chapter_2015_Condensation.html#start">← Previous chapter (2015)</a><a class="next" href="Global_Game_AFK_Chapter_2017_Tremors.html#start">Next chapter (2017) →</a></nav></section><footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>Keep the HTML files together in one folder. Reading position, font size and theme are saved wherever browser storage is supported; Android local-file behavior may vary.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer></main><div aria-live="polite" id="reading-toast" role="status"></div><script>(()=>{
+'use strict';
+const storeKey='afk-reader-position:chapter-2016:v2';
+const sizeKey='afk-reader-font-size:compact-v3';
+const themeKey='afk-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem('afk-reader-test','ok');localStorage.removeItem('afk-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();</script></body></html>

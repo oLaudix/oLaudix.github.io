@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html data-theme="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/><meta content="#171719" name="theme-color"/><title>Chapter 2005 — Cold Storage | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+</style></head><body><header class="topbar" role="banner"><div class="toolbar"><a aria-label="Previous chapter 2004" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2004_Eighth_Level.html#start" title="Previous chapter">‹</a><select aria-label="Choose a chapter" id="chapter-picker"><option value="Global_Game_AFK_Chapter_2000_Control.html">2000 · Control</option><option value="Global_Game_AFK_Chapter_2001_Lockdown.html">2001 · Lockdown</option><option value="Global_Game_AFK_Chapter_2002_Details.html">2002 · Details</option><option value="Global_Game_AFK_Chapter_2003_Restart.html">2003 · Restart</option><option value="Global_Game_AFK_Chapter_2004_Eighth_Level.html">2004 · Eighth Level</option><option selected="selected" value="Global_Game_AFK_Chapter_2005_Cold_Storage.html">2005 · Cold Storage</option><option value="Global_Game_AFK_Chapter_2006_Into_the_Backpack.html">2006 · Into the Backpack</option><option value="Global_Game_AFK_Chapter_2007_Through.html">2007 · Through</option><option value="Global_Game_AFK_Chapter_2008_Attributes.html">2008 · Attributes</option><option value="Global_Game_AFK_Chapter_2009_Shattered.html">2009 · Shattered</option><option value="Global_Game_AFK_Chapter_2010_Summoning.html">2010 · Summoning</option><option value="Global_Game_AFK_Chapter_2011_Destruction.html">2011 · Destruction</option><option value="Global_Game_AFK_Chapter_2012_Fluctuations.html">2012 · Fluctuations</option><option value="Global_Game_AFK_Chapter_2013_Conversion.html">2013 · Conversion</option><option value="Global_Game_AFK_Chapter_2014_Weakened.html">2014 · Weakened</option><option value="Global_Game_AFK_Chapter_2015_Condensation.html">2015 · Condensation</option><option value="Global_Game_AFK_Chapter_2016_Interception.html">2016 · Interception</option><option value="Global_Game_AFK_Chapter_2017_Tremors.html">2017 · Tremors</option><option value="Global_Game_AFK_Chapter_2018_Advancement.html">2018 · Advancement</option></select><a aria-label="Next chapter 2006" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2006_Into_the_Backpack.html#start" title="Next chapter">›</a><button aria-label="Decrease font size" class="toolbtn" id="smaller" title="Smaller text">A−</button><button aria-label="Increase font size" class="toolbtn" id="larger" title="Larger text">A+</button><button aria-label="Toggle dark/light mode" class="toolbtn" id="theme" title="Toggle theme">◐</button></div><div id="progress-track"><div id="progress"></div></div></header><main><section class="chapter-section" data-reading-anchor="" id="chapter-2005">
+<div class="chapter-num">Chapter 2005</div>
+<h2 class="chapter-title">Cold Storage</h2>
+<p class="source-identity">Translated from Chinese Chapter 2006</p>
+<article class="prose"><p data-reading-anchor="" id="ch2005-p001">Was it because the power had gone out earlier?</p>
+<p data-reading-anchor="" id="ch2005-p002">Fang Heng considered the possibility, then pushed the door open.</p>
+<p data-reading-anchor="" id="ch2005-p003">Beyond it lay a huge cold-storage room. The temperature was extremely low, and foam containers of various sizes were stacked along the walls. Many had been piled high, with a layer of frost coating their surfaces.</p>
+<p data-reading-anchor="" id="ch2005-p004">Judging by the thickness of the frost, nobody had moved the containers in quite some time.</p>
+<p data-reading-anchor="" id="ch2005-p005">“Fang Heng, be careful. Something's very wrong here.”</p>
+<p data-reading-anchor="" id="ch2005-p006">Only after stepping inside did Gu Qingzhu finally sense the faint fluctuations of blood vitality. She became even more cautious.</p>
+<p data-reading-anchor="" id="ch2005-p007">“Mm.”</p>
+<p data-reading-anchor="" id="ch2005-p008">Fang Heng acknowledged her warning and opened one of the nearby foam containers.</p>
+<p class="sound" data-reading-anchor="" id="ch2005-p009">Crack!</p>
+<p data-reading-anchor="" id="ch2005-p010">He tore its outer covering apart.</p>
+<p data-reading-anchor="" id="ch2005-p011">Inside were bags filled with a thick, viscous substance resembling blood plasma.</p>
+<p data-reading-anchor="" id="ch2005-p012">Each bag was marked with a string of identifying numbers.</p>
+<p data-reading-anchor="" id="ch2005-p013">“Research materials? Could they be related to Miyamoto Teru's experiments…?”</p>
+<p data-reading-anchor="" id="ch2005-p014">Fang Heng picked up a bag and examined it, muttering to himself.</p>
+<p data-reading-anchor="" id="ch2005-p015">His vampire bloodline detected only a very small amount of power within the plasma.</p>
+<p data-reading-anchor="" id="ch2005-p016">No game notification appeared, either.</p>
+<p data-reading-anchor="" id="ch2005-p017">Fang Heng looked up again.</p>
+<p data-reading-anchor="" id="ch2005-p018">The cold-storage room was enormous.</p>
+<p data-reading-anchor="" id="ch2005-p019">The blood-vitality fluctuations he'd detected were coming from farther ahead.</p>
+<p data-reading-anchor="" id="ch2005-p020">Following that sensation, he made his way deeper inside, eventually reaching the wall at the far end.</p>
+<p data-reading-anchor="" id="ch2005-p021">Behind the wall! “Careful. Stand back.”</p>
+<p data-reading-anchor="" id="ch2005-p022">Fang Heng studied the surface, clenched his fist, and drove a powerful punch into it.</p>
+<p class="sound" data-reading-anchor="" id="ch2005-p023">BANG!</p>
+<p data-reading-anchor="" id="ch2005-p024">His fist struck the wall with a heavy crash. *Crack, crack, crack…!*</p>
+<p data-reading-anchor="" id="ch2005-p025">A web of fractures spread across the white surface, rapidly branching outward.</p>
+<p class="sound" data-reading-anchor="" id="ch2005-p026">BOOM!</p>
+<p data-reading-anchor="" id="ch2005-p027">An entire section of the wall collapsed in front of them.</p>
+<p data-reading-anchor="" id="ch2005-p028">A blast of bone-chilling air poured out from the hidden space beyond!</p>
+<p data-reading-anchor="" id="ch2005-p029">What was that…?</p>
+<p data-reading-anchor="" id="ch2005-p030">Fang Heng and Gu Qingzhu stared into the newly revealed chamber, their expressions growing serious.</p>
+<p data-reading-anchor="" id="ch2005-p031">Behind the cold-storage room lay a vast ice cellar.</p>
+<p data-reading-anchor="" id="ch2005-p032">Huge blocks of ice were scattered around the chamber in apparent disorder.</p>
+<p data-reading-anchor="" id="ch2005-p033">Fang Heng's gaze immediately locked onto its deepest recess.</p>
+<p data-reading-anchor="" id="ch2005-p034">That was where the immense blood-vitality fluctuations were coming from!</p>
+<p data-reading-anchor="" id="ch2005-p035">Found it! Fang Heng's pupils contracted.</p>
+<p data-reading-anchor="" id="ch2005-p036">At the center of a gigantic block of ice in the depths of the cellar was an enormous dark-red stone.</p>
+<p data-reading-anchor="" id="ch2005-p037">It pulsed with deep crimson light, beating rhythmically like a heart.</p>
+<p data-reading-anchor="" id="ch2005-p038">A Dragon Soul Crystal!</p>
+<p data-reading-anchor="" id="ch2005-p039">There was no doubt about it! Fang Heng immediately recognized the resemblance to the Dragon Soul Crystal he'd seen described in the research materials.</p>
+<p data-reading-anchor="" id="ch2005-p040">All the blood-vitality fluctuations he'd sensed from basement level seven had been coming from this crystal! Beside him, Gu Qingzhu looked troubled. “Fang Heng. Look at those people.”</p>
+<p data-reading-anchor="" id="ch2005-p041">Fang Heng followed her gaze.</p>
+<p data-reading-anchor="" id="ch2005-p042">Humans! He'd been so focused on the Dragon Soul Crystal that he'd barely noticed the huge ice blocks scattered around the chamber.</p>
+<p data-reading-anchor="" id="ch2005-p043">But at the center of each block was a living human, frozen in place!</p>
+<p data-reading-anchor="" id="ch2005-p044">Fang Heng examined the people entombed in ice.</p>
+<p data-reading-anchor="" id="ch2005-p045">Judging by their clothes, many belonged to Miyamoto Teru's Fox Hunting Squad.</p>
+<p data-reading-anchor="" id="ch2005-p046">Without exception, every frozen person possessed blood-vitality fluctuations far stronger than those of an ordinary human!</p>
+<p data-reading-anchor="" id="ch2005-p047">They clearly weren't dead!</p>
+<p data-reading-anchor="" id="ch2005-p048">Almost all of them were sitting cross-legged.</p>
+<p data-reading-anchor="" id="ch2005-p049">As though they were cultivating?</p>
+<p data-reading-anchor="" id="ch2005-p050">So…</p>
+<p data-reading-anchor="" id="ch2005-p051">Were they using the ice to suppress instability in their blood vitality?</p>
+<p data-reading-anchor="" id="ch2005-p052">Fang Heng studied their condition and silently considered the possibility.</p>
+<p data-reading-anchor="" id="ch2005-p053">“Fang Heng, these people aren't normal. They're all strong. Be careful.”</p>
+<p data-reading-anchor="" id="ch2005-p054">Gu Qingzhu scanned the frozen faces. Her eyebrows suddenly rose when she recognized someone among them.</p>
+<p data-reading-anchor="" id="ch2005-p055">“What is it? Did you find something?”</p>
+<p data-reading-anchor="" id="ch2005-p056">“No, nothing. Just someone I know. Fang Heng, many of these people are players from high-tier game worlds. Quite a few appear on major ranking lists. I didn't expect them to have connections to Miyamoto Teru.”</p>
+<p data-reading-anchor="" id="ch2005-p057">“Mm.”</p>
+<p data-reading-anchor="" id="ch2005-p058">Fang Heng nodded slightly.</p>
+<p data-reading-anchor="" id="ch2005-p059">Breaking through the wall had made quite a racket.</p>
+<p data-reading-anchor="" id="ch2005-p060">Yet none of the frozen players had awakened.</p>
+<p data-reading-anchor="" id="ch2005-p061">That suggested their perception of the outside world was greatly diminished.</p>
+<p data-reading-anchor="" id="ch2005-p062">“Better not disturb them. Let's get a little closer and have a look.”</p>
+<p data-reading-anchor="" id="ch2005-p063">Speaking softly, Fang Heng approached the Dragon Soul Crystal frozen in the center of the chamber.</p>
+<p data-reading-anchor="" id="ch2005-p064">The Dragon Soul Crystal!</p>
+<p data-reading-anchor="" id="ch2005-p065">An item radiating powerful blood vitality.</p>
+<p data-reading-anchor="" id="ch2005-p066">He'd come this far!</p>
+<p data-reading-anchor="" id="ch2005-p067">He had to find a way to take it back!</p>
+<p data-reading-anchor="" id="ch2005-p068">Fang Heng stopped in front of the crystal, carefully extended his hand, and slowly reached out until his fingers brushed the ice covering it.</p>
+<p data-reading-anchor="" id="ch2005-p069">Piercing cold shot through his palm.</p>
+<p data-reading-anchor="" id="ch2005-p070">Unfortunately, no game notification appeared.</p>
+<p data-reading-anchor="" id="ch2005-p071">“Fang Heng, that's very likely the Dragon Soul Crystal Miyamoto Teru received as a reward for completing the final mission of an intermediate-tier game world.”</p>
+<p data-reading-anchor="" id="ch2005-p072">Gu Qingzhu joined him before the enormous block of ice. Sensing the energy escaping from within, she thought for a moment before speaking. “They say the Dragon Soul Crystal is a concentration of energy extracted from an ancient dragon. I never expected Miyamoto Teru to bring it out of the game and store it here.”</p>
+<p data-reading-anchor="" id="ch2005-p073">“Probably because it made his experiments more convenient.” Gu Qingzhu thought of her fellow demi-humans, treated like laboratory specimens, and said grimly, “Fang Heng, we need to destroy it.”</p>
+<p data-reading-anchor="" id="ch2005-p074">Without the Dragon Soul Crystal, Miyamoto's research into the special game portal would undoubtedly suffer a major setback!</p>
+<p data-reading-anchor="" id="ch2005-p075">Gu Qingzhu swept her gaze across the players frozen inside the surrounding ice blocks.</p>
+<p data-reading-anchor="" id="ch2005-p076">They were powerful.</p>
+<p data-reading-anchor="" id="ch2005-p077">She wouldn't fear any one of them in a duel, but there were so many.</p>
+<p data-reading-anchor="" id="ch2005-p078">If destroying the crystal woke them all and they attacked at once, even she would have trouble dealing with them alone.</p>
+<p data-reading-anchor="" id="ch2005-p079">“These frozen members of the Fox Hunting Squad and the other players are a problem. It looks as though they're using the crystal's energy to cultivate. If we destroy it by force, we may wake them up…”</p>
+<p data-reading-anchor="" id="ch2005-p080">Fang Heng looked up. “Could we move it instead?”</p>
+<p data-reading-anchor="" id="ch2005-p081">Gu Qingzhu had been working out how to destroy the crystal and get Fang Heng safely out of the chamber. His question caught her off guard. She turned toward him in disbelief. “What? Move it?”</p>
+<p data-reading-anchor="" id="ch2005-p082">Seeing her reaction, Fang Heng realized it probably wouldn't be easy to carry the entire crystal away.</p>
+<p data-reading-anchor="" id="ch2005-p083">It was simply too large.</p>
+<p data-reading-anchor="" id="ch2005-p084">It didn't look like something he could put in a game inventory.</p>
+<p data-reading-anchor="" id="ch2005-p085">Miyamoto Teru must have gone to a great deal of trouble to transport it all the way out of the game in the first place.</p>
+<p data-reading-anchor="" id="ch2005-p086">Fang Heng checked the time. “We're running out of it. There's only an hour until the institute's lockdown ends. Let's give it a try. We'll follow your suggestion—break it apart and evacuate immediately.”</p></article>
+<p class="end" data-reading-anchor="" id="ch2005-end">— End of Chapter 2005 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li><strong>Two separate cold spaces.</strong> 冰库 is the outer cold-storage room and 冰窖 is the ice cellar behind its wall. They are intentionally distinguished.</li><li><strong>Crystal naming.</strong> 龙魂晶石, 龙魂结晶, and 龙魂之晶 are variant labels used in this chapter for the same object; all are rendered “Dragon Soul Crystal.”</li><li><strong>Speculative explanation.</strong> Fang Heng only speculates that freezing suppresses the players’ unstable blood vitality. The text does not establish it as fact.</li><li><strong>Source.</strong> Translated in full from the Chinese PDF you uploaded, original Chapter 2006. The original Chinese chapter number is one ahead of the established English numbering.</li></ul></details>
+
+<nav aria-label="Chapter navigation" class="chapter-nav"><a href="Global_Game_AFK_Chapter_2004_Eighth_Level.html#start">← Previous chapter (2004)</a><a class="next" href="Global_Game_AFK_Chapter_2006_Into_the_Backpack.html#start">Next chapter (2006) →</a></nav></section><footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>Keep the HTML files together in one folder. Reading position, font size and theme are saved wherever browser storage is supported; Android local-file behavior may vary.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer></main><div aria-live="polite" id="reading-toast" role="status"></div><script>(()=>{
+'use strict';
+const storeKey='afk-reader-position:chapter-2005:v2';
+const sizeKey='afk-reader-font-size:compact-v3';
+const themeKey='afk-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem('afk-reader-test','ok');localStorage.removeItem('afk-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();</script></body></html>

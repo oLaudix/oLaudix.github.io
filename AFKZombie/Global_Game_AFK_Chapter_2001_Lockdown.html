@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html data-theme="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/><meta content="#171719" name="theme-color"/><title>Chapter 2001 — Lockdown | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+</style></head><body><header class="topbar" role="banner"><div class="toolbar"><a aria-label="Previous chapter 2000" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2000_Control.html#start" title="Previous chapter">‹</a><select aria-label="Choose a chapter" id="chapter-picker"><option value="Global_Game_AFK_Chapter_2000_Control.html">2000 · Control</option><option selected="selected" value="Global_Game_AFK_Chapter_2001_Lockdown.html">2001 · Lockdown</option><option value="Global_Game_AFK_Chapter_2002_Details.html">2002 · Details</option><option value="Global_Game_AFK_Chapter_2003_Restart.html">2003 · Restart</option><option value="Global_Game_AFK_Chapter_2004_Eighth_Level.html">2004 · Eighth Level</option><option value="Global_Game_AFK_Chapter_2005_Cold_Storage.html">2005 · Cold Storage</option><option value="Global_Game_AFK_Chapter_2006_Into_the_Backpack.html">2006 · Into the Backpack</option><option value="Global_Game_AFK_Chapter_2007_Through.html">2007 · Through</option><option value="Global_Game_AFK_Chapter_2008_Attributes.html">2008 · Attributes</option><option value="Global_Game_AFK_Chapter_2009_Shattered.html">2009 · Shattered</option><option value="Global_Game_AFK_Chapter_2010_Summoning.html">2010 · Summoning</option><option value="Global_Game_AFK_Chapter_2011_Destruction.html">2011 · Destruction</option><option value="Global_Game_AFK_Chapter_2012_Fluctuations.html">2012 · Fluctuations</option><option value="Global_Game_AFK_Chapter_2013_Conversion.html">2013 · Conversion</option><option value="Global_Game_AFK_Chapter_2014_Weakened.html">2014 · Weakened</option><option value="Global_Game_AFK_Chapter_2015_Condensation.html">2015 · Condensation</option><option value="Global_Game_AFK_Chapter_2016_Interception.html">2016 · Interception</option><option value="Global_Game_AFK_Chapter_2017_Tremors.html">2017 · Tremors</option><option value="Global_Game_AFK_Chapter_2018_Advancement.html">2018 · Advancement</option></select><a aria-label="Next chapter 2002" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2002_Details.html#start" title="Next chapter">›</a><button aria-label="Decrease font size" class="toolbtn" id="smaller" title="Smaller text">A−</button><button aria-label="Increase font size" class="toolbtn" id="larger" title="Larger text">A+</button><button aria-label="Toggle dark/light mode" class="toolbtn" id="theme" title="Toggle theme">◐</button></div><div id="progress-track"><div id="progress"></div></div></header><main><section class="chapter-section" data-reading-anchor="" id="chapter-2001">
+<div class="chapter-num">Chapter 2001</div>
+<h2 class="chapter-title">Lockdown</h2>
+<p class="source-identity">Translated from Chinese Chapter 2002</p>
+<article class="prose"><p data-reading-anchor="" id="ch2001-p001">The two demi-humans who had stayed behind to guard the hall saw what was happening on the monitors and immediately grew worried.</p>
+<p data-reading-anchor="" id="ch2001-p002">Fang Heng frowned. “What's going on? Why didn't you warn me about these defenses?”</p>
+<p data-reading-anchor="" id="ch2001-p003">“I—I genuinely didn't know!” Cold sweat ran down both sides of Dudley's face. “These are built-in security systems. I know nothing about them. They probably use facial recognition and automatically attack anyone without authorization. I didn't even know this module existed…”</p>
+<p data-reading-anchor="" id="ch2001-p004">“Turn them off. Change their targets,” Fang Heng ordered coldly.</p>
+<p data-reading-anchor="" id="ch2001-p005">“I can't.”</p>
+<p data-reading-anchor="" id="ch2001-p006">Dudley tried operating the controls, but a warning window appeared on the screen demanding authorization.</p>
+<p data-reading-anchor="" id="ch2001-p007">“There's really nothing I can do! The security module is separate from the research platform. Even the security department can't shut it down. Disabling these defenses requires level-one authorization—Mr. Miyamoto himself has to unlock it with his iris pattern and security key. None of us can do that. Forcing access will only trigger lockdown mode. Once that happens, none of us will be able to get out.”</p>
+<p data-reading-anchor="" id="ch2001-p008">“Hm?”</p>
+<p data-reading-anchor="" id="ch2001-p009">Lockdown? Nobody could get out? Fang Heng suddenly realized something, and an interested expression crossed his face. “Hold on. Explain this lockdown mode to me.”</p>
+<p class="scene" data-reading-anchor="" id="ch2001-p010">· · ·</p>
+<p data-reading-anchor="" id="ch2001-p011">Meanwhile, on the upper levels of Frostmist Island…</p>
+<p data-reading-anchor="" id="ch2001-p012">Lei Yu was leading a Federal crisis-response team toward the underwater passage to reinforce the research institute.</p>
+<p data-reading-anchor="" id="ch2001-p013">What was going on? Why had the underwater laboratory suddenly come under attack from within? Everything had happened so quickly that all Lei Yu and his team knew was that the alarm originated inside the facility. Outside, everything was quiet; there wasn't so much as a trace of an enemy.</p>
+<p data-reading-anchor="" id="ch2001-p014">And yet an attack alarm had suddenly gone off inside?</p>
+<p data-reading-anchor="" id="ch2001-p015">Could the enemy really walk through walls? Lei Yu was certain something was wrong.</p>
+<p data-reading-anchor="" id="ch2001-p016">After the alarm sounded, he had left some of his personnel to guard the exterior, in case this was a diversion, and taken the rest toward the central research institute.</p>
+<p data-reading-anchor="" id="ch2001-p017">In truth, the facilities visible on Frostmist Island were merely a decoy.</p>
+<p data-reading-anchor="" id="ch2001-p018">The real laboratory occupied an underwater complex two kilometers away from the island.</p>
+<p data-reading-anchor="" id="ch2001-p019">Very few people knew that secret.</p>
+<p data-reading-anchor="" id="ch2001-p020">Even most of Lei Yu's own subordinates had no idea.</p>
+<p data-reading-anchor="" id="ch2001-p021">So how had the information leaked? And how had Gu Qingzhu reached the actual laboratory directly?</p>
+<p data-reading-anchor="" id="ch2001-p022">“Damn it, that old Miyamoto! He kept saying the inside of the institute was perfectly safe, that he'd set traps to kill anyone who came! Well, the big fish took the bait, all right—and it might run off with the bait still on the hook!”</p>
+<p data-reading-anchor="" id="ch2001-p023">The anxious team members couldn't help muttering curses under their breath.</p>
+<p data-reading-anchor="" id="ch2001-p024">They'd been told to set up an ambush around the island because Gu Qingzhu was certain to probe its defenses tonight. The idea was to trap her and the entire demi-human team in one decisive strike.</p>
+<p data-reading-anchor="" id="ch2001-p025">And what had happened instead? They'd spent most of the night standing outside in the sea wind, caught absolutely nothing, and now the enemy had raided their base first! What a bunch of idiots.</p>
+<p data-reading-anchor="" id="ch2001-p026">A whole team of useless allies!</p>
+<p data-reading-anchor="" id="ch2001-p027">“Enough! Shut your mouths!”</p>
+<p data-reading-anchor="" id="ch2001-p028">Brow furrowed, Lei Yu hurried on with his subordinates.</p>
+<p data-reading-anchor="" id="ch2001-p029">Miyamoto Teru had discussed some details with him beforehand.</p>
+<p data-reading-anchor="" id="ch2001-p030">Lei Yu knew the broad outline of Miyamoto's plan.</p>
+<p data-reading-anchor="" id="ch2001-p031">At the time, nothing about it had seemed suspicious.</p>
+<p data-reading-anchor="" id="ch2001-p032">So how could the demi-humans have infiltrated the laboratory directly? He seriously doubted the alarm's accuracy. Perhaps the demi-humans had triggered it deliberately to draw his people away.</p>
+<p data-reading-anchor="" id="ch2001-p033">“Are Frostmist Island's outer defenses still secure?”</p>
+<p data-reading-anchor="" id="ch2001-p034">One of his men checked the reports and answered at once. “Completely secure. Everything outside is calm. No problems at all.”</p>
+<p data-reading-anchor="" id="ch2001-p035">Lei Yu frowned.</p>
+<p data-reading-anchor="" id="ch2001-p036">For now, all he could do was set his doubts aside and hurry to the institute.</p>
+<p data-reading-anchor="" id="ch2001-p037">The research laboratory was located on basement level seven.</p>
+<p data-reading-anchor="" id="ch2001-p038">To reach it, they first had to pass through a long underwater corridor.</p>
+<p data-reading-anchor="" id="ch2001-p039">They had barely made it through the passage when a metal security gate blocked their way.</p>
+<p data-reading-anchor="" id="ch2001-p040">“Open the gate!”</p>
+<p data-reading-anchor="" id="ch2001-p041">Several Fox Hunting Squad guards stood watch at the entrance.</p>
+<p data-reading-anchor="" id="ch2001-p042">“Sorry. We need authorization first.”</p>
+<p data-reading-anchor="" id="ch2001-p043">“Authorization? What authorization? We're from the Federal Investigation Bureau!”</p>
+<p data-reading-anchor="" id="ch2001-p044">“Without authorization, I can't let you through.”</p>
+<p data-reading-anchor="" id="ch2001-p045">“You—! At a time like this, you're still demanding authorization?”</p>
+<p data-reading-anchor="" id="ch2001-p046">Lei Yu raised a hand to stop his visibly agitated subordinate.</p>
+<p data-reading-anchor="" id="ch2001-p047">“Captain, we…”</p>
+<p data-reading-anchor="" id="ch2001-p048">“We wait,” Lei Yu said firmly.</p>
+<p data-reading-anchor="" id="ch2001-p049">His subordinates were furious, but at his command they swallowed their complaints, fell silent, and lined up behind him.</p>
+<p data-reading-anchor="" id="ch2001-p050">Only after a full three minutes did Miyamoto Teru finally arrive, escorted by more than ten elite players from the Fox Hunting Squad.</p>
+<p data-reading-anchor="" id="ch2001-p051">The guards bowed together. “Mr. Miyamoto.”</p>
+<p data-reading-anchor="" id="ch2001-p052">“Mm…”</p>
+<p data-reading-anchor="" id="ch2001-p053">Miyamoto's expression was grave. A glance exchanged with Lei Yu told him what had happened while he was on his way.</p>
+<p data-reading-anchor="" id="ch2001-p054">“Grant Lei Yu and his team temporary access. Seal the outer perimeter and strictly control entry by outsiders.”</p>
+<p data-reading-anchor="" id="ch2001-p055">“Yes, sir!”</p>
+<p class="sound" data-reading-anchor="" id="ch2001-p056">Clack, clack, clack…</p>
+<p data-reading-anchor="" id="ch2001-p057">The metal gate blocking the passage slowly began to open.</p>
+<p data-reading-anchor="" id="ch2001-p058">“The demi-humans have invaded the research institute. Extremely dangerous individuals may be involved. All entrances and exits must be sealed to prevent their escape…”</p>
+<p data-reading-anchor="" id="ch2001-p059">Just as the group was preparing to enter, a piercing alarm suddenly rang throughout the hall.</p>
+<p class="sound" data-reading-anchor="" id="ch2001-p060">Woooo! Woooooo!</p>
+<p data-reading-anchor="" id="ch2001-p061">Almost at the same instant, massive slabs made from a special material dropped from above the entrance to the research institute, each measuring roughly two meters.</p>
+<p class="sound" data-reading-anchor="" id="ch2001-p062">BOOM! BOOM!</p>
+<p data-reading-anchor="" id="ch2001-p063">The thick slabs struck the ground with such force that the entire hall shook violently.</p>
+<p class="sound" data-reading-anchor="" id="ch2001-p064">Hummm…</p>
+<p data-reading-anchor="" id="ch2001-p065">A dark-yellow protective energy barrier appeared around the fallen metal-and-stone plates.</p>
+<p data-reading-anchor="" id="ch2001-p066">Miyamoto Teru's face darkened.</p>
+<p data-reading-anchor="" id="ch2001-p067">What was going on?</p>
+<p data-reading-anchor="" id="ch2001-p068">Why had the passage entrance suddenly sealed itself again? Everyone turned to look at Miyamoto.</p>
+<p data-reading-anchor="" id="ch2001-p069">“Mr. Miyamoto, what is this?”</p>
+<p data-reading-anchor="" id="ch2001-p070">Miyamoto stood motionless, saying nothing, seemingly lost in thought.</p>
+<p data-reading-anchor="" id="ch2001-p071">His personal secretary, who had remained beside him, stepped forward.</p>
+<p data-reading-anchor="" id="ch2001-p072">“Everyone, please listen. The entire underwater research institute is equipped with a level-one security protocol. Once activated, control of all defensive installations passes to the protective barrier system, and the facility enters complete lockdown.”</p>
+<p data-reading-anchor="" id="ch2001-p073">“The protective barrier has three layers during lockdown. The innermost layer consists of synthetic rock-steel plates capable of withstanding an impact rated at 30 million energy units. The second is an absorption layer made from a special game-world material called energy-wave sponge. It absorbs the force dispersed by the synthetic rock-steel and further strengthens its defenses.”</p>
+<p data-reading-anchor="" id="ch2001-p074">“The third layer is an external defensive energy shield. It provides the final line of protection and can even block spatial fluctuations, preventing enemies from escaping.”</p></article>
+<p class="end" data-reading-anchor="" id="ch2001-end">— End of Chapter 2001 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li><strong>Barrier specifications.</strong> The Chinese says 3000W能量级. In Chinese gaming notation “W” commonly stands for ten thousand, so this is rendered as a 30-million-energy-unit impact rating. It could also be read as the literal label “3000W”; the novel does not define the measurement system here.</li><li><strong>Synthetic materials.</strong> 合成岩刚 and 能量波动海绵 become “synthetic rock-steel” and “energy-wave sponge.” Those are descriptive translations, not independently verified official English names.</li><li><strong>Miyamoto’s name.</strong> 宫本氏辉 is kept as Miyamoto Teru to match the name established in your earlier chapters. A different Japanese reading may be intended; the Chinese does not establish one conclusively.</li><li><strong>Source.</strong> Translated in full from the Chinese PDF you uploaded, original Chapter 2002. The original Chinese chapter number is one ahead of the established English numbering.</li></ul></details>
+
+<nav aria-label="Chapter navigation" class="chapter-nav"><a href="Global_Game_AFK_Chapter_2000_Control.html#start">← Previous chapter (2000)</a><a class="next" href="Global_Game_AFK_Chapter_2002_Details.html#start">Next chapter (2002) →</a></nav></section><footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>Keep the HTML files together in one folder. Reading position, font size and theme are saved wherever browser storage is supported; Android local-file behavior may vary.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer></main><div aria-live="polite" id="reading-toast" role="status"></div><script>(()=>{
+'use strict';
+const storeKey='afk-reader-position:chapter-2001:v2';
+const sizeKey='afk-reader-font-size:compact-v3';
+const themeKey='afk-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem('afk-reader-test','ok');localStorage.removeItem('afk-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();</script></body></html>

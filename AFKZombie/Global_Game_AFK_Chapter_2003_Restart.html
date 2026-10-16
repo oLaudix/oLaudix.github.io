@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html data-theme="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/><meta content="#171719" name="theme-color"/><title>Chapter 2003 — Restart | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+</style></head><body><header class="topbar" role="banner"><div class="toolbar"><a aria-label="Previous chapter 2002" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2002_Details.html#start" title="Previous chapter">‹</a><select aria-label="Choose a chapter" id="chapter-picker"><option value="Global_Game_AFK_Chapter_2000_Control.html">2000 · Control</option><option value="Global_Game_AFK_Chapter_2001_Lockdown.html">2001 · Lockdown</option><option value="Global_Game_AFK_Chapter_2002_Details.html">2002 · Details</option><option selected="selected" value="Global_Game_AFK_Chapter_2003_Restart.html">2003 · Restart</option><option value="Global_Game_AFK_Chapter_2004_Eighth_Level.html">2004 · Eighth Level</option><option value="Global_Game_AFK_Chapter_2005_Cold_Storage.html">2005 · Cold Storage</option><option value="Global_Game_AFK_Chapter_2006_Into_the_Backpack.html">2006 · Into the Backpack</option><option value="Global_Game_AFK_Chapter_2007_Through.html">2007 · Through</option><option value="Global_Game_AFK_Chapter_2008_Attributes.html">2008 · Attributes</option><option value="Global_Game_AFK_Chapter_2009_Shattered.html">2009 · Shattered</option><option value="Global_Game_AFK_Chapter_2010_Summoning.html">2010 · Summoning</option><option value="Global_Game_AFK_Chapter_2011_Destruction.html">2011 · Destruction</option><option value="Global_Game_AFK_Chapter_2012_Fluctuations.html">2012 · Fluctuations</option><option value="Global_Game_AFK_Chapter_2013_Conversion.html">2013 · Conversion</option><option value="Global_Game_AFK_Chapter_2014_Weakened.html">2014 · Weakened</option><option value="Global_Game_AFK_Chapter_2015_Condensation.html">2015 · Condensation</option><option value="Global_Game_AFK_Chapter_2016_Interception.html">2016 · Interception</option><option value="Global_Game_AFK_Chapter_2017_Tremors.html">2017 · Tremors</option><option value="Global_Game_AFK_Chapter_2018_Advancement.html">2018 · Advancement</option></select><a aria-label="Next chapter 2004" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2004_Eighth_Level.html#start" title="Next chapter">›</a><button aria-label="Decrease font size" class="toolbtn" id="smaller" title="Smaller text">A−</button><button aria-label="Increase font size" class="toolbtn" id="larger" title="Larger text">A+</button><button aria-label="Toggle dark/light mode" class="toolbtn" id="theme" title="Toggle theme">◐</button></div><div id="progress-track"><div id="progress"></div></div></header><main><section class="chapter-section" data-reading-anchor="" id="chapter-2003">
+<div class="chapter-num">Chapter 2003</div>
+<h2 class="chapter-title">Restart</h2>
+<p class="source-identity">Translated from Chinese Chapter 2004</p>
+<article class="prose"><p data-reading-anchor="" id="ch2003-p001">Restart it?</p>
+<p data-reading-anchor="" id="ch2003-p002">Dudley shook his head repeatedly at Fang Heng's outrageous suggestion. “Impossible! Absolutely impossible! The institute gets its electricity directly from an external power supply. We can't generate power for it ourselves. Without power, we can't activate the game teleportation portal. Do you understand? There's no way!”</p>
+<p data-reading-anchor="" id="ch2003-p003">“I'll handle the power. All you have to do is restart the machine.”</p>
+<p data-reading-anchor="" id="ch2003-p004">Fang Heng called the two demi-humans over and gave them a meaningful look.</p>
+<p data-reading-anchor="" id="ch2003-p005">“Friends, could you give me a hand?”</p>
+<p data-reading-anchor="" id="ch2003-p006">The two soon cleared an open space in the middle of the hall.</p>
+<p data-reading-anchor="" id="ch2003-p007">Fang Heng walked over, took out an alchemy pen, crouched, and began drawing an alchemical magic array.</p>
+<p data-reading-anchor="" id="ch2003-p008">Electricity wasn't the only possible energy source. Magic arrays could convert energy too!</p>
+<p data-reading-anchor="" id="ch2003-p009">Even a basic alchemical array was usually sufficient for the task.</p>
+<p data-reading-anchor="" id="ch2003-p010">Before Dudley's astonished eyes, Fang Heng rapidly completed a magic array on the floor.</p>
+<p data-reading-anchor="" id="ch2003-p011">He rose and took several purified cosmic crystals from his backpack, weighing them in his palm.</p>
+<p data-reading-anchor="" id="ch2003-p012">These were crystals containing highly concentrated energy.</p>
+<p data-reading-anchor="" id="ch2003-p013">Extremely useful things!</p>
+<p data-reading-anchor="" id="ch2003-p014">After relying on them several times in the game, he'd started carrying a stack in his warp backpack slots, just in case.</p>
+<p data-reading-anchor="" id="ch2003-p015">Six pieces in total.</p>
+<p data-reading-anchor="" id="ch2003-p016">Enough to last a while!</p>
+<p data-reading-anchor="" id="ch2003-p017">Dudley's eyes went wide as he watched Fang Heng casually produce the cosmic crystals.</p>
+<p data-reading-anchor="" id="ch2003-p018">Good heavens! Those were…</p>
+<p data-reading-anchor="" id="ch2003-p019">High-purity cosmic crystals?</p>
+<p data-reading-anchor="" id="ch2003-p020">Where had he obtained such valuable energy materials?</p>
+<p data-reading-anchor="" id="ch2003-p021">Fang Heng placed the crystals in the center of the array.</p>
+<p class="sound" data-reading-anchor="" id="ch2003-p022">Whoosh!</p>
+<p data-reading-anchor="" id="ch2003-p023">High-grade energy instantly flooded the magic array, sending it into rapid operation. Fang Heng turned to Dudley, who was still staring in disbelief. “Stop gawking. What about the power configuration? Hurry up and try it!”</p>
+<p data-reading-anchor="" id="ch2003-p024">“R-right…”</p>
+<p data-reading-anchor="" id="ch2003-p025">Dudley immediately began adjusting the settings and reconnecting the institute's original power systems to the new source.</p>
+<p data-reading-anchor="" id="ch2003-p026">Because the new source had different electrical and energy parameters, the connection required recalibration. After working on it for more than ten minutes, Dudley finally got the system running again on the replacement power supply.</p>
+<p class="sound" data-reading-anchor="" id="ch2003-p027">Clack, clack, clack…</p>
+<p data-reading-anchor="" id="ch2003-p028">The lights came back on. The large monitors booted up, and equipment throughout the research institute resumed operation.</p>
+<p data-reading-anchor="" id="ch2003-p029">“Good. You've got ten minutes. I need the teleportation portal restarted.”</p>
+<p data-reading-anchor="" id="ch2003-p030">“Ten minutes isn't enough! That's impossible. Restarting a game portal takes time. If we rush it, the passage could become dangerously unstable…” Sweat covered Dudley's forehead. “I need at least another twenty minutes.”</p>
+<p data-reading-anchor="" id="ch2003-p031">“Fine. You have thirty minutes in total.”</p>
+<p data-reading-anchor="" id="ch2003-p032">Fang Heng studied the restored facility map on the big screen. “See? I'm perfectly reasonable, aren't I?”</p>
+<p data-reading-anchor="" id="ch2003-p033">Reasonable? You're a devil!</p>
+<p data-reading-anchor="" id="ch2003-p034">Dudley kept the thought to himself and frantically worked the controls, praying that nothing would go wrong while restarting the portal.</p>
+<p data-reading-anchor="" id="ch2003-p035">Meanwhile, Fang Heng manually reopened the surveillance feeds and began inspecting the institute.</p>
+<p data-reading-anchor="" id="ch2003-p036">“Strange…”</p>
+<p data-reading-anchor="" id="ch2003-p037">He muttered to himself, puzzled by what he saw.</p>
+<p data-reading-anchor="" id="ch2003-p038">Before lockdown, numerous security teams had been stationed throughout the institute. When they learned that basement level seven was under attack, they'd all rushed to reinforce it.</p>
+<p data-reading-anchor="" id="ch2003-p039">But the moment the institute entered lockdown, those same teams turned around and headed straight back toward basement level one, gathering there instead.</p>
+<p data-reading-anchor="" id="ch2003-p040">Why were they all assembling on the first underground level?</p>
+<p data-reading-anchor="" id="ch2003-p041">In fact, the security teams gathering there were confused too.</p>
+<p data-reading-anchor="" id="ch2003-p042">Under the established emergency procedures, they were supposed to return to the security hall on level one during lockdown and wait two hours for the seal to be lifted.</p>
+<p data-reading-anchor="" id="ch2003-p043">But why had the power suddenly come back on? And why was the main entrance still closed?</p>
+<p data-reading-anchor="" id="ch2003-p044">This wasn't how the drills had gone at all!</p>
+<p data-reading-anchor="" id="ch2003-p045">Meanwhile, Gu Qingzhu had encountered the Fox Hunting Squad stationed on basement level three, and they had given her group plenty of trouble.</p>
+<p data-reading-anchor="" id="ch2003-p046">Fortunately, she was exceptionally strong. She had already defeated the squad and was rescuing the imprisoned demi-human survivors.</p>
+<p data-reading-anchor="" id="ch2003-p047">It seemed things were going well enough on her end.</p>
+<p data-reading-anchor="" id="ch2003-p048">With time to spare, Fang Heng started examining the institute's internal research records.</p>
+<p data-reading-anchor="" id="ch2003-p049">The laboratory's systems were entirely local, with no external connection. Any documents he found couldn't simply be transmitted elsewhere; he could only inspect them while inside the institute.</p>
+<p data-reading-anchor="" id="ch2003-p050">Huh? Why wasn't it there?</p>
+<p data-reading-anchor="" id="ch2003-p051">Fang Heng browsed the database and even tried searching by keyword, yet found no information whatsoever about the Dragon Soul Crystal.</p>
+<p data-reading-anchor="" id="ch2003-p052">Nothing! Not a single entry!</p>
+<p data-reading-anchor="" id="ch2003-p053">Strange. Where were the crystal's research records?</p>
+<p data-reading-anchor="" id="ch2003-p054">Even CXX Research Trading Company had possessed information about the Dragon Soul Crystal.</p>
+<p data-reading-anchor="" id="ch2003-p055">How could Miyamoto Teru's own research institute have none?</p>
+<p data-reading-anchor="" id="ch2003-p056">Something was wrong. Very wrong. Someone had probably hidden the files deliberately!</p>
+<p data-reading-anchor="" id="ch2003-p057">Fang Heng had his suspicions. He looked up and asked, “Dudley, what do you know about the Dragon Soul Crystal?”</p>
+<p data-reading-anchor="" id="ch2003-p058">Dudley was concentrating on restarting the portal. Hearing Fang Heng address him, he felt a chill run down his spine. “Not much. I mainly handle the teleportation system. I've only heard other researchers mention it. Apparently, the portal needs energy from demi-humans to keep functioning, and the medicine used to sustain them is extracted from the Dragon Soul Crystal. It keeps their bodies viable for a long time.”</p>
+<p data-reading-anchor="" id="ch2003-p059">“Our department is responsible for keeping the portal running. We just make sure the culture chambers function properly and monitor all the readings from the living batteries…”</p>
+<p data-reading-anchor="" id="ch2003-p060">“Mm.” Fang Heng cut him off. “The institute's standard access permissions don't let you search all its internal research records, do they?”</p>
+<p data-reading-anchor="" id="ch2003-p061">“Uh… I'm not sure about that.”</p>
+<p data-reading-anchor="" id="ch2003-p062">That was probably the answer, then.</p>
+<p data-reading-anchor="" id="ch2003-p063">How troublesome.</p>
+<p data-reading-anchor="" id="ch2003-p064">The information Fang Heng most wanted had apparently been hidden away by Miyamoto Teru.</p>
+<p data-reading-anchor="" id="ch2003-p065">“Hm?”</p>
+<p data-reading-anchor="" id="ch2003-p066">While operating the system, Dudley suddenly noticed something unusual. He gave a soft exclamation, then hurriedly bent back over the controls.</p>
+<p data-reading-anchor="" id="ch2003-p067">“What happened?”</p>
+<p data-reading-anchor="" id="ch2003-p068">“An alarm anomaly at one of the passage checkpoints below us.” Dudley continued working on the portal controls, clearly too busy to deal with it. “Probably just a minor fault caused by the restart.”</p>
+<p data-reading-anchor="" id="ch2003-p069">The passages below?</p>
+<p data-reading-anchor="" id="ch2003-p070">Fang Heng's attention sharpened.</p>
+<p data-reading-anchor="" id="ch2003-p071">Come to think of it, he'd been sensing a faint fluctuation of blood vitality for some time now.</p>
+<p data-reading-anchor="" id="ch2003-p072">And that sensation was growing stronger.</p>
+<p data-reading-anchor="" id="ch2003-p073">Could the fluctuation be coming from below? Fang Heng immediately brought up the complete layout of the research institute on the main screen.</p>
+<p data-reading-anchor="" id="ch2003-p074">The alarm locations were all on basement level eight.</p>
+<p data-reading-anchor="" id="ch2003-p075">But the eighth level had no surveillance coverage whatsoever. There was no way to see what was happening there from this room.</p>
+<p data-reading-anchor="" id="ch2003-p076">Something was definitely wrong!</p></article>
+<p class="end" data-reading-anchor="" id="ch2003-end">— End of Chapter 2003 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li><strong>Cosmic crystals.</strong> 宇宙结晶 is translated “cosmic crystal”; 纯化后的宇宙结晶 means a purified crystal. This is a specific energy material, not the Dragon Soul Crystal.</li><li><strong>Warp backpack.</strong> 跃迁背包格 is rendered “warp backpack slot,” to distinguish it from an ordinary game inventory slot.</li><li><strong>Culture chambers.</strong> 培养皿 literally means culture dish or culture vessel (often “Petri dish”). Because the text describes human-sized demi-humans sustained inside the apparatus, I used “culture chambers” here. The source does not establish its exact physical dimensions or design.</li><li><strong>Source.</strong> Translated in full from the Chinese PDF you uploaded, original Chapter 2004. The original Chinese chapter number is one ahead of the established English numbering.</li></ul></details>
+
+<nav aria-label="Chapter navigation" class="chapter-nav"><a href="Global_Game_AFK_Chapter_2002_Details.html#start">← Previous chapter (2002)</a><a class="next" href="Global_Game_AFK_Chapter_2004_Eighth_Level.html#start">Next chapter (2004) →</a></nav></section><footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>Keep the HTML files together in one folder. Reading position, font size and theme are saved wherever browser storage is supported; Android local-file behavior may vary.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer></main><div aria-live="polite" id="reading-toast" role="status"></div><script>(()=>{
+'use strict';
+const storeKey='afk-reader-position:chapter-2003:v2';
+const sizeKey='afk-reader-font-size:compact-v3';
+const themeKey='afk-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem('afk-reader-test','ok');localStorage.removeItem('afk-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();</script></body></html>

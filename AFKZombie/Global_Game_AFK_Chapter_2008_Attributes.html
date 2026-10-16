@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html data-theme="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/><meta content="#171719" name="theme-color"/><title>Chapter 2008 — Attributes | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+</style></head><body><header class="topbar" role="banner"><div class="toolbar"><a aria-label="Previous chapter 2007" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2007_Through.html#start" title="Previous chapter">‹</a><select aria-label="Choose a chapter" id="chapter-picker"><option value="Global_Game_AFK_Chapter_2000_Control.html">2000 · Control</option><option value="Global_Game_AFK_Chapter_2001_Lockdown.html">2001 · Lockdown</option><option value="Global_Game_AFK_Chapter_2002_Details.html">2002 · Details</option><option value="Global_Game_AFK_Chapter_2003_Restart.html">2003 · Restart</option><option value="Global_Game_AFK_Chapter_2004_Eighth_Level.html">2004 · Eighth Level</option><option value="Global_Game_AFK_Chapter_2005_Cold_Storage.html">2005 · Cold Storage</option><option value="Global_Game_AFK_Chapter_2006_Into_the_Backpack.html">2006 · Into the Backpack</option><option value="Global_Game_AFK_Chapter_2007_Through.html">2007 · Through</option><option selected="selected" value="Global_Game_AFK_Chapter_2008_Attributes.html">2008 · Attributes</option><option value="Global_Game_AFK_Chapter_2009_Shattered.html">2009 · Shattered</option><option value="Global_Game_AFK_Chapter_2010_Summoning.html">2010 · Summoning</option><option value="Global_Game_AFK_Chapter_2011_Destruction.html">2011 · Destruction</option><option value="Global_Game_AFK_Chapter_2012_Fluctuations.html">2012 · Fluctuations</option><option value="Global_Game_AFK_Chapter_2013_Conversion.html">2013 · Conversion</option><option value="Global_Game_AFK_Chapter_2014_Weakened.html">2014 · Weakened</option><option value="Global_Game_AFK_Chapter_2015_Condensation.html">2015 · Condensation</option><option value="Global_Game_AFK_Chapter_2016_Interception.html">2016 · Interception</option><option value="Global_Game_AFK_Chapter_2017_Tremors.html">2017 · Tremors</option><option value="Global_Game_AFK_Chapter_2018_Advancement.html">2018 · Advancement</option></select><a aria-label="Next chapter 2009" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2009_Shattered.html#start" title="Next chapter">›</a><button aria-label="Decrease font size" class="toolbtn" id="smaller" title="Smaller text">A−</button><button aria-label="Increase font size" class="toolbtn" id="larger" title="Larger text">A+</button><button aria-label="Toggle dark/light mode" class="toolbtn" id="theme" title="Toggle theme">◐</button></div><div id="progress-track"><div id="progress"></div></div></header><main><section class="chapter-section" data-reading-anchor="" id="chapter-2008">
+<div class="chapter-num">Chapter 2008</div>
+<h2 class="chapter-title">Attributes</h2>
+<p class="source-identity">Translated from Chinese Chapter 2009</p>
+<article class="prose"><p data-reading-anchor="" id="ch2008-p001">Ji Shaojie quickly swept his gaze over the assembled players. “I'll keep this brief. Every one of us came here for the Dragonborn bloodline inheritance. Whatever happens, we can't allow it to fall into an outsider's hands, no matter who ultimately receives it. Why don't we put our old disagreements aside and work together for now? We can settle everything else once we've recovered the Dragon Soul Crystal. Agreed?”</p>
+<p data-reading-anchor="" id="ch2008-p002">“Agreed!”</p>
+<p data-reading-anchor="" id="ch2008-p003">“Let's go after him!”</p>
+<p class="scene" data-reading-anchor="" id="ch2008-p004">· · ·</p>
+<p class="game" data-reading-anchor="" id="ch2008-p005">[Hint: Player has obtained an item — Dragon Soul Crystal.]</p>
+<p class="game" data-reading-anchor="" id="ch2008-p006">Item: Dragon Soul Crystal.</p>
+<p class="game" data-reading-anchor="" id="ch2008-p007">Grade: Divine Artifact.</p>
+<p class="game" data-reading-anchor="" id="ch2008-p008">Type: Forging material, research material, medicinal ingredient, alchemical material, quest item, and more…</p>
+<p class="game" data-reading-anchor="" id="ch2008-p009">Current Dragon Soul Crystal Integrity: 99.97%.</p>
+<p class="game" data-reading-anchor="" id="ch2008-p010">Description: A crystal formed from the concentrated essence-blood energy of an ancient sacred dragon after its death.</p>
+<p class="game" data-reading-anchor="" id="ch2008-p011">Description: This item can be used in pharmaceutical research.</p>
+<p class="game" data-reading-anchor="" id="ch2008-p012">Description: Each research or extraction operation slightly reduces the crystal's integrity, affecting the final inheritance result and its additional effects.</p>
+<p class="game" data-reading-anchor="" id="ch2008-p013">Description: This item drops on death.</p>
+<p class="game" data-reading-anchor="" id="ch2008-p014">Trait 1: Indestructible.</p>
+<p class="game" data-reading-anchor="" id="ch2008-p015">Description: Except for certain special dragon-inheritance items—including the Dragon Ritual Blade and Dragon Horn—objects below divine-artifact grade cannot damage or divide this item.</p>
+<p class="game" data-reading-anchor="" id="ch2008-p016">Trait 2: Untamed.</p>
+<p class="game" data-reading-anchor="" id="ch2008-p017">Description: While this item is stored in the player's backpack, the player suffers Dragon Scorch. Its intensity increases over time and is affected by the player's compatibility with the Dragonborn bloodline.</p>
+<p class="game" data-reading-anchor="" id="ch2008-p018">Trait 3: Undying.</p>
+<p class="game" data-reading-anchor="" id="ch2008-p019">Description: After activating the bloodline quest, players can remain near the Dragon Soul Crystal and endure the Dragon Ripple effect to gradually increase their compatibility with the dragon bloodline inheritance.</p>
+<p class="game" data-reading-anchor="" id="ch2008-p020">[Hint: Special item detected in player's backpack. Quest triggered — Inheritance of the Dragonborn (Staged Quest).]</p>
+<p class="game" data-reading-anchor="" id="ch2008-p021">Quest Name: Inheritance of the Dragonborn.</p>
+<p class="game" data-reading-anchor="" id="ch2008-p022">Quest Difficulty: SSS.</p>
+<p class="game" data-reading-anchor="" id="ch2008-p023">Quest Description: Sense the dragon bloodline inheritance. Raise your dragon-bloodline compatibility to 20 points to unlock the next stage of the quest.</p>
+<p class="game" data-reading-anchor="" id="ch2008-p024">[Hint: Current bloodline compatibility: 0.2.]</p>
+<p class="game" data-reading-anchor="" id="ch2008-p025">[Warning: The player's body contains mutually incompatible bloodlines. The player cannot acquire this bloodline.]</p>
+<p data-reading-anchor="" id="ch2008-p026">“A quest… Dragonborn…”</p>
+<p data-reading-anchor="" id="ch2008-p027">Fang Heng panted heavily, sweat pouring down his forehead.</p>
+<p data-reading-anchor="" id="ch2008-p028">The blackened skin scorched by the flames gradually began to peel away.</p>
+<p data-reading-anchor="" id="ch2008-p029">Under the healing effect of his Undying Body, the injuries rapidly recovered.</p>
+<p data-reading-anchor="" id="ch2008-p030">After entering the teleportation portal, he simply couldn't endure the pain any longer. He had taken the Dragon Soul Crystal out of his backpack and placed it on the ground in the game world.</p>
+<p data-reading-anchor="" id="ch2008-p031">Now he finally understood what this thing was!</p>
+<p data-reading-anchor="" id="ch2008-p032">It could trigger a special bloodline inheritance quest.</p>
+<p data-reading-anchor="" id="ch2008-p033">And the final reward was the dragon bloodline! So the players he'd encountered in the underground ice cellar had all been pursuing that same inheritance quest. No wonder they were so strong.</p>
+<p data-reading-anchor="" id="ch2008-p034">Fang Heng raised his head and saw Jimmy and the demi-humans who had stayed at the camp staring at him in confusion.</p>
+<p data-reading-anchor="" id="ch2008-p035">They had no idea what had happened. All they knew was that Fang Heng looked to be in terrible shape, and that the enormous stone beside him was radiating extraordinarily powerful blood-vitality fluctuations.</p>
+<p data-reading-anchor="" id="ch2008-p036">It was obviously no ordinary item.</p>
+<p data-reading-anchor="" id="ch2008-p037">Wait!</p>
+<p data-reading-anchor="" id="ch2008-p038">Where was Gu Qingzhu?</p>
+<p data-reading-anchor="" id="ch2008-p039">As his thoughts cleared, Fang Heng suddenly remembered her and turned toward the portal behind him.</p>
+<p data-reading-anchor="" id="ch2008-p040">*Whoosh!* The next instant, Gu Qingzhu emerged from the teleportation passage.</p>
+<p data-reading-anchor="" id="ch2008-p041">Her pupils had returned to normal. She had left her berserk state, and she looked terribly weak.</p>
+<p data-reading-anchor="" id="ch2008-p042">She was clearly badly injured.</p>
+<p data-reading-anchor="" id="ch2008-p043">Seeing Fang Heng and the demi-humans gathered in the temporary camp, she immediately shouted, “Go! Back to the Zombie Apocalypse!”</p>
+<p data-reading-anchor="" id="ch2008-p044">“Yes!”</p>
+<p data-reading-anchor="" id="ch2008-p045">Jimmy and the others obeyed without looking back, withdrawing at once.</p>
+<p data-reading-anchor="" id="ch2008-p046">Fang Heng looked at Gu Qingzhu.</p>
+<p data-reading-anchor="" id="ch2008-p047">Injuries that bad? She looked even worse than when they'd first met.</p>
+<p data-reading-anchor="" id="ch2008-p048">Noticing his gaze, Gu Qingzhu forced herself to stay alert. She raised her head, glanced toward the portal, and warned him, “Be careful. They'll be here soon.”</p>
+<p data-reading-anchor="" id="ch2008-p049">Fang Heng frowned and looked back at the passage. “You go first. Find Klevi. She'll know how to help you.”</p>
+<p data-reading-anchor="" id="ch2008-p050">Gu Qingzhu was taken aback.</p>
+<p data-reading-anchor="" id="ch2008-p051">“You…”</p>
+<p data-reading-anchor="" id="ch2008-p052">“Don't worry about me. I have my own way out. We'll figure out how to contact each other once this is over!”</p>
+<p data-reading-anchor="" id="ch2008-p053">Gu Qingzhu didn't hesitate. She nodded. “Take care!”</p>
+<p data-reading-anchor="" id="ch2008-p054">Just as she and the demi-humans hurried toward the portal leading to the Zombie Apocalypse, the portal behind them flashed blue again.</p>
+<p data-reading-anchor="" id="ch2008-p055">Ji Shaojie emerged and immediately fixed his eyes on the Dragon Soul Crystal beside Fang Heng.</p>
+<p data-reading-anchor="" id="ch2008-p056">Thank goodness.</p>
+<p data-reading-anchor="" id="ch2008-p057">It wasn't too late.</p>
+<p data-reading-anchor="" id="ch2008-p058">As long as the crystal was still here, everything would be fine!</p>
+<p data-reading-anchor="" id="ch2008-p059">Ji Shaojie breathed a sigh of relief.</p>
+<p data-reading-anchor="" id="ch2008-p060">Hm? His expression abruptly changed. Fang Heng had placed a hand on the crystal, while the creature on his shoulder was once again breathing out dense black mist! Trying to run again?!</p>
+<p data-reading-anchor="" id="ch2008-p061">“Don't let them escape!” Ji Shaojie shouted.</p>
+<p data-reading-anchor="" id="ch2008-p062">Fang Heng put the Dragon Soul Crystal back in his backpack.</p>
+<p data-reading-anchor="" id="ch2008-p063">The next instant, burning pain spread through his entire body again. He'd hoped to exploit a loophole, carrying it in short bursts and enduring the negative effect a little at a time until he could get away.</p>
+<p data-reading-anchor="" id="ch2008-p064">But when he stored it this time, the burning was immediately unbearable! The penalty's increasing intensity hadn't reset at all. It had picked up exactly where it left off!</p>
+<p data-reading-anchor="" id="ch2008-p065">Ten more seconds! Fang Heng gritted his teeth and sprinted forward. Ji Shaojie and the others immediately gave chase.</p>
+<p data-reading-anchor="" id="ch2008-p066">Although the mist blocked most of their perception, the Dragon Soul Crystal's aura was far too powerful to hide completely.</p>
+<p data-reading-anchor="" id="ch2008-p067">“After him!”</p>
+<p data-reading-anchor="" id="ch2008-p068">They rushed through the mist, close on Fang Heng's heels.</p>
+<p class="sound" data-reading-anchor="" id="ch2008-p069">Whoosh…</p>
+<p data-reading-anchor="" id="ch2008-p070">“STOP!”</p>
+<p data-reading-anchor="" id="ch2008-p071">After eight seconds, Fang Heng felt himself reaching his limit. He burst out of the far side of the fog and immediately pulled the Dragon Soul Crystal from his backpack.</p>
+<p data-reading-anchor="" id="ch2008-p072">Ji Shaojie and the Fox Hunting Squad players came charging after him.</p>
+<p data-reading-anchor="" id="ch2008-p073">Rather than continue running, Fang Heng turned to face them and shouted, “Stop right there!”</p>
+<p data-reading-anchor="" id="ch2008-p074">Nobody listened. If anything, they charged faster.</p>
+<p data-reading-anchor="" id="ch2008-p075">A vicious light shone in Ji Shaojie's eyes. “Kill him!”</p>
+<p data-reading-anchor="" id="ch2008-p076">Nobody who survived in high-tier games was a fool.</p>
+<p data-reading-anchor="" id="ch2008-p077">They wouldn't show mercy, and they certainly wouldn't give Fang Heng an opening.</p>
+<p data-reading-anchor="" id="ch2008-p078">“Heh.”</p>
+<p data-reading-anchor="" id="ch2008-p079">Fang Heng glanced at the approaching players and smiled coldly.</p>
+<p data-reading-anchor="" id="ch2008-p080">He'd managed to draw all of them after him. Gu Qingzhu and the others should have no trouble escaping now.</p>
+<p data-reading-anchor="" id="ch2008-p081">He'd originally intended to delay them a little longer, but since they weren't taking the bait, there was no point keeping up the act.</p>
+<p class="sound" data-reading-anchor="" id="ch2008-p082">Whoosh!</p>
+<p data-reading-anchor="" id="ch2008-p083">A massive sword radiating sacred light materialized in Fang Heng's hand.</p>
+<p data-reading-anchor="" id="ch2008-p084">The moment they saw it, Ji Shaojie and the other players felt their hearts skip a beat.</p>
+<p data-reading-anchor="" id="ch2008-p085">What was that thing?!</p>
+<p data-reading-anchor="" id="ch2008-p086">Ji Shaojie stared at the greatsword, his heart pounding wildly.</p>
+<p data-reading-anchor="" id="ch2008-p087">The holy power radiating from the blade was enough to make even him feel a momentary flash of fear.</p></article>
+<p class="end" data-reading-anchor="" id="ch2008-end">— End of Chapter 2008 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li><strong>Exact game statistics.</strong> The Dragon Soul Crystal is at 99.97% integrity, and Fang Heng’s bloodline compatibility begins at 0.2; the next quest stage requires 20 points. These numeric values come directly from the source.</li><li><strong>Crystal traits.</strong> 不摧, 不驯, 不灭 are rendered “Indestructible,” “Untamed,” and “Undying.” These are interpretive names for the three item traits, not confirmed official English ability names.</li><li><strong>Burning penalty.</strong> The negative Dragon Scorch effect resumes at its previous intensity when Fang Heng puts the crystal back into the backpack; it does not reset when he briefly removes it.</li><li><strong>Bloodline restriction.</strong> The system explicitly says that Fang Heng cannot acquire the Dragonborn bloodline because he already carries mutually incompatible bloodlines.</li><li><strong>Source.</strong> Translated in full from the Chinese PDF you uploaded, original Chapter 2009. The original Chinese chapter number is one ahead of the established English numbering.</li></ul></details>
+
+<nav aria-label="Chapter navigation" class="chapter-nav"><a href="Global_Game_AFK_Chapter_2007_Through.html#start">← Previous chapter (2007)</a><a class="next" href="Global_Game_AFK_Chapter_2009_Shattered.html#start">Next chapter (2009) →</a></nav></section><footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>Keep the HTML files together in one folder. Reading position, font size and theme are saved wherever browser storage is supported; Android local-file behavior may vary.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer></main><div aria-live="polite" id="reading-toast" role="status"></div><script>(()=>{
+'use strict';
+const storeKey='afk-reader-position:chapter-2008:v2';
+const sizeKey='afk-reader-font-size:compact-v3';
+const themeKey='afk-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem('afk-reader-test','ok');localStorage.removeItem('afk-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();</script></body></html>
