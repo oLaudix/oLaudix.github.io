@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html data-theme="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/><meta content="#171719" name="theme-color"/><title>Chapter 2072 — Crusader Trials | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+</style></head><body><header class="topbar" role="banner"><div class="toolbar"><a aria-label="Previous chapter 2071" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2071_Locked_On.html#start" title="Previous chapter">‹</a><select aria-label="Choose a chapter" id="chapter-picker"><option value="Global_Game_AFK_Chapter_2000_Control.html">2000 · Control</option><option value="Global_Game_AFK_Chapter_2001_Lockdown.html">2001 · Lockdown</option><option value="Global_Game_AFK_Chapter_2002_Details.html">2002 · Details</option><option value="Global_Game_AFK_Chapter_2003_Restart.html">2003 · Restart</option><option value="Global_Game_AFK_Chapter_2004_Eighth_Level.html">2004 · Eighth Level</option><option value="Global_Game_AFK_Chapter_2005_Cold_Storage.html">2005 · Cold Storage</option><option value="Global_Game_AFK_Chapter_2006_Into_the_Backpack.html">2006 · Into the Backpack</option><option value="Global_Game_AFK_Chapter_2007_Through.html">2007 · Through</option><option value="Global_Game_AFK_Chapter_2008_Attributes.html">2008 · Attributes</option><option value="Global_Game_AFK_Chapter_2009_Shattered.html">2009 · Shattered</option><option value="Global_Game_AFK_Chapter_2010_Summoning.html">2010 · Summoning</option><option value="Global_Game_AFK_Chapter_2011_Destruction.html">2011 · Destruction</option><option value="Global_Game_AFK_Chapter_2012_Fluctuations.html">2012 · Fluctuations</option><option value="Global_Game_AFK_Chapter_2013_Conversion.html">2013 · Conversion</option><option value="Global_Game_AFK_Chapter_2014_Weakened.html">2014 · Weakened</option><option value="Global_Game_AFK_Chapter_2015_Condensation.html">2015 · Condensation</option><option value="Global_Game_AFK_Chapter_2016_Interception.html">2016 · Interception</option><option value="Global_Game_AFK_Chapter_2017_Tremors.html">2017 · Tremors</option><option value="Global_Game_AFK_Chapter_2018_Advancement.html">2018 · Advancement</option><option value="Global_Game_AFK_Chapter_2019_Blood.html">2019 · Blood</option><option value="Global_Game_AFK_Chapter_2020_Teleportation.html">2020 · Teleportation</option><option value="Global_Game_AFK_Chapter_2021_Transfer_Ability.html">2021 · Transfer Ability</option><option value="Global_Game_AFK_Chapter_2022_Preparations.html">2022 · Preparations</option><option value="Global_Game_AFK_Chapter_2023_The_Offensive_Begins.html">2023 · The Offensive Begins</option><option value="Global_Game_AFK_Chapter_2024_Uproar.html">2024 · Uproar</option><option value="Global_Game_AFK_Chapter_2025_Annihilation.html">2025 · Annihilation</option><option value="Global_Game_AFK_Chapter_2026_Assembly.html">2026 · Assembly</option><option value="Global_Game_AFK_Chapter_2027_Critical.html">2027 · Critical</option><option value="Global_Game_AFK_Chapter_2028_Activation.html">2028 · Activation</option><option value="Global_Game_AFK_Chapter_2029_Zombie_Tide.html">2029 · Zombie Tide</option><option value="Global_Game_AFK_Chapter_2030_Repairs.html">2030 · Repairs</option><option value="Global_Game_AFK_Chapter_2031_Blocking_the_Exit.html">2031 · Blocking the Exit</option><option value="Global_Game_AFK_Chapter_2032_Encirclement.html">2032 · Encirclement</option><option value="Global_Game_AFK_Chapter_2033_Counterattack.html">2033 · Counterattack</option><option value="Global_Game_AFK_Chapter_2034_Breach.html">2034 · Breach</option><option value="Global_Game_AFK_Chapter_2035_Sewers.html">2035 · Sewers</option><option value="Global_Game_AFK_Chapter_2036_Offensive.html">2036 · Offensive</option><option value="Global_Game_AFK_Chapter_2037_Fallen.html">2037 · Fallen</option><option value="Global_Game_AFK_Chapter_2038_Ignored.html">2038 · Ignored</option><option value="Global_Game_AFK_Chapter_2039_Destroyed.html">2039 · Destroyed</option><option value="Global_Game_AFK_Chapter_2040_Pursuit.html">2040 · Pursuit</option><option value="Global_Game_AFK_Chapter_2041_Triggered.html">2041 · Triggered</option><option value="Global_Game_AFK_Chapter_2042_Frost.html">2042 · Frost</option><option value="Global_Game_AFK_Chapter_2043_Calculations.html">2043 · Calculations</option><option value="Global_Game_AFK_Chapter_2044_Stockpiling.html">2044 · Stockpiling</option><option value="Global_Game_AFK_Chapter_2045_Low_Morale.html">2045 · Low Morale</option><option value="Global_Game_AFK_Chapter_2046_Small_Profit.html">2046 · Small Profit</option><option value="Global_Game_AFK_Chapter_2047_Proposal.html">2047 · Proposal</option><option value="Global_Game_AFK_Chapter_2048_Investigation.html">2048 · Investigation</option><option value="Global_Game_AFK_Chapter_2049_Appraisal.html">2049 · Appraisal</option><option value="Global_Game_AFK_Chapter_2050_The_Draw.html">2050 · The Draw</option><option value="Global_Game_AFK_Chapter_2051_Unexpected_Turn.html">2051 · An Unexpected Turn</option><option value="Global_Game_AFK_Chapter_2052_In_Time.html">2052 · In Time</option><option value="Global_Game_AFK_Chapter_2053_Leakage.html">2053 · Leakage</option><option value="Global_Game_AFK_Chapter_2054_The_Reason.html">2054 · The Reason</option><option value="Global_Game_AFK_Chapter_2055_Chapter_of_Imprisonment.html">2055 · Chapter of Imprisonment</option><option value="Global_Game_AFK_Chapter_2056_Suppression.html">2056 · Suppression</option><option value="Global_Game_AFK_Chapter_2057_Crystal_Clusters.html">2057 · Crystal Clusters</option><option value="Global_Game_AFK_Chapter_2058_Control.html">2058 · Control</option><option value="Global_Game_AFK_Chapter_2059_Shackles.html">2059 · Shackles</option><option value="Global_Game_AFK_Chapter_2060_Fluctuations.html">2060 · Fluctuations</option><option value="Global_Game_AFK_Chapter_2061_Take_Them_Back.html">2061 · Take Them Back</option><option value="Global_Game_AFK_Chapter_2062_Chaos.html">2062 · Chaos</option><option value="Global_Game_AFK_Chapter_2063_Destruction.html">2063 · Destruction</option><option value="Global_Game_AFK_Chapter_2064_Spreading.html">2064 · Spreading</option><option value="Global_Game_AFK_Chapter_2065_Compensation.html">2065 · Compensation</option><option value="Global_Game_AFK_Chapter_2066_Discussion.html">2066 · Discussion</option><option value="Global_Game_AFK_Chapter_2067_Pursuit.html">2067 · Pursuit</option><option value="Global_Game_AFK_Chapter_2068_Trade.html">2068 · Trade</option><option value="Global_Game_AFK_Chapter_2069_Gem.html">2069 · Gem</option><option value="Global_Game_AFK_Chapter_2070_Function.html">2070 · Function</option><option value="Global_Game_AFK_Chapter_2071_Locked_On.html">2071 · Locked On</option><option selected="selected" value="Global_Game_AFK_Chapter_2072_Crusader_Trials.html">2072 · Crusader Trials</option><option value="Global_Game_AFK_Chapter_2073_Challenge.html">2073 · Challenge</option><option value="Global_Game_AFK_Chapter_2074_Speed_Farming.html">2074 · Speed Farming</option><option value="Global_Game_AFK_Chapter_2075_Solo_Fight.html">2075 · Solo Fight</option><option value="Global_Game_AFK_Chapter_2076_Easy.html">2076 · Easy</option><option value="Global_Game_AFK_Chapter_2077_Again.html">2077 · Again</option><option value="Global_Game_AFK_Chapter_2078_Clues.html">2078 · Clues</option></select><a aria-label="Next chapter 2073" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2073_Challenge.html#start" title="Next chapter">›</a><button aria-label="Decrease font size" class="toolbtn" id="smaller" title="Smaller text">A−</button><button aria-label="Increase font size" class="toolbtn" id="larger" title="Larger text">A+</button><button aria-label="Toggle dark/light mode" class="toolbtn" id="theme" title="Toggle theme">◐</button></div><div id="progress-track"><div id="progress"></div></div></header><main><section class="chapter-section" data-reading-anchor="" id="chapter-2072"><div class="chapter-num">Chapter 2072</div><h2 class="chapter-title">Crusader Trials</h2><p class="source-identity">From original Chinese Chapter 2073 · 圣教军的历练</p><article class="prose"><p data-reading-anchor="" id="ch2072-p001">Forcing his way through didn't look like a good idea.</p><p data-reading-anchor="" id="ch2072-p002">More players entered the hall and passed Fang Heng. Most had clearly been here before: they walked straight to one of the Crusader instructors beneath the statue, accepted a mission, and headed for the teleportation array on the hall's right side.</p><p data-reading-anchor="" id="ch2072-p003">Huh? A teleportation passage!</p><p data-reading-anchor="" id="ch2072-p004">Fang Heng's eyes lit up.</p><p data-reading-anchor="" id="ch2072-p005">Luck was on his side. The passage lay outside the purification domain!</p><p data-reading-anchor="" id="ch2072-p006">Forget the stupid Crusader advancement missions. All he wanted was to get out of here!</p><p data-reading-anchor="" id="ch2072-p007">He promptly headed toward the teleportation area.</p><p data-reading-anchor="" id="ch2072-p008">“Wait. Stop there.”</p><p data-reading-anchor="" id="ch2072-p009">A Holy Court guard stepped into his path and indicated the row of instructors. “You must accept a mission before using the passage to enter the trial grounds.”</p><p data-reading-anchor="" id="ch2072-p010">Fang Heng shook his head. “I don't want to take the trial anymore. I want to leave.”</p><p data-reading-anchor="" id="ch2072-p011">“Silence!” the guard hissed sternly. “What do you think this place is? Becoming a Crusader requires unwavering conviction. How could you let a little difficulty frighten you away? Now that you've come here, don't even think of running away! Failure itself cannot break a true Crusader's resolve!”</p><p data-reading-anchor="" id="ch2072-p012">Even his hushed rebuke attracted the attention of nearby players.</p><p data-reading-anchor="" id="ch2072-p013">Afraid of drawing more scrutiny and exposing his identity, Fang Heng quickly lowered his head.</p><p data-reading-anchor="" id="ch2072-p014">“I was wrong.”</p><p data-reading-anchor="" id="ch2072-p015">He backed away.</p><p data-reading-anchor="" id="ch2072-p016">So simply walking out wasn't an option either.</p><p data-reading-anchor="" id="ch2072-p017">Don't panic.</p><p data-reading-anchor="" id="ch2072-p018">At least nobody was forcing him to accept a mission immediately.</p><p data-reading-anchor="" id="ch2072-p019">Looking around again, he noticed a rest area on the right side of the hall. About a dozen players had gathered there briefly, but they looked serious and weren't even chatting quietly.</p><p data-reading-anchor="" id="ch2072-p020">Fang Heng pressed his lips together, went to the rest area, and observed the Crusader instructors while considering his options.</p><p data-reading-anchor="" id="ch2072-p021">Should he take the risk?</p><p data-reading-anchor="" id="ch2072-p022">The elderly instructor standing in the center seemed to have the greatest seniority and was probably the strongest. Several players were waiting to speak with him.</p><p data-reading-anchor="" id="ch2072-p023">No. Definitely not that one!</p><p data-reading-anchor="" id="ch2072-p024">Perhaps someone at either end of the row.</p><p data-reading-anchor="" id="ch2072-p025">Fang Heng looked toward the instructor on the far right. He seemed young, yet his blood-vitality fluctuations indicated considerable strength.</p><p data-reading-anchor="" id="ch2072-p026">Add the statue's unknown domain effect, and the probability of his disguise being exposed was far too high.</p><p data-reading-anchor="" id="ch2072-p027">Damn it.</p><p data-reading-anchor="" id="ch2072-p028">Fang Heng hesitated for more than ten minutes. The people around him left, and another group took their places.</p><p data-reading-anchor="" id="ch2072-p029">Maybe he should just gamble on it?</p><p data-reading-anchor="" id="ch2072-p030">But he knew almost nothing about this world. Even if he ran, he wouldn't know where to go.</p><p data-reading-anchor="" id="ch2072-p031">As he wavered, he sensed another player approaching him from behind.</p><p data-reading-anchor="" id="ch2072-p032">“Hello, friend. I've noticed you've been waiting here a while. Are you meeting someone, or is this your first time in Eternal Holy City?”</p><p data-reading-anchor="" id="ch2072-p033">Fang Heng turned toward the young man and nodded. “That's right. I happened to get a Crusader Trial invitation and came without doing much research.”</p><p data-reading-anchor="" id="ch2072-p034">“I thought so. Let me introduce myself. I'm Lindro Pez. One of our teammates had an emergency and couldn't come. If you don't mind, would you like to form a temporary party with us?”</p><p data-reading-anchor="" id="ch2072-p035">A party invitation!</p><p data-reading-anchor="" id="ch2072-p036">Fang Heng's eyes brightened.</p><p data-reading-anchor="" id="ch2072-p037">Of course! Teaming up!</p><p data-reading-anchor="" id="ch2072-p038">His simulated identity could accept quests, but going face-to-face with powerful Holy Court NPCs inside the sacred domain was likely to expose him.</p><p data-reading-anchor="" id="ch2072-p039">In a party, however, another player could accept the mission on his behalf. Fang Heng wouldn't need to approach the NPC; he'd join the quest automatically as a teammate!</p><p data-reading-anchor="" id="ch2072-p040">“Don't worry,” Lindro said with a grin. “We're all pretty strong. Think about it.”</p><p data-reading-anchor="" id="ch2072-p041">He hadn't approached Fang Heng entirely at random.</p><p data-reading-anchor="" id="ch2072-p042">One member of Lindro's team specialized in reconnaissance and had tried inspecting Fang Heng with a detection skill. Strangely, the skill had failed completely.</p><p data-reading-anchor="" id="ch2072-p043">Even with NPCs, such a result was rare.</p><p data-reading-anchor="" id="ch2072-p044">After a quick discussion, the four team members had concluded that Fang Heng was probably quite powerful and decided to try recruiting him.</p><p data-reading-anchor="" id="ch2072-p045">“By the way, what should we call you?”</p><p data-reading-anchor="" id="ch2072-p046">“Fang Heng.”</p><p data-reading-anchor="" id="ch2072-p047">Fang Heng?</p><p data-reading-anchor="" id="ch2072-p048">The familiar name made Lindro pause. He examined the man again.</p><p data-reading-anchor="" id="ch2072-p049">Same name as that person!</p><p data-reading-anchor="" id="ch2072-p050">Lately, everyone in the Holy Court had been talking about World Lord Fang Heng.</p><p data-reading-anchor="" id="ch2072-p051">But it couldn't be him. The body shape and face were completely different.</p><p data-reading-anchor="" id="ch2072-p052">Lindro almost laughed at himself.</p><p data-reading-anchor="" id="ch2072-p053">As if Fang Heng would openly stroll into Eternal Holy City!</p><p data-reading-anchor="" id="ch2072-p054">The constant news about that man had clearly gotten into his head.</p><p data-reading-anchor="" id="ch2072-p055">Eternal Holy City was one of the Holy Court's most important high-level strongholds, and Fang Heng was currently its most wanted enemy.</p><p data-reading-anchor="" id="ch2072-p056">Rumor had it that even Divine Realm pursuers were chasing him. Surely the real Fang Heng was far too busy running for his life to come here!</p><p data-reading-anchor="" id="ch2072-p057">“Brother, you've got a scary name,” Lindro joked. “Same as that fellow.”</p><p data-reading-anchor="" id="ch2072-p058">He assumed it was simply another person with the same-sounding name.</p><p data-reading-anchor="" id="ch2072-p059">“Anyway, since it's your first time, I should explain the trials.”</p><p data-reading-anchor="" id="ch2072-p060">“The instructors offer missions in difficulty grades from F all the way up to SSS. Complete a trial and you'll earn trial points and experience toward your Crusader trial rank.”</p><p data-reading-anchor="" id="ch2072-p061">“At first your trial rank is low, so even the easy missions award experience. But at higher ranks you'll need SSS-class missions to earn enough to advance. Failed missions deduct experience too.”</p><p data-reading-anchor="" id="ch2072-p062">“You also earn points, which you can spend on consumables and special equipment after completing the trials. Most of those items are intended specifically for use during the trials.”</p><p data-reading-anchor="" id="ch2072-p063">Fang Heng nodded. “What difficulty is your team choosing?”</p><p data-reading-anchor="" id="ch2072-p064">“A-class.”</p><p data-reading-anchor="" id="ch2072-p065">Confidence appeared on Lindro's face. A-class was already a high difficulty among the available missions.</p><p data-reading-anchor="" id="ch2072-p066">“Not worried I'll drag you down?” Fang Heng asked.</p><p data-reading-anchor="" id="ch2072-p067">“Hahaha! No worries. I trust my judgment. You're definitely strong!”</p></article><p class="end" data-reading-anchor="" id="ch2072-end">— End of Chapter 2072 —</p><details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li><strong>Lindro Pez. </strong>林德罗·佩兹 is transliterated Lindro Pez. No original Latin-script spelling is supplied.</li><li><strong>Name coincidence. </strong>Fang Heng gives his real name despite disguising his appearance; the recruiter dismisses it as merely a common-sounding coincidence.</li><li><strong>Trial grades. </strong>Mission grades run from F to SSS; the party opts for A-class.</li></ul></details><nav aria-label="Chapter navigation" class="chapter-nav"><a href="Global_Game_AFK_Chapter_2071_Locked_On.html#start">← Previous chapter (2071)</a><a href="Global_Game_AFK_Chapter_2073_Challenge.html#start">Next chapter (2073) →</a></nav></section><footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer></main><div aria-live="polite" id="reading-toast" role="status"></div><script>(()=>{
+'use strict';
+const storeKey='afk-reader-position:chapter-2072:v2';
+const sizeKey='afk-reader-font-size:compact-v3';
+const themeKey='afk-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem('afk-reader-test','ok');localStorage.removeItem('afk-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored('afk-last-chapter', "Global_Game_AFK_Chapter_2072_Crusader_Trials.html");
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();</script></body></html>
