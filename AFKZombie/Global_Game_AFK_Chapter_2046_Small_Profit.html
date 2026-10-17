@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+
+<html data-theme="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/><meta content="#171719" name="theme-color"/><title>Chapter 2046 — Small Profit | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+</style></head><body><header class="topbar" role="banner"><div class="toolbar"><a aria-label="Previous chapter 2045" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2045_Low_Morale.html#start" title="Previous chapter">‹</a><select aria-label="Choose a chapter" id="chapter-picker"><option value="Global_Game_AFK_Chapter_2000_Control.html">2000 · Control</option><option value="Global_Game_AFK_Chapter_2001_Lockdown.html">2001 · Lockdown</option><option value="Global_Game_AFK_Chapter_2002_Details.html">2002 · Details</option><option value="Global_Game_AFK_Chapter_2003_Restart.html">2003 · Restart</option><option value="Global_Game_AFK_Chapter_2004_Eighth_Level.html">2004 · Eighth Level</option><option value="Global_Game_AFK_Chapter_2005_Cold_Storage.html">2005 · Cold Storage</option><option value="Global_Game_AFK_Chapter_2006_Into_the_Backpack.html">2006 · Into the Backpack</option><option value="Global_Game_AFK_Chapter_2007_Through.html">2007 · Through</option><option value="Global_Game_AFK_Chapter_2008_Attributes.html">2008 · Attributes</option><option value="Global_Game_AFK_Chapter_2009_Shattered.html">2009 · Shattered</option><option value="Global_Game_AFK_Chapter_2010_Summoning.html">2010 · Summoning</option><option value="Global_Game_AFK_Chapter_2011_Destruction.html">2011 · Destruction</option><option value="Global_Game_AFK_Chapter_2012_Fluctuations.html">2012 · Fluctuations</option><option value="Global_Game_AFK_Chapter_2013_Conversion.html">2013 · Conversion</option><option value="Global_Game_AFK_Chapter_2014_Weakened.html">2014 · Weakened</option><option value="Global_Game_AFK_Chapter_2015_Condensation.html">2015 · Condensation</option><option value="Global_Game_AFK_Chapter_2016_Interception.html">2016 · Interception</option><option value="Global_Game_AFK_Chapter_2017_Tremors.html">2017 · Tremors</option><option value="Global_Game_AFK_Chapter_2018_Advancement.html">2018 · Advancement</option><option value="Global_Game_AFK_Chapter_2019_Blood.html">2019 · Blood</option><option value="Global_Game_AFK_Chapter_2020_Teleportation.html">2020 · Teleportation</option><option value="Global_Game_AFK_Chapter_2021_Transfer_Ability.html">2021 · Transfer Ability</option><option value="Global_Game_AFK_Chapter_2022_Preparations.html">2022 · Preparations</option><option value="Global_Game_AFK_Chapter_2023_The_Offensive_Begins.html">2023 · The Offensive Begins</option><option value="Global_Game_AFK_Chapter_2024_Uproar.html">2024 · Uproar</option><option value="Global_Game_AFK_Chapter_2025_Annihilation.html">2025 · Annihilation</option><option value="Global_Game_AFK_Chapter_2026_Assembly.html">2026 · Assembly</option><option value="Global_Game_AFK_Chapter_2027_Critical.html">2027 · Critical</option><option value="Global_Game_AFK_Chapter_2028_Activation.html">2028 · Activation</option><option value="Global_Game_AFK_Chapter_2029_Zombie_Tide.html">2029 · Zombie Tide</option><option value="Global_Game_AFK_Chapter_2030_Repairs.html">2030 · Repairs</option><option value="Global_Game_AFK_Chapter_2031_Blocking_the_Exit.html">2031 · Blocking the Exit</option><option value="Global_Game_AFK_Chapter_2032_Encirclement.html">2032 · Encirclement</option><option value="Global_Game_AFK_Chapter_2033_Counterattack.html">2033 · Counterattack</option><option value="Global_Game_AFK_Chapter_2034_Breach.html">2034 · Breach</option><option value="Global_Game_AFK_Chapter_2035_Sewers.html">2035 · Sewers</option><option value="Global_Game_AFK_Chapter_2036_Offensive.html">2036 · Offensive</option><option value="Global_Game_AFK_Chapter_2037_Fallen.html">2037 · Fallen</option><option value="Global_Game_AFK_Chapter_2038_Ignored.html">2038 · Ignored</option><option value="Global_Game_AFK_Chapter_2039_Destroyed.html">2039 · Destroyed</option><option value="Global_Game_AFK_Chapter_2040_Pursuit.html">2040 · Pursuit</option><option value="Global_Game_AFK_Chapter_2041_Triggered.html">2041 · Triggered</option><option value="Global_Game_AFK_Chapter_2042_Frost.html">2042 · Frost</option><option value="Global_Game_AFK_Chapter_2043_Calculations.html">2043 · Calculations</option><option value="Global_Game_AFK_Chapter_2044_Stockpiling.html">2044 · Stockpiling</option><option value="Global_Game_AFK_Chapter_2045_Low_Morale.html">2045 · Low Morale</option><option selected="selected" value="Global_Game_AFK_Chapter_2046_Small_Profit.html">2046 · Small Profit</option><option value="Global_Game_AFK_Chapter_2047_Proposal.html">2047 · Proposal</option><option value="Global_Game_AFK_Chapter_2048_Investigation.html">2048 · Investigation</option><option value="Global_Game_AFK_Chapter_2049_Appraisal.html">2049 · Appraisal</option><option value="Global_Game_AFK_Chapter_2050_The_Draw.html">2050 · The Draw</option><option value="Global_Game_AFK_Chapter_2051_Unexpected_Turn.html">2051 · An Unexpected Turn</option><option value="Global_Game_AFK_Chapter_2052_In_Time.html">2052 · In Time</option><option value="Global_Game_AFK_Chapter_2053_Leakage.html">2053 · Leakage</option><option value="Global_Game_AFK_Chapter_2054_The_Reason.html">2054 · The Reason</option><option value="Global_Game_AFK_Chapter_2055_Chapter_of_Imprisonment.html">2055 · Chapter of Imprisonment</option><option value="Global_Game_AFK_Chapter_2056_Suppression.html">2056 · Suppression</option><option value="Global_Game_AFK_Chapter_2057_Crystal_Clusters.html">2057 · Crystal Clusters</option><option value="Global_Game_AFK_Chapter_2058_Control.html">2058 · Control</option></select><a aria-label="Next chapter 2047" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2047_Proposal.html#start" title="Next chapter">›</a><button aria-label="Decrease font size" class="toolbtn" id="smaller" title="Smaller text">A−</button><button aria-label="Increase font size" class="toolbtn" id="larger" title="Larger text">A+</button><button aria-label="Toggle dark/light mode" class="toolbtn" id="theme" title="Toggle theme">◐</button></div><div id="progress-track"><div id="progress"></div></div></header><main><section class="chapter-section" data-reading-anchor="" id="chapter-2046"><div class="chapter-num">Chapter 2046</div><h2 class="chapter-title">Small Profit</h2><p class="source-identity">From original Chinese Chapter 2047 · 小赚</p><article class="prose"><p data-reading-anchor="" id="ch2046-p001">Fang Heng waved a hand without much enthusiasm. His undead skeletons shuffled forward and smashed the framework of the defensive barrier the players had just spent so long building.</p><p data-reading-anchor="" id="ch2046-p002">[Notice: You have obstructed the Holy Court's construction of a defensive barrier against the Yin Vein aura and killed some Holy Court personnel. Additional reward: 520,000 Undead Faction Reputation and 210,000 Undead Faction Honor.]</p><p data-reading-anchor="" id="ch2046-p003"><em>Oh?</em></p><p data-reading-anchor="" id="ch2046-p004">Fang Heng brightened at the notification.</p><p data-reading-anchor="" id="ch2046-p005"><em>Even that earns Main God Points? And so many? Two hundred and ten thousand Honor—that's about two thousand Main God Points!</em></p><p data-reading-anchor="" id="ch2046-p006">Such an easy opportunity!</p><p data-reading-anchor="" id="ch2046-p007">After a moment's thought, he understood. The game's calculations must have judged that by destroying the construction site, he'd interfered with the Holy Court's efforts to contain the Yin Vein. That wider effect was why the reward was so large.</p><p data-reading-anchor="" id="ch2046-p008"><em>In that case…</em></p><p data-reading-anchor="" id="ch2046-p009">Fang Heng licked his lips and looked into the distance. It was still some time before dawn. Perhaps he could keep farming a little longer.</p><p data-reading-anchor="" id="ch2046-p010">His Vampire bloodline let him sense numerous concentrations of Holy Court energy nearby, offering him plenty of targets. Several particularly powerful sacred auras were also rapidly approaching his position.</p><p data-reading-anchor="" id="ch2046-p011"><em>Reinforcements, apparently.</em></p><p data-reading-anchor="" id="ch2046-p012">Time to go!</p><p data-reading-anchor="" id="ch2046-p013">There was no point fighting elite enemy teams head-on. He could simply move somewhere else and keep attacking.</p><p data-reading-anchor="" id="ch2046-p014">Leaving the wreckage behind, Fang Heng directed his skeletons back into the Yin Vein's frosty territory.</p><p data-reading-anchor="" id="ch2046-p015">Meanwhile, the Holy Court–aligned players had retreated a safe distance and were crouching there, anxiously waiting for reinforcements.</p><p data-reading-anchor="" id="ch2046-p016">Then they witnessed something utterly baffling.</p><p data-reading-anchor="" id="ch2046-p017"><em>What?</em></p><p data-reading-anchor="" id="ch2046-p018">Just as the reinforcements were about to arrive, the undead skeletons started withdrawing into the frost again.</p><p data-reading-anchor="" id="ch2046-p019"><em>Were they messing with us?!</em></p><p data-reading-anchor="" id="ch2046-p020">Watching their entire night's work lying in ruins, the players were furious. They didn't dare chase the undead, so they could only curse.</p><p data-reading-anchor="" id="ch2046-p021">A short while later, Commander Muhiting arrived with his elite troops.</p><p data-reading-anchor="" id="ch2046-p022">One look at the ruins was enough for him to guess what had happened.</p><p data-reading-anchor="" id="ch2046-p023">“Where are they?” he asked.</p><p data-reading-anchor="" id="ch2046-p024">The player squad leader answered bitterly, “They've retreated into the frost. Should we pursue them?”</p><p data-reading-anchor="" id="ch2046-p025">Muhiting stared at the disappearing skeletons and clenched his fists. The vast cloud of Yin Vein aura was blocking their senses.</p><p data-reading-anchor="" id="ch2046-p026"><em>Chase them? Fight undead inside the Yin Vein's own territory? Was that anything but suicide?</em></p><p data-reading-anchor="" id="ch2046-p027">After a moment, he shook his head.</p><p data-reading-anchor="" id="ch2046-p028">“Withdraw another kilometer. Start building the barrier again.”</p><p data-reading-anchor="" id="ch2046-p029">[Notice: You have triggered the quest: Construct a Defensive Barrier.]</p><p data-reading-anchor="" id="ch2046-p030">[Notice: This is a compulsory mobilization quest. Refusal will result in significant additional penalties.]</p><p data-reading-anchor="" id="ch2046-p031"><em>Not again!</em></p><p data-reading-anchor="" id="ch2046-p032">The players exchanged miserable looks, sighed, and replied without enthusiasm, “Understood.”</p><p data-reading-anchor="" id="ch2046-p033">Not far away, Fang Heng had been waiting within the frost. He'd deliberately left a few slow-moving skeletons visible in retreat, hoping to lure the reinforcements closer and gain another easy reward.</p><p data-reading-anchor="" id="ch2046-p034">“Shame…”</p><p data-reading-anchor="" id="ch2046-p035">The Holy Court hadn't fallen for it. He led his skeletons on toward the next target.</p><p data-reading-anchor="" id="ch2046-p036">The Yin Vein's influence stretched across an enormous area. To construct an effective containment network along its outer boundary, the Holy Court had to defend an equally vast perimeter.</p><p data-reading-anchor="" id="ch2046-p037">With so little time to prepare, its forces were spread extremely thin.</p><p data-reading-anchor="" id="ch2046-p038">And that gave Fang Heng exactly the opening he needed.</p><p data-reading-anchor="" id="ch2046-p039"><em>Time to farm points!</em></p><p data-reading-anchor="" id="ch2046-p040">Using blood sensing, he estimated the number and positions of Holy Court defenders in each region, then picked out the weak spots.</p><p data-reading-anchor="" id="ch2046-p041">His primary objective wasn't to exhaust the enemy troops. It was to destroy the defensive barriers while they were only half built.</p><p data-reading-anchor="" id="ch2046-p042">Usually, players accepted the construction quests while a small Holy Court squad helped guard the site.</p><p data-reading-anchor="" id="ch2046-p043">Now those players were being harassed relentlessly. Frost skeletons emerged again and again from the mist, forcing desperate calls for reinforcements. Each time the workers made progress, their half-finished barrier was destroyed yet again.</p><p data-reading-anchor="" id="ch2046-p044">The Holy Court was helpless.</p><p data-reading-anchor="" id="ch2046-p045">Unlike yesterday's zombie-tide strategy, the undead skeletons had switched to hit-and-run attacks, using the Yin Vein aura for cover.</p><p data-reading-anchor="" id="ch2046-p046">The Holy Court didn't have enough personnel to respond properly. Its forces were constantly being dragged from one crisis to the next.</p><p data-reading-anchor="" id="ch2046-p047">But there was no better solution. They could only grit their teeth and endure.</p><p class="scene" data-reading-anchor="" id="ch2046-p048">…</p><p data-reading-anchor="" id="ch2046-p049">The situation in Qiboreya wasn't much better than in Duncha.</p><p data-reading-anchor="" id="ch2046-p050">The number of zombies that had flooded through the passage was so enormous that the Holy Court couldn't possibly eliminate them quickly. Vast groups of zombie clones spread toward the rear of the Holy Court's front-line forces, disrupting the war against the undead.</p><p data-reading-anchor="" id="ch2046-p051">The Holy Court was forced to fight on two fronts.</p><p data-reading-anchor="" id="ch2046-p052">Lord Dani and the undead-aligned player guilds were engaged in fierce battle with the Holy Court when reports from outside the game began reaching the various guild leaders.</p><p data-reading-anchor="" id="ch2046-p053"><em>Duncha!</em></p><p data-reading-anchor="" id="ch2046-p054">The Holy Court's headquarters in the mid-tier worlds had been invaded by undead! Worse, a terrifying Yin Vein fissure had appeared there.</p><p data-reading-anchor="" id="ch2046-p055">Reliable intelligence also confirmed that the Yin Vein fissure in Punoze had vanished!</p><p data-reading-anchor="" id="ch2046-p056">Everyone began connecting the dots. Their eyes turned toward Lord Dani.</p><p data-reading-anchor="" id="ch2046-p057">Clearly, she had known about this beforehand.</p><p data-reading-anchor="" id="ch2046-p058">At the start of the day's offensive, she had told them that Fang Heng would be carrying out a secret operation behind enemy lines. She'd urged them to fight with two hundred percent effort—to stake everything on the chance of a better future. When the time came, Fang Heng would deliver an astonishing surprise.</p><p data-reading-anchor="" id="ch2046-p059">They'd followed her instructions and fought desperately, eagerly awaiting that surprise.</p><p data-reading-anchor="" id="ch2046-p060">But nobody had imagined Fang Heng's surprise would be quite this outrageous!</p><p data-reading-anchor="" id="ch2046-p061">He'd somehow attacked Duncha itself, the Holy Court's headquarters, and even transferred the Yin Vein fissure there, dragging the entire world into a state of war!</p><p data-reading-anchor="" id="ch2046-p062">Duncha was the Holy Court's home base and had many teleportation routes to other worlds. Naturally, a large proportion of its reinforcements would now be diverted to save Duncha first.</p><p data-reading-anchor="" id="ch2046-p063">That would dramatically reduce the pressure on the undead front line.</p><p data-reading-anchor="" id="ch2046-p064">And already, they could see the first portions of a vast zombie horde emerging behind the Holy Court's battle formations.</p><p data-reading-anchor="" id="ch2046-p065"><em>A pincer attack!</em></p><p data-reading-anchor="" id="ch2046-p066">Perhaps tonight they could finally achieve a decisive breakthrough on the main battlefield.</p></article><p class="end" data-reading-anchor="" id="ch2046-end">— End of Chapter 2046 —</p><details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li><strong>Barrier quests. </strong>The Holy Court faction quests are compulsory for the summoned players. Refusing outright carries a heavier penalty than trying and failing.</li><li><strong>Two-front war. </strong>The undead gain relief in Qiboreya both from rear attacks by zombie clones and the need for Holy Court reinforcements to return to Duncha.</li></ul></details><nav aria-label="Chapter navigation" class="chapter-nav"><a href="Global_Game_AFK_Chapter_2045_Low_Morale.html#start">← Previous chapter (2045)</a><a class="next" href="Global_Game_AFK_Chapter_2047_Proposal.html#start">Next chapter (2047) →</a></nav></section><footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer></main><div aria-live="polite" id="reading-toast" role="status"></div><script>(()=>{
+'use strict';
+const storeKey='afk-reader-position:chapter-2046:v2';
+const sizeKey='afk-reader-font-size:compact-v3';
+const themeKey='afk-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem('afk-reader-test','ok');localStorage.removeItem('afk-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored('afk-last-chapter', "Global_Game_AFK_Chapter_2046_Small_Profit.html");
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();</script></body></html>

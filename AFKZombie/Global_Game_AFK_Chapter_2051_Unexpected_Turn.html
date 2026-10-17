@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+
+<html data-theme="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/><meta content="#171719" name="theme-color"/><title>Chapter 2051 — An Unexpected Turn | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+</style></head><body><header class="topbar" role="banner"><div class="toolbar"><a aria-label="Previous chapter 2050" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2050_The_Draw.html#start" title="Previous chapter">‹</a><select aria-label="Choose a chapter" id="chapter-picker"><option value="Global_Game_AFK_Chapter_2000_Control.html">2000 · Control</option><option value="Global_Game_AFK_Chapter_2001_Lockdown.html">2001 · Lockdown</option><option value="Global_Game_AFK_Chapter_2002_Details.html">2002 · Details</option><option value="Global_Game_AFK_Chapter_2003_Restart.html">2003 · Restart</option><option value="Global_Game_AFK_Chapter_2004_Eighth_Level.html">2004 · Eighth Level</option><option value="Global_Game_AFK_Chapter_2005_Cold_Storage.html">2005 · Cold Storage</option><option value="Global_Game_AFK_Chapter_2006_Into_the_Backpack.html">2006 · Into the Backpack</option><option value="Global_Game_AFK_Chapter_2007_Through.html">2007 · Through</option><option value="Global_Game_AFK_Chapter_2008_Attributes.html">2008 · Attributes</option><option value="Global_Game_AFK_Chapter_2009_Shattered.html">2009 · Shattered</option><option value="Global_Game_AFK_Chapter_2010_Summoning.html">2010 · Summoning</option><option value="Global_Game_AFK_Chapter_2011_Destruction.html">2011 · Destruction</option><option value="Global_Game_AFK_Chapter_2012_Fluctuations.html">2012 · Fluctuations</option><option value="Global_Game_AFK_Chapter_2013_Conversion.html">2013 · Conversion</option><option value="Global_Game_AFK_Chapter_2014_Weakened.html">2014 · Weakened</option><option value="Global_Game_AFK_Chapter_2015_Condensation.html">2015 · Condensation</option><option value="Global_Game_AFK_Chapter_2016_Interception.html">2016 · Interception</option><option value="Global_Game_AFK_Chapter_2017_Tremors.html">2017 · Tremors</option><option value="Global_Game_AFK_Chapter_2018_Advancement.html">2018 · Advancement</option><option value="Global_Game_AFK_Chapter_2019_Blood.html">2019 · Blood</option><option value="Global_Game_AFK_Chapter_2020_Teleportation.html">2020 · Teleportation</option><option value="Global_Game_AFK_Chapter_2021_Transfer_Ability.html">2021 · Transfer Ability</option><option value="Global_Game_AFK_Chapter_2022_Preparations.html">2022 · Preparations</option><option value="Global_Game_AFK_Chapter_2023_The_Offensive_Begins.html">2023 · The Offensive Begins</option><option value="Global_Game_AFK_Chapter_2024_Uproar.html">2024 · Uproar</option><option value="Global_Game_AFK_Chapter_2025_Annihilation.html">2025 · Annihilation</option><option value="Global_Game_AFK_Chapter_2026_Assembly.html">2026 · Assembly</option><option value="Global_Game_AFK_Chapter_2027_Critical.html">2027 · Critical</option><option value="Global_Game_AFK_Chapter_2028_Activation.html">2028 · Activation</option><option value="Global_Game_AFK_Chapter_2029_Zombie_Tide.html">2029 · Zombie Tide</option><option value="Global_Game_AFK_Chapter_2030_Repairs.html">2030 · Repairs</option><option value="Global_Game_AFK_Chapter_2031_Blocking_the_Exit.html">2031 · Blocking the Exit</option><option value="Global_Game_AFK_Chapter_2032_Encirclement.html">2032 · Encirclement</option><option value="Global_Game_AFK_Chapter_2033_Counterattack.html">2033 · Counterattack</option><option value="Global_Game_AFK_Chapter_2034_Breach.html">2034 · Breach</option><option value="Global_Game_AFK_Chapter_2035_Sewers.html">2035 · Sewers</option><option value="Global_Game_AFK_Chapter_2036_Offensive.html">2036 · Offensive</option><option value="Global_Game_AFK_Chapter_2037_Fallen.html">2037 · Fallen</option><option value="Global_Game_AFK_Chapter_2038_Ignored.html">2038 · Ignored</option><option value="Global_Game_AFK_Chapter_2039_Destroyed.html">2039 · Destroyed</option><option value="Global_Game_AFK_Chapter_2040_Pursuit.html">2040 · Pursuit</option><option value="Global_Game_AFK_Chapter_2041_Triggered.html">2041 · Triggered</option><option value="Global_Game_AFK_Chapter_2042_Frost.html">2042 · Frost</option><option value="Global_Game_AFK_Chapter_2043_Calculations.html">2043 · Calculations</option><option value="Global_Game_AFK_Chapter_2044_Stockpiling.html">2044 · Stockpiling</option><option value="Global_Game_AFK_Chapter_2045_Low_Morale.html">2045 · Low Morale</option><option value="Global_Game_AFK_Chapter_2046_Small_Profit.html">2046 · Small Profit</option><option value="Global_Game_AFK_Chapter_2047_Proposal.html">2047 · Proposal</option><option value="Global_Game_AFK_Chapter_2048_Investigation.html">2048 · Investigation</option><option value="Global_Game_AFK_Chapter_2049_Appraisal.html">2049 · Appraisal</option><option value="Global_Game_AFK_Chapter_2050_The_Draw.html">2050 · The Draw</option><option selected="selected" value="Global_Game_AFK_Chapter_2051_Unexpected_Turn.html">2051 · An Unexpected Turn</option><option value="Global_Game_AFK_Chapter_2052_In_Time.html">2052 · In Time</option><option value="Global_Game_AFK_Chapter_2053_Leakage.html">2053 · Leakage</option><option value="Global_Game_AFK_Chapter_2054_The_Reason.html">2054 · The Reason</option><option value="Global_Game_AFK_Chapter_2055_Chapter_of_Imprisonment.html">2055 · Chapter of Imprisonment</option><option value="Global_Game_AFK_Chapter_2056_Suppression.html">2056 · Suppression</option><option value="Global_Game_AFK_Chapter_2057_Crystal_Clusters.html">2057 · Crystal Clusters</option><option value="Global_Game_AFK_Chapter_2058_Control.html">2058 · Control</option></select><a aria-label="Next chapter 2052" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2052_In_Time.html#start" title="Next chapter">›</a><button aria-label="Decrease font size" class="toolbtn" id="smaller" title="Smaller text">A−</button><button aria-label="Increase font size" class="toolbtn" id="larger" title="Larger text">A+</button><button aria-label="Toggle dark/light mode" class="toolbtn" id="theme" title="Toggle theme">◐</button></div><div id="progress-track"><div id="progress"></div></div></header><main><section class="chapter-section" data-reading-anchor="" id="chapter-2051"><div class="chapter-num">Chapter 2051</div><h2 class="chapter-title">An Unexpected Turn</h2><p class="source-identity">From original Chinese Chapter 2052 · 意外</p><article class="prose"><p class="sound" data-reading-anchor="" id="ch2051-p001"><em>Whoosh!</em></p><p data-reading-anchor="" id="ch2051-p002">The outside disturbance made Fang Heng open his eyes sharply.</p><p data-reading-anchor="" id="ch2051-p003"><em>Wonderful!</em></p><p data-reading-anchor="" id="ch2051-p004">The change was tiny, but he could sense it: the gray mist occupying his sea of consciousness had weakened!</p><p data-reading-anchor="" id="ch2051-p005">He might finally have found an opening he could exploit.</p><p data-reading-anchor="" id="ch2051-p006">Judging from the game's notifications, the special baptism had extended the time before the Demon Seed of Envy seized control by roughly three days.</p><p data-reading-anchor="" id="ch2051-p007">When he opened his eyes, he noticed that everyone was staring at him. He frowned, then quickly realized what had happened around his body.</p><p data-reading-anchor="" id="ch2051-p008">“What a pity…” he murmured.</p><p data-reading-anchor="" id="ch2051-p009">Still, the timing was about right.</p><p data-reading-anchor="" id="ch2051-p010">One player, disturbed by Fang Heng's condition, tried to speak to him.</p><p data-reading-anchor="" id="ch2051-p011">“Excuse me, friend. May I ask your name—”</p><p data-reading-anchor="" id="ch2051-p012">Suddenly, the man froze.</p><p data-reading-anchor="" id="ch2051-p013"><em>What?!</em></p><p class="sound" data-reading-anchor="" id="ch2051-p014"><em>Whoosh! Whoosh!</em></p><p data-reading-anchor="" id="ch2051-p015">Alchemy magic arrays appeared one after another around Fang Heng's feet.</p><p class="sound" data-reading-anchor="" id="ch2051-p016"><em>Hiss! Hiss!</em></p><p data-reading-anchor="" id="ch2051-p017">Lickers sprang out of the arrays!</p><p data-reading-anchor="" id="ch2051-p018">The players were stunned.</p><p data-reading-anchor="" id="ch2051-p019"><em>What the hell? Lickers?!</em></p><p data-reading-anchor="" id="ch2051-p020">Before anyone could react, large numbers of Lickers were already leaping toward them.</p><p data-reading-anchor="" id="ch2051-p021">“Watch out!”</p><p data-reading-anchor="" id="ch2051-p022">An NPC paladin shouted, jolting the others awake. He raised his sacred shield and charged forward to intercept the monsters.</p><p class="sound" data-reading-anchor="" id="ch2051-p023"><strong>BANG!</strong></p><p data-reading-anchor="" id="ch2051-p024">His shield sent one Licker flying, but more of them immediately rushed over and buried him beneath their bodies.</p><p data-reading-anchor="" id="ch2051-p025">A short distance away, Fang Heng slowly raised his head.</p><p data-reading-anchor="" id="ch2051-p026">The sacred beam from the hall's crystal chandelier still shone down on him, lending his figure a strangely holy appearance.</p><p data-reading-anchor="" id="ch2051-p027">But the other players felt nothing sacred about him now.</p><p data-reading-anchor="" id="ch2051-p028">They abandoned their baptisms and ran for the Temple of Zeus's exit.</p><p data-reading-anchor="" id="ch2051-p029"><em>Lickers! You've got to be kidding! That's Fang Heng!</em></p><p data-reading-anchor="" id="ch2051-p030"><em>World Lord Fang Heng! The undead have come for us!</em></p><p data-reading-anchor="" id="ch2051-p031"><em>Run!</em></p><p data-reading-anchor="" id="ch2051-p032">Staying alive was all that mattered now!</p><p class="scene" data-reading-anchor="" id="ch2051-p033">…</p><p data-reading-anchor="" id="ch2051-p034">Outside the Temple of Zeus, Chu Yan was still sitting on a bench by the entrance.</p><p data-reading-anchor="" id="ch2051-p035">When he heard the commotion, he immediately became alert.</p><p data-reading-anchor="" id="ch2051-p036"><em>Had something happened?</em></p><p class="sound" data-reading-anchor="" id="ch2051-p037"><strong>BANG!</strong></p><p data-reading-anchor="" id="ch2051-p038">The temple doors were thrown open from inside. Several players rushed out.</p><p data-reading-anchor="" id="ch2051-p039">“Watch out! It's Fang Heng!”</p><p data-reading-anchor="" id="ch2051-p040">“Undead! The undead are attacking!”</p><p data-reading-anchor="" id="ch2051-p041">They fled, shouting warnings as they ran.</p><p data-reading-anchor="" id="ch2051-p042">This was no joke. Fang Heng's name had become infamous among Holy Court players. He'd turned their entire faction upside down practically by himself. Fighting him never even entered their minds.</p><p data-reading-anchor="" id="ch2051-p043">Chu Yan stood up and looked toward the temple.</p><p data-reading-anchor="" id="ch2051-p044">The next instant, a swarm of Lickers charged through the doors!</p><p data-reading-anchor="" id="ch2051-p045">More than a dozen Holy Court guards at the entrance rushed to meet them, but they couldn't resist. They were surrounded and overwhelmed almost immediately.</p><p data-reading-anchor="" id="ch2051-p046">Then wave after wave of zombies shuffled out of the temple, passed Chu Yan, and continued toward the cathedral's Prayer Hall.</p><p data-reading-anchor="" id="ch2051-p047">Chu Yan cautiously stepped forward and peered inside.</p><p data-reading-anchor="" id="ch2051-p048">Fang Heng was still standing in the center of the hall, staring at the vaulted ceiling as though something puzzled him.</p><p data-reading-anchor="" id="ch2051-p049">“Boss Fang, are you all right?”</p><p data-reading-anchor="" id="ch2051-p050">“I'm fine.” Fang Heng glanced at him, then pointed overhead without taking his eyes off the ceiling.</p><p data-reading-anchor="" id="ch2051-p051">“That crystal up there is strange. Where did it come from? Do you know what it is?”</p><p data-reading-anchor="" id="ch2051-p052">“A crystal?”</p><p data-reading-anchor="" id="ch2051-p053">Chu Yan followed his gesture and looked upward.</p><p class="sound" data-reading-anchor="" id="ch2051-p054"><em>Whoosh!</em></p><p data-reading-anchor="" id="ch2051-p055">A Licker sprang from the wall toward the chandelier suspended in midair. Its sharp claws raked across the fixture.</p><p class="sound" data-reading-anchor="" id="ch2051-p056"><strong>CRASH!</strong></p><p data-reading-anchor="" id="ch2051-p057">The chandelier shattered, showering glittering crystal fragments over the hall.</p><p data-reading-anchor="" id="ch2051-p058">Behind it, a huge yellow crystal embedded in the ceiling came into view. It was oval-shaped and roughly five or six meters long.</p><p data-reading-anchor="" id="ch2051-p059">Only then did Chu Yan realize that there was another layer hidden behind the ceiling murals.</p><p data-reading-anchor="" id="ch2051-p060">Countless magic arrays were densely inscribed across the surface. Clearly, the yellow crystal was the core of the array network.</p><p data-reading-anchor="" id="ch2051-p061">As the arrays operated, the crystal continuously released sacred power, which the Temple of Zeus converted into the energy used for baptism.</p><p data-reading-anchor="" id="ch2051-p062">Fang Heng looked at Chu Yan.</p><p data-reading-anchor="" id="ch2051-p063">“Does this crystal remind you of anything?”</p><p data-reading-anchor="" id="ch2051-p064">Chu Yan frowned and shook his head. It was the first time he'd realized such a stone was hidden there.</p><p data-reading-anchor="" id="ch2051-p065">“I've never heard anything about it. Is it special?”</p><p data-reading-anchor="" id="ch2051-p066">“Mm. It's valuable.”</p><p data-reading-anchor="" id="ch2051-p067">Fang Heng could sense the peculiar sacred energy contained within it.</p><p data-reading-anchor="" id="ch2051-p068">“Uh…” Chu Yan hesitated. “Should we take it?”</p><p data-reading-anchor="" id="ch2051-p069">“No, not yet.”</p><p data-reading-anchor="" id="ch2051-p070">Fang Heng kept looking at the ceiling. The magic array within his right pupil spun rapidly.</p><p data-reading-anchor="" id="ch2051-p071">The energy released by that yellow crystal, after being converted by the surrounding arrays, could affect the Demon Seed inside him. It couldn't possibly be an ordinary stone.</p><p data-reading-anchor="" id="ch2051-p072">He would identify it first.</p><p data-reading-anchor="" id="ch2051-p073">[Notice: You are using the Omniscient Eye to identify an unknown item…]</p><p data-reading-anchor="" id="ch2051-p074">[Notice: Identification successful. Partial information obtained.]</p><p data-reading-anchor="" id="ch2051-p075">[Notice: Special item discovered: Exquisitely Cut Giant Gem. Material: Luminous Grating Stone infused with sacred power.]</p><p data-reading-anchor="" id="ch2051-p076">[Notice: The item is too large and heavy to be placed directly in your backpack.]</p><p data-reading-anchor="" id="ch2051-p077"><em>Luminous Grating Stone? What was that?</em></p><p data-reading-anchor="" id="ch2051-p078">Fang Heng had never heard of it.</p><p data-reading-anchor="" id="ch2051-p079">Unfortunately, he couldn't take it away directly. There was no teleportation passage here, and the stone wasn't a divine artifact. At its size, it wouldn't fit in the backpack.</p><p class="sound" data-reading-anchor="" id="ch2051-p080"><em>Crack, crack…</em></p><p data-reading-anchor="" id="ch2051-p081">Chu Yan was about to say something when a soft cracking noise drew his attention.</p><p data-reading-anchor="" id="ch2051-p082">A nearby Licker was rapidly enveloping itself in a flesh cocoon. The cocoon swelled to more than ten times its original size, and a <strong>Fusion Tyrant</strong> zombie clone emerged.</p><p data-reading-anchor="" id="ch2051-p083">Fang Heng leapt onto the Tyrant's shoulder and took an alchemy pen from his pocket.</p><p data-reading-anchor="" id="ch2051-p084">The arrays behind the vaulted ceiling had been specially designed. Their purpose was to draw power slowly and steadily from the crystal.</p><p data-reading-anchor="" id="ch2051-p085">The Holy Court had probably adjusted them countless times to achieve the optimal configuration for baptism in the Temple of Zeus.</p><p data-reading-anchor="" id="ch2051-p086">But for Fang Heng, that energy-release rate was far too slow.</p><p data-reading-anchor="" id="ch2051-p087"><em>Time for a little modification!</em></p><p data-reading-anchor="" id="ch2051-p088">He raised the pen and began drawing new lines across the overhead array.</p><p data-reading-anchor="" id="ch2051-p089">[Notice: You are attempting to modify a magic array. Current probability of success: 100%.]</p><p data-reading-anchor="" id="ch2051-p090">[Notice: Time required: Less than 5 minutes.]</p></article><p class="end" data-reading-anchor="" id="ch2051-end">— End of Chapter 2051 —</p><details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li><strong>Luminous Grating Stone. </strong>流光栅石 is an unusual invented material name. “Luminous Grating Stone” preserves its lattice/grating sense, but the precise in-world English rendering is uncertain.</li><li><strong>The crystal is too big. </strong>The Omniscient Eye identifies a huge cut sacred-infused stone; its size and weight prevent direct storage in Fang Heng’s backpack.</li></ul></details><nav aria-label="Chapter navigation" class="chapter-nav"><a href="Global_Game_AFK_Chapter_2050_The_Draw.html#start">← Previous chapter (2050)</a><a class="next" href="Global_Game_AFK_Chapter_2052_In_Time.html#start">Next chapter (2052) →</a></nav></section><footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer></main><div aria-live="polite" id="reading-toast" role="status"></div><script>(()=>{
+'use strict';
+const storeKey='afk-reader-position:chapter-2051:v2';
+const sizeKey='afk-reader-font-size:compact-v3';
+const themeKey='afk-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem('afk-reader-test','ok');localStorage.removeItem('afk-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored('afk-last-chapter', "Global_Game_AFK_Chapter_2051_Unexpected_Turn.html");
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();</script></body></html>

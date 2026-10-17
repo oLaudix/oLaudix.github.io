@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+
+<html data-theme="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/><meta content="#171719" name="theme-color"/><title>Chapter 2039 — Destroyed | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+</style></head><body><header class="topbar" role="banner"><div class="toolbar"><a aria-label="Previous chapter 2038" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2038_Ignored.html#start" title="Previous chapter">‹</a><select aria-label="Choose a chapter" id="chapter-picker"><option value="Global_Game_AFK_Chapter_2000_Control.html">2000 · Control</option><option value="Global_Game_AFK_Chapter_2001_Lockdown.html">2001 · Lockdown</option><option value="Global_Game_AFK_Chapter_2002_Details.html">2002 · Details</option><option value="Global_Game_AFK_Chapter_2003_Restart.html">2003 · Restart</option><option value="Global_Game_AFK_Chapter_2004_Eighth_Level.html">2004 · Eighth Level</option><option value="Global_Game_AFK_Chapter_2005_Cold_Storage.html">2005 · Cold Storage</option><option value="Global_Game_AFK_Chapter_2006_Into_the_Backpack.html">2006 · Into the Backpack</option><option value="Global_Game_AFK_Chapter_2007_Through.html">2007 · Through</option><option value="Global_Game_AFK_Chapter_2008_Attributes.html">2008 · Attributes</option><option value="Global_Game_AFK_Chapter_2009_Shattered.html">2009 · Shattered</option><option value="Global_Game_AFK_Chapter_2010_Summoning.html">2010 · Summoning</option><option value="Global_Game_AFK_Chapter_2011_Destruction.html">2011 · Destruction</option><option value="Global_Game_AFK_Chapter_2012_Fluctuations.html">2012 · Fluctuations</option><option value="Global_Game_AFK_Chapter_2013_Conversion.html">2013 · Conversion</option><option value="Global_Game_AFK_Chapter_2014_Weakened.html">2014 · Weakened</option><option value="Global_Game_AFK_Chapter_2015_Condensation.html">2015 · Condensation</option><option value="Global_Game_AFK_Chapter_2016_Interception.html">2016 · Interception</option><option value="Global_Game_AFK_Chapter_2017_Tremors.html">2017 · Tremors</option><option value="Global_Game_AFK_Chapter_2018_Advancement.html">2018 · Advancement</option><option value="Global_Game_AFK_Chapter_2019_Blood.html">2019 · Blood</option><option value="Global_Game_AFK_Chapter_2020_Teleportation.html">2020 · Teleportation</option><option value="Global_Game_AFK_Chapter_2021_Transfer_Ability.html">2021 · Transfer Ability</option><option value="Global_Game_AFK_Chapter_2022_Preparations.html">2022 · Preparations</option><option value="Global_Game_AFK_Chapter_2023_The_Offensive_Begins.html">2023 · The Offensive Begins</option><option value="Global_Game_AFK_Chapter_2024_Uproar.html">2024 · Uproar</option><option value="Global_Game_AFK_Chapter_2025_Annihilation.html">2025 · Annihilation</option><option value="Global_Game_AFK_Chapter_2026_Assembly.html">2026 · Assembly</option><option value="Global_Game_AFK_Chapter_2027_Critical.html">2027 · Critical</option><option value="Global_Game_AFK_Chapter_2028_Activation.html">2028 · Activation</option><option value="Global_Game_AFK_Chapter_2029_Zombie_Tide.html">2029 · Zombie Tide</option><option value="Global_Game_AFK_Chapter_2030_Repairs.html">2030 · Repairs</option><option value="Global_Game_AFK_Chapter_2031_Blocking_the_Exit.html">2031 · Blocking the Exit</option><option value="Global_Game_AFK_Chapter_2032_Encirclement.html">2032 · Encirclement</option><option value="Global_Game_AFK_Chapter_2033_Counterattack.html">2033 · Counterattack</option><option value="Global_Game_AFK_Chapter_2034_Breach.html">2034 · Breach</option><option value="Global_Game_AFK_Chapter_2035_Sewers.html">2035 · Sewers</option><option value="Global_Game_AFK_Chapter_2036_Offensive.html">2036 · Offensive</option><option value="Global_Game_AFK_Chapter_2037_Fallen.html">2037 · Fallen</option><option value="Global_Game_AFK_Chapter_2038_Ignored.html">2038 · Ignored</option><option selected="selected" value="Global_Game_AFK_Chapter_2039_Destroyed.html">2039 · Destroyed</option><option value="Global_Game_AFK_Chapter_2040_Pursuit.html">2040 · Pursuit</option><option value="Global_Game_AFK_Chapter_2041_Triggered.html">2041 · Triggered</option><option value="Global_Game_AFK_Chapter_2042_Frost.html">2042 · Frost</option><option value="Global_Game_AFK_Chapter_2043_Calculations.html">2043 · Calculations</option><option value="Global_Game_AFK_Chapter_2044_Stockpiling.html">2044 · Stockpiling</option><option value="Global_Game_AFK_Chapter_2045_Low_Morale.html">2045 · Low Morale</option><option value="Global_Game_AFK_Chapter_2046_Small_Profit.html">2046 · Small Profit</option><option value="Global_Game_AFK_Chapter_2047_Proposal.html">2047 · Proposal</option><option value="Global_Game_AFK_Chapter_2048_Investigation.html">2048 · Investigation</option><option value="Global_Game_AFK_Chapter_2049_Appraisal.html">2049 · Appraisal</option><option value="Global_Game_AFK_Chapter_2050_The_Draw.html">2050 · The Draw</option><option value="Global_Game_AFK_Chapter_2051_Unexpected_Turn.html">2051 · An Unexpected Turn</option><option value="Global_Game_AFK_Chapter_2052_In_Time.html">2052 · In Time</option><option value="Global_Game_AFK_Chapter_2053_Leakage.html">2053 · Leakage</option><option value="Global_Game_AFK_Chapter_2054_The_Reason.html">2054 · The Reason</option><option value="Global_Game_AFK_Chapter_2055_Chapter_of_Imprisonment.html">2055 · Chapter of Imprisonment</option><option value="Global_Game_AFK_Chapter_2056_Suppression.html">2056 · Suppression</option><option value="Global_Game_AFK_Chapter_2057_Crystal_Clusters.html">2057 · Crystal Clusters</option><option value="Global_Game_AFK_Chapter_2058_Control.html">2058 · Control</option></select><a aria-label="Next chapter 2040" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2040_Pursuit.html#start" title="Next chapter">›</a><button aria-label="Decrease font size" class="toolbtn" id="smaller" title="Smaller text">A−</button><button aria-label="Increase font size" class="toolbtn" id="larger" title="Larger text">A+</button><button aria-label="Toggle dark/light mode" class="toolbtn" id="theme" title="Toggle theme">◐</button></div><div id="progress-track"><div id="progress"></div></div></header><main><section class="chapter-section" data-reading-anchor="" id="chapter-2039"><div class="chapter-num">Chapter 2039</div><h2 class="chapter-title">Destroyed</h2><p class="source-identity">From original Chinese Chapter 2040 · 炸毁</p><article class="prose"><p data-reading-anchor="" id="ch2039-p001">Several players beside Muhiting felt their scalps prickle as they watched the images on the screen.</p><p data-reading-anchor="" id="ch2039-p002">An endless tide of zombies poured out of the teleportation passage, swallowing everything in its path. And the person controlling it all was just one player!</p><p data-reading-anchor="" id="ch2039-p003">“Muhiting, what's the situation?”</p><p data-reading-anchor="" id="ch2039-p004">Muhiting pulled his gaze away and faced the other screen in the remote conference. “Archbishop, we've confirmed that the zombies are coming through the passage from the Qiboreya game world.”</p><p data-reading-anchor="" id="ch2039-p005">“Then the undead must have seized control of the other end,” someone said. “Something serious must have happened in Qiboreya. Unfortunately, we still can't establish contact.”</p><p data-reading-anchor="" id="ch2039-p006">On the screen, Silufi, a senior bishop of the Holy Court's central administration, considered the situation for a moment before nodding. “We'll find a way to deal with Qiboreya. Muhiting, the reserve Crusader force is already on its way. Keep holding back the undead. Once the Crusaders arrive, we'll destroy the passage outright—”</p><p data-reading-anchor="" id="ch2039-p007">“Archbishop! Please give us a little more time!”</p><p data-reading-anchor="" id="ch2039-p008">Muhiting quickly interrupted. “Give us one more chance. This passage is our only connection to Qiboreya. If we want to launch a counterattack and rescue the people there, we have to preserve it—”</p><p data-reading-anchor="" id="ch2039-p009">He still wanted to fight back, but halfway through speaking, he sensed something and whipped his head around. Surprise flashed in his eyes.</p><p data-reading-anchor="" id="ch2039-p010"><em>What was that? What was going on?</em></p><p data-reading-anchor="" id="ch2039-p011">An extraordinarily powerful surge of spatial energy and blood energy erupted in the distance!</p><p data-reading-anchor="" id="ch2039-p012">At the same time, the Holy Court's paladin defenders, who had formed up to resist the surging zombie horde, sensed the spatial disturbance. Almost as one, they looked back toward its source.</p><p data-reading-anchor="" id="ch2039-p013">The disturbance came from outside the city, not particularly far away.</p><p data-reading-anchor="" id="ch2039-p014">It felt exactly like the opening of a Vampire teleportation portal—except this time the intensity was more than twice as great!</p><p class="sound" data-reading-anchor="" id="ch2039-p015"><em>Bzzzz—!</em></p><p data-reading-anchor="" id="ch2039-p016">Dense electrical interference filled the air. The spatial fluctuations scrambled the video conference into an indistinct blur. Drones circling overhead to record the battle suddenly lost control and plunged to the ground.</p><p data-reading-anchor="" id="ch2039-p017">Everyone stared uneasily toward the disturbance. Was this the work of the undead? What else were they plotting?</p><p data-reading-anchor="" id="ch2039-p018">Only after half a minute did the interference begin to clear.</p><p data-reading-anchor="" id="ch2039-p019">“Bzz… bzz…”</p><p data-reading-anchor="" id="ch2039-p020">Silufi's face reappeared in the center of the screen.</p><p data-reading-anchor="" id="ch2039-p021">“Muhiting, what happened?”</p><p data-reading-anchor="" id="ch2039-p022">Even from tens of thousands of li away, Silufi had felt the tremendous spatial disturbance and was filled with unease.</p><p data-reading-anchor="" id="ch2039-p023">“Archbishop, it originated about a kilometer from here. We haven't identified the cause yet.”</p><p data-reading-anchor="" id="ch2039-p024">“Investigate immediately. The Crusaders are already moving toward the source. Coordinate with them!”</p><p data-reading-anchor="" id="ch2039-p025">“Understood!”</p><p data-reading-anchor="" id="ch2039-p026">Muhiting wasted no time leading his unit toward the disturbance.</p><p class="scene" data-reading-anchor="" id="ch2039-p027">…</p><p data-reading-anchor="" id="ch2039-p028">And he wasn't the only one.</p><p data-reading-anchor="" id="ch2039-p029">At the bishop's summons, Holy Court reinforcement teams from every direction converged on the amusement park, drawn by the violent spatial fluctuations.</p><p data-reading-anchor="" id="ch2039-p030">Suddenly, Muhiting noticed a well-equipped group arriving at the park's entrance.</p><p data-reading-anchor="" id="ch2039-p031"><em>The Crusaders!</em></p><p data-reading-anchor="" id="ch2039-p032">They were the Holy Court's carefully cultivated main combat force. Every Crusader was an elite among elites, fiercely devout and trained to fight in high-tier game worlds.</p><p data-reading-anchor="" id="ch2039-p033">Duncha was one of the Holy Court's strongholds and trained its reserve Crusaders. Each year, only a few hundred of the very best candidates passed the successive selection tests to advance to practical combat examinations. They then fought in other high-tier game worlds, and only those who survived genuine battles and proved their faith could become full Crusaders.</p><p data-reading-anchor="" id="ch2039-p034">Without question, Duncha's reserve Crusader corps was the strongest force currently stationed in the world.</p><p data-reading-anchor="" id="ch2039-p035">Even more impressive, the corps' three instructors were clergy directly dispatched from the Divine Domain.</p><p data-reading-anchor="" id="ch2039-p036">Now all three had arrived. The greatest powers in the entire Duncha game world were gathering at the amusement park.</p><p data-reading-anchor="" id="ch2039-p037">Around the park's perimeter, the first Holy Court reinforcements and Crusaders had already begun battling the Lickers.</p><p data-reading-anchor="" id="ch2039-p038">The reserve Crusaders immediately charged, but they were soon engulfed by layer upon layer of zombies.</p><p data-reading-anchor="" id="ch2039-p039">Even the strongest combat force in Duncha found the sheer numbers overwhelming. Their initial charge lost momentum, and the horde closed around them like a swamp.</p><p data-reading-anchor="" id="ch2039-p040">Still, the Crusaders' defensive “shell” was clearly tougher than that of the ordinary troops.</p><p data-reading-anchor="" id="ch2039-p041">Once again, neither side could effectively kill the other. The reserve Crusaders could advance no farther. All they could do was conserve their strength while slowly wearing down the undead.</p><p data-reading-anchor="" id="ch2039-p042">“Follow them!”</p><p data-reading-anchor="" id="ch2039-p043">Muhiting waved his squad forward to support the Crusaders, then met up with three officers who were observing the fighting from the edge of the battlefield.</p><p data-reading-anchor="" id="ch2039-p044">“Gentlemen, the Vampire aura and the spatial fluctuations both came from that direction.”</p><p data-reading-anchor="" id="ch2039-p045">The three Crusader instructors had yet to intervene. Part of the reason was to test their trainees; at the same time, they were searching for suspicious individuals and trying to pinpoint the source of the disturbance.</p><p data-reading-anchor="" id="ch2039-p046">Instructor Jige stared into the depths of the amusement park, his brow furrowed.</p><p data-reading-anchor="" id="ch2039-p047">“There's something very wrong with that aura. If we wait, things may get worse. Let's go in and see for ourselves.”</p><p data-reading-anchor="" id="ch2039-p048">The other two nodded.</p><p class="sound" data-reading-anchor="" id="ch2039-p049"><em>Whoosh!</em></p><p data-reading-anchor="" id="ch2039-p050">Scorching sacred flames erupted around all three instructors, enveloping them.</p><p data-reading-anchor="" id="ch2039-p051">The flames surged outward and scattered the dense mass of zombies in an instant. Every undead creature that approached burst into holy fire and was reduced to ash in moments.</p><p data-reading-anchor="" id="ch2039-p052">The three instructors carved a path through the vast tide and headed into the park.</p><p data-reading-anchor="" id="ch2039-p053">Muhiting and the supporting paladins watched, stunned by the strength of these experts from the Divine Domain. The difference was obvious from their very first move.</p><p data-reading-anchor="" id="ch2039-p054">“Keep up!”</p><p data-reading-anchor="" id="ch2039-p055">Muhiting ordered his men to follow, racing after the instructors.</p><p data-reading-anchor="" id="ch2039-p056">Deep in the amusement park, they soon discovered seven teleportation gates suspended in the air.</p><p data-reading-anchor="" id="ch2039-p057">The gates glowed crimson, giving off a thick, bloody aura. Vast numbers of zombies continued to emerge through them.</p><p data-reading-anchor="" id="ch2039-p058">Even from a considerable distance, the observers could feel the pressure generated by their spatial fluctuations.</p></article><p class="end" data-reading-anchor="" id="ch2039-end">— End of Chapter 2039 —</p><details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li><strong>Jige and Lifier. </strong>基格 and 莉菲尔 are rendered Jige and Lifier. These are phonetic reconstructions of names written in Chinese; official Western spellings are not supplied.</li><li><strong>Crusader ranks. </strong>The reserves train in Duncha and must pass combat testing in high-tier worlds to become full Crusaders. The three instructors are clergy dispatched from the Divine Domain.</li></ul></details><nav aria-label="Chapter navigation" class="chapter-nav"><a href="Global_Game_AFK_Chapter_2038_Ignored.html#start">← Previous chapter (2038)</a><a class="next" href="Global_Game_AFK_Chapter_2040_Pursuit.html#start">Next chapter (2040) →</a></nav></section><footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer></main><div aria-live="polite" id="reading-toast" role="status"></div><script>(()=>{
+'use strict';
+const storeKey='afk-reader-position:chapter-2039:v2';
+const sizeKey='afk-reader-font-size:compact-v3';
+const themeKey='afk-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem('afk-reader-test','ok');localStorage.removeItem('afk-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored('afk-last-chapter', "Global_Game_AFK_Chapter_2039_Destroyed.html");
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();</script></body></html>
