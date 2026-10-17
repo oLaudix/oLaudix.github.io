@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<html data-theme="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/><meta content="#171719" name="theme-color"/><title>Chapter 2035 — Sewers | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+</style></head><body><header class="topbar" role="banner"><div class="toolbar"><a aria-label="Previous chapter 2034" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2034_Breach.html#start" title="Previous chapter">‹</a><select aria-label="Choose a chapter" id="chapter-picker"><option value="Global_Game_AFK_Chapter_2000_Control.html">2000 · Control</option><option value="Global_Game_AFK_Chapter_2001_Lockdown.html">2001 · Lockdown</option><option value="Global_Game_AFK_Chapter_2002_Details.html">2002 · Details</option><option value="Global_Game_AFK_Chapter_2003_Restart.html">2003 · Restart</option><option value="Global_Game_AFK_Chapter_2004_Eighth_Level.html">2004 · Eighth Level</option><option value="Global_Game_AFK_Chapter_2005_Cold_Storage.html">2005 · Cold Storage</option><option value="Global_Game_AFK_Chapter_2006_Into_the_Backpack.html">2006 · Into the Backpack</option><option value="Global_Game_AFK_Chapter_2007_Through.html">2007 · Through</option><option value="Global_Game_AFK_Chapter_2008_Attributes.html">2008 · Attributes</option><option value="Global_Game_AFK_Chapter_2009_Shattered.html">2009 · Shattered</option><option value="Global_Game_AFK_Chapter_2010_Summoning.html">2010 · Summoning</option><option value="Global_Game_AFK_Chapter_2011_Destruction.html">2011 · Destruction</option><option value="Global_Game_AFK_Chapter_2012_Fluctuations.html">2012 · Fluctuations</option><option value="Global_Game_AFK_Chapter_2013_Conversion.html">2013 · Conversion</option><option value="Global_Game_AFK_Chapter_2014_Weakened.html">2014 · Weakened</option><option value="Global_Game_AFK_Chapter_2015_Condensation.html">2015 · Condensation</option><option value="Global_Game_AFK_Chapter_2016_Interception.html">2016 · Interception</option><option value="Global_Game_AFK_Chapter_2017_Tremors.html">2017 · Tremors</option><option value="Global_Game_AFK_Chapter_2018_Advancement.html">2018 · Advancement</option><option value="Global_Game_AFK_Chapter_2019_Blood.html">2019 · Blood</option><option value="Global_Game_AFK_Chapter_2020_Teleportation.html">2020 · Teleportation</option><option value="Global_Game_AFK_Chapter_2021_Transfer_Ability.html">2021 · Transfer Ability</option><option value="Global_Game_AFK_Chapter_2022_Preparations.html">2022 · Preparations</option><option value="Global_Game_AFK_Chapter_2023_The_Offensive_Begins.html">2023 · The Offensive Begins</option><option value="Global_Game_AFK_Chapter_2024_Uproar.html">2024 · Uproar</option><option value="Global_Game_AFK_Chapter_2025_Annihilation.html">2025 · Annihilation</option><option value="Global_Game_AFK_Chapter_2026_Assembly.html">2026 · Assembly</option><option value="Global_Game_AFK_Chapter_2027_Critical.html">2027 · Critical</option><option value="Global_Game_AFK_Chapter_2028_Activation.html">2028 · Activation</option><option value="Global_Game_AFK_Chapter_2029_Zombie_Tide.html">2029 · Zombie Tide</option><option value="Global_Game_AFK_Chapter_2030_Repairs.html">2030 · Repairs</option><option value="Global_Game_AFK_Chapter_2031_Blocking_the_Exit.html">2031 · Blocking the Exit</option><option value="Global_Game_AFK_Chapter_2032_Encirclement.html">2032 · Encirclement</option><option value="Global_Game_AFK_Chapter_2033_Counterattack.html">2033 · Counterattack</option><option value="Global_Game_AFK_Chapter_2034_Breach.html">2034 · Breach</option><option selected="selected" value="Global_Game_AFK_Chapter_2035_Sewers.html">2035 · Sewers</option><option value="Global_Game_AFK_Chapter_2036_Offensive.html">2036 · Offensive</option><option value="Global_Game_AFK_Chapter_2037_Fallen.html">2037 · Fallen</option><option value="Global_Game_AFK_Chapter_2038_Ignored.html">2038 · Ignored</option></select><a aria-label="Next chapter 2036" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2036_Offensive.html#start" title="Next chapter">›</a><button aria-label="Decrease font size" class="toolbtn" id="smaller" title="Smaller text">A−</button><button aria-label="Increase font size" class="toolbtn" id="larger" title="Larger text">A+</button><button aria-label="Toggle dark/light mode" class="toolbtn" id="theme" title="Toggle theme">◐</button></div><div id="progress-track"><div id="progress"></div></div></header><main><section class="chapter-section" data-reading-anchor="" id="chapter-2035"><div class="chapter-num">Chapter 2035</div><h2 class="chapter-title">Sewers</h2><p class="source-identity">From original Chinese Chapter 2036 · 下水道</p><article class="prose"><p data-reading-anchor="" id="ch2035-p001">The players present also received the relevant mission notification. Seeing the exact location of the teleportation source marked by the system, they felt somewhat relieved.</p><p data-reading-anchor="" id="ch2035-p002">At least they'd found the key to resolving the crisis instead of running around like headless chickens.</p><p data-reading-anchor="" id="ch2035-p003">Not far away, Fang Heng had already left the sewer network and was observing the Holy Court's movements from the sidelines.</p><p data-reading-anchor="" id="ch2035-p004">Almost time.</p><p data-reading-anchor="" id="ch2035-p005">Just as he'd expected, the teleportation passage had drawn the Holy Court's attention.</p><p data-reading-anchor="" id="ch2035-p006">The Lickers would buy him a little time.</p><p data-reading-anchor="" id="ch2035-p007">Now he could proceed with the next step.</p><p data-reading-anchor="" id="ch2035-p008">Fang Heng turned and headed for the city's central teleportation square.</p><p data-reading-anchor="" id="ch2035-p009">By then, most of the forces assembled in the square had been sent to reinforce the city. Guards still watched the outer entrances, but the square itself was nearly empty, with only Chu Yan and two other Holy Court squads remaining.</p><p data-reading-anchor="" id="ch2035-p010">The guards in the middle of the square grew tense when they saw Fang Heng brazenly walk in wearing a demon mask.</p><p data-reading-anchor="" id="ch2035-p011">He made no attempt to conceal the vampire aura emanating from his body!</p><p data-reading-anchor="" id="ch2035-p012">He was obviously here to cause trouble!</p><p data-reading-anchor="" id="ch2035-p013">No one asked questions. The Holy Court squads raised their weapons and watched Fang Heng coldly, waiting for him to enter attack range.</p><p data-reading-anchor="" id="ch2035-p014">Fang Heng approached slowly, extending his perception to examine the defensive layout.</p><p data-reading-anchor="" id="ch2035-p015">All his zombie clones had already been used up in the previous fighting.</p><p data-reading-anchor="" id="ch2035-p016">No matter. There were only two Holy Court squads in the square. Chu Yan and his people were also present, but their task was to protect the teleportation passage, so they couldn't take the initiative to fight.</p><p data-reading-anchor="" id="ch2035-p017">He'd have to handle this himself!</p><p data-reading-anchor="" id="ch2035-p018">“Gather!”</p><p data-reading-anchor="" id="ch2035-p019">Fang Heng instantly poured his mental energy into the hand seal forming before him!</p><p class="sound" data-reading-anchor="" id="ch2035-p020">Whoosh! Whoosh, whoosh!</p><p data-reading-anchor="" id="ch2035-p021">Five rotating magic arrays appeared in front of Fang Heng.</p><p data-reading-anchor="" id="ch2035-p022">After his vampire bloodline had reached its highest tier, his mental strength had also increased slightly. He could now summon five undead skeletal leaders simultaneously.</p><p class="sound" data-reading-anchor="" id="ch2035-p023">Bang, bang, bang!</p><p data-reading-anchor="" id="ch2035-p024">A white, frosty aura erupted from the arrays!</p><p data-reading-anchor="" id="ch2035-p025">Then five undead skeletal leaders emerged and advanced toward the Holy Knights ahead!</p><p data-reading-anchor="" id="ch2035-p026">“Undead!”</p><p data-reading-anchor="" id="ch2035-p027">“Stop them! Protect the teleportation passage!”</p><p data-reading-anchor="" id="ch2035-p028">Chu Yan immediately shouted, and he and his team raised a defensive barrier, firmly shielding the spatial rift device behind them.</p><p data-reading-anchor="" id="ch2035-p029">The other two Holy Court combat squads charged the intruders with weapons drawn, determined to stop the frost skeletal leaders from reaching the passage!</p><p class="sound" data-reading-anchor="" id="ch2035-p030">Boom!</p><p data-reading-anchor="" id="ch2035-p031">One of the undead skeletal leaders swung its frost-infused saber in a heavy forward slash.</p><p class="sound" data-reading-anchor="" id="ch2035-p032">Bang!</p><p data-reading-anchor="" id="ch2035-p033">A visible wave of icy energy followed the blade!</p><p data-reading-anchor="" id="ch2035-p034">He needed to finish this quickly!</p><p data-reading-anchor="" id="ch2035-p035">Fang Heng narrowed his eyes. Two blood-red gleams flashed in his pupils as he switched to vampire form and flew forward!</p><p data-reading-anchor="" id="ch2035-p036">As he hurtled toward the Holy Court soldiers, the giant sword on his back suddenly burst apart with a bang!</p><p data-reading-anchor="" id="ch2035-p037">Blood sprayed everywhere!</p><p data-reading-anchor="" id="ch2035-p038">A tremendous amount of blood scattered through the air, then rapidly gathered into razor-sharp spikes.</p><p data-reading-anchor="" id="ch2035-p039">“Watch out!”</p><p data-reading-anchor="" id="ch2035-p040">The Holy Knights were already struggling against five undead skeletal leaders. Now, seeing Fang Heng charge in surrounded by that terrifying blood-vitality aura, they were horrified.</p><p class="sound" data-reading-anchor="" id="ch2035-p041">Whoosh! Whoosh, whoosh!</p><p data-reading-anchor="" id="ch2035-p042">The blood-forged spikes whistled through the air as they shot straight toward the Holy Court guard squads!</p><p data-reading-anchor="" id="ch2035-p043">They were moving so fast that dodging them was incredibly difficult!</p><p data-reading-anchor="" id="ch2035-p044">And there were hundreds of spikes suspended overhead!</p><p data-reading-anchor="" id="ch2035-p045">With so many incoming at once, there was nowhere to evade!</p><p data-reading-anchor="" id="ch2035-p046">If they couldn't dodge, they'd have to endure the attack!</p><p data-reading-anchor="" id="ch2035-p047">The Holy Knights reinforced their sacred shields to the limit, braced themselves, and prepared to withstand the blood spikes!</p><p class="sound" data-reading-anchor="" id="ch2035-p048">Bang! Bang! Bang!</p><p data-reading-anchor="" id="ch2035-p049">The spikes slammed into the sacred shields in a series of booming impacts!</p><p data-reading-anchor="" id="ch2035-p050">Violent blood-vitality energy exploded across the square!</p><p data-reading-anchor="" id="ch2035-p051">Ordinary holy shields were utterly incapable of blocking such concentrated power!</p><p data-reading-anchor="" id="ch2035-p052">The protective barriers around the Holy Knights were almost instantly swallowed by the spreading blood-red surge!</p><p data-reading-anchor="" id="ch2035-p053">The knights fell silent. As the blood corroded their bodies, a sizzling sound filled the air. Within moments, they melted into masses of purified blood, which rejoined the larger flow and flew back toward Fang Heng.</p><p data-reading-anchor="" id="ch2035-p054">The remaining Holy Knights turned pale at the sight.</p><p data-reading-anchor="" id="ch2035-p055">More than a dozen of their companions had been killed without even being able to resist. Panic seized them.</p><p data-reading-anchor="" id="ch2035-p056">Fang Heng slowly turned, swept the survivors with an icy gaze, and raised one hand.</p><p class="sound" data-reading-anchor="" id="ch2035-p057">Hiss! Hiss, hiss!</p><p data-reading-anchor="" id="ch2035-p058">The blood floating around him condensed into sharp spikes once more and shot toward the remaining knights!</p><p data-reading-anchor="" id="ch2035-p059">Watching from the sidelines, the Devout Guild players were stunned by Fang Heng's ferocity. He'd swiftly wiped out two Holy Court squads single-handedly. They stood frozen, almost forgetting to breathe.</p><p data-reading-anchor="" id="ch2035-p060">Many of them had met Fang Heng before.</p><p data-reading-anchor="" id="ch2035-p061">They still vaguely remembered the first time they'd seen him.</p><p data-reading-anchor="" id="ch2035-p062">And it hadn't even been long ago—only a few months.</p><p data-reading-anchor="" id="ch2035-p063">Compared with then, Fang Heng's strength had grown to a terrifying degree!</p><p data-reading-anchor="" id="ch2035-p064">He had casually dealt with two Holy Court squads all by himself.</p><p data-reading-anchor="" id="ch2035-p065">In less than two minutes!</p><p data-reading-anchor="" id="ch2035-p066">“Let's go!”</p><p data-reading-anchor="" id="ch2035-p067">When silence returned to the square, Chu Yan glanced toward Fang Heng, suppressed his excitement, and quietly ordered the Devout Guild players to withdraw from the central square at once.</p><p data-reading-anchor="" id="ch2035-p068">He'd just received a game warning and lost a substantial amount of Holy Court reputation.</p><p data-reading-anchor="" id="ch2035-p069">If he continued communicating with Fang Heng, the system might very well conclude that something was wrong.</p><p data-reading-anchor="" id="ch2035-p070">Fang Heng watched Chu Yan's team hurry out, then ordered his five undead skeletal leaders to spread out and remain on guard. He slowly walked toward the operating spatial rift device.</p><p class="scene" data-reading-anchor="" id="ch2035-p071">…</p><p data-reading-anchor="" id="ch2035-p072">On the other side of the teleportation passage,</p><p data-reading-anchor="" id="ch2035-p073">the players had noticed that incoming transmissions had stopped about ten minutes earlier.</p><p data-reading-anchor="" id="ch2035-p074">The monster farming had temporarily come to an end.</p><p data-reading-anchor="" id="ch2035-p075">Aside from Li Qingran, none of the other players knew Fang Heng's exact plan. They watched the passage's exit cautiously, unable to hide their concern.</p><p data-reading-anchor="" id="ch2035-p076">“Fang Heng!”</p><p data-reading-anchor="" id="ch2035-p077">When he finally emerged from the passage, everyone breathed a sigh of relief and looked at him questioningly.</p><p data-reading-anchor="" id="ch2035-p078">Fang Heng nodded to Li Qingran. “Done. I've taken care of the other end of the passage.”</p><p data-reading-anchor="" id="ch2035-p079">Li Qingran's expression immediately brightened.</p><p data-reading-anchor="" id="ch2035-p080">He'd done it!</p><p data-reading-anchor="" id="ch2035-p081">Exactly as Fang Heng had planned, they'd seized complete control of the teleportation passage built by the Holy Court!</p><p data-reading-anchor="" id="ch2035-p082">Fang Heng glanced toward the outskirts of the city. “How are things outside?”</p><p data-reading-anchor="" id="ch2035-p083">“Stable. The zombies have begun closing in on the Engema Empire's front lines, and Lord Dani is still tying down the Holy Court's main forces. As for the outskirts, Gulanchi has joined the Federation reinforcement team that came with him. They're trying to delay the zombies' advance into imperial territory. They still have no idea we've taken the teleportation passage.”</p></article><p class="end" data-reading-anchor="" id="ch2035-end">— End of Chapter 2035 —</p><details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li><strong>Summons. </strong>The five 亡灵骨骸首领 are rendered “undead skeletal leaders.” The text later calls them 寒冰骨骸首领 (“frost skeletal leaders”); the distinction is retained.</li><li><strong>Vampire form. </strong>The blood shaping and rapid killing occur after Fang Heng switches to vampire form, not because he changes into one of the skeletal summons.</li><li><strong>Source. </strong>Complete original Chinese Chapter 2036 · 下水道, supplied by the reader as an HTML file. Translated without abridgment.</li></ul></details><nav aria-label="Chapter navigation" class="chapter-nav"><a href="Global_Game_AFK_Chapter_2034_Breach.html#start">← Previous chapter (2034)</a><a href="Global_Game_AFK_Chapter_2036_Offensive.html#start">Next chapter (2036) →</a></nav></section><footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer></main><div aria-live="polite" id="reading-toast" role="status"></div><script>(()=>{
+'use strict';
+const storeKey='afk-reader-position:chapter-2035:v2';
+const sizeKey='afk-reader-font-size:compact-v3';
+const themeKey='afk-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem('afk-reader-test','ok');localStorage.removeItem('afk-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored('afk-last-chapter', "Global_Game_AFK_Chapter_2035_Sewers.html");
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();</script></body></html>

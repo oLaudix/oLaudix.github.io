@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<html data-theme="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/><meta content="#171719" name="theme-color"/><title>Chapter 2036 — Offensive | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+</style></head><body><header class="topbar" role="banner"><div class="toolbar"><a aria-label="Previous chapter 2035" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2035_Sewers.html#start" title="Previous chapter">‹</a><select aria-label="Choose a chapter" id="chapter-picker"><option value="Global_Game_AFK_Chapter_2000_Control.html">2000 · Control</option><option value="Global_Game_AFK_Chapter_2001_Lockdown.html">2001 · Lockdown</option><option value="Global_Game_AFK_Chapter_2002_Details.html">2002 · Details</option><option value="Global_Game_AFK_Chapter_2003_Restart.html">2003 · Restart</option><option value="Global_Game_AFK_Chapter_2004_Eighth_Level.html">2004 · Eighth Level</option><option value="Global_Game_AFK_Chapter_2005_Cold_Storage.html">2005 · Cold Storage</option><option value="Global_Game_AFK_Chapter_2006_Into_the_Backpack.html">2006 · Into the Backpack</option><option value="Global_Game_AFK_Chapter_2007_Through.html">2007 · Through</option><option value="Global_Game_AFK_Chapter_2008_Attributes.html">2008 · Attributes</option><option value="Global_Game_AFK_Chapter_2009_Shattered.html">2009 · Shattered</option><option value="Global_Game_AFK_Chapter_2010_Summoning.html">2010 · Summoning</option><option value="Global_Game_AFK_Chapter_2011_Destruction.html">2011 · Destruction</option><option value="Global_Game_AFK_Chapter_2012_Fluctuations.html">2012 · Fluctuations</option><option value="Global_Game_AFK_Chapter_2013_Conversion.html">2013 · Conversion</option><option value="Global_Game_AFK_Chapter_2014_Weakened.html">2014 · Weakened</option><option value="Global_Game_AFK_Chapter_2015_Condensation.html">2015 · Condensation</option><option value="Global_Game_AFK_Chapter_2016_Interception.html">2016 · Interception</option><option value="Global_Game_AFK_Chapter_2017_Tremors.html">2017 · Tremors</option><option value="Global_Game_AFK_Chapter_2018_Advancement.html">2018 · Advancement</option><option value="Global_Game_AFK_Chapter_2019_Blood.html">2019 · Blood</option><option value="Global_Game_AFK_Chapter_2020_Teleportation.html">2020 · Teleportation</option><option value="Global_Game_AFK_Chapter_2021_Transfer_Ability.html">2021 · Transfer Ability</option><option value="Global_Game_AFK_Chapter_2022_Preparations.html">2022 · Preparations</option><option value="Global_Game_AFK_Chapter_2023_The_Offensive_Begins.html">2023 · The Offensive Begins</option><option value="Global_Game_AFK_Chapter_2024_Uproar.html">2024 · Uproar</option><option value="Global_Game_AFK_Chapter_2025_Annihilation.html">2025 · Annihilation</option><option value="Global_Game_AFK_Chapter_2026_Assembly.html">2026 · Assembly</option><option value="Global_Game_AFK_Chapter_2027_Critical.html">2027 · Critical</option><option value="Global_Game_AFK_Chapter_2028_Activation.html">2028 · Activation</option><option value="Global_Game_AFK_Chapter_2029_Zombie_Tide.html">2029 · Zombie Tide</option><option value="Global_Game_AFK_Chapter_2030_Repairs.html">2030 · Repairs</option><option value="Global_Game_AFK_Chapter_2031_Blocking_the_Exit.html">2031 · Blocking the Exit</option><option value="Global_Game_AFK_Chapter_2032_Encirclement.html">2032 · Encirclement</option><option value="Global_Game_AFK_Chapter_2033_Counterattack.html">2033 · Counterattack</option><option value="Global_Game_AFK_Chapter_2034_Breach.html">2034 · Breach</option><option value="Global_Game_AFK_Chapter_2035_Sewers.html">2035 · Sewers</option><option selected="selected" value="Global_Game_AFK_Chapter_2036_Offensive.html">2036 · Offensive</option><option value="Global_Game_AFK_Chapter_2037_Fallen.html">2037 · Fallen</option><option value="Global_Game_AFK_Chapter_2038_Ignored.html">2038 · Ignored</option></select><a aria-label="Next chapter 2037" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2037_Fallen.html#start" title="Next chapter">›</a><button aria-label="Decrease font size" class="toolbtn" id="smaller" title="Smaller text">A−</button><button aria-label="Increase font size" class="toolbtn" id="larger" title="Larger text">A+</button><button aria-label="Toggle dark/light mode" class="toolbtn" id="theme" title="Toggle theme">◐</button></div><div id="progress-track"><div id="progress"></div></div></header><main><section class="chapter-section" data-reading-anchor="" id="chapter-2036"><div class="chapter-num">Chapter 2036</div><h2 class="chapter-title">Offensive</h2><p class="source-identity">From original Chinese Chapter 2037 · 攻势</p><article class="prose"><p data-reading-anchor="" id="ch2036-p001">Good!</p><p data-reading-anchor="" id="ch2036-p002">The plan was proceeding perfectly!</p><p data-reading-anchor="" id="ch2036-p003">Fang Heng checked his game notifications again to confirm the zombie horde's status.</p><p data-reading-anchor="" id="ch2036-p004">Nearly half of his mutant infected zombie clones were still queued at the teleportation entrance, waiting to enter Chiboreya.</p><p data-reading-anchor="" id="ch2036-p005">That meant half his reinforcements hadn't even reached the battlefield yet!</p><p data-reading-anchor="" id="ch2036-p006">Excellent!</p><p data-reading-anchor="" id="ch2036-p007">Even if the Holy Court realized something was wrong with the teleportation passage, it couldn't get here in time!</p><p data-reading-anchor="" id="ch2036-p008">The two most dangerous stages of the plan were already complete.</p><p data-reading-anchor="" id="ch2036-p009">The next steps weren't particularly difficult, but they were unquestionably crucial.</p><p data-reading-anchor="" id="ch2036-p010">From the start of tonight's operation, counting all the kills and the Holy Court settlements he'd captured or destroyed, he'd earned a little over three hundred thousand undead-faction contribution points.</p><p data-reading-anchor="" id="ch2036-p011">Pocket change.</p><p data-reading-anchor="" id="ch2036-p012">Whether he could make a truly big haul depended on what happened next!</p><p data-reading-anchor="" id="ch2036-p013">“Come on! Follow me!”</p><p data-reading-anchor="" id="ch2036-p014">With that, Fang Heng turned and entered the teleportation passage again.</p><p data-reading-anchor="" id="ch2036-p015">Li Qingran nodded to the undead players behind her. “Qin Fang, stay here with some people and keep operating the passage. Everyone else, come with me!”</p><p data-reading-anchor="" id="ch2036-p016">She turned and followed Fang Heng through.</p><p data-reading-anchor="" id="ch2036-p017">The undead-faction players she'd brought exchanged glances.</p><p data-reading-anchor="" id="ch2036-p018">At first, they'd simply been hired by Li Qingran to participate in the war against the Holy Court. They hadn't known exactly what she and Fang Heng were planning, although they'd assumed it involved a secret operation against the enemy.</p><p data-reading-anchor="" id="ch2036-p019">They'd never imagined Fang Heng would go this far!</p><p data-reading-anchor="" id="ch2036-p020">He'd actually seized complete control of the passage leading into the Duncha game world!</p><p data-reading-anchor="" id="ch2036-p021">And now they were going into Duncha with him…</p><p data-reading-anchor="" id="ch2036-p022">What in the world was World Lord Fang Heng planning to…?</p><p data-reading-anchor="" id="ch2036-p023">Who cared?!</p><p data-reading-anchor="" id="ch2036-p024">Just follow him!</p><p class="sound" data-reading-anchor="" id="ch2036-p025">Hum…</p><p data-reading-anchor="" id="ch2036-p026">A faint dark-golden light flashed across the passage.</p><p data-reading-anchor="" id="ch2036-p027">One by one, the players crossed over into the Duncha game world.</p><p data-reading-anchor="" id="ch2036-p028">They'd really made it!</p><p data-reading-anchor="" id="ch2036-p029">Seeing the central square occupied by several undead skeletal leaders, the players felt as though they were dreaming.</p><p data-reading-anchor="" id="ch2036-p030">“Quick, check the status of the teleportation passage!”</p><p data-reading-anchor="" id="ch2036-p031">Li Qingran's reminder jolted the undead players back to their senses. They hurriedly inspected the spatial rift device's operating data and adjusted the passage's stability.</p><p data-reading-anchor="" id="ch2036-p032">After a quick check, one player nodded to Li Qingran. “Senior Qingran, the passage is operating stably. Everything's in perfect condition.”</p><p data-reading-anchor="" id="ch2036-p033">Fang Heng spoke before anyone else. “Good! Activate overclock mode immediately!”</p><p data-reading-anchor="" id="ch2036-p034">Overclock mode?</p><p data-reading-anchor="" id="ch2036-p035">Several players responsible for the machinery froze briefly, then silently lowered their heads and began manually switching the device into overclock mode.</p><p data-reading-anchor="" id="ch2036-p036">“Preparing to activate overclock mode!”</p><p data-reading-anchor="" id="ch2036-p037">“Preparations complete. Countdown… three…”</p><p data-reading-anchor="" id="ch2036-p038">The players seemed to have guessed what Fang Heng was planning. Their palms were sweaty with nerves.</p><p data-reading-anchor="" id="ch2036-p039">“Activate!”</p><p class="sound" data-reading-anchor="" id="ch2036-p040">Hum!</p><p data-reading-anchor="" id="ch2036-p041">A surge of high-intensity energy flooded into the spatial rift device.</p><p data-reading-anchor="" id="ch2036-p042">Golden light enveloped the entire teleportation gate!</p><p data-reading-anchor="" id="ch2036-p043">The curtain of light in the central passage expanded to five times its original size!</p><p data-reading-anchor="" id="ch2036-p044">Overclock mode.</p><p data-reading-anchor="" id="ch2036-p045">Some spatial rift devices possessed this function, allowing them to briefly exceed normal operating capacity and greatly increase the volume of transported material.</p><p data-reading-anchor="" id="ch2036-p046">But doing so would cause irreversible damage to the device!</p><p data-reading-anchor="" id="ch2036-p047">And the damage would be severe!</p><p data-reading-anchor="" id="ch2036-p048">At most, the passage could last an hour before becoming completely unusable!</p><p data-reading-anchor="" id="ch2036-p049">One hour!</p><p data-reading-anchor="" id="ch2036-p050">That was enough!</p><p data-reading-anchor="" id="ch2036-p051">Fang Heng opened his game interface and remotely directed the zombie horde.</p><p data-reading-anchor="" id="ch2036-p052">By now, the players had all realized what was about to happen. They looked toward the glowing passage.</p><p data-reading-anchor="" id="ch2036-p053">Its curtain of light trembled repeatedly.</p><p data-reading-anchor="" id="ch2036-p054">Zombies!</p><p data-reading-anchor="" id="ch2036-p055">Huge numbers of zombies staggered through the teleportation passage into the Duncha game world!</p><p data-reading-anchor="" id="ch2036-p056">As soon as they reached the central square, they began surging toward every exit!</p><p data-reading-anchor="" id="ch2036-p057">The square was eerily silent. No one spoke. All that could be heard was the shuffling of the zombies' feet.</p><p data-reading-anchor="" id="ch2036-p058">Everyone remained quiet, but their eyes gleamed with unusual excitement.</p><p data-reading-anchor="" id="ch2036-p059">A counterattack!</p><p data-reading-anchor="" id="ch2036-p060">The undead faction was really pulling off something incredible!</p><p data-reading-anchor="" id="ch2036-p061">Since when could the undead launch an assault on Holy Court territory?</p><p data-reading-anchor="" id="ch2036-p062">People said World Lord Fang Heng held grudges and loved revenge.</p><p data-reading-anchor="" id="ch2036-p063">It seemed that…</p><p data-reading-anchor="" id="ch2036-p064">they weren't exaggerating!</p><p data-reading-anchor="" id="ch2036-p065">Meanwhile, outside the central teleportation square,</p><p data-reading-anchor="" id="ch2036-p066">Commander Muhiting still had no idea Fang Heng had quietly captured the passage. He was leading his troops at full speed toward the location he'd sensed in the sewers.</p><p data-reading-anchor="" id="ch2036-p067">Lickers kept rushing out of the sewers and launching furious attacks on the team.</p><p data-reading-anchor="" id="ch2036-p068">Holy Knights at the front struggled to block them, while the ranged attackers in the rear fired spell after spell ahead.</p><p data-reading-anchor="" id="ch2036-p069">The battle was chaotic, and the Lickers were far too agile to focus down easily. Most of the time, the Holy Court could only rely on overwhelming firepower to suppress them and force them away.</p><p data-reading-anchor="" id="ch2036-p070">The teleportation gates were just ahead!</p><p data-reading-anchor="" id="ch2036-p071">Muhiting led his team into the sewers and saw two crimson gateways floating in the air. His expression turned grave.</p><p data-reading-anchor="" id="ch2036-p072">The gateways radiated a powerful vampire aura.</p><p data-reading-anchor="" id="ch2036-p073">Yet undead zombies kept pouring out of them.</p><p data-reading-anchor="" id="ch2036-p074">The underground passage ahead was packed so tightly with zombies that their route was completely blocked!</p><p data-reading-anchor="" id="ch2036-p075">Muhiting surveyed the tunnels, searching the horde for a suspicious figure.</p><p data-reading-anchor="" id="ch2036-p076">One thing had puzzled him all along.</p><p data-reading-anchor="" id="ch2036-p077">Who was controlling these teleportation gates from behind the scenes?</p><p data-reading-anchor="" id="ch2036-p078">Unfortunately,</p><p data-reading-anchor="" id="ch2036-p079">he couldn't find anyone here!</p><p data-reading-anchor="" id="ch2036-p080">Giving up the search for now but remaining cautious, Muhiting ordered coldly, “Ranged attacks! Destroy those two teleportation passages!”</p><p data-reading-anchor="" id="ch2036-p081">“Understood!”</p><p data-reading-anchor="" id="ch2036-p082">At once, the Holy Court's sacred priests in the rear unleashed a barrage of ranged spells at the two red portals!</p><p class="sound" data-reading-anchor="" id="ch2036-p083">Bang! Bang, bang!</p><p data-reading-anchor="" id="ch2036-p084">The passages shook violently under the bombardment!</p><p data-reading-anchor="" id="ch2036-p085">The players following the team could clearly see the portals' durability dropping rapidly.</p><p data-reading-anchor="" id="ch2036-p086">It was working!</p><p data-reading-anchor="" id="ch2036-p087">The players were relieved they'd arrived early. If they'd delayed much longer, the entire sewer system might have been overrun. Destroying the passages would only have become more difficult!</p><p data-reading-anchor="" id="ch2036-p088">“Be careful! There might be an ambush!”</p><p data-reading-anchor="" id="ch2036-p089">Muhiting still sensed something was wrong and warned everyone to stay alert.</p><p data-reading-anchor="" id="ch2036-p090">Yet even after the two passages were completely shattered by holy energy, the ambush he'd been expecting never came.</p><p data-reading-anchor="" id="ch2036-p091">Muhiting couldn't help feeling puzzled.</p><p data-reading-anchor="" id="ch2036-p092">How strange.</p><p data-reading-anchor="" id="ch2036-p093">Surely setting up teleportation passages here had cost the enemy something.</p><p data-reading-anchor="" id="ch2036-p094">And they were just going to let him destroy them so easily?</p><p data-reading-anchor="" id="ch2036-p095">Although the passages had been destroyed, the zombies and Lickers that had already come through didn't disappear. They continued throwing themselves at his troops.</p><p data-reading-anchor="" id="ch2036-p096">The sewers were far too narrow for a proper battle. Muhiting abandoned the thought for now and waved his hand. “Withdraw first!”</p><p data-reading-anchor="" id="ch2036-p097">“Understood!”</p><p data-reading-anchor="" id="ch2036-p098">The soldiers slowly changed direction and began falling back.</p><p data-reading-anchor="" id="ch2036-p099">The portals were gone, but enormous numbers of undead still remained in the city. Eliminating them all would take considerable effort.</p><p data-reading-anchor="" id="ch2036-p100">Still, nearby units should have noticed the disturbance and rushed in to help.</p><p data-reading-anchor="" id="ch2036-p101">The undead offensive would soon be contained.</p><p data-reading-anchor="" id="ch2036-p102">Muhiting led his troops back the way they'd come.</p></article><p class="end" data-reading-anchor="" id="ch2036-end">— End of Chapter 2036 —</p><details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li><strong>Overclock mode. </strong>The passage expands to five times its normal size. The overclocking causes irreversible damage and can last no more than one hour, according to the original.</li><li><strong>Temporary teleportation gates. </strong>Muhiting destroys the two vampire portals in the sewers, not the spatial rift device already seized in the central square.</li><li><strong>Source. </strong>Complete original Chinese Chapter 2037 · 攻势, supplied by the reader as an HTML file. Translated without abridgment.</li></ul></details><nav aria-label="Chapter navigation" class="chapter-nav"><a href="Global_Game_AFK_Chapter_2035_Sewers.html#start">← Previous chapter (2035)</a><a href="Global_Game_AFK_Chapter_2037_Fallen.html#start">Next chapter (2037) →</a></nav></section><footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer></main><div aria-live="polite" id="reading-toast" role="status"></div><script>(()=>{
+'use strict';
+const storeKey='afk-reader-position:chapter-2036:v2';
+const sizeKey='afk-reader-font-size:compact-v3';
+const themeKey='afk-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem('afk-reader-test','ok');localStorage.removeItem('afk-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored('afk-last-chapter', "Global_Game_AFK_Chapter_2036_Offensive.html");
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();</script></body></html>
