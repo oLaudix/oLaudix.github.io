@@ -1,6 +1,6 @@
 # Global Game: AFK in the Zombie Apocalypse — Translation Glossary
 
-**Version:** 5 (18 October 2026)  
+**Version:** 6 (18 October 2026)  
 **Authority:** Names and wording already agreed in *our own* English translation. Published third-party English translations are **not** an authority.  
 **Purpose:** A short, portable reference to include unchanged in each translation ZIP, and update only when new terminology is confirmed. The glossary governs spelling, not the novel's plot or prose.
 
@@ -59,6 +59,30 @@
 | **Tree of Hell — Ancient Tree of Greed** | 地狱之树-贪婪古树 | Special form summoned by Everlasting Moon; later revealed as a possible Complete Form evolution path for Abe Akaya. | Hell Tree (as a separate creature) |
 | **Leader-Tier Demon Bloodline** | 首领级恶魔血脉 | Fang Heng’s advancement from High-Tier Demon Bloodline through the Seed of Greed; S+ grade. | High-Tier after evolution (except a source notification error) |
 | **Abyssal Demonstone** | 深渊魔石 | Material useful for building Hell magic arrays. | Abyss Stone |
+
+
+| **Eternal Tree Domain** | 永恒树界 | New unique Tree Spirit domain skill from Fang Heng's hidden quest, based on the Inner World and Abe Akaya; lasts 1,200 seconds and has a 12-hour cooldown. | Eternal Tree World (as a new, unrelated skill) |
+| **Annual Rings / Annual Ring Marks** | 年轮 / 年轮印记 | Passive skill and short-lived marks that can hasten, slow or halt time inside Eternal Tree Domain. | Growth Rings as a separate skill |
+| **Death Knight Rez** | 死亡骑士雷兹 | Death Knight acting for Empress Persephone; later seeks control of Fang Heng's body. | New unrelated romanization |
+| **Empress Persephone** | — (verify source spelling) | Long-dead ruler whose mausoleum in the Death Realm is the center of the Undead expedition. | Persephonie |
+| **Extreme Frost Skeletal Dragon Karrian** | 卡里安 | Legendary frost skeletal dragon associated with Empress Persephone and the Death Knight trials. | New romanization |
+| **Death God Bloodline** | 死神血脉 | Special undead bloodline acquired through the Death Knight's trials, with its own missions and penalties. | Death Knight Bloodline |
+| **Frost Crystal Mark** | 冰晶印记 | Chilling mark and force connected to the Death Knight and Persephone. | Ice Crystal Tattoo |
+| **Death Realm Soul Ferrying** | 死界引渡 | Ability to claim souls and obtain Death God experience even if someone else struck the killing blow. | Soul Transportation |
+| **Holy Spirit Crystal** | 圣灵结晶 | Rare special crystal used in academic advances and skill upgrades. | Holy Spirit Gem |
+| **Timo** | 蒂默 | Member of the Undead Central Council; separate from the Soul Clan elder Tipper (蒂珀). | Tipper for Timo |
+| **Carolina** | 卡罗莱娜 | Female Sin Cleanser who fights Fang Heng in the Frost Fortress/Frost Prison confrontation. | Kakarolina; male pronouns |
+| **Norbert** | 诺伯特 | Leader connected to the Eternal Night Guild; compromised by Fang Heng's Holy Court infiltration. | Norberth |
+| **Bai Mu** | 柏木 | Fang Heng's identity while infiltrating the Holy Court in the Cathedral of Sacred Light arc. | Bai Bu / White Cloth |
+| **Archbishop Will** | 威尔 | Senior Holy Court leader at the Cathedral of Sacred Light. | Arbitrary alternate names |
+| **Warm Sun Gemstone** | 暖阳宝石 | Holy Court protective artifact used during the Frost Prison battle. | Warm Sun Stone |
+| **Hohenlohe** | 霍恩洛厄 | Figure or surname tied to Frost Fortress in the Holy Court arc. | New romanization |
+| **Walter** | 华尔特 | Divine Realm commander during the Holy Court operation. | Waltar |
+| **Brenda** | 布琳达 | Sin Cleanser participating in the Frost Fortress battle. | New romanization |
+| **Land of Sacred Radiance** | 圣耀之地 | Holy Court-associated location and campaign area. | Sacred Brilliance Land |
+| **Cathedral of Sacred Light** | 圣光大教堂 | Cathedral infiltrated by Fang Heng under the identity Bai Mu. | Sacred Light Church as a new place |
+| **Great Sage’s Crown** | 大贤者的王冠 | Important item in the Holy Court advancement storyline. | Sage Hat |
+| **Book of Oaths** | 誓言之书 | Book used in the Holy Court infiltration and preparations. | Book of Vows as a second item |
 
 ## Unresolved source spellings and roles
 
