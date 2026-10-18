@@ -1,6 +1,6 @@
 # Global Game: AFK in the Zombie Apocalypse — Translation Glossary
 
-**Version:** 6 (18 October 2026)  
+**Version:** 7 (18 October 2026)  
 **Authority:** Names and wording already agreed in *our own* English translation. Published third-party English translations are **not** an authority.  
 **Purpose:** A short, portable reference to include unchanged in each translation ZIP, and update only when new terminology is confirmed. The glossary governs spelling, not the novel's plot or prose.
 
@@ -73,7 +73,7 @@
 | **Timo** | 蒂默 | Member of the Undead Central Council; separate from the Soul Clan elder Tipper (蒂珀). | Tipper for Timo |
 | **Carolina** | 卡罗莱娜 | Female Sin Cleanser who fights Fang Heng in the Frost Fortress/Frost Prison confrontation. | Kakarolina; male pronouns |
 | **Norbert** | 诺伯特 | Leader connected to the Eternal Night Guild; compromised by Fang Heng's Holy Court infiltration. | Norberth |
-| **Bai Mu** | 柏木 | Fang Heng's identity while infiltrating the Holy Court in the Cathedral of Sacred Light arc. | Bai Bu / White Cloth |
+| **Bai Mu** | 柏木 | A **separate male Demon Seed character**, NOT Fang Heng. Associated with Wrath; organizes a team with Qiu Xiaoling and Abulaiti and cooperates with Fang Heng in White Prison. Fang Heng uses **Fang Bai** (方柏) as his own cover identity in White Prison. | Bai Bu / White Cloth |
 | **Archbishop Will** | 威尔 | Senior Holy Court leader at the Cathedral of Sacred Light. | Arbitrary alternate names |
 | **Warm Sun Gemstone** | 暖阳宝石 | Holy Court protective artifact used during the Frost Prison battle. | Warm Sun Stone |
 | **Hohenlohe** | 霍恩洛厄 | Figure or surname tied to Frost Fortress in the Holy Court arc. | New romanization |
@@ -83,6 +83,34 @@
 | **Cathedral of Sacred Light** | 圣光大教堂 | Cathedral infiltrated by Fang Heng under the identity Bai Mu. | Sacred Light Church as a new place |
 | **Great Sage’s Crown** | 大贤者的王冠 | Important item in the Holy Court advancement storyline. | Sage Hat |
 | **Book of Oaths** | 誓言之书 | Book used in the Holy Court infiltration and preparations. | Book of Vows as a second item |
+
+
+| **Fang Bai** | 方柏 | Fang Heng's cover identity while visiting and competing in White Prison Arena; **distinct from Bai Mu (柏木)**. | Treating Bai Mu as Fang Heng's alias |
+| **Qiu Xiaoling** | 邱晓凌 | Female Demon Seed of Gluttony; infiltrates the White Prison archives with Fang Heng and possesses a guard's body. | Arbitrary variants |
+| **Abulaiti** | 阿布来提 | Male Demon Seed of Sloth, member of Bai Mu's team. | Fresh transliterations |
+| **Jing'er** | 京格尔 | Male Demon Seed of Pride; contests Bai Mu's leadership and tries to free the Demon Seeds under White Prison. | 格尔 as a separate person |
+| **Zhuang Yufei** | 庄雨霏 | Female Demon Seed who participates in the White Prison sealing assault with Jing'er. | Male pronouns |
+| **Ivis** | 伊维斯 | SSS-rank arena fighter opposed to Fang Heng in White Prison. | Ivys |
+| **Simone** | 西蒙尼 | White Prison competitor whose world Akata is endangered by insectoid creatures; allies with Fang Heng. | Simeone |
+| **Bai Mu's Wrath** | 柏木 / 愤怒 | Bai Mu and another young Demon Seed are competing successors of Wrath; **separate people**, despite their shared source of power. | Treating all Wrath successors as one character |
+| **Book of Geling** | 格陵之书 | Book kept by the conservative Alliance of Mysticism Researchers containing Hell secrets and runes associated with Envy. | Book of Gulling |
+| **Narliev** | 纳尔利耶夫 | White-haired president of the Reform Society in Waz, descendant of the Society's founder. | Fresh phonetic variants |
+| **Ge Tianyu** | 葛天宇 | Security director of Reform Society headquarters. | Ge Tian Yu |
+| **Guillermo** | 吉勒莫 | Reform Society research leader developing Gate of Hell summoning technology. | Jilemo |
+| **Fernant** | 费尔南特 | Elderly vice president of the Alliance of Mysticism Researchers, defending its headquarters against the Reform Society attack. | Fernando (author's slip) |
+| **Reform Society** | 革新会 | Organization in Waz researching Demon Seed power, led by Narliev; in conflict with the conservatives. | Reform Association as separate group |
+| **Alliance of Mysticism Researchers** | 神秘学研究者协会联盟 | Formal name of the conservative faction opposed to the Reform Society; annual conference and Book of Geling. | Reform Society (a distinct faction) |
+| **Glutton** | 暴食者 | Sealed Demon Seed held in a cultivation chamber at the Reform Society research facility; **not the same person as Qiu Xiaoling**, another Gluttony host. | Qiu Xiaoling as imprisoned Glutton |
+| **Abyss Worshipper's Altar** | 深渊崇拜者的祭坛 | SSS-rank altar received from White Prison quest settlement, boosts Hell-related academic EXP through a ritual. | Abyss Worship Altar as separate object |
+| **Sealed Broken Blade** | 封印的断刃 | Epic-grade damaged sword increasing the sealing strength of an already sealed living being by 500%. | Sealing Sword as a different item |
+| **Hearts of the Elements** | 元素之心 | Rare academic affinity and training treasures looted from Envy's warehouse. | Element Cores as separate items |
+| **Xu Chengcheng** | 徐成程 / 徐行程 | Player who studies astrology and helps Fang Heng investigate Bamou; source alternates character spellings. | Xu Xingcheng as a second character |
+| **Akata** | 阿卡塔 | Hidden high-tier game world Simone calls home; threatened by an insectoid invasion. | Akata as a character |
+| **Waz** | 瓦兹 | Game world influenced from afar by Envy, and home to the Reform Society and Alliance of Mysticism Researchers. | Vatz |
+| **Ruan Ziying** | 阮紫莹 | Woman who helps Fang Heng enter Waz and joins the Federation delegation to the Alliance gathering. | New romanization |
+| **Luo Xu** | 罗旭 | Demon Seed follower organizing a group of worshippers in Waz. | Luo Xu as a different person |
+| **Sun Zhaoyu** | 孙昭宇 / 孙绍宇 | Bald ally of Luo Xu; original source varies the middle character. | Sun Shaoyu as separate character |
+| **Yu Jiayuan** | 喻佳媛 | Woman allied with Luo Xu who joins Fang Heng on his visit to Waz. | New romanization |
 
 ## Unresolved source spellings and roles
 
