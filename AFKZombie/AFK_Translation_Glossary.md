@@ -1,6 +1,6 @@
 # Global Game: AFK in the Zombie Apocalypse — Translation Glossary
 
-**Version:** 9 (19 October 2026)  
+**Version:** 10 (19 October 2026)  
 **Authority:** Names and wording already agreed in *our own* English translation. Published third-party English translations are **not** an authority.  
 **Purpose:** A short, portable reference to include unchanged in each translation ZIP, and update only when new terminology is confirmed. The glossary governs spelling, not the novel's plot or prose.
 
@@ -193,3 +193,32 @@
 | **Guidance of the Underworld Path** | 冥途指引 | Bloodline ability creating a Death Realm sphere and spatial explosion. |
 
 **Batch continuity:** Chinese 2561–2580 maps to English 2560–2579. Earlier established entries in V8 remain unchanged.
+
+
+## New terminology — English chapters 2580–2599
+
+| Locked English term | Original Chinese | Identity / usage |
+|---|---|---|
+| **Siris** | 西里斯 | Male former War Adjudicator of Empress Persephone; attempts to install the Empress’s will in Fang Heng’s body. |
+| **Kotar** | 科塔尔 | Male Nether Clan guardian and captain in the Dragon Burial Mountains. Source slips 卡塔尔 and 诺塔尔 refer to him. |
+| **Nether Clan** | 冥族 | Native Death Realm people; distinct from the human undead faction and the Hanu clan. |
+| **Dragon Burial Mountains** | 葬龙山脉 | Birthplace and resting area of undead bone dragons, guarded by Kotar’s neutral clan. |
+| **Sinister Undead Bones** | 亡灵邪骨 | Strong skeletal creatures with dark-brown bones and blue soul flames; source typo 亡灵邪古. |
+| **Skeletal Dragon / Undead Bone Dragon** | 骸骨之龙 / 亡灵骨龙 | Dragon skeletal undead. These descriptive variants refer to the same kind of creature. |
+| **War Adjudicator** | 战争审判官 | Siris’s title in Empress Persephone’s former dynasty. |
+| **Land of Perdition** | 沉沦之地 | Destination for souls returned under the Empress’s Death Realm order. |
+| **Skeleton Summoning** | 骸骨召唤术 | Bone-specific soul-branding recruitment skill originally acquired in Waz. |
+| **Advanced Undead Summoning: Skeleton (Modified)** | 高阶亡灵召唤-骸骨（改） | Improved summoning variant with extra success rate against bone dragons. |
+| **Soul-Calming** | 镇魂术 | Skill acquired from council discussion; calms soul targets; requires Book of the Dead. |
+| **Clayton Empire** | 克莱顿帝国 | One of nine successor Death Realm empires, on the Dragon Burial Mountains border. |
+| **Fanni Empire** | 梵尼帝国 | Another of the nine successor empires, where the calamity reappears. |
+| **River of Netherworld** | 幽冥之河 | Area where the old insect calamity reemerges. |
+| **Riol** | 里奥尔 | Male Clayton Empire general/commander sent to investigate the mountains. |
+| **Rotten Bone Swamp** | 腐骨沼泽 | Coalition defensive line in the Fanni Empire. |
+| **Tigrant** | 提格兰特 | Male supreme commander of the Rotten Bone Swamp defensive front. |
+| **Veda** | 唯达 | Person ordered to expand the camp upon receiving expected reinforcements. |
+| **Restore Empress Persephone’s Glory** | 重现珀瑟芬女皇的辉煌 | New SSS guidance quest after the Empress’s original faction dissolves. |
+| **Temporary Vessel** | 临时容器 | Quest guidance in which Fang Heng holds the scattered Empress’s will. |
+| **Ice-Crystal Will Core** | 冰晶意志之核 | Diminishing core in Fang Heng’s sea of consciousness; separate from the crystal-pillar fragment item. |
+
+**Batch continuity:** Chinese 2581–2600 maps to English 2580–2599. All earlier V9 glossary entries remain included and unchanged.
