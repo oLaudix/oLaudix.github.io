@@ -1,6 +1,6 @@
 # Global Game: AFK in the Zombie Apocalypse — Translation Glossary
 
-**Version:** 7 (18 October 2026)  
+**Version:** 8 (19 October 2026)  
 **Authority:** Names and wording already agreed in *our own* English translation. Published third-party English translations are **not** an authority.  
 **Purpose:** A short, portable reference to include unchanged in each translation ZIP, and update only when new terminology is confirmed. The glossary governs spelling, not the novel's plot or prose.
 
@@ -126,3 +126,41 @@
 4. If a conflict appears, flag it rather than silently substituting a new name. Changes to a locked name require an explicit decision.
 5. Save the updated glossary in the next chapter ZIP as `AFK_Translation_Glossary.md`, plus keep a versioned master copy. Reuse the existing HTML reader CSS/formatting unchanged.
 6. Preserve the Chinese-original content and Chinese dialogue register; do not shorten chapters or invent story details. Translation-style refinements must never change proper names or formatting.
+
+## New terminology — English chapters 2520–2559
+
+| English spelling — always use | Chinese original | Notes |
+|---|---|---|
+| **Antar** | 安塔尔 | Demon Seed of Sloth sealed below the Tower of Stars; distinct from Envy. |
+| **Ophir** | 奥菲尔 | Demon Seed of Desire; male, encountered in the sealed space. |
+| **Tongue of Envy avatar** | 嫉妒之舌分体 | The fragment/avatar in the Stellar Seal, not Envy's complete body. |
+| **Stellar Seal** | 星辰封印 | Mysticism-based seal at the Tower of Stars. |
+| **Book of Geling** | 格陵之书 | Historic Mysticism book central to the Waz quest. |
+| **Alliance of Mysticism Researchers** | 神秘学研究者协会联盟 / 神秘学联合会 | Conservative organization, distinct from Reform Society. |
+| **Reform Society** | 革新会 | Organization led by Narliev. |
+| **Narliev** | 纳尔利耶夫 | Reform Society president. |
+| **Guillermo** | 吉勒莫 | Reform Society commander. |
+| **Ge Tianyu** | 葛天宇 | Reform Society officer. |
+| **Fernant** | 费尔南特 | Conservative president; 费尔南多 sometimes written in source, a slip. |
+| **Ruan Ziying** | 阮紫莹 | Female player helping Fang Heng infiltrate the White Tower. |
+| **Demon-Binding Chains** | 缚魔锁链 | Special Demon Seed binding artifact. |
+| **Demon Mark Stone** | 魔纹石 | Demon Mark-related energy material; distinguish from Demon Mark Core. |
+| **Eseklyna** | 埃塞克莉娜 | Female Envy Demon Seed's own name, not the Tongue of Envy avatar. |
+| **Li Shaoqiang** | 黎邵强 | Undead council companion on the mausoleum expedition. |
+| **Tan Shuo** | 谭朔 | Undead council companion carrying the communication tablet. |
+| **Shi Lipeng** | 师礼朋 | Council-affiliated observer, not one of the three mausoleum explorers. |
+| **Mentor Dickey** | 迪基 | Fang Heng's necromancy mentor. |
+| **Mentor Earl** | 厄尔 | Necromancy mentor monitoring the Death Realm storm. |
+| **Empress Persephone** | 珀瑟芬女皇 | Ancient ruler of the Death Realm; legends and council interpretations are not necessarily confirmed facts. |
+| **The Empress's Trial** | 女皇的考验 | Trial quest inside the mausoleum; separate from council exploration quest. |
+| **Frost Curse** | 冰霜诅咒 | Recovery-reduction debuff inflicted by Death Knight. |
+| **Undying Body** | 不死体 | Fang Heng's regeneration effect. |
+| **Book of Beginnings** | 初始之书 | Holy Studies casting book. |
+| **Book of Mysticism** | 神秘之书 | Fang Heng's Mysticism book. |
+| **Book of Oaths** | 誓言之书 | Holy artifact used against the Death Knight. |
+| **Bone Spirit Shrine** | 骨之灵龛 | Spirit-holding artifact containing the Extreme Frost Skeletal Dragon. |
+| **Extreme Frost Skeletal Dragon** | 极冰骸骨之龙 | Ancient dragon linked to Empress Persephone. |
+| **Eternal Tree Domain** | 永恒树界 | Fang Heng's tree domain. |
+| **Annual Ring — Acceleration** | 年轮-加速 | Domain speed-up effect. |
+
+**Batch continuity:** Chinese 2521–2560 maps to English 2520–2559. English translations are based solely on the supplied original Chinese HTML.
