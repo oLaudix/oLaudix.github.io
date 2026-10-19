@@ -1,6 +1,6 @@
 # Global Game: AFK in the Zombie Apocalypse — Translation Glossary
 
-**Version:** 10 (19 October 2026)  
+**Version:** 11 (19 October 2026)  
 **Authority:** Names and wording already agreed in *our own* English translation. Published third-party English translations are **not** an authority.  
 **Purpose:** A short, portable reference to include unchanged in each translation ZIP, and update only when new terminology is confirmed. The glossary governs spelling, not the novel's plot or prose.
 
@@ -222,3 +222,30 @@
 | **Ice-Crystal Will Core** | 冰晶意志之核 | Diminishing core in Fang Heng’s sea of consciousness; separate from the crystal-pillar fragment item. |
 
 **Batch continuity:** Chinese 2581–2600 maps to English 2580–2599. All earlier V9 glossary entries remain included and unchanged.
+
+
+## New terminology — English chapters 2600–2619
+
+| Locked English term | Chinese | Identity / usage |
+|---|---|---|
+| **Calamity / Eternal Cataclysm Ouroboros** | 灾祸 / 永恒天灾乌洛波洛斯 | Contagious, adaptive threat spreading through the Death Realm; “Calamity” refers to its creatures or phenomena; Ouroboros names the larger cataclysm. |
+| **Calamity Nest / Seed of Calamity** | 灾祸之巢 / 灾祸之种 | Tumor-like structures that absorb world energy and produce Calamity creatures. The game classifies a destroyed seed as a nest. |
+| **Proust** | 普鲁斯特 | Male Calamity evolver working with Mu Qingxin; tests new combat modules. |
+| **Mu Qingxin** | 慕清馨 | Female evolver working with Proust; distinct from Xia Xi. |
+| **Multi-Wing Terror Insect** | 多翅恐虫 | SS-grade evolution module with flight, self-detonation, infection, and parasitic reproduction. |
+| **Biomimetic Metal Modification** | 拟化金属改造体 | SSS-grade modified defense and post-death division module. |
+| **Netherworld Crystal Core** | 幽冥晶核核心 | Nether Clan energy source and consumable item restoring soul/will; first absorption can permanently improve attributes. |
+| **Ghost Tower** | 幽冥之塔 / 幽魂塔 | Nether Clan defensive tower against the Calamity. |
+| **Frozen Gorge / Frozen Valley** | 冰封峡谷 / 冰封山谷 | Extreme-cold destination holding the Empress’s hidden temple and Frost Essence. |
+| **Frost-Nether Medusa** | 寒冥美杜莎 | Ice-and-undead serpent woman whose gaze freezes, and whose ice arrows can track targets. |
+| **Ice-Crystal Golem** | 冰晶魔像 | Huge regenerating creature whose rapid healing is greatly aided by icy environmental wind. |
+| **Ice Banshee / Extreme Frost Banshee** | 寒冰女妖 / 极寒冰妖 | Ice spirits; the extreme form near the Frost Essence approaches Demigod level and is especially vulnerable to netherfire. |
+| **Frost Essence** | 冰魄 | Extremely cold crystalline substance in which something connected to the Empress’s inheritance is sealed. |
+| **Netherworld Spirit Liquor** | 幽冥烈酒 | Clayton Empire spirit, 500-mL bottle; 120-minute cold protection and first/early-use permanent ice-resistance improvement. |
+| **Netherfire Burning** | 冥火灼烧 | Damage-over-time status from netherfire; stronger against ice spirits. |
+| **Search for the Power Left by the Empress** | 探寻女皇留下的力量 | SSS expedition side quest. |
+| **Relic Left by the Empress** | 女皇留下的遗物 | Updated guidance quest to open the Frost Essence. |
+| **Levomiton University** | 雷沃弥敦大学 | University in the Federation’s northern region; Fang Heng asks its representative to acquire special fuel. |
+| **Myriad Worlds Library** | 万界图书馆 | Building in the real world where Fang Heng returns. |
+
+**Batch continuity:** Chinese 2601–2620 maps to English 2600–2619. All earlier V10 glossary entries remain included.
