@@ -1,6 +1,6 @@
 # Global Game: AFK in the Zombie Apocalypse — Translation Glossary
 
-**Version:** 8 (19 October 2026)  
+**Version:** 9 (19 October 2026)  
 **Authority:** Names and wording already agreed in *our own* English translation. Published third-party English translations are **not** an authority.  
 **Purpose:** A short, portable reference to include unchanged in each translation ZIP, and update only when new terminology is confirmed. The glossary governs spelling, not the novel's plot or prose.
 
@@ -164,3 +164,32 @@
 | **Annual Ring — Acceleration** | 年轮-加速 | Domain speed-up effect. |
 
 **Batch continuity:** Chinese 2521–2560 maps to English 2520–2559. English translations are based solely on the supplied original Chinese HTML.
+
+
+## New terminology — English chapters 2560–2579
+
+| English spelling — always use | Chinese original | Identification / editorial distinction |
+|---|---|---|
+| **Silence—World of Withering** | 寂静-凋零之界 | Special domain created when Everlasting Moon integrates with the Death Realm and the Eternal Tree Domain. |
+| **Cliff** | 克里夫 | Male High Priest of the old Kingdom of Death; a surviving will. |
+| **Kingdom of Death Priest Advancement Book** | 死亡国度祭祀进阶书 | Advances max-level Leader-Tier Death God Bloodline, with a separate undead-studies alternative. |
+| **Underworld Guard** | 冥卫 | Death Realm protector; distinct from Death God and Underworld God ranks. |
+| **Underworld God / Underworld God Bloodline** | 冥神 / 冥神血统 | Higher-stage Death God lineage; not an ordinary generic god. |
+| **Underworld God's Prayer** | 冥神的祷文 | Epic item forming a combat orb that shoots underworld flames. |
+| **Hanu clan / Hanu Empire** | 哈努氏族 / 哈努帝国 | Ancient Death Realm faction hostile to Empress Persephone; some chapters mistakenly write 哈尼. |
+| **Fenlit** | 芬利特 | Male ruler of the Hanu Empire. **Not Fernant** (费尔南特), the conservative president from the Waz arc. |
+| **Colette** | 柯莱特 | Male Hanu commander with the Corrosion Domain. Occasional source slip 卡莱特. |
+| **Karsa** | 卡尔萨 | Male Hanu commander of an elite force; short-blade vital-point technique. |
+| **Fiana** | 菲亚娜 | Female Hanu summoner commanding a separate invading team. |
+| **Guluo** | 古罗 | Undead council instructor who remains outside the mausoleum to observe the storm. |
+| **Mentor Lete** | 勒特 | Ancient undead-language specialist heading the council translation group. |
+| **Corrosion Domain** | 腐蚀领域 | Colette's domain, reducing defenses and healing. |
+| **Sunflare Skeleton Guards** | 日曜骸骨守卫 | Hanu undead front-line skeletal force. |
+| **Progenitor Devourers** | 原噬体 | Special regenerating Licker variant that reconstitutes after being killed. |
+| **Death God's Soul Pearl** | 死神的灵魂珠 | Consumable/equipment found in mausoleum; Death God skill and bloodline EXP bonuses. |
+| **Underworld God Form** | 冥神体 | Spirit-body combat form unlocked in the new bloodline. |
+| **Death Eyes** | 死瞳 | Bloodline soul-sight ability. |
+| **Death's Grasp** | 死亡之握 | Underworld God combat ability. |
+| **Guidance of the Underworld Path** | 冥途指引 | Bloodline ability creating a Death Realm sphere and spatial explosion. |
+
+**Batch continuity:** Chinese 2561–2580 maps to English 2560–2579. Earlier established entries in V8 remain unchanged.
