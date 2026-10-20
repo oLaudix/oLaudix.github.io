@@ -1,6 +1,6 @@
 # Global Game: AFK in the Zombie Apocalypse — Translation Glossary
 
-**Version:** 11 (19 October 2026)  
+**Version:** 12 (20 October 2026)  
 **Authority:** Names and wording already agreed in *our own* English translation. Published third-party English translations are **not** an authority.  
 **Purpose:** A short, portable reference to include unchanged in each translation ZIP, and update only when new terminology is confirmed. The glossary governs spelling, not the novel's plot or prose.
 
@@ -249,3 +249,29 @@
 | **Myriad Worlds Library** | 万界图书馆 | Building in the real world where Fang Heng returns. |
 
 **Batch continuity:** Chinese 2601–2620 maps to English 2600–2619. All earlier V10 glossary entries remain included.
+
+## New terminology — English chapters 2620–2639
+
+| Locked English term | Chinese | Identification / usage |
+|---|---|---|
+| **Carlton** | 卡尔顿 | Male Nether Clan elder specializing in netherfire and a spirit-domain amplification ability; summoned by Commander Tigrant to open the Frost Essence; distinct from Kotar. |
+| **Sulhorg** | 苏尔霍格 | Dangerous male Nether Clan-related being, embodied resentment sealed within the Empress’s Frost Essence; source also slips to 苏尔霍恩. Historical accounts differ on his battle with the Empress. |
+| **Wote Empire** | 沃特帝国 | Death Realm empire said to possess a surviving one-third fragment of a book written by the Empress on divine-level Necromancy. |
+| **Miesko Fortress** | 米易思科堡 | Undead Council base where Fang Heng briefs council mentors following his return from the Death Realm. |
+| **Mo Jianghe** | 莫江河 | Mo Jiawei's Seventh Uncle; Fang Heng's Sealing Studies mentor and a chief examiner in the association, distinct from Mo Jiawei. |
+| **Mo Jiawei** | 莫嘉伟 | Fang Heng's collaborator and Mo Jianghe's nephew. |
+| **Sealing Studies / Advanced, Master, Grandmaster, Transcendent Sealing Studies** | 封印学 / 高阶、大师级、宗师级、超凡级封印学 | Academic discipline using seals, talismans, arrays and containment techniques; levels follow the established academic progression. |
+| **Sealing Studies Research Association** | 封印学学术研究会 / 封印学协会 / 封印学学会 | Association running the sealing assessment trials; shorter forms refer to the same group. |
+| **Damon** | 达蒙 | Male president of the Sealing Studies Association; supervises Fang Heng's trial and evaluates rule compliance. |
+| **Nether Stone Pillar / Nether Statue** | 幽冥石柱 / 幽冥雕像 | Nether Clan structures which produce high-tier stone-bodied undead; Fang Heng uses their high sealing resistance to farm Sealing Studies EXP. |
+| **Star Map Project** | 星图计划 | Central Federation initiative, observed by Mo Jianghe as dark-red meteors pass overhead. |
+| **Book of Elements / Book of Nature / Book of the Dead** | 元素之书 / 自然之书 / 死者之书 | Books used respectively for elemental magic, nature growth spells, and soul-chain/undead techniques during the assessment. |
+| **Shadow Bat** | 影蝠 | Fast-moving creature in the third sealing trial. |
+| **Crystal Turtle** | 水晶龟 | Shell-protected sealing-resistant creature in the fourth trial. |
+| **Dark-Matter Source Core** | 暗物质-源核 | Dual dark/spatial attribute creature in the fifth trial, susceptible to holy barriers. |
+| **Infernal Flame Salamander** | 业火蝾螈 | Large fire-element salamander in the eleventh trial. |
+| **Thousand-Needle Fish** | 千针鱼 | Poisonous swarming fish; 50,000 must be sealed in trial Stage Twelve without killing any. |
+| **Crystallized Stone Giant** | 晶化石巨人 | Magic- and sealing-resistant giant in Stage Thirteen; does not lose fighting power at low health. |
+| **Life Sharing** | 生命分流 | Undying Body special passive that shares incoming damage with nearby zombie clones. |
+
+**Batch continuity:** Chinese chapters 2621–2640 map to English 2620–2639. All locked V11 glossary entries remain in force. Several downloaded Chinese chapters lack a title, and some begin by duplicating their chapter heading inside the narrative; preserve the lack of title and record redundant headings in editing notes rather than inventing a story title.
