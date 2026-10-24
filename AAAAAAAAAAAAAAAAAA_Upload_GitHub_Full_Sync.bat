@@ -1,53 +1,43 @@
 @echo off
 setlocal
-cd /d "%~dp0" || goto error
+cd /d "%~dp0"
+if errorlevel 1 goto failed
 
-echo ===============================================
-echo   Full repository upload to GitHub
- echo ===============================================
+echo ========================================
+echo   Sync entire folder to GitHub
+echo ========================================
 echo.
-echo This uploads ALL local changes, including:
-echo   - New files and folders
- echo   - Modified files
- echo   - Files and folders deleted locally
- echo.
 
-git rev-parse --is-inside-work-tree >nul 2>&1 || goto error
+git add -A
+if errorlevel 1 goto failed
 
-echo Staging all changes...
-git add --all || goto error
-
+echo Changes to sync:
+git --no-pager diff --cached --name-status
+if errorlevel 1 goto failed
 echo.
-echo Changes staged for GitHub:
-git diff --cached --name-status
-if errorlevel 1 goto error
 
-echo.
 git diff --cached --quiet
-if errorlevel 2 goto error
-if errorlevel 1 goto commit
+if errorlevel 2 goto failed
+if errorlevel 1 (
+    git commit -m "Sync files"
+    if errorlevel 1 goto failed
+) else (
+    echo No new local changes to commit.
+)
 
-echo No local changes to commit.
-goto push
-
-:commit
-echo.
-echo Creating a commit...
-git commit -m "Sync all local website files" || goto error
-
-:push
-echo.
-echo Uploading to GitHub...
-git push origin master || goto error
+git push
+if errorlevel 1 goto failed
 
 echo.
-echo SUCCESS: Local changes have been pushed to GitHub.
+echo SUCCESS - GitHub is updated.
+git status
+goto finished
+
+:failed
+echo.
+echo ERROR - Sync did not finish. See the message above.
+echo Your local files have not been deleted by this script.
+
+:finished
+echo.
 pause
-exit /b 0
-
-:error
-echo.
-echo ERROR: Upload did not complete. Read the message above.
-echo No force-push or automatic overwrite was attempted.
-pause
-exit /b 1
