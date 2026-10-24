@@ -1,6 +1,6 @@
 # Global Game: AFK in the Zombie Apocalypse — Translation Glossary
 
-**Version:** 12 (20 October 2026)  
+**Version:** 15 (20 October 2026)  
 **Authority:** Names and wording already agreed in *our own* English translation. Published third-party English translations are **not** an authority.  
 **Purpose:** A short, portable reference to include unchanged in each translation ZIP, and update only when new terminology is confirmed. The glossary governs spelling, not the novel's plot or prose.
 
@@ -275,3 +275,100 @@
 | **Life Sharing** | 生命分流 | Undying Body special passive that shares incoming damage with nearby zombie clones. |
 
 **Batch continuity:** Chinese chapters 2621–2640 map to English 2620–2639. All locked V11 glossary entries remain in force. Several downloaded Chinese chapters lack a title, and some begin by duplicating their chapter heading inside the narrative; preserve the lack of title and record redundant headings in editing notes rather than inventing a story title.
+
+
+## New terminology — English chapters 2640–2659
+
+| Locked English term | Chinese | Identification / usage |
+|---|---|---|
+| **Raymond** | 雷蒙德 | Senior Sealing Studies examiner who tries to recruit Fang Heng away from Mo Jianghe. |
+| **Mont** | 蒙特 | Named as Sealing Studies president in Chinese 2642; previous translated material names President Damon (达蒙). Do **not** assume these names refer to one person without source confirmation. |
+| **Demigod-level Sealing Studies** | 次神级封印学 | Tier following Transcendent-level; advancement book awarded after the final sealing trial. |
+| **Black Dragon** | 黑龙 | Final sealing-trial target; exceptionally resistant adult dragon; sealed through Fang Heng's repeated zombie-clone attempts. |
+| **Yan Yuexin** | 严悦欣 / 严欣悦 | Female Holy Court-aligned player escorting Fang Heng as Fang Bai in War Ruins; source repeatedly swaps the two characters in her given name. Keep **Yan Yuexin** from first introduction. Her younger brother seeks Master-level Necromancy advancement. |
+| **Ron / High Priest Ron** | 罗恩 / 罗恩大祭司 | Former Sealing Studies Association scholar now guarding the Holy Court prison in War Ruins; helped forge Sigh of the Compassionate. Distinct from Great Sage Laoen. |
+| **Sigh of the Compassionate** | 悲悯者的叹息 / 悲鸣者的叹息 | Holy-attribute auxiliary sealing artifact forged using a damaged divine artifact; source quest requirement makes a one-character title slip. Currently in use beneath High Priest Ron's array. |
+| **War Ruins** | 战争遗迹 | Holy Court-controlled high-tier world damaged by an ancient war, with severe spatial turbulence and a central sealed prison. |
+| **Oasis City** | 绿洲之城 | Desert city with a central Holy Court cathedral and regional archbishop. |
+| **Mining Pit Town** | 矿坑镇 | Nearly abandoned mining settlement where Fang Heng prepares an Abe Akaya magic array in a disused stadium. |
+| **Great Sage Advancement Trial** | 大贤者进阶的试炼考核 | Holy Court Great Sage bloodline quest triggered by the Great Sage's Crown, with alternative Divine Punishment objective. |
+| **Divine Punishment** | 神罚 | Special skill and optional quest to earn over 50 million points by judging S-rank or higher evil creatures. |
+| **Laoen** | 劳恩 | Historical Great Sage responsible for Divine Punishment; associated with the special holy statue. NOT Ron (罗恩). |
+| **Trayne / Regional Archbishop Trayne** | 特莱恩 | War Ruins regional archbishop, who introduces Fang Bai to the sealed prison operation. |
+| **Sealed Grounds / Spatial Sealed Grounds** | 封印之地 / 空间封印之地 | Holy Court prison and unstable spatial region within War Ruins, where extradimensional demons emerge. |
+| **Neil** | 尼尔 | Young, assertive fortress lord who requires Fang Bai to earn contribution points or trust before meeting Ron. |
+| **Kret** | 科瑞特 | Vice fortress lord named in Neil's instructions; in the following encounter the vice fortress lord is called Stuart. Source identity discrepancy unresolved. |
+| **Stuart** | 斯图亚特 | Young vice fortress lord who assigns sealing-region quests. Do not silently equate with Kret without verification. |
+| **Frost-Mong Beast** | 冰雪蒙兽 | Ice-affinity beast encountered in the Sealed Grounds, initially appearing as a wounded elite monster. |
+| **Deep-Sea Lurking Demon / Abyssal Lurking Demon — Thousand-Eyed Eel** | 深海潜魔 / 深渊潜魔-千眼鳗 | Tentacled extradimensional creature that attacks through rifts; its eye-beam phase is identified more specifically in the system notification. Preserve the distinction in source descriptions. |
+| **Leonidas** | 莱奥尼达斯 | Holy Knight commander in the Sealed Grounds, rescued during the lurking-demon attack. |
+| **Mick / Mi Jie** | 米克 / 米杰 | Holy Knight commander aiding Fang Heng in the next sealed region; source shifts between these names. Keep narrative spellings as sourced and flag the discrepancy. |
+| **Evil Tree Atomanro** | 邪树阿托曼罗 | Powerful demon/tree sealed within dimensional space, whose barrier Fang Heng reinforces. |
+| **Ojir** | 奥吉尔 | Name written in the quest to seek holy sealing instruction, while all surrounding dialogue identifies Ron; unresolved source discrepancy. |
+
+**Batch continuity:** Chinese chapters 2641–2660 map to English chapters 2640–2659. English chapter 2639 must link forward to 2640. Source dialogue, system values and naming discrepancies remain as written, with specific explanations in each chapter's Editing and Source Notes. All V12 locked entries continue to apply.
+
+
+## V14 additions — Chinese chapters 2661–2680 / English chapters 2660–2679
+
+| Established / new English spelling | Chinese | Explanation |
+|---|---|---|
+| **Sea of the Setting Sun** | 落日之海 | High-tier sea-dominated game world where Shi Lipeng musters the undead players. |
+| **Brudi** | 布鲁迪 | Glory Knight commander sent to scout the Licker swarm near the Holy Court city. |
+| **Realm of Perdition** | 沉沦之境 | Special domain created when Everlasting Moon adapts to War Ruins; distinct from the previously named Death Realm domain. |
+| **Remnants of War** | 战争遗骸 | Soul-remnant summoned beings generated by the Realm of Perdition. |
+| **Rotting Maggots** | 腐烂之蛆 / 腐化之蛆 | Undead corrosion ability employed against Holy Court walls and barriers. |
+| **Life Diversion** | 生命分流 | Passive effect distributing damage to Fang Heng's zombie clones. |
+| **Fire-Pattern Giant** | 火纹巨人 | Ancient dimensional creature with suction and molten lava attacks. |
+| **Lava Torrent** | 岩流喷吐 | Fire-Pattern Giant attack; suction followed by high-temperature magma. |
+| **Sacrificial Jar** | 祭祀之罐 | Item used to store absorbed world dimensional energy. |
+| **Chester** | 切斯特 | Undead Council mentor commanding the seven-mentor Frost Essence operation. |
+| **Mirror of Space** | 空之镜 / 空之境 | Divine artifact modified for Necromancy, able to absorb resentment from Sulhorg. The source sometimes writes 境, likely a homophone slip. |
+| **Empress Persephone's Staff** | 珀瑟芬女皇的权杖 | Demigod Artifact retrieved from Frost Essence, distinct from her notes. |
+| **Empress Persephone's Notes** | 珀瑟芬女皇的笔记 | Divine Artifact recording her path to divine-level Necromancy. |
+| **Path to the Divine Level (Necromancy)** | 通往神级的道路（亡灵学） | Guidance quest to decipher the notes and comprehend the River of Netherworld. |
+| **City of Abundance** | 富饶之城 | Intermediate-tier evacuation world reached after fleeing War Ruins. |
+| **Sacrificial Knight** | 牺牲骑士 | Holy Knight branch that burns life force for temporary power. |
+| **Extreme Frost Bone Dragon** | 极冰骸骨之龙 | High-tier dragon released from the Bone Spirit Shrine. |
+| **Secondary Space Projection** | 次级空间投影 | Spatial stealth/avoidance technique used by Fang Heng against the Calamity swarm. |
+| **Blood Boiling** | 血液沸腾 | Blood control skill that can accelerate Calamity nests and make them rupture. |
+
+**Source cautions:** 严悦欣 / 严欣悦 both refer to **Yan Yuexin**; 师礼朋 is **Shi Lipeng**; 诺塔尔 in the new chapters refers to established **Kotar**, but the written Chinese is inconsistent. The source occasionally calls War Ruins **废墟之地** (Ruined Lands); this does not establish a separate world. In Chinese Chapter 2672, the narration accidentally writes **Ron** instead of **Neil** twice after Ron has already died. Individual chapter Editing and Source Notes document these issues.
+
+**Batch continuity:** Chinese 2661–2680 correspond to English 2660–2679. English Chapter 2659 must link forward to 2660. V31 locked names and terms remain authoritative.
+
+
+## V15 additions — Chinese chapters 2681–2700 / English chapters 2680–2699
+
+| English spelling | Chinese | Description |
+|---|---|---|
+| **Ouroboros virus** | 乌洛波洛斯病毒 | Original adaptive virus underlying various world calamities, including the Hela virus branch. Not synonymous with the Hela virus. |
+| **Hela virus** | 海拉病毒 | Existing Zombie Apocalypse virus, a related branch of the larger Calamity/Ouroboros system. |
+| **Calamity Agent** | 灾祸药剂 | Qiu Yaokang’s anti-Calamity research compound; loses effectiveness within at most twelve hours once a controller orders adaptation. |
+| **Qiu Yaokang** | 邱耀康 | Laboratory researcher; sometimes respectfully addressed as “God Qiu.” |
+| **Giant Calamity** | 巨物灾祸 | Enormous floating elite Calamity creature, with anti-magic shell, tentacled eye-beam attacks, and swarms emerging from it. |
+| **Descent of Blood** | 血之降临 | Vampire blood domain-like skill that summons the Vampire King's Coffin and counteracts the Death Realm atmosphere. |
+| **Blood Tide** | 血之潮 | Large-scale blood wave directed by Fang Heng. |
+| **Blood Spike** | 血刺 | Compressed, pointed blood spear attack. |
+| **War Knight** | 战争骑士 | Nether Clan soldier type able to ride undead bone dragons; recruited with Death Realm contribution for three-month contracts. |
+| **Tomb Guard** | 陵墓守卫 | Nether Clan defensive troops effective at ranged spellcasting from fortifications. |
+| **Nether Stone** | 幽冥之石 | Nether Clan recovery and teleportation consumable; **Nether Crystal** (幽冥结晶) is a distinct wording used in the passage chapter, relation unconfirmed. |
+| **Black Rain / World of Black Rain** | 黑雨世界 / 黑雨之界 | High-tier game world, with polluted black rain on roughly three hundred days of the year. |
+| **Dark City** | 暗黑城 / 黑暗城 | Stronghold founded by the Hungry Wolf Gang, containing the Ghost Market and a Nether Clan teleportation exit. |
+| **Ghost Market** | 鬼市 | Underground cavern bazaar, not a realm of ghosts. |
+| **Hungry Wolf Gang** | 饿狼帮 | Founders and rulers of Dark City. |
+| **Everett** | 埃弗雷特 | Regional Archbishop of the Holy Court in Black Rain. |
+| **Helan** | 赫兰 | Captain of a Divine Realm Holy Temple Knight detachment. |
+| **Mentor Yaxi** | 亚希 | Senior Undead Council Necromancy mentor who helps defend Dark City. |
+| **Jorrit** | 乔里特 | Divine Realm adjudicator commanding the attack on Dark City. |
+| **Xenophon** | 色诺芬 | Reinforcement adjudicator serving alongside Jorrit. |
+| **Holy Light Mentor Gustav** | 圣光导师古斯塔夫 | Senior Divine Realm commander and sealing caster; distinct from Orkney. |
+| **Dream Realm** | 梦之境 | Separate Holy Court-controlled world targeted during Fang Heng’s diversion. |
+| **Renee** | 蕾妮 | Female Nether Clan war-knight commander; speaks a human language and issues Fang Heng's contribution quests. |
+| **Fanni Empire** | 梵尼帝国 | Renee’s severely damaged Nether Clan empire, reduced to less than one-tenth its former territory. |
+| **Mind Blast** | 心灵震爆 | Mental attack used against Giant Calamities. |
+| **Growth Rings — Acceleration** | 年轮-加速 | Fang Heng's short-range acceleration technique. |
+
+**Continuity cautions:** The source uses 诺塔尔 and 科塔尔 for established Kotar. A duplicated chapter heading (第2692章 冥族加入) appears in the body of Chinese Chapter 2692; omitted from English narrative with explicit source note. Chapter 2688 says 160 “bone dragons” where the transaction clearly recruits 160 **War Knights**. A portal called World No. 73 appears after the previously stated list of 72 human-related routes; the relationship is unresolved. Chinese Chapter 2700's game notification credits two Giant Calamities, while its combat narrative focuses on one finishing blow. Individual Editing and Source Notes document these inconsistencies.
+
+**Batch continuity:** Chinese 2681–2700 correspond to English 2680–2699. English 2679 “Comprehension” must link to English 2680 “Red-Thread Calamity.” Glossary V14 established terms remain in effect.
