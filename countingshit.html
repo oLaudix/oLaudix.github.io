@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link rel="stylesheet" href="qunit-1.16.0.css">
 <link rel="stylesheet" href="bootstrap.min.css">
 <link rel="stylesheet" href="bootstrap-select.min.css">
@@ -21,93 +22,179 @@
 			<li><a href="incremental.html">Testing</a></li>
 		</ul>
 	</div>
-	<div class="wrapper" style="display: inline-block;">
-	
-	<div class="panel-body" id="test2" style="padding-bottom: 0px"></div>
-	
-		<select class="selectpicker" id="selection-test" onchange="changeFunc();" data-live-search="true">
-			<option id="start">None</option>
-		</select>
-		<button type="button" onclick="updateLevels()" class="btn btn-primary">Generate</button>
-		<button type="button" onclick="reset()" class="btn btn-primary">Reset</button><br><br>
-		
-		<div class="panel panel-primary" style="margin-bottom: 5px; width: 1200px;">
-			<div class="panel-heading">Options</div>
-				Starter options <input type="checkbox" id="starter"><br>
-				Endgame blueprint <input type="checkbox" id="endgameblueprint"><br>
-				Expansion Bay <input type="checkbox" id="expansionbays"><br>
-				Rows <input type="text" id="blueprintrows" value="10"><br>
-				<textarea id="endgameoutput" style="width: 100px; height: 20px; display: none"></textarea><br>
-			<div class="panel-body" style="display: inline-block;">
-				<div style="display: inline-block;">
-					Assemblers:<br>
-					Assembling machine 1 <input type="checkbox" id="as1"><br>
-					Assembling machine 2 <input type="checkbox" id="as2"><br>
-					Assembling machine 3 <input type="checkbox" id="as3"><br>
-					Assembling machine 4 <input type="checkbox" id="as4"><br>
-					Assembling machine 5 <input type="checkbox" id="as5"><br>
-					Assembling machine 6 <input type="checkbox" id="as6" checked><br>
-					Additional Speed <input type="text" id="asmspeed" value="1920">%<br>
-					Additional Productivity <input type="text" id="asmprod" value="240">%<br>
+	<div class="wrapper" style="display: inline-block; width:70%">
+		<div class="row">
+			<div class="col">
+				<select class="selectpicker" id="selection-test" onchange="changeFunc();" data-live-search="true">
+					<option id="start">None</option>
+				</select>
+				<button type="button" onclick="updateLevels()" class="btn btn-primary">Generate</button>
+				<button type="button" onclick="reset()" class="btn btn-primary">Reset</button>
+				<button type="button" onclick="clearList()" class="btn btn-primary">Clear</button>
+				<button type="button" onclick="saveData()" class="btn btn-primary">Save</button>
+				<button type="button" onclick="loadData()" class="btn btn-primary">Load</button>
+				<br><br>
+				<div class="panel panel-primary" style="margin-bottom: 5px; width: 1200px; float: left;">
+					<div class="panel-heading">Options</div>
+					<div class="panel-body">
+						Starter options <input type="checkbox" id="starter"><input type="checkbox" id="verystarter"><br>
+						Endgame blueprint <input type="checkbox" id="endgameblueprint"><br>
+						Expansion Bay <input type="checkbox" id="expansionbays"><br>
+						Machines with built-in beacons <input type="checkbox" id="beaconised"><br>
+						Rows <input type="text" id="blueprintrows" value="10"><br>
+						Output <input type="text" id="outputval" value="500"><br>
+						Input <input type="text" id="inputval" value="10"><br><br>
+						Full blueprint: <textarea id="endgameoutput" style="width: 100px; height: 20px; display: none"></textarea><br>
+						Furnace blueprint blueprint: <textarea id="furnaceoutput" style="width: 100px; height: 20px; display: none"></textarea><br>
+						Drills blueprint: <textarea id="drillsoutput" style="width: 100px; height: 20px; display: none"></textarea><br>
+					</div>
+					<div class="panel-body" style="display: inline-block;">
+						<div style="display: inline-block;">
+							Assemblers:<br>
+							Assembling machine 1 <input type="checkbox" id="as1"><br>
+							Assembling machine 2 <input type="checkbox" id="as2"><br>
+							Assembling machine 3 <input type="checkbox" id="as3"><br>
+							Assembling machine 4 <input type="checkbox" id="as4"><br>
+							Assembling machine 5 <input type="checkbox" id="as5"><br>
+							Assembling machine 6 <input type="checkbox" id="as6" checked><br>
+							Mining Productivity <input type="text" id="miningproductivity" value="0"><br>
+							Modules level <input type="text" id="moduleslvl" value="0"><br>
+							Additional Speed <input type="text" id="asmspeed" value="1920">%<br>
+							Additional Productivity <input type="text" id="asmprod" value="240">%<br>
+						</div>
+						<div style="display: inline-block;">
+							Furnace:<br>
+							Stone Furnace <input type="checkbox" id="fur1"><br>
+							Steel Furnace <input type="checkbox" id="fur2"><br>
+							Electric Furnace <input type="checkbox" id="fur3"><br>
+							Electric Furnace 2 <input type="checkbox" id="fur4"><br>
+							Electric Furnace 3 <input type="checkbox" id="fur5" checked><br><br>
+							Additional Speed <input type="text" id="furspeed" value="1920">%<br>
+							Additional Productivity <input type="text" id="furprod" value="240">%<br>
+						</div>
+						<div style="display: inline-block;">
+							Chemical Plant:<br>
+							Chemical Plant 1 <input type="checkbox" id="chem1"><br>
+							Chemical Plant 2 <input type="checkbox" id="chem2"><br>
+							Chemical Plant 3 <input type="checkbox" id="chem3"><br>
+							Chemical Plant 4 <input type="checkbox" id="chem4" checked><br><br>
+							Additional Speed <input type="text" id="chemspeed" value="1920">%<br>
+							Additional Productivity <input type="text" id="chemprod" value="240">%<br>
+						</div>
+						<div style="display: inline-block;">
+							Drills:<br>
+							MK 1 <input type="checkbox" id="drill1"><br>
+							MK 2 <input type="checkbox" id="drill2"><br>
+							MK 3 <input type="checkbox" id="drill3"><br>
+							MK 4 <input type="checkbox" id="drill4"><br>
+							MK 5 <input type="checkbox" id="drill5" checked><br><br>
+							Additional Speed <input type="text" id="drillspeed" value="1920">%<br>
+							Additional Productivity <input type="text" id="drillprod" value="240">%<br>
+						</div>
+						<div style="display: inline-block;">
+							<br>Inserter:<br>
+							Burner <input type="checkbox" id="burnerinserter"><br>
+							Basic <input type="checkbox" id="basicinserter"><br>
+							Fast <input type="checkbox" id="fastinserter"><br>
+							Express <input type="checkbox" id="smartinserter" checked><br>
+						</div>
+					</div>
 				</div>
-				<div style="display: inline-block;">
-					Furnace:<br>
-					Stone Furnace <input type="checkbox" id="fur0"><input type="checkbox" id="upgrade"><br>
-					Electric Furnace <input type="checkbox" id="fur1"><br>
-					Electric multipurpous furnace Mk2 <input type="checkbox" id="fur2" checked><br>
-					Additional Speed <input type="text" id="furspeed" value="1920">%<br>
-					Additional Productivity <input type="text" id="furprod" value="240">%<br>
+				
+				<div id="selectedTable"></div>		
+				<div id="nietest">
+					<div class="panel panel-primary" style="display: inline-block; width: 1200px; margin-top: 1px">
+						<div class="panel-body" id="test" style="padding-bottom: 0px"></div>
+						<div class="panel-body">
+							<textarea id="savedata" style="width: 49%; height: 250px"></textarea>
+							<textarea id="savedata2" style="width: 49%; height: 250px"></textarea>
+							<button type="button" onclick="blueprintify()" class="btn btn-primary">String to Blueprint (decode ->)</button>
+							<button type="button" onclick="stringiffy()" class="btn btn-primary">Blueprint to String (<- encode)</button><br><br>
+						</div>
+					</div>			
 				</div>
-				<div style="display: inline-block;">
-					Chemical Plant:<br>
-					Chemical Plant 1 <input type="checkbox" id="chem1"><br>
-					Chemical Plant 2 <input type="checkbox" id="chem2"><br>
-					Chemical Plant 3 <input type="checkbox" id="chem3"><br>
-					Chemical Plant 4 <input type="checkbox" id="chem4" checked><br>
-					Additional Speed <input type="text" id="chemspeed" value="1920">%<br>
-					Additional Productivity <input type="text" id="chemprod" value="240">%<br>
-				</div>
-				<div style="display: inline-block;">
-					Drills:<br>
-					MK 1 <input type="checkbox" id="drill1"><br>
-					MK 2 <input type="checkbox" id="drill2"><br>
-					MK 3 <input type="checkbox" id="drill3"><br>
-					MK 4 <input type="checkbox" id="drill4"><br>
-					MK 5 <input type="checkbox" id="drill5" checked><br>
-					Additional Speed <input type="text" id="drillspeed" value="1920">%<br>
-					Additional Productivity <input type="text" id="drillprod" value="240">%<br>
-				</div>
-				<div style="display: inline-block;">
-					Inserter:<br>
-					Basic <input type="checkbox" id="basicinserter"><br>
-					Fast <input type="checkbox" id="fastinserter"><br>
-					Smart <input type="checkbox" id="smartinserter" checked><br>
+			</div>
+			<div class="col">
+				<div class="panel panel-primary" style="float: left; width: 500px; display: inline-block; margin-right: 4px; margin-left:1px;padding:5px">
+					<div onclick="selectSpecific([['iron-plate', 600]])" style="cursor: pointer;">Iron x 4</div>
+					<div onclick="selectSpecific([['copper-plate', 360]])" style="cursor: pointer;">Copper x 4</div>
+					<div onclick="selectSpecific([['automation-science-pack', 240]])" style="cursor: pointer;">Red Science</div>
+					<div onclick="selectSpecific([['iron-gear-wheel', 300]])" style="cursor: pointer;">Iron Gear Wheel</div>
+					<div onclick="selectSpecific([['basic-circuit-board', 300]])" style="cursor: pointer;">Basic Circuit Board</div>
+					<div onclick="selectSpecific([['basic-electronic-components', 300]])" style="cursor: pointer;">Basic electronic components</div>
+					<div onclick="selectSpecific([['electronic-circuit', 300]])" style="cursor: pointer;">Electronic Circuit</div>
+					<div onclick="selectSpecific([['inserter', 240]])" style="cursor: pointer;">Inserter</div>
+					<div onclick="selectSpecific([['gun-turret', 40],['firearm-magazine', 1]])" style="cursor: pointer;">Gun Turret + Ammo</div>
+					<div onclick="selectSpecific([['steel-plate', 800]])" style="cursor: pointer;">Steel Plate</div>
+					<div onclick="selectSpecific([['stone-brick', 600]])" style="cursor: pointer;">Stone brick</div>
+					<div onclick="selectSpecific([['logistic-science-pack', 240]])" style="cursor: pointer;">Green Science</div>
+					<div onclick="selectSpecific([['steel-furnace', 60]])" style="cursor: pointer;">Steel Furnace</div>
+					<!--<div onclick="selectSpecific([['basic-circuit-board', 240],['iron-plate', -3600],['copper-plate', -1800]])" style="cursor: pointer;">Basic Circuit Board</div>
+					<div onclick="selectSpecific([['assembling-machine-1', 60],['iron-plate', -3600],['copper-plate', -1800],['basic-circuit-board', -240]])" style="cursor: pointer;">Assembling Machine 1</div>
+					<div onclick="selectSpecific([['electric-mining-drill', 15],['iron-plate', -3600],['copper-plate', -1800],['basic-circuit-board', -240]])" style="cursor: pointer;">Electric Mining Drill</div>
+					<div onclick="selectSpecific([['automation-science-pack', 60]])" style="cursor: pointer;">Red Science Pack</div>-->
+					<!--<div onclick="selectSpecific([['bob-mining-drill-1', 15],['assembling-machine-2', 1],['steel-furnace', 15],['steel-mixing-furnace', 15],['steel-chemical-furnace', 15],['basic-circuit-board', -240],['electronic-circuit', -240],['iron-plate', -3600],['copper-plate', -1800],['stone-brick', -1200],['steel-plate', -400]])" style="cursor: pointer;">Mining Drill 2 + AM 2 + furnaces</div>-->
+					<!--div onclick="selectSpecific([['fast-inserter', 180],['iron-plate', -5400],['copper-plate', -2700]])" style="cursor: pointer;">Fast Inserter</div>
+					<div onclick="selectSpecific([['advanced-circuit', 360],['electronic-circuit', 360]])" style="cursor: pointer;">Electronic circuit board + other boards</div>
+					<!--<div onclick="selectSpecific([['bob-mining-drill-1', 1],['assembling-machine-3', 1],['steel-furnace', 1],['steel-mixing-furnace', 1],['steel-chemical-furnace', 1],['basic-circuit-board', -240],['electronic-circuit', -240],['advanced-circuit', -240],['iron-plate', -3600],['copper-plate', -1800],['stone-brick', -1200],['steel-plate', -400]])" style="cursor: pointer;">Mining Drill 2 + AM 3 + furnaces</div>-->
+					<div onclick="selectSpecific([['advanced-circuit', 240]])" style="cursor: pointer;">Electronic circuit board</div>
+					<div onclick="selectSpecific([['speed-processor', 120],['effectivity-processor', 120],['productivity-processor', 120],['pollution-clean-processor', 120],['pollution-create-processor', 120]])" style="cursor: pointer;">Modules Research Stuff</div>
+					<div onclick="selectSpecific([['raw-speed-module-1', 134],['raw-productivity-module-1', 28]])" style="cursor: pointer;">Early Modules 1 without boost</div>
+					<div onclick="selectSpecific([['raw-speed-module-1', 300],['raw-productivity-module-1', 100]])" style="cursor: pointer;">Modules 1</div>
+					<div onclick="selectSpecific([['raw-speed-module-2', 300],['raw-productivity-module-2', 100]])" style="cursor: pointer;">Modules 2</div>
+					<div onclick="selectSpecific([['fast-inserter', 480]])" style="cursor: pointer;">Fast Inserter</div>
+					<div onclick="selectSpecific([['expansion-bay', 200]])" style="cursor: pointer;">Expansion Bay</div>
+					<div onclick="selectSpecific([['chemical-science-pack', 240]])" style="cursor: pointer;">Chemical Science Pack</div>	
+					<div onclick="selectSpecific([['basic-circuit-board', 878], ['electronic-circuit', 878], ['advanced-circuit', 970], ['processing-unit', 970]])" style="cursor: pointer;">Boards</div>
+					<div onclick="selectSpecific([['military-science-pack', 240]])" style="cursor: pointer;">Military Science Pack</div>
+					<div onclick="selectSpecific([['he-bullet-magazine', 1268]])" style="cursor: pointer;">High Explosive Ammo</div>
+					<div onclick="selectSpecific([['automation-science-pack', 440],['logistic-science-pack', 440],['military-science-pack', 440],['chemical-science-pack', 440],['production-science-pack', 440],['utility-science-pack', 440]])" style="cursor: pointer;">All Science Packs x440</div>
+					<div onclick="selectSpecific([['raw-speed-module-5', 600],['raw-productivity-module-5', 200]])" style="cursor: pointer;">Modules 5</div>
+					<div onclick="selectSpecific([['raw-speed-module-8', 1260],['raw-productivity-module-8', 720]])" style="cursor: pointer;">Modules 8</div>
+					<div onclick="selectSpecific([['bob-mining-drill-4-beaconised', 1],['assembling-machine-6-beaconised', 1],['electric-furnace-3-beaconised', 1],['chemical-plant-4-beaconised', 1],['centrifuge-3-beaconised', 1],['bob-mining-drill-4', 60],['assembling-machine-6', 60],['electric-furnace-3', 60],['chemical-plant-4', 60],['centrifuge-3', 1],['expansion-bay', 400], ['express-inserter', 480]])" style="cursor: pointer;">Assemblers with beacons Mk6</div>
+					<div onclick="selectSpecific([['automation-science-pack', 2054],['logistic-science-pack', 2054],['military-science-pack', 2054],['chemical-science-pack', 2054],['production-science-pack', 2054],['utility-science-pack', 2054]])" style="cursor: pointer;">All Science Packs x2054</div>
+					<div onclick="selectSpecific([['basic-circuit-board', 2500],['electronic-circuit', 2500],['advanced-circuit', 2500],['processing-unit', 2500],['advanced-processing-unit', 2500]])" style="cursor: pointer;">All circuit boards</div>
+					<div onclick="selectSpecific([['nuclear-reactor-3', 8], ['steam-turbine-3', 288], ['heat-exchanger-4', 144], ['heat-pipe-4', 712], ['pipe-to-ground', 272], ['boiler-5', 160], ['uranium-fuel-cell', 1000]])" style="cursor: pointer;">Power Components</div>
+					<div onclick="selectSpecific([['iron-plate', 40000],['copper-plate', 40000], ['steel-plate', 10000]])" style="cursor: pointer;">Iron + Copper + Steel</div>
+					<div onclick="selectSpecific([['concrete', 1], ['refined-concrete', 1], ['hazard-concrete', 1], ['stone-brick', 1], ['stone-wall', 1], ['refined-hazard-concrete', 1], ['small-lamp', 1], ['bob-gun-turret-5', 1], ['bob-laser-turret-5', 1], ['bob-plasma-turret-5', 1], ['bob-sniper-turret-3', 1], ['bob-robochest-2', 1],['substation-2', 1],['big-electric-pole-2', 1],['bob-logistic-zone-expander-3', 1],['bob-artillery-turret-3', 1],['explosive-artillery-shell', 1]])" style="cursor: pointer;">Stuff for City blocks</div>
+					<div onclick="selectSpecific([['speed-module-8', 600],['productivity-module-8', 300]])" style="cursor: pointer;">-------------</div>
+					
+					
+					<div onclick="selectSpecific([['speed-module-8', 7200]])" style="cursor: pointer;">Speed Modules 8</div>
+					<div onclick="selectSpecific([['productivity-module-8', 7200]])" style="cursor: pointer;">Productivity Modules 8</div>
+					<div onclick="selectSpecific([['expansion-bay', 30000]])" style="cursor: pointer;">Expansion Bay</div>
+					<div onclick="selectSpecific([['bob-mining-drill-4-beaconised', 2000],['assembling-machine-6-beaconised', 2000],['electric-furnace-3-beaconised', 2000],['chemical-plant-4-beaconised', 2000],['centrifuge-3-beaconised', 2000], ['express-inserter', 7200], ['expansion-bay', -30000]])" style="cursor: pointer;">Assemblers with beacons Mk6</div>
+					<div onclick="selectSpecific([['hazard-concrete', 28800],['stone-wall', 7200],['refined-hazard-concrete', 28800],['small-lamp', 5000],['substation-2', 5000],['big-electric-pole-2', 5000],['bob-robochest-2', 2000],['radar-5', 1000],['bob-logistic-zone-expander-3', 1000], ['repair-pack', 1000]])" style="cursor: pointer;">City blocks - concrete + walls + misc</div>
+					<div onclick="selectSpecific([['bob-sniper-turret-3', 1440],['bob-gun-turret-5', 1], ['bob-laser-turret-5', 1], ['bob-plasma-turret-5', 1],['bob-artillery-turret-3', 720],['explosive-artillery-shell', 1800],['uranium-rounds-magazine', 28800]])" style="cursor: pointer;">City blocks - Sniper, Artillery, Ammo</div>
+					<div onclick="selectSpecific([['nuclear-reactor-3', 40], ['steam-turbine-3', 1000], ['heat-exchanger-4', 1000], ['heat-pipe-4', 1400], ['pipe-to-ground', 1000], ['uranium-fuel-cell', 5000]])" style="cursor: pointer;">Power Components</div>
+					<div onclick="selectSpecific([['automation-science-pack', 270000]])" style="cursor: pointer;">Red Science Pack</div>
+					<div onclick="selectSpecific([['logistic-science-pack', 200000]])" style="cursor: pointer;">Green Science Pack</div>
+					<div onclick="selectSpecific([['military-science-pack', 155000]])" style="cursor: pointer;">Military Science Pack</div>
+					<div onclick="selectSpecific([['chemical-science-pack', 85000]])" style="cursor: pointer;">Chemical Science Pack</div>
+					<div onclick="selectSpecific([['production-science-pack', 69000]])" style="cursor: pointer;">Production Science Pack</div>
+					<div onclick="selectSpecific([['utility-science-pack', 60000]])" style="cursor: pointer;">Utility Science Pack</div>
+					<div onclick="selectSpecific([['speed-processor', 31000],['effectivity-processor', 31000],['productivity-processor', 31000],['pollution-clean-processor', 31000],['pollution-create-processor', 31000],['module-circuit-board', 31000],['module-case', 31000],['lab-module', 955]])" style="cursor: pointer;">Module Research</div>
+					<div onclick="selectSpecific([['rocket-control-unit', 40000]])" style="cursor: pointer;">Rocket Control Unit</div>
+					<div onclick="selectSpecific([['low-density-structure', 43000]])" style="cursor: pointer;">Low Density Structure</div>
+					<div onclick="selectSpecific([['rocket-fuel', 53000]])" style="cursor: pointer;">Rocket Fuel</div>
+					<div onclick="selectSpecific([['satellite', 400]])" style="cursor: pointer;">Satellite</div>
+					<div onclick="selectSpecific([['rocket-silo', 350]])" style="cursor: pointer;">Rocket Silo</div>
+					
+					
+					<!--<button type="button" onclick="selectSpecific('iron-plate')" class="btn btn-primary" style='padding:0;margin:0'><div style="width: 32px;height: 32px;background: url(./img/factorio/iron-plate.png) -64px 0;"></button>
+					<button type="button" onclick="selectSpecific('copper-plate')" class="btn btn-primary" style='padding:0;margin:0'><div style="width: 32px;height: 32px;background: url(./img/factorio/copper-plate.png) -64px 0;"></button>-->
 				</div>
 			</div>
 		</div>
+	<div class="panel-body" id="test2" style="padding-bottom: 0px"></div>
+	
 		
-		<div id="selectedTable"></div>		
-		<div id="nietest">
-			<div class="panel panel-primary" style="display: inline-block; width: 1200px; margin-top: -1px">
-				<div class="panel-body" id="test" style="padding-bottom: 0px"></div>
-				<textarea id="savedata" style="width: 49%; height: 250px"></textarea>
-				<textarea id="savedata2" style="width: 49%; height: 250px"></textarea>
-				<button type="button" onclick="blueprintify()" class="btn btn-primary">String to Blueprint</button>
-				<button type="button" onclick="stringiffy()" class="btn btn-primary">Blueprint to String</button><br><br>
-				
-				
-			</div>			
-		</div>
 	</div>
   
 <script type="text/javascript" src="jquery-latest.min.js"></script>
 <script type="text/javascript" src="countingshit_recipies_1.js"></script>
-<script type="text/javascript" src="countingshit_recipies_2.js"></script>
-<script type="text/javascript" src="countingshit_recipies_3.js"></script>
-<script type="text/javascript" src="countingshit_recipies_4.js"></script>
 <script type="text/javascript" src="locale.js"></script>
 <script type="text/javascript" src="pako.js"></script>
-<script type="text/javascript" src="countingshit_recipies_replication.js"></script>
 <script type="text/javascript" src="countingshit_ams.js"></script>
 <script type="text/javascript" src="bootstrap.min.js"></script>
 <script type="text/javascript" src="bootstrap-select.js"></script>
@@ -121,6 +208,59 @@
 var items = $.extend({}, items_recipies1);
 //var str = "do local _={entities={{name=\"constant-combinator\",position={x=-3,y=-1},direction=2,control_behavior={filters={{signal={type=\"virtual\",name=\"signal-black\"},count=-3,index=1},{signal={type=\"item\",name=\"copper-plate\"},count=-4,index=2},{signal={type=\"item\",name=\"iron-plate\"},count=-4,index=3}}},connections={[\"1\"]={red={{entity_id=2,circuit_id=1}}}}},{name=\"decider-combinator\",position={x=-1.5,y=-1},direction=2,control_behavior={decider_conditions={first_signal={type=\"virtual\",name=\"signal-each\"},constant=0,comparator=\">\",output_signal={type=\"item\",name=\"copper-plate\"},copy_count_from_input=true}},connections={[\"1\"]={red={{entity_id=1}},green={{entity_id=3,circuit_id=1}}},[\"2\"]={green={{entity_id=3,circuit_id=2}}}}},{name=\"decider-combinator\",position={x=-1.5,y=0},direction=2,control_behavior={decider_conditions={first_signal={type=\"virtual\",name=\"signal-each\"},constant=4,comparator=\"<\",output_signal={type=\"virtual\",name=\"signal-each\"},copy_count_from_input=true}},connections={[\"1\"]={green={{entity_id=3,circuit_id=2},{entity_id=2,circuit_id=1}}},[\"2\"]={green={{entity_id=3,circuit_id=1},{entity_id=2,circuit_id=2},{entity_id=4,circuit_id=1}}}}},{name=\"decider-combinator\",position={x=0.5,y=0},direction=2,control_behavior={decider_conditions={first_signal={type=\"virtual\",name=\"signal-anything\"},constant=3,comparator=\">\",output_signal={type=\"virtual\",name=\"signal-black\"},copy_count_from_input=false}},connections={[\"1\"]={green={{entity_id=3,circuit_id=2}}},[\"2\"]={green={{entity_id=5,circuit_id=1}}}}},{name=\"decider-combinator\",position={x=2.5,y=0},direction=2,control_behavior={decider_conditions={first_signal={type=\"virtual\",name=\"signal-black\"},constant=2,comparator=\"<\",output_signal={type=\"virtual\",name=\"signal-black\"},copy_count_from_input=true}},connections={[\"1\"]={green={{entity_id=4,circuit_id=2},{entity_id=5,circuit_id=2}}},[\"2\"]={green={{entity_id=5,circuit_id=1}}}}}},icons={{signal={type=\"item\",name=\"decider-combinator\"},index=1}}};return _;end"
 var test = "0eNpljsEKwyAQRP9lzh6SYAPxV0opSboUIa6iplTEf6/aS6GXZWeZebMZ23GS85ojVIbeLQeoa0bQT16PdovJERR0JAMBXk1XHMhH8iii7g96Q43lJkAcddT0ZXSR7nyarTrV+J8WcDbUgOXWVCGDQKqzNFZvVD8PCrzIh26epZwuw7JMsyzlAwY2QYY="
+
+/*
+eNqVlctuwjAQRf8layyFlNDSX6m6mDhTGOFHZDsUWvXfOykQQmqCkbxwpHs8D19P3r4zAxqz14ycNaJREDCbZZpM9rrIc97BnnfFarFaPher8mfWA9I2DbqHEB8Q1TVRRIksG6/+jPrAGwoocvFJTX/O/F5ka+7EvNaKypHcnokyMcuU1cdpCJ0ksxbOtqb2QsMavsgMSjrFnOeD7DacWqsUhkR9ing6zwo8SSHJyZaCqCy4OrGTqFAG9tUFTwSh3oGRWKdh0ax9g8xrW7cKxUuqQYdQeYbOSH5LWUwpyXh0Ad30NR1bxY1iTeeJ2pFSfdknohjeq62utGIeUcd95zhrGWhH4fBog2LsZJ9iwGS7wHvUlerq0iA3bNlLZeVJX07riwf1TxH9qGcRaikqBMnm9ljfPGBsyr8B+NE6AxKnbvco1LTvIibr5QY1SUiK0Gt5HJtwxzv/yugm5ChI9DLbYDUE4l+Ll4T8pEUDl7EafVhbMILb6oPrfMOks5UNHM3zR59nmTSQ338BIqMGyg==
+*/
+
+/*
+table.insert(global.auto_research_config[force.name].prioritized_techs, 'automation')
+		table.insert(global.auto_research_config[force.name].prioritized_techs, 'stone-walls')
+		table.insert(global.auto_research_config[force.name].prioritized_techs, 'turrets')
+		table.insert(global.auto_research_config[force.name].prioritized_techs, 'alloy-processing-1')
+		table.insert(global.auto_research_config[force.name].prioritized_techs, 'chemical-processing-1')
+		table.insert(global.auto_research_config[force.name].prioritized_techs, 'bob-drills-1')
+		table.insert(global.auto_research_config[force.name].prioritized_techs, 'military')
+		table.insert(global.auto_research_config[force.name].prioritized_techs, 'steel-processing')
+		table.insert(global.auto_research_config[force.name].prioritized_techs, 'logistic-science-pack')
+		table.insert(global.auto_research_config[force.name].prioritized_techs, 'automation-2')
+		table.insert(global.auto_research_config[force.name].prioritized_techs, 'steel-mixing-furnace')
+		table.insert(global.auto_research_config[force.name].prioritized_techs, 'steel-chemical-furnace')
+		table.insert(global.auto_research_config[force.name].prioritized_techs, 'military-2')
+		table.insert(global.auto_research_config[force.name].prioritized_techs, 'automation-3')
+		table.insert(global.auto_research_config[force.name].prioritized_techs, 'chemical-science-pack')
+		table.insert(global.auto_research_config[force.name].prioritized_techs, 'modules')
+		table.insert(global.auto_research_config[force.name].prioritized_techs, 'automation-4')
+		table.insert(global.auto_research_config[force.name].prioritized_techs, 'electric-mixing-furnace')
+		table.insert(global.auto_research_config[force.name].prioritized_techs, 'electric-chemical-furnace')
+		table.insert(global.auto_research_config[force.name].prioritized_techs, 'express-inserters')
+		table.insert(global.auto_research_config[force.name].prioritized_techs, 'speed-module-2')
+		table.insert(global.auto_research_config[force.name].prioritized_techs, 'productivity-module-2')
+		table.insert(global.auto_research_config[force.name].prioritized_techs, 'speed-module-5')
+		table.insert(global.auto_research_config[force.name].prioritized_techs, 'productivity-module-5')
+		table.insert(global.auto_research_config[force.name].prioritized_techs, 'military-science-pack')
+		table.insert(global.auto_research_config[force.name].prioritized_techs, 'production-science-pack')
+		table.insert(global.auto_research_config[force.name].prioritized_techs, 'utility-science-pack')
+		table.insert(global.auto_research_config[force.name].prioritized_techs, 'bob-he-bullets')
+		table.insert(global.auto_research_config[force.name].prioritized_techs, 'bob-drills-4')
+		table.insert(global.auto_research_config[force.name].prioritized_techs, 'chemical-plant-4')
+		table.insert(global.auto_research_config[force.name].prioritized_techs, 'multi-purpose-furnace-2')
+		table.insert(global.auto_research_config[force.name].prioritized_techs, 'automation-6')
+		table.insert(global.auto_research_config[force.name].prioritized_techs, 'speed-module-8')
+		table.insert(global.auto_research_config[force.name].prioritized_techs, 'productivity-module-8')
+		table.insert(global.auto_research_config[force.name].prioritized_techs, 'concrete')
+		table.insert(global.auto_research_config[force.name].prioritized_techs, 'dect-concrete-paint')
+		table.insert(global.auto_research_config[force.name].prioritized_techs, 'optics')
+		table.insert(global.auto_research_config[force.name].prioritized_techs, 'bob-sniper-turrets-3')
+		table.insert(global.auto_research_config[force.name].prioritized_techs, 'bob-robo-modular-3')
+		table.insert(global.auto_research_config[force.name].prioritized_techs, 'bob-artillery-turret-3')
+		table.insert(global.auto_research_config[force.name].prioritized_techs, 'bob-explosive-artillery-shells')
+		table.insert(global.auto_research_config[force.name].prioritized_techs, 'electric-energy-distribution-2')
+		table.insert(global.auto_research_config[force.name].prioritized_techs, 'radars-4')
+		*/
+
+
+
 
 function gzip_inflate(blueprintInput)
 {
@@ -147,7 +287,10 @@ var test = gzip_inflate(test)
 function blueprintify()
 {
 	//alert($("#savedata").val() === "")
-	$("#savedata").val(JSON.stringify(gzip_inflate($("#savedata2").val())))
+	
+	$("#savedata2").val(JSON.stringify(gzip_inflate($("#savedata").val())))
+	//alert(gzip_inflate($("#savedata").val()))
+	//$("#savedata2").val(gzip_inflate($("#savedata").val()))
 }
 
 var _item = function(item_id, _quantity)
@@ -193,6 +336,7 @@ var _item = function(item_id, _quantity)
 		{
 			alert(err.message)
 			alert(this.name)
+			alert("test")
 		}
 		//alert(ams[this.am_type].speed)
 		//Normal Production
@@ -307,6 +451,16 @@ var _blueprint = function(_name)
 		//0 - dol
 		this.blueprint.tiles[this.blueprint.tiles.length] = { name:_name, position:{x:_position.x,y:_position.y}}
 	}
+	this.addStorage = function(_requester)
+	{
+		var _entity_number = this.blueprint.entities.length
+		this.blueprint.entities[_entity_number] = {entity_number:null, name:null, position:null, request_filters:null}
+		this.blueprint.entities[_entity_number].entity_number = _entity_number+1
+		this.blueprint.entities[_entity_number].name = "wooden-chest-storage"
+		this.blueprint.entities[_entity_number].position = {x:_requester.position.x,y:_requester.position.y}
+		this.blueprint.entities[_entity_number].request_filters = _requester.request_filters
+		//this.blieprint.entities[_entity_number].
+	}
 	this.addBuffer = function(_requester)
 	{
 		var _entity_number = this.blueprint.entities.length
@@ -332,7 +486,14 @@ var _blueprint = function(_name)
 		var _entity_number = this.blueprint.entities.length
 		this.blueprint.entities[_entity_number] = {entity_number:null, name:null, position:null}
 		this.blueprint.entities[_entity_number].entity_number = _entity_number+1
-		this.blueprint.entities[_entity_number].name = "wooden-chest-active-provider"
+		if ($("#starter").is(":checked"))
+		{
+			this.blueprint.entities[_entity_number].name = "wooden-chest-active-provider"
+		}
+		else
+		{
+			this.blueprint.entities[_entity_number].name = "wooden-chest-active-provider"
+		}
 		this.blueprint.entities[_entity_number].position = {x:_position.x,y:_position.y}
 	}
 	this.addExpansionBay = function(_position)
@@ -434,7 +595,7 @@ var _position = function(x,y)
 
 function stringiffy()
 {
-	$("#savedata2").val("0" + gzip_deflate(JSON.parse($("#savedata").val())))
+	$("#savedata").val("0" + gzip_deflate(JSON.parse($("#savedata2").val())))
 }
 
 var locale = locale.split("/");
@@ -443,6 +604,33 @@ for (var a = 0; a < locale.length; a++)
 {
 	locale[locale[a].slice(0, locale[a].indexOf("="))] = locale[a].slice(locale[a].indexOf("=")+1)
 }
+
+function selectSpecific(list) 
+{
+	//selectedList = [] 
+	for (var z in list)
+	{
+		if (!selectedList.hasOwnProperty(list[z][0]))
+		{
+			selectedList[list[z][0]] = [list[z][0], list[z][1], false];
+			table = [];
+			for (var k in selectedList)
+			{
+				table.push(selectedList[k])
+				//alert(table.toString())
+			}
+		}
+	}
+	
+	printSelected();
+}
+
+function clearList()
+{
+	selectedList = []
+	printSelected();
+}
+
 function changeFunc() 
 {
     var selectBox = document.getElementById("selection-test");
@@ -602,7 +790,9 @@ function make_tree(item_id, quantity, test)
 
 function mining_drills_needed(ore)
 {
-	var speed = ((ams['replicator5'].mining_power - ore.mining_hardness)*ams['replicator5'].speed)/ore.mining_time;
+	//var speed = ((ams['replicator5'].mining_power - ore.mining_hardness)*ams['replicator5'].speed)/ore.mining_time;
+	var speed = (ams['replicator5'].speed)/ore.mining_time;
+	//alert(speed)
 	//alert(ams['replicator5'].mining_power - ore.mining_hardness)
 	return speed
 }
@@ -634,7 +824,7 @@ function calc_asm(item_id, quantity)
 	var asms_needed = (quantity / (total_production))
 	var final_production = total_production * asms_needed
 	var summary = items[item_id].name + " - <font color=\"red\", style=\"font-weight: bold;\">" + Math.ceil(asms_needed) + "</font>"
-	switch (ams[items[item_id].am_type].name)
+	/*switch (ams[items[item_id].am_type].name)
 	{
 		case "assembling-machine-6":
 			summary += "<font color=\"green\", style=\"font-weight: bold;\"> assemblers </font>needed for " 
@@ -655,19 +845,19 @@ function calc_asm(item_id, quantity)
 			summary += "<font color=\"green\", style=\"font-weight: bold;\"> assemblers </font>needed for " 
 			break;		
 		case "electric-mining-drill":
-			summary += "<font color=\"blue\", style=\"font-weight: bold;\"> replicators </font" 
+			summary += "<font color=\"blue\", style=\"font-weight: bold;\"> drills </font" 
 			summary += "<font color=\"blue\", style=\"font-weight: bold;\"> (T1: " + mining_drills_needed(items_recipies1[item_id]) + ") </font>" 
 			break;
 		case "bob-mining-drill-1":
-			summary += "<font color=\"blue\", style=\"font-weight: bold;\"> replicators </font" 
+			summary += "<font color=\"blue\", style=\"font-weight: bold;\"> drills </font" 
 			summary += "<font color=\"blue\", style=\"font-weight: bold;\"> (T2: " + mining_drills_needed(items_recipies1[item_id]) + ") </font>" 
 			break;
 		case "bob-mining-drill-2":
-			summary += "<font color=\"blue\", style=\"font-weight: bold;\"> replicators </font" 
+			summary += "<font color=\"blue\", style=\"font-weight: bold;\"> drills </font" 
 			summary += "<font color=\"blue\", style=\"font-weight: bold;\"> (T3: " + mining_drills_needed(items_recipies1[item_id]) + ") </font>"  
 			break;
 		case "bob-mining-drill-3":
-			summary += "<font color=\"blue\", style=\"font-weight: bold;\"> replicators </font" 
+			summary += "<font color=\"blue\", style=\"font-weight: bold;\"> drills </font" 
 			summary += "<font color=\"blue\", style=\"font-weight: bold;\"> (T4: " + mining_drills_needed(items_recipies1[item_id]) + ") </font>" 
 			break;
 		case "bob-mining-drill-4":
@@ -691,6 +881,27 @@ function calc_asm(item_id, quantity)
 		case "y-alien-infuser":
 			summary += "<font color=\"purple\", style=\"font-weight: bold;\"> alien infusers </font>needed for " 
 			break;
+	}*/
+	if (ams[items[item_id].am_type].name.includes("assembling"))
+	{
+		summary += "<font color=\"green\", style=\"font-weight: bold;\"> assemblers </font>needed for "
+	}
+	else if (ams[items[item_id].am_type].name.includes("mining"))
+	{
+		summary += "<font color=\"blue\", style=\"font-weight: bold;\"> drills </font" 
+		summary += "<font color=\"blue\", style=\"font-weight: bold;\"> (T1: " + mining_drills_needed(items_recipies1[item_id]) + ") </font>"
+	}
+	else if (ams[items[item_id].am_type].name.includes("plant"))
+	{
+		summary += "<font color=\"orange\", style=\"font-weight: bold;\"> chemical plants </font>needed for " 
+	}
+	else if (ams[items[item_id].am_type].name.includes("furnace"))
+	{
+		summary += "<font color=\"purple\", style=\"font-weight: bold;\"> furnaces </font>needed for " 
+	}
+	else if (ams[items[item_id].am_type].name.includes("centri"))
+	{
+		summary += "<font color=\"orange\", style=\"font-weight: bold;\"> centrifuges </font>needed for " 
 	}
 	summary += round_num(quantity) + " units (" + Math.floor(total_production) + ") - " + items[item_id].energy_required + " - " + ams[items[item_id].am_type].speed 
 	summary += " - " + Math.ceil((Math.floor(total_production)/60)/96) + " inserters needed<br>"
@@ -710,9 +921,15 @@ function calc_asm(item_id, quantity)
 			break;
 		case "electric-furnace":
 			break;
+		case "electric-furnace-2":
+			break;
+		case "electric-furnace-3":
+			break;
 		case "steel-furnace":
 			break;
 		case "stone-furnace":
+			break;
+		case "steel-furnace":
 			break;
 		case "replicator-5":
 			if (typeof replIngredients[items[item_id].id] == "undefined")
@@ -792,6 +1009,24 @@ function calc_total(items_table)
 		//alert(items_table[a][1] + "test1")
 		make_tree(items_table[a][0], items_table[a][1], items_table[a][2])
 	}
+	//alert(JSON.stringify(total))
+	//$("#savedata2").val(JSON.stringify(total))
+	var temp_total = {}
+	for (var a = 0; a < items_table.length; a++)
+	{
+		temp_total[items_table[a][0]] = total[items_table[a][0]]
+	}
+	for (var k in total)
+	{
+		if (!temp_total.hasOwnProperty(k))
+		{
+			temp_total[k] = total[k];
+			//total[item_id][1] += quantity;
+		}
+	}
+	//$("#savedata2").val(JSON.stringify(temp_total))
+	//$("#savedata").val(JSON.stringify(total))
+	total = temp_total
 	for (var k in total)
 	{
 		//$("#test").append(total[k][0] + " - " + total[k][2] + " assemblers needed for " + total[k][1] + " units<br>")
@@ -799,17 +1034,17 @@ function calc_total(items_table)
 		if ($("#starter").is(":checked"))
 		{
 			//make_starter_blueprint(k)
-			if(ams[items[k].am_type].name != "stone-furnace")
-				make_compact_blueprint(k)	
-			else
+			if ((ams[items[k].am_type].name == "stone-furnace") || (ams[items[k].am_type].name == "steel-furnace"))
 				stone_furnace_blueprint(k)
+			else
+				make_compact_blueprint(k)	
 		}
 		else
 		{
-			if(ams[items[k].am_type].name != "stone-furnace")
-				make_blueprint(k)	
+			if ((ams[items[k].am_type].name == "stone-furnace") || (ams[items[k].am_type].name == "steel-furnace"))
+				stone_furnace_blueprint(k)	
 			else
-				stone_furnace_blueprint(k)
+				make_blueprint(k)
 			//alert(k)
 		}
 		$("#test").append(temp)
@@ -818,7 +1053,7 @@ function calc_total(items_table)
 	for (var k in raw_materials)
 	{
 		//$("#test").append(total[k][0] + " - " + total[k][2] + " assemblers needed for " + total[k][1] + " units<br>")
-		make_replicator_blueprint(k)
+		make_replicator_blueprint(k, 0)
 		$("#test").append(calc_asm(k, raw_materials[k][1]))
 	}
 	$("#test").append("<br>")
@@ -837,6 +1072,8 @@ function calc_total(items_table)
 	//make_blueprint(items_table[0][0])
 	//generateBlueprint()
 	$("#endgameoutput").css("display","none")
+	$("#drillsoutput").css("display","none")
+	$("#furnaceoutput").css("display","none")
 	if ($("#endgameblueprint").is(":checked"))
 	{
 		endgameblueprint(total, raw_materials)
@@ -856,22 +1093,24 @@ function endgameblueprint(materials, basic_materials)
 	var width = 7;
 	var fur_width = 7;
 	if ($("#starter").is(":checked"))
+	{
+		if ($("#expansionbays").is(":checked"))
 		{
-			if ($("#expansionbays").is(":checked"))
-			{
-				width = 4
-				fur_width = 4;
-			}
-			else
-			{
-				width = 3
-				fur_width = 2;
-			}
+			width = 4
+			fur_width = 3;
 		}
 		else
 		{
-			width = 7
+			//width = 3
+			width = 3
+			fur_width = 2;
 		}
+	}
+	else
+	{
+		width = 7
+		fur_width = 7;
+	}
 	var assemblersTable = []
 	var furnaceTable = []
 	var drillsTable = []
@@ -881,8 +1120,9 @@ function endgameblueprint(materials, basic_materials)
 	//alert(JSON.stringify(materials))
 	for (var k in materials)
 	{
-		if(ams[items[k].am_type].name != "stone-furnace")
+		if (!((ams[items[k].am_type].name == "stone-furnace") || (ams[items[k].am_type].name == "steel-furnace")))
 		{
+			
 			var tempItem = new _item(items[k], materials[k][1])
 			for (var a = 0; a < Math.ceil(tempItem.asmNeeded()); a++)
 			{
@@ -892,7 +1132,8 @@ function endgameblueprint(materials, basic_materials)
 				}
 				else
 				{
-					assemblersTable.push(make_blueprint(k))
+					//assemblersTable.push(make_blueprint(k))
+					assemblersTable.push(make_compact_blueprint(k))
 				}
 			}	
 		}
@@ -911,14 +1152,21 @@ function endgameblueprint(materials, basic_materials)
 			stepBlueprint.blueprint.entities.push(assemblersTable[b].blueprint.entities[a])
 		}
 	}
+	if ($("#starter").is(":checked"))
+	{
+		$("#endgameoutput").val("0" + gzip_deflate(stepBlueprint))
+		stepBlueprint = new _blueprint(items[Object.keys(materials)[0]].name)
+		stepBlueprint.addIcon(items[Object.keys(materials)[0]].id)
+	}
 	for (var k in materials)
 	{
-		if(ams[items[k].am_type].name == "stone-furnace")
+		if ((ams[items[k].am_type].name == "stone-furnace") || (ams[items[k].am_type].name == "steel-furnace"))
 		{
 			var tempItem = new _item(items[k], materials[k][1])
 			var temp_asmNeeded = Math.ceil(tempItem.asmNeeded()/2)
 			if ((tempItem.id == 'carbon') || (tempItem.id == 'gold-plate'))
-				temp_asmNeeded = temp_asmNeeded * 2
+			//if ((item_id == "zinc-plate") || (item_id == "carbon") || (item_id == "alumina") || (item_id == "gold-plate") || (item_id == "powdered-tungsten") || (item_id == "silicon-nitride") || (item_id == "nickel-plate") || (item_id == 'cobalt-oxide'))
+				temp_asmNeeded = Math.ceil(tempItem.asmNeeded())
 			for (var a = 0; a < temp_asmNeeded; a++)
 			{
 				furnaceTable.push(stone_furnace_blueprint(k))
@@ -942,18 +1190,33 @@ function endgameblueprint(materials, basic_materials)
 		//alert(pos_x)
 		//alert(pos_x)
 	}
+	if ($("#starter").is(":checked"))
+	{
+		$("#furnaceoutput").val("0" + gzip_deflate(stepBlueprint))
+		stepBlueprint = new _blueprint(items[Object.keys(materials)[0]].name)
+		stepBlueprint.addIcon(items[Object.keys(materials)[0]].id)
+		$("#furnaceoutput").css("display","")
+	}
+	var drill_index = 0;
 	for (var k in basic_materials)
 	{
 		var tempItem = new _item(items[k], basic_materials[k][1])
-		for (var a = 0; a < Math.ceil(tempItem.asmNeeded()/2); a++)
+		for (var a = 0; a < Math.ceil(tempItem.asmNeeded()); a++)
 		{
-			drillsTable.push(make_replicator_blueprint(k))
+			drillsTable.push(make_replicator_blueprint(k, drill_index++))
+			//alert(JSON.stringify(drill_index))
 		}	
 	}
 	for (b=0; b<drillsTable.length; b++)
 	{
+		if ((pos_x + width > max_x + width) && (b < drillsTable.length - 1))
+		{
+			pos_x = 0;
+			pos_y = pos_y + 7
+		}
 		drillsTable[b].moveBlueprint(pos_x,pos_y)
-		pos_x = pos_x + width;
+		if (b % 2 != 0)
+			pos_x = pos_x + width;
 		if ((pos_x + width > max_x + width) && (b < drillsTable.length - 1))
 		{
 			pos_x = 0;
@@ -964,24 +1227,36 @@ function endgameblueprint(materials, basic_materials)
 			stepBlueprint.blueprint.entities.push(drillsTable[b].blueprint.entities[a])
 		}
 	}
+	if ($("#starter").is(":checked"))
+	{
+		$("#drillsoutput").val("0" + gzip_deflate(stepBlueprint))
+		stepBlueprint = new _blueprint(items[Object.keys(materials)[0]].name)
+		stepBlueprint.addIcon(items[Object.keys(materials)[0]].id)
+		$("#drillsoutput").css("display","")
+	}
 	var steps = 0;
 	for (var a = -2; a < max_x + 3; a++)
 	{
 		for (var b = -4; b < pos_y + 5; b++)
 		{
-			stepBlueprint.addTile("concrete-white", new _position(a,b))
+			//stepBlueprint.addTile("concrete-white", new _position(a,b))
 		}
 	}
 	for (var a = -5; a < max_x + 6; a++)
 	{
 		for (var b = -7; b < pos_y + 8; b++)
 		{
-			if ((a < -3 || a > max_x + 3) || (b < -5 || b > pos_y + 5))
-				stepBlueprint.addTile("concrete-black", new _position(a,b))
+			//if ((a < -3 || a > max_x + 3) || (b < -5 || b > pos_y + 5))
+				//stepBlueprint.addTile("concrete-black", new _position(a,b))
 		}
 	}
+	//alert(stepBlueprint)
 	//stepBlueprint.moveBlueprint(0, pos_y)
-	$("#endgameoutput").val("0" + gzip_deflate(stepBlueprint))
+	if (!($("#starter").is(":checked")))
+	{
+		$("#endgameoutput").val("0" + gzip_deflate(stepBlueprint))
+	}
+	//$("#savedata2").val("0" + gzip_deflate(stepBlueprint))
 	
 }
 
@@ -1068,8 +1343,18 @@ function calculate_recipe(item_id)
 
 function make_blueprint(item_id)
 {
-	var output = 1000;
-	var input = 500;
+	//if(ams[items[item_id].am_type].name == "electric-furnace")
+	if(ams[items[item_id].am_type].name.includes("furnace"))
+	{
+		var output = 10000;
+	}
+	else
+	{
+		//var output = 10000;
+		var output = parseInt($("#outputval").val())
+	}
+	
+	var input = parseInt($("#inputval").val());
 	//
 	var input_positions = {
 	"1": { inserter: { x:-2, y:-1, vector:6 }, chest: { x:-3 ,y:-1  } },
@@ -1085,16 +1370,16 @@ function make_blueprint(item_id)
 	"7": { inserter: { x:2, y:1, vector:2 }, chest: { x:3 ,y:1  } },
 	}
 	var buffer_positions = {
-	"1": { buffer: { x:-3, y:-2, vector:6 } },
-	"2": { buffer: { x:-2, y:-3, vector:6 } },
-	"3": { buffer: { x:2, y:-3, vector:6 } },
+	"1": { buffer: { x:-2, y:-2, vector:6 } },
+	"2": { buffer: { x:-2, y:2, vector:6 } },
+	"3": { buffer: { x:2, y:-2, vector:6 } },
 	
-	"4": { buffer: { x:3, y:-2, vector:4 } },
-	"5": { buffer: { x:3, y:2, vector:4 } },
-	"6": { buffer: { x:2, y:3, vector:4 } },
+	"4": { buffer: { x:2, y:2, vector:4 } },
+	//"5": { buffer: { x:3, y:2, vector:4 } },
+	//"6": { buffer: { x:2, y:3, vector:4 } },
 	
-	"7": { buffer: { x:-2, y:3, vector:2 } },
-	"8": { buffer: { x:-3, y:2, vector:2 } },
+	//"7": { buffer: { x:-2, y:3, vector:2 } },
+	//"8": { buffer: { x:-3, y:2, vector:2 } },
 	}
 	var name = items[item_id].id
 	//alert(name)
@@ -1118,26 +1403,38 @@ function make_blueprint(item_id)
 	blueprint.addInserter(inserter_type, new _position(0,-2), 4, items[item_id].id, output, "<")
 	blueprint.addInserter(inserter_type, new _position(1,-2), 4, items[item_id].id, output, "<")
 	//blueprint.addAssembler(ams[items[item_id].am_type].name, new _position(0,0),4,items[item_id].recipe)
-	if(ams[items[item_id].am_type].name == "electric-furnace")
+	if ((ams[items[item_id].am_type].name == "electric-furnace") || (ams[items[item_id].am_type].name == "electric-furnace-2") || (ams[items[item_id].am_type].name == "electric-furnace-3"))
 	{
-		//alert("debug")
-		if ((item_id == "zinc-plate") || (item_id == "carbon") || (item_id == "alumina") || (item_id == "gold-plate"))
+		
+		if ((item_id == "zinc-plate") || (item_id == "carbon") || (item_id == "alumina") || (item_id == "gold-plate") || (item_id == "powdered-tungsten") || (item_id == "silicon-nitride") || (item_id == "nickel-plate") || (item_id == "cobalt-oxide") || (item_id == 'cobalt-plate') || (item_id == 'silicon-carbide') || (item_id == 'tungsten-oxide') || (item_id == 'lithium-cobalt-oxide') || (item_id == 'lithium-chloride'))
 		{
-			blueprint.addAssembler("chemical-furnace", new _position(0,0),4,items[item_id].recipe)
+			blueprint.addAssembler("electric-chemical-furnace", new _position(0,0),4,items[item_id].recipe)
 		}
 		else
-		{
-			blueprint.addAssembler("electric-mixing-furnace", new _position(0,0),4,items[item_id].recipe)
+		{	
+			var name = ams[items[item_id].am_type].name
+			if ($("#beaconised").is(":checked"))
+			{
+				name = name + "-beaconised"
+			}
+			blueprint.addAssembler(name, new _position(0,0),4,items[item_id].recipe)
 		}
 	}
 	else
 	{
-		blueprint.addAssembler(ams[items[item_id].am_type].name, new _position(0,0),4,items[item_id].recipe)
+		var name = ams[items[item_id].am_type].name
+		if ($("#beaconised").is(":checked"))
+		{
+			name = name + "-beaconised"
+		}
+		blueprint.addAssembler(name, new _position(0,0),4,items[item_id].recipe)
 	}
 	if (recipe.fluid.length > 0)
 	{
-		if ((ams[items[item_id].am_type].name == "chemical-plant-4") || (ams[items[item_id].am_type].name == "chemical-plant"))
+		//if ((ams[items[item_id].am_type].name == "chemical-plant-4") || (ams[items[item_id].am_type].name == "chemical-plant"))
+		if (ams[items[item_id].am_type].name.includes("chemical-plant"))
 		{
+			//alert("test")
 			blueprint.addAssembler("machine-1", new _position(-0.5,2.5),0,items[recipe.fluid[0]].recipe)
 			delete input_positions['4']
 			delete input_positions['5']
@@ -1162,10 +1459,10 @@ function make_blueprint(item_id)
 	for(var k in input_positions)
 	{
 		var requester = new _requester(new _position(input_positions[k].chest.x,input_positions[k].chest.y))
-		requester.addRequest(recipe.normal[z], input/10)
+		requester.addRequest(recipe.normal[z], input)
 		//multipleRequests(items_recipies1[item_id].ingredients, requester, input/10)
 		blueprint.addRequester(requester)
-		blueprint.addInserter(inserter_type, new _position(input_positions[k].inserter.x,input_positions[k].inserter.y), input_positions[k].inserter.vector, recipe.normal[z], input/20, ">")
+		blueprint.addInserter(inserter_type, new _position(input_positions[k].inserter.x,input_positions[k].inserter.y), input_positions[k].inserter.vector, recipe.normal[z], input/2, ">")
 		//blueprint.addInserter(inserter_type, new _position(input_positions[k].inserter.x,input_positions[k].inserter.y), input_positions[k].inserter.vector, items[item_id].id, output/10, "<")
 		z++;
 	}
@@ -1174,7 +1471,7 @@ function make_blueprint(item_id)
 		var buffer = new _requester(new _position(buffer_positions[k].buffer.x,buffer_positions[k].buffer.y))
 		buffer.addRequest(items[item_id].id, output/8)
 		//multipleRequests(items_recipies1[item_id].ingredients, requester, input/10)
-		blueprint.addBuffer(buffer)
+		//blueprint.addBuffer(buffer)
 		//blueprint.addInserter(inserter_type, new _position(input_positions[k].inserter.x,input_positions[k].inserter.y), input_positions[k].inserter.vector, items[item_id].id, output/10, "<")
 		z++;
 	}
@@ -1195,7 +1492,7 @@ function stone_furnace_blueprint(item_id)
 			}
 		}
 	}
-	if(ams[items[item_id].am_type].name == "stone-furnace")
+	if ((ams[items[item_id].am_type].name == "stone-furnace") || (ams[items[item_id].am_type].name == "steel-furnace"))
 	{
 		$("#test").append("<textarea id=\"" + item_id + "\" style=\"width: 10px; height: 10px; display: none\"></textarea><button type=\"button\" id=\"" + item_id + "blueprintButton\" onclick=\"copyBlueprint('" + item_id + "')\" class=\"btn btn-primary\" style=\" padding: 0px; \">c</button>")
 		var blueprint = new _blueprint("ZZZ - " + items[item_id].name)
@@ -1209,38 +1506,28 @@ function stone_furnace_blueprint(item_id)
 		blueprint.addInserter(inserter_type, new _position(0,1), 0, items[item_id].id, 10000, "<")
 
 		//blueprint.addAssembler("replicator-5", new _position(-0.5,-0.5),4,items[item_id].recipe)
-		if ($("#upgrade").is(":checked"))
-			var name = "electric-steel-furnace"
+		if ($("#fur2").is(":checked"))
+			var name = "steel-furnace"
 		else
-			var name = "electric-stone-furnace"
-		//alert(item_id)
-		if ((item_id == 'solder-alloy') || (item_id == 'silicon') || (item_id == 'aluminium-plate'))
-			if ($("#upgrade").is(":checked"))
-				var name = "mixing-steel-furnace"
-			else
-				var name = "mixing-furnace"
-		if ((item_id == 'carbon') || (item_id == 'gold-plate'))
+			var name = "stone-furnace"
+		var recipe = calculate_recipe(item_id)
+		if ((recipe.fluid[0] === undefined))
 		{
-			if ($("#upgrade").is(":checked"))
-				var name = "chemical-steel-furnace"
-			else
-				var name = "chemical-boiler"
-			blueprint.addAssembler("machine-1", new _position(-0.5,4.5),0,'water-alt')
-			blueprint.addAssembler(name, new _position(-0.5,2.5),4,items[item_id].recipe)
-			blueprint.addProvider(new _position(-1,0))
-			var requester = new _requester(new _position(0,0))
-			//requester.addRequest(recipe.normal[z], input/10)
-			//alert(items[item_id].ingredients[0][0])
-			//requester.addRequest(items[item_id].ingredients[0][0], 10)
-			multipleRequests(items_recipies1[item_id].ingredients, requester, 10)
-			blueprint.addRequester(requester)
-			blueprint.moveBlueprint(0,-2)
-			$("#" + item_id).append("0" + gzip_deflate(blueprint) + "<br>")
-			return blueprint	
+			recipe.fluid[0] = 'water'
 		}
-				
+		if ($("#expansionbays").is(":checked"))
+		{
+			blueprint.addExpansionBay(new _position(-2,-2))
+			blueprint.addExpansionBay(new _position(-2,2))
+			blueprint.addExpansionBay(new _position(1,2))
+			blueprint.addExpansionBay(new _position(1,-2))
+		}	
 		blueprint.addInserter(inserter_type, new _position(0,-1), 4, items[item_id].id, 10000, "<")
 		blueprint.addInserter(inserter_type, new _position(-1,-1), 0, items[item_id].id, 100000, "<")
+		if ($("#beaconised").is(":checked"))
+		{
+			name = name + "-beaconised"
+		}
 		blueprint.addAssembler(name, new _position(-0.5,2.5),4,items[item_id].recipe)
 		blueprint.addAssembler(name, new _position(-0.5,-2.5),4,items[item_id].recipe)
 		blueprint.addProvider(new _position(-1,0))
@@ -1249,8 +1536,8 @@ function stone_furnace_blueprint(item_id)
 		//alert(items[item_id].ingredients[0][0])
 		//requester.addRequest(items[item_id].ingredients[0][0], 10)
 		multipleRequests(items_recipies1[item_id].ingredients, requester, 10)
-		if ((item_id == 'solder-alloy') || (item_id == 'silicon') || (item_id == 'aluminium-plate') || (item_id == 'gold-plate'))
-			requester.addRequest('coal', 10)
+		//if ((item_id == 'solder-alloy') || (item_id == 'silicon') || (item_id == 'aluminium-plate') || (item_id == 'brass-alloy') || (item_id == 'cobalt-plate') || (item_id == 'cobalt-steel-alloy') || (item_id == "zinc-plate") || (item_id == "carbon") || (item_id == "alumina") || (item_id == "gold-plate") || (item_id == "powdered-tungsten") || (item_id == "silicon-nitride") || (item_id == "nickel-plate") || (item_id == 'cobalt-oxide'))
+		requester.addRequest('wood', 10)
 		blueprint.addRequester(requester)
 		$("#" + item_id).append("0" + gzip_deflate(blueprint) + "<br>")
 		return blueprint
@@ -1270,8 +1557,17 @@ function make_compact_blueprint(item_id)
 				}
 			}
 		}
-	var output = 500;
-	var input = 100;
+	if(ams[items[item_id].am_type].name.includes("furnace"))
+	{
+		var output = 10000;
+		//var output = 10000000;
+	}
+	else
+	{
+		//var output = 500;
+		var output = parseInt($("#outputval").val())
+	}
+	var input = parseInt($("#inputval").val());
 	var input_positions = {
 	"4": { inserter: { x:-1, y:2, vector:4 }, chest: { x:-1 ,y:3  } },
 	"5": { inserter: { x:0, y:2, vector:4 }, chest: { x:0 ,y:3  } },
@@ -1285,9 +1581,20 @@ function make_compact_blueprint(item_id)
 	
 	var blueprint = new _blueprint("ZZZ - " + items[item_id].name);
 	blueprint.addIcon(items[item_id].id)
-	blueprint.addProvider(new _position(0,-3))
-	blueprint.addProvider(new _position(-1,-3))
-	blueprint.addProvider(new _position(1,-3))
+	if ($("#verystarter").is(":checked"))
+	{
+		blueprint.addProvider(new _position(0,-3))
+		blueprint.addInserter(inserter_type, new _position(0,-2), 4, items[item_id].id, output*10, "<")
+	}
+	else
+	{
+		blueprint.addProvider(new _position(0,-3))
+		blueprint.addProvider(new _position(-1,-3))
+		blueprint.addProvider(new _position(1,-3))
+		blueprint.addInserter(inserter_type, new _position(-1,-2), 4, items[item_id].id, output*10, "<")
+		blueprint.addInserter(inserter_type, new _position(0,-2), 4, items[item_id].id, output*10, "<")
+		blueprint.addInserter(inserter_type, new _position(1,-2), 4, items[item_id].id, output*10, "<")
+	}
 	if ($("#expansionbays").is(":checked"))
 	{
 		blueprint.addExpansionBay(new _position(-2,-2))
@@ -1295,28 +1602,46 @@ function make_compact_blueprint(item_id)
 		blueprint.addExpansionBay(new _position(-2,2))
 		blueprint.addExpansionBay(new _position(2,-2))
 	}
-	blueprint.addInserter(inserter_type, new _position(-1,-2), 4, items[item_id].id, output*10, "<")
-	blueprint.addInserter(inserter_type, new _position(0,-2), 4, items[item_id].id, output*10, "<")
-	blueprint.addInserter(inserter_type, new _position(1,-2), 4, items[item_id].id, output*10, "<")
-	if(ams[items[item_id].am_type].name == "electric-furnace")
+	if ((ams[items[item_id].am_type].name == "electric-furnace") || (ams[items[item_id].am_type].name == "electric-furnace-2") || (ams[items[item_id].am_type].name == "electric-furnace-3"))
 	{
 		//alert("debug")
-		if ((item_id == "zinc-plate") || (item_id == "carbon") || (item_id == "alumina") || (item_id == "gold-plate"))
+		if ((item_id == "zinc-plate") || (item_id == "carbon") || (item_id == "alumina") || (item_id == "gold-plate") || (item_id == "powdered-tungsten") || (item_id == "silicon-nitride") || (item_id == "nickel-plate") || (item_id == 'cobalt-oxide') || (item_id == 'cobalt-plate')  || (item_id == 'silicon-carbide') || (item_id == 'tungsten-oxide') || (item_id == 'lithium-cobalt-oxide') || (item_id == 'lithium-chloride'))
 		{
-			blueprint.addAssembler("chemical-furnace", new _position(0,0),4,items[item_id].recipe)
+			if ($("#beaconised").is(":checked"))
+			{
+				blueprint.addAssembler("electric-chemical-furnace-beaconised", new _position(0,0),4,items[item_id].recipe)
+			}
+			else
+			{
+				blueprint.addAssembler("electric-chemical-furnace", new _position(0,0),4,items[item_id].recipe)
+			}
+
 		}
 		else
 		{
-			blueprint.addAssembler("electric-mixing-furnace", new _position(0,0),4,items[item_id].recipe)
+			if ($("#beaconised").is(":checked"))
+			{
+				blueprint.addAssembler(ams[items[item_id].am_type].name + "-beaconised", new _position(0,0),4,items[item_id].recipe)
+			}
+			else
+			{
+				blueprint.addAssembler(ams[items[item_id].am_type].name, new _position(0,0),4,items[item_id].recipe)
+			}
 		}
 	}
 	else
 	{
-		blueprint.addAssembler(ams[items[item_id].am_type].name, new _position(0,0),4,items[item_id].recipe)
+		var name = ams[items[item_id].am_type].name
+		if ($("#beaconised").is(":checked"))
+		{
+			name = name + "-beaconised"
+		}
+		blueprint.addAssembler(name, new _position(0,0),4,items[item_id].recipe)
 	}
 	if (recipe.fluid.length > 0)
 	{
-		if ((ams[items[item_id].am_type].name == "chemical-plant-4") || (ams[items[item_id].am_type].name == "chemical-plant"))
+		//if ((ams[items[item_id].am_type].name == "chemical-plant-4") || (ams[items[item_id].am_type].name == "chemical-plant"))
+		if (ams[items[item_id].am_type].name.includes("chemical-plant"))
 		{
 			blueprint.addAssembler("machine-1", new _position(-0.5,2.5),0,items[recipe.fluid[0]].recipe)
 			delete input_positions['4']
@@ -1329,12 +1654,25 @@ function make_compact_blueprint(item_id)
 			delete input_positions['6']
 		}
 	}
+	if (($("#verystarter").is(":checked")) && (recipe.fluid.length < 1))
+	{
+		/*delete input_positions['5']
+		input_positions['4']['inserter']['y'] = -2
+		input_positions['6']['inserter']['y'] = -2
+		input_positions['4']['inserter']['vector'] = 1
+		input_positions['6']['inserter']['vector'] = 1
+		input_positions['4']['chest']['y'] = -3
+		input_positions['6']['chest']['y'] = -3
+		//alert(JSON.stringify(input_positions['4']))*/
+		delete input_positions['4']
+		delete input_positions['6']
+	}
 	var z=0;
 	for(var k in input_positions)
 	{
 		var requester = new _requester(new _position(input_positions[k].chest.x,input_positions[k].chest.y))
 		//requester.addRequest(recipe.normal[z], input/10)
-		multipleRequests(items_recipies1[item_id].ingredients, requester, input/10)
+		multipleRequests(items_recipies1[item_id].ingredients, requester, input)
 		blueprint.addRequester(requester)
 		//blueprint.addInserter(inserter_type, new _position(input_positions[k].inserter.x,input_positions[k].inserter.y), input_positions[k].inserter.vector, recipe.normal[z], output, ">")
 		blueprint.addInserter(inserter_type, new _position(input_positions[k].inserter.x,input_positions[k].inserter.y), input_positions[k].inserter.vector, items[item_id].id, output, "<")
@@ -1345,7 +1683,7 @@ function make_compact_blueprint(item_id)
 	return blueprint
 }
 
-function make_replicator_blueprint(item_id)
+function make_replicator_blueprint(item_id, index)
 {
 	$("#test").append("<textarea id=\"" + item_id + "\" style=\"width: 10px; height: 10px; display: none\"></textarea><button type=\"button\" id=\"" + item_id + "blueprintButton\" onclick=\"copyBlueprint('" + item_id + "')\" class=\"btn btn-primary\" style=\" padding: 0px; \">c</button>")
 	var blueprint = new _blueprint("ZZZ - " + items[item_id].name)
@@ -1354,10 +1692,16 @@ function make_replicator_blueprint(item_id)
 	{
 		blueprint.addExpansionBay(new _position(-2,0))
 		blueprint.addExpansionBay(new _position(2,0))
-		blueprint.addExpansionBay(new _position(-2,-3))
-		blueprint.addExpansionBay(new _position(2,-3))
-		blueprint.addExpansionBay(new _position(-2,3))
-		blueprint.addExpansionBay(new _position(2,3))
+		if (index % 2 == 0)
+		{
+			blueprint.addExpansionBay(new _position(2,-4))
+			blueprint.addExpansionBay(new _position(-2,-4))
+		}
+		else
+		{
+			blueprint.addExpansionBay(new _position(2,4))
+			blueprint.addExpansionBay(new _position(-2,4))
+		}
 	}
 	blueprint.addIcon( items[item_id].id)
 	//blueprint.addInserter("stack-inserter", new _position(1,0), 6, items[item_id].id, 1000, "<")
@@ -1366,10 +1710,21 @@ function make_replicator_blueprint(item_id)
 	//blueprint.addAssembler(ams['electric_furnace'].name, new _position(-0.5,-0.5),4,items[item_id].recipe)
 	//blueprint.addProvider(new _position(2,0))
 	//blueprint.addProvider(new _position(2,-1))
-	blueprint.addInserter(ams['replicator5'].name, new _position(0,2), 0, items[item_id].id, 10000, "<")
-	blueprint.addInserter(ams['replicator5'].name, new _position(0,-2), 4, items[item_id].id, 10000, "<")
-	blueprint.addInserter("dynamite-4-" + items[item_id].id, new _position(0,2), 6, items[item_id].id, 10000, "<")
-	blueprint.addInserter("dynamite-4-" + items[item_id].id, new _position(0,-2), 6, items[item_id].id, 10000, "<")
+	let output2 = 10000
+	if ($("#starter").is(":checked")) 
+	{
+		output2 = 10000
+	}
+	if (index % 2 != 0)
+	{
+		blueprint.addInserter(ams['replicator5'].name, new _position(0,2), 0, items[item_id].id, output2, "<")
+		blueprint.addInserter("dynamite-4-" + items[item_id].id, new _position(0,2), 6, items[item_id].id, output2, "<")
+	}
+	else
+	{
+		blueprint.addInserter(ams['replicator5'].name, new _position(0,-2), 4, items[item_id].id, output2, "<")
+		blueprint.addInserter("dynamite-4-" + items[item_id].id, new _position(0,-2), 6, items[item_id].id, output2, "<")
+	}
 	blueprint.addProvider(new _position(0,0))
 	$("#" + item_id).append("0" + gzip_deflate(blueprint) + "<br>")
 	return blueprint
@@ -1420,7 +1775,7 @@ function removeItem(item_id)
 function printSelected()
 {
 	$("#selectedTable").html("")
-	var text = "<div class=\"panel panel-primary\" style=\"margin-bottom: 0px; width: 1200px;\">";
+	var text = "<div class=\"panel panel-primary\" style=\"margin-bottom: 0px; width: 1200px;margin-top:1px;\">";
 	text += "<div class=\"panel-heading\">Selected Items</div><div class=\"panel-body\" style=\"display: inline-block;\">";
 	//alert(table.toString())
 	for (var a = 0; a < table.length; a++)
@@ -1454,11 +1809,11 @@ function reset()
 	}
 	$("#as1").prop("checked", true);
 	$("#drill1").prop("checked", true);
-	for (var k = 1; k <= 2; k++)
+	for (var k = 2; k <= 5; k++)
 	{
 		$("#fur" + k).prop("checked", false);
 	}
-	$("#fur0").prop("checked", true);
+	$("#fur1").prop("checked", true);
 	for (var k = 1; k <= 4; k++)
 	{
 		$("#chem" + k).prop("checked", false);
@@ -1467,6 +1822,7 @@ function reset()
 	$("#basicinserter").prop("checked", true);
 	$("#fastinserter").prop("checked", false);
 	$("#smartinserter").prop("checked", false);
+	$("#burnerinserter").prop("checked", false);
 	$("#asmspeed").val("0")
 	$("#asmprod").val("0")
 	$("#chemprod").val("0")
@@ -1475,14 +1831,22 @@ function reset()
 	$("#furprod").val("0")
 	$("#drillspeed").val("0")
 	$("#drillprod").val("0")
+	$("#moduleslvl").val("0")
 }
 
 function updateLevels()
 {
 	//if ($("#starter").is(":checked"))
 	{
+		var am_slots = 0
+		var fur_slots = 0
+		var chem_slots = 0
+		var drill_slots = 0
+		var formpress_slots = 0
+		var crasher_slots = 0
+		var centrifuge_slots = 6
 		if ($("#as1").is(":checked"))
-		{
+		{	
 			ams['am6'].name = "assembling-machine-1"
 			ams['am6'].speed = 0.5
 		}
@@ -1490,66 +1854,100 @@ function updateLevels()
 		{
 			ams['am6'].name = "assembling-machine-2"
 			ams['am6'].speed = 0.75
+			am_slots = 2
 		}
 		if ($("#as3").is(":checked"))
 		{
 			ams['am6'].name = "assembling-machine-3"
 			ams['am6'].speed = 1.25
+			am_slots = 3
 		}
 		if ($("#as4").is(":checked"))
 		{
 			ams['am6'].name = "assembling-machine-4"
 			ams['am6'].speed = 2
+			am_slots = 4
 		}
 		if ($("#as5").is(":checked"))
 		{
 			ams['am6'].name = "assembling-machine-5"
 			ams['am6'].speed = 2.75
+			am_slots = 5
 		}
 		if ($("#as6").is(":checked"))
 		{
 			ams['am6'].name = "assembling-machine-6"
 			ams['am6'].speed = 3.5
+			am_slots = 6
 		}
-		
+		if ($("#expansionbays").is(":checked"))
+		{
+			//ams['am6'].name = ams['am6'].name + "-beaconised"
+		}
 		if ($("#fur1").is(":checked"))
-		{
-			ams['electric_furnace'].name = "electric-furnace"
-			ams['electric_furnace'].speed = 2
-		}
-		if ($("#fur2").is(":checked"))
-		{
-			ams['electric_furnace'].name = "electric-chemical-mixing-furnace-2"
-			ams['electric_furnace'].speed = 4
-		}
-		if ($("#fur0").is(":checked"))
 		{
 			ams['electric_furnace'].name = "stone-furnace"
 			ams['electric_furnace'].speed = 1
-			if ($("#upgrade").is(":checked"))
-				ams['electric_furnace'].speed = 2
+		}
+		if ($("#fur2").is(":checked"))
+		{
+			ams['electric_furnace'].name = "steel-furnace"
+			ams['electric_furnace'].speed = 2
+		}
+		if ($("#fur3").is(":checked"))
+		{
+			ams['electric_furnace'].name = "electric-furnace"
+			ams['electric_furnace'].speed = 2
+			fur_slots = 2
+		}
+		if ($("#fur4").is(":checked"))
+		{
+			ams['electric_furnace'].name = "electric-furnace-2"
+			ams['electric_furnace'].speed = 3
+			fur_slots = 4
+		}
+		if ($("#fur5").is(":checked"))
+		{
+			ams['electric_furnace'].name = "electric-furnace-3"
+			ams['electric_furnace'].speed = 4
+			fur_slots = 6
+		}
+		if ($("#expansionbays").is(":checked"))
+		{
+			//ams['electric_furnace'].name = ams['electric_furnace'].name + "-beaconised"
 		}
 		if ($("#chem1").is(":checked"))
 		{
 			ams['chemical_plant'].name = "chemical-plant"
-			ams['chemical_plant'].speed = 1.25
+			ams['chemical_plant'].speed = 1
+			chem_slots = 3
 		}
 		if ($("#chem2").is(":checked"))
 		{
 			ams['chemical_plant'].name = "chemical-plant-2"
-			ams['chemical_plant'].speed = 2
+			ams['chemical_plant'].speed = 1.75
+			chem_slots = 4
 		}
 		if ($("#chem3").is(":checked"))
 		{
 			ams['chemical_plant'].name = "chemical-plant-3"
 			ams['chemical_plant'].speed = 2.75
+			chem_slots = 5
 		}
 		if ($("#chem4").is(":checked"))
 		{
 			ams['chemical_plant'].name = "chemical-plant-4"
 			ams['chemical_plant'].speed = 3.5
+			chem_slots = 6
 		}
-		
+		if ($("#expansionbays").is(":checked"))
+		{
+			//ams['chemical_plant'].name = ams['chemical_plant'].name + "-beaconised"
+		}
+		if ($("#burnerinserter").is(":checked"))
+		{
+			inserter_type = "burner-inserter"
+		}
 		if ($("#basicinserter").is(":checked"))
 		{
 			inserter_type = "inserter"
@@ -1560,38 +1958,82 @@ function updateLevels()
 		}
 		if ($("#smartinserter").is(":checked"))
 		{
-			inserter_type = "stack-inserter"
+			inserter_type = "express-inserter"
 		}
 		if ($("#drill1").is(":checked"))
 		{
 			ams['replicator5'].name = "electric-mining-drill"
 			ams['replicator5'].speed = 0.5
 			ams['replicator5'].mining_power = 3
+			drill_slots = 3
 		}
 		if ($("#drill2").is(":checked"))
 		{
 			ams['replicator5'].name = "bob-mining-drill-1"
 			ams['replicator5'].speed = 1
 			ams['replicator5'].mining_power = 4.5
+			drill_slots = 4
 		}
 		if ($("#drill3").is(":checked"))
 		{
 			ams['replicator5'].name = "bob-mining-drill-2"
 			ams['replicator5'].speed = 2
 			ams['replicator5'].mining_power = 6
+			drill_slots = 5
 		}
 		if ($("#drill4").is(":checked"))
 		{
 			ams['replicator5'].name = "bob-mining-drill-3"
-			ams['replicator5'].speed = 3
+			ams['replicator5'].speed = 4
 			ams['replicator5'].mining_power = 8
+			drill_slots = 6
 		}
 		if ($("#drill5").is(":checked"))
 		{
 			ams['replicator5'].name = "bob-mining-drill-4"
-			ams['replicator5'].speed = 4
+			ams['replicator5'].speed = 8
 			ams['replicator5'].mining_power = 10
+			drill_slots = 8
 		}
+		if ($("#beaconised").is(":checked"))
+		{
+			ams['replicator5'].name = ams['replicator5'].name + "-beaconised"
+		}
+		
+		/*if (($("#expansionbays").is(":checked")) || ($("#beaconised").is(":checked")))
+		{
+			var speed_module = 20 * parseInt($("#moduleslvl").val())
+			var prod_module = 5 * parseInt($("#moduleslvl").val())
+			//var prod_module = 20 * parseInt($("#moduleslvl").val())
+			$("#asmspeed").val(speed_module*12)
+			$("#chemspeed").val(speed_module*12)
+			$("#furspeed").val(speed_module*12)
+			$("#drillspeed").val(speed_module*12)
+			$("#asmprod").val(prod_module*am_slots)
+			$("#chemprod").val(prod_module*chem_slots)
+			$("#furprod").val(prod_module*fur_slots)
+			$("#drillprod").val(prod_module*drill_slots+parseInt($("#miningproductivity").val()))
+		}
+		else
+		{
+			var speed_module = 20 * parseInt($("#moduleslvl").val())
+			var prod_module = 5 * 0
+			$("#asmspeed").val(speed_module*am_slots)
+			$("#chemspeed").val(speed_module*chem_slots)
+			$("#furspeed").val(speed_module*fur_slots)
+			$("#drillspeed").val(speed_module*drill_slots+parseInt($("#miningproductivity").val()))
+			$("#asmprod").val(prod_module*am_slots)
+			$("#chemprod").val(prod_module*chem_slots)
+			$("#furprod").val(prod_module*fur_slots)
+			$("#drillprod").val(prod_module*drill_slots+parseInt($("#miningproductivity").val()))
+		}*/
+		//$("#savedata2").val(JSON.stringify(gzip_inflate($("#savedata").val())))
+		ams['centrifuge'].speed = 1;
+		ams['centrifuge'].productivity = 1 + (parseInt($( "#asmprod" ).val())/100)
+		ams['centrifuge'].speed = ams['centrifuge'].speed * (1 + (parseInt($( "#asmspeed" ).val())/100))
+		//alert(ams['centrifuge'].speed)
+		//alert(ams['centrifuge'].productivity)
+		
 		ams['am6'].productivity = 1 + (parseInt($( "#asmprod" ).val())/100)
 		ams['am6'].speed = ams['am6'].speed * (1 + (parseInt($( "#asmspeed" ).val())/100))
 		
@@ -1617,7 +2059,7 @@ function updateLevels()
 	changeFunc();
 	calc_total(table);
 
-	//if ($("#starter").is(":checked"))
+	/*if ($("#starter").is(":checked"))
 	{	
 		ams['am6'].name = "assembling-machine-6"
 		ams['am6'].productivity = 3.4
@@ -1630,7 +2072,8 @@ function updateLevels()
 		ams['electric_furnace'].speed = 4 * (1+19.2)
 		ams['replicator5'].productivity = 2.2
 		ams['replicator5'].speed = 16 * (1+38.4)
-	}
+	}*/
+	//$("#outputval").val(500)
 	//alert(Object.keys(items).length)
 }
 
@@ -1638,7 +2081,7 @@ function updateLevels()
 function buffer_all_the_things()
 {
 	var counter = 0;
-	var max_row = 20;
+	var max_col = 24;
 	var blueprint = new _blueprint("Buffers")
 	//blueprint.addIcon( items[item_id].id)
 	//blueprint.addInserter(inserter_type, new _position(1,-1), 0, items[item_id].id, 10000, "<")
@@ -1646,18 +2089,173 @@ function buffer_all_the_things()
 	for (var k in items_recipies1)
 	{
 		var buffer = new _requester(new _position(0,0))
-		buffer.addRequest(items[k].id, 99999)
+		buffer.addRequest(items[k].id, 0)
 		//multipleRequests(items_recipies1[item_id].ingredients, requester, input/10)
-		blueprint.addBuffer(buffer)
-		if (counter < max_row)
+		blueprint.addStorage(buffer)
+		if (counter < max_col)
 		{	counter++;
-			blueprint.moveBlueprint(-1,0);
+			blueprint.moveBlueprint(0,-1);
 		}
 		else
 		{
 			counter = 0;
-			blueprint.moveBlueprint(20,-1);
+			blueprint.moveBlueprint(-1,24);
 		}
+		/*switch (counter % 37) {
+		case 1:
+			blueprint.moveBlueprint(-2,0);
+			blueprint.addStorage(buffer)
+			break;
+		case 2:
+			blueprint.moveBlueprint(-1,0);
+			blueprint.addStorage(buffer)
+			break;
+		case 3:
+			blueprint.moveBlueprint(-1,0);
+			blueprint.addStorage(buffer)
+			break;
+		case 4:
+			blueprint.moveBlueprint(3,-1);
+			blueprint.addStorage(buffer)
+			break;
+		case 5:
+			blueprint.moveBlueprint(-1,0);
+			blueprint.addStorage(buffer)
+			break;
+		case 6:
+			blueprint.moveBlueprint(-1,0);
+			blueprint.addStorage(buffer)
+			break;
+		case 7:
+			blueprint.moveBlueprint(-1,0);
+			blueprint.addStorage(buffer)
+			break;
+		case 8:
+			blueprint.moveBlueprint(-1,0);
+			blueprint.addStorage(buffer)
+			break;
+		case 9:
+			blueprint.moveBlueprint(5,-1);
+			blueprint.addStorage(buffer)
+			break;
+		case 10:
+			blueprint.moveBlueprint(-1,0);
+			blueprint.addStorage(buffer)
+			break;
+		case 11:
+			blueprint.moveBlueprint(-1,0);
+			blueprint.addStorage(buffer)
+			break;
+		case 12:
+			blueprint.moveBlueprint(-1,0);
+			blueprint.addStorage(buffer)
+			break;
+		case 13:
+			blueprint.moveBlueprint(-1,0);
+			blueprint.addStorage(buffer)
+			break;
+		case 14:
+			blueprint.moveBlueprint(-1,0);
+			blueprint.addStorage(buffer)
+			break;
+		case 15:
+			blueprint.moveBlueprint(-1,0);
+			blueprint.addStorage(buffer)
+			break;
+		case 16:
+			blueprint.moveBlueprint(6,-1);
+			blueprint.addStorage(buffer)
+			break;
+		case 17:
+			blueprint.moveBlueprint(-1,0);
+			blueprint.addStorage(buffer)
+			break;
+		case 18:
+			blueprint.moveBlueprint(-1,0);
+			blueprint.addStorage(buffer)
+			break;
+		case 19:
+			blueprint.moveBlueprint(-1,0);
+			blueprint.addStorage(buffer)
+			break;
+		case 20:
+			blueprint.moveBlueprint(-1,0);
+			blueprint.addStorage(buffer)
+			break;
+		case 21:
+			blueprint.moveBlueprint(-1,0);
+			blueprint.addStorage(buffer)
+			break;
+		case 22:
+			blueprint.moveBlueprint(-1,0);
+			blueprint.addStorage(buffer)
+			break;
+		case 23:
+			blueprint.moveBlueprint(6,-1);
+			blueprint.addStorage(buffer)
+			break;
+		case 24:
+			blueprint.moveBlueprint(-1,0);
+			blueprint.addStorage(buffer)
+			break;
+		case 25:
+			blueprint.moveBlueprint(-1,0);
+			blueprint.addStorage(buffer)
+			break;
+		case 26:
+			blueprint.moveBlueprint(-1,0);
+			blueprint.addStorage(buffer)
+			break;
+		case 27:
+			blueprint.moveBlueprint(-1,0);
+			blueprint.addStorage(buffer)
+			break;
+		case 28:
+			blueprint.moveBlueprint(-1,0);
+			blueprint.addStorage(buffer)
+			break;
+		case 29:
+			blueprint.moveBlueprint(-1,0);
+			blueprint.addStorage(buffer)
+			break;
+		case 30:
+			blueprint.moveBlueprint(5,-1);
+			blueprint.addStorage(buffer)
+			break;
+		case 31:
+			blueprint.moveBlueprint(-1,0);
+			blueprint.addStorage(buffer)
+			break;
+		case 32:
+			blueprint.moveBlueprint(-1,0);
+			blueprint.addStorage(buffer)
+			break;
+		case 33:
+			blueprint.moveBlueprint(-1,0);
+			blueprint.addStorage(buffer)
+			break;
+		case 34:
+			blueprint.moveBlueprint(-1,0);
+			blueprint.addStorage(buffer)
+			break;
+		case 35:
+			blueprint.moveBlueprint(3,-1);
+			blueprint.addStorage(buffer)
+			break;
+		case 36:
+			blueprint.moveBlueprint(-1,0);
+			blueprint.addStorage(buffer)
+			break;
+		case 0:
+			blueprint.moveBlueprint(-1,0);
+			blueprint.addStorage(buffer)
+			blueprint.moveBlueprint(-3,6);
+			break;
+		}
+		counter++
+		//if (counter == 70) break;
+		*/
+		
 	}
 	$("#savedata").append("0" + gzip_deflate(blueprint) + "<br>")
 	return blueprint
@@ -1671,6 +2269,103 @@ function preLoad(_table)
 		table.push(selectedList[_table[k][0]])
 	}
 }
+
+function saveData()
+{
+    localStorage.clear()
+	let saveDataContainer = {}
+	for (var k = 1; k <= 6; k++)
+	{
+		saveDataContainer['Assembler' + k] = $("#as" + k).is(":checked")
+	}
+	for (var k = 1; k <= 5; k++)
+	{
+		saveDataContainer['Drill' + k] = $("#drill" + k).is(":checked")
+		saveDataContainer['Furnace' + k] = $("#fur" + k).is(":checked")
+	}
+	for (var k = 1; k <= 4; k++)
+	{
+		saveDataContainer['ChemPlant' + k] = $("#chem" + k).is(":checked")
+	}
+	saveDataContainer['BasicInserter'] = $("#basicinserter").is(":checked")
+	saveDataContainer['FastInserter'] = $("#fastinserter").is(":checked")
+	saveDataContainer['SmartInserter'] = $("#smartinserter").is(":checked")
+	saveDataContainer['BurnerInserter'] = $("#burnerinserter").is(":checked")
+    
+	saveDataContainer['Starter'] = $("#starter").is(":checked")
+	saveDataContainer['VeryStarter'] = $("#verystarter").is(":checked")
+	saveDataContainer['EndgameBlueprint'] = $("#endgameblueprint").is(":checked")
+	saveDataContainer['ExpansionBays'] = $("#expansionbays").is(":checked")
+	saveDataContainer['Beaconised'] = $("#beaconised").is(":checked")
+	
+	saveDataContainer['BlueprintRows'] = parseInt($("#blueprintrows").val())
+	saveDataContainer['ModulesLevel'] = parseInt($("#moduleslvl").val())
+	saveDataContainer['MiningProductivity'] = parseInt($("#miningproductivity").val())
+	saveDataContainer['Output'] = parseInt($("#outputval").val())
+	saveDataContainer['Input'] = parseInt($("#inputval").val())
+	saveDataContainer['ProductionTree'] = table
+	
+	saveDataContainer['AssSpeed'] = parseInt($("#asmspeed").val())
+	saveDataContainer['AssProd'] = parseInt($("#asmprod").val())
+	saveDataContainer['FurSpeed'] = parseInt($("#furspeed").val())
+	saveDataContainer['FurProd'] = parseInt($("#furprod").val())
+	saveDataContainer['ChemSpeed'] = parseInt($("#chemspeed").val())
+	saveDataContainer['ChemProd'] = parseInt($("#chemprod").val())
+	saveDataContainer['DrillSpeed'] = parseInt($("#drillspeed").val())
+	saveDataContainer['DrillProd'] = parseInt($("#drillprod").val())
+		
+	localStorage.setItem('saveDataContainer', JSON.stringify(saveDataContainer))
+	alert('Saved')
+}
+
+function loadData()
+{
+	let loadDataContainer = JSON.parse(localStorage.getItem('saveDataContainer'))
+	for (var k = 1; k <= 6; k++)
+	{
+		$("#as" + k).prop("checked", loadDataContainer['Assembler' + k]);
+	}
+	for (var k = 1; k <= 5; k++)
+	{
+		$("#drill" + k).prop("checked", loadDataContainer['Drill' + k]);
+		$("#fur" + k).prop("checked", loadDataContainer['Furnace' + k]);
+	}
+	for (var k = 1; k <= 4; k++)
+	{
+		$("#chem" + k).prop("checked", loadDataContainer['ChemPlant' + k]);
+	}
+	$("#basicinserter").prop("checked", loadDataContainer['BasicInserter']);
+	$("#fastinserter").prop("checked", loadDataContainer['FastInserter']);
+	$("#smartinserter").prop("checked", loadDataContainer['SmartInserter']);
+	$("#burnerinserter").prop("checked", loadDataContainer['BurnerInserter']);
+	$("#starter").prop("checked", loadDataContainer['Starter']);
+	$("#verystarter").prop("checked", loadDataContainer['VeryStarter']);
+	$("#endgameblueprint").prop("checked", loadDataContainer['EndgameBlueprint']);
+	$("#expansionbays").prop("checked", loadDataContainer['ExpansionBays']);
+	$("#beaconised").prop("checked", loadDataContainer['Beaconised']);
+	
+	$("#blueprintrows").val(loadDataContainer['BlueprintRows'])
+	$("#moduleslvl").val(loadDataContainer['ModulesLevel'])
+	$("#miningproductivity").val(loadDataContainer['MiningProductivity'])
+	$("#outputval").val(loadDataContainer['Output'])
+	$("#inputval").val(loadDataContainer['Input'])
+	
+	$("#asmspeed").val(loadDataContainer['AssSpeed'])
+	$("#asmprod").val(loadDataContainer['AssProd'])
+	$("#furspeed").val(loadDataContainer['FurSpeed'])
+	$("#furprod").val(loadDataContainer['FurProd'])
+	$("#chemspeed").val(loadDataContainer['ChemSpeed'])
+	$("#chemprod").val(loadDataContainer['ChemProd'])
+	$("#drillspeed").val(loadDataContainer['DrillSpeed'])
+	$("#drillprod").val(loadDataContainer['DrillProd'])
+	
+	//table = loadDataContainer['ProductionTree']
+	//printSelected()
+	selectedList = []
+	selectSpecific(loadDataContainer['ProductionTree'])
+	
+}
+
 
 var tick = 1/60
 var table = [];

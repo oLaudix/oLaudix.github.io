@@ -353,43 +353,34 @@ function clicks()
 	//for (x = 0; x < items.length; x++) { loadJSON(items[x]) }
 	$("#output").html("")	
 	$("#output2").html("")
-	var myTextBox = document.getElementById("output")
-	var value = $("#output").val();
-	//alert(value)
-	var string = "wowhead-tooltip-requirements"
-	//alert(string.length)
 	
-	//spell name
-	var search_start = value.indexOf("og:title\" content=")
-	var value2 = value.slice(search_start + 19, search_start + 100)
-	var spell_name = value2.slice(0, value2.indexOf("\""))
 	
-	//spell ID
-	var search_start = value.indexOf("og:url\" content=\"http://www.wowhead.com/spell=")
-	var value2 = value.slice(search_start + 46, search_start + 500)
-	var spell_id = value2.slice(0, value2.indexOf("/"))
-	//title="Global Cooldown">GCD</dfn></th><td>
-	//check passive
-	if (value.indexOf("Passive spell") > -1)
-		var spell_passive = "TRUE"
-	else
-		var spell_passive = "FALSE"
-		
-	//global cooldown
-	var search_start = value.indexOf("title=\"Global Cooldown\">GCD</dfn></th><td>")
-	var value2 = value.slice(search_start + 42, search_start + 500)
-	var spell_gcd = value2.slice(0, value2.indexOf(" "))
 	
-	//specialization
-	var search_start = value.indexOf("wowhead-tooltip-requirements")
-	var value2 = value.slice(search_start + 28, search_start + 100)
-	if (value2.indexOf("(") > -1)
-		var spell_spec = value2.slice(value2.indexOf("(") + 1, value2.indexOf(")"))
-	else
-		var spell_spec = "ALL"
-	$("#output2").html(spell_spec)
+	var text = "";
+	text += "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+	text += "<CheatTable>\n"
+	text += "  <CheatEntries>\n"
+	for (var i = 0; i < 8000; i = i+8)
+	{
+		text += "    <CheatEntry>\n"
+		text += "      <ID>195</ID>\n"
+		text += "      <Description>\"Capacity Booster\"</Description>\n"
+		text += "      <LastState Value=\"997\" RealAddress=\"2D73805E5B8\"/>\n"
+		text += "      <ShowAsSigned>0</ShowAsSigned>\n"
+		text += "      <VariableType>4 Bytes</VariableType>\n"
+		text += "      <Address>+" + i.toString(16) + "</Address>\n"
+		text += "      <Offsets>\n"
+		text += "        <Offset>itemQuantityOffset</Offset>\n"
+		text += "      </Offsets>\n"
+		text += "    </CheatEntry>\n"
+	}
+
+	text += "  </CheatEntries>\n"
+	text += "</CheatTable>\n"
 	
-	$("#output2").html(spell_name + "\t" + spell_id + "\t" + spell_gcd + "\t" + spell_passive + "\t" + spell_spec)
+	
+	
+	$("#output2").html(text)
 	copytext("output2")
 
 }

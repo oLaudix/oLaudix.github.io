@@ -1,0 +1,21 @@
+V0.17.0
+-Updated to work with 0.17.
+
+V0.16.3
+-Edited beacon's descriptions to show effect areas and module slots.
+-Beacons now cost more energy to run each tier - for balancing reasons.
+-Added Chinese localization.
+
+V0.16.2
+-Thanks to anarchyinc, i was able to remove the productivity limit placed by the devs.
+-Now the beacons should be able to give all recipes a productivity upgrade.
+
+V0.16.1
+-The costs to make all beacons are cut down, since those stupid devs "fixed" some irrelevant bugs in the latest 0.16.23 patch, and broke how they used to work. You can still put productivity modules in them, but only recipes that accept productivity upgrades would receive it.
+
+
+V0.15.3
+-Adjusted the cost of all recipes.
+
+V0.15.2
+-Fixed "unknown.key" problems in entity and tech names.
