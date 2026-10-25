@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 2981 — Close Combat | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-2981">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2980_Manifestation.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_2981_Close_Combat.html"><option value="Global_Game_AFK_Chapter_2981_Close_Combat.html" selected>2981 · Close Combat</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2982_Cooperation.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-2981" data-reading-anchor>
+<div class="chapter-num">Chapter 2981</div><h2 class="chapter-title">Close Combat</h2>
+<p class="source-identity">From Chinese Chapter 2982 · 近战</p>
+<article class="prose">
+<p data-reading-anchor id="ch2981-p001">“BOOM!!!!”</p>
+<p data-reading-anchor id="ch2981-p002">Sura caught Fang Heng in a momentary pause and concentrated all her strength into one punch.</p>
+<p data-reading-anchor id="ch2981-p003">“BANG!!!”</p>
+<p data-reading-anchor id="ch2981-p004">Fang Heng's entire right arm was smashed to pieces by the blow!</p>
+<p data-reading-anchor id="ch2981-p005">Yet a moment later, a strange power caused his arm to grow back and recover completely!</p>
+<p data-reading-anchor id="ch2981-p006">All contempt vanished from Sura's eyes, replaced by admiration. “Fang Heng, I'm surprised you lasted so long against my attacks using physical strength alone. But this is where it ends. If that's all you can do, you won't be able to keep me here. Why don't we call it quits...”</p>
+<p data-reading-anchor id="ch2981-p007">“Whoosh!!”</p>
+<p data-reading-anchor id="ch2981-p008">Sura suddenly froze in the middle of speaking.</p>
+<p data-reading-anchor id="ch2981-p009">What?</p>
+<p data-reading-anchor id="ch2981-p010">“Whoosh!!!”</p>
+<p data-reading-anchor id="ch2981-p011">The projection of a strange magic array appeared beneath Fang Heng's feet.</p>
+<p data-reading-anchor id="ch2981-p012">Dense black mist poured furiously from the array.</p>
+<p data-reading-anchor id="ch2981-p013">At almost the same instant, the surrounding space warped unnaturally. Thick vines and clusters of trees burst out of the array and the distorted space all around them!</p>
+<p data-reading-anchor id="ch2981-p014">What was that?</p>
+<p data-reading-anchor id="ch2981-p015">Surprise flickered in Sura's eyes.</p>
+<p data-reading-anchor id="ch2981-p016">Descent of the Tree Realm!!</p>
+<p data-reading-anchor id="ch2981-p017">This was the first time Fang Heng had used this move in the real world!</p>
+<p data-reading-anchor id="ch2981-p018">It worked almost exactly as it did in the game world.</p>
+<p data-reading-anchor id="ch2981-p019">Under the domain skill's influence, huge masses of trees instantly surrounded him.</p>
+<p data-reading-anchor id="ch2981-p020">The trees seemed alive and sent countless thorny vines stabbing toward Sura!</p>
+<p data-reading-anchor id="ch2981-p021">“Hmph!”</p>
+<p data-reading-anchor id="ch2981-p022">Sura snorted, clenched her right fist, and thrust it forward.</p>
+<p data-reading-anchor id="ch2981-p023">“BOOM! BOOM, BOOM!!!”</p>
+<p data-reading-anchor id="ch2981-p024">The force of that single punch shattered every vine of Abe Akaya that had lunged at her!</p>
+<p data-reading-anchor id="ch2981-p025">By now, the various races that had scattered across the area sensed something unusual and looked toward the Crocodile Clan ships.</p>
+<p data-reading-anchor id="ch2981-p026">Crocodile Clan members aboard several nearby vessels were particularly stunned.</p>
+<p data-reading-anchor id="ch2981-p027">What the hell?</p>
+<p data-reading-anchor id="ch2981-p028">Green vines and roots were suddenly growing from every window and crack in one of their own ships.</p>
+<p data-reading-anchor id="ch2981-p029">The Crocodile Clan guards all looked toward the supreme commander of their fleet.</p>
+<p data-reading-anchor id="ch2981-p030">“What's going on?”</p>
+<p data-reading-anchor id="ch2981-p031">The fleet captain was dumbfounded too.</p>
+<p data-reading-anchor id="ch2981-p032">That was clearly a ship under his command.</p>
+<p data-reading-anchor id="ch2981-p033">What was happening aboard it?</p>
+<p data-reading-anchor id="ch2981-p034">Before the commander could order anyone over to investigate, two consecutive explosions rang out.</p>
+<p data-reading-anchor id="ch2981-p035">“BOOM! BOOM!!!”</p>
+<p data-reading-anchor id="ch2981-p036">With two muffled blasts, two figures shot up through the top of the vine-covered starship.</p>
+<p data-reading-anchor id="ch2981-p037">A moment later, dense vines heaved the entire roof of the ship's cabin up and tore it open!</p>
+<p data-reading-anchor id="ch2981-p038">Everyone stared at the two dark figures launched from the ship.</p>
+<p data-reading-anchor id="ch2981-p039">Who were they?</p>
+<p data-reading-anchor id="ch2981-p040">Vines and roots surged toward the pair, enclosing both combatants in their midst.</p>
+<p data-reading-anchor id="ch2981-p041">Their explosive speed, coupled with the mass of roots and vines, made it impossible for the Crocodile Clan to see what was happening. They could barely make out two figures fighting inside the vegetation.</p>
+<p data-reading-anchor id="ch2981-p042">“BOOM!!!”</p>
+<p data-reading-anchor id="ch2981-p043">Sura's eyes widened with astonishment.</p>
+<p data-reading-anchor id="ch2981-p044">Fang Heng had suddenly vanished before her eyes.</p>
+<p data-reading-anchor id="ch2981-p045">What?!</p>
+<p data-reading-anchor id="ch2981-p046">He could increase his speed even further?!</p>
+<p data-reading-anchor id="ch2981-p047">To the point where even she couldn't follow him for an instant?</p>
+<p data-reading-anchor id="ch2981-p048">To the right!</p>
+<p data-reading-anchor id="ch2981-p049">Alarm flashed through Sura's mind.</p>
+<p data-reading-anchor id="ch2981-p050">He could still change direction so nimbly at such speed?</p>
+<p data-reading-anchor id="ch2981-p051">BOOM!!!</p>
+<p data-reading-anchor id="ch2981-p052">A fist smashed straight into Sura's cheek!</p>
+<p data-reading-anchor id="ch2981-p053">Her entire head exploded, and her body was sent flying!</p>
+<p data-reading-anchor id="ch2981-p054">While she was still airborne, fine worms twisted and stretched out from her severed neck, rapidly rebuilding her head. She turned toward Fang Heng, her expression grim.</p>
+<p data-reading-anchor id="ch2981-p055">He was moving so fast that she could barely track him; she had to rely on her senses to locate him.</p>
+<p data-reading-anchor id="ch2981-p056">It wasn't just his speed. His strength had increased explosively too.</p>
+<p data-reading-anchor id="ch2981-p057">But the surges seemed to come in bursts rather than remain constant.</p>
+<p data-reading-anchor id="ch2981-p058">How was he doing that?</p>
+<p data-reading-anchor id="ch2981-p059">Some special skill?</p>
+<p data-reading-anchor id="ch2981-p060">Sura studied Fang Heng.</p>
+<p data-reading-anchor id="ch2981-p061">Fang Heng narrowed his eyes and examined Sura as well.</p>
+<p data-reading-anchor id="ch2981-p062">Her regeneration was every bit as terrifying as his. Like him, she was almost impossible to kill.</p>
+<p data-reading-anchor id="ch2981-p063">Then let's go again!</p>
+<p data-reading-anchor id="ch2981-p064">Annual Rings—Acceleration!</p>
+<p data-reading-anchor id="ch2981-p065">Whoosh!!!</p>
+<p data-reading-anchor id="ch2981-p066">Fang Heng became a dark blur again, almost disappearing in midair!</p>
+<p data-reading-anchor id="ch2981-p067">Sura's pupils contracted. She immediately expanded her senses to search for him.</p>
+<p data-reading-anchor id="ch2981-p068">“BANG!!!”</p>
+<p data-reading-anchor id="ch2981-p069">Behind her this time!</p>
+<p data-reading-anchor id="ch2981-p070">“BOOM!!!!”</p>
+<p data-reading-anchor id="ch2981-p071">Even though Sura sensed Fang Heng's position in advance, she reacted a moment too late. His blow split her body into two pieces!</p>
+<p data-reading-anchor id="ch2981-p072">The tide turned in an instant. Fang Heng attacked Sura again and again, blowing her apart in midair, only for her body to reassemble and regenerate each time.</p>
+<p data-reading-anchor id="ch2981-p073">Whoosh!</p>
+<p data-reading-anchor id="ch2981-p074">After regenerating yet again, anger flashed through Sura's eyes. “Fang Heng, I'll show you my trump card!”</p>
+<p data-reading-anchor id="ch2981-p075">Whoosh!!</p>
+<p data-reading-anchor id="ch2981-p076">Sura's speed also surged once more!</p>
+<p data-reading-anchor id="ch2981-p077">Hm?</p>
+<p data-reading-anchor id="ch2981-p078">She actually blocked him?!</p>
+<p data-reading-anchor id="ch2981-p079">Surprise flickered in Fang Heng's eyes as he threw another punch.</p>
+<p data-reading-anchor id="ch2981-p080">“BOOM!!!”</p>
+<p data-reading-anchor id="ch2981-p081">The tremendous collision blasted apart Fang Heng's right arm and Sura's left arm!</p>
+<p data-reading-anchor id="ch2981-p082">Heh!</p>
+<p data-reading-anchor id="ch2981-p083">So that was all.</p>
+<p data-reading-anchor id="ch2981-p084">Again!</p>
+<p data-reading-anchor id="ch2981-p085">They clashed over and over, their bodies exploding into masses of flesh in midair, then recovering through their monstrous regenerative abilities before slamming into each other once more!</p>
+<p data-reading-anchor id="ch2981-p086">“BREAK!”</p>
+<p data-reading-anchor id="ch2981-p087">Fang Heng roared and drove his right fist forward, smashing Sura's head apart again!</p>
+<p data-reading-anchor id="ch2981-p088">At the same time, Sura punched a huge hole through Fang Heng's chest where his heart was!</p>
+<p data-reading-anchor id="ch2981-p089">Both were hurled backward!</p>
+<p data-reading-anchor id="ch2981-p090">“Abe Akaya!”</p>
+<p data-reading-anchor id="ch2981-p091">BANG!!!</p>
+<p data-reading-anchor id="ch2981-p092">As Sura flew through the air and her shattered head began to heal, dense vines of Abe Akaya surged toward her from the ground. They bound her body tightly, wrapped around her layer after layer, then yanked her violently down into the earth!</p>
+<p data-reading-anchor id="ch2981-p093">“Haah!”</p>
+<p data-reading-anchor id="ch2981-p094">Fang Heng landed at the same time, gasping for breath. The hole in his chest closed rapidly. He looked up, staring at Sura, now pinned down by Abe Akaya and the World of Ten Thousand Forests.</p>
+<p data-reading-anchor id="ch2981-p095">“Bang! Bang, bang, bang!!!”</p>
+<p data-reading-anchor id="ch2981-p096">A deep impact rang out.</p>
+<p data-reading-anchor id="ch2981-p097">A circular crater nearly a hundred meters across suddenly exploded into the ground.</p>
+<p data-reading-anchor id="ch2981-p098">Sura stood at its center, drenched in blood, but her wounds had already begun healing at astonishing speed.</p>
+<p data-reading-anchor id="ch2981-p099">She still wasn't dead!</p>
+<p data-reading-anchor id="ch2981-p100">“Then try this!”</p>
+<p data-reading-anchor id="ch2981-p101">Seeing the World of Ten Thousand Forests approaching its limit, Fang Heng abruptly raised a hand toward Sura.</p>
+<p data-reading-anchor id="ch2981-p102">Having expended so much regenerative power, Sura was already at the end of her strength. She was about to attack again when her expression suddenly changed.</p>
+<p data-reading-anchor id="ch2981-p103">What was that?</p>
+<p data-reading-anchor id="ch2981-p104">The power of blood?</p>
+<p data-reading-anchor id="ch2981-p105">Sura's face changed. She discovered that some of her regeneration had been suppressed. Instead of coagulating and healing, the blood in her wounds grew hot and continued pouring out.</p>
+<p data-reading-anchor id="ch2981-p106">At the same time, a gray, gloomy aura rose from the spilled blood.</p>
+<p data-reading-anchor id="ch2981-p107">Aging, decay...</p>
+<p data-reading-anchor id="ch2981-p108">That aura was rapidly destroying her body.</p>
+<p data-reading-anchor id="ch2981-p109">Whatever it was, this power was particularly effective against her.</p>
+<p data-reading-anchor id="ch2981-p110">A long-range magical ability?</p>
+<p data-reading-anchor id="ch2981-p111">Sura raised her head toward Fang Heng. Her sharp gaze gradually softened, and a flicker of resignation appeared in her eyes.</p>
+</article>
+<p class="end" data-reading-anchor id="ch2981-end">— End of Chapter 2981 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Original Chinese Chapter 2982: 近战. English Chapter 2981: Close Combat. Narrative paragraphs: 111/111.</li><li>The source uses 树界降临 and later 万森之界. These are rendered as Descent of the Tree Realm and World of Ten Thousand Forests, rather than inventing a separate new character.</li><li>Annual Rings—Acceleration is the established speed technique; source attack punctuation is retained in translation.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_2980_Manifestation.html#start">← Previous</a><a href="Global_Game_AFK_Chapter_2982_Cooperation.html#start" class="next">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

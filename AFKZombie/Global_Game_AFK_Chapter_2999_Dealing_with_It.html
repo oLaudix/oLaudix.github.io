@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 2999 — Dealing with It | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-2999">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2998_Assistance.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_2999_Dealing_with_It.html"><option value="Global_Game_AFK_Chapter_2999_Dealing_with_It.html" selected>2999 · Dealing with It</option></select>
+<span class="toolbtn jump-link disabled" aria-disabled="true">›</span>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-2999" data-reading-anchor>
+<div class="chapter-num">Chapter 2999</div><h2 class="chapter-title">Dealing with It</h2>
+<p class="source-identity">From Chinese Chapter 3000 · 处理</p>
+<article class="prose">
+<p data-reading-anchor id="ch2999-p001">Under the continuous burning of sacred fire, the corrupted matter composing the Ouroboros Seed was completely reduced to ashes.</p>
+<p data-reading-anchor id="ch2999-p002">Fang Heng waved a hand, and a gray cocoon flew out from the embers.</p>
+<p data-reading-anchor id="ch2999-p003">“Hiss...”</p>
+<p data-reading-anchor id="ch2999-p004">A fissure opened in his palm and quickly swallowed the cocoon.</p>
+<p data-reading-anchor id="ch2999-p005" class="game">[Game Hint: You have killed the Ouroboros Seed—Haye.]</p>
+<p data-reading-anchor id="ch2999-p006" class="game">[Game Hint: You have obtained an Ouroboros Seed (High-Tier) (Damaged) (Fusion in progress).]</p>
+<p data-reading-anchor id="ch2999-p007" class="game">[Game Hint: You may directly fuse this Ouroboros Seed to obtain skill EXP, or consume it to obtain the special optional modification—Attribute Absorption.]</p>
+<p data-reading-anchor id="ch2999-p008">[Skill: Attribute Absorption.]</p>
+<p data-reading-anchor id="ch2999-p009">Skill Description: Attacks can absorb enemy attributes for your own use. Each attack that damages an enemy absorbs a small amount of that enemy's attribute points. (Absorbed attributes are retained for 8 hours.) (Absorbed attributes can stack, up to a total of 30% of the original body's highest attribute.)</p>
+<p data-reading-anchor id="ch2999-p010">Special Note: This skill consumes 2 vacant modification slots.</p>
+<p data-reading-anchor id="ch2999-p011">Fang Heng quickly read the new cocoon's description and fell into thought.</p>
+<p data-reading-anchor id="ch2999-p012">Another cocoon undergoing fusion. He could choose between an optional skill modification and converting it directly into skill experience.</p>
+<p data-reading-anchor id="ch2999-p013">Attribute Absorption looked very promising. It was clearly the special power of the Ouroboros Seed he'd just encountered.</p>
+<p data-reading-anchor id="ch2999-p014">At first glance, each attack absorbed only a tiny amount, and there was a cap on how much a single body could absorb.</p>
+<p data-reading-anchor id="ch2999-p015">But on second thought, he had an enormous number of zombie clones!</p>
+<p data-reading-anchor id="ch2999-p016">Ideally, in a large-scale battle with many combatants on both sides, his zombie army could gradually gain an extra thirty percent in overall attributes through Attribute Absorption.</p>
+<p data-reading-anchor id="ch2999-p017">And it could work even better when an entire group attacked a single boss or leader-class creature!</p>
+<p data-reading-anchor id="ch2999-p018">All he'd need was for a swarm of Lickers to rush in and bite away. The boss's attributes would decline, and under ideal conditions, they might even drain every last attribute point from it!</p>
+<p data-reading-anchor id="ch2999-p019">Especially when combined with the zombie swarm's Division effect.</p>
+<p data-reading-anchor id="ch2999-p020">Still, the price of two modification slots really was steep.</p>
+<p data-reading-anchor id="ch2999-p021">That left him short on available slots again.</p>
+<p data-reading-anchor id="ch2999-p022">Fang Heng considered the trade-off and chose to retain the skill.</p>
+<p data-reading-anchor id="ch2999-p023">“Greetings, Grand Sage.”</p>
+<p data-reading-anchor id="ch2999-p024">Archbishop Whiteman and the Holy Court believers approached and bowed together.</p>
+<p data-reading-anchor id="ch2999-p025">If any doubts had remained, seeing the Grand Sage's signature Divine Punishment technique had erased them completely.</p>
+<p data-reading-anchor id="ch2999-p026">Whiteman marveled at Fang Heng's youth.</p>
+<p data-reading-anchor id="ch2999-p027">He'd heard recently that Fang Bai, a Grand Sage from the Divine Realm, had arrived in their world. He'd never imagined meeting him under such circumstances.</p>
+<p data-reading-anchor id="ch2999-p028">And the Grand Sage's power far exceeded their expectations.</p>
+<p data-reading-anchor id="ch2999-p029">He'd single-handedly eliminated the terrifying Calamity creature.</p>
+<p data-reading-anchor id="ch2999-p030">The Holy Court's reputation and influence in the real world had declined sharply of late, and its relationship with the Western Federation was strained. The arrival of the newly advanced Grand Sage Fang Bai greatly bolstered the real-world Holy Court's confidence.</p>
+<p data-reading-anchor id="ch2999-p031">“Rise, everyone.”</p>
+<p data-reading-anchor id="ch2999-p032">Fang Heng looked across the believers and finally settled his gaze on Whiteman. He nodded. “Tell me what's going on. How did you end up here?”</p>
+<p data-reading-anchor id="ch2999-p033">“Yes, Grand Sage.”</p>
+<p data-reading-anchor id="ch2999-p034">Whiteman stood and explained from the beginning. “The Holy Court has maintained close cooperation with the Central Federation. Not long ago, news of the Keys of Apocalypse began spreading, and the Central Federation invited us to assist in the exploration of the Land of Apocalypse...”</p>
+<p data-reading-anchor id="ch2999-p035">Fang Heng found something strange in the explanation. “And where did the Federation learn the location of the Apocalypse treasure?”</p>
+<p data-reading-anchor id="ch2999-p036">“We don't know. They never mentioned that.”</p>
+<p data-reading-anchor id="ch2999-p037">“Where are the Central Federation people? They left you behind and ran?”</p>
+<p data-reading-anchor id="ch2999-p038">“After the Calamity's seal was broken, the Key of Apocalypse produced unusual fluctuations and offered guidance. We chose to remain here and temporarily suppress the Calamity's power to buy everyone time. The Central Federation team went ahead toward the indicated area.”</p>
+<p data-reading-anchor id="ch2999-p039">Hearing this, Fang Heng pulled his Key of Apocalypse from his backpack.</p>
+<p data-reading-anchor id="ch2999-p040">Hummm...</p>
+<p data-reading-anchor id="ch2999-p041">Just as Whiteman said, the key glowed faintly and floated into the air. Its tip pointed toward the labyrinth corridor behind the group.</p>
+<p data-reading-anchor id="ch2999-p042">“Let's go take a look.”</p>
+<p data-reading-anchor id="ch2999-p043">“Yes, Grand Sage!”</p>
+<p data-reading-anchor id="ch2999-p044" class="scene">...</p>
+<p data-reading-anchor id="ch2999-p045">The ice-crystal labyrinth.</p>
+<p data-reading-anchor id="ch2999-p046">It wasn't only Luo Ao's Central Federation team. Almost every player team's Key of Apocalypse had begun offering directions, guiding them toward a particular location inside the maze.</p>
+<p data-reading-anchor id="ch2999-p047">Most teams were already advancing along the indicated route.</p>
+<p data-reading-anchor id="ch2999-p048">As Archbishop Whiteman and his companions followed Fang Heng, they became even more astonished by his strength.</p>
+<p data-reading-anchor id="ch2999-p049">Fang Heng practically jogged at the front. Along the way, Ice Crystal Puppets were blown apart before they had even finished forming.</p>
+<p data-reading-anchor id="ch2999-p050">Everyone else had to speed up just to keep pace.</p>
+<p data-reading-anchor id="ch2999-p051">Eventually, the key guided them into another ice-crystal trial hall.</p>
+<p data-reading-anchor id="ch2999-p052">The sound of intense fighting came from ahead.</p>
+<p data-reading-anchor id="ch2999-p053">Fang Heng gestured for the Holy Court group to slow down. They entered the hall and observed from a distance.</p>
+<p data-reading-anchor id="ch2999-p054">What a coincidence.</p>
+<p data-reading-anchor id="ch2999-p055">Were those Eastern Federation players?</p>
+<p data-reading-anchor id="ch2999-p056">Chen Yu and more than fifty Eastern Federation players were trapped near the center of the trial hall.</p>
+<p data-reading-anchor id="ch2999-p057">“Whoosh! Whoosh, whoosh!!!”</p>
+<p data-reading-anchor id="ch2999-p058">White orb-like creatures moving as fast as lightning repeatedly emerged from flickering points in space and lunged at the players.</p>
+<p data-reading-anchor id="ch2999-p059">Chen Yu's team was far from weak, but against these elusive spheres, it could gain little advantage. Most of the time, the players could only defend passively, with very limited ways to attack.</p>
+<p data-reading-anchor id="ch2999-p060">Fang Heng narrowed his eyes and studied the glowing orb creatures.</p>
+<p data-reading-anchor id="ch2999-p061">So these were spatial abilities.</p>
+<p data-reading-anchor id="ch2999-p062">The creatures could rapidly leap in and out of Secondary Space Projection, moving at tremendous speed as they attacked the Eastern Federation players from unexpected directions.</p>
+<p data-reading-anchor id="ch2999-p063">This apparently was another trial area like those he'd encountered before.</p>
+<p data-reading-anchor id="ch2999-p064">This time, however, it tested spatial power.</p>
+<p data-reading-anchor id="ch2999-p065">Even a rare discipline like Spatial Studies appeared here.</p>
+<p data-reading-anchor id="ch2999-p066">Fang Heng considered this and focused on the ice-crystal pillar at the center of the hall.</p>
+<p data-reading-anchor id="ch2999-p067">“Grand Sage, look over there.”</p>
+<p data-reading-anchor id="ch2999-p068">Whiteman pointed toward a nearby passage.</p>
+<p data-reading-anchor id="ch2999-p069">A player squad entering the trial area from the right noticed that all the monsters were occupied with Chen Yu's Eastern Federation team. They cautiously followed the wall, taking a wide detour around the trapped players, avoiding the spheres' attacks, and leaving the hall.</p>
+<p data-reading-anchor id="ch2999-p070">Fang Heng looked down at the key hanging at his chest.</p>
+<p data-reading-anchor id="ch2999-p071">The Key of Apocalypse pointed forward.</p>
+<p data-reading-anchor id="ch2999-p072">So those players had simply gone around the fight.</p>
+<p data-reading-anchor id="ch2999-p073">“Grand Sage, should we...?”</p>
+<p data-reading-anchor id="ch2999-p074">While the Holy Court observed the Eastern Federation, the Eastern Federation team noticed the Holy Court group watching from a distance as well.</p>
+<p data-reading-anchor id="ch2999-p075">A bad feeling rose in the heart of Yi Qingzhi, the Eastern Federation team leader.</p>
+<p data-reading-anchor id="ch2999-p076">The Holy Court and the Eastern Federation had never gotten along.</p>
+<p data-reading-anchor id="ch2999-p077">The main dispute concerned religion.</p>
+<p data-reading-anchor id="ch2999-p078">The Eastern Federation was generally unreceptive to organized religions and had repeatedly rejected Holy Court demands to spread its faith.</p>
+<p data-reading-anchor id="ch2999-p079">Yi Qingzhi didn't expect the Holy Court to help. He only hoped they wouldn't kick his people while they were down and make matters worse.</p>
+<p data-reading-anchor id="ch2999-p080">But the Holy Court members simply stood there and wouldn't leave.</p>
+<p data-reading-anchor id="ch2999-p081">Fighting the spatial creatures was already stressful enough. With the Holy Court watching from the sidelines, the Eastern Federation players felt even greater pressure.</p>
+</article>
+<p class="end" data-reading-anchor id="ch2999-end">— End of Chapter 2999 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Original Chinese Chapter 3000: 处理. English Chapter 2999: Dealing with It. Narrative paragraphs: 81/81.</li><li>The Attribute Absorption modification costs two slots, lasts eight hours and has a thirty-percent attribute cap.</li><li>Whiteman addresses Fang Heng as Grand Sage under the Fang Bai identity; Fang Bai remains distinct from Demon Seed Bai Mu.</li><li>The final source paragraph names Eastern Federation leader Yi Qingzhi; Chen Yu is also part of the group, so neither name is overwritten.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_2998_Assistance.html#start">← Previous</a><span class="next" aria-disabled="true">Next →</span></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

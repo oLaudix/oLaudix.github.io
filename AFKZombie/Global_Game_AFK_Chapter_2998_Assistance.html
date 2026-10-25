@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 2998 — Assistance | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-2998">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2997_Trap.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_2998_Assistance.html"><option value="Global_Game_AFK_Chapter_2998_Assistance.html" selected>2998 · Assistance</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2999_Dealing_with_It.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-2998" data-reading-anchor>
+<div class="chapter-num">Chapter 2998</div><h2 class="chapter-title">Assistance</h2>
+<p class="source-identity">From Chinese Chapter 2999 · 协助</p>
+<article class="prose">
+<p data-reading-anchor id="ch2998-p001">Luo Ao didn't think about it further, nor did he have time. His gaze swept past Fang Heng, and he immediately led the squad after the directions indicated by the Key of Apocalypse.</p>
+<p data-reading-anchor id="ch2998-p002">Fang Heng likewise glanced quickly over Luo Ao and the others.</p>
+<p data-reading-anchor id="ch2998-p003">Heh.</p>
+<p data-reading-anchor id="ch2998-p004">So when they couldn't win, they ran away?</p>
+<p data-reading-anchor id="ch2998-p005">As usual, they left the mess for someone else to clean up.</p>
+<p data-reading-anchor id="ch2998-p006">It was a little strange, though. Since when did Holy Court members volunteer to stay behind and cover a retreat?</p>
+<p data-reading-anchor id="ch2998-p007">Fang Heng rolled his shoulders lightly.</p>
+<p data-reading-anchor id="ch2998-p008">Very well.</p>
+<p data-reading-anchor id="ch2998-p009">The Ouroboros Seed was already trapped. What was he waiting for?</p>
+<p data-reading-anchor id="ch2998-p010">“Whoosh!”</p>
+<p data-reading-anchor id="ch2998-p011">Fang Heng pushed lightly off the ground, switched into his sacred form, and became a dark streak, rushing toward the restrained beetle-like Ouroboros Seed.</p>
+<p data-reading-anchor id="ch2998-p012">Archbishop Whiteman and the Holy Court group had noticed Fang Heng appearing behind them some time ago.</p>
+<p data-reading-anchor id="ch2998-p013">They'd assumed he was just an ordinary player passing through. When his aura suddenly erupted and he charged toward them, they were stunned.</p>
+<p data-reading-anchor id="ch2998-p014">What the hell?!</p>
+<p data-reading-anchor id="ch2998-p015">What was wrong with this guy?</p>
+<p data-reading-anchor id="ch2998-p016">Whiteman had already concluded that with their current abilities, they could not defeat the Calamity Seed.</p>
+<p data-reading-anchor id="ch2998-p017">Fortunately, the Seed had shown exceptionally strong defenses but relatively limited attacking power.</p>
+<p data-reading-anchor id="ch2998-p018">Their plan was to restrain it temporarily with Sacred Sealing Imprisonment, wear it down, slow its advance, and find a way to weaken it.</p>
+<p data-reading-anchor id="ch2998-p019">But Fang Heng's arrival completely upset that balance.</p>
+<p data-reading-anchor id="ch2998-p020">As he charged in, the sacred sealing skill began fluctuating violently and its restraining power dropped sharply.</p>
+<p data-reading-anchor id="ch2998-p021">“BOOM!!!”</p>
+<p data-reading-anchor id="ch2998-p022">What?!</p>
+<p data-reading-anchor id="ch2998-p023">The next instant, the Holy Court players' expressions changed drastically as they sensed the sacred power suddenly erupting from Fang Heng.</p>
+<p data-reading-anchor id="ch2998-p024">It was actually sacred power!</p>
+<p data-reading-anchor id="ch2998-p025">The enormous sacred energy he released instantly disrupted Sacred Sealing Imprisonment, then concentrated at a single point and burst toward the beetle cluster.</p>
+<p data-reading-anchor id="ch2998-p026">“Shattering Strike!”</p>
+<p data-reading-anchor id="ch2998-p027">“Whoosh!”</p>
+<p data-reading-anchor id="ch2998-p028">With a piercing shriek, a golden streak of light flashed before everyone's eyes!</p>
+<p data-reading-anchor id="ch2998-p029">“BOOM!!!”</p>
+<p data-reading-anchor id="ch2998-p030">The sacred golden radiance struck the beetles' outer shell, punched through it in an instant, and exploded the entire carapace. A dark figure shot out from the shattered shell and was hurled violently backward.</p>
+<p data-reading-anchor id="ch2998-p031">Under the powerful sacred shock wave, Sacred Sealing Imprisonment lost stability and dissipated.</p>
+<p data-reading-anchor id="ch2998-p032">Every Holy Court player turned toward Fang Heng with a look of disbelief.</p>
+<p data-reading-anchor id="ch2998-p033">That immensely powerful fluctuation of sacred energy...</p>
+<p data-reading-anchor id="ch2998-p034">He belonged to the Holy Court!</p>
+<p data-reading-anchor id="ch2998-p035">And he'd shattered the entire beetle aggregate in a single attack!</p>
+<p data-reading-anchor id="ch2998-p036">With just that one strike, everyone understood that his strength exceeded that of any one of them!</p>
+<p data-reading-anchor id="ch2998-p037">Archbishop Whiteman stared fixedly at Fang Heng.</p>
+<p data-reading-anchor id="ch2998-p038">“Whoosh!”</p>
+<p data-reading-anchor id="ch2998-p039">Having landed his first blow, Fang Heng became a dark blur and quickly pursued the Ouroboros Seed figure thrown from the beetle shell.</p>
+<p data-reading-anchor id="ch2998-p040">Shattering Strike's damage depended on the remaining energy of his Sacred Shield. Therefore its first use, when the shield was full, produced maximum damage and destroyed the beetle cluster in one blow.</p>
+<p data-reading-anchor id="ch2998-p041">“THUD!!!”</p>
+<p data-reading-anchor id="ch2998-p042">The figure revealed inside the beetle swarm was still more than half decayed. Haye's body flew backward and struck the icy wall with a heavy crash.</p>
+<p data-reading-anchor id="ch2998-p043">Dense masses of beetles immediately converged from every direction, trying to gather around Haye again. At the same time, he slowly raised his head and lifted a hand.</p>
+<p data-reading-anchor id="ch2998-p044">Whiteman's heart lurched. “Careful!!”</p>
+<p data-reading-anchor id="ch2998-p045">“Whoosh! Whoosh, whoosh, whoosh!!!”</p>
+<p data-reading-anchor id="ch2998-p046">Sticky black corruption clinging to Haye's body shot violently outward!</p>
+<p data-reading-anchor id="ch2998-p047">Every lump carried terrifying corrosive and poisonous effects.</p>
+<p data-reading-anchor id="ch2998-p048">Whoosh!</p>
+<p data-reading-anchor id="ch2998-p049">Fang Heng abruptly vanished in midair.</p>
+<p data-reading-anchor id="ch2998-p050">Secondary Space Projection!</p>
+<p data-reading-anchor id="ch2998-p051">By the time he reappeared, he was at the right side of Haye's rotting body.</p>
+<p data-reading-anchor id="ch2998-p052">BANG!!!</p>
+<p data-reading-anchor id="ch2998-p053">He threw a punch!</p>
+<p data-reading-anchor id="ch2998-p054">The beetles that had just gathered around the rotten flesh shattered again!</p>
+<p data-reading-anchor id="ch2998-p055">Fang Heng reached forward and grabbed, driving his right hand straight through the corruption covering Haye. Fierce sizzling sounds immediately came from his hand as the substance corroded it.</p>
+<p data-reading-anchor id="ch2998-p056">Hm?</p>
+<p data-reading-anchor id="ch2998-p057">Fang Heng frowned. It was faint, but he could sense that the decaying substance was absorbing some of his power.</p>
+<p data-reading-anchor id="ch2998-p058">“Be careful! Don't touch him directly! Attacking at close range will only let him absorb your attributes and abilities!”</p>
+<p data-reading-anchor id="ch2998-p059">Attribute absorption?</p>
+<p data-reading-anchor id="ch2998-p060">Was that this creature's special ability?</p>
+<p data-reading-anchor id="ch2998-p061">Fang Heng understood at once.</p>
+<p data-reading-anchor id="ch2998-p062">No wonder the fellow seemed so weak apart from his exceptionally hard shell.</p>
+<p data-reading-anchor id="ch2998-p063">Apparently this was an Ouroboros Seed evolved in the direction of a special ability.</p>
+<p data-reading-anchor id="ch2998-p064">In that case...</p>
+<p data-reading-anchor id="ch2998-p065">“BANG!!”</p>
+<p data-reading-anchor id="ch2998-p066">Fang Heng flung Haye away with tremendous force, slamming him into the icy wall again. He then raised a hand and pointed at him.</p>
+<p data-reading-anchor id="ch2998-p067">Haye was immediately caught by Divine Punishment's power, his body slowly rising into the air against his will.</p>
+<p data-reading-anchor id="ch2998-p068">Fang Heng narrowed his eyes.</p>
+<p data-reading-anchor id="ch2998-p069">“Divine Punishment!”</p>
+<p data-reading-anchor id="ch2998-p070">BOOM!!</p>
+<p data-reading-anchor id="ch2998-p071">A deep-purple lightning bolt crashed down from above!</p>
+<p data-reading-anchor id="ch2998-p072">Part of the filthy sludge coating the Ouroboros Seed was purified and dispersed by the sacred strike. More rotten slime peeled from its blackened body, gradually revealing the dark-brown skeleton within.</p>
+<p data-reading-anchor id="ch2998-p073">Although Fang Heng's Sacred Studies had not advanced correspondingly, his overall Mental Strength had soared after his Super-Divine-Level Necromancy advancement, greatly enhancing Divine Punishment as well!</p>
+<p data-reading-anchor id="ch2998-p074">Heh...</p>
+<p data-reading-anchor id="ch2998-p075">Fang Heng could sense that a single Divine Punishment strike had already dealt severe damage to the Ouroboros Seed.</p>
+<p data-reading-anchor id="ch2998-p076">Was it really this weak...?</p>
+<p data-reading-anchor id="ch2998-p077">It wasn't even in the same league as Proust!</p>
+<p data-reading-anchor id="ch2998-p078">Then let's do it again!</p>
+<p data-reading-anchor id="ch2998-p079">“Continue!”</p>
+<p data-reading-anchor id="ch2998-p080">BOOM!</p>
+<p data-reading-anchor id="ch2998-p081">BOOM, BOOM, BOOM!!!</p>
+<p data-reading-anchor id="ch2998-p082">More than thirty successive lightning strikes slammed down!</p>
+<p data-reading-anchor id="ch2998-p083">Haye's HP was nearly emptied. His body had been tortured beyond recognition, and raging sacred flames began burning all over him.</p>
+<p data-reading-anchor id="ch2998-p084">Rotten sludge composing his body slid away continuously in the fire, releasing a foul burnt stench.</p>
+<p data-reading-anchor id="ch2998-p085">Fang Heng watched the rapidly dying Ouroboros Seed coldly.</p>
+<p data-reading-anchor id="ch2998-p086">Meanwhile, in the shadows not far away,</p>
+<p data-reading-anchor id="ch2998-p087">several pairs of eyes were fixed on Fang Heng.</p>
+<p data-reading-anchor id="ch2998-p088">Surprise finally broke through Xia Xi's normally unruffled expression.</p>
+<p data-reading-anchor id="ch2998-p089">Fang Heng!</p>
+<p data-reading-anchor id="ch2998-p090">When had his strength risen to this level?</p>
+<p data-reading-anchor id="ch2998-p091">The subordinates beside Xia Xi were even more visibly frightened.</p>
+<p data-reading-anchor id="ch2998-p092">Haye, the Ouroboros Seed sealed inside the ice-crystal maze, possessed terrifying strength, yet Fang Heng was crushing him with Divine Punishment!</p>
+<p data-reading-anchor id="ch2998-p093">The fight hadn't actually been very fast. It had simply been one-sided suppression from beginning to end.</p>
+<p data-reading-anchor id="ch2998-p094">Whether in attributes or abilities.</p>
+<p data-reading-anchor id="ch2998-p095">The subordinates swallowed nervously. “My lady, should we...?”</p>
+<p data-reading-anchor id="ch2998-p096">Xia Xi fell silent too.</p>
+<p data-reading-anchor id="ch2998-p097">According to her original expectations, Fang Heng wouldn't have been strong enough to defeat Haye directly. This was supposed to be a test for him.</p>
+<p data-reading-anchor id="ch2998-p098">If things had gone according to plan, Fang Heng would obtain the Titans' power hidden in the ice-crystal maze, awaken his Titan bloodline, and only then challenge the Ouroboros Seed after becoming stronger.</p>
+<p data-reading-anchor id="ch2998-p099">Xia Xi had intended to use the opportunity to assess his strength and stimulate his potential.</p>
+<p data-reading-anchor id="ch2998-p100">Never had she imagined that Fang Heng would defeat the Ouroboros Seed with his own strength, without even awakening the Titans' power.</p>
+<p data-reading-anchor id="ch2998-p101">And from where she stood, he'd done it with remarkable ease.</p>
+<p data-reading-anchor id="ch2998-p102">After considering this for a moment, Xia Xi smiled faintly and murmured, “You've surprised me, Fang Heng...”</p>
+<p data-reading-anchor id="ch2998-p103">All the better!</p>
+<p data-reading-anchor id="ch2998-p104">“Let's go. There's no reason for us to stay any longer.”</p>
+</article>
+<p class="end" data-reading-anchor id="ch2998-end">— End of Chapter 2998 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Original Chinese Chapter 2999: 协助. English Chapter 2998: Assistance. Narrative paragraphs: 104/104.</li><li>The novel makes clear that the Masked Fang Heng interrupts Whiteman’s existing sacred suppression array and then defeats Haye using Sacred Form, Shattering Strike, and Divine Punishment.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_2997_Trap.html#start">← Previous</a><a href="Global_Game_AFK_Chapter_2999_Dealing_with_It.html#start" class="next">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

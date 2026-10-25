@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 2984 — Pressure | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-2984">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2983_Assembly.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_2984_Pressure.html"><option value="Global_Game_AFK_Chapter_2984_Pressure.html" selected>2984 · Pressure</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2985_Something_New.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-2984" data-reading-anchor>
+<div class="chapter-num">Chapter 2984</div><h2 class="chapter-title">Pressure</h2>
+<p class="source-identity">From Chinese Chapter 2985 · 逼迫</p>
+<article class="prose">
+<p data-reading-anchor id="ch2984-p001">Chen Yu approached Fang Heng with a note of wonder in his voice. “Boss Fang, I never imagined I'd get to see the Death Realm one day. I am going to make it back alive, right?”</p>
+<p data-reading-anchor id="ch2984-p002">“Who knows?” Fang Heng shrugged and turned to Alec. “Is everyone ready?”</p>
+<p data-reading-anchor id="ch2984-p003">Chen Yu's expression grew serious. “The Eastern Federation combat personnel have assembled and are ready to fight at any moment. Our ship commanders will also follow your instructions in directing the fleet.”</p>
+<p data-reading-anchor id="ch2984-p004">Alec nodded. “Your Majesty, the Vampire Clan has also finished preparations. Every member is ready for battle.”</p>
+<p data-reading-anchor id="ch2984-p005">“Good.”</p>
+<p data-reading-anchor id="ch2984-p006">Fang Heng turned toward the leader of the Iron-Eater Clan, who had just disembarked. “Any problems on your end?”</p>
+<p data-reading-anchor id="ch2984-p007">The Iron-Eater leader quickly surveyed the terrain and shook his head. “None. We'll cooperate fully and complete construction as quickly as possible.”</p>
+<p data-reading-anchor id="ch2984-p008">The Iron-Eaters had not been particularly willing when Fang Heng first captured them.</p>
+<p data-reading-anchor id="ch2984-p009">But they'd grown used to their situation over time.</p>
+<p data-reading-anchor id="ch2984-p010">Working for one master or another—was there really a difference?</p>
+<p data-reading-anchor id="ch2984-p011">Besides, their treatment aboard the starship was considerably better than what they had enjoyed before.</p>
+<p data-reading-anchor id="ch2984-p012">Iron-Eaters had always been a race that liked full stomachs and an easy life, taking each day as it came.</p>
+<p data-reading-anchor id="ch2984-p013">“Good. Everyone, let's get to work.”</p>
+<p data-reading-anchor id="ch2984-p014">According to the Iron-Eaters' calculations, with sufficient supplies and a designated construction site, they could erect the Eye of Stars prism towers within seventy-two hours.</p>
+<p data-reading-anchor id="ch2984-p015" class="scene">...</p>
+<p data-reading-anchor id="ch2984-p016">Two hours later.</p>
+<p data-reading-anchor id="ch2984-p017">The main battlefield.</p>
+<p data-reading-anchor id="ch2984-p018">Huge numbers of skeletal dragons circled through the sky. Under the control of Nether Clan War Knights, they swooped low again and again, charging into the Calamity's Zerg swarms.</p>
+<p data-reading-anchor id="ch2984-p019">A closer look revealed red organisms clinging to the dragons' broad backs and rib cages, almost like layers of muscle.</p>
+<p data-reading-anchor id="ch2984-p020">Lickers!</p>
+<p data-reading-anchor id="ch2984-p021">Every Licker attached to a skeletal dragon had entered its entrenched artillery mode.</p>
+<p data-reading-anchor id="ch2984-p022">Carried by the low-flying dragons, they continuously bombarded the Calamity swarms from range.</p>
+<p data-reading-anchor id="ch2984-p023">Mage groups from the four Nether Clan empires and the Undead Council's elite mages stood on the starship decks, casting Necromancy spells to support the ships' long-range energy beams.</p>
+<p data-reading-anchor id="ch2984-p024">Flocks of Vampires in bat form flew around the ships, providing cover and support.</p>
+<p data-reading-anchor id="ch2984-p025">On the main front, the fleet crushed everything in its path!</p>
+<p data-reading-anchor id="ch2984-p026">The Nether Clan had never imagined that the terrifying Calamity could be driven back so rapidly, with Fang Heng's various teams working together to carve a bloody path through it.</p>
+<p data-reading-anchor id="ch2984-p027">It almost gave them an illusion.</p>
+<p data-reading-anchor id="ch2984-p028">Perhaps the Calamity wasn't as strong as they'd thought?</p>
+<p data-reading-anchor id="ch2984-p029">Then how had it pushed the entire Death Realm to the brink of destruction?</p>
+<p data-reading-anchor id="ch2984-p030">The fleet continued advancing until it reached the predetermined Eye of Stars construction site.</p>
+<p data-reading-anchor id="ch2984-p031">After the ships halted, Zaka immediately ordered the players to unload antigravity blocks one after another and directed the Iron-Eaters to build the Eye of Stars targeting prisms at full speed.</p>
+<p data-reading-anchor id="ch2984-p032">From the bridge of the flagship, Fang Heng gazed through the glass toward the distant central River of Netherworld.</p>
+<p data-reading-anchor id="ch2984-p033">Mu Qingxin must have sensed him by now.</p>
+<p data-reading-anchor id="ch2984-p034">Was she still not going to attack?</p>
+<p data-reading-anchor id="ch2984-p035">If she kept waiting until the Eye of Stars was complete, Fang Heng would be the one to make the first move.</p>
+<p data-reading-anchor id="ch2984-p036" class="scene">...</p>
+<p data-reading-anchor id="ch2984-p037">Deep within the River of Netherworld.</p>
+<p data-reading-anchor id="ch2984-p038">Mu Qingxin had indeed sensed Fang Heng approaching. She awoke from dormancy and looked down at the river, which was already nearly dry.</p>
+<p data-reading-anchor id="ch2984-p039">The Death Realm's power had been dissipating rapidly of late.</p>
+<p data-reading-anchor id="ch2984-p040">Proust's growth had slowed more and more, far below expectations. He had only recovered a little over half his strength and remained far from advancing.</p>
+<p data-reading-anchor id="ch2984-p041">Mu Qingxin raised her head and sensed the surroundings again.</p>
+<p data-reading-anchor id="ch2984-p042">So Fang Heng and his allies were establishing a defensive line around the perimeter?</p>
+<p data-reading-anchor id="ch2984-p043">The Eye of Stars was a weapon the Kinsfolk had designed against the Zerg over the past millennium. Mu Qingxin had been trapped in the Death Realm so long that she had no idea how far the outside world's technology had progressed.</p>
+<p data-reading-anchor id="ch2984-p044">Nevertheless, she sensed that a great battle was imminent.</p>
+<p data-reading-anchor id="ch2984-p045">Meanwhile, one Eye of Stars prism after another was being completed by the Iron-Eaters, and Fang Heng grew increasingly calm.</p>
+<p data-reading-anchor id="ch2984-p046">It seemed Proust had yet to awaken from dormancy.</p>
+<p data-reading-anchor id="ch2984-p047">Mu Qingxin hadn't chosen to attack either.</p>
+<p data-reading-anchor id="ch2984-p048">Excellent!</p>
+<p data-reading-anchor id="ch2984-p049">He could construct the Eye of Stars openly and without restraint.</p>
+<p data-reading-anchor id="ch2984-p050">As each prism device was completed, detachments of local Nether Clan members, Vampires, Eastern Federation soldiers, Undead Council mages, and zombie clones took turns guarding it to ensure nothing went wrong.</p>
+<p data-reading-anchor id="ch2984-p051" class="scene">...</p>
+<p data-reading-anchor id="ch2984-p052">Two days later.</p>
+<p data-reading-anchor id="ch2984-p053">All twenty-four Eye of Stars prism targeting and defensive devices were positioned and successfully entered their linked targeting-lock state.</p>
+<p data-reading-anchor id="ch2984-p054">As the prisms connected into the third-stage network, a tremendous energy fluctuation erupted from the towers.</p>
+<p data-reading-anchor id="ch2984-p055">Even the Nether Clan could sense the enormous power within the prisms.</p>
+<p data-reading-anchor id="ch2984-p056">The warriors gathered from the four empires all had the vague feeling that the decisive battle was about to begin.</p>
+<p data-reading-anchor id="ch2984-p057">The instant the lock was completed, the Zerg swarm surrounded in the center instinctively sensed danger.</p>
+<p data-reading-anchor id="ch2984-p058">Mu Qingxin stared toward Fang Heng's distant position.</p>
+<p data-reading-anchor id="ch2984-p059">“Proust! Wake up!”</p>
+<p data-reading-anchor id="ch2984-p060">The entire Calamity swarm went berserk and surged furiously toward the defensive perimeter.</p>
+<p data-reading-anchor id="ch2984-p061">“Only reacting now? Heh. Too late.”</p>
+<p data-reading-anchor id="ch2984-p062">Fang Heng smiled coldly.</p>
+<p data-reading-anchor id="ch2984-p063">Fight!</p>
+<p data-reading-anchor id="ch2984-p064">A vast area, including the River of Netherworld, had already been completely encircled.</p>
+<p data-reading-anchor id="ch2984-p065">At the forefront, Nether Clan War Knights raised their death blades high against the frenzied insects charging straight toward them.</p>
+<p data-reading-anchor id="ch2984-p066">“Form the line! Prepare to intercept!”</p>
+<p data-reading-anchor id="ch2984-p067">Countless Zerg poured across the front, exploding into masses of flesh beneath the fleet's dense energy-beam bombardment.</p>
+<p data-reading-anchor id="ch2984-p068">Behind them, Undead Council teams and Nether Clan spellcasters deployed domain spells, terrain effects, and wide-area debuffs that greatly weakened the swarm's attributes.</p>
+<p data-reading-anchor id="ch2984-p069">High above, skeletal dragons carrying scores of Lickers in biological-cannon mode swept over the battlefield again and again, inflicting tremendous damage.</p>
+<p data-reading-anchor id="ch2984-p070">Fang Heng stood before one of the prism defense-network towers and watched the front. A game notification appeared on his retina.</p>
+<p data-reading-anchor id="ch2984-p071" class="game">[Game Hint: Using the Eye of Stars prism device to establish targeting coordinates.]</p>
+<p data-reading-anchor id="ch2984-p072" class="game">[Game Hint: Current targeting progress: 13%. Energy accumulation: 100%. Firing unavailable.]</p>
+<p data-reading-anchor id="ch2984-p073" class="game">[Game Hint: An Ouroboros Seed—Newborn has been detected. Related quest triggered: Kill.]</p>
+<p data-reading-anchor id="ch2984-p074">Quest Name: Kill.</p>
+<p data-reading-anchor id="ch2984-p075">Quest Description: You understand the fate of an Ouroboros Seed newborn. Kill all competing newborns as soon as possible and absorb their nutrients.</p>
+<p data-reading-anchor id="ch2984-p076">Quest Requirement: Kill the opposing Ouroboros Seed.</p>
+<p data-reading-anchor id="ch2984-p077">Here it came!</p>
+<p data-reading-anchor id="ch2984-p078">Fang Heng narrowed his eyes.</p>
+<p data-reading-anchor id="ch2984-p079">The Ouroboros Seeds he'd encountered during previous Kinsfolk missions had all suffered grievous injuries. At most, they possessed ten percent of their peak strength.</p>
+<p data-reading-anchor id="ch2984-p080">But this time he was facing an Ouroboros Seed at full strength—Proust!</p>
+</article>
+<p class="end" data-reading-anchor id="ch2984-end">— End of Chapter 2984 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Original Chinese Chapter 2985: 逼迫. English Chapter 2984: Pressure. Narrative paragraphs: 80/80.</li><li>The game notification says targeting at 13% and energy at 100%; both are retained.</li><li>The source says twenty-four Eye of Stars prism installations are completed after two days, despite the initial seventy-two-hour estimate.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_2983_Assembly.html#start">← Previous</a><a href="Global_Game_AFK_Chapter_2985_Something_New.html#start" class="next">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

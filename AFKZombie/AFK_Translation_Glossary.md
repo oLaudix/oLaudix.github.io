@@ -1,6 +1,6 @@
 # Global Game: AFK in the Zombie Apocalypse — Translation Glossary
 
-**Version:** 29 (25 October 2026)
+**Version:** 30 (25 October 2026)
 **Authority:** Names and wording already agreed in *our own* English translation. Our previously read published translation can establish a character alias when explicitly confirmed with the user (e.g., Charlotte); otherwise names are set by our translation and user decisions, not automatic third-party substitutions.  
 **Purpose:** A short, portable reference to include unchanged in each translation ZIP, and update only when new terminology is confirmed. The glossary governs spelling, not the novel's plot or prose.
 
@@ -853,3 +853,40 @@ The material below **extends** the cumulative V28 glossary above; no previous gl
 - **Titles, ranks, courtesy and register are locked**: Vampire King, Vampire Prince, federation officers, and deferential subordinates must not be arbitrarily renamed or casualized.
 - **Idioms and sharp dialogue** should retain actual Chinese imagery/force where it makes sense; explanatory notes must match expressions in the corresponding chapter rather than neighboring chapters.
 - **Editing and Source Notes** in individual HTML chapters remain the chapter-specific location for author mistakes and translation decisions; these glossary cautions are cumulative project-wide guidance.
+
+
+## V30 additions — English Chapters 2980–2999 (Chinese 2981–3000)
+
+| Locked English wording | Chinese source | Meaning / continuity |
+|---|---|---|
+| **Sura** | 苏拉 | Female powerful Ouroboros newborn, initially possessing a Crocodile Clan soldier. Relies on overwhelming physical enhancement and recovery. Joins Fang Heng briefly to keep Cultivator Mu Qingxin from intervening. |
+| **Crocodile Clan** | 鳄鱼族 / 鳄鱼一族 | Allied spacefaring species whose ship is damaged during Fang Heng and Sura's fight. |
+| **Proust / Mu Qingxin** | 普鲁斯特 / 慕清馨 | Distinct Calamity Seed newborn and female Cultivator. Both are killed in the Death Realm confrontation; don't conflate them with Xia Xi or Su Ziyue. |
+| **Realm of Reincarnation / Eye of Chaos** | 转生界 / 浑沌之眼 | Form of Everlasting Moon after sacred and Death Realm fusion, with a soul-targeting inverted-cross effect. Keep separate from Eternal Tree Domain. |
+| **World of Ten Thousand Forests / Descent of the Tree Realm** | 万森之界 / 树界降临 | Nature-domain manifestation used in fighting Sura and Proust, alongside Abe Akaya's vines. Do not invent new summoned characters. |
+| **Red-Worm Split Body** | 红虫分离体 | Proust-derived optional modification; +10% Strength, +10% Constitution; can disperse physical damage but incurs stagger; costs two slots. |
+| **Savior of the Death Realm** | 死界拯救者 | Temporary three-month status gained after ending the Calamity, raising Nether Clan reputation and support. |
+| **Orderkeepers / gods** | 秩序者 / 神 | Powerful beings described by Sura as destroying the earlier Ouroboros generation. Kinsfolk historical accounts differ; source leaves conflict unresolved. |
+| **Lais** | 莱斯 | Subordinate of Xia Xi, instructed to remove a barrier and increase pressure on Fang Heng. |
+| **Nethersea** | 冥海号 | Fang Heng's enormous flagship appearing at the Death Realm with a fleet of over 100 ships. |
+| **Super-Divine-Level Necromancy (Order Level)** | 超神级亡灵学（秩序级） | Unique, uncapped advancement beyond Divine-Level Necromancy obtained through the Nether Lord quest; can grow by expanding the Death Realm's black-fog influence. |
+| **Netherworld Pearls / Netherworld Imprisonment / Descent of the Death Realm** | 幽冥宝珠 / 幽冥封禁 / 死界降临 | New skill features of Super-Divine-Level Necromancy. Pearl count shown 12/12 in one quest notice and 24/24 afterward, an author inconsistency. |
+| **Jike Archipelago** | 吉克群岛 | Frozen real-world islands where the Gate of Apocalypse opens. |
+| **Key of Apocalypse / Gate of Apocalypse / Land of Apocalypse** | 天启之钥 / 天启之门 / 天启之地 | Mysterious key, gate and icy maze. This is not the Vampire Apocalypse game world. |
+| **Luo Ao** | 罗奥（once 奥罗） | Central Federation expedition commander seeking the Apocalypse treasure; alternate source spelling 奥罗 appears once in Chinese 2996. |
+| **Archbishop Whiteman** | 怀特曼（once 坏特曼 / 怀特恩） | Holy Court archbishop cooperating with the Central Federation. Recognizes Fang Heng under the established Fang Bai/Grand Sage identity. |
+| **Haye** | 哈耶 | Incomplete Ouroboros Seed sealed within the Land of Apocalypse's ice maze, related to a beetle shell and attribute absorption. |
+| **Attribute Absorption** | 属性吸收 | Haye-derived special zombie modification; absorbed attributes last 8 hours, cap at 30% of the original body's highest attribute, occupies 2 slots. |
+| **Yi Qingzhi** | 羿清之 | Eastern Federation team leader in the Apocalypse labyrinth; Chen Yu also appears in the team. They are not silently merged. |
+| **Ice Crystal Puppet / Ice-Thorn Flower Demon / Frost Ancient Tree Elder** | 冰晶傀儡 / 冰棘花妖 / 寒霜古树长老 | Trial enemies producing Elemental Studies or Nature Studies energy; latter two are nature-aligned. |
+| **Sacred Sealing Imprisonment** | 神圣禁封 / 神圣固封 | Group Holy Court technique used to temporarily restrain Haye. Different source phrasing does not establish two unrelated spells. |
+
+### V30 source cautions and continuity
+
+- Chinese Chapter 2984 embeds its own heading within the story; remove that repeated heading, not narrative prose. The same happens in Chinese Chapter 2993.
+- Chinese 2991 first reports **12/12 Netherworld Pearls** condensed, then describes a task to condense **24**; Chinese 2992 shows **24/24**. Keep the incompatible numbers and flag the discrepancy rather than silently standardizing.
+- Chinese 2989 has the game award **500,000 Main God points** for the Proust kill, while Chinese 2991 speaks of **1,000,000** gained from kills. These reflect different moments/possibly combined rewards; do not arbitrarily change either figure.
+- Sura says gods known as Orderkeepers destroyed Ouroboros previously; Fang Heng explicitly contrasts this with the **Kinsfolk** claim. Neither account is proven true here.
+- Chinese Chapter 2996 has Luo Ao's name as 奥罗 once. Chinese 2999 has Whiteman variants 怀特曼 / 怀特恩, and 2997 prints 坏特曼 once. Use the established names with source variations documented.
+- Preserve **Vampire King**, **Bulle**, **Alec**, **Jia'er**, **Fang Bai**, **Abe Akaya**, **Notar**, **Georgi**, **Proust**, **Mu Qingxin**, **Xia Xi**, **Sura**, and **Envy** exactly. Preserve strong dialogue and distinct titles/identities.
+- English 2980–2999 translate Chinese 2981–3000. Patch English 2979's Next links to 2980. New index spans 2000–2999 (**1,000** chapters). Approved CSS, shared `chapters.js` and reader JavaScript are unchanged.

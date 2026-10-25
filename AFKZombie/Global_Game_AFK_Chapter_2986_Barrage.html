@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 2986 — Barrage | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-2986">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2985_Something_New.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_2986_Barrage.html"><option value="Global_Game_AFK_Chapter_2986_Barrage.html" selected>2986 · Barrage</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2987_Purification.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-2986" data-reading-anchor>
+<div class="chapter-num">Chapter 2986</div><h2 class="chapter-title">Barrage</h2>
+<p class="source-identity">From Chinese Chapter 2987 · 冲刷</p>
+<article class="prose">
+<p data-reading-anchor id="ch2986-p001">“BOOM! BOOM, BOOM, BOOM, BOOM!!!”</p>
+<p data-reading-anchor id="ch2986-p002">The continuous effect of Divine Punishment!</p>
+<p data-reading-anchor id="ch2986-p003">Lightning flashed as a relentless storm of bolts hammered down on Proust, washing over his body again and again!</p>
+<p data-reading-anchor id="ch2986-p004">Every strike knocked huge numbers of charred red threadlike worms loose from his body.</p>
+<p data-reading-anchor id="ch2986-p005">After a full three minutes, the skill finally ended, and Fang Heng exited his sacred form.</p>
+<p data-reading-anchor id="ch2986-p006">Sacred Form dealt extra damage to Proust.</p>
+<p data-reading-anchor id="ch2986-p007">Unfortunately, the Death Realm environment weakened its attacks somewhat.</p>
+<p data-reading-anchor id="ch2986-p008">“Hah, hah...”</p>
+<p data-reading-anchor id="ch2986-p009">Proust finally broke free of Divine Punishment's control. He slowly raised his head, the flesh scorched black by violet lightning gradually regenerating, and stared at Fang Heng.</p>
+<p data-reading-anchor id="ch2986-p010">“An interesting skill. But it doesn't last long enough. Otherwise, that really would have been troublesome...”</p>
+<p data-reading-anchor id="ch2986-p011">“Heh, I think so too.”</p>
+<p data-reading-anchor id="ch2986-p012">Fang Heng lightly tapped the ground with his toes. “Want to try another move?”</p>
+<p data-reading-anchor id="ch2986-p013">“Hm?”</p>
+<p data-reading-anchor id="ch2986-p014">The next instant, a rapidly rotating magic array appeared beneath Fang Heng.</p>
+<p data-reading-anchor id="ch2986-p015">Eternal Tree Domain!</p>
+<p data-reading-anchor id="ch2986-p016">Nature energy erupted!</p>
+<p data-reading-anchor id="ch2986-p017">Dense vines, branches, and roots spilled out of the array. The surrounding space seemed to split apart under their pressure, filling instantly with masses of green vegetation!</p>
+<p data-reading-anchor id="ch2986-p018">“Abe Akaya! Go!”</p>
+<p data-reading-anchor id="ch2986-p019">Proust had not yet recovered from the grievous damage of Divine Punishment. His heart lurched as the surrounding space became completely overgrown in the blink of an eye.</p>
+<p data-reading-anchor id="ch2986-p020">Instantly, countless vines formed sharp spikes and stabbed toward him.</p>
+<p data-reading-anchor id="ch2986-p021">“GET LOST!!!”</p>
+<p data-reading-anchor id="ch2986-p022">Proust roared.</p>
+<p data-reading-anchor id="ch2986-p023">“BOOM!”</p>
+<p data-reading-anchor id="ch2986-p024">A burst of force erupted around him, blowing apart the mass of attacking vines.</p>
+<p data-reading-anchor id="ch2986-p025">“Whoosh!”</p>
+<p data-reading-anchor id="ch2986-p026">Annual Rings—Acceleration!</p>
+<p data-reading-anchor id="ch2986-p027">Fang Heng abruptly appeared directly in front of Proust.</p>
+<p data-reading-anchor id="ch2986-p028">“BOOM!!!”</p>
+<p data-reading-anchor id="ch2986-p029">He threw a punch!!</p>
+<p data-reading-anchor id="ch2986-p030">Proust's body instantly scattered into intertwined masses of tiny insects, dispersing the impact.</p>
+<p data-reading-anchor id="ch2986-p031">But this blow was stronger than any before it. Proust could absorb only part of the force and was knocked backward by Fang Heng's fist.</p>
+<p data-reading-anchor id="ch2986-p032">At the same time, the death aura coating Fang Heng's fist rapidly spread across Proust from the point of contact!</p>
+<p data-reading-anchor id="ch2986-p033">“Whoosh!!”</p>
+<p data-reading-anchor id="ch2986-p034">Annual Rings—Acceleration!</p>
+<p data-reading-anchor id="ch2986-p035">Again! Pursue him!!</p>
+<p data-reading-anchor id="ch2986-p036">Fang Heng streaked through the air like a shadow and appeared in front of Proust again in the blink of an eye.</p>
+<p data-reading-anchor id="ch2986-p037">The strength enhanced by Annual Rings now exceeded the amount his tiny insects could absorb. A tremendous impact rang out as Proust's body was sent flying backward again!</p>
+<p data-reading-anchor id="ch2986-p038">“Again!”</p>
+<p data-reading-anchor id="ch2986-p039">“BANG!”</p>
+<p data-reading-anchor id="ch2986-p040">“BANG!!”</p>
+<p data-reading-anchor id="ch2986-p041">The spectators could no longer follow Fang Heng's movements. They could only see Proust struggling to control his body as a dark blur pursued him and smashed him downward again and again, accelerating him toward the ground with each impact.</p>
+<p data-reading-anchor id="ch2986-p042">For Proust, the most damaging part was the death power coating those fists. Vast numbers of the tiny insects composing his body were withering. Under Fang Heng's overwhelming strength, Proust also lost control of his body, staggered repeatedly by the impacts.</p>
+<p data-reading-anchor id="ch2986-p043">After several successive blows enhanced by Annual Rings, Proust was completely unable to control his movements. Punch after punch drove him faster toward the earth.</p>
+<p data-reading-anchor id="ch2986-p044">Until the final blow!</p>
+<p data-reading-anchor id="ch2986-p045">Annual Rings—Acceleration!</p>
+<p data-reading-anchor id="ch2986-p046">Explode!</p>
+<p data-reading-anchor id="ch2986-p047">“BANG!!!”</p>
+<p data-reading-anchor id="ch2986-p048">Proust slammed violently into the ground!</p>
+<p data-reading-anchor id="ch2986-p049">“Whoosh! Whoosh, whoosh...”</p>
+<p data-reading-anchor id="ch2986-p050">Dense vines rushed toward him, yanked him deep beneath the surface, and wrapped layer after layer around the ground above, binding everything tightly!</p>
+<p data-reading-anchor id="ch2986-p051">At the same time, Fang Heng flung sealing talisman papers downward, sticking them firmly to the outer layer of vines.</p>
+<p data-reading-anchor id="ch2986-p052">In the distance, Mu Qingxin watched the battlefield, her expression growing grave.</p>
+<p data-reading-anchor id="ch2986-p053">Fang Heng's melee strength had exceeded her expectations, but she judged that the domain he'd summoned had a time limit. They only needed to endure it.</p>
+<p data-reading-anchor id="ch2986-p054">Then what was Fang Heng doing now?</p>
+<p data-reading-anchor id="ch2986-p055">Trying to seal Proust away?</p>
+<p data-reading-anchor id="ch2986-p056">Wasn't that underestimating both her and Proust?</p>
+<p data-reading-anchor id="ch2986-p057">As she wondered, Mu Qingxin saw Fang Heng quickly retreat from Proust's sealed position.</p>
+<p data-reading-anchor id="ch2986-p058">Hm?</p>
+<p data-reading-anchor id="ch2986-p059">He was backing off?</p>
+<p data-reading-anchor id="ch2986-p060">What did that mean?</p>
+<p data-reading-anchor id="ch2986-p061">Apparently noticing her gaze, Fang Heng abruptly turned and shot Mu Qingxin a challenging look, then pointed a finger toward the sky.</p>
+<p data-reading-anchor id="ch2986-p062">Hm?!</p>
+<p data-reading-anchor id="ch2986-p063">What was he doing?</p>
+<p data-reading-anchor id="ch2986-p064">It wasn't only Mu Qingxin. The Nether Clan and Undead Council members couldn't understand why Fang Heng had suddenly retreated after managing to pin Proust down.</p>
+<p data-reading-anchor id="ch2986-p065">Was this some special technique?</p>
+<p data-reading-anchor id="ch2986-p066">Half a second later, Mu Qingxin's expression changed.</p>
+<p data-reading-anchor id="ch2986-p067">What?!</p>
+<p data-reading-anchor id="ch2986-p068">Violent spatial fluctuations suddenly erupted high above the battlefield!</p>
+<p data-reading-anchor id="ch2986-p069">The dark clouds gathered overhead were pushed outward by the disturbance. Several clearly visible cannon muzzles gradually appeared in the center of the spatial ripples.</p>
+<p data-reading-anchor id="ch2986-p070">The Nether Clan warriors had never seen enormous mechanical weapons descend from the sky before. Their eyes widened in shock.</p>
+<p data-reading-anchor id="ch2986-p071">No!</p>
+<p data-reading-anchor id="ch2986-p072">Mu Qingxin reacted immediately and instinctively tried to intervene.</p>
+<p data-reading-anchor id="ch2986-p073">“BOOM! BOOM, BOOM, BOOM!!!!”</p>
+<p data-reading-anchor id="ch2986-p074">Too late!</p>
+<p data-reading-anchor id="ch2986-p075">The next instant, deep-purple energy beams poured from above, blanketing an enormous area of the clustered insect nests!</p>
+<p data-reading-anchor id="ch2986-p076">Proust was right at the center of the bombardment!</p>
+<p data-reading-anchor id="ch2986-p077">These were modified energy beams.</p>
+<p data-reading-anchor id="ch2986-p078">Mu Qingxin narrowed her eyes, sensing a powerful threat within them.</p>
+<p data-reading-anchor id="ch2986-p079">The purple light purified every Zerg swarm within the affected area!</p>
+<p data-reading-anchor id="ch2986-p080">The bombardment continued for five full minutes before the beams gradually faded and the cannon muzzles withdrew into the spatial passage overhead.</p>
+<p data-reading-anchor id="ch2986-p081">The land that had been covered by fungal carpet was now scorched black, as though burned to charcoal.</p>
+<p data-reading-anchor id="ch2986-p082">Fang Heng stared toward the spot where Abe Akaya had sealed Proust.</p>
+<p data-reading-anchor id="ch2986-p083">Still not dead!</p>
+<p data-reading-anchor id="ch2986-p084">“Crack, crack, crack-crack-crack...”</p>
+<p data-reading-anchor id="ch2986-p085">As Abe Akaya and Eternal Tree Domain disappeared, the ground bulged outward in pulses, as though something beneath it were struggling to break free.</p>
+<p data-reading-anchor id="ch2986-p086">“BOOM!!!”</p>
+<p data-reading-anchor id="ch2986-p087">A gigantic pit suddenly exploded open in the ground.</p>
+<p data-reading-anchor id="ch2986-p088">Proust appeared at its center, gasping for breath and looking exceptionally battered.</p>
+<p data-reading-anchor id="ch2986-p089">“Fang Heng...”</p>
+<p data-reading-anchor id="ch2986-p090">Fang Heng stared back with a mocking edge to his voice. “What? Not convinced?”</p>
+<p data-reading-anchor id="ch2986-p091">Proust gritted his teeth and was about to charge after him.</p>
+<p data-reading-anchor id="ch2986-p092">Suddenly his body lost control again, suspended in midair by a strange force.</p>
+<p data-reading-anchor id="ch2986-p093">Fang Heng pointed at him with one hand and barked, “Divine Punishment!”</p>
+<p data-reading-anchor id="ch2986-p094">“BOOM!!!”</p>
+<p data-reading-anchor id="ch2986-p095">A purple bolt of punitive lightning crashed down at once!</p>
+<p data-reading-anchor id="ch2986-p096">“BOOM!”</p>
+<p data-reading-anchor id="ch2986-p097">“BOOM, BOOM!!!”</p>
+<p data-reading-anchor id="ch2986-p098">One after another, enhanced bolts of deep-purple Divine Punishment lightning continued raining down!</p>
+<p data-reading-anchor id="ch2986-p099">Having already lost most of his strength, Proust could not counterattack. He could only endure the repeated lightning barrage, relying on his enormous HP and self-regeneration to stay alive!</p>
+<p data-reading-anchor id="ch2986-p100">Fang Heng watched Proust's health bar.</p>
+<p data-reading-anchor id="ch2986-p101">It was slowly, steadily dropping.</p>
+</article>
+<p class="end" data-reading-anchor id="ch2986-end">— End of Chapter 2986 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Original Chinese Chapter 2987: 冲刷. English Chapter 2986: Barrage. Narrative paragraphs: 101/101.</li><li>The Kinsfolk energy weapon attacks for five minutes. Fang Heng keeps Proust pinned with vines before the bombardment.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_2985_Something_New.html#start">← Previous</a><a href="Global_Game_AFK_Chapter_2987_Purification.html#start" class="next">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

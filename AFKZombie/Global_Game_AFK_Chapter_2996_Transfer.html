@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 2996 — Transfer | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-2996">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2995_Treasure.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_2996_Transfer.html"><option value="Global_Game_AFK_Chapter_2996_Transfer.html" selected>2996 · Transfer</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2997_Trap.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-2996" data-reading-anchor>
+<div class="chapter-num">Chapter 2996</div><h2 class="chapter-title">Transfer</h2>
+<p class="source-identity">From Chinese Chapter 2997 · 转移</p>
+<article class="prose">
+<p data-reading-anchor id="ch2996-p001">“Why don't we try removing the seal?”</p>
+<p data-reading-anchor id="ch2996-p002">Archbishop Whiteman warned, “The seal may be suppressing something evil. Opening it recklessly might fully revive the creature wrapped around the pillar.”</p>
+<p data-reading-anchor id="ch2996-p003">“Uh...”</p>
+<p data-reading-anchor id="ch2996-p004">“The alchemical magic array operates in a very unusual way. I've never seen one like it...”</p>
+<p data-reading-anchor id="ch2996-p005">“Does anyone have a better idea?”</p>
+<p data-reading-anchor id="ch2996-p006">“Could we try opening only half of it?”</p>
+<p data-reading-anchor id="ch2996-p007">The players proficient in alchemy gathered around the sealing stones beside an array and spent quite some time studying and debating them, but couldn't find an effective solution.</p>
+<p data-reading-anchor id="ch2996-p008">Luo Ao was running out of patience.</p>
+<p data-reading-anchor id="ch2996-p009">“Do it. Release the seal. I'll take responsibility if anything goes wrong.”</p>
+<p data-reading-anchor id="ch2996-p010">If they kept waiting, the other Federations would find the place, and dividing the Apocalypse treasure would become much more difficult.</p>
+<p data-reading-anchor id="ch2996-p011">Archbishop Whiteman sighed inwardly and nodded. “Very well. But everyone, make thorough preparations first.”</p>
+<p data-reading-anchor id="ch2996-p012">Several alchemy experts conferred beside a stone slab, then tried moving the block embedded in the altar.</p>
+<p data-reading-anchor id="ch2996-p013">“BANG!!!”</p>
+<p data-reading-anchor id="ch2996-p014">The stone was extremely heavy. As they lowered it from the sealing slab to the floor, it landed with a tremendous impact.</p>
+<p data-reading-anchor id="ch2996-p015">Hm?</p>
+<p data-reading-anchor id="ch2996-p016">Look! What's that?!</p>
+<p data-reading-anchor id="ch2996-p017">“Crack, crack, crack...”</p>
+<p data-reading-anchor id="ch2996-p018">As the first seal was removed, a faint noise came from the central pillar. The rotten flesh wrapped around it began writhing far more violently, as though the creature restrained by the pillar was struggling in agony. The grotesque face in the flesh gradually became clearer.</p>
+<p data-reading-anchor id="ch2996-p019">The players were at a loss and could only stand around the fleshy pillar.</p>
+<p data-reading-anchor id="ch2996-p020">“Crack, crack, crack-crack-crack...”</p>
+<p data-reading-anchor id="ch2996-p021">The remaining altars throughout the hall began shaking violently, entirely out of control.</p>
+<p data-reading-anchor id="ch2996-p022">Oh no!</p>
+<p data-reading-anchor id="ch2996-p023">The seal was being forced open.</p>
+<p data-reading-anchor id="ch2996-p024">Luo Ao's expression changed.</p>
+<p data-reading-anchor id="ch2996-p025">“Thud! Thud! Thud, thud!!!”</p>
+<p data-reading-anchor id="ch2996-p026">One by one, the blocks weighing down the sealing altars were lifted uncontrollably and dropped to the floor. The outer layers of rotting flesh surrounding the central pillar began rapidly peeling away.</p>
+<p data-reading-anchor id="ch2996-p027">Until the monster sealed within was revealed.</p>
+<p data-reading-anchor id="ch2996-p028">A human?</p>
+<p data-reading-anchor id="ch2996-p029">The sealed figure was tall and slender. Most of his body had decayed into a pool of rotten flesh, while the remaining parts exposed white bones and strands of muscle.</p>
+<p data-reading-anchor id="ch2996-p030">“That is...”</p>
+<p data-reading-anchor id="ch2996-p031">Archbishop Whiteman stared at the figure gradually stepping free, a chill running down his spine.</p>
+<p data-reading-anchor id="ch2996-p032">“Crack, crack-crack...”</p>
+<p data-reading-anchor id="ch2996-p033">At some point, tiny black beetles had begun emerging from every corner of the hall. They scuttled across the floor, making a continuous clicking noise, and rapidly gathered on the decaying human in the center.</p>
+<p data-reading-anchor id="ch2996-p034">“Watch out! Fall back!”</p>
+<p data-reading-anchor id="ch2996-p035">Whiteman suddenly realized the danger and shouted. At the same time, he and the Holy Court priests behind him raised a defensive barrier.</p>
+<p data-reading-anchor id="ch2996-p036">Whether the thing was the Apocalypse treasure or not, it was unquestionably dangerous!</p>
+<p data-reading-anchor id="ch2996-p037">The next moment, the human within the rotten flesh slowly opened his eyes and looked toward Luo Ao and the Central Federation players. Suddenly, he raised a hand toward them.</p>
+<p data-reading-anchor id="ch2996-p038">“Whoosh! Whoosh, whoosh, whoosh!!!”</p>
+<p data-reading-anchor id="ch2996-p039">Rotten flesh from his body launched toward the players like a barrage of explosive shells!</p>
+<p data-reading-anchor id="ch2996-p040">“Bang! Bang, bang!!”</p>
+<p data-reading-anchor id="ch2996-p041">Dense projectiles of rotting meat exploded against the sacred barrier.</p>
+<p data-reading-anchor id="ch2996-p042">The flesh was highly corrosive. After bursting, the remaining corruption continued spreading and inflicted additional damage on the barrier.</p>
+<p data-reading-anchor id="ch2996-p043">“Second group, cover us!”</p>
+<p data-reading-anchor id="ch2996-p044">“Retreat! Hurry, retreat!!”</p>
+<p data-reading-anchor id="ch2996-p045">The confined hall was unsuitable for an effective battle. Luo Ao shouted for the players to withdraw in an orderly formation.</p>
+<p data-reading-anchor id="ch2996-p046">The Federation elites immediately unleashed various spells to destroy the incoming flesh, relying on the sacred barrier cast by Archbishop Whiteman and the other Holy Court believers as they steadily fell back.</p>
+<p data-reading-anchor id="ch2996-p047">They retreated through the melted opening in the ice and finally exited the cavern's defensive region.</p>
+<p data-reading-anchor id="ch2996-p048">What now?</p>
+<p data-reading-anchor id="ch2996-p049">Back in the outer ice-crystal labyrinth, the players exchanged quick glances.</p>
+<p data-reading-anchor id="ch2996-p050">They seemed to have released something extraordinarily dangerous.</p>
+<p data-reading-anchor id="ch2996-p051">But where was the Apocalypse treasure?</p>
+<p data-reading-anchor id="ch2996-p052">Thinking back on the brief fight, the sealed mass of flesh had only just escaped and had not yet recovered its full strength. They hadn't seen anything else connected with the treasure.</p>
+<p data-reading-anchor id="ch2996-p053">Was their intelligence wrong?</p>
+<p data-reading-anchor id="ch2996-p054">“Maybe we have to defeat that creature before we can claim the Apocalypse treasure?”</p>
+<p data-reading-anchor id="ch2996-p055">“Kill it?”</p>
+<p data-reading-anchor id="ch2996-p056">Just recalling that grotesque flesh monster made the players' skin crawl.</p>
+<p data-reading-anchor id="ch2996-p057">Luo Ao turned to Archbishop Whiteman. “Archbishop, do you think you can handle the mysterious monster we just saw?”</p>
+<p data-reading-anchor id="ch2996-p058">Whiteman looked solemn. “If my guess is right, there's a good chance it is Ouroboros.”</p>
+<p data-reading-anchor id="ch2996-p059">Luo Ao's expression changed at once. “What? You mean the Eternal Cataclysm?”</p>
+<p data-reading-anchor id="ch2996-p060">“It looks very similar.”</p>
+<p data-reading-anchor id="ch2996-p061">Whiteman couldn't be sure. He continued gravely, “If it truly is Ouroboros, we're in serious trouble. We must find a way to destroy it completely, or this entire world will be swallowed by the Calamity.”</p>
+<p data-reading-anchor id="ch2996-p062">Luo Ao took a deep breath and looked toward the cavern entrance. “Form up! Establish a defensive line and prepare to eliminate the monster!”</p>
+<p data-reading-anchor id="ch2996-p063">The Federation elites had barely formed ranks when the black beetles they'd seen earlier began pouring rapidly from the cavern.</p>
+<p data-reading-anchor id="ch2996-p064">“Destroy them!”</p>
+<p data-reading-anchor id="ch2996-p065">Players in the rear unleashed fire spells together, concentrating their attacks on the entrance. The beetles emerging from the cavern had little magical resistance; they crackled under the concentrated flames and burned to ashes.</p>
+<p data-reading-anchor id="ch2996-p066">“He's coming.”</p>
+<p data-reading-anchor id="ch2996-p067">Archbishop Whiteman fixed his gaze on the cavern entrance, raised his staff, and focused intently.</p>
+<p data-reading-anchor id="ch2996-p068">In the shadows not far from Luo Ao's group, several pairs of eyes were watching them closely.</p>
+<p data-reading-anchor id="ch2996-p069">“My lady, Haye has been suppressed for so long, yet his strength hasn't diminished at all. Aren't you worried about Fang Heng?”</p>
+<p data-reading-anchor id="ch2996-p070">“Not at all.”</p>
+<p data-reading-anchor id="ch2996-p071">Xia Xi watched the Central Federation players calmly. “There may be a difference in strength, but Fang Heng isn't stupid. He'll build up his power and use the Titan bloodline against Haye. After all, he's nothing more than a monster that's lost its mind.”</p>
+<p data-reading-anchor id="ch2996-p072">“But...”</p>
+<p data-reading-anchor id="ch2996-p073">Her subordinate remained worried.</p>
+<p data-reading-anchor id="ch2996-p074">The last time they'd sealed Haye, Xia Xi, Mu Qingxin, and Su Ziyue had joined forces to imprison him. They'd even left portions of their own origin power behind to keep the seal intact until now.</p>
+<p data-reading-anchor id="ch2996-p075">“If Fang Heng dies against an incomplete Ouroboros Seed that has lost its reason, that only proves he isn't qualified.”</p>
+<p data-reading-anchor id="ch2996-p076">The subordinates fell silent, a chill creeping through them.</p>
+<p data-reading-anchor id="ch2996-p077">They couldn't understand Xia Xi at all.</p>
+<p data-reading-anchor id="ch2996-p078">She'd devoted tremendous effort to cultivating Fang Heng, sparing no pains throughout the process.</p>
+<p data-reading-anchor id="ch2996-p079">Yet after the Seed was grown, she'd adopted a hands-off approach, offering only occasional guidance.</p>
+<p data-reading-anchor id="ch2996-p080">Now she spoke with such indifference, as though she'd abandon Fang Heng without a second thought if he failed.</p>
+</article>
+<p class="end" data-reading-anchor id="ch2996-end">— End of Chapter 2996 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Original Chinese Chapter 2997: 转移. English Chapter 2996: Transfer. Narrative paragraphs: 80/80.</li><li>Haye (哈耶) is the sealed Ouroboros entity. Xia Xi refers to earlier joint sealing with Mu Qingxin and Su Ziyue.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_2995_Treasure.html#start">← Previous</a><a href="Global_Game_AFK_Chapter_2997_Trap.html#start" class="next">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

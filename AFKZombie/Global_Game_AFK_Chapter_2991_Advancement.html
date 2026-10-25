@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 2991 — Advancement | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-2991">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2990_Tier.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_2991_Advancement.html"><option value="Global_Game_AFK_Chapter_2991_Advancement.html" selected>2991 · Advancement</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2992_Key_of_Apocalypse.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-2991" data-reading-anchor>
+<div class="chapter-num">Chapter 2991</div><h2 class="chapter-title">Advancement</h2>
+<p class="source-identity">From Chinese Chapter 2992 · 进阶</p>
+<article class="prose">
+<p data-reading-anchor id="ch2991-p001">For more than a month, Fang Heng had remained in the Death Realm, meditating and using his mental strength to condense the pearls.</p>
+<p data-reading-anchor id="ch2991-p002">Today, at last, he'd advanced!</p>
+<p data-reading-anchor id="ch2991-p003">He closed his eyes again, sensing the explosive growth in Mental Strength and Will within him.</p>
+<p data-reading-anchor id="ch2991-p004">Under the amplification of his Will attribute and the skill itself, he felt that his soul had become terrifyingly powerful.</p>
+<p data-reading-anchor id="ch2991-p005">His Mental Strength had also soared.</p>
+<p data-reading-anchor id="ch2991-p006">Fang Heng extended an open hand.</p>
+<p data-reading-anchor id="ch2991-p007">The surrounding death aura quickly converged in his palm, forming a black sphere.</p>
+<p data-reading-anchor id="ch2991-p008">The sphere was only the size of an egg, yet contained a horrifying amount of power.</p>
+<p data-reading-anchor id="ch2991-p009">Fang Heng tossed it lightly into the sky.</p>
+<p data-reading-anchor id="ch2991-p010">Whoosh!</p>
+<p data-reading-anchor id="ch2991-p011">“BOOM!!”</p>
+<p data-reading-anchor id="ch2991-p012">It exploded violently overhead, releasing a wave of death aura that blanketed several hundred meters with a dense Death Realm atmosphere.</p>
+<p data-reading-anchor id="ch2991-p013">After the massive improvement in Mental Strength, Fang Heng could sense another explosive leap in his overall power.</p>
+<p data-reading-anchor id="ch2991-p014">He drew a deep breath and studied the skill description again.</p>
+<p data-reading-anchor id="ch2991-p015">Super-Divine-Level.</p>
+<p data-reading-anchor id="ch2991-p016">He hadn't imagined there was another stage beyond Divine-Level Necromancy. Even the Undead Council probably didn't know it existed.</p>
+<p data-reading-anchor id="ch2991-p017">And it seemed Super-Divine-Level was the final stage. There was no limit to its advancement: every level could further raise his Will, Mental Strength, and soul power.</p>
+<p data-reading-anchor id="ch2991-p018">But...</p>
+<p data-reading-anchor id="ch2991-p019">Fang Heng frowned slightly.</p>
+<p data-reading-anchor id="ch2991-p020">The conditions for improving the skill were rather strange.</p>
+<p data-reading-anchor id="ch2991-p021">Rather than absorbing different forms of energy as before, he had to expand the black-fog worlds?</p>
+<p data-reading-anchor id="ch2991-p022">How was he supposed to expand a black-fog world?</p>
+<p data-reading-anchor id="ch2991-p023">Puzzled, Fang Heng continued examining the details.</p>
+<p data-reading-anchor id="ch2991-p024">Advancing to Super-Divine-Level Necromancy had also granted several additional skills.</p>
+<p data-reading-anchor id="ch2991-p025">Additional Skill 1: Netherworld Imprisonment.</p>
+<p data-reading-anchor id="ch2991-p026">Skill Description: Select a target and attack its soul, sending it into the Death Realm to enter reincarnation. (Usable only inside black-fog zones.)</p>
+<p data-reading-anchor id="ch2991-p027">Skill Cooldown: 60 minutes.</p>
+<p data-reading-anchor id="ch2991-p028">Additional Skill 2: Netherworld Pearls (24/24).</p>
+<p data-reading-anchor id="ch2991-p029">Skill Description: Netherworld Pearls condensed from the Death Realm's power have formed a mental link with the player. During battle, they can absorb Death Realm energy and fight autonomously to assist the player. Each pearl additionally increases the effect of Necromancy-attribute skills by 3.3% and grants +33 Strength, +33 Constitution, and +33 Agility. Destroyed pearls can be condensed again within the Death Realm.</p>
+<p data-reading-anchor id="ch2991-p030">Additional Skill 3: Descent of the Death Realm (Domain Skill).</p>
+<p data-reading-anchor id="ch2991-p031">Skill Description: Summon the Death Realm's descent, greatly strengthening the Death Realm environment. The domain applies an additional 5,000% soul pressure. Enemies within its area continuously suffer the effects of reincarnation power. Domain duration and area depend on the player's Mental Strength.</p>
+<p data-reading-anchor id="ch2991-p032">Skill Cooldown: 6 hours.</p>
+<p data-reading-anchor id="ch2991-p033">Fang Heng reviewed everything carefully.</p>
+<p data-reading-anchor id="ch2991-p034">There were only three new skills, but each was incredibly powerful. Descent of the Death Realm had a cooldown of just six hours, relatively short for an ultimate move.</p>
+<p data-reading-anchor id="ch2991-p035">Then there were the Netherworld Pearls that had taken him more than half a month to condense.</p>
+<p data-reading-anchor id="ch2991-p036">They were somewhat like the pearls he'd used in his Underworld God state, but the amount of death energy contained within them was on a completely different scale.</p>
+<p data-reading-anchor id="ch2991-p037">They didn't even need to join a battle. Simply keeping them active provided tremendous attribute bonuses.</p>
+<p data-reading-anchor id="ch2991-p038">As for their precise effects, he'd have to test them in actual combat.</p>
+<p data-reading-anchor id="ch2991-p039">Fang Heng stood up and surveyed his surroundings.</p>
+<p data-reading-anchor id="ch2991-p040">But weren't all these pearls circling around his body a little too conspicuous?</p>
+<p data-reading-anchor id="ch2991-p041">With a thought, the twenty-four pearls spun rapidly and sank into his body, leaving black marks upon his skin.</p>
+<p data-reading-anchor id="ch2991-p042">Much less conspicuous.</p>
+<p data-reading-anchor id="ch2991-p043">His period of seclusion was over.</p>
+<p data-reading-anchor id="ch2991-p044">Fang Heng left the hall and took a breath of fresh air outside.</p>
+<p data-reading-anchor id="ch2991-p045">He'd solved the Death Realm's troubles, broken through the Lock in the real world, and gained access to all his abilities. After advancing his Necromancy to Super-Divine-Level, his attributes had risen explosively again. He could even reincarnate after death inside black-fog game environments, greatly improving his margin for error.</p>
+<p data-reading-anchor id="ch2991-p046">But it was not time to relax. One more great threat remained.</p>
+<p data-reading-anchor id="ch2991-p047">The Demon Seed—Envy.</p>
+<p data-reading-anchor id="ch2991-p048">With his current strength, could he take the initiative and challenge Envy directly?</p>
+<p data-reading-anchor id="ch2991-p049">Fang Heng examined his Sea of Consciousness.</p>
+<p data-reading-anchor id="ch2991-p050">As his strength grew, the shadow left there by the Demon Seed Envy had almost ceased to restrict him.</p>
+<p data-reading-anchor id="ch2991-p051">No. Wait a little longer.</p>
+<p data-reading-anchor id="ch2991-p052">He wanted to strike with everything he had and leave Envy no chance whatsoever!</p>
+<p data-reading-anchor id="ch2991-p053" class="scene">...</p>
+<p data-reading-anchor id="ch2991-p054">The real world.</p>
+<p data-reading-anchor id="ch2991-p055">After the Western and Eastern Federations confronted each other in the game, both sides tacitly withdrew to reality.</p>
+<p data-reading-anchor id="ch2991-p056">The Kinsfolk Star Map Project was abruptly declared suspended. The Western Federation announced that construction would remain at its current stage and urged the other Federations to stay calm.</p>
+<p data-reading-anchor id="ch2991-p057">The whole world faced threats from the black fog and outside forces. Fighting among themselves at a time like this would be incredibly foolish.</p>
+<p data-reading-anchor id="ch2991-p058">The public had long since become immune to the Western Federation's shameless statements. Hadn't the Western Federation been the one to start the Star Map Project in the first place? And now it was calling for calm?</p>
+<p data-reading-anchor id="ch2991-p059">Players were much more interested in why the Western Federation's position had suddenly reversed completely.</p>
+<p data-reading-anchor id="ch2991-p060">Only those in the know understood: the Western Federation had been scared out of its wits.</p>
+<p data-reading-anchor id="ch2991-p061">What a joke.</p>
+<p data-reading-anchor id="ch2991-p062">The Eastern Federation already had an entire fleet of warships!</p>
+<p data-reading-anchor id="ch2991-p063">All because of Fang Heng.</p>
+<p data-reading-anchor id="ch2991-p064">It was obvious that Fang Heng and the Eastern Federation stood far above them in the Kinsfolk hierarchy.</p>
+<p data-reading-anchor id="ch2991-p065">If the Star Map were completed, who would call the shots in this world?</p>
+<p data-reading-anchor id="ch2991-p066">The Eastern Federation, of course.</p>
+<p data-reading-anchor id="ch2991-p067">Wouldn't that make the Western Federation a complete laughingstock?</p>
+<p data-reading-anchor id="ch2991-p068">They'd originally hoped to use the Kinsfolk's power to become the world's overlords. Now they would only be carrying the Eastern Federation's sedan chair—doing all the work so someone else could reap the reward!</p>
+<p data-reading-anchor id="ch2991-p069">Naturally, the Western Federation was absolutely unwilling.</p>
+<p data-reading-anchor id="ch2991-p070">They didn't dare offend the Kinsfolk, but neither would they work to benefit their rivals. So they started dragging their feet, pushing back the Star Map's construction schedule.</p>
+<p data-reading-anchor id="ch2991-p071">The Kinsfolk apparently noticed that humanity was delaying deliberately, expressed displeasure, and repeatedly pressed for progress.</p>
+<p data-reading-anchor id="ch2991-p072">The Western Federation simply smiled, apologized, said it understood—and still refused to budge.</p>
+<p data-reading-anchor id="ch2991-p073">Rather than easing tensions among the major powers, the suspension of the Star Map intensified their competition to cultivate stronger players.</p>
+<p data-reading-anchor id="ch2991-p074">The Central Federation and the regional Federations relaxed the restrictions surrounding the Lock even further.</p>
+<p data-reading-anchor id="ch2991-p075">Every major faction began seeking new breakthroughs in strength within the game.</p>
+<p data-reading-anchor id="ch2991-p076">As a result, the Vampire Apocalypse became a treasure trove in the eyes of players everywhere.</p>
+<p data-reading-anchor id="ch2991-p077">There was no faster way to achieve a massive increase in strength than acquiring a Vampire bloodline.</p>
+<p data-reading-anchor id="ch2991-p078">Players called it the latest generation of ‘fully automatic wheelchair’—an effortless shortcut to power.</p>
+<p data-reading-anchor id="ch2991-p079">Obtaining a Vampire bloodline was practically a one-step ascent to the heavens!</p>
+<p data-reading-anchor id="ch2991-p080">Coincidentally, the Vampires had also released a mysterious special quest chain.</p>
+<p data-reading-anchor id="ch2991-p081">The Main Battlefield Plan.</p>
+<p data-reading-anchor id="ch2991-p082">Players could board Vampire starships, enter various special worlds, complete commissions including ore collection, and accumulate points to exchange for a range of in-game items.</p>
+<p data-reading-anchor id="ch2991-p083">Among the rewards was even the extraordinarily precious Vampire bloodline!</p>
+</article>
+<p class="end" data-reading-anchor id="ch2991-end">— End of Chapter 2991 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Original Chinese Chapter 2992: 进阶. English Chapter 2991: Advancement. Narrative paragraphs: 83/83.</li><li>Keep the “fully automatic wheelchair” gaming slang describing Vampire bloodline ease, rather than rewriting it as a literal vehicle.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_2990_Tier.html#start">← Previous</a><a href="Global_Game_AFK_Chapter_2992_Key_of_Apocalypse.html#start" class="next">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

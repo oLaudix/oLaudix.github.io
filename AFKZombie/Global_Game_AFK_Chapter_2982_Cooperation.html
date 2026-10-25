@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 2982 — Cooperation | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-2982">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2981_Close_Combat.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_2982_Cooperation.html"><option value="Global_Game_AFK_Chapter_2982_Cooperation.html" selected>2982 · Cooperation</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2983_Assembly.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-2982" data-reading-anchor>
+<div class="chapter-num">Chapter 2982</div><h2 class="chapter-title">Cooperation</h2>
+<p class="source-identity">From Chinese Chapter 2983 · 合作</p>
+<article class="prose">
+<p data-reading-anchor id="ch2982-p001">“Fang Heng, that's an interesting power. I'm not at my best, but I've already used every trump card I have. I doubt you've shown your true full strength either. There's no need to continue. This time, I admit defeat.”</p>
+<p data-reading-anchor id="ch2982-p002">As she spoke, Sura willingly let the power sustaining her body dissipate. Blood continually seeped from her skin.</p>
+<p data-reading-anchor id="ch2982-p003">This time, however, her body did not regenerate.</p>
+<p data-reading-anchor id="ch2982-p004">“I hope you'll inherit our race's will... and allow our species to continue, evolving and improving even further...”</p>
+<p data-reading-anchor id="ch2982-p005">Seeing Sura gradually release her power, Fang Heng also lowered his hand.</p>
+<p data-reading-anchor id="ch2982-p006">In truth, he was nowhere near as relaxed as he appeared.</p>
+<p data-reading-anchor id="ch2982-p007">He hadn't used his ultimate trump card, Everlasting Moon, or any of his Sacred Studies or Necromancy abilities. But against someone like Sura, whose physical power had been refined to the extreme, most of those abilities could only provide support. Everlasting Moon was the exception.</p>
+<p data-reading-anchor id="ch2982-p008">More importantly, her physical strength had far exceeded his imagination.</p>
+<p data-reading-anchor id="ch2982-p009">Had he not concealed a large number of Lickers beneath the ship with their Burrowing ability before the fight, using Life Sharing to spread the damage among them, he genuinely wouldn't have endured it.</p>
+<p data-reading-anchor id="ch2982-p010">Even his Undying Body couldn't have healed that much damage!</p>
+<p data-reading-anchor id="ch2982-p011">He watched Sura with deep wariness.</p>
+<p data-reading-anchor id="ch2982-p012">If Sura alone was this difficult, could he really handle both Proust in the Death Realm and his Cultivator, Mu Qingxin, at the same time?</p>
+<p data-reading-anchor id="ch2982-p013">Even with the Kinsfolk's Eye of Stars assisting him?</p>
+<p data-reading-anchor id="ch2982-p014">It still wasn't a safe bet.</p>
+<p data-reading-anchor id="ch2982-p015">Sura's body continued to decay. Slowly she raised her right hand and pushed it into her open mouth.</p>
+<p data-reading-anchor id="ch2982-p016">“Gulp, gulp...”</p>
+<p data-reading-anchor id="ch2982-p017">She pulled a cocoon from inside her body and tossed it to Fang Heng.</p>
+<p data-reading-anchor id="ch2982-p018">“I'll find a suitable place to enter dormancy again. I hope the Cultivators' war will be over by the time I awaken.”</p>
+<p data-reading-anchor id="ch2982-p019">Fang Heng caught the cocoon, surprised by how decisively she had conceded.</p>
+<p data-reading-anchor id="ch2982-p020" class="game">[Game Hint: You have obtained Ouroboros Cocoon (Complete).]</p>
+<p data-reading-anchor id="ch2982-p021">“Wait.”</p>
+<p data-reading-anchor id="ch2982-p022">“What is it?”</p>
+<p data-reading-anchor id="ch2982-p023">After thinking for a moment, Fang Heng threw the Ouroboros Cocoon back to Sura.</p>
+<p data-reading-anchor id="ch2982-p024">“Pa!”</p>
+<p data-reading-anchor id="ch2982-p025">With most of her body already dissolved, Sura reached out with her left hand to catch it. She stared at Fang Heng. “What do you mean?”</p>
+<p data-reading-anchor id="ch2982-p026">“Don't leave just yet. I want you to help me with something.”</p>
+<p data-reading-anchor id="ch2982-p027">“What?”</p>
+<p data-reading-anchor id="ch2982-p028">“I'm going to challenge another newborn to a fight. He's quite strong, and I want you to restrain his ‘Cultivator’ so she can't interfere.”</p>
+<p data-reading-anchor id="ch2982-p029">Fang Heng gestured toward the cocoon in Sura's hand. “Consider that your payment. Once the fight is over, we'll be even.”</p>
+<p data-reading-anchor id="ch2982-p030">Sura did not reply immediately. After regarding him in silence, she said, “Cultivators generally don't intervene in fights between newborns, though there are exceptions. But now I'm curious. Where is your ‘Cultivator’?”</p>
+<p data-reading-anchor id="ch2982-p031">Fang Heng spread his hands. “Don't even ask. She's unreliable. I don't trust her.”</p>
+<p data-reading-anchor id="ch2982-p032">“A fair bargain. I'll do everything I can, but I can't guarantee I can restrain a Cultivator of the same tier.”</p>
+<p data-reading-anchor id="ch2982-p033">After some thought, Sura swallowed the cocoon again. “There's still a problem. The auras we've exposed have already drawn the Shadow Clan here to hunt us. How are we going to leave safely?”</p>
+<p data-reading-anchor id="ch2982-p034">“With your abilities, leaving should be easy. As for me, you don't need to worry. Remember these coordinates, and come find me aboard my starship within seven days. I've already granted you access.”</p>
+<p data-reading-anchor id="ch2982-p035">Fang Heng quickly recited the world's coordinates, formed a seal before him, and slowly closed his eyes.</p>
+<p data-reading-anchor id="ch2982-p036">Hiss, hiss...</p>
+<p data-reading-anchor id="ch2982-p037">A dark magic array appeared beneath his feet.</p>
+<p data-reading-anchor id="ch2982-p038">Thick black mist poured from the array and rapidly enveloped his entire body.</p>
+<p data-reading-anchor id="ch2982-p039">Sura watched Fang Heng vanish into the mist, lost in thought.</p>
+<p data-reading-anchor id="ch2982-p040">As the surrounding World of Ten Thousand Forests rapidly contracted and disappeared, she chuckled softly.</p>
+<p data-reading-anchor id="ch2982-p041">“What an interesting fellow...”</p>
+<p data-reading-anchor id="ch2982-p042">Not far away, the various races had sensed that something was wrong and were converging rapidly on the wrecked starship.</p>
+<p data-reading-anchor id="ch2982-p043">“What's going on?”</p>
+<p data-reading-anchor id="ch2982-p044">“No idea.”</p>
+<p data-reading-anchor id="ch2982-p045">Suddenly, everyone noticed the forest ahead shrinking swiftly, followed by a sharp explosion.</p>
+<p data-reading-anchor id="ch2982-p046">“BOOM!!!”</p>
+<p data-reading-anchor id="ch2982-p047">A dense swarm of Zerg poured out of the collapsing woodland!</p>
+<p data-reading-anchor id="ch2982-p048">“Watch out! Zerg!”</p>
+<p data-reading-anchor id="ch2982-p049">As chaotic fighting broke out, three elves drawn by the unfamiliar aura exchanged startled looks among the trees farther back.</p>
+<p data-reading-anchor id="ch2982-p050">“That aura just now...”</p>
+<p data-reading-anchor id="ch2982-p051">“Yes.” The eldest elf nodded solemnly. “That was the aura of the Tree of Life. And I could see signs that the trees had been cultivated by our own kind.”</p>
+<p data-reading-anchor id="ch2982-p052">The others fell silent for a moment.</p>
+<p data-reading-anchor id="ch2982-p053">Why would the Tree of Life's aura appear on a human? And why did the vegetation bear traces of elven cultivation?</p>
+<p data-reading-anchor id="ch2982-p054">How strange!</p>
+<p data-reading-anchor id="ch2982-p055">“I left a tracking mark on the divine tree, but some power is interfering with it. I can't follow its signal...”</p>
+<p data-reading-anchor id="ch2982-p056">“The mark will last at least three years. Our immediate priority is to abandon this mission, return to our people, and report to the Elven Temple. I'm sure the temple will have a way to trace it.”</p>
+<p data-reading-anchor id="ch2982-p057">“Agreed.”</p>
+<p data-reading-anchor id="ch2982-p058" class="scene">...</p>
+<p data-reading-anchor id="ch2982-p059">Seven days later.</p>
+<p data-reading-anchor id="ch2982-p060">The Death Realm.</p>
+<p data-reading-anchor id="ch2982-p061">A gloomy gray haze hung in the air.</p>
+<p data-reading-anchor id="ch2982-p062">Ever since the Death Realm Jewel had been transferred away, the realm's death aura had grown thinner by the day.</p>
+<p data-reading-anchor id="ch2982-p063">“The concentration of death aura has dropped drastically lately. It isn't just a shortage of Nether Crystals anymore. Every member of our clan is feeling the effects of the weakening aura.”</p>
+<p data-reading-anchor id="ch2982-p064">“The changes to the environment have forced us to compromise, but some stubborn members still refuse to leave. There have also been rumors circulating lately that cast you in an unfavorable light.”</p>
+<p data-reading-anchor id="ch2982-p065">“Oh? Really?” Fang Heng glanced at his recognition rating for the Undead World quest. “What are they saying?”</p>
+<p data-reading-anchor id="ch2982-p066">Notar replied helplessly, “People outside claim your arrival caused the changes to our world. Many Nether Clan members have been forced into the new world, but they still long for the Death Realm and hope to return to their homeland someday.”</p>
+<p data-reading-anchor id="ch2982-p067">Fair enough.</p>
+<p data-reading-anchor id="ch2982-p068">Fang Heng could understand that.</p>
+<p data-reading-anchor id="ch2982-p069">After all, this was their ancestral home.</p>
+<p data-reading-anchor id="ch2982-p070">But he still had to complete his Nether Lord advancement quest.</p>
+<p data-reading-anchor id="ch2982-p071">“Mr. Fang Heng, can we really do it?”</p>
+<p data-reading-anchor id="ch2982-p072">Notar looked at him hopefully. “Can you truly eradicate the Calamity and restore peace to the Death Realm?”</p>
+<p data-reading-anchor id="ch2982-p073">“Hmm... probably...”</p>
+<p data-reading-anchor id="ch2982-p074">Fang Heng privately thought that wiping out the Calamity might be possible. Restoring peace to the Death Realm, however, was another matter entirely.</p>
+<p data-reading-anchor id="ch2982-p075">The Death Realm Jewel had already been moved elsewhere. Over time, this realm would become an ordinary world.</p>
+<p data-reading-anchor id="ch2982-p076">“We've come this far. Let's give it everything we've got.”</p>
+<p data-reading-anchor id="ch2982-p077">“Yes.”</p>
+<p data-reading-anchor id="ch2982-p078">Notar nodded gravely. “My people and I will do everything we can. Please follow me.”</p>
+</article>
+<p class="end" data-reading-anchor id="ch2982-end">— End of Chapter 2982 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Original Chinese Chapter 2983: 合作. English Chapter 2982: Cooperation. Narrative paragraphs: 78/78.</li><li>Proust and Mu Qingxin are separate: Proust is the Ouroboros newborn and Mu Qingxin is his Cultivator.</li><li>Notar (诺塔尔), a Nether Clan leader, remains separate from earlier Kotar references, which are inconsistently identified in older Chinese chapters.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_2981_Close_Combat.html#start">← Previous</a><a href="Global_Game_AFK_Chapter_2983_Assembly.html#start" class="next">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

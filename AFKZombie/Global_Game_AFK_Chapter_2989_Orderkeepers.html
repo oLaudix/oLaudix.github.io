@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 2989 — Orderkeepers | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-2989">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2988_Hardline.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_2989_Orderkeepers.html"><option value="Global_Game_AFK_Chapter_2989_Orderkeepers.html" selected>2989 · Orderkeepers</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2990_Tier.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-2989" data-reading-anchor>
+<div class="chapter-num">Chapter 2989</div><h2 class="chapter-title">Orderkeepers</h2>
+<p class="source-identity">From Chinese Chapter 2990 · 秩序者</p>
+<article class="prose">
+<p data-reading-anchor id="ch2989-p001">Escape!</p>
+<p data-reading-anchor id="ch2989-p002">She might look only a little weakened, but Mu Qingxin knew she had suffered a grievous injury.</p>
+<p data-reading-anchor id="ch2989-p003">Her soul and will were on the verge of shattering.</p>
+<p data-reading-anchor id="ch2989-p004">Run for her life!</p>
+<p data-reading-anchor id="ch2989-p005">Simply surviving would be the best possible outcome now.</p>
+<p data-reading-anchor id="ch2989-p006">“Everyone, it's our turn! Don't hold back—attack together!”</p>
+<p data-reading-anchor id="ch2989-p007">“Right.”</p>
+<p data-reading-anchor id="ch2989-p008">Whoosh! Whoosh, whoosh!!!</p>
+<p data-reading-anchor id="ch2989-p009">The Undead Council mentors had been waiting in readiness. They all moved to block Mu Qingxin's escape route, sending dense soul chains stretching toward her!</p>
+<p data-reading-anchor id="ch2989-p010">The council mentors' target had always been Mu Qingxin, just as the plan specified.</p>
+<p data-reading-anchor id="ch2989-p011">The moment she tried to flee or move completely outside the Eye of Stars attack range, they would intervene.</p>
+<p data-reading-anchor id="ch2989-p012">Against an utterly exhausted Mu Qingxin, the council's old masters might not be able to kill her themselves, but they could certainly prevent her escape!</p>
+<p data-reading-anchor id="ch2989-p013">Black soul chains formed a huge net and swept toward Mu Qingxin.</p>
+<p data-reading-anchor id="ch2989-p014">With her soul already severely damaged, Mu Qingxin instinctively felt a chill at the sight of the soul chains. She didn't dare force her way through, and the space available to her quickly shrank.</p>
+<p data-reading-anchor id="ch2989-p015">The warriors of the four Nether Clan empires also knew the war had reached its final moment and sealed off the entire surrounding area.</p>
+<p data-reading-anchor id="ch2989-p016">The whole Death Realm had been pushed to the brink of collapse.</p>
+<p data-reading-anchor id="ch2989-p017">And she was the culprit!</p>
+<p data-reading-anchor id="ch2989-p018">The Nether Clan would never let Mu Qingxin leave.</p>
+<p data-reading-anchor id="ch2989-p019">Seeing layer after layer of soul chains ahead, Mu Qingxin knew she couldn't dodge them. She gritted her teeth, preparing for one desperate last fight.</p>
+<p data-reading-anchor id="ch2989-p020">Whoosh!</p>
+<p data-reading-anchor id="ch2989-p021">Suddenly her body trembled and froze in a staggered state.</p>
+<p data-reading-anchor id="ch2989-p022">A cold voice sounded behind her.</p>
+<p data-reading-anchor id="ch2989-p023">“Divine Punishment!”</p>
+<p data-reading-anchor id="ch2989-p024">“BOOM!!!”</p>
+<p data-reading-anchor id="ch2989-p025">Purple light crashed down from above and struck Mu Qingxin mercilessly!</p>
+<p data-reading-anchor id="ch2989-p026">Not far away, Sura watched coldly, displeasure in her eyes.</p>
+<p data-reading-anchor id="ch2989-p027">First Proust, and now Mu Qingxin.</p>
+<p data-reading-anchor id="ch2989-p028">Both were going to die by Fang Heng's hand.</p>
+<p data-reading-anchor id="ch2989-p029">“Mu Qingxin, you've made a mistake. Your bond with the Seed you cultivated grew too deep. You still had the duty to nurture the successors of our species. You should never have died here...”</p>
+<p data-reading-anchor id="ch2989-p030">Under the relentless Divine Punishment barrage, Mu Qingxin's HP finally ran out.</p>
+<p data-reading-anchor id="ch2989-p031">BOOM!</p>
+<p data-reading-anchor id="ch2989-p032">Roaring sacred fire engulfed her, burning until nothing remained.</p>
+<p data-reading-anchor id="ch2989-p033">Whoosh!</p>
+<p data-reading-anchor id="ch2989-p034">A cocoon rose from the ashes and flew into Fang Heng's palm, where a black fissure opened and swallowed it completely.</p>
+<p data-reading-anchor id="ch2989-p035" class="game">[Game Hint: You have killed the Ouroboros Seed Cultivator—Mu Qingxin.]</p>
+<p data-reading-anchor id="ch2989-p036" class="game">[Game Hint: You have absorbed an Ouroboros Seed. Your current Ouroboros Seed level has risen to LV:25. You have gained 1 additional optional modification.]</p>
+<p data-reading-anchor id="ch2989-p037">Was it over?</p>
+<p data-reading-anchor id="ch2989-p038">The Nether Clan watched Fang Heng still standing in the middle of the battlefield, disbelief in their eyes.</p>
+<p data-reading-anchor id="ch2989-p039">The legendary, terrifying Calamity.</p>
+<p data-reading-anchor id="ch2989-p040">The Calamity that had nearly swallowed the entire Death Realm.</p>
+<p data-reading-anchor id="ch2989-p041">Had it finally been destroyed?</p>
+<p data-reading-anchor id="ch2989-p042">Fang Heng approached the Undead Council mentors and bowed respectfully. “Thank you, Mentors, for your assistance.”</p>
+<p data-reading-anchor id="ch2989-p043">The Undead Council might have shown weakness in its dealings with the Holy Court, but it had always treated him well.</p>
+<p data-reading-anchor id="ch2989-p044">When he'd suggested dealing with Mu Qingxin, the council had offered its full support without hesitation.</p>
+<p data-reading-anchor id="ch2989-p045">Chairman Georgi had even come personally with the council's most powerful combatants.</p>
+<p data-reading-anchor id="ch2989-p046">“There's no need for such courtesy between us. With Mu Qingxin dead, the Calamity has been removed, and the Death Realm can return to peace.” Georgi waved his hand. “We've done a good deed for the Death Realm too.”</p>
+<p data-reading-anchor id="ch2989-p047">In fact, the senior council mentors had made extensive preparations for their battle with the Cultivator.</p>
+<p data-reading-anchor id="ch2989-p048">They had drawn up all manner of contingency plans.</p>
+<p data-reading-anchor id="ch2989-p049">In the worst case, they had even considered using divine artifacts to temporarily hold off the Calamity while evacuating Fang Heng first.</p>
+<p data-reading-anchor id="ch2989-p050">Not one member of the council had predicted that Fang Heng would dispose of Mu Qingxin so smoothly.</p>
+<p data-reading-anchor id="ch2989-p051">None of the fallback plans had been needed.</p>
+<p data-reading-anchor id="ch2989-p052">Who could have imagined it?</p>
+<p data-reading-anchor id="ch2989-p053">Even the Empress of the Death Realm hadn't been able to finish off the Ouroboros Seed, yet Fang Heng had destroyed it with his own hands.</p>
+<p data-reading-anchor id="ch2989-p054">The rulers of the four empires looked at Fang Heng with similarly complicated emotions.</p>
+<p data-reading-anchor id="ch2989-p055">Caution, fear, respect, and gratitude.</p>
+<p data-reading-anchor id="ch2989-p056">The Gabu Empire's ruler stepped forward first. “Fang Heng, thank you for your help. Now that the source of the Calamity is gone, we'll continue clearing away its remnants. Your support and friendship will be remembered by the Nether Clan for generations.”</p>
+<p data-reading-anchor id="ch2989-p057" class="game">[Game Hint: You have killed an Ouroboros Seed and successfully stopped the spread of the Calamity. You gain Death Realm reputation. Your deeds are being passed from person to person among the Nether Clan.]</p>
+<p data-reading-anchor id="ch2989-p058" class="game">[Game Hint: You have obtained a special status: Savior of the Death Realm (duration: 3 months). While this status remains active, your favorability, reputation, and support among the Nether Clan and within the Death Realm will continue to rise substantially.]</p>
+<p data-reading-anchor id="ch2989-p059">Fang Heng checked the game notifications.</p>
+<p data-reading-anchor id="ch2989-p060">Not bad at all!</p>
+<p data-reading-anchor id="ch2989-p061">An unexpected gain.</p>
+<p data-reading-anchor id="ch2989-p062">With the Savior of the Death Realm buff, once the news spread over the next few days, he might push his approval across the Death Realm all the way to 100%.</p>
+<p data-reading-anchor id="ch2989-p063">Then he could smoothly complete his Nether Lord advancement quest.</p>
+<p data-reading-anchor id="ch2989-p064">Perhaps it would even open a way to advance his divine-level Necromancy further!</p>
+<p data-reading-anchor id="ch2989-p065">“Fang Heng.”</p>
+<p data-reading-anchor id="ch2989-p066">Fang Heng turned to Sura beside him.</p>
+<p data-reading-anchor id="ch2989-p067">“Congratulations. The matter is settled. According to our agreement, it's time for me to leave.”</p>
+<p data-reading-anchor id="ch2989-p068">“Of course. Good luck.”</p>
+<p data-reading-anchor id="ch2989-p069">Suddenly remembering something, Fang Heng stopped Sura as she was about to go. “One more thing, Sura.”</p>
+<p data-reading-anchor id="ch2989-p070">“What is it?”</p>
+<p data-reading-anchor id="ch2989-p071">“Have you heard of gods?”</p>
+<p data-reading-anchor id="ch2989-p072">Gods!</p>
+<p data-reading-anchor id="ch2989-p073">Sura's eyelid twitched.</p>
+<p data-reading-anchor id="ch2989-p074">“Gods call themselves the Orderkeepers of this world. Their power is immense. They destroyed us last time. But as I told you, the Ouroboros Seed will never truly perish. The next time we return, we'll be stronger. So you've done well, Fang Heng, but I can sense your strength is still insufficient.”</p>
+<p data-reading-anchor id="ch2989-p075">Sura turned away and waved a hand. “Goodbye. I hope you'll surprise me again the next time we meet.”</p>
+<p data-reading-anchor id="ch2989-p076">Fang Heng watched her walk away and lowered his head in thought.</p>
+<p data-reading-anchor id="ch2989-p077">Strange.</p>
+<p data-reading-anchor id="ch2989-p078">According to the Kinsfolk, they were the ones who defeated the Ouroboros Seed last time.</p>
+<p data-reading-anchor id="ch2989-p079">But from Sura's account, it sounded as though the Seeds believed the gods had been the ones to destroy them.</p>
+<p data-reading-anchor id="ch2989-p080">Or had Sura been so badly injured that her memories were incomplete or distorted?</p>
+<p data-reading-anchor id="ch2989-p081">Fang Heng scratched his head.</p>
+<p data-reading-anchor id="ch2989-p082">Gods.</p>
+<p data-reading-anchor id="ch2989-p083">The last time he'd heard about them was from stone tablets in the Ancient Human ruins. The Titans had apparently been threatened by gods and spread their bloodline far and wide. Now Sura was saying the gods had destroyed the Ouroboros Seeds too?</p>
+<p data-reading-anchor id="ch2989-p084">Gods? Orderkeepers?</p>
+<p data-reading-anchor id="ch2989-p085">What the hell were they, exactly?</p>
+<p data-reading-anchor id="ch2989-p086">Come to think of it, the term ‘Main God Game’ had been around for a long time.</p>
+<p data-reading-anchor id="ch2989-p087">Were the game worlds created by gods?</p>
+<p data-reading-anchor id="ch2989-p088">Forget it.</p>
+<p data-reading-anchor id="ch2989-p089">The clues he had were still too scattered to fit into a coherent picture.</p>
+<p data-reading-anchor id="ch2989-p090">Fang Heng shifted his attention back to his Ouroboros Seed skill.</p>
+<p data-reading-anchor id="ch2989-p091">With its advancement to LV:25, he now had six whole optional modification branches!</p>
+</article>
+<p class="end" data-reading-anchor id="ch2989-end">— End of Chapter 2989 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Original Chinese Chapter 2990: 秩序者. English Chapter 2989: Orderkeepers. Narrative paragraphs: 91/91.</li><li>Sura calls gods “Orderkeepers” (秩序者) and says they previously destroyed Ouroboros. Fang Heng notes the conflict with the Kinsfolk account; the source does not resolve it.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_2988_Hardline.html#start">← Previous</a><a href="Global_Game_AFK_Chapter_2990_Tier.html#start" class="next">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

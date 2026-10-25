@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 2988 — Hardline | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-2988">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2987_Purification.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_2988_Hardline.html"><option value="Global_Game_AFK_Chapter_2988_Hardline.html" selected>2988 · Hardline</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2989_Orderkeepers.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-2988" data-reading-anchor>
+<div class="chapter-num">Chapter 2988</div><h2 class="chapter-title">Hardline</h2>
+<p class="source-identity">From Chinese Chapter 2989 · 强硬</p>
+<article class="prose">
+<p data-reading-anchor id="ch2988-p001">Fang Heng examined the game notifications carefully, excitement spreading across his face.</p>
+<p data-reading-anchor id="ch2988-p002">Excellent stuff!</p>
+<p data-reading-anchor id="ch2988-p003">After absorbing the cocoon, not only had he recovered all the experience lost to the Kinsfolk's Eye of Stars, but he'd advanced to LV:21. He had even gained another special modification option.</p>
+<p data-reading-anchor id="ch2988-p004">It seemed to correspond to Proust's signature ability: splitting into red worms.</p>
+<p data-reading-anchor id="ch2988-p005">He could find an opportunity to test it in combat after returning.</p>
+<p data-reading-anchor id="ch2988-p006">Fang Heng looked away from the notifications and slowly turned his gaze toward Sura and Mu Qingxin behind him.</p>
+<p data-reading-anchor id="ch2988-p007">“Fang Heng!”</p>
+<p data-reading-anchor id="ch2988-p008">Mu Qingxin glared at him so fiercely that her eyes looked ready to burst. She appeared eager to swallow him whole.</p>
+<p data-reading-anchor id="ch2988-p009">“Hmph! You can stay here with him!”</p>
+<p data-reading-anchor id="ch2988-p010">Fang Heng snorted, lightly pushed off the ground, and darted toward Mu Qingxin!</p>
+<p data-reading-anchor id="ch2988-p011">Her pupils contracted.</p>
+<p data-reading-anchor id="ch2988-p012">Fang Heng!</p>
+<p data-reading-anchor id="ch2988-p013">He actually dared attack her first?</p>
+<p data-reading-anchor id="ch2988-p014">After enduring an entire Eye of Stars bombardment, he still had strength left to fight?</p>
+<p data-reading-anchor id="ch2988-p015">“Courting death!”</p>
+<p data-reading-anchor id="ch2988-p016">Mu Qingxin rapidly transformed her right hand into a long whip and lashed it at him with a whistle of displaced air.</p>
+<p data-reading-anchor id="ch2988-p017">“BANG!!”</p>
+<p data-reading-anchor id="ch2988-p018">The two collided in midair with a dull impact.</p>
+<p data-reading-anchor id="ch2988-p019">Hm?</p>
+<p data-reading-anchor id="ch2988-p020">To Mu Qingxin's surprise, Fang Heng had not been weakened nearly as much as she had expected.</p>
+<p data-reading-anchor id="ch2988-p021">He still had that much fighting strength?</p>
+<p data-reading-anchor id="ch2988-p022">Seeing Fang Heng take over, Sura swiftly left the battlefield and retreated toward the rear.</p>
+<p data-reading-anchor id="ch2988-p023">She had fulfilled her agreement with Fang Heng.</p>
+<p data-reading-anchor id="ch2988-p024">She would not interfere in the remaining fight.</p>
+<p data-reading-anchor id="ch2988-p025">Fang Heng closed in rapidly, engaging Mu Qingxin at point-blank range.</p>
+<p data-reading-anchor id="ch2988-p026">The two figures clashed in midair, separated, and slammed together again and again...</p>
+<p data-reading-anchor id="ch2988-p027">Mu Qingxin sneered.</p>
+<p data-reading-anchor id="ch2988-p028">She was confident she was stronger than Fang Heng!</p>
+<p data-reading-anchor id="ch2988-p029">And he'd just exhausted himself fighting Proust.</p>
+<p data-reading-anchor id="ch2988-p030">Fang Heng's most powerful weapon was the Kinsfolk's targeting energy beam.</p>
+<p data-reading-anchor id="ch2988-p031">But that attack had an obvious limitation: it required lengthy preparation before firing.</p>
+<p data-reading-anchor id="ch2988-p032">All she needed to do was beware of his sudden bursts of power and avoid being locked onto by the Kinsfolk's high-tier weapon.</p>
+<p data-reading-anchor id="ch2988-p033">“Whoosh!”</p>
+<p data-reading-anchor id="ch2988-p034">Hm? What was that now?</p>
+<p data-reading-anchor id="ch2988-p035">Mu Qingxin's heart lurched as she sensed an eerie energy fluctuation.</p>
+<p data-reading-anchor id="ch2988-p036">Looking up, she saw a black moon appear behind Fang Heng.</p>
+<p data-reading-anchor id="ch2988-p037">Although its black radiance represented darkness, it emanated an uncanny sacred power.</p>
+<p data-reading-anchor id="ch2988-p038">Fang Heng raised his head and stared at Mu Qingxin.</p>
+<p data-reading-anchor id="ch2988-p039">The reason he'd held back his ultimate move was to save it for her!</p>
+<p data-reading-anchor id="ch2988-p040" class="game">[Game Hint: You have activated Everlasting Moon.]</p>
+<p data-reading-anchor id="ch2988-p041" class="game">[Game Hint: You are currently in a game world of the highest sequence...]</p>
+<p data-reading-anchor id="ch2988-p042" class="game">[Game Hint: Fusing with the current world. Your skill form is changing. Fusion in progress...]</p>
+<p data-reading-anchor id="ch2988-p043" class="game">[Game Hint: Current status detected: Sacred Form (Divine Punishment). Fusing skill...]</p>
+<p data-reading-anchor id="ch2988-p044" class="game">[Game Hint: Current world detected: Death Realm. Fusing skill...]</p>
+<p data-reading-anchor id="ch2988-p045" class="game">[Game Hint: You and your teammates have entered the Cycle of Reincarnation state.]</p>
+<p data-reading-anchor id="ch2988-p046" class="game">[Game Hint: Special domain fused: Realm of Reincarnation. You have obtained the special summoned creature: Eye of Chaos.]</p>
+<p data-reading-anchor id="ch2988-p047">Death aura and sacred aura pressed upon Mu Qingxin simultaneously. The two utterly different powers squeezed her from both sides, causing unbearable discomfort. She struggled desperately but couldn't break free in the slightest.</p>
+<p data-reading-anchor id="ch2988-p048">Pairs of dark pupils opened within the void.</p>
+<p data-reading-anchor id="ch2988-p049">They resembled yin-yang fish, half black and half white.</p>
+<p data-reading-anchor id="ch2988-p050">Time seemed to slow and almost stand still for Mu Qingxin. Even the currents within her Sea of Consciousness appeared to freeze. The yin-yang Eye of Chaos was reflected in her pupils, and she completely lost control of her body.</p>
+<p data-reading-anchor id="ch2988-p051">Under the domain's influence, Mu Qingxin remained upright and floating in midair. A phantom of her soul was dragged from her body by an unknown force, rising slowly until it hung above her physical form.</p>
+<p data-reading-anchor id="ch2988-p052">A black inverted cross appeared behind the soul phantom.</p>
+<p data-reading-anchor id="ch2988-p053">“Whoosh! Whoosh, whoosh!”</p>
+<p data-reading-anchor id="ch2988-p054">The inverted cross instantly pierced through her soul!</p>
+<p data-reading-anchor id="ch2988-p055">Almost simultaneously, corresponding penetrating wounds appeared across Mu Qingxin's physical body.</p>
+<p data-reading-anchor id="ch2988-p056">The Ouroboros Seed's powerful regeneration caused those wounds to heal rapidly.</p>
+<p data-reading-anchor id="ch2988-p057">But in the next instant, the inverted cross began piercing her soul again and again!</p>
+<p data-reading-anchor id="ch2988-p058">Mu Qingxin's face went deathly pale.</p>
+<p data-reading-anchor id="ch2988-p059">At the edge of the battlefield.</p>
+<p data-reading-anchor id="ch2988-p060">Sura watched with a grave expression.</p>
+<p data-reading-anchor id="ch2988-p061">“So that's his trump card...”</p>
+<p data-reading-anchor id="ch2988-p062">It dealt three kinds of damage at once—to the body, the Sea of Consciousness, and the soul.</p>
+<p data-reading-anchor id="ch2988-p063">Fang Heng had not used this move when they fought before.</p>
+<p data-reading-anchor id="ch2988-p064">Powerful!</p>
+<p data-reading-anchor id="ch2988-p065">Even from where she stood, she could sense the terrifying fluctuations radiating outward.</p>
+<p data-reading-anchor id="ch2988-p066">A domain-level ability.</p>
+<p data-reading-anchor id="ch2988-p067">Mu Qingxin was utterly helpless against it.</p>
+<p data-reading-anchor id="ch2988-p068">The Nether Clan and Undead Council mentors also looked increasingly solemn.</p>
+<p data-reading-anchor id="ch2988-p069">It seemed every time Fang Heng used his ultimate skill, its form was different.</p>
+<p data-reading-anchor id="ch2988-p070">They could see it clearly.</p>
+<p data-reading-anchor id="ch2988-p071">This version focused on soul damage; the harm to body and mind was only secondary.</p>
+<p data-reading-anchor id="ch2988-p072">With every thrust of the inverted cross, Mu Qingxin's soul power was shattered a little more.</p>
+<p data-reading-anchor id="ch2988-p073">Even her exceptionally strong original will was weakening under the repeated attacks!</p>
+<p data-reading-anchor id="ch2988-p074">The Eastern Federation players aboard the ships looked equally grave.</p>
+<p data-reading-anchor id="ch2988-p075">The area ahead seemed to have been separated into a special world. Time flowed differently there. All they could see was Mu Qingxin apparently losing the ability to move, bursts of blood erupting from her body as her face gradually grew paler.</p>
+<p data-reading-anchor id="ch2988-p076">Some unknown controlling ability?</p>
+<p data-reading-anchor id="ch2988-p077">The Eastern Federation had long realized that Fang Heng controlled powers far beyond his apparent level.</p>
+<p data-reading-anchor id="ch2988-p078">They couldn't see those powers directly, but they could sense them.</p>
+<p data-reading-anchor id="ch2988-p079">That region was filled with terrifying energy.</p>
+<p data-reading-anchor id="ch2988-p080">A starship operator broke the silence. “Report! Eye of Stars targeting complete.”</p>
+<p data-reading-anchor id="ch2988-p081">“Wait a little longer.”</p>
+<p data-reading-anchor id="ch2988-p082">The Eastern Federation officer serving as deputy captain glanced back toward Alec. Only after Alec nodded did he raise his hand. “Proceed!”</p>
+<p data-reading-anchor id="ch2988-p083">“Eye of Stars targeting complete. Initiating warp...”</p>
+<p data-reading-anchor id="ch2988-p084">“Attack countdown: five, four...”</p>
+<p data-reading-anchor id="ch2988-p085">“One!”</p>
+<p data-reading-anchor id="ch2988-p086">High above Fang Heng and Mu Qingxin, the spatial fluctuations of a warp scattered the surrounding dark clouds.</p>
+<p data-reading-anchor id="ch2988-p087">The cold barrel of a Kinsfolk war machine emerged from the spatial distortion.</p>
+<p data-reading-anchor id="ch2988-p088">It locked onto the target below.</p>
+<p data-reading-anchor id="ch2988-p089">Mu Qingxin was under absolute control and completely unaware of the outside world. Even if she had sensed the danger, she couldn't have escaped the restraints.</p>
+<p data-reading-anchor id="ch2988-p090">“BOOM!!!”</p>
+<p data-reading-anchor id="ch2988-p091">Purple light poured down once more, instantly enveloping Fang Heng and Mu Qingxin!</p>
+<p data-reading-anchor id="ch2988-p092">A third time!</p>
+<p data-reading-anchor id="ch2988-p093">The Kinsfolk's high-tier energy beam continued its relentless annihilation barrage!</p>
+<p data-reading-anchor id="ch2988-p094">For a full five minutes!</p>
+<p data-reading-anchor id="ch2988-p095">The attack finally ended.</p>
+<p data-reading-anchor id="ch2988-p096">The purple radiance gradually faded.</p>
+<p data-reading-anchor id="ch2988-p097">Everyone stared toward the center of the battlefield.</p>
+<p data-reading-anchor id="ch2988-p098">Fang Heng's wounds were regenerating rapidly. Mu Qingxin seemed to have no external injuries at all, but she looked extremely weak.</p>
+<p data-reading-anchor id="ch2988-p099">Whoosh!!</p>
+<p data-reading-anchor id="ch2988-p100">The very next instant, Mu Qingxin fled toward the right without the slightest hesitation.</p>
+</article>
+<p class="end" data-reading-anchor id="ch2988-end">— End of Chapter 2988 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Original Chinese Chapter 2989: 强硬. English Chapter 2988: Hardline. Narrative paragraphs: 100/100.</li><li>Everlasting Moon combines the sacred and Death Realm contexts into the Realm of Reincarnation, summoning the Eye of Chaos.</li><li>The third Eye of Stars barrage lasts five minutes; its effect on Mu Qingxin is primarily a severe weakening.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_2987_Purification.html#start">← Previous</a><a href="Global_Game_AFK_Chapter_2989_Orderkeepers.html#start" class="next">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

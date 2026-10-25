@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 2994 — Shattering | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-2994">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2993_Opening.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_2994_Shattering.html"><option value="Global_Game_AFK_Chapter_2994_Shattering.html" selected>2994 · Shattering</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2995_Treasure.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-2994" data-reading-anchor>
+<div class="chapter-num">Chapter 2994</div><h2 class="chapter-title">Shattering</h2>
+<p class="source-identity">From Chinese Chapter 2995 · 击碎</p>
+<article class="prose">
+<p data-reading-anchor id="ch2994-p001">Along the way, Fang Heng occasionally encountered more Ice Crystal Puppets rising out of the frozen ground.</p>
+<p data-reading-anchor id="ch2994-p002">He simply shattered each one with a punch.</p>
+<p data-reading-anchor id="ch2994-p003">After wandering through the maze for another half hour, he stopped.</p>
+<p data-reading-anchor id="ch2994-p004">Ahead lay an open area enclosed by walls of ice crystal.</p>
+<p data-reading-anchor id="ch2994-p005">Hm?</p>
+<p data-reading-anchor id="ch2994-p006">A thin layer of pale-green vines was somehow growing across the ground beneath the thick ice.</p>
+<p data-reading-anchor id="ch2994-p007">Fang Heng realized he'd reached an area where plants could grow.</p>
+<p data-reading-anchor id="ch2994-p008">A tall ice-crystal pillar stood in the center.</p>
+<p data-reading-anchor id="ch2994-p009">Green vines climbed around it.</p>
+<p data-reading-anchor id="ch2994-p010">The ground surrounding the pillar was covered in blooming flowers.</p>
+<p data-reading-anchor id="ch2994-p011">Their species was unfamiliar to Fang Heng, and every blossom wore a layer of frost.</p>
+<p data-reading-anchor id="ch2994-p012">Tall ancient trees coated in frost stood in the central area, forming a small grove.</p>
+<p data-reading-anchor id="ch2994-p013">Fang Heng looked up at the eerie forest and expanded his perception.</p>
+<p data-reading-anchor id="ch2994-p014">Strange. Was that nature energy?</p>
+<p data-reading-anchor id="ch2994-p015">He'd just been encountering elemental power. Now it had switched to nature energy?</p>
+<p data-reading-anchor id="ch2994-p016">Fang Heng took a tentative step forward.</p>
+<p data-reading-anchor id="ch2994-p017">Whoosh! Whoosh, whoosh!!!</p>
+<p data-reading-anchor id="ch2994-p018">As soon as he approached, the Ice-Thorn Flower Demons sensed an enemy and turned their open blossoms toward him.</p>
+<p data-reading-anchor id="ch2994-p019">“Whoosh! Whoosh, whoosh!!”</p>
+<p data-reading-anchor id="ch2994-p020">The next instant, countless frost-covered leaves flew toward Fang Heng together, engulfing him in their attack range.</p>
+<p data-reading-anchor id="ch2994-p021">“Hmph!”</p>
+<p data-reading-anchor id="ch2994-p022">Fang Heng snorted and abruptly released his aura!</p>
+<p data-reading-anchor id="ch2994-p023">“Bang! Bang, bang!”</p>
+<p data-reading-anchor id="ch2994-p024">The leaves flying toward him shattered in midair.</p>
+<p data-reading-anchor id="ch2994-p025">Whoosh!</p>
+<p data-reading-anchor id="ch2994-p026">Fang Heng lightly kicked off the ground and rushed straight into the Ice-Thorn Flower Demons, ignoring the masses of frosted leaves flying around him.</p>
+<p data-reading-anchor id="ch2994-p027">“Bang! Bang, bang, bang!!!”</p>
+<p data-reading-anchor id="ch2994-p028">Countless icy leaves exploded against his body, forming small patches of ice crystal on his skin without affecting him in the slightest.</p>
+<p data-reading-anchor id="ch2994-p029">They couldn't even penetrate his defense!</p>
+<p data-reading-anchor id="ch2994-p030">Hm?</p>
+<p data-reading-anchor id="ch2994-p031">Fang Heng frowned.</p>
+<p data-reading-anchor id="ch2994-p032">The outer bark of the tall ancient trees shielding the Flower Demons rapidly peeled away. Roots pulled free of the ground as the trees moved their trunks into his path.</p>
+<p data-reading-anchor id="ch2994-p033">Treants!</p>
+<p data-reading-anchor id="ch2994-p034">A Frost Ancient Tree Elder swung its thick, frost-coated branch viciously at Fang Heng!</p>
+<p data-reading-anchor id="ch2994-p035">Heh!</p>
+<p data-reading-anchor id="ch2994-p036">Fang Heng narrowed his eyes and swept his metal staff forward!</p>
+<p data-reading-anchor id="ch2994-p037">“BANG!!!”</p>
+<p data-reading-anchor id="ch2994-p038">One strike!</p>
+<p data-reading-anchor id="ch2994-p039">The entire Frost Ancient Tree Elder exploded into fragments right before him!</p>
+<p data-reading-anchor id="ch2994-p040">Faint nature energy rose from the shattered tree debris, flowed swiftly into Fang Heng's body, and settled in his Sea of Consciousness.</p>
+<p data-reading-anchor id="ch2994-p041">Fang Heng's interest was immediately piqued.</p>
+<p data-reading-anchor id="ch2994-p042">Nature energy!</p>
+<p data-reading-anchor id="ch2994-p043">His Nature Studies had also advanced to LV:MAX, and without an advancement book, he couldn't raise the level further.</p>
+<p data-reading-anchor id="ch2994-p044">As before, the nature energy didn't dissipate automatically. It simply remained within his Sea of Consciousness.</p>
+<p data-reading-anchor id="ch2994-p045">Previously he'd encountered elemental power.</p>
+<p data-reading-anchor id="ch2994-p046">Now it was nature energy.</p>
+<p data-reading-anchor id="ch2994-p047">This region seemed more like a place designed to test players' abilities and provide them with academic energy.</p>
+<p data-reading-anchor id="ch2994-p048">Could this be the so-called treasure of the Land of Apocalypse?</p>
+<p data-reading-anchor id="ch2994-p049">“Whoosh!”</p>
+<p data-reading-anchor id="ch2994-p050">Fang Heng stopped thinking about it and dashed between the many Frost Ancient Tree Elders and Ice-Thorn Flower Demons, repeatedly swinging his alloy staff.</p>
+<p data-reading-anchor id="ch2994-p051">“Bang! Bang! Bang, bang!!!”</p>
+<p data-reading-anchor id="ch2994-p052">Large numbers of nature-element creatures shattered throughout the grove, sending streams of pure nature energy into his body.</p>
+<p data-reading-anchor id="ch2994-p053">After clearing the creatures for a while, Fang Heng stopped attacking and stepped back from the battle.</p>
+<p data-reading-anchor id="ch2994-p054">Something wasn't right.</p>
+<p data-reading-anchor id="ch2994-p055">The Frost Ancient Tree Elders and Ice-Thorn Flower Demons were growing incredibly quickly. Almost as many monsters appeared as he killed, seemingly without end.</p>
+<p data-reading-anchor id="ch2994-p056">Under other circumstances, he wouldn't have minded. He could simply fight a war of attrition and grind nature energy along the way.</p>
+<p data-reading-anchor id="ch2994-p057">But this time was different.</p>
+<p data-reading-anchor id="ch2994-p058">He still had other things to do.</p>
+<p data-reading-anchor id="ch2994-p059">That's right.</p>
+<p data-reading-anchor id="ch2994-p060">The thing in the middle.</p>
+<p data-reading-anchor id="ch2994-p061">That strange ice-crystal pillar.</p>
+<p data-reading-anchor id="ch2994-p062">Whoosh!</p>
+<p data-reading-anchor id="ch2994-p063">Fang Heng accelerated again, smashing two Frost Ancient Tree Elders blocking his way with his metal staff. He ignored the other creatures and ran straight toward the ice-crystal pillar at the center.</p>
+<p data-reading-anchor id="ch2994-p064">He looked closely as he approached.</p>
+<p data-reading-anchor id="ch2994-p065">The outermost layer consisted of tangled vines. Beneath them lay thick ice crystal, and under that was a stone pillar covered in carved patterns.</p>
+<p data-reading-anchor id="ch2994-p066">“BANG!”</p>
+<p data-reading-anchor id="ch2994-p067">One blow from his staff shattered the ice and vines, exposing the hidden stone pillar beneath.</p>
+<p data-reading-anchor id="ch2994-p068">It looked like some kind of ceremonial pillar.</p>
+<p data-reading-anchor id="ch2994-p069">Some of the carved patterns on its surface contained runes that could be activated.</p>
+<p data-reading-anchor id="ch2994-p070">Fang Heng reached out and touched one of the runic crystals.</p>
+<p data-reading-anchor id="ch2994-p071">“Hummm...!”</p>
+<p data-reading-anchor id="ch2994-p072">The crystal glowed faintly as soon as his finger touched it.</p>
+<p data-reading-anchor id="ch2994-p073">At once, a wave of nature power flowed out of the ceremonial pillar and straight into his body through his fingertip.</p>
+<p data-reading-anchor id="ch2994-p074">Nature energy!</p>
+<p data-reading-anchor id="ch2994-p075">Hundreds of times more than he'd gained from killing the nature creatures!</p>
+<p data-reading-anchor id="ch2994-p076">Fang Heng's eyelid twitched. What a wonderful surprise!</p>
+<p data-reading-anchor id="ch2994-p077">Absorb it!</p>
+<p data-reading-anchor id="ch2994-p078">Take it all!</p>
+<p data-reading-anchor id="ch2994-p079">Keeping his right hand pressed against the stone altar, Fang Heng flipped his left wrist and summoned the sacred Book of Oaths.</p>
+<p data-reading-anchor id="ch2994-p080">Skill—Lightning of Judgment!</p>
+<p data-reading-anchor id="ch2994-p081">A beneficial effect with a chance to retaliate with lightning when struck by physical attacks.</p>
+<p data-reading-anchor id="ch2994-p082">Fang Heng quickly applied the Lightning of Judgment retaliation buff to himself, then stood there openly. Ignoring the surrounding nature creatures, he continued absorbing energy from the altar.</p>
+<p data-reading-anchor id="ch2994-p083">BOOM! BOOM, BOOM!!!</p>
+<p data-reading-anchor id="ch2994-p084">The nature creatures gathered in the frozen forest attacked him continuously. Lightning of Judgment triggered again and again, sending purple bolts into the attackers.</p>
+<p data-reading-anchor id="ch2994-p085">Fang Heng's defenses were already strong enough to withstand most attacks, and with Undying Body constantly healing him, enduring their damage was easy.</p>
+<p data-reading-anchor id="ch2994-p086">Combined with his enormous Mental Strength, Lightning of Judgment was devastating!</p>
+<p data-reading-anchor id="ch2994-p087">Each lightning bolt had a small area-of-effect component. Whenever one fell, a patch of enemies was instantly cleared away, leaving a stream of nature energy that rushed into Fang Heng.</p>
+<p data-reading-anchor id="ch2994-p088">Fang Heng looked away from the surrounding creatures and back down at the altar.</p>
+<p data-reading-anchor id="ch2994-p089">Give it to me!</p>
+<p data-reading-anchor id="ch2994-p090">Once he'd familiarized himself with the energy flow, he directly used his Mental Strength to draw power out of the altar.</p>
+<p data-reading-anchor id="ch2994-p091">Immediately, nature energy dozens of times more intense flooded into his Sea of Consciousness.</p>
+<p data-reading-anchor id="ch2994-p092">An ordinary player's Sea of Consciousness would probably never withstand that much nature energy.</p>
+<p data-reading-anchor id="ch2994-p093">Fang Heng, however, was different. His Sea of Consciousness had expanded several times, and Abe Akaya, the Demon Seed, and Necromancy all enhanced it. He had an enormous amount of space inside.</p>
+<p data-reading-anchor id="ch2994-p094">Absorb it like crazy!</p>
+<p data-reading-anchor id="ch2994-p095">The more, the better!</p>
+<p data-reading-anchor id="ch2994-p096">After more than five full minutes, the stone altar's nature energy was completely exhausted. Fang Heng didn't release it until he'd wrung out the very last trace.</p>
+<p data-reading-anchor id="ch2994-p097">With its power gone, the stone pillar rapidly weathered into dust.</p>
+<p data-reading-anchor id="ch2994-p098">Fang Heng looked around.</p>
+<p data-reading-anchor id="ch2994-p099">With the central pillar destroyed, nature creatures stopped spawning on the ice, and the vines across the frozen ground quickly receded.</p>
+</article>
+<p class="end" data-reading-anchor id="ch2994-end">— End of Chapter 2994 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Original Chinese Chapter 2995: 击碎. English Chapter 2994: Shattering. Narrative paragraphs: 99/99.</li><li>Ice-element and Nature Studies trial rewards are stored in Fang Heng’s Sea of Consciousness because both disciplines are capped at LV:MAX.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_2993_Opening.html#start">← Previous</a><a href="Global_Game_AFK_Chapter_2995_Treasure.html#start" class="next">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>
