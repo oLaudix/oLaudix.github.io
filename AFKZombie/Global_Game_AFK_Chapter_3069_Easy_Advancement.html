@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 3069 — Easy Advancement | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-3069">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3068_Recruitment.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_3069_Easy_Advancement.html"><option value="Global_Game_AFK_Chapter_3069_Easy_Advancement.html" selected>3069 · Easy Advancement</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3070_Verification.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-3069" data-reading-anchor>
+<div class="chapter-num">Chapter 3069</div><h2 class="chapter-title">Easy Advancement</h2>
+<p class="source-identity">From Chinese Chapter 3070 · 轻松进阶</p>
+<article class="prose">
+<p data-reading-anchor id="ch3069-p001">“That doesn't count as betrayal. Parting on good terms is something the Noel Clan accepts. And it's good news for you: when people leave, vacancies open up. We currently have twelve warrior positions available. This assessment will last ten minutes. After ten minutes, the twelve people still standing here will be the winners.”</p>
+<p data-reading-anchor id="ch3069-p002">The elder picked up his teacup and took a leisurely sip.</p>
+<p data-reading-anchor id="ch3069-p003">“Begin.”</p>
+<p data-reading-anchor id="ch3069-p004">Everyone immediately understood the Noel Clan elder's rules. They spread out and went on guard.</p>
+<p data-reading-anchor id="ch3069-p005">Several warriors who were clearly of the same species quickly grouped together.</p>
+<p data-reading-anchor id="ch3069-p006">“Get out of the way, brat!”</p>
+<p data-reading-anchor id="ch3069-p007">Seeing Fang Heng alone, an alien covered in mutated scales approached stealthily from behind on his right and threw a punch.</p>
+<p data-reading-anchor id="ch3069-p008">“Hm? What?!”</p>
+<p data-reading-anchor id="ch3069-p009">The alien's pupils contracted.</p>
+<p data-reading-anchor id="ch3069-p010">Bang!</p>
+<p data-reading-anchor id="ch3069-p011">No one could see how Fang Heng moved. The young attacker spat out blood, was flung violently backward, hit the wall, and fell unconscious.</p>
+<p data-reading-anchor id="ch3069-p012">“Hm?”</p>
+<p data-reading-anchor id="ch3069-p013">The Noel Clan elder noticed something and raised his head. His gaze settled on Fang Heng with renewed interest.</p>
+<p data-reading-anchor id="ch3069-p014">Fang Heng stood motionless.</p>
+<p data-reading-anchor id="ch3069-p015">Several nearby warriors saw the alien sent flying and immediately realized that Fang Heng was dangerous. They hurried to keep their distance.</p>
+<p data-reading-anchor id="ch3069-p016">In mere moments, several small groups had formed across the hall.</p>
+<p data-reading-anchor id="ch3069-p017">Everyone eyed everyone else warily, afraid that making the first move would leave them surrounded and attacked.</p>
+<p data-reading-anchor id="ch3069-p018">The elder set down his teacup and said calmly, “Five minutes remain. If more than twelve people are still standing when time runs out, everyone fails the assessment.”</p>
+<p data-reading-anchor id="ch3069-p019">The moment he finished speaking, a chaotic melee erupted.</p>
+<p data-reading-anchor id="ch3069-p020">Fang Heng continued standing in a corner of the hall.</p>
+<p data-reading-anchor id="ch3069-p021">Anyone who approached him spat blood and went flying.</p>
+<p data-reading-anchor id="ch3069-p022">After several such incidents, no one dared provoke him again. The others left a clear safety zone around Fang Heng while fighting among themselves elsewhere.</p>
+<p data-reading-anchor id="ch3069-p023">Fang Heng glanced around and realized he didn't need to do anything more. He simply stood there, taking it easy.</p>
+<p data-reading-anchor id="ch3069-p024">When the ten minutes ended, only ten people remained standing, including Fang Heng.</p>
+<p data-reading-anchor id="ch3069-p025">The Noel Clan elder rose and looked around the room.</p>
+<p data-reading-anchor id="ch3069-p026">Aside from Fang Heng, the others' strength was mediocre at best.</p>
+<p data-reading-anchor id="ch3069-p027">It would do for now.</p>
+<p data-reading-anchor id="ch3069-p028">“Welcome, everyone, as warriors of our Noel Clan.”</p>
+<p data-reading-anchor id="ch3069-p029">The Noel Clan employed over five hundred external warriors in total.</p>
+<p data-reading-anchor id="ch3069-p030">They needed these fighters for ordinary arena duels, and sometimes the clan assigned them special missions as well.</p>
+<p data-reading-anchor id="ch3069-p031">The warriors didn't need to worry about anything else. Their responsibility was simply to fight.</p>
+<p data-reading-anchor id="ch3069-p032">Once recruited, they received a substantial monthly income, and as their warrior ranks improved, that income could rise dramatically.</p>
+<p data-reading-anchor id="ch3069-p033">“Mr. Fang Heng, I'm Anxi, your personal assistant. I'll help arrange your schedule and look after your everyday needs. Please come to me whenever you require anything.”</p>
+<p data-reading-anchor id="ch3069-p034">Anxi was a sweet-looking woman who greeted Fang Heng with a smile.</p>
+<p data-reading-anchor id="ch3069-p035">The Noel Clan provided a personal assistant for every warrior.</p>
+<p data-reading-anchor id="ch3069-p036">Fang Heng asked, “I heard the Noel Clan offers free cultivation training?”</p>
+<p data-reading-anchor id="ch3069-p037">“Yes, Mr. Fang Heng.” Anxi kept her professional smile and nodded respectfully. “The Noel Clan provides private one-on-one lessons. We'll arrange the best instructors for you. You may also hire outside teachers, though that carries an additional fee.”</p>
+<p data-reading-anchor id="ch3069-p038">“Not bad...” Fang Heng said casually. “Do you have any instructors specializing in spatial studies? I'd like to train in that field.”</p>
+<p data-reading-anchor id="ch3069-p039">“Of course. I'll register your request and arrange an appointment. What level of instructor do you require?”</p>
+<p data-reading-anchor id="ch3069-p040">“Grandmaster.”</p>
+<p data-reading-anchor id="ch3069-p041">Fang Heng's spatial studies had been stuck at Master level for quite a while.</p>
+<p data-reading-anchor id="ch3069-p042">Spatial studies were extremely rare. The Federation had only one quest lead connected to Grandmaster spatial studies advancement, and they weren't even certain the reward would be relevant. The task itself was troublesome; Fang Heng estimated it would take at least one or two months to complete.</p>
+<p data-reading-anchor id="ch3069-p043">He wanted to see whether the Seven-Realm Martial Capital could help him break through instead.</p>
+<p data-reading-anchor id="ch3069-p044">“I've registered your request in the Noel Clan's internal system. We'll make arrangements as soon as possible.”</p>
+<p data-reading-anchor id="ch3069-p045">Not bad.</p>
+<p data-reading-anchor id="ch3069-p046">Fang Heng nodded lightly. “Please arrange it quickly.”</p>
+<p data-reading-anchor id="ch3069-p047">“Yes, sir.”</p>
+<p data-reading-anchor id="ch3069-p048">Anxi withdrew her gaze from Fang Heng.</p>
+<p data-reading-anchor id="ch3069-p049">Spatial studies...</p>
+<p data-reading-anchor id="ch3069-p050">It seemed this warrior was obsessed with training.</p>
+<p data-reading-anchor id="ch3069-p051">Anxi pondered the matter.</p>
+<p data-reading-anchor id="ch3069-p052">Personal assistants were the people closest to the warriors. The Noel Clan had instructed them to keep track of every movement their assigned warriors made.</p>
+<p data-reading-anchor id="ch3069-p053">...</p>
+<p data-reading-anchor id="ch3069-p054">Less than half an hour later, Anxi was still showing Fang Heng around the facilities when his spatial studies instructor was confirmed.</p>
+<p data-reading-anchor id="ch3069-p055">“Mr. Fang Heng, the instructor for your private lesson has been arranged. He happens to be free right now. Shall I take you there?”</p>
+<p data-reading-anchor id="ch3069-p056">“Good. Let's go now.”</p>
+<p data-reading-anchor id="ch3069-p057">Fang Heng silently praised the Noel Clan's efficiency.</p>
+<p data-reading-anchor id="ch3069-p058">During their walk, Anxi had noticed that Fang Heng wasn't fond of conversation, so she avoided disturbing him unnecessarily. She led him to a large training room on the sixth floor.</p>
+<p data-reading-anchor id="ch3069-p059">“Your instructor is waiting inside, Mr. Fang Heng. I'll wait for you at the door.”</p>
+<p data-reading-anchor id="ch3069-p060">Anxi bowed respectfully and stepped aside.</p>
+<p data-reading-anchor id="ch3069-p061">Fang Heng entered and saw a middle-aged man sitting on a cushion, studying him with a bored expression.</p>
+<p data-reading-anchor id="ch3069-p062">A member of the Noel Clan.</p>
+<p data-reading-anchor id="ch3069-p063">Fang Heng recognized the man's species from his appearance.</p>
+<p data-reading-anchor id="ch3069-p064">“Fang Heng, is it? You're a newly recruited Noel Clan warrior? I'm Gaspar, a certified Grandmaster in spatial studies. Let's not waste time. Shall we begin?”</p>
+<p data-reading-anchor id="ch3069-p065">Lessons were billed by the minute.</p>
+<p data-reading-anchor id="ch3069-p066">Gaspar had a fixed teaching quota to fulfill every month.</p>
+<p data-reading-anchor id="ch3069-p067">“All right.”</p>
+<p data-reading-anchor id="ch3069-p068">Fang Heng agreed and walked toward him.</p>
+<p data-reading-anchor id="ch3069-p069">“Whoosh!”</p>
+<p data-reading-anchor id="ch3069-p070">Fang Heng narrowed his eyes.</p>
+<p data-reading-anchor id="ch3069-p071">Gaspar's figure swiftly slipped into a subspace projection.</p>
+<p data-reading-anchor id="ch3069-p072">When he materialized again, Gaspar had appeared to Fang Heng's right.</p>
+<p data-reading-anchor id="ch3069-p073">“What level are you at now?”</p>
+<p data-reading-anchor id="ch3069-p074">“Peak Master-level spatial studies. I haven't found a way to break through.”</p>
+<p data-reading-anchor id="ch3069-p075">“Fine. Show me.”</p>
+<p data-reading-anchor id="ch3069-p076">Fang Heng nodded and swiftly merged into a subspace projection.</p>
+<p data-reading-anchor id="ch3069-p077">Gaspar frowned as he watched.</p>
+<p data-reading-anchor id="ch3069-p078">Good grief! Why did merging into a spatial projection cause so much disturbance?</p>
+<p data-reading-anchor id="ch3069-p079">This young man...</p>
+<p data-reading-anchor id="ch3069-p080">He was far too strange.</p>
+<p data-reading-anchor id="ch3069-p081">His actual proficiency seemed barely above early Master level. In terms of his understanding of spatial studies, however, he had almost no advantage over a beginner.</p>
+<p data-reading-anchor id="ch3069-p082">How had he managed to reach this level?</p>
+<p data-reading-anchor id="ch3069-p083">Fang Heng emerged from the spatial projection.</p>
+<p data-reading-anchor id="ch3069-p084">“Please instruct me, Master.”</p>
+<p data-reading-anchor id="ch3069-p085">Gaspar shook his head. “You've missed far too many fundamentals. If you want to reach Grandmaster, you'll have to start again from the beginning.”</p>
+<p data-reading-anchor id="ch3069-p086">Fang Heng had no objection. “I understand. In that case, please begin with the basics.”</p>
+<p data-reading-anchor id="ch3069-p087">“Fine. But you'd better leave me a good review afterward.”</p>
+<p data-reading-anchor id="ch3069-p088">Gaspar didn't particularly mind.</p>
+<p data-reading-anchor id="ch3069-p089">He was paid by the minute anyway.</p>
+<p data-reading-anchor id="ch3069-p090">Teaching the basics was easier, if anything.</p>
+<p data-reading-anchor id="ch3069-p091">“Perceiving spatial energy is the first step in studying space. After that, we must draw upon power from the surrounding space... At the advanced stage, we continuously increase our adaptability to spatial abilities, gradually allowing our bodies to accommodate spatial energy...”</p>
+<p data-reading-anchor id="ch3069-p092">“As for the bottleneck you've reached, the real problem is your comprehension of the rules governing external spatial energy. Once you understand those rules, breaking through is actually not difficult.”</p>
+</article>
+<p class="end" data-reading-anchor id="ch3069-end">— End of Chapter 3069 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Chinese Chapter 3070: 轻松进阶. English Chapter 3069: Easy Advancement. Narrative paragraphs: 92/92.</li><li>The Noel Clan elder unexpectedly calls it 科尔族 once after consistently saying 诺尔一族; treated as an author slip for that single recruitment speech, not proof these clans share an identity.</li><li>Spatial teacher’s Chinese name alternates 加斯帕 and 加帕斯. English uses Gaspar throughout this chapter and subsequent lessons.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_3068_Recruitment.html#start">← Previous</a><a class="next" href="Global_Game_AFK_Chapter_3070_Verification.html#start">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

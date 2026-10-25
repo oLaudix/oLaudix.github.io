@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 3066 — Regulations | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-3066">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3065_Expansion.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_3066_Regulations.html"><option value="Global_Game_AFK_Chapter_3066_Regulations.html" selected>3066 · Regulations</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3067_Entry.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-3066" data-reading-anchor>
+<div class="chapter-num">Chapter 3066</div><h2 class="chapter-title">Regulations</h2>
+<p class="source-identity">From Chinese Chapter 3067 · 律条</p>
+<article class="prose">
+<p data-reading-anchor id="ch3066-p001">A guard looked at Fang Heng and said coldly, “Illegal entrant, you've violated the laws of the Seven-Realm Martial Capital. We're taking you to the border prison to await trial. Don't resist. That will only make your sentence worse.”</p>
+<p data-reading-anchor id="ch3066-p002">Fang Heng frowned slightly.</p>
+<p data-reading-anchor id="ch3066-p003">He hadn't expected this.</p>
+<p data-reading-anchor id="ch3066-p004">The Seven-Realm Martial Capital was more capable than he had anticipated. Even using the Black Mist to conceal himself, he'd been detected.</p>
+<p data-reading-anchor id="ch3066-p005">Did the authorities here understand the Black Mist better than humanity did?</p>
+<p data-reading-anchor id="ch3066-p006">Come to think of it, where had the others aboard the ship gone?</p>
+<p data-reading-anchor id="ch3066-p007">Fang Heng turned to look around. Before he could ask, a guard behind him struck him hard on the back.</p>
+<p data-reading-anchor id="ch3066-p008">“Come along. And remember, from now on your number is G1923.”</p>
+<p data-reading-anchor id="ch3066-p009">Fang Heng followed the guards while inspecting the restraints on his wrists.</p>
+<p data-reading-anchor id="ch3066-p010">They possessed a certain power-suppressing effect.</p>
+<p data-reading-anchor id="ch3066-p011">But it was extremely limited.</p>
+<p data-reading-anchor id="ch3066-p012">Breaking free by force wouldn't be a problem.</p>
+<p data-reading-anchor id="ch3066-p013">Even without breaking them, he could probably escape their restraints directly by entering his spirit form.</p>
+<p data-reading-anchor id="ch3066-p014">But this was the elves' ship. Making too much trouble might bring reinforcements, and it would be a shame if the vessel were damaged during the confrontation.</p>
+<p data-reading-anchor id="ch3066-p015">He could even cause problems for the Elven Clan.</p>
+<p data-reading-anchor id="ch3066-p016">After a moment's thought, Fang Heng decided to do nothing for now. He followed the guards along the ship's corridors, passed through several warp portals, and was escorted into a temporary group cell at the Seven-Realm Martial Capital's immigration prison.</p>
+<p data-reading-anchor id="ch3066-p017">“In you go! Think hard about what you've done! And don't try anything, or you'll regret it!”</p>
+<p data-reading-anchor id="ch3066-p018">The guard glared at Fang Heng, threw out the threat, and hurried away.</p>
+<p data-reading-anchor id="ch3066-p019">Hundreds of illegal entrants were thrown into these cells every day. He had no interest in paying this one any special attention.</p>
+<p data-reading-anchor id="ch3066-p020">The cell was large. More than a dozen alien prisoners were already inside when Fang Heng entered. Most sat apart from one another, either in the corners or leaning against the metal bars.</p>
+<p data-reading-anchor id="ch3066-p021">Only after the guards left did everyone turn to look at Fang Heng.</p>
+<p data-reading-anchor id="ch3066-p022">“A human? Haven't seen one in ages.”</p>
+<p data-reading-anchor id="ch3066-p023">A young man with scattered blue speckles on his skin stood up and studied Fang Heng.</p>
+<p data-reading-anchor id="ch3066-p024">Several of the prisoners seemed to regard him as their leader, moving closer and gathering at his sides.</p>
+<p data-reading-anchor id="ch3066-p025">“What's your name, brother?”</p>
+<p data-reading-anchor id="ch3066-p026">“Fang Heng,” he answered calmly. “What is this place?”</p>
+<p data-reading-anchor id="ch3066-p027">“The Seven-Realm Martial Capital's border prison.” Klaus pursed his lips toward Fang Heng. “The humans I met before were pretty tough. What about you? Got any special skills?”</p>
+<p data-reading-anchor id="ch3066-p028">Skills?</p>
+<p data-reading-anchor id="ch3066-p029">Fang Heng was rarely asked that question. After thinking a moment, he asked, “Does being able to take a beating count?”</p>
+<p data-reading-anchor id="ch3066-p030">“Haha! You're a funny one. Taking a beating isn't a skill. Being able to beat someone else is what counts.”</p>
+<p data-reading-anchor id="ch3066-p031">Klaus laughed, then glanced toward a guard standing at the far end of the passage outside and lowered his voice. “Brother, I'm Klaus. I don't want trouble. We're planning a jailbreak soon. Either come with us or stand aside and don't get in the way. Can you do that?”</p>
+<p data-reading-anchor id="ch3066-p032">“Of course.”</p>
+<p data-reading-anchor id="ch3066-p033">Fang Heng shrugged, stepped aside, and lowered his head to study the energy patterns on his shackles.</p>
+<p data-reading-anchor id="ch3066-p034">Interesting!</p>
+<p data-reading-anchor id="ch3066-p035">From an alchemical perspective, the patterns converted and redirected energy to produce the cuffs' effect, significantly suppressing the wearer's energy circulation.</p>
+<p data-reading-anchor id="ch3066-p036">But their suppressive power was quite limited.</p>
+<p data-reading-anchor id="ch3066-p037">They could probably seal around ninety percent of the abilities of someone below the Master level in academic disciplines.</p>
+<p data-reading-anchor id="ch3066-p038">Once the wearer's academic level reached Grandmaster, however, the effect would decrease sharply.</p>
+<p data-reading-anchor id="ch3066-p039">They were little more than toys, after all. That they worked this well was already impressive.</p>
+<p data-reading-anchor id="ch3066-p040">Nearby, the young prisoners were quietly conspiring about their escape.</p>
+<p data-reading-anchor id="ch3066-p041">Fang Heng caught a few of their words.</p>
+<p data-reading-anchor id="ch3066-p042">The Seven-Realm Martial Capital sounded impressive, but corruption had long since eaten away its border prison system. Breakouts happened frequently, and the prison administration simply covered them up.</p>
+<p data-reading-anchor id="ch3066-p043">After all, no one cared if a few low-level prisoners like them went missing.</p>
+<p data-reading-anchor id="ch3066-p044">In most cases, anyone who didn't escape would be sent to mine ore in worlds with brutal living conditions. Depending on the severity of their crimes, they would be freed only after working a specified number of years.</p>
+<p data-reading-anchor id="ch3066-p045">Many prisoners were also secretly sold as slaves.</p>
+<p data-reading-anchor id="ch3066-p046">The officers in charge knew perfectly well what was happening and simply turned a blind eye.</p>
+<p data-reading-anchor id="ch3066-p047">With so many prisoners, getting rid of a few was convenient—and they could make a little extra money.</p>
+<p data-reading-anchor id="ch3066-p048">Why wouldn't they?</p>
+<p data-reading-anchor id="ch3066-p049">The dozen or so youths in this cell and young members of their species in two other cells belonged to the same group. They had already decided to escape while being transported.</p>
+<p data-reading-anchor id="ch3066-p050">They had even arranged for accomplices to meet them halfway.</p>
+<p data-reading-anchor id="ch3066-p051">Several of the youths whispered together.</p>
+<p data-reading-anchor id="ch3066-p052">Their greatest obstacle was the handcuffs.</p>
+<p data-reading-anchor id="ch3066-p053">Besides sealing their power, the cuffs were extremely heavy. Running while wearing them was exhausting, and forcibly breaking them would cause them to explode!</p>
+<p data-reading-anchor id="ch3066-p054">The prison hadn't designed the explosions to kill people.</p>
+<p data-reading-anchor id="ch3066-p055">Anyone strong enough to shatter the cuffs through sheer force would be extremely powerful. The explosions were meant to alert the guards.</p>
+<p data-reading-anchor id="ch3066-p056">The cuffs also functioned as tracking devices.</p>
+<p data-reading-anchor id="ch3066-p057">“Boss, everything's ready. If all goes well, once we're outside the protected zone, we'll head straight to the mining district and find Mr. Li. He can remove our cuffs and get us identity papers.”</p>
+<p data-reading-anchor id="ch3066-p058">“Relax. Even the Seven-Realm Martial Capital couldn't tell that Old Li's identity papers were fake...”</p>
+<p data-reading-anchor id="ch3066-p059">“It'll take a while to get there, though. The prison might send people after us...”</p>
+<p data-reading-anchor id="ch3066-p060">While they were discussing the plan, a sharp click suddenly came from Fang Heng's direction.</p>
+<p data-reading-anchor id="ch3066-p061">Hm?</p>
+<p data-reading-anchor id="ch3066-p062">Everyone turned to look.</p>
+<p data-reading-anchor id="ch3066-p063">Fang Heng had casually removed the handcuffs from his wrists.</p>
+<p data-reading-anchor id="ch3066-p064">What the hell?</p>
+<p data-reading-anchor id="ch3066-p065">The youths stared at him as if they'd seen a ghost.</p>
+<p data-reading-anchor id="ch3066-p066">“Mm.” Seeing their expressions, Fang Heng shook the cuffs in his hand. “I've studied a bit of alchemy. These cuffs have an interesting design...”</p>
+<p data-reading-anchor id="ch3066-p067">Gulp...</p>
+<p data-reading-anchor id="ch3066-p068">The prisoners swallowed nervously and exchanged glances, feeling as though something utterly absurd had happened.</p>
+<p data-reading-anchor id="ch3066-p069">These cuffs had been custom-designed for the prison by the Seven-Realm Martial Capital's Alchemy Association. They were mass-produced, made of ordinary materials, and nowhere near their theoretical limits, but someone had just dismantled one with ease?</p>
+<p data-reading-anchor id="ch3066-p070">This kid's alchemy had to be at least Master level, right?</p>
+<p data-reading-anchor id="ch3066-p071">“Uh, well...” Klaus collected himself, scratched his head, and asked awkwardly, “Brother, could you do me a favor and take mine off too?”</p>
+<p data-reading-anchor id="ch3066-p072">“Of course.”</p>
+<p data-reading-anchor id="ch3066-p073">Fang Heng lightly tapped the restraints on Klaus's wrists with his right hand.</p>
+<p data-reading-anchor id="ch3066-p074">Klaus froze, then lowered his head. The alchemical runes on the cuffs began moving rapidly, and the entire restraint dropped to the ground.</p>
+<p data-reading-anchor id="ch3066-p075">What the hell?!</p>
+<p data-reading-anchor id="ch3066-p076">How had he done that?</p>
+<p data-reading-anchor id="ch3066-p077">Klaus stared at Fang Heng in astonishment. “Brother, you...”</p>
+<p data-reading-anchor id="ch3066-p078">“I heard you can find someone to make genuine-looking identity documents for you?” Fang Heng asked Klaus. “How about doing me a favor in return? I'm new here and don't know the place. Take me into the Seven-Realm Martial Capital and help me get a set of identity papers. What do you say?”</p>
+</article>
+<p class="end" data-reading-anchor id="ch3066-end">— End of Chapter 3066 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Chinese Chapter 3067: 律条. English Chapter 3066: Regulations. Narrative paragraphs: 78/78.</li><li>Chinese source accidentally says 克劳斯看着克劳斯 (“Klaus looked at Klaus”) in the final exchange. It is the youth Klaus looking at Fang Heng; translation follows the visible conversational subject.</li><li>The cuffs are intentionally designed to signal escape attempts, not kill prisoners by explosion.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_3065_Expansion.html#start">← Previous</a><a class="next" href="Global_Game_AFK_Chapter_3067_Entry.html#start">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

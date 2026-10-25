@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 3087 — Signal | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-3087">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3086_Finding_a_Target.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_3087_Signal.html"><option value="Global_Game_AFK_Chapter_3087_Signal.html" selected>3087 · Signal</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3088_Hide.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-3087" data-reading-anchor>
+<div class="chapter-num">Chapter 3087</div><h2 class="chapter-title">Signal</h2>
+<p class="source-identity">From Chinese Chapter 3088 · 讯号</p>
+<article class="prose">
+<p data-reading-anchor id="ch3087-p001">Any private security company capable of establishing itself in the Seven-Realm Martial Capital had considerable overall strength.</p>
+<p data-reading-anchor id="ch3087-p002">The security team entered the underground passage, carefully feeling its way forward.</p>
+<p data-reading-anchor id="ch3087-p003">At some point, the lights that were supposed to illuminate the passage around the clock began going out.</p>
+<p data-reading-anchor id="ch3087-p004">Ahead lay absolute darkness.</p>
+<p data-reading-anchor id="ch3087-p005">The guards switched on the searchlights mounted on their guns.</p>
+<p data-reading-anchor id="ch3087-p006">Before long, their handheld Black Mist detectors began buzzing with alarms.</p>
+<p data-reading-anchor id="ch3087-p007">“Strong Black Mist signals ahead. Everyone be careful.”</p>
+<p data-reading-anchor id="ch3087-p008">The low-ranked warrior leading the team seemed to sense something. He gradually slowed, signaled the others to stop, and had them maintain a defensive position.</p>
+<p data-reading-anchor id="ch3087-p009">Faint hissing came from the darkness ahead.</p>
+<p data-reading-anchor id="ch3087-p010">It sounded like something scraping rapidly across the ground.</p>
+<p data-reading-anchor id="ch3087-p011">The sound grew denser.</p>
+<p data-reading-anchor id="ch3087-p012">The security captain stared into the darkness and adopted a fighting stance.</p>
+<p data-reading-anchor id="ch3087-p013">Those were...</p>
+<p data-reading-anchor id="ch3087-p014">Insects!</p>
+<p data-reading-anchor id="ch3087-p015">Brown, spiny alien insect creatures burst from the depths of the sewer passage!</p>
+<p data-reading-anchor id="ch3087-p016">Why were there insects here?</p>
+<p data-reading-anchor id="ch3087-p017">Hadn't the surveillance footage shown nothing unusual?</p>
+<p data-reading-anchor id="ch3087-p018">The captain's heart lurched, though he didn't yet realize how serious the situation was. He warned, “Everyone, watch out! They're insects, and from the sound of it there are lots of them.”</p>
+<p data-reading-anchor id="ch3087-p019">The guards behind him took formation and raised their firearms.</p>
+<p data-reading-anchor id="ch3087-p020">“Whoosh! Whoosh, whoosh, whoosh!!!”</p>
+<p data-reading-anchor id="ch3087-p021">A dense barrage of energy beams poured into the darkness!</p>
+<p data-reading-anchor id="ch3087-p022">The beams exploded against the Lickers, illuminating the area ahead.</p>
+<p data-reading-anchor id="ch3087-p023">Huh?</p>
+<p data-reading-anchor id="ch3087-p024">The guards' faces grew grim.</p>
+<p data-reading-anchor id="ch3087-p025">Something was wrong.</p>
+<p data-reading-anchor id="ch3087-p026">They couldn't kill them?</p>
+<p data-reading-anchor id="ch3087-p027">Even high-frequency beam weapons couldn't penetrate the Lickers' external defenses?!</p>
+<p data-reading-anchor id="ch3087-p028">“Wall of Fire!”</p>
+<p data-reading-anchor id="ch3087-p029">“Scorched Earth!”</p>
+<p data-reading-anchor id="ch3087-p030">The security team immediately supplemented its attacks with elemental spells, erecting layer upon layer of defenses.</p>
+<p data-reading-anchor id="ch3087-p031">Based on experience, fire elemental attacks were usually most effective against insectoid creatures. High-damage, wide-area fire spells rained down on the swarm!</p>
+<p data-reading-anchor id="ch3087-p032">They seriously wouldn't die?</p>
+<p data-reading-anchor id="ch3087-p033">The captain frowned deeply.</p>
+<p data-reading-anchor id="ch3087-p034">The insects scuttled rapidly across the ground, enduring the flames as they passed straight through the wall of fire and even sprinted across the burning earth.</p>
+<p data-reading-anchor id="ch3087-p035">Once through the flames, the charred wounds on their bodies healed rapidly. They rushed toward the security team at terrifying speed.</p>
+<p data-reading-anchor id="ch3087-p036">“Something's wrong with these insects!”</p>
+<p data-reading-anchor id="ch3087-p037">Realizing the danger, the captain shouted, “Restrict their movements! Fall back!”</p>
+<p data-reading-anchor id="ch3087-p038">Although his ordinary guards hadn't reached even low-ranked warrior level, nobody employed as security in the capital was incompetent. They reacted quickly.</p>
+<p data-reading-anchor id="ch3087-p039">Everyone switched techniques at once.</p>
+<p data-reading-anchor id="ch3087-p040">“Quagmire!”</p>
+<p data-reading-anchor id="ch3087-p041">“Ice Storm!”</p>
+<p data-reading-anchor id="ch3087-p042">Elemental abilities were so useful precisely because they could shift forms, combining attack, defense, and restraint.</p>
+<p data-reading-anchor id="ch3087-p043">The front line of creatures became coated in ice crystals, and their feet sank into muddy ground, drastically reducing their speed.</p>
+<p data-reading-anchor id="ch3087-p044">But before the guards could relax, even more insects emerged from the sewer depths.</p>
+<p data-reading-anchor id="ch3087-p045">More?</p>
+<p data-reading-anchor id="ch3087-p046">How many were there?!</p>
+<p data-reading-anchor id="ch3087-p047">The guards' eyes filled with dread.</p>
+<p data-reading-anchor id="ch3087-p048">This was bad!</p>
+<p data-reading-anchor id="ch3087-p049">Given the creatures' confirmed defensive capabilities, one security squad had no hope of handling them.</p>
+<p data-reading-anchor id="ch3087-p050">“Withdraw first!”</p>
+<p data-reading-anchor id="ch3087-p051">The employer paid the wages, but their lives belonged to them.</p>
+<p data-reading-anchor id="ch3087-p052">Thinking clearly, the captain immediately led his squad in retreat.</p>
+<p data-reading-anchor id="ch3087-p053">Meanwhile, two street intersections away from the sewer entrance...</p>
+<p data-reading-anchor id="ch3087-p054">The Flying Squirrel Clan was small in stature. Kappa had therefore climbed onto the elven prince Korkalot's shoulder to peer toward the cordoned district.</p>
+<p data-reading-anchor id="ch3087-p055">“Kappa, can you see anything?”</p>
+<p data-reading-anchor id="ch3087-p056">“Hold on. Too many people. Can't see clearly.”</p>
+<p data-reading-anchor id="ch3087-p057">“If you can't see, then get down.”</p>
+<p data-reading-anchor id="ch3087-p058">Korkalot's expression darkened.</p>
+<p data-reading-anchor id="ch3087-p059">Since when had a Flying Squirrel been allowed to stand on his head?</p>
+<p data-reading-anchor id="ch3087-p060">“Hey, don't get worked up. Wait, don't move! I can see reinforcements arriving. People are coming out of the sewer. Looks like things aren't going well.”</p>
+<p data-reading-anchor id="ch3087-p061">Korkalot grabbed Kappa by the scruff and lifted him down. “Don't test my patience, Kappa.”</p>
+<p data-reading-anchor id="ch3087-p062">“Hahaha, I was only joking.”</p>
+<p data-reading-anchor id="ch3087-p063">Kappa laughed.</p>
+<p data-reading-anchor id="ch3087-p064">As the two spoke, a familiar voice suddenly sounded behind them.</p>
+<p data-reading-anchor id="ch3087-p065">“What a coincidence. So you're here too.”</p>
+<p data-reading-anchor id="ch3087-p066">Both men were startled. They turned and saw Fang Heng standing behind them.</p>
+<p data-reading-anchor id="ch3087-p067">“Boss Fang?”</p>
+<p data-reading-anchor id="ch3087-p068">Kappa was instantly delighted.</p>
+<p data-reading-anchor id="ch3087-p069">“What are you doing here? We've been looking everywhere for you!”</p>
+<p data-reading-anchor id="ch3087-p070">After hearing about Fang Heng from the elves yesterday, the two had immediately begun gathering intelligence on the Noel Clan. That morning they'd even tried visiting the Noel Clan headquarters to contact him.</p>
+<p data-reading-anchor id="ch3087-p071">But the Noel Clan had been particularly jumpy lately, suspecting the elves of trying to poach their recruits. They'd refused to reveal anything and sent the visitors away.</p>
+<p data-reading-anchor id="ch3087-p072">Kappa had planned to visit the Kinsfolk today and try another approach to finding Fang Heng tomorrow.</p>
+<p data-reading-anchor id="ch3087-p073">Who would have thought they'd meet him here?</p>
+<p data-reading-anchor id="ch3087-p074">“Mm, I ran into a little trouble. I'll explain later. What about you? Why are you here?”</p>
+<p data-reading-anchor id="ch3087-p075">“Because of the Kinsfolk.”</p>
+<p data-reading-anchor id="ch3087-p076">Korkalot's mood improved at the sight of Fang Heng, and he quickly explained the problems they'd been having.</p>
+<p data-reading-anchor id="ch3087-p077">The Kinsfolk had made things difficult for them repeatedly.</p>
+<p data-reading-anchor id="ch3087-p078">In short, they'd submitted the human world's registration paperwork, but Kinsfolk interference had left it stuck under review with no approval in sight.</p>
+<p data-reading-anchor id="ch3087-p079">The elves had learned through unofficial channels that a Kinsfolk external-affairs official was applying the pressure.</p>
+<p data-reading-anchor id="ch3087-p080">They'd come specifically to meet that person today.</p>
+<p data-reading-anchor id="ch3087-p081">“So you're here to find a solution?”</p>
+<p data-reading-anchor id="ch3087-p082">“Mm. We wanted to meet the official first and then decide what to do. But the district was suddenly locked down, and they threw us out before we could see anyone.”</p>
+<p data-reading-anchor id="ch3087-p083">Seeing Fang Heng, Kappa felt as though he'd found someone to lean on, and a heavy burden lifted from his shoulders.</p>
+<p data-reading-anchor id="ch3087-p084">It seemed that with Fang Heng around, every problem could be solved.</p>
+<p data-reading-anchor id="ch3087-p085">And they might make a fortune along the way.</p>
+<p data-reading-anchor id="ch3087-p086">Fang Heng raised his head toward the nearby skyscraper. “So the Kinsfolk official you're looking for is inside that building?”</p>
+<p data-reading-anchor id="ch3087-p087">“Exactly, that one. Getting an audience with a Kinsfolk isn't easy.”</p>
+<p data-reading-anchor id="ch3087-p088">Kappa nodded repeatedly and complained, “We registered and made an appointment ages ago. Finally got a meeting, and then this happened! It'll probably be postponed again. I'd love to know who caused this mess...”</p>
+<p data-reading-anchor id="ch3087-p089">Fang Heng gently rubbed his chin without answering.</p>
+<p data-reading-anchor id="ch3087-p090">Korkalot seemed to make a connection. He turned to Fang Heng and asked cautiously, “Boss Fang, I heard something happened in the sewers. Is it connected to you?”</p>
+</article>
+<p class="end" data-reading-anchor id="ch3087-end">— End of Chapter 3087 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Chinese Chapter 3088: 讯号. English Chapter 3087: Signal. Narrative paragraphs: 90/90.</li><li>Fang Heng’s summoned insect creatures are his zombie clones in Licker form, not a newly introduced independent species.</li><li>The previous source typo 帕卡 recurs; English uses Kappa.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_3086_Finding_a_Target.html#start">← Previous</a><a class="next" href="Global_Game_AFK_Chapter_3088_Hide.html#start">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

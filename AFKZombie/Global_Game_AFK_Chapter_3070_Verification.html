@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 3070 — Verification | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-3070">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3069_Easy_Advancement.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_3070_Verification.html"><option value="Global_Game_AFK_Chapter_3070_Verification.html" selected>3070 · Verification</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3071_Black_Mist_Influence.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-3070" data-reading-anchor>
+<div class="chapter-num">Chapter 3070</div><h2 class="chapter-title">Verification</h2>
+<p class="source-identity">From Chinese Chapter 3071 · 验证</p>
+<article class="prose">
+<p data-reading-anchor id="ch3070-p001">After lecturing for over two hours, Gaspar grew thirsty. He took a large gulp of tea and nodded. “I've talked enough. You give it a try.”</p>
+<p data-reading-anchor id="ch3070-p002">“Mm...”</p>
+<p data-reading-anchor id="ch3070-p003">Fang Heng tried to understand Gaspar's explanation of the environment and the rules governing external spatial energy, slowly closing his eyes.</p>
+<p data-reading-anchor id="ch3070-p004">He thought he could grasp it.</p>
+<p data-reading-anchor id="ch3070-p005">The so-called laws of space were essentially the spatial forces present everywhere.</p>
+<p data-reading-anchor id="ch3070-p006">His extraordinary Perception allowed him to sense the fluctuations of spatial energy all around him.</p>
+<p data-reading-anchor id="ch3070-p007">That part wasn't difficult.</p>
+<p data-reading-anchor id="ch3070-p008">The next step was to cooperate with the flow of that energy as much as possible whenever he used his own spatial power.</p>
+<p data-reading-anchor id="ch3070-p009">Fang Heng opened his eyes again and followed Gaspar's instructions, releasing fluctuations of his own spatial energy to match the currents of power around him.</p>
+<p data-reading-anchor id="ch3070-p010">In other words, move with the current.</p>
+<p data-reading-anchor id="ch3070-p011">Interesting!</p>
+<p data-reading-anchor id="ch3070-p012">This was an area he'd never explored before. Without a teacher's guidance, who knew how long he would have spent fumbling around before understanding it?</p>
+<p data-reading-anchor id="ch3070-p013">Gaspar noticed the spatial fluctuations Fang Heng was releasing and felt his heart jump.</p>
+<p data-reading-anchor id="ch3070-p014">What incredible talent!</p>
+<p data-reading-anchor id="ch3070-p015">Gaspar even began to suspect that Fang Heng's earlier clumsiness had been an act.</p>
+<p data-reading-anchor id="ch3070-p016">Fang Heng kept his eyes closed, concentrating on the flow of spatial energy.</p>
+<p data-reading-anchor id="ch3070-p017">Suddenly, a line of small text appeared on his retina.</p>
+<p data-reading-anchor id="ch3070-p018">[Hint: Player has received guidance and triggered a special quest—Spatial Studies Advancement (Grandmaster).]</p>
+<p data-reading-anchor id="ch3070-p019">Quest Name: Spatial Studies Advancement (Grandmaster).</p>
+<p data-reading-anchor id="ch3070-p020">Quest Description: Complete the advancement to Grandmaster spatial studies under an instructor's guidance.</p>
+<p data-reading-anchor id="ch3070-p021">Current Quest Progress: 0%.</p>
+<p data-reading-anchor id="ch3070-p022">[Hint: Player has gained new insight into the flow of spatial laws. Quest completion has increased...]</p>
+<p data-reading-anchor id="ch3070-p023">After a while, Fang Heng opened his eyes again.</p>
+<p data-reading-anchor id="ch3070-p024">It felt pretty good.</p>
+<p data-reading-anchor id="ch3070-p025">He checked the game prompt again.</p>
+<p data-reading-anchor id="ch3070-p026">After a little more than ten minutes of sensing the flow of external space, his quest progress had already reached 2.21%.</p>
+<p data-reading-anchor id="ch3070-p027">The Black Mist game really was wonderful. It was like a special cheat that constantly monitored exactly how far his cultivation had progressed.</p>
+<p data-reading-anchor id="ch3070-p028">Gaspar glanced at Fang Heng, suppressing his surprise. He planned to investigate this youngster's background after the lesson. “Not bad. It looks like you've begun to understand. You're moving in the right direction.”</p>
+<p data-reading-anchor id="ch3070-p029">“I'm tired. Spend some time practicing what we've covered. Once you've gained more insight or run into trouble, book another lesson.”</p>
+<p data-reading-anchor id="ch3070-p030">“Thank you.”</p>
+<p data-reading-anchor id="ch3070-p031">Fang Heng stood up.</p>
+<p data-reading-anchor id="ch3070-p032">Advancing through cultivation was far easier than he'd imagined.</p>
+<p data-reading-anchor id="ch3070-p033">A bottleneck was like a thin sheet of paper covering a window. Once you pierced it, the road ahead was wide open.</p>
+<p data-reading-anchor id="ch3070-p034">Fang Heng could hardly wait to find somewhere quiet and continue cultivating, hoping to complete his advancement quickly.</p>
+<p data-reading-anchor id="ch3070-p035">“Mr. Fang Heng, was the lesson satisfactory?”</p>
+<p data-reading-anchor id="ch3070-p036">“Very. I learned a great deal.” Fang Heng left the training room and turned to Anxi, who was waiting outside. “Is there somewhere quieter? There are too many people here, and it's noisy. I prefer peace and quiet.”</p>
+<p data-reading-anchor id="ch3070-p037">“You have a private lounge and room in Noel Clan headquarters. We can also rent a villa for you.”</p>
+<p data-reading-anchor id="ch3070-p038">“A villa? Does it have a basement?”</p>
+<p data-reading-anchor id="ch3070-p039">A basement?</p>
+<p data-reading-anchor id="ch3070-p040">Anxi found the request odd, but nodded after thinking. “We have one available now, near the suburbs of the main district. Another warrior rented it previously, though, and it hasn't been fully cleaned. If you don't mind, we can arrange it immediately. Otherwise, we'll find another suitable villa as soon as we can.”</p>
+<p data-reading-anchor id="ch3070-p041">“Don't bother looking. I'll take that one. Please bring me there quickly.”</p>
+<p data-reading-anchor id="ch3070-p042">“Of course. I'll arrange it right away.”</p>
+<p data-reading-anchor id="ch3070-p043">...</p>
+<p data-reading-anchor id="ch3070-p044">Two hours later, Fang Heng arrived at the villa.</p>
+<p data-reading-anchor id="ch3070-p045">“Are you satisfied with it?”</p>
+<p data-reading-anchor id="ch3070-p046">“It's not bad. Go attend to your other work, and book me another private spatial studies lesson tomorrow. Preferably with today's instructor.”</p>
+<p data-reading-anchor id="ch3070-p047">“Yes, sir.”</p>
+<p data-reading-anchor id="ch3070-p048">Anxi respectfully handed over the electronic keycard and left the residence.</p>
+<p data-reading-anchor id="ch3070-p049">Back in her vehicle, she glanced toward the villa, suspicion glimmering in her eyes.</p>
+<p data-reading-anchor id="ch3070-p050">As a personal assistant, Anxi always asked about her assigned warrior's progress after each lesson.</p>
+<p data-reading-anchor id="ch3070-p051">According to Gaspar's feedback, Fang Heng was exceptionally talented in spatial studies and already possessed Master-level proficiency—an impressive foundation.</p>
+<p data-reading-anchor id="ch3070-p052">Even so, he should need some time before moving on to the next stage.</p>
+<p data-reading-anchor id="ch3070-p053">Another appointment already?</p>
+<p data-reading-anchor id="ch3070-p054">Perhaps he wanted to refine his training plan.</p>
+<p data-reading-anchor id="ch3070-p055">After all, the Noel Clan covered all study costs, and the warriors frequently wasted resources.</p>
+<p data-reading-anchor id="ch3070-p056">That was why assistants were expected to control such spending.</p>
+<p data-reading-anchor id="ch3070-p057">Anxi decided to speak with the instructor again tomorrow and reassess the situation.</p>
+<p data-reading-anchor id="ch3070-p058">Inside the villa, Fang Heng knew nothing of Anxi's little calculations. After circling the first floor, he headed straight for the basement.</p>
+<p data-reading-anchor id="ch3070-p059">Not bad.</p>
+<p data-reading-anchor id="ch3070-p060">The basement level covered over a hundred square meters.</p>
+<p data-reading-anchor id="ch3070-p061">For an ordinary person, that would certainly be enough.</p>
+<p data-reading-anchor id="ch3070-p062">But for Fang Heng, it was nowhere near sufficient.</p>
+<p data-reading-anchor id="ch3070-p063">He had plenty of zombie clones, after all.</p>
+<p data-reading-anchor id="ch3070-p064">With a flick of his wrist, several sheets of rune paper appeared in Fang Heng's hand.</p>
+<p data-reading-anchor id="ch3070-p065">Whoosh! Whoosh!</p>
+<p data-reading-anchor id="ch3070-p066">The papers burst apart in midair, and more than a dozen Lickers sprang out of the explosions, quickly forming fleshy cocoons on the spot.</p>
+<p data-reading-anchor id="ch3070-p067">The zombie clones couldn't cultivate the ability to sense external spatial energy in his place. But who could say they wouldn't be useful at the next stage?</p>
+<p data-reading-anchor id="ch3070-p068">Better to be prepared.</p>
+<p data-reading-anchor id="ch3070-p069">Besides, once he advanced to Grandmaster spatial studies, he would need to rely on Abe Akaya to convert natural energy into spatial energy and rapidly increase his skill level.</p>
+<p data-reading-anchor id="ch3070-p070">Fang Heng ordered the zombie clones to construct an Abe Akaya summoning array in the basement, then sat cross-legged and resumed his spatial studies training.</p>
+<p data-reading-anchor id="ch3070-p071">Guiding spatial power was no easy task.</p>
+<p data-reading-anchor id="ch3070-p072">With his eyes closed, Fang Heng sensed the shifting currents of spatial energy outside his body and adjusted the frequency of his mental power and spatial fluctuations.</p>
+<p data-reading-anchor id="ch3070-p073">...</p>
+<p data-reading-anchor id="ch3070-p074">“This...”</p>
+<p data-reading-anchor id="ch3070-p075">The following afternoon, when Gaspar saw Fang Heng effortlessly condense a sphere of spatial energy in his hand, astonishment filled his eyes.</p>
+<p data-reading-anchor id="ch3070-p076">What was going on?</p>
+<p data-reading-anchor id="ch3070-p077">When he saw Fang Heng yesterday, the young man's understanding had been little better than a complete beginner's.</p>
+<p data-reading-anchor id="ch3070-p078">But today...</p>
+<p data-reading-anchor id="ch3070-p079">He was utterly different!</p>
+<p data-reading-anchor id="ch3070-p080">This terrifying cultivation speed wasn't normal at all!</p>
+<p data-reading-anchor id="ch3070-p081">He'd advanced from apparent beginner to this level in just a single day?</p>
+<p data-reading-anchor id="ch3070-p082">Gaspar even suspected Fang Heng had pretended not to understand anything yesterday just to toy with him.</p>
+<p data-reading-anchor id="ch3070-p083">“Master Gaspar, what do you think?”</p>
+<p data-reading-anchor id="ch3070-p084">Gaspar steadied himself and nodded. “Excellent. You've learned to sense external spatial energy and guide your own power into harmony with it. In practical terms, you've already reached Grandmaster spatial studies. All you lack is the official professional certification.”</p>
+<p data-reading-anchor id="ch3070-p085">“As for further spatial training, I can't guide you through that. Everyone develops their own method of study, though I can point you in a general direction.”</p>
+<p data-reading-anchor id="ch3070-p086">“My own teacher told me that paths beyond Grandmaster mostly involve gradually changing the internal energy cycle, then sensing the external cycle, until one can finally control it.”</p>
+<p data-reading-anchor id="ch3070-p087">“I'm still exploring that stage myself. Your talent for spatial studies is exceptional. Perhaps we can exchange insights in the future.”</p>
+<p data-reading-anchor id="ch3070-p088">As soon as he finished speaking, a game notification appeared before Fang Heng.</p>
+<p data-reading-anchor id="ch3070-p089">[Hint: Player has completed the quest—Spatial Studies Advancement (Grandmaster). Your Master-level Spatial Studies skill has been removed. You have obtained Grandmaster-level Spatial Studies.]</p>
+</article>
+<p class="end" data-reading-anchor id="ch3070-end">— End of Chapter 3070 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Chinese Chapter 3071: 验证. English Chapter 3070: Verification. Narrative paragraphs: 89/89.</li><li>Chinese uses 加帕斯 for the spatial studies teacher from the previous chapter, identified in English as Gaspar.</li><li>The Grandmaster advancement quest is completed, and the game deletes the prior Master-level skill.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_3069_Easy_Advancement.html#start">← Previous</a><a class="next" href="Global_Game_AFK_Chapter_3071_Black_Mist_Influence.html#start">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

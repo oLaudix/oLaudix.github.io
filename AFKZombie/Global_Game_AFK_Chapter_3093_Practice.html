@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 3093 — Practice | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-3093">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3092_Laws.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_3093_Practice.html"><option value="Global_Game_AFK_Chapter_3093_Practice.html" selected>3093 · Practice</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3094_Training_Ground.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-3093" data-reading-anchor>
+<div class="chapter-num">Chapter 3093</div><h2 class="chapter-title">Practice</h2>
+<p class="source-identity">From Chinese Chapter 3094 · 实践</p>
+<article class="prose">
+<p data-reading-anchor id="ch3093-p001">“Exactly! That's precisely it!”</p>
+<p data-reading-anchor id="ch3093-p002">Nasir was delighted by Fang Heng's comprehension and nodded. “By the same reasoning, if we moved this magic array outside, the different surrounding laws would cause it to fail completely.”</p>
+<p data-reading-anchor id="ch3093-p003">“I understand. Would it be fair to say the alchemical array beneath your feet is a fixed, small domain with locally modified laws?”</p>
+<p data-reading-anchor id="ch3093-p004">“Exactly right.”</p>
+<p data-reading-anchor id="ch3093-p005">Nasir snapped his fingers and nodded repeatedly. It had taken him considerable effort to understand the mechanism behind this advancement himself. “To overcome this barrier, you must first perceive the power of laws.”</p>
+<p data-reading-anchor id="ch3093-p006">“That depends on each person's perception. Generally, the stronger your perceptive ability, the easier it is to detect the laws of power around you and then design an array capable of changing them.”</p>
+<p data-reading-anchor id="ch3093-p007">“Perception...”</p>
+<p data-reading-anchor id="ch3093-p008">Hearing this, Fang Heng closed his eyes, expanded his perception, and tried to sense the laws of the surrounding world according to Nasir's guidance.</p>
+<p data-reading-anchor id="ch3093-p009">The structure and flow of power.</p>
+<p data-reading-anchor id="ch3093-p010">Nasir's heart stirred as he saw Fang Heng immediately close his eyes and try to perceive the world.</p>
+<p data-reading-anchor id="ch3093-p011">He was putting it into practice already?</p>
+<p data-reading-anchor id="ch3093-p012">In fact, Fang Heng often examined the world through his senses. He'd simply never focused specifically on “laws.”</p>
+<p data-reading-anchor id="ch3093-p013">As for the laws governing this particular area...</p>
+<p data-reading-anchor id="ch3093-p014">In Fang Heng's understanding, laws were the structural composition of the forces within an environment.</p>
+<p data-reading-anchor id="ch3093-p015">Normally, different forms of power mixed in an environment, reaching a certain equilibrium within space.</p>
+<p data-reading-anchor id="ch3093-p016">His two domain skills acquired through the game could disrupt that balance.</p>
+<p data-reading-anchor id="ch3093-p017">One was Tree World Descends, which established a powerful natural-studies domain.</p>
+<p data-reading-anchor id="ch3093-p018">When activated, it filled the area with natural power, allowing natural studies to achieve exceptionally strong effects within its boundaries.</p>
+<p data-reading-anchor id="ch3093-p019">The other was Death Realm Descends.</p>
+<p data-reading-anchor id="ch3093-p020">It not only strengthened necromantic energy greatly, but also severely suppressed other kinds of power.</p>
+<p data-reading-anchor id="ch3093-p021">Viewed this way, Death Realm Descends represented a more advanced application of laws than Tree World Descends, simultaneously applying enhancement and suppression.</p>
+<p data-reading-anchor id="ch3093-p022">The environment around him now was ordinary.</p>
+<p data-reading-anchor id="ch3093-p023">Fang Heng contemplated the changes in surrounding energies while recalling how both domain skills had felt when activated.</p>
+<p data-reading-anchor id="ch3093-p024">A notification slowly appeared on his retina.</p>
+<p data-reading-anchor id="ch3093-p025">[Hint: Player is attempting to perceive changes in laws.]</p>
+<p data-reading-anchor id="ch3093-p026">[Hint: Player has triggered the current quest—Alchemy Cultivation (Transcendent).]</p>
+<p data-reading-anchor id="ch3093-p027">Quest Name: Alchemy Cultivation (Transcendent).</p>
+<p data-reading-anchor id="ch3093-p028">Quest Requirement: Attempt to design and complete a magic array adapted to the surrounding environment (0/1).</p>
+<p data-reading-anchor id="ch3093-p029">Quest Reward: Transcendent-level Alchemy Advancement.</p>
+<p data-reading-anchor id="ch3093-p030">Fang Heng stopped perceiving and slowly opened his eyes.</p>
+<p data-reading-anchor id="ch3093-p031">Nasir asked, “How does it feel?”</p>
+<p data-reading-anchor id="ch3093-p032">“Mm. I'm beginning to sense it. Changes in laws and the flow of energy through space do follow certain patterns.”</p>
+<p data-reading-anchor id="ch3093-p033">“Gulp...”</p>
+<p data-reading-anchor id="ch3093-p034">Nasir swallowed as he stared at Fang Heng.</p>
+<p data-reading-anchor id="ch3093-p035">Good grief.</p>
+<p data-reading-anchor id="ch3093-p036">He could really sense it?</p>
+<p data-reading-anchor id="ch3093-p037">The flow of power!</p>
+<p data-reading-anchor id="ch3093-p038">He'd heard other alchemy instructors discuss that concept before.</p>
+<p data-reading-anchor id="ch3093-p039">Yet even now he didn't fully understand what that supposed flow of power meant. He couldn't get a handle on it at all.</p>
+<p data-reading-anchor id="ch3093-p040">Nasir stared at Fang Heng, suddenly feeling something strange. It was as though Fang Heng already understood laws better than he did.</p>
+<p data-reading-anchor id="ch3093-p041">Could this youngster genuinely be a one-in-ten-thousand alchemy genius?</p>
+<p data-reading-anchor id="ch3093-p042">Nasir ventured, “Want to try?”</p>
+<p data-reading-anchor id="ch3093-p043">“Mm. Of course.”</p>
+<p data-reading-anchor id="ch3093-p044">Fang Heng was eager himself and readily agreed.</p>
+<p data-reading-anchor id="ch3093-p045">He understood the underlying logic now, but putting it into practice would inevitably present challenges.</p>
+<p data-reading-anchor id="ch3093-p046">Whether he could succeed was another matter.</p>
+<p data-reading-anchor id="ch3093-p047">The difficulty was unknown. Only an actual attempt would tell.</p>
+<p data-reading-anchor id="ch3093-p048">Besides, the various energies in the environment constrained and influenced one another. A tiny adjustment could have enormous consequences. One miscalculation or error in directing power could destabilize the alchemical array. If the array merely exploded, that would be manageable; a serious mistake could even cause a backlash against its creator.</p>
+<p data-reading-anchor id="ch3093-p049">“Follow me.”</p>
+<p data-reading-anchor id="ch3093-p050">Nasir was eager too and headed toward the training room door.</p>
+<p data-reading-anchor id="ch3093-p051">With anyone else, he would have assumed the person was boasting.</p>
+<p data-reading-anchor id="ch3093-p052">But when Fang Heng spoke that way, Nasir somehow thought it sounded perfectly reasonable.</p>
+<p data-reading-anchor id="ch3093-p053">“Arranging arrays that alter laws is too dangerous. A mistake causing an explosion in this building would be trouble. I'll take you to the Alchemy Association. They have a proper training facility.”</p>
+<p data-reading-anchor id="ch3093-p054">“Good.”</p>
+<p data-reading-anchor id="ch3093-p055">Outside, Anxi waited in the corridor. She nodded respectfully. “Mr. Fang Heng, Mr. Nasir, has the lesson ended?”</p>
+<p data-reading-anchor id="ch3093-p056">“Mm, for now. We're going to the Alchemy Association for the next stage. You can take us there.”</p>
+<p data-reading-anchor id="ch3093-p057">“Certainly.”</p>
+<p data-reading-anchor id="ch3093-p058">Anxi immediately made the arrangements.</p>
+<p data-reading-anchor id="ch3093-p059">...</p>
+<p data-reading-anchor id="ch3093-p060">The Alchemy Association was also located in the center of the Seven-Realm Martial Capital, not far from the Noel Clan building.</p>
+<p data-reading-anchor id="ch3093-p061">An hour later, the two arrived.</p>
+<p data-reading-anchor id="ch3093-p062">“Fang Heng, the Alchemy Association's main headquarters isn't here. This is only a fairly large branch. I'm the branch's deputy director, but I rarely involve myself in internal administration. It's largely an honorary position.”</p>
+<p data-reading-anchor id="ch3093-p063">“We'll need to borrow some association facilities shortly. Strictly speaking, they're not open to outsiders.”</p>
+<p data-reading-anchor id="ch3093-p064">Nasir led Fang Heng inside and continued explaining cheerfully. “The association exists as a platform for alchemy scholars to exchange ideas and share knowledge. People help each other when they can; if they can't, that's fine too. Usually there's little trouble. Fang Heng, you're already a Grandmaster alchemist, so you're more than qualified to join. What do you say?”</p>
+<p data-reading-anchor id="ch3093-p065">“Sure. I'll join.”</p>
+<p data-reading-anchor id="ch3093-p066">Seeing that Nasir was inviting him, Fang Heng accepted immediately.</p>
+<p data-reading-anchor id="ch3093-p067">A platform for mutual assistance and exchange.</p>
+<p data-reading-anchor id="ch3093-p068">It sounded useful.</p>
+<p data-reading-anchor id="ch3093-p069">Delighted at having recruited a terrifyingly gifted expert, Nasir continued, “Excellent. I'll take care of your application. You'll need to fill out a form, and I'll authorize a special approval. It'll be quick.”</p>
+<p data-reading-anchor id="ch3093-p070">Anxi followed behind, quietly astonished by their conversation.</p>
+<p data-reading-anchor id="ch3093-p071">The Alchemy Association wasn't nearly as simple as Nasir made it sound. Even its entry threshold was Master-level alchemy. Its members were powerful scholars, most of them warriors employed by major factions or even trusted retainers trained by those powers. It was therefore a neutral organization that no major faction wished to offend.</p>
+<p data-reading-anchor id="ch3093-p072">Ordinary alchemy scholars would fight tooth and nail for membership.</p>
+<p data-reading-anchor id="ch3093-p073">And Nasir was personally recommending Fang Heng?</p>
+<p data-reading-anchor id="ch3093-p074">What did he see in him that made him so important?</p>
+<p data-reading-anchor id="ch3093-p075">Was it his extraordinary talent?</p>
+<p data-reading-anchor id="ch3093-p076">As they continued forward, Nasir explained, “The association has a purpose-built training ground where the elemental laws are maintained in a relatively orderly equilibrium. That reduces some of the difficulty of arranging arrays that affect laws.”</p>
+</article>
+<p class="end" data-reading-anchor id="ch3093-end">— End of Chapter 3093 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Chinese Chapter 3094: 实践. English Chapter 3093: Practice. Narrative paragraphs: 76/76.</li><li>The Seven-Realm Martial Capital branch Alchemy Association deputy-director position is held by Nasir; he calls it largely honorary.</li><li>The new quest requires one magic array designed for the surrounding laws (0/1).</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_3092_Laws.html#start">← Previous</a><a class="next" href="Global_Game_AFK_Chapter_3094_Training_Ground.html#start">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

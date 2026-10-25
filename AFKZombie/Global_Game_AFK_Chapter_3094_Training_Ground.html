@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 3094 — Training Ground | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-3094">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3093_Practice.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_3094_Training_Ground.html"><option value="Global_Game_AFK_Chapter_3094_Training_Ground.html" selected>3094 · Training Ground</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3095_It_Exploded.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-3094" data-reading-anchor>
+<div class="chapter-num">Chapter 3094</div><h2 class="chapter-title">Training Ground</h2>
+<p class="source-identity">From Chinese Chapter 3095 · 修炼场</p>
+<article class="prose">
+<p data-reading-anchor id="ch3094-p001">“What's more, the entire training ground has explosion-proof facilities. Even if you accidentally blow something up, the overall risk is controlled.”</p>
+<p data-reading-anchor id="ch3094-p002">“Still, few alchemy scholars in the association reach this stage. These training rooms haven't been used in quite a while.”</p>
+<p data-reading-anchor id="ch3094-p003">Fang Heng nodded inwardly.</p>
+<p data-reading-anchor id="ch3094-p004">As expected, specialized work was best left to specialists.</p>
+<p data-reading-anchor id="ch3094-p005">“Director.”</p>
+<p data-reading-anchor id="ch3094-p006">People passing through the Alchemy Association building greeted Nasir with nods.</p>
+<p data-reading-anchor id="ch3094-p007">“I'll have someone arrange your membership card. Come, I'll show you the training ground first.”</p>
+<p data-reading-anchor id="ch3094-p008">Nasir obtained a special-approval application from reception, had Fang Heng sign it, and handed it to Anxi to fill in the details. He then led Fang Heng toward the training facility.</p>
+<p data-reading-anchor id="ch3094-p009">“Okay.”</p>
+<p data-reading-anchor id="ch3094-p010">Fang Heng followed him up to the seventh floor in an elevator. They pushed open the door of a large training room.</p>
+<p data-reading-anchor id="ch3094-p011">The automatic lights came on.</p>
+<p data-reading-anchor id="ch3094-p012">The entire circular training ground was covered in magic-array runes.</p>
+<p data-reading-anchor id="ch3094-p013">Nasir sighed nostalgically. “It's been a long time since I came back here. I remember cultivating in this very room. Why don't you try?”</p>
+<p data-reading-anchor id="ch3094-p014">“Mm. All right.”</p>
+<p data-reading-anchor id="ch3094-p015">Fang Heng agreed, looked around, closed his eyes, and expanded his perception.</p>
+<p data-reading-anchor id="ch3094-p016">“A large portion of the chaotic energy fluctuations have been screened out here. It's much easier to arrange arrays that affect laws.”</p>
+<p data-reading-anchor id="ch3094-p017">Fang Heng opened his eyes again.</p>
+<p data-reading-anchor id="ch3094-p018">Indeed, the various energies in the room fluctuated very steadily and were much less active than outside. Some power fluctuations had disappeared entirely.</p>
+<p data-reading-anchor id="ch3094-p019">That meant he could exclude a great deal of redundant interference and use alchemical arrays to target the surrounding laws.</p>
+<p data-reading-anchor id="ch3094-p020">“Excellent. Nasir, may I begin?”</p>
+<p data-reading-anchor id="ch3094-p021">“Of course. Whenever you're ready.”</p>
+<p data-reading-anchor id="ch3094-p022">Nasir stepped back and watched Fang Heng with interest.</p>
+<p data-reading-anchor id="ch3094-p023">It had taken Nasir more than ten years to break through this stage.</p>
+<p data-reading-anchor id="ch3094-p024">He'd scarcely left the Alchemy Association in all that time, spending day after day perceiving laws and attempting to arrange magic arrays.</p>
+<p data-reading-anchor id="ch3094-p025">Only in the end had he succeeded and advanced to the Transcendent level.</p>
+<p data-reading-anchor id="ch3094-p026">Fang Heng's aptitude was astonishing. How long would he need to advance?</p>
+<p data-reading-anchor id="ch3094-p027">“Hiss, hiss...”</p>
+<p data-reading-anchor id="ch3094-p028">Fang Heng focused and raised his pen. Without appearing to think at all, he began drawing magic-array patterns directly on the floor.</p>
+<p data-reading-anchor id="ch3094-p029">Already?</p>
+<p data-reading-anchor id="ch3094-p030">Nasir was surprised.</p>
+<p data-reading-anchor id="ch3094-p031">An array capable of influencing regional laws had to be at least a large-scale array.</p>
+<p data-reading-anchor id="ch3094-p032">Was he really that confident?</p>
+<p data-reading-anchor id="ch3094-p033">Half an hour passed, and the large array was complete.</p>
+<p data-reading-anchor id="ch3094-p034">Fang Heng pressed both hands onto it.</p>
+<p data-reading-anchor id="ch3094-p035">“Hum...”</p>
+<p data-reading-anchor id="ch3094-p036">With mental power flowing in, the array glimmered. Then the light faded and everything returned to normal.</p>
+<p data-reading-anchor id="ch3094-p037">Apparently it had failed.</p>
+<p data-reading-anchor id="ch3094-p038">Nasir shook his head slightly.</p>
+<p data-reading-anchor id="ch3094-p039">Failure was only natural.</p>
+<p data-reading-anchor id="ch3094-p040">Success on the first attempt would have been unbelievable.</p>
+<p data-reading-anchor id="ch3094-p041">At least Fang Heng's construction process showed that he understood how to perceive laws and use them in designing an array.</p>
+<p data-reading-anchor id="ch3094-p042">What happened next would depend on his own understanding.</p>
+<p data-reading-anchor id="ch3094-p043">“Good comprehension. You seem to understand how to use alchemy arrays to influence laws. It's normal to fail repeatedly when first searching for the right method. There's little more I can teach you. Feel free to discuss any insights with me. We can improve together.”</p>
+<p data-reading-anchor id="ch3094-p044">“Mm. Thank you, Nasir.”</p>
+<p data-reading-anchor id="ch3094-p045">Fang Heng nodded, though most of his attention remained fixed on the changes within the array.</p>
+<p data-reading-anchor id="ch3094-p046">Only after actually attempting to arrange one did he appreciate the difficulty.</p>
+<p data-reading-anchor id="ch3094-p047">Environmental energy was just one factor that had to be balanced. There were many other considerations, and every minute change could trigger a chain reaction.</p>
+<p data-reading-anchor id="ch3094-p048">The smallest error would cause the alchemical array to fail.</p>
+<p data-reading-anchor id="ch3094-p049">The basic prerequisites were extremely high perception and enormous mental power.</p>
+<p data-reading-anchor id="ch3094-p050">He also needed microscopic control of mental power and absolute concentration throughout the process. He couldn't afford the slightest distraction.</p>
+<p data-reading-anchor id="ch3094-p051">Seeing Fang Heng lost in thought, Nasir nodded approvingly.</p>
+<p data-reading-anchor id="ch3094-p052">He'd been much the same while studying: so absorbed that he forgot food and sleep, barely hearing what others said, his mind filled with laws, energy flows, and alchemical arrays.</p>
+<p data-reading-anchor id="ch3094-p053">In Nasir's view, the difficulty Fang Heng faced now was only the first step.</p>
+<p data-reading-anchor id="ch3094-p054">Even if an array were completed perfectly according to the intended design, it would most likely still fail.</p>
+<p data-reading-anchor id="ch3094-p055">That was because an individual's assessment of environmental energy could never be completely accurate.</p>
+<p data-reading-anchor id="ch3094-p056">There would always be errors.</p>
+<p data-reading-anchor id="ch3094-p057">It was like trying to determine every precise measurement of a delicate object hundreds of meters away using only the naked eye.</p>
+<p data-reading-anchor id="ch3094-p058">Through repeated trial and error, however, an alchemist's perception of active energies in the environment would improve rapidly, as would their fine control over arrays.</p>
+<p data-reading-anchor id="ch3094-p059">That step alone had cost Nasir ten years.</p>
+<p data-reading-anchor id="ch3094-p060">“The training facility is open to association members. You're one of us now, and nobody else is using it. You can cultivate here whenever you like.”</p>
+<p data-reading-anchor id="ch3094-p061">“Thank you.”</p>
+<p data-reading-anchor id="ch3094-p062">Fang Heng thanked him again, but his attention remained so focused on the array that he barely noticed Nasir's words, much less when the man left.</p>
+<p data-reading-anchor id="ch3094-p063">“Whoosh!”</p>
+<p data-reading-anchor id="ch3094-p064">A rapidly revolving magic array appeared reflected in Fang Heng's right eye.</p>
+<p data-reading-anchor id="ch3094-p065">The failed array on the ground began spinning again.</p>
+<p data-reading-anchor id="ch3094-p066">This time was different. Under the Omniscient Eye's observation, the array operated extremely slowly, every step proceeding dozens of times slower than normal.</p>
+<p data-reading-anchor id="ch3094-p067">“So that's it.”</p>
+<p data-reading-anchor id="ch3094-p068">Half a minute later, having found the point where the array stalled and broke down, Fang Heng let the image in his right eye fade.</p>
+<p data-reading-anchor id="ch3094-p069">Law-level alchemical arrays demanded exceptional precision and perception. Even the tiniest discrepancy was unacceptable.</p>
+<p data-reading-anchor id="ch3094-p070">An ordinary scholar would have to spend ages searching for an error, probing over and over again.</p>
+<p data-reading-anchor id="ch3094-p071">But Fang Heng was different.</p>
+<p data-reading-anchor id="ch3094-p072">With the aid of his Omniscient Eye, the amplification of his formidable mental power over array control, and his high perception's support for sensing laws, finding errors became remarkably easy.</p>
+<p data-reading-anchor id="ch3094-p073">Once he identified the exact mistake, he could correct it directly.</p>
+<p data-reading-anchor id="ch3094-p074">“Hiss!”</p>
+<p data-reading-anchor id="ch3094-p075">Fang Heng waved his hand, instantly wiping away the array on the floor.</p>
+<p data-reading-anchor id="ch3094-p076">Again!</p>
+<p data-reading-anchor id="ch3094-p077">Nasir exited the room and saw Anxi waiting outside. He smiled. “You must have heard. Fang Heng is very talented in alchemy. He's attempting his Transcendent breakthrough now, and I have no idea when he'll emerge.”</p>
+<p data-reading-anchor id="ch3094-p078">“That's fine. I'll wait outside. As his assistant, it's my responsibility to look after and coordinate his daily needs.” Anxi nodded respectfully. “And thank you for helping the Noel Clan nurture such an outstanding warrior.”</p>
+<p data-reading-anchor id="ch3094-p079">“Very well. I'll leave him in your care.”</p>
+</article>
+<p class="end" data-reading-anchor id="ch3094-end">— End of Chapter 3094 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Chinese Chapter 3095: 修炼场. English Chapter 3094: Training Ground. Narrative paragraphs: 79/79.</li><li>Chinese calls the analytical eye 炼金之瞳 (Alchemical Eye) once after earlier calling it 全知之瞳 (Omniscient Eye). English uses the established Omniscient Eye here and flags the source name difference.</li><li>A law-type array requires extraordinarily precise sensing of environmental energies.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_3093_Practice.html#start">← Previous</a><a class="next" href="Global_Game_AFK_Chapter_3095_It_Exploded.html#start">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

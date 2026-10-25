@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 3079 — Fierce Training | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-3079">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3078_Remedial_Lessons.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_3079_Fierce_Training.html"><option value="Global_Game_AFK_Chapter_3079_Fierce_Training.html" selected>3079 · Fierce Training</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3080_Calm_Down.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-3079" data-reading-anchor>
+<div class="chapter-num">Chapter 3079</div><h2 class="chapter-title">Fierce Training</h2>
+<p class="source-identity">From Chinese Chapter 3080 · 很猛</p>
+<article class="prose">
+<p data-reading-anchor id="ch3079-p001">Mu Shunan was very satisfied with Fang Heng's training progress. Seeing how fiercely the young man cultivated, he couldn't resist offering a kind warning.</p>
+<p data-reading-anchor id="ch3079-p002">In his view, the pan-human races had fairly ordinary natural talent and limited self-healing ability. No matter how gifted Fang Heng was, breaking through the Master-level stage ought to take several years.</p>
+<p data-reading-anchor id="ch3079-p003">But...</p>
+<p data-reading-anchor id="ch3079-p004">Come to think of it, this youngster was very young—about the same age as the recruits who had just joined the Noel Clan's training program.</p>
+<p data-reading-anchor id="ch3079-p005">“All right.”</p>
+<p data-reading-anchor id="ch3079-p006">Fang Heng agreed, slowly closed his eyes, and rapidly directed elemental energy through his body, trying to temper his flesh with its impact.</p>
+<p data-reading-anchor id="ch3079-p007">Elemental power raced through his meridians and gradually spilled into his body. He felt like an overinflated balloon as energy continuously leaked from the channels into his flesh.</p>
+<p data-reading-anchor id="ch3079-p008">Under the expanding power, his muscles, bones, and skin gradually strengthened. Then the pressure became too great to contain, and the tissues began to tear.</p>
+<p data-reading-anchor id="ch3079-p009">[Hint: Current Adaptability Enhancement Progress: 0.08%.]</p>
+<p data-reading-anchor id="ch3079-p010">A game notification flashed rapidly across Fang Heng's retina.</p>
+<p data-reading-anchor id="ch3079-p011">Under ordinary circumstances, another scholar would have had to stop training here. Continuing would inflict worse bodily injuries, potentially damaging the internal organs and requiring much longer to recover.</p>
+<p data-reading-anchor id="ch3079-p012">But Fang Heng was different. He possessed an undying body!</p>
+<p data-reading-anchor id="ch3079-p013">The moment his flesh was damaged, the Undying Body effect activated, rapidly repairing the injuries.</p>
+<p data-reading-anchor id="ch3079-p014">Lines of game notifications immediately appeared before his eyes.</p>
+<p data-reading-anchor id="ch3079-p015">[Hint: Current Adaptability Enhancement Progress: 0.12%.]</p>
+<p data-reading-anchor id="ch3079-p016">[Hint: Current Adaptability Enhancement Progress: 0.18%.]</p>
+<p data-reading-anchor id="ch3079-p017">Sensing the changes in his body and glancing at the game messages, Fang Heng immediately understood the principle behind this method of mysticism training.</p>
+<p data-reading-anchor id="ch3079-p018">Use specially controlled mental power to scour the body and improve its adaptability.</p>
+<p data-reading-anchor id="ch3079-p019">Repeated destruction, self-repair, destruction, self-repair...</p>
+<p data-reading-anchor id="ch3079-p020">The key was the body's ability to repair itself.</p>
+<p data-reading-anchor id="ch3079-p021">An ordinary person might need an extremely long time to cultivate this way.</p>
+<p data-reading-anchor id="ch3079-p022">But he was different!</p>
+<p data-reading-anchor id="ch3079-p023">With the Undying Body's terrifying regeneration, minor injuries to flesh and skin could heal in an extremely short time!</p>
+<p data-reading-anchor id="ch3079-p024">This meant he could sustain a high-intensity flow of mental energy, tempering his body continuously without interruption.</p>
+<p data-reading-anchor id="ch3079-p025">At least for now, the damage caused by that mental-energy flow was entirely offset by his Undying Body.</p>
+<p data-reading-anchor id="ch3079-p026">In that case...</p>
+<p data-reading-anchor id="ch3079-p027">Time to grind!</p>
+<p data-reading-anchor id="ch3079-p028">Fang Heng's heart stirred, and he immediately accelerated the circulation and expansion of mental power within his body!</p>
+<p data-reading-anchor id="ch3079-p029">Mu Shunan had been calmly supervising Fang Heng's practice, nodding to himself, when the sight suddenly gave him a tremendous fright.</p>
+<p data-reading-anchor id="ch3079-p030">Good grief!</p>
+<p data-reading-anchor id="ch3079-p031">Had this kid gone mad?</p>
+<p data-reading-anchor id="ch3079-p032">A dark-red hue could be seen beneath Fang Heng's skin, clear evidence that tremendous power was battering his body.</p>
+<p data-reading-anchor id="ch3079-p033">And he still wasn't stopping? He was continuing? Was he trying to get himself killed?</p>
+<p data-reading-anchor id="ch3079-p034">Mu Shunan's heart jumped. He was about to intervene when he noticed that Fang Heng's internal injuries weren't spreading. Instead, they were gradually stabilizing.</p>
+<p data-reading-anchor id="ch3079-p035">Hm? What was happening now?</p>
+<p data-reading-anchor id="ch3079-p036">Mu Shunan hesitated, lowered his hand, and carefully observed Fang Heng from the side.</p>
+<p data-reading-anchor id="ch3079-p037">What on earth was this kid doing?</p>
+<p data-reading-anchor id="ch3079-p038">Was his physical constitution simply far stronger than an ordinary person's?</p>
+<p data-reading-anchor id="ch3079-p039">No!</p>
+<p data-reading-anchor id="ch3079-p040">Mu Shunan quickly deduced that Fang Heng must possess some sort of self-healing ability!</p>
+<p data-reading-anchor id="ch3079-p041">Certain species were born with powerful regeneration or exceptionally robust bodies, giving them an advantage when cultivating mysticism.</p>
+<p data-reading-anchor id="ch3079-p042">But Mu Shunan had never heard of a pan-human possessing self-recovery this strong.</p>
+<p data-reading-anchor id="ch3079-p043">And it was terrifyingly powerful!</p>
+<p data-reading-anchor id="ch3079-p044">Even more startling was the extraordinarily intense elemental aura seeping from within Fang Heng!</p>
+<p data-reading-anchor id="ch3079-p045">It was strong enough to make Mu Shunan apprehensive, draining some of the color from his face.</p>
+<p data-reading-anchor id="ch3079-p046">A horrifying storm of elemental energy surged through Fang Heng's body!</p>
+<p data-reading-anchor id="ch3079-p047">He was like a compressed balloon.</p>
+<p data-reading-anchor id="ch3079-p048">He was forcibly pouring mental energy into his own flesh.</p>
+<p data-reading-anchor id="ch3079-p049">Good grief! His body was actually strong enough to withstand such violent elemental currents?</p>
+<p data-reading-anchor id="ch3079-p050">The information he'd been given was wrong. Fang Heng was definitely not merely a mid-tier warrior. Based on that mental power alone, Mu Shunan could confidently place him at high-tier!</p>
+<p data-reading-anchor id="ch3079-p051">And not only was the boy's mental power terrifying—his physical strength was monstrous too!</p>
+<p data-reading-anchor id="ch3079-p052">This was bad...</p>
+<p data-reading-anchor id="ch3079-p053">If he accidentally exploded, the entire building would be blown apart!</p>
+<p data-reading-anchor id="ch3079-p054">Mu Shunan grew more alarmed the longer he thought about it.</p>
+<p data-reading-anchor id="ch3079-p055">Judging by the violent fluctuations, elemental power should still be tearing Fang Heng's body apart.</p>
+<p data-reading-anchor id="ch3079-p056">How was he maintaining that state?</p>
+<p data-reading-anchor id="ch3079-p057">It seemed his body's regenerative abilities and the destruction caused by the energy had reached an uncanny equilibrium.</p>
+<p data-reading-anchor id="ch3079-p058">Utter madness!</p>
+<p data-reading-anchor id="ch3079-p059">Mu Shunan didn't dare interrupt him. If Fang Heng lost control because of a disturbance, he might really explode.</p>
+<p data-reading-anchor id="ch3079-p060">What had he gotten himself into?</p>
+<p data-reading-anchor id="ch3079-p061">Mu Shunan smiled bitterly. His paid lesson time had long since expired, but the session still wasn't over. Now he had to work overtime for free.</p>
+<p data-reading-anchor id="ch3079-p062">Fine.</p>
+<p data-reading-anchor id="ch3079-p063">He'd treat it as a chance to build goodwill.</p>
+<p data-reading-anchor id="ch3079-p064">Consoling himself, Mu Shunan used his mental power to form a protective barrier around Fang Heng. If something did go wrong, perhaps it would absorb part of the blast.</p>
+<p data-reading-anchor id="ch3079-p065">After a full two hours, Fang Heng gradually drew his violent aura back inside his body.</p>
+<p data-reading-anchor id="ch3079-p066">[Hint: Current Adaptability Enhancement Progress: 0.18%.]</p>
+<p data-reading-anchor id="ch3079-p067">[Hint: Player has completed the current stage of the quest.]</p>
+<p data-reading-anchor id="ch3079-p068">Fang Heng opened his eyes again, excitement gleaming within them.</p>
+<p data-reading-anchor id="ch3079-p069">Success!</p>
+<p data-reading-anchor id="ch3079-p070">Done!</p>
+<p data-reading-anchor id="ch3079-p071">Time to stop making up for skipped lessons!</p>
+<p data-reading-anchor id="ch3079-p072">“Phew!”</p>
+<p data-reading-anchor id="ch3079-p073">Mu Shunan also let out a tremendous sigh of relief.</p>
+<p data-reading-anchor id="ch3079-p074">He gave Fang Heng a reproachful look, dropped the protective barrier, and said, “Brother Fang Heng, I know you're talented, but next time you decide to risk your life, could you at least tell me first?”</p>
+<p data-reading-anchor id="ch3079-p075">Mu Shunan was thinking, If you're going to push yourself that hard, you're going to scare me to death!</p>
+<p data-reading-anchor id="ch3079-p076">“Thank you for protecting me, Brother Mu.”</p>
+<p data-reading-anchor id="ch3079-p077">Fang Heng smiled faintly and looked up at Mu Shunan with an eager glimmer in his eyes. “I've finished the body-tempering stage now. If you don't have anything else to do, Brother Mu Shunan, shall we move straight on to the next stage of training?”</p>
+<p data-reading-anchor id="ch3079-p078">“Huh?”</p>
+<p data-reading-anchor id="ch3079-p079">Mu Shunan stared at him in shock.</p>
+<p data-reading-anchor id="ch3079-p080">“What did you say?”</p>
+<p data-reading-anchor id="ch3079-p081">He'd finished the Master-level tempering stage?</p>
+<p data-reading-anchor id="ch3079-p082">And without any medicinal assistance?</p>
+<p data-reading-anchor id="ch3079-p083">Something that took an ordinary person at least three to five years had taken him barely over an hour?</p>
+<p data-reading-anchor id="ch3079-p084">Without waiting for an answer, Mu Shunan reached over and pressed his finger against Fang Heng's wrist.</p>
+<p data-reading-anchor id="ch3079-p085">As his mental power tried to penetrate Fang Heng's skin, it immediately encountered a smooth, unobstructed flow.</p>
+<p data-reading-anchor id="ch3079-p086">Good grief!</p>
+<p data-reading-anchor id="ch3079-p087">His entire body really had been opened up!</p>
+<p data-reading-anchor id="ch3079-p088">Mu Shunan withdrew his hand and stared at Fang Heng as though looking at a monster.</p>
+<p data-reading-anchor id="ch3079-p089">Unbelievable!</p>
+<p data-reading-anchor id="ch3079-p090">If someone had told him before today that this stage could be completed in just over two hours, he'd never have believed them.</p>
+<p data-reading-anchor id="ch3079-p091">Yet it had happened right before his eyes!</p>
+<p data-reading-anchor id="ch3079-p092">Was this what true talent looked like?</p>
+</article>
+<p class="end" data-reading-anchor id="ch3079-end">— End of Chapter 3079 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Chinese Chapter 3080: 很猛. English Chapter 3079: Fierce Training. Narrative paragraphs: 92/92.</li><li>The game prompt shows 0.18% even as the current training stage is declared complete. This appears to be an author numerical inconsistency; both details are retained unchanged.</li><li>Mu Shunan’s protective barrier is a precaution against Fang Heng’s extreme cultivation method, not part of Fang Heng’s own defenses.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_3078_Remedial_Lessons.html#start">← Previous</a><a class="next" href="Global_Game_AFK_Chapter_3080_Calm_Down.html#start">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

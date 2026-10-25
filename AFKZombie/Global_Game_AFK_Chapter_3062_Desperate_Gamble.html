@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 3062 — Desperate Gamble | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-3062">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3061_Danger.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_3062_Desperate_Gamble.html"><option value="Global_Game_AFK_Chapter_3062_Desperate_Gamble.html" selected>3062 · Desperate Gamble</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3063_Shattered.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-3062" data-reading-anchor>
+<div class="chapter-num">Chapter 3062</div><h2 class="chapter-title">Desperate Gamble</h2>
+<p class="source-identity">From Chinese Chapter 3063 · 孤注一掷</p>
+<article class="prose">
+<p data-reading-anchor id="ch3062-p001">Once the various species in the Kinsfolk Alliance discovered they had lost all communication with their ships, they became even more uneasy and hastened their return.</p>
+<p data-reading-anchor id="ch3062-p002">When the Shadow Clan alliance finally reached the outskirts of the fleet's anchorage and saw the scene in the distance, astonishment spread across every face.</p>
+<p data-reading-anchor id="ch3062-p003">Korkalot's eyes also filled with shock.</p>
+<p data-reading-anchor id="ch3062-p004">What the hell?</p>
+<p data-reading-anchor id="ch3062-p005">Was that an Ouroboros nest?</p>
+<p data-reading-anchor id="ch3062-p006">From where everyone stood, the entire fleet assembly area had been blanketed by overlapping layers of dark-red vines.</p>
+<p data-reading-anchor id="ch3062-p007">An endless mass of tangled tendrils.</p>
+<p data-reading-anchor id="ch3062-p008">The ships were wrapped like cocoons, clustered together like fruit growing from the roots of an enormous vine.</p>
+<p data-reading-anchor id="ch3062-p009">Looking closer, one could even see dark-yellow pupils opening here and there along the tendrils.</p>
+<p data-reading-anchor id="ch3062-p010">These rootlike vines were no ordinary plants; they resembled a fusion of living creatures and vegetation.</p>
+<p data-reading-anchor id="ch3062-p011">Was this some special form of the Ouroboros Seed?</p>
+<p data-reading-anchor id="ch3062-p012">What the hell was going on?!</p>
+<p data-reading-anchor id="ch3062-p013">They had been gone for less than an hour. How had their ships ended up like this?</p>
+<p data-reading-anchor id="ch3062-p014">An oppressive atmosphere settled over the entire allied force.</p>
+<p data-reading-anchor id="ch3062-p015">“Impossible!”</p>
+<p data-reading-anchor id="ch3062-p016">The Shadow Clan commander looked utterly grim.</p>
+<p data-reading-anchor id="ch3062-p017">They had never encountered an Ouroboros Seed in such a form.</p>
+<p data-reading-anchor id="ch3062-p018">Korkalot stood rooted to the spot, gazing at the plants swallowing the ships in the distance, his eyes full of disbelief.</p>
+<p data-reading-anchor id="ch3062-p019">He could sense the Tree of Life's power within those plants!</p>
+<p data-reading-anchor id="ch3062-p020">Was that the Tree of Life belonging to their Elven Clan?</p>
+<p data-reading-anchor id="ch3062-p021">Since when had the Tree of Life taken on such a grotesque form? And since when could it leave the elven world and fight elsewhere?</p>
+<p data-reading-anchor id="ch3062-p022">“My lord, we...”</p>
+<p data-reading-anchor id="ch3062-p023">The allied squads were growing frantic, and their gazes all turned toward the Shadow Clan.</p>
+<p data-reading-anchor id="ch3062-p024">The situation was dire.</p>
+<p data-reading-anchor id="ch3062-p025">From the looks of things, every one of their ships might already have fallen completely to those bizarre vines.</p>
+<p data-reading-anchor id="ch3062-p026">And without their ships, they could be stranded in this world for a very long time.</p>
+<p data-reading-anchor id="ch3062-p027">If the insects attacked again during that time...</p>
+<p data-reading-anchor id="ch3062-p028">“Commander, the Ouroboros Seed only just took over the ships. It hasn't completely corroded them yet, so the damage is limited. If we can recapture them now, there's still a chance...”</p>
+<p data-reading-anchor id="ch3062-p029">“Mm.”</p>
+<p data-reading-anchor id="ch3062-p030">The Shadow Clan commander stared at the living sea of vines, anger flickering in his eyes. “You're right. All squads, listen up! Prepare to attack and retake the ships!”</p>
+<p data-reading-anchor id="ch3062-p031">“Yes!”</p>
+<p data-reading-anchor id="ch3062-p032">Every unit was strung as tight as a bowstring.</p>
+<p data-reading-anchor id="ch3062-p033">They understood that the situation had become critical. If they couldn't take back their ships, they might all die here!</p>
+<p data-reading-anchor id="ch3062-p034">“Fire! Adjust your power. Don't damage the ships!”</p>
+<p data-reading-anchor id="ch3062-p035">The squads advanced slowly until the vessels were within their long-range attack distance.</p>
+<p data-reading-anchor id="ch3062-p036">“Whoosh! Whoosh, whoosh!”</p>
+<p data-reading-anchor id="ch3062-p037">Long-range spells and energy beams swept over the vines covering the ships.</p>
+<p data-reading-anchor id="ch3062-p038">Afraid of damaging the hulls beneath the plants, the units deliberately held back their firepower.</p>
+<p data-reading-anchor id="ch3062-p039">But the first volley was completely absorbed by the thick layers of vines.</p>
+<p data-reading-anchor id="ch3062-p040">The squad commander flushed, feeling like an utter fool.</p>
+<p data-reading-anchor id="ch3062-p041">He had actually worried about holding back the attack, when they couldn't even breach the enemy's defenses!</p>
+<p data-reading-anchor id="ch3062-p042">Just as he prepared to order an all-out assault, a rustling sound suddenly came from ahead.</p>
+<p data-reading-anchor id="ch3062-p043">Looking up, he saw alien insects crawling out of the tangled vines wrapped around the vessels.</p>
+<p data-reading-anchor id="ch3062-p044">The insects clung tightly to the vine roots and settled into firing positions.</p>
+<p data-reading-anchor id="ch3062-p045">The commander's eyelid twitched.</p>
+<p data-reading-anchor id="ch3062-p046">Don't tell me... Could it be...?</p>
+<p data-reading-anchor id="ch3062-p047">“Whoosh! Whoosh, whoosh, whoosh!”</p>
+<p data-reading-anchor id="ch3062-p048">Concentrated biological artillery!</p>
+<p data-reading-anchor id="ch3062-p049">In the next instant, a dense barrage of crimson biological cannon fire roared toward the Kinsfolk Alliance troops!</p>
+<p data-reading-anchor id="ch3062-p050">“Watch out!”</p>
+<p data-reading-anchor id="ch3062-p051">“Scatter!”</p>
+<p data-reading-anchor id="ch3062-p052">“Defensive barriers!”</p>
+<p data-reading-anchor id="ch3062-p053">Almost simultaneously, the ground beneath the Kinsfolk Alliance forces heaved violently!</p>
+<p data-reading-anchor id="ch3062-p054">Abe Akaya revealed its monstrous, terrifying side!</p>
+<p data-reading-anchor id="ch3062-p055">Countless vine roots burst out of the earth and plunged straight into the battlefield.</p>
+<p data-reading-anchor id="ch3062-p056">The roots whipped through the air while Lickers clinging to them fired continuous long-range artillery barrages!</p>
+<p data-reading-anchor id="ch3062-p057">More Lickers climbed straight up the vines from underground and leaped into battle, throwing the Shadow Clan alliance into utter chaos in moments!</p>
+<p data-reading-anchor id="ch3062-p058">Rampaging insects and masses of vines.</p>
+<p data-reading-anchor id="ch3062-p059">Every unit in the Shadow Clan alliance was plunged into disarray.</p>
+<p data-reading-anchor id="ch3062-p060">Korkalot's heart hammered in his chest. Watching the scene, he involuntarily backed away several steps.</p>
+<p data-reading-anchor id="ch3062-p061">The deadliest force on the battlefield was not the insects, but the dark-red vines radiating the aura of the Tree of Life!</p>
+<p data-reading-anchor id="ch3062-p062">A single strike from those vines inflicted multiple negative status effects. Often, a victim would be distracted for a heartbeat, only for the thorns piercing their body to suck them dry, leaving nothing but bones.</p>
+<p data-reading-anchor id="ch3062-p063">Anyone unlucky enough to become entangled in the tendrils crawling over the ground would be dragged deep underground and devoured entirely.</p>
+<p data-reading-anchor id="ch3062-p064">As Korkalot watched the battle, a powerful feeling of relief suddenly welled up inside him.</p>
+<p data-reading-anchor id="ch3062-p065">Thank goodness he hadn't offended Fang Heng earlier.</p>
+<p data-reading-anchor id="ch3062-p066">He hadn't expected Fang Heng to have yet another trump card—and one connected to the Elven Clan's Tree of Life, no less!</p>
+<p data-reading-anchor id="ch3062-p067">But...</p>
+<p data-reading-anchor id="ch3062-p068">When had the elves' Tree of Life become this powerful?</p>
+<p data-reading-anchor id="ch3062-p069">With the Tree of Life and the alien insects working together, the Shadow Clan quickly found itself at a disadvantage.</p>
+<p data-reading-anchor id="ch3062-p070">Korkalot glanced uneasily toward the Shadow Clan warriors at the center of the formation.</p>
+<p data-reading-anchor id="ch3062-p071">Relying on their innate racial strength, the Shadow Clan held the front line and bore the brunt of the pressure.</p>
+<p data-reading-anchor id="ch3062-p072">Yet they had begun to realize that even though they possessed the means to kill the insects permanently, they had no way to deal with the ships buried beneath those densely layered vines!</p>
+<p data-reading-anchor id="ch3062-p073">There was nowhere to even begin!</p>
+<p data-reading-anchor id="ch3062-p074">“Hold formation! Don't panic! We still have a chance!”</p>
+<p data-reading-anchor id="ch3062-p075">Amid the chaos, the Shadow Clan commander kept issuing orders to adjust their formation, but his unease only deepened.</p>
+<p data-reading-anchor id="ch3062-p076">This couldn't continue!</p>
+<p data-reading-anchor id="ch3062-p077">Their entire force would die here.</p>
+<p data-reading-anchor id="ch3062-p078">They had never seen an Ouroboros Seed like the one in this world. It could fuse with mysterious plants, and its strength might already exceed the Apocalypse level.</p>
+<p data-reading-anchor id="ch3062-p079">“Fall back toward the center! The enemy is extremely strong! Protect the flanks and prepare to retreat!”</p>
+<p data-reading-anchor id="ch3062-p080">The words had barely left the Shadow Clan commander's mouth when a dark figure suddenly appeared on his right.</p>
+<p data-reading-anchor id="ch3062-p081">What?!</p>
+<p data-reading-anchor id="ch3062-p082">“Enemy attack!”</p>
+<p data-reading-anchor id="ch3062-p083">“Protect the commander!”</p>
+<p data-reading-anchor id="ch3062-p084">The commander's expression changed, and part of his body swiftly turned to shadow.</p>
+<p data-reading-anchor id="ch3062-p085">“BOOM!”</p>
+<p data-reading-anchor id="ch3062-p086">Fang Heng materialized abruptly and drove his fist toward the commander. As the punch passed through the shadowy figure, it hissed like boiling water turning to steam.</p>
+<p data-reading-anchor id="ch3062-p087">Fang Heng had encountered Shadow Transformation many times by now.</p>
+<p data-reading-anchor id="ch3062-p088">And its weakness was simple: concentrate an extremely dense Death Will around his fist.</p>
+<p data-reading-anchor id="ch3062-p089">With his transcendent, god-level necromancy and terrifying mental power, the blow instantly dissolved most of the black mist making up the right half of the commander's body!</p>
+<p data-reading-anchor id="ch3062-p090">The damage was no less severe than if his fist had struck solid flesh!</p>
+</article>
+<p class="end" data-reading-anchor id="ch3062-end">— End of Chapter 3062 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Chinese Chapter 3063: 孤注一掷. English Chapter 3062: Desperate Gamble. Narrative paragraphs: 90/90.</li><li>The dark-red tendrils emit the Tree of Life’s aura but are Abe Akaya under Fang Heng’s control; Korkalot recognizes the aura.</li><li>The source distinguishes the Shadow Clan’s powerful frontline resistance from their inability to free the captured vessels.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_3061_Danger.html#start">← Previous</a><a class="next" href="Global_Game_AFK_Chapter_3063_Shattered.html#start">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

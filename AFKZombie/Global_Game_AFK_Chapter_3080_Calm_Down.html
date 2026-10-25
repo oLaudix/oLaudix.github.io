@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 3080 — Calm Down | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-3080">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3079_Fierce_Training.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_3080_Calm_Down.html"><option value="Global_Game_AFK_Chapter_3080_Calm_Down.html" selected>3080 · Calm Down</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3081_Inefficient_Grinding.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-3080" data-reading-anchor>
+<div class="chapter-num">Chapter 3080</div><h2 class="chapter-title">Calm Down</h2>
+<p class="source-identity">From Chinese Chapter 3081 · 冷静一下</p>
+<article class="prose">
+<p data-reading-anchor id="ch3080-p001">Mu Shunan shook his head. He really wanted to find somewhere to calm himself down.</p>
+<p data-reading-anchor id="ch3080-p002">Seeing that Mu Shunan hadn't answered, Fang Heng was a little disappointed. “Is there something else planned?”</p>
+<p data-reading-anchor id="ch3080-p003">“Not really.”</p>
+<p data-reading-anchor id="ch3080-p004">After being thoroughly shaken by Fang Heng's string of feats, Mu Shunan steadied himself and drew a deep breath. Even then he could barely keep his composure. “I've just been sitting too long. Stay here for a while. I'll go outside, get some air, and rest.”</p>
+<p data-reading-anchor id="ch3080-p005">“Okay.”</p>
+<p data-reading-anchor id="ch3080-p006">Fang Heng was preoccupied with the skill he'd just advanced. Without thinking much of it, he watched Mu Shunan leave and began inspecting the changes to his body.</p>
+<p data-reading-anchor id="ch3080-p007">Overall...</p>
+<p data-reading-anchor id="ch3080-p008">After mental power had strengthened his bones, muscles, skin, and internal organs, his body's affinity with mental power had risen dramatically, as had his efficiency in using spells.</p>
+<p data-reading-anchor id="ch3080-p009">The improvement wasn't reflected in his game statistics. It was something he could feel directly.</p>
+<p data-reading-anchor id="ch3080-p010">From now on, he could cast magical skills faster, at lower cost, and with greater control.</p>
+<p data-reading-anchor id="ch3080-p011">Mysticism really was excellent.</p>
+<p data-reading-anchor id="ch3080-p012">Having broken through this stage, he'd effectively crossed the threshold into Master-level mysticism.</p>
+<p data-reading-anchor id="ch3080-p013">He'd finally made up most of what he'd missed before.</p>
+<p data-reading-anchor id="ch3080-p014">Next came the Grandmaster threshold.</p>
+<p data-reading-anchor id="ch3080-p015">His body's tempering had reached its current limit, though he wasn't sure which direction the next stage of training would take.</p>
+<p data-reading-anchor id="ch3080-p016">Fang Heng closed his eyes once more and slowly examined his body, familiarizing himself with the changes.</p>
+<p data-reading-anchor id="ch3080-p017">Outside, on the other side of the wall, Mu Shunan released a long breath.</p>
+<p data-reading-anchor id="ch3080-p018">“Phew.”</p>
+<p data-reading-anchor id="ch3080-p019">Damn it! He'd seen a bloody ghost!</p>
+<p data-reading-anchor id="ch3080-p020">A fellow warrior happened to pass by. Seeing Mu Shunan's pale face and shaken expression, he couldn't help asking, “Mu Shunan? What's wrong? Did something go wrong with your cultivation?”</p>
+<p data-reading-anchor id="ch3080-p021">“Brother.”</p>
+<p data-reading-anchor id="ch3080-p022">Mu Shunan was popular among the other warriors. He grabbed the man's arm. “Would you believe me if I said someone tempered his bones, muscles, organs, and skin through mysticism in just two hours?”</p>
+<p data-reading-anchor id="ch3080-p023">“Huh?”</p>
+<p data-reading-anchor id="ch3080-p024">The man studied him and replied with perfect seriousness, “I think there's genuinely something wrong with you. Want me to take you to get checked out?”</p>
+<p data-reading-anchor id="ch3080-p025">“No. I just want a little peace and quiet.”</p>
+<p data-reading-anchor id="ch3080-p026">Mu Shunan waved him away.</p>
+<p data-reading-anchor id="ch3080-p027">Had he not seen it himself, he wouldn't have believed it either.</p>
+<p data-reading-anchor id="ch3080-p028">But he'd watched it happen right before his eyes.</p>
+<p data-reading-anchor id="ch3080-p029">Who could possibly take that in stride?</p>
+<p data-reading-anchor id="ch3080-p030">Fortunately, anyone who had cultivated mysticism to Grandmaster level had a resilient will, and Mu Shunan was no exception.</p>
+<p data-reading-anchor id="ch3080-p031">After nearly half an hour gathering himself and sorting out his thoughts, he finally recovered his composure and returned to the training room.</p>
+<p data-reading-anchor id="ch3080-p032">“Brother Mu, I've rested enough.” Fang Heng opened his eyes and looked at him expectantly. “Can we begin whenever you're ready?”</p>
+<p data-reading-anchor id="ch3080-p033">“Mm.”</p>
+<p data-reading-anchor id="ch3080-p034">Fang Heng had nearly shattered Mu Shunan's Dao heart. Having barely recovered, he nodded. “I won't hide it from you, Brother Fang Heng. Your talent is extraordinary—I've never seen its equal. Since you feel you can keep going, let's begin the next stage at once.”</p>
+<p data-reading-anchor id="ch3080-p035">“Good.”</p>
+<p data-reading-anchor id="ch3080-p036">“Once the body can resonate with mental power, the next step is connecting the body to external spiritual perception. That's the defining breakthrough into Grandmaster-level mysticism. The secret is opening the body's switches so it can receive power from outside.”</p>
+<p data-reading-anchor id="ch3080-p037">“To achieve this, you must use hand seals to open the body's various acupoints.”</p>
+<p data-reading-anchor id="ch3080-p038">Seeing Fang Heng deep in thought, Mu Shunan continued, “With hand seals, you can gradually establish a connection between your body and the outside world. Don't worry about understanding it immediately. I'll demonstrate first. Given your talent, you'll probably grasp it faster if you cultivate and comprehend it at the same time.”</p>
+<p data-reading-anchor id="ch3080-p039">“Okay.”</p>
+<p data-reading-anchor id="ch3080-p040">Fang Heng agreed and carefully practiced each hand seal under Mu Shunan's instruction.</p>
+<p data-reading-anchor id="ch3080-p041">Unlike the original sequence of 128 seals, this advanced Grandmaster sequence had to be coordinated with the circulation of mental power.</p>
+<p data-reading-anchor id="ch3080-p042">The difficulty increased considerably.</p>
+<p data-reading-anchor id="ch3080-p043">However, his vastly strengthened mental power had also improved his concentration, so Fang Heng learned quickly.</p>
+<p data-reading-anchor id="ch3080-p044">With Mu Shunan's assistance, in just an hour and a half Fang Heng memorized all 256 seals and their corresponding mental-power circulation. He even completed the entire sequence once.</p>
+<p data-reading-anchor id="ch3080-p045">Five repetitions were enough to master it.</p>
+<p data-reading-anchor id="ch3080-p046">Mu Shunan couldn't find a single remaining error to correct.</p>
+<p data-reading-anchor id="ch3080-p047">He remembered taking more than half a year to learn this stage himself.</p>
+<p data-reading-anchor id="ch3080-p048">A bitter smile tugged at his lips.</p>
+<p data-reading-anchor id="ch3080-p049">By now, he supposed he was used to it.</p>
+<p data-reading-anchor id="ch3080-p050">Overwhelming talent simply wasn't reasonable.</p>
+<p data-reading-anchor id="ch3080-p051">[Hint: Player has triggered the final stage of the current quest chain—Mysticism Advancement (Grandmaster).]</p>
+<p data-reading-anchor id="ch3080-p052">Quest Name: Mysticism Advancement (Grandmaster).</p>
+<p data-reading-anchor id="ch3080-p053">Quest Requirement: Complete External Perception (Current Progress: 0.03%).</p>
+<p data-reading-anchor id="ch3080-p054">Fang Heng opened his eyes and took a look.</p>
+<p data-reading-anchor id="ch3080-p055">So slow.</p>
+<p data-reading-anchor id="ch3080-p056">Even after Mu Shunan helped him adjust both his hand-seal transitions and the way his mental power was activated and circulated, perfectly completing the full 256-seal sequence only yielded about 0.01% progress.</p>
+<p data-reading-anchor id="ch3080-p057">If he had to grind it out alone, it would take ages.</p>
+<p data-reading-anchor id="ch3080-p058">He needed his zombie clones to help.</p>
+<p data-reading-anchor id="ch3080-p059">It was getting close to midnight, and Mu Shunan was growing sleepy. He waved a hand. “Fang Heng, you've memorized all the circulation methods. Let's stop here for today. If anything's unclear, come find me anytime. We can discuss it together.”</p>
+<p data-reading-anchor id="ch3080-p060">“Of course. Thank you for your guidance.”</p>
+<p data-reading-anchor id="ch3080-p061">Fang Heng thanked him with a cupped-fist salute.</p>
+<p data-reading-anchor id="ch3080-p062">Time to go back and grind!</p>
+<p data-reading-anchor id="ch3080-p063">Fang Heng returned to the ground floor, where Anxi was still waiting in the lobby.</p>
+<p data-reading-anchor id="ch3080-p064">“Mr. Fang Heng, you've worked hard. Your training is over, and it's quite late. Would you prefer a room at the inn next door, or would you like to return to the villa?”</p>
+<p data-reading-anchor id="ch3080-p065">“The villa for now.”</p>
+<p data-reading-anchor id="ch3080-p066">“Very well.”</p>
+<p data-reading-anchor id="ch3080-p067">Anxi glanced at Fang Heng and Mu Shunan as they emerged from the elevator together, feeling thoroughly puzzled.</p>
+<p data-reading-anchor id="ch3080-p068">Fang Heng was the one who'd trained all day, while Mu Shunan had merely guided him. Why did Mu Shunan look exhausted in body and spirit while Fang Heng seemed bursting with energy?</p>
+<p data-reading-anchor id="ch3080-p069">...</p>
+<p data-reading-anchor id="ch3080-p070">Back in the villa's lounge, Fang Heng closed his eyes and resumed practicing the seals.</p>
+<p data-reading-anchor id="ch3080-p071">There were 256 of them, and each had to be coordinated with mental-power circulation. Unfamiliar with the sequence, he took a long time to finish a single cycle.</p>
+<p data-reading-anchor id="ch3080-p072">[Hint: Player completed one training cycle (Normal). Current Quest Progress +0.0062%.]</p>
+<p data-reading-anchor id="ch3080-p073">Damn it!</p>
+<p data-reading-anchor id="ch3080-p074">Fang Heng completed another round of seals, opened his eyes, and frowned.</p>
+<p data-reading-anchor id="ch3080-p075">He'd made a small mistake while circulating his mental power through the seals, so his progress had suffered.</p>
+<p data-reading-anchor id="ch3080-p076">It seemed his earlier time estimate had been optimistic. At this rate, he'd need at least a month.</p>
+<p data-reading-anchor id="ch3080-p077">Fang Heng swept his gaze around the room, his attention returning to his zombie clones.</p>
+<p data-reading-anchor id="ch3080-p078">Come on, zombie clones. Let's try it!</p>
+<p data-reading-anchor id="ch3080-p079">The clones couldn't circulate mental power, so they couldn't coordinate it with their seals. Even if they finished, they probably wouldn't generate much progress.</p>
+<p data-reading-anchor id="ch3080-p080">Whatever.</p>
+<p data-reading-anchor id="ch3080-p081">No harm in trying!</p>
+<p data-reading-anchor id="ch3080-p082">One zombie clone received Fang Heng's command, sat down unsteadily, and began forming seals in its palms with painfully stiff movements.</p>
+</article>
+<p class="end" data-reading-anchor id="ch3080-end">— End of Chapter 3080 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Chinese Chapter 3081: 冷静一下. English Chapter 3080: Calm Down. Narrative paragraphs: 82/82.</li><li>Fang Heng advances his mysticism training toward Grandmaster level, learning exactly 256 advanced hand seals. Zombie clone practice counts despite lacking mental-power circulation.</li><li>Source colloquialism 玛德！真是活见了鬼了！ retains its force as Mu Shunan’s emphatic disbelief.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_3079_Fierce_Training.html#start">← Previous</a><a class="next" href="Global_Game_AFK_Chapter_3081_Inefficient_Grinding.html#start">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

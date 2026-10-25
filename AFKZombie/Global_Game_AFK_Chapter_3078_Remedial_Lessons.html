@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 3078 — Remedial Lessons | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-3078">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3077_Winning.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_3078_Remedial_Lessons.html"><option value="Global_Game_AFK_Chapter_3078_Remedial_Lessons.html" selected>3078 · Remedial Lessons</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3079_Fierce_Training.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-3078" data-reading-anchor>
+<div class="chapter-num">Chapter 3078</div><h2 class="chapter-title">Remedial Lessons</h2>
+<p class="source-identity">From Chinese Chapter 3079 · 补课</p>
+<article class="prose">
+<p data-reading-anchor id="ch3078-p001">“Whoosh!”</p>
+<p data-reading-anchor id="ch3078-p002">As expected, Chris saw only a blur.</p>
+<p data-reading-anchor id="ch3078-p003">When Fang Heng reappeared in his field of vision, a deafening sonic boom had already erupted in front of him.</p>
+<p data-reading-anchor id="ch3078-p004">“BANG!”</p>
+<p data-reading-anchor id="ch3078-p005">The shockwave blasted Chris backward, sending him tumbling off the platform.</p>
+<p data-reading-anchor id="ch3078-p006">It looked terrible, but he hadn't actually been hurt.</p>
+<p data-reading-anchor id="ch3078-p007">His opponent had held back.</p>
+<p data-reading-anchor id="ch3078-p008">Chris quickly pushed himself up and cupped his fists toward Fang Heng again to express his thanks.</p>
+<p data-reading-anchor id="ch3078-p009">Well, great.</p>
+<p data-reading-anchor id="ch3078-p010">He'd been utterly crushed and now had to thank the person who beat him.</p>
+<p data-reading-anchor id="ch3078-p011">“We won!”</p>
+<p data-reading-anchor id="ch3078-p012">The Noel Clan newcomers competing in their first arena match shouted excitedly.</p>
+<p data-reading-anchor id="ch3078-p013">The elder leading their team watched Fang Heng leave through the passage on the other side of the arena, an intrigued expression in his eyes.</p>
+<p data-reading-anchor id="ch3078-p014">What an interesting fellow.</p>
+<p data-reading-anchor id="ch3078-p015">This kid could already overwhelm low-tier warriors of his own nominal rank.</p>
+<p data-reading-anchor id="ch3078-p016">Perhaps his actual strength was already high-tier.</p>
+<p data-reading-anchor id="ch3078-p017">They'd been lucky enough to discover a real treasure.</p>
+<p data-reading-anchor id="ch3078-p018">Even after the match had ended, Liu Hu's head was still buzzing.</p>
+<p data-reading-anchor id="ch3078-p019">What had just happened?</p>
+<p data-reading-anchor id="ch3078-p020">They'd actually won?</p>
+<p data-reading-anchor id="ch3078-p021">He'd come expecting to make up the numbers. Later, encouraged by Fan Chen, he'd prepared to fight desperately and make an impression on the elder. Yet before he even stepped onto the platform, they'd already won?</p>
+<p data-reading-anchor id="ch3078-p022">He'd gained a victory without lifting a finger?</p>
+<p data-reading-anchor id="ch3078-p023">Fan Chen also looked rather surprised. He watched Fang Heng depart and shook his head slightly.</p>
+<p data-reading-anchor id="ch3078-p024">In the waiting-area corridor, Anxi greeted Fang Heng with a smile. “Mr. Fang Heng, congratulations on your victory! That was incredible. There'll be a celebration banquet afterward. I can arrange...”</p>
+<p data-reading-anchor id="ch3078-p025">“No need. I don't like that sort of thing. Take me back to the villa.”</p>
+<p data-reading-anchor id="ch3078-p026">“Yes.” Anxi nodded respectfully. “I'll explain to the elder. I'll escort you back first.”</p>
+<p data-reading-anchor id="ch3078-p027">On the way, Fang Heng recalled the arena fights.</p>
+<p data-reading-anchor id="ch3078-p028">They hadn't been very interesting.</p>
+<p data-reading-anchor id="ch3078-p029">Only that spatial technique had been slightly intriguing.</p>
+<p data-reading-anchor id="ch3078-p030">Level One matches were simply too weak.</p>
+<p data-reading-anchor id="ch3078-p031">This world wasn't nearly as terrifying as he'd imagined.</p>
+<p data-reading-anchor id="ch3078-p032">Time to go back and grind experience!</p>
+<p data-reading-anchor id="ch3078-p033">If everything went smoothly, he should complete the first stage of his mysticism quest before sunrise tomorrow.</p>
+<p data-reading-anchor id="ch3078-p034">“Anxi.”</p>
+<p data-reading-anchor id="ch3078-p035">“Yes, Mr. Fang Heng? How may I help you?”</p>
+<p data-reading-anchor id="ch3078-p036">“I need another private mysticism lesson. Try to book Mu Shunan again and see when he's available.”</p>
+<p data-reading-anchor id="ch3078-p037">“Of course.”</p>
+<p data-reading-anchor id="ch3078-p038">...</p>
+<p data-reading-anchor id="ch3078-p039">The following afternoon, Fang Heng returned to the Noel Clan building with Anxi.</p>
+<p data-reading-anchor id="ch3078-p040">As he passed through the first-floor lobby, many young warriors of the clan looked at him with respect.</p>
+<p data-reading-anchor id="ch3078-p041">News of Fang Heng winning four fights with a single punch apiece the previous night had already spread throughout the Noel Clan's warriors.</p>
+<p data-reading-anchor id="ch3078-p042">“Mr. Fang Heng, you displayed overwhelming power during yesterday's battles. You've entered the assessment period for mid-tier warriors. Although you haven't completed it yet, Elder Dilan has requested that the Noel Clan grant you mid-tier benefits early.”</p>
+<p data-reading-anchor id="ch3078-p043">“Very well. Please thank Elder Dilan for me.”</p>
+<p data-reading-anchor id="ch3078-p044">Anxi was a little disappointed to see no reaction on Fang Heng's face.</p>
+<p data-reading-anchor id="ch3078-p045">In truth, he didn't care.</p>
+<p data-reading-anchor id="ch3078-p046">Even the lowest-ranked warriors could receive clan training.</p>
+<p data-reading-anchor id="ch3078-p047">Promotion would just mean having to deal with more troublesome arena matches.</p>
+<p data-reading-anchor id="ch3078-p048">Soon they reached the mysticism training room, where Fang Heng met Mu Shunan again.</p>
+<p data-reading-anchor id="ch3078-p049">“Fang Heng.”</p>
+<p data-reading-anchor id="ch3078-p050">Mu Shunan had been meditating with his eyes closed. Seeing Fang Heng, he waved enthusiastically, his eyes bright with the excitement of someone hearing juicy gossip. “I heard you won four straight matches last night. Absolutely crushed everyone?”</p>
+<p data-reading-anchor id="ch3078-p051">“News travels fast.”</p>
+<p data-reading-anchor id="ch3078-p052">“Hahaha! Of course it does. Who knew you specialized in close combat? Warriors like that are rare.” Mu Shunan smiled and nodded. “We should team up sometime.”</p>
+<p data-reading-anchor id="ch3078-p053">“Sure.”</p>
+<p data-reading-anchor id="ch3078-p054">Fang Heng agreed and sat opposite Mu Shunan.</p>
+<p data-reading-anchor id="ch3078-p055">“Come on, let's see what two days of training have done for you.”</p>
+<p data-reading-anchor id="ch3078-p056">Smiling, Mu Shunan extended a hand and lightly touched Fang Heng's wrist.</p>
+<p data-reading-anchor id="ch3078-p057">The instant his finger made contact, surprise flashed in Mu Shunan's eyes.</p>
+<p data-reading-anchor id="ch3078-p058">Huh?</p>
+<p data-reading-anchor id="ch3078-p059">Just two days earlier, Fang Heng's meridians had been clogged like a swamp. Now, in less than two days, every one of them had been cleared?</p>
+<p data-reading-anchor id="ch3078-p060">That fast?</p>
+<p data-reading-anchor id="ch3078-p061">How had this youngster trained?</p>
+<p data-reading-anchor id="ch3078-p062">“Incredible! Brother Fang Heng, you have an extraordinary talent for mysticism.”</p>
+<p data-reading-anchor id="ch3078-p063">Mu Shunan looked up at him and clicked his tongue in admiration. Then he nodded and continued, “You've completed the first stage of clearing your meridians. They can now accommodate a much greater flow of mental power. Next, you should strengthen your muscles' activity so your body can withstand even more mental energy, progressing from skin to muscle, then organs and bones.”</p>
+<p data-reading-anchor id="ch3078-p064">“Unlike ordinary physical conditioning, mysticism training emphasizes the body's adaptability to mental energy. Once you've completed all those stages, you'll essentially have reached Master-level mysticism. Then we can proceed.”</p>
+<p data-reading-anchor id="ch3078-p065">“Mm...”</p>
+<p data-reading-anchor id="ch3078-p066">Fang Heng pondered the explanation.</p>
+<p data-reading-anchor id="ch3078-p067">He was already a Master in mysticism.</p>
+<p data-reading-anchor id="ch3078-p068">So at this stage, he was still making up for lessons he'd skipped.</p>
+<p data-reading-anchor id="ch3078-p069">Fang Heng nodded in understanding and asked, “Specifically, what do I need to do?”</p>
+<p data-reading-anchor id="ch3078-p070">“Practice.”</p>
+<p data-reading-anchor id="ch3078-p071">Mu Shunan summarized it in a single word before explaining, “There's no shortcut here. You have to keep circulating mental power through your meridians to temper the body and gradually improve its adaptability. Certain secret medicines can also accelerate this stage. They're expensive, but I hear you've been promoted to mid-tier warrior, so you should have a monthly allowance for purchasing supplies.”</p>
+<p data-reading-anchor id="ch3078-p072">“I'll send the secret medicine's formula and preparation method to your assistant. You can leave purchasing the ingredients and making the medicine to her. Each dose remains effective for about eight hours. Just drink a bowl before you begin training.”</p>
+<p data-reading-anchor id="ch3078-p073">“All right.”</p>
+<p data-reading-anchor id="ch3078-p074">Fang Heng agreed and began learning the routes for directing mental energy through his body under Mu Shunan's close guidance.</p>
+<p data-reading-anchor id="ch3078-p075">This step wasn't difficult for a player with Fang Heng's extraordinary mental power.</p>
+<p data-reading-anchor id="ch3078-p076">After a few attempts and corrections, he memorized the essential details of the method.</p>
+<p data-reading-anchor id="ch3078-p077">At the same time, a game notification appeared before him.</p>
+<p data-reading-anchor id="ch3078-p078">[Hint: Player has triggered a chained quest—Mysticism Advancement (Grandmaster).]</p>
+<p data-reading-anchor id="ch3078-p079">Quest Name: Mysticism Advancement (Grandmaster).</p>
+<p data-reading-anchor id="ch3078-p080">Quest Requirement: Complete Physical Mysticism Adaptability Enhancement (Current: 0.02%).</p>
+<p data-reading-anchor id="ch3078-p081">Quest Reward: Next stage of the quest.</p>
+<p data-reading-anchor id="ch3078-p082">“One more thing. Don't chase speed blindly at this stage. Take it slowly. Mental energy striking your skin and muscles can cause injuries, and those take time and medicine to heal. If you rush and accidentally damage your internal organs, recovery could take a very long time. It might even interfere with your arena matches.”</p>
+</article>
+<p class="end" data-reading-anchor id="ch3078-end">— End of Chapter 3078 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Chinese Chapter 3079: 补课. English Chapter 3078: Remedial Lessons. Narrative paragraphs: 82/82.</li><li>Fang Heng defeats Chris without injury; his four arena victories are counted separately from the team-level win.</li><li>The source briefly calls the clan 诺塔一族 again; it remains the Noel Clan in this context.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_3077_Winning.html#start">← Previous</a><a class="next" href="Global_Game_AFK_Chapter_3079_Fierce_Training.html#start">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

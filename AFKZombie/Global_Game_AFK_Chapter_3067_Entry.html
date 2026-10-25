@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 3067 — Entry | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-3067">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3066_Regulations.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_3067_Entry.html"><option value="Global_Game_AFK_Chapter_3067_Entry.html" selected>3067 · Entry</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3068_Recruitment.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-3067" data-reading-anchor>
+<div class="chapter-num">Chapter 3067</div><h2 class="chapter-title">Entry</h2>
+<p class="source-identity">From Chinese Chapter 3068 · 进入</p>
+<article class="prose">
+<p data-reading-anchor id="ch3067-p001">Outside.</p>
+<p data-reading-anchor id="ch3067-p002">Kappa silently cursed that idiot Korkalot.</p>
+<p data-reading-anchor id="ch3067-p003">That brat had displayed the Elven Clan's haughty temperament to perfection, forcing them to spend more than ten times the usual amount to shake off the charge of assisting an illegal entrant.</p>
+<p data-reading-anchor id="ch3067-p004">After locating Fang Heng, the two hurried to the border prison, prepared to spend some money to buy his release.</p>
+<p data-reading-anchor id="ch3067-p005">If a problem could be solved with money, it wasn't much of a problem.</p>
+<p data-reading-anchor id="ch3067-p006">“Hahaha! Don't worry, gentlemen. I'll take you there right away. Nothing will happen to your friend...”</p>
+<p data-reading-anchor id="ch3067-p007">At the border prison's guard post, the officer in charge had accepted their money and was cheerfully preparing to escort Kappa and the other man inside. Suddenly, a piercing alarm sounded from the prison.</p>
+<p data-reading-anchor id="ch3067-p008">Hm? Prisoners were escaping!</p>
+<p data-reading-anchor id="ch3067-p009">Why were they making such a fuss?</p>
+<p data-reading-anchor id="ch3067-p010">Escape attempts weren't unheard of, and they usually didn't even trigger an alarm. Unless...</p>
+<p data-reading-anchor id="ch3067-p011">“BOOM!”</p>
+<p data-reading-anchor id="ch3067-p012">Just as the junior prison officer was wondering about this, a deafening crash came from the massive prison wall behind him!</p>
+<p data-reading-anchor id="ch3067-p013">He turned to see a huge cloud of smoke billowing from the prison's outer stone wall. Someone had smashed an enormous hole through it from the inside.</p>
+<p data-reading-anchor id="ch3067-p014">A crowd of illegal entrants rushed out through the opening and scattered in all directions.</p>
+<p data-reading-anchor id="ch3067-p015">The officer's face changed. “Gentlemen, there's been an incident at the prison. We'll have to postpone today's business. Perhaps we can work together another time.”</p>
+<p data-reading-anchor id="ch3067-p016">“Wait! You haven't refunded the money...”</p>
+<p data-reading-anchor id="ch3067-p017">Korkalot and Kappa watched the officer hurry away, then exchanged a silent glance.</p>
+<p data-reading-anchor id="ch3067-p018">We're screwed.</p>
+<p data-reading-anchor id="ch3067-p019">Judging by the scale of the chaos inside the prison, Boss Fang had probably lost patience and made his move.</p>
+<p data-reading-anchor id="ch3067-p020">They weren't far wrong. After causing a disturbance, Fang Heng had taken advantage of the confusion to leave the border with Klaus and the others, helped by their accomplices. They were now racing through the sky in a battered flying vehicle.</p>
+<p data-reading-anchor id="ch3067-p021">“Hahaha! That was satisfying, Brother Fang Heng!”</p>
+<p data-reading-anchor id="ch3067-p022">Klaus laughed heartily. “We're inside the territory now. We're heading to Old Li's place next. He'll make an identity card for each of us. Then we'll be people with legitimate identities. Don't worry. Old Li is the best at this. His cards are registered in the Seven-Realm Martial Capital's database, so they'll pass as genuine without a problem!”</p>
+<p data-reading-anchor id="ch3067-p023">“Good.”</p>
+<p data-reading-anchor id="ch3067-p024">Fang Heng nodded calmly.</p>
+<p data-reading-anchor id="ch3067-p025">It was Korkalot's first trip to the Seven-Realm Martial Capital too, but the elves had contacts here, so he and Kappa should be fine.</p>
+<p data-reading-anchor id="ch3067-p026">On the other hand, tracking them down would take time.</p>
+<p data-reading-anchor id="ch3067-p027">He might as well spend a while with these youths. Once he had identity documents, he could find a way to contact Kappa and the others.</p>
+<p data-reading-anchor id="ch3067-p028">“Everyone, get ready! There's an ordinary patrol checkpoint ahead. We're going to accelerate straight through it...”</p>
+<p data-reading-anchor id="ch3067-p029">The pilot pushed the vehicle to maximum speed and flew the escaped prisoners toward the Seven-Realm Martial Capital's outer city.</p>
+<p data-reading-anchor id="ch3067-p030">The capital was divided into many districts.</p>
+<p data-reading-anchor id="ch3067-p031">Klaus's companions were clearly no strangers to smuggling people in. They expertly guided Fang Heng's group into the outer city's slums.</p>
+<p data-reading-anchor id="ch3067-p032">Half an hour later, they stopped at the edge of an abandoned garbage dump.</p>
+<p data-reading-anchor id="ch3067-p033">Fang Heng hadn't expected a random old man living in a place like this to be capable of hacking the registration network of the universe's foremost administrative center.</p>
+<p data-reading-anchor id="ch3067-p034">The old man known as Old Li collected everyone's fingerprints and blood samples and told them he'd prepare their identity documents overnight. They could pick them up the next morning.</p>
+<p data-reading-anchor id="ch3067-p035">The group rested in a nearby shack.</p>
+<p data-reading-anchor id="ch3067-p036">“Brother Fang Heng, where are you planning to go next?”</p>
+<p data-reading-anchor id="ch3067-p037">After thinking for a moment, Fang Heng answered, “I'm looking for ways to advance high-level academic disciplines. I heard there are lots of strong people in the Seven-Realm Martial Capital, so I came to try my luck.”</p>
+<p data-reading-anchor id="ch3067-p038">The others' expressions changed as they listened.</p>
+<p data-reading-anchor id="ch3067-p039">So he was a martial arts fanatic.</p>
+<p data-reading-anchor id="ch3067-p040">No wonder he was so frighteningly strong.</p>
+<p data-reading-anchor id="ch3067-p041">The Seven-Realm Martial Capital was the central hub of the entire star region. In a universe where fists determined everything, it naturally attracted the region's strongest fighters.</p>
+<p data-reading-anchor id="ch3067-p042">Every year, tens of thousands of peak-level experts arrived at the capital through various channels.</p>
+<p data-reading-anchor id="ch3067-p043">“Then you've come to the right place, Fang Heng,” Klaus said, nodding. “In that case, I'd suggest becoming a warrior for one of the Seven Domains.”</p>
+<p data-reading-anchor id="ch3067-p044">“Hm? A warrior?”</p>
+<p data-reading-anchor id="ch3067-p045">“Right! Think of it as being a mercenary.”</p>
+<p data-reading-anchor id="ch3067-p046">Klaus patiently explained, “Conflicts happen everywhere. The Seven-Realm Martial Capital is no exception, and all across the universe, disputes break out every moment.”</p>
+<p data-reading-anchor id="ch3067-p047">“To prevent minor disputes from growing into major conflicts and triggering wars on a cosmic scale, the seven great overlords established the Seven-Realm Martial Capital's arena duels under their joint authority.”</p>
+<p data-reading-anchor id="ch3067-p048">“Many disputes and divisions of interests are settled through arena battles, witnessed and certified by all seven cosmic overlords.”</p>
+<p data-reading-anchor id="ch3067-p049">“Major powers, including the seven overlords themselves, recruit capable warriors. The benefits are excellent, and they definitely have methods for advancing academic disciplines.”</p>
+<p data-reading-anchor id="ch3067-p050">“I see...” Fang Heng considered this, then asked, “Which faction possesses the greatest number of academic inheritances?”</p>
+<p data-reading-anchor id="ch3067-p051">“Uh... well...”</p>
+<p data-reading-anchor id="ch3067-p052">Klaus opened his mouth.</p>
+<p data-reading-anchor id="ch3067-p053">“I really don't know. But if I had to guess, I'd say the Kol Clan.”</p>
+<p data-reading-anchor id="ch3067-p054">“The Kol Clan is one of the seven cosmic overlords. They're known for their ancient history, and their people are inherently strong and extremely long-lived. I imagine their academic inheritances must be very complete.”</p>
+<p data-reading-anchor id="ch3067-p055">“There's also the Clan of Evil.”</p>
+<p data-reading-anchor id="ch3067-p056">Another youth spoke up excitedly. “I hear the Clan of Evil has some special secret technique that lets them turn an enemy's power into their own and master many academic disciplines at once.”</p>
+<p data-reading-anchor id="ch3067-p057">“The Kol Clan... the Clan of Evil...”</p>
+<p data-reading-anchor id="ch3067-p058">Fang Heng committed the names to memory and nodded.</p>
+<p data-reading-anchor id="ch3067-p059">“Brother Fang Heng, we're planning to try our luck with the Kol Clan too. If you don't mind, we could go into the inner city together tomorrow.”</p>
+<p data-reading-anchor id="ch3067-p060">“Sure.”</p>
+<p data-reading-anchor id="ch3067-p061">The youths remained enthusiastic well into the night. Listening to their conversation gave Fang Heng a general understanding of the Seven-Realm Martial Capital.</p>
+<p data-reading-anchor id="ch3067-p062">Only late at night did everyone return to the thatched huts to rest.</p>
+<p data-reading-anchor id="ch3067-p063">Fang Heng wasn't sleepy, so he sat cross-legged on his bed and contemplated the changes in his body and sea of consciousness.</p>
+<p data-reading-anchor id="ch3067-p064">After awakening the Titan Bloodline's Academic Unification ability, his different academic powers no longer conflicted with one another. Instead, he felt them merging together.</p>
+<p data-reading-anchor id="ch3067-p065">But apart from necromancy, which he had studied for a while at the Necromancer Council, he had advanced most of his other academic skills simply by absorbing energy.</p>
+<p data-reading-anchor id="ch3067-p066">It was rather like the martial arts novels in which a great master forcibly pours hundreds of years of cultivation into a novice, only for the novice to use less than ten percent of it in a real fight.</p>
+<p data-reading-anchor id="ch3067-p067">In actual combat, forget subtle techniques—he could barely claim to have mastered the complete use of many of his skills.</p>
+<p data-reading-anchor id="ch3067-p068">Fortunately, Fang Heng had been undergoing intensive daily training with the help of necromancy instructors recently. He felt he could make use of about fifty percent of his necromantic power.</p>
+<p data-reading-anchor id="ch3067-p069">But now that he had entered the super-god level of necromancy, Fang Heng was walking a path no predecessor had ever explored.</p>
+<p data-reading-anchor id="ch3067-p070">The old masters of the Necromancer Council all declared they no longer dared teach him, lest they accidentally lead his development astray.</p>
+<p data-reading-anchor id="ch3067-p071">Fang Heng didn't think it was much of a problem.</p>
+<p data-reading-anchor id="ch3067-p072">Most academic disciplines were support abilities, after all.</p>
+<p data-reading-anchor id="ch3067-p073">Super-god-level necromancy combined with his terrifying physical attributes was more than enough.</p>
+<p data-reading-anchor id="ch3067-p074">On this trip to the Seven-Realm Martial Capital, Fang Heng had also set himself a modest goal.</p>
+<p data-reading-anchor id="ch3067-p075">Consolidate his foundations.</p>
+<p data-reading-anchor id="ch3067-p076">Learn to properly use his skills and find a way to advance all of them to the Demi-God level.</p>
+<p data-reading-anchor id="ch3067-p077">That shouldn't be too difficult.</p>
+</article>
+<p class="end" data-reading-anchor id="ch3067-end">— End of Chapter 3067 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Chinese Chapter 3068: 进入. English Chapter 3067: Entry. Narrative paragraphs: 77/77.</li><li>Chinese source begins with 帕卡, reversing 卡帕; the existing name is Captain Kappa.</li><li>The youth is called 克劳斯 earlier, then 克劳德 in this chapter (and 克莱德 later). This is treated as a source naming drift; Klaus is the name established on his introduction.</li><li>Chinese calls a cosmic overlord 科尔一族 (Kol Clan); subsequent Chinese chapters prominently use 诺尔一族 (Noel Clan). The translation does NOT assume they are certainly the same faction.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_3066_Regulations.html#start">← Previous</a><a class="next" href="Global_Game_AFK_Chapter_3068_Recruitment.html#start">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

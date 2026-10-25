@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 3059 — Defense | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-3059">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3058_Going_All_Out.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_3059_Defense.html"><option value="Global_Game_AFK_Chapter_3059_Defense.html" selected>3059 · Defense</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3060_Seized.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-3059" data-reading-anchor>
+<div class="chapter-num">Chapter 3059</div><h2 class="chapter-title">Defense</h2>
+<p class="source-identity">From Chinese Chapter 3060 · 防守</p>
+<article class="prose">
+<p data-reading-anchor id="ch3059-p001">The Shadow Clan had led the fleet's main forces away to clear out the alien insects. As usual, roughly one quarter of the troops stayed behind to guard the vessels.</p>
+<p data-reading-anchor id="ch3059-p002">Vice-Captain Evans was responsible for the entire fleet's defenses.</p>
+<p data-reading-anchor id="ch3059-p003">As far as Evans was concerned, this sort of routine defensive duty carried virtually no danger.</p>
+<p data-reading-anchor id="ch3059-p004">They had a massive fleet of over a hundred ships. If the insects dared approach, the fleet's energy weapons alone would give them more than they could handle.</p>
+<p data-reading-anchor id="ch3059-p005">For some reason, though, Evans had been sneezing repeatedly today. He couldn't shake the feeling that something bad was about to happen.</p>
+<p data-reading-anchor id="ch3059-p006">A little earlier, the elves had even reported unusual movements among the insects, urging everyone to be alert and prepare for battle.</p>
+<p data-reading-anchor id="ch3059-p007">Evans had paid no attention.</p>
+<p data-reading-anchor id="ch3059-p008">What a joke.</p>
+<p data-reading-anchor id="ch3059-p009">Since when were the elves so skilled at reconnaissance?</p>
+<p data-reading-anchor id="ch3059-p010">Then, without warning, alarms blared throughout the ships.</p>
+<p data-reading-anchor id="ch3059-p011">"Report, Commander! Alien insects detected outside the fleet!"</p>
+<p data-reading-anchor id="ch3059-p012">Every ship detecting the approaching insects sounded shrill alarms. Almost all vessels entered battle configuration one after another.</p>
+<p data-reading-anchor id="ch3059-p013">"Huh? They've actually come?"</p>
+<p data-reading-anchor id="ch3059-p014">Evans looked through the ship's windows, surprise appearing in his eyes.</p>
+<p data-reading-anchor id="ch3059-p015">In the distance, clouds of dust billowed upward, revealing the insect swarm beneath them.</p>
+<p data-reading-anchor id="ch3059-p016">It really was a swarm of alien insects.</p>
+<p data-reading-anchor id="ch3059-p017">Strange. Ouroboros Seeds usually adopted a defensive posture. Unless their hives were attacked, they rarely launched offensives themselves.</p>
+<p data-reading-anchor id="ch3059-p018">Why would they attack the ships on their own?</p>
+<p data-reading-anchor id="ch3059-p019">But since they had come, Evans didn't think any further about it.</p>
+<p data-reading-anchor id="ch3059-p020">"Stay calm. Order all vessels into defensive formation and exterminate the swarm!"</p>
+<p data-reading-anchor id="ch3059-p021">"Yes!"</p>
+<p data-reading-anchor id="ch3059-p022">The ships unfolded their side decks, exposing rows of long-range beam cannons. Crew members hurried to their battle stations as dense arrays of guns locked onto the approaching insects.</p>
+<p data-reading-anchor id="ch3059-p023">"Fire!"</p>
+<p data-reading-anchor id="ch3059-p024" class="sound">"Boom!"</p>
+<p data-reading-anchor id="ch3059-p025">The first thick, dark-red beam cut through the dust cloud and exploded amid the swarm, blasting a huge crater in the ground. Then beams of every color fired in dense succession, raining down continuously on the insects.</p>
+<p data-reading-anchor id="ch3059-p026">Huh?</p>
+<p data-reading-anchor id="ch3059-p027">Evans watched the swarm through the window and frowned.</p>
+<p data-reading-anchor id="ch3059-p028">The volley had scattered their formation somewhat, but it didn't seem to have inflicted any significant damage.</p>
+<p data-reading-anchor id="ch3059-p029">Just as the meeting reports said, these insects had remarkable vitality.</p>
+<p data-reading-anchor id="ch3059-p030">So what?</p>
+<p data-reading-anchor id="ch3059-p031">He refused to believe they couldn't be killed!</p>
+<p data-reading-anchor id="ch3059-p032">Evans scoffed inwardly. "Increase the energy frequency."</p>
+<p data-reading-anchor id="ch3059-p033">"Yes!"</p>
+<p data-reading-anchor id="ch3059-p034">"Report, Commander! Warnings of large numbers of insects approaching!"</p>
+<p data-reading-anchor id="ch3059-p035">"Large numbers?" Evans looked at the swarm outside, which seemed to number only about two hundred. "Where?"</p>
+<p data-reading-anchor id="ch3059-p036">The next instant, the ground outside the ships shook violently. Huge cracks opened, and dense masses of Lickers crawled out of the fissures.</p>
+<p data-reading-anchor id="ch3059-p037">The swarm had bypassed a great distance underground and surfaced directly around the ships, lunging at them!</p>
+<p data-reading-anchor id="ch3059-p038">Damn it!</p>
+<p data-reading-anchor id="ch3059-p039">They'd been underground all along!</p>
+<p data-reading-anchor id="ch3059-p040">Before the insects could climb aboard, the vessels immediately activated their defensive barriers, stopping the Lickers outside.</p>
+<p data-reading-anchor id="ch3059-p041">Evans breathed a little easier.</p>
+<p data-reading-anchor id="ch3059-p042">Fortunately, the insects' physical attacks did relatively little damage to the shields.</p>
+<p data-reading-anchor id="ch3059-p043">So far, the pressure was manageable.</p>
+<p data-reading-anchor id="ch3059-p044">But the creatures possessed some bizarre rebirth ability and couldn't be eliminated permanently. If the battle dragged on, even the fleet wouldn't be able to keep it up forever.</p>
+<p data-reading-anchor id="ch3059-p045">No need to rush. Observe carefully; there had to be a weakness.</p>
+<p data-reading-anchor id="ch3059-p046">While Evans studied the battlefield for an opening, a researcher hurried forward. "Captain, the elven vessel requests permission to teleport aboard. They report having discovered a weakness in the insects and need to explain it in person."</p>
+<p data-reading-anchor id="ch3059-p047">Evans frowned.</p>
+<p data-reading-anchor id="ch3059-p048">Come to think of it, the elves had been the first to notice unusual insect movements. Perhaps they really did know something.</p>
+<p data-reading-anchor id="ch3059-p049">"Very well. Authorize the transfer."</p>
+<p data-reading-anchor id="ch3059-p050">Soon Elder Deborah entered the flagship's control room with Fang Heng.</p>
+<p data-reading-anchor id="ch3059-p051">Evans frowned at the masked human beside her, vaguely sensing something strange about him.</p>
+<p data-reading-anchor id="ch3059-p052">"And this person is...?"</p>
+<p data-reading-anchor id="ch3059-p053">Whoosh!</p>
+<p data-reading-anchor id="ch3059-p054">Fang Heng didn't answer. He struck first, turning into a black blur and rushing straight toward Captain Evans!</p>
+<p data-reading-anchor id="ch3059-p055">To catch the bandits, first seize their leader!</p>
+<p data-reading-anchor id="ch3059-p056">What?!</p>
+<p data-reading-anchor id="ch3059-p057">Evans had never imagined the elves would rebel now. In the instant he was distracted, Fang Heng's enormous fist was already bearing down on his face!</p>
+<p data-reading-anchor id="ch3059-p058" class="sound">"Whoosh!"</p>
+<p data-reading-anchor id="ch3059-p059">The fist swept through the air with a violent rush of wind.</p>
+<p data-reading-anchor id="ch3059-p060">Evans's expression changed drastically, and the entire right half of his body transformed into black mist!</p>
+<p data-reading-anchor id="ch3059-p061">Whoosh!</p>
+<p data-reading-anchor id="ch3059-p062">Fang Heng's fist passed straight through the mist. He turned and regarded Evans.</p>
+<p data-reading-anchor id="ch3059-p063">"Hah! Interesting!"</p>
+<p data-reading-anchor id="ch3059-p064">The Shadow Clan's special racial ability.</p>
+<p data-reading-anchor id="ch3059-p065">Shadow Transformation.</p>
+<p data-reading-anchor id="ch3059-p066">It was somewhat like a soul form, yet fundamentally different. A transformed Shadow Clan member remained visible as a dark silhouette. Supposedly innate to their species, it made them immune to most physical attacks and even a limited range of magical attacks.</p>
+<p data-reading-anchor id="ch3059-p067">"Watch out! Protect the captain!"</p>
+<p data-reading-anchor id="ch3059-p068">More than a dozen elite Shadow Clan guards in the control room reacted at once. Three formed seals in front of themselves, while seven others lunged directly at Fang Heng.</p>
+<p data-reading-anchor id="ch3059-p069">At the same time, the ship's guards raised their guns and aimed at Fang Heng's group.</p>
+<p data-reading-anchor id="ch3059-p070">Shadow Spheres!</p>
+<p data-reading-anchor id="ch3059-p071">Dark spheres floated into the air, casting Fang Heng's shadow onto the floor.</p>
+<p data-reading-anchor id="ch3059-p072">Fang Heng immediately felt a strange force pulling at his body and locking him in place.</p>
+<p data-reading-anchor id="ch3059-p073">Looking up, he saw seven elite Shadow Clan fighters enter Shadow Transformation in unison, becoming streaks of black mist as they rushed toward him.</p>
+<p data-reading-anchor id="ch3059-p074">"Hmph!"</p>
+<p data-reading-anchor id="ch3059-p075">Fang Heng snorted.</p>
+<p data-reading-anchor id="ch3059-p076">Whoosh! Whoosh, whoosh!</p>
+<p data-reading-anchor id="ch3059-p077">Dark Nether Orbs instantly coalesced from his tattoo and shot toward the surrounding attackers!</p>
+<p data-reading-anchor id="ch3059-p078">"Hiss! Hiss, hiss, hiss!"</p>
+<p data-reading-anchor id="ch3059-p079">As they struck the transformed fighters, sizzling noises erupted. The orbs passed straight through their shadowy bodies.</p>
+<p data-reading-anchor id="ch3059-p080">The elite guards' expressions changed drastically. Wherever the Nether Orbs touched, their shadow-formed bodies began rapidly corroding and dissolving!</p>
+<p data-reading-anchor id="ch3059-p081">What were those black spheres?! How could they inflict such horrifying damage on Shadow Transformation?</p>
+<p data-reading-anchor id="ch3059-p082">As the orbs swept toward them again, the elite fighters dared not withstand another hit and retreated hastily.</p>
+<p data-reading-anchor id="ch3059-p083">When they returned to physical form, the places where the Nether Orbs had grazed them were left bloody and mangled.</p>
+<p data-reading-anchor id="ch3059-p084">What terrifying ability was that?</p>
+<p data-reading-anchor id="ch3059-p085">The Shadow Clan had rarely encountered a power that countered Shadow Transformation so thoroughly. They stared at Fang Heng in fear.</p>
+<p data-reading-anchor id="ch3059-p086">"Go!"</p>
+<p data-reading-anchor id="ch3059-p087">Fang Heng raised his hand toward the Shadow Clan once more.</p>
+<p data-reading-anchor id="ch3059-p088" class="sound">"Whoosh! Whoosh, whoosh!"</p>
+<p data-reading-anchor id="ch3059-p089">Twenty-four Nether Orbs flew straight at the Shadow Spheres suspended in midair.</p>
+<p data-reading-anchor id="ch3059-p090" class="sound">"Boom!"</p>
+<p data-reading-anchor id="ch3059-p091">The Shadow Spheres burst apart under the Nether Orbs' impact, releasing thick clouds of eerie necromantic mist in every direction.</p>
+</article>
+<p class="end" data-reading-anchor id="ch3059-end">— End of Chapter 3059 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Chinese Chapter 3060: 防守. English Chapter 3059: Defense. Narrative paragraphs: 91/91.</li><li>The source alternates 埃文斯 and 艾维斯 for fleet vice-captain Evans; use established Evans consistently as one person.</li><li>Shadow Transformation (影化) resembles but is not equivalent to Fang Heng’s soul form. Exactly twenty-four Nether Orbs attack the Shadow Spheres.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_3058_Going_All_Out.html#start">← Previous</a><a class="next" href="Global_Game_AFK_Chapter_3060_Seized.html#start">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

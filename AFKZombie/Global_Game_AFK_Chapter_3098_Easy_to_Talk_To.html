@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 3098 — Easy to Talk To | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-3098">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3097_Hitting_the_Jackpot.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_3098_Easy_to_Talk_To.html"><option value="Global_Game_AFK_Chapter_3098_Easy_to_Talk_To.html" selected>3098 · Easy to Talk To</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3099_Battle_Preparations.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-3098" data-reading-anchor>
+<div class="chapter-num">Chapter 3098</div><h2 class="chapter-title">Easy to Talk To</h2>
+<p class="source-identity">From Chinese Chapter 3099 · 好说话</p>
+<article class="prose">
+<p data-reading-anchor id="ch3098-p001">Nasir paused, realizing Fang Heng was probably still cultivating. “Actually, I didn't come for anything important. I heard you'd made a breakthrough and rushed over to see for myself. Sorry to interrupt your training.”</p>
+<p data-reading-anchor id="ch3098-p002">“Not at all.” Fang Heng waved and invited him into the study. “As it happens, there's something I'd like to ask you.”</p>
+<p data-reading-anchor id="ch3098-p003">“No need to be so formal. It's not a matter of teaching you. We'll discuss it and improve together.”</p>
+<p data-reading-anchor id="ch3098-p004">“Have you heard of the Black Mist game?”</p>
+<p data-reading-anchor id="ch3098-p005">“I've heard a few rumors. Apparently it's a special power that can grant certain abilities, but I've never seen it personally.”</p>
+<p data-reading-anchor id="ch3098-p006">Nasir frowned slightly at the sudden mention of Black Mist. Then a thought struck him. “I've heard pan-human races are especially susceptible to Black Mist. Has it affected you too?”</p>
+<p data-reading-anchor id="ch3098-p007">“Mm. Black Mist has spread to my star system. Part of my reason for coming to the Seven-Realm Martial Capital is to learn more about it so we can avoid greater trouble in the future.”</p>
+<p data-reading-anchor id="ch3098-p008">“I see... No need to be too anxious, brother. As far as I know, Black Mist isn't actually dangerous.”</p>
+<p data-reading-anchor id="ch3098-p009">After thinking, Nasir added, “Only a very small part of the universe has been affected. Few people really understand it. I hear the Kinsfolk are exceptionally wary of Black Mist, and the detection devices around the city were installed at their insistence. I remember our Alchemy Association helping with the installation. I'll ask around and see whether I can find anything useful.”</p>
+<p data-reading-anchor id="ch3098-p010">“Thank you.”</p>
+<p data-reading-anchor id="ch3098-p011">Fang Heng cautioned, “Nasir, there are some disputes between the Kinsfolk and humanity. Please don't mention me. I wouldn't want to cause you unnecessary trouble.”</p>
+<p data-reading-anchor id="ch3098-p012">“I've heard the rumors. The Kinsfolk have always been hostile toward pan-human races. But our Alchemy Association isn't afraid of them, and neither is the ancient Noel Clan, which employs you. Still, you're right that caution is sensible. I'll keep that in mind.”</p>
+<p data-reading-anchor id="ch3098-p013">Nasir looked at Fang Heng, thinking of recruiting him, and smiled. “Brother Fang, would you help me with something too?”</p>
+<p data-reading-anchor id="ch3098-p014">“If it's within my power, certainly.”</p>
+<p data-reading-anchor id="ch3098-p015">“We both work for the Noel Clan. You've probably heard that things are unstable outside lately. Many warriors have quit the clan. Several members of my team were poached recently, and we haven't found suitable replacements. I've heard you're very capable. Would you like to give our team a try?”</p>
+<p data-reading-anchor id="ch3098-p016">“Sure.”</p>
+<p data-reading-anchor id="ch3098-p017">...</p>
+<p data-reading-anchor id="ch3098-p018">Two days later, Nasir and Fang Heng entered a combat preparation room on the eighth floor of the Noel Clan headquarters.</p>
+<p data-reading-anchor id="ch3098-p019">“Everyone, this is Fang Heng, the newcomer I recommended.” Nasir cleared his throat to draw attention, patted Fang Heng's shoulder, and introduced him. “You've all heard of him, right?”</p>
+<p data-reading-anchor id="ch3098-p020">Many of the people present looked over and nodded in greeting.</p>
+<p data-reading-anchor id="ch3098-p021">“Where's the elder?”</p>
+<p data-reading-anchor id="ch3098-p022">“He went out to look for reinforcements. He should be back this afternoon.”</p>
+<p data-reading-anchor id="ch3098-p023">“Good.”</p>
+<p data-reading-anchor id="ch3098-p024">Nasir led Fang Heng to a shapely female warrior. “Fang Heng, this is Hainiya, of the Sea Clan. Her race is exceptionally gifted with water elements—almost every member is a natural elemental scholar. Hainiya is also an Alchemy Association member and one of our team's core fighters.”</p>
+<p data-reading-anchor id="ch3098-p025">The Sea Clan resembled humans, but their deep-blue hair formed thick, floating locks like braided dreadlocks, looking as though it were made from gathered deep-sea water. A layer of water seemed to flow over their skin.</p>
+<p data-reading-anchor id="ch3098-p026">Hainiya's eyes glimmered blue-green as she nodded to Fang Heng. “Hello, Fang Heng.”</p>
+<p data-reading-anchor id="ch3098-p027">“Hello.”</p>
+<p data-reading-anchor id="ch3098-p028">Fang Heng returned a cupped-fist greeting.</p>
+<p data-reading-anchor id="ch3098-p029">“Hainiya was once recruited by the Kinsfolk and helped establish some Black Mist defenses, so she knows a little about it.”</p>
+<p data-reading-anchor id="ch3098-p030">“That was a long time ago. I'd rather not discuss the Kinsfolk, Nasir.” Hainiya declined calmly and turned to Fang Heng. “Are you interested in Black Mist?”</p>
+<p data-reading-anchor id="ch3098-p031">“My world has encountered it. I want to understand it better.”</p>
+<p data-reading-anchor id="ch3098-p032">“Then you've probably asked the wrong person. I don't know much either. I did assist with arranging Black Mist-sensing prisms. With the help of magic arrays, their detection range and precision can be greatly increased.”</p>
+<p data-reading-anchor id="ch3098-p033">“The prisms are purely for detection. When Black Mist reaches a certain concentration, an alarm sounds and the Kinsfolk respond immediately.”</p>
+<p data-reading-anchor id="ch3098-p034">After a moment, Hainiya added, “I can sense that the Kinsfolk are afraid of Black Mist. Unless circumstances are exceptional, they avoid approaching it directly. But many people from other races have encountered it themselves without experiencing any actual effect.”</p>
+<p data-reading-anchor id="ch3098-p035">Fang Heng asked, “Do you know how to eliminate Black Mist completely?”</p>
+<p data-reading-anchor id="ch3098-p036">“Black Mist dissipates on its own over time,” Hainiya explained calmly. “You only need to eliminate the source producing it.”</p>
+<p data-reading-anchor id="ch3098-p037">Fang Heng thought that was troublesome.</p>
+<p data-reading-anchor id="ch3098-p038">By her explanation, wasn't he himself the source of the Black Mist?</p>
+<p data-reading-anchor id="ch3098-p039">He could hardly eliminate that.</p>
+<p data-reading-anchor id="ch3098-p040">“If your world has Black Mist, perhaps you could use spatial studies to expel it elsewhere.”</p>
+<p data-reading-anchor id="ch3098-p041">A middle-aged man walked over from the side.</p>
+<p data-reading-anchor id="ch3098-p042">Nasir smiled at him and introduced him. “This is Nordin, of the Noel Clan, one of the strongest members of our team.”</p>
+<p data-reading-anchor id="ch3098-p043">“Hey, I wouldn't go that far. Hello, Fang Heng.” Nordin continued the discussion. “We could establish a two-way spatial passage and exploit the difference in aura concentration at each end to channel the Black Mist out.”</p>
+<p data-reading-anchor id="ch3098-p044">Hainiya shook her head. “That treats the symptom, not the cause.”</p>
+<p data-reading-anchor id="ch3098-p045">But Fang Heng's eyes lit up.</p>
+<p data-reading-anchor id="ch3098-p046">That might work!</p>
+<p data-reading-anchor id="ch3098-p047">Just as it had back in the Necromancy Research Society.</p>
+<p data-reading-anchor id="ch3098-p048">He could arrange arrays at both ends. Once the passage opened, the Black Mist would naturally flow from the higher-concentration end to the lower-concentration end, out of his basement!</p>
+<p data-reading-anchor id="ch3098-p049">Who cared whether it treated the cause? If it solved his immediate problem, that was enough!</p>
+<p data-reading-anchor id="ch3098-p050">Nordin didn't argue. He smiled at Fang Heng. “If you need help, I can assist.”</p>
+<p data-reading-anchor id="ch3098-p051">While they were talking, the preparation room door opened and everyone looked toward it.</p>
+<p data-reading-anchor id="ch3098-p052">A thin, elderly man entered.</p>
+<p data-reading-anchor id="ch3098-p053">“Elder Leander.”</p>
+<p data-reading-anchor id="ch3098-p054">Everyone nodded respectfully.</p>
+<p data-reading-anchor id="ch3098-p055">“Mm. You're all here.”</p>
+<p data-reading-anchor id="ch3098-p056">The elder waved a hand.</p>
+<p data-reading-anchor id="ch3098-p057">Nasir led Fang Heng toward him.</p>
+<p data-reading-anchor id="ch3098-p058">“Elder, this is Fang Heng, the man I mentioned.”</p>
+<p data-reading-anchor id="ch3098-p059">“Oh?”</p>
+<p data-reading-anchor id="ch3098-p060">Elder Leander was surprised by Fang Heng's youth. He looked him over approvingly and nodded. “I've watched both of your matches. Very good. Would you be interested in joining our team?”</p>
+<p data-reading-anchor id="ch3098-p061">“Yes.”</p>
+<p data-reading-anchor id="ch3098-p062">In good spirits, Leander waved cheerfully. “Excellent. Then stay with us.”</p>
+</article>
+<p class="end" data-reading-anchor id="ch3098-end">— End of Chapter 3098 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Chinese Chapter 3099: 好说话. English Chapter 3098: Easy to Talk To. Narrative paragraphs: 62/62.</li><li>New teammates: Hainiya (海尼娅) of the Sea Clan and Nordin (诺丁) of the Noel Clan.</li><li>The proposed dual spatial passage would move Black Mist along its concentration gradient; it would not eliminate the underlying source.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_3097_Hitting_the_Jackpot.html#start">← Previous</a><a class="next" href="Global_Game_AFK_Chapter_3099_Battle_Preparations.html#start">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

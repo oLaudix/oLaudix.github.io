@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 3090 — Isolation | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-3090">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3089_Breach.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_3090_Isolation.html"><option value="Global_Game_AFK_Chapter_3090_Isolation.html" selected>3090 · Isolation</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3091_Handling_the_Investigation.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-3090" data-reading-anchor>
+<div class="chapter-num">Chapter 3090</div><h2 class="chapter-title">Isolation</h2>
+<p class="source-identity">From Chinese Chapter 3091 · 隔绝</p>
+<article class="prose">
+<p data-reading-anchor id="ch3090-p001">“Bang! Bang, bang!!!”</p>
+<p data-reading-anchor id="ch3090-p002">The solidified mental impacts struck with physical force and knocked the Lickers backward!</p>
+<p data-reading-anchor id="ch3090-p003">But immediately afterward came another thunderous crash.</p>
+<p data-reading-anchor id="ch3090-p004">The office's enormous floor-to-ceiling windows shattered!</p>
+<p data-reading-anchor id="ch3090-p005">Large numbers of Lickers poured through the broken reinforced glass!</p>
+<p data-reading-anchor id="ch3090-p006">At the same time, even more creatures crawled in through the front door from the corridor.</p>
+<p data-reading-anchor id="ch3090-p007">They were finished!</p>
+<p data-reading-anchor id="ch3090-p008">The Kinsfolk desperately projected mental barriers, combining their powers into an inverted-pyramid shield to keep the swarm at bay.</p>
+<p data-reading-anchor id="ch3090-p009">“Boom, boom! Boom, boom, boom!!”</p>
+<p data-reading-anchor id="ch3090-p010">They'd barely held on for a few seconds when successive explosions tore apart the ceiling.</p>
+<p data-reading-anchor id="ch3090-p011">Lickers crawled through holes in the ceiling and rapidly lunged toward the Kinsfolk.</p>
+<p data-reading-anchor id="ch3090-p012">Two fists couldn't fend off so many hands.</p>
+<p data-reading-anchor id="ch3090-p013">The Kinsfolk drove their mental power to the limit, but under the swarm's relentless assaults, visible cracks covered their inverted-pyramid barrier.</p>
+<p data-reading-anchor id="ch3090-p014">“Boom!!!”</p>
+<p data-reading-anchor id="ch3090-p015">The shield shattered!</p>
+<p data-reading-anchor id="ch3090-p016">The Kinsfolk were instantly buried beneath a mass of Lickers.</p>
+<p data-reading-anchor id="ch3090-p017">...</p>
+<p data-reading-anchor id="ch3090-p018">“All right, done. That fellow shouldn't bother us anymore.”</p>
+<p data-reading-anchor id="ch3090-p019">Through his mental connection, Fang Heng had a rough sense of what had happened inside the distant building. He broke the link and slowly withdrew his gaze.</p>
+<p data-reading-anchor id="ch3090-p020">The job was about finished. Knowing when to stop, he nodded toward Kappa and Korkalot.</p>
+<p data-reading-anchor id="ch3090-p021">“Let's go.”</p>
+<p data-reading-anchor id="ch3090-p022">The test was over.</p>
+<p data-reading-anchor id="ch3090-p023">He could now be certain that the Seven-Realm Martial Capital had exceptionally strong defenses. Of course, his zombie clones weren't weak either, and he still had plenty of trump cards unused.</p>
+<p data-reading-anchor id="ch3090-p024">That was fine. There would be more opportunities later. This had only been a test.</p>
+<p data-reading-anchor id="ch3090-p025">“Boss Fang! Wait for me!”</p>
+<p data-reading-anchor id="ch3090-p026">Kappa hurried after him.</p>
+<p data-reading-anchor id="ch3090-p027">They'd temporarily eliminated several Kinsfolk, but their replacements would probably cause trouble too.</p>
+<p data-reading-anchor id="ch3090-p028">At least things might remain quiet for a while.</p>
+<p data-reading-anchor id="ch3090-p029">“Boss Fang, aren't you coming back with us?”</p>
+<p data-reading-anchor id="ch3090-p030">“No. I'll be staying with the Noel Clan for now. It's inconvenient for me to handle the human world's registration openly, so I'll leave that to you.”</p>
+<p data-reading-anchor id="ch3090-p031">Korkalot paused. “You're staying with the Noel Clan to cultivate?”</p>
+<p data-reading-anchor id="ch3090-p032">“Mm. The Seven-Realm Martial Capital has a somewhat different system of power from those I've encountered before. I expect to remain here and cultivate for a while. Contact me anytime if you run into trouble.”</p>
+<p data-reading-anchor id="ch3090-p033">As he spoke, Fang Heng's form gradually faded in space until it disappeared completely.</p>
+<p data-reading-anchor id="ch3090-p034">Watching him vanish, Korkalot clenched his fist slightly, secretly filled with admiration.</p>
+<p data-reading-anchor id="ch3090-p035">He'd witnessed Fang Heng's strength himself. It had already reached an extraordinary level.</p>
+<p data-reading-anchor id="ch3090-p036">And yet he still seized every second to keep cultivating.</p>
+<p data-reading-anchor id="ch3090-p037">Damn it.</p>
+<p data-reading-anchor id="ch3090-p038">He was already that talented, and he still worked this ridiculously hard. Did he intend to leave no chance for anyone else?!</p>
+<p data-reading-anchor id="ch3090-p039">...</p>
+<p data-reading-anchor id="ch3090-p040">After taking a little trip and giving the Kinsfolk some excitement, Fang Heng returned to find the villa's front and rear yards piled high with cartons of alchemical mixtures.</p>
+<p data-reading-anchor id="ch3090-p041">Come on!</p>
+<p data-reading-anchor id="ch3090-p042">Time to grind!</p>
+<p data-reading-anchor id="ch3090-p043">Fang Heng established a mental connection with Abe Akaya.</p>
+<p data-reading-anchor id="ch3090-p044">“Hiss, hiss...”</p>
+<p data-reading-anchor id="ch3090-p045">Abe Akaya's vines slipped through cracks beneath the doors, wrapped around the cartons in the courtyard, and dragged them into the basement.</p>
+<p data-reading-anchor id="ch3090-p046">To give the zombies enough room to grind experience, nearly ten thousand clones had been digging continuously, extending the underground area downward and outward.</p>
+<p data-reading-anchor id="ch3090-p047">They'd excavated another seven whole levels.</p>
+<p data-reading-anchor id="ch3090-p048">The clones had construction skills, so collapse wasn't a major concern.</p>
+<p data-reading-anchor id="ch3090-p049">The excavated stone rubble was pulverized by Abe Akaya, then packed into sacks and piled underground.</p>
+<p data-reading-anchor id="ch3090-p050">Fang Heng used sealing studies to seal the sacks one by one and send them into a secondary sealed space for disposal.</p>
+<p data-reading-anchor id="ch3090-p051">Afterward, still feeling uneasy, he reinforced the aura-blocking magic arrays throughout the villa's underground levels.</p>
+<p data-reading-anchor id="ch3090-p052">By the time he finished, dawn was breaking.</p>
+<p data-reading-anchor id="ch3090-p053">Fang Heng returned to the newly excavated fifth underground floor, sat cross-legged, and quietly waited for the zombie respawn countdown.</p>
+<p data-reading-anchor id="ch3090-p054">Three, two...</p>
+<p data-reading-anchor id="ch3090-p055">One!</p>
+<p data-reading-anchor id="ch3090-p056">The zombie clones' revival time arrived.</p>
+<p data-reading-anchor id="ch3090-p057">Illusory magic arrays appeared around Fang Heng.</p>
+<p data-reading-anchor id="ch3090-p058">Huh?</p>
+<p data-reading-anchor id="ch3090-p059">His brow furrowed again.</p>
+<p data-reading-anchor id="ch3090-p060">Unlike previous zombie revivals, the arrays now operated with extraordinary sluggishness.</p>
+<p data-reading-anchor id="ch3090-p061">It was as though they were resisting a powerful force.</p>
+<p data-reading-anchor id="ch3090-p062">“Hiss, hiss...”</p>
+<p data-reading-anchor id="ch3090-p063">Faint Black Mist seeped from the revolving magic arrays.</p>
+<p data-reading-anchor id="ch3090-p064">As it gathered, the arrays gradually accelerated, causing still more Black Mist to escape.</p>
+<p data-reading-anchor id="ch3090-p065">He waited nearly a full minute before Lickers began leaping from the arrays.</p>
+<p data-reading-anchor id="ch3090-p066">Previously, the automatic revival summons had been practically instantaneous.</p>
+<p data-reading-anchor id="ch3090-p067">This time it took a minute, and the number of summoning arrays that could appear simultaneously was severely restricted.</p>
+<p data-reading-anchor id="ch3090-p068">“Is it because of the Black Mist...?”</p>
+<p data-reading-anchor id="ch3090-p069">Fang Heng studied the continuously forming arrays and formed a suspicion.</p>
+<p data-reading-anchor id="ch3090-p070">Both connecting worlds through Abe Akaya and entering or leaving the game had encountered resistance before.</p>
+<p data-reading-anchor id="ch3090-p071">In his view, bringing innate abilities from the game into reality probably still depended on the Black Mist game's power.</p>
+<p data-reading-anchor id="ch3090-p072">The Seven-Realm Martial Capital clearly imposed strong restrictions on that power.</p>
+<p data-reading-anchor id="ch3090-p073">Those restrictions were what made the Black Mist operate so laboriously.</p>
+<p data-reading-anchor id="ch3090-p074">Fortunately, he'd installed many aura-sealing arrays in the basement ahead of time, trapping most of the Black Mist underground.</p>
+<p data-reading-anchor id="ch3090-p075">But the arrays weren't entirely connected, leaving a few gaps.</p>
+<p data-reading-anchor id="ch3090-p076">Mist would seep through them very slowly.</p>
+<p data-reading-anchor id="ch3090-p077">The quantity was small, so the Kinsfolk probably wouldn't detect it.</p>
+<p data-reading-anchor id="ch3090-p078">Fang Heng raised his head and looked around the basement with lingering unease.</p>
+<p data-reading-anchor id="ch3090-p079">His zombie summoning talent activated passively. He couldn't stop it even if he wanted to.</p>
+<p data-reading-anchor id="ch3090-p080">He could only wait and see.</p>
+<p data-reading-anchor id="ch3090-p081">More than an hour passed.</p>
+<p data-reading-anchor id="ch3090-p082">Zombie clones now crowded the basement.</p>
+<p data-reading-anchor id="ch3090-p083">And that was without using their splitting ability.</p>
+<p data-reading-anchor id="ch3090-p084">Fang Heng inspected his surroundings again.</p>
+<p data-reading-anchor id="ch3090-p085">The summoning was slower, but at least it worked.</p>
+<p data-reading-anchor id="ch3090-p086">He could worry about the Black Mist later. First, grind!</p>
+<p data-reading-anchor id="ch3090-p087">He ordered his clones to spread out and formed a seal before his chest.</p>
+<p data-reading-anchor id="ch3090-p088">“Scatter!”</p>
+<p data-reading-anchor id="ch3090-p089">The stone wall in front of him softened under an elemental spell, flowing downward like melting rock and pooling on the ground.</p>
+<p data-reading-anchor id="ch3090-p090">The zombies picked up the shovels lying nearby and began digging, expanding the underground area to both sides.</p>
+<p data-reading-anchor id="ch3090-p091">To avoid attracting attention, Fang Heng had even enchanted the shovels with special sound-suppression arrays, ensuring the entire process remained silent.</p>
+<p data-reading-anchor id="ch3090-p092">Keep going!</p>
+<p data-reading-anchor id="ch3090-p093">Expand the tunnels! Give the zombie clones more room to move and more room to grind experience!</p>
+</article>
+<p class="end" data-reading-anchor id="ch3090-end">— End of Chapter 3090 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Chinese Chapter 3091: 隔绝. English Chapter 3090: Isolation. Narrative paragraphs: 93/93.</li><li>Black Mist resistance is Fang Heng’s inference about game abilities operating in the capital, not established universal law.</li><li>The zombie respawn array takes nearly one minute, far slower than its normally near-instant activation.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_3089_Breach.html#start">← Previous</a><a class="next" href="Global_Game_AFK_Chapter_3091_Handling_the_Investigation.html#start">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

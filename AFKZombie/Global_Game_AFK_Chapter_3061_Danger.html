@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 3061 — Danger | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-3061">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3060_Seized.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_3061_Danger.html"><option value="Global_Game_AFK_Chapter_3061_Danger.html" selected>3061 · Danger</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3062_Desperate_Gamble.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-3061" data-reading-anchor>
+<div class="chapter-num">Chapter 3061</div><h2 class="chapter-title">Danger</h2>
+<p class="source-identity">From Chinese Chapter 3062 · 危险</p>
+<article class="prose">
+<p data-reading-anchor id="ch3061-p001">“Hiss, hiss... hiss, hiss...”</p>
+<p data-reading-anchor id="ch3061-p002">Under the effects of the Eyes of Hell, the energy shields outside the ships began to sizzle at once. The vines rapidly absorbed and consumed their energy!</p>
+<p data-reading-anchor id="ch3061-p003">Only now did the allied alien species finally realize something was wrong.</p>
+<p data-reading-anchor id="ch3061-p004">Wait a minute!</p>
+<p data-reading-anchor id="ch3061-p005">Those vines...</p>
+<p data-reading-anchor id="ch3061-p006">They seemed to be coming after them!</p>
+<p data-reading-anchor id="ch3061-p007">“Attack the vines!”</p>
+<p data-reading-anchor id="ch3061-p008">The ships gradually reacted, directing their energy weapons at the vines clinging to their shields.</p>
+<p data-reading-anchor id="ch3061-p009">But the vines had formidable defenses.</p>
+<p data-reading-anchor id="ch3061-p010">Even when an energy beam shattered them completely, fresh tendrils quickly spread across the shields to replace them.</p>
+<p data-reading-anchor id="ch3061-p011">Damn it!</p>
+<p data-reading-anchor id="ch3061-p012">Their ships simply lacked the firepower to deal with these vines!</p>
+<p data-reading-anchor id="ch3061-p013">Worse, the centers from which the vines were spreading were the Shadow Clan vessels. With the situation unclear, the allied species dared not attack the Shadow Clan ships themselves.</p>
+<p data-reading-anchor id="ch3061-p014">And there was still a huge swarm of troublesome alien insects outside to deal with.</p>
+<p data-reading-anchor id="ch3061-p015">“Quick! Prepare an emergency warp! Disengage first!”</p>
+<p data-reading-anchor id="ch3061-p016">Seeing his ship's energy reserves plummet in such a short time, an alien captain broke out in a cold sweat.</p>
+<p data-reading-anchor id="ch3061-p017">The worst part was that he still didn't understand what was going on.</p>
+<p data-reading-anchor id="ch3061-p018">Hadn't the vines come from the Elven Clan's ship and the Shadow Clan's ships?</p>
+<p data-reading-anchor id="ch3061-p019">Were they enemies or allies?</p>
+<p data-reading-anchor id="ch3061-p020">Who cared?</p>
+<p data-reading-anchor id="ch3061-p021">If the situation made no sense, they could always flee first. Staying alive came before anything else!</p>
+<p data-reading-anchor id="ch3061-p022">The control room operators were sweating too. “Report! The fleet flagship has locked the warp zone... We can't execute the warp command.”</p>
+<p data-reading-anchor id="ch3061-p023">“Break away from the fleet! Force a warp transfer!”</p>
+<p data-reading-anchor id="ch3061-p024">“Space around the ship is unstable. Forcing a warp may fail.”</p>
+<p data-reading-anchor id="ch3061-p025">The captain roared, “Are you deaf? I said force the warp!”</p>
+<p data-reading-anchor id="ch3061-p026">To hell with whatever was happening.</p>
+<p data-reading-anchor id="ch3061-p027">There was no point worrying about their allied forces or the comrades still carrying out the mission.</p>
+<p data-reading-anchor id="ch3061-p028">Run! If they fled quickly enough, perhaps they'd survive.</p>
+<p data-reading-anchor id="ch3061-p029">“Understood!”</p>
+<p data-reading-anchor id="ch3061-p030">Chaos spread across the allied fleet. As matters grew steadily worse instead of better, some ships soon attempted to escape by force-warping.</p>
+<p data-reading-anchor id="ch3061-p031">Once someone took the lead, other vessels followed, all attempting to flee while entangled in vines.</p>
+<p data-reading-anchor id="ch3061-p032">Warp failed!</p>
+<p data-reading-anchor id="ch3061-p033">Points of light began to gather around the ships, only for violent spatial fluctuations to disrupt them, causing the warps to fail.</p>
+<p data-reading-anchor id="ch3061-p034">Only the two vessels that had detected trouble first and fled immediately managed to escape the crisis.</p>
+<p data-reading-anchor id="ch3061-p035">The rest had reacted a moment too slowly. Once vines covered most of a ship's shielding, warp controls could no longer function properly.</p>
+<p data-reading-anchor id="ch3061-p036">Forced attempts ended in failure and inflicted massive damage on the warp systems.</p>
+<p data-reading-anchor id="ch3061-p037">Fang Heng stood aboard one of the Shadow Clan ships, watching vessel after vessel become ensnared in Abe Akaya's vines, a faint smile touching his lips.</p>
+<p data-reading-anchor id="ch3061-p038">Having advanced through the power of Hell, Abe Akaya's vines now possessed multiple additional effects.</p>
+<p data-reading-anchor id="ch3061-p039">For instance, pupils resembling the Eye of Envy could cast illusions and corrode energy barriers. Once the vines entangled something, they also inflicted spatial tearing, generating fluctuations that prevented the captive object from escaping through spatial abilities. Tiny thorns could absorb energy, among many other effects.</p>
+<p data-reading-anchor id="ch3061-p040">And Abe Akaya had far more hidden abilities than those.</p>
+<p data-reading-anchor id="ch3061-p041">“Report! Spatial turbulence is increasing sharply. We... we can't teleport...”</p>
+<p data-reading-anchor id="ch3061-p042">Ship after ship discovered that even emergency warps would not work. They were trapped helplessly beneath the coiling vines!</p>
+<p data-reading-anchor id="ch3061-p043">Despair gradually seized the entire fleet.</p>
+<p data-reading-anchor id="ch3061-p044">The alien crews could only watch as layer after layer of dark vines spread across their ships' shields. Eventually, all they could see through their screens were dense tendrils and tiny pupils blinking between them.</p>
+<p data-reading-anchor id="ch3061-p045">The outer shields' energy plunged. Finally, with a loud bang, a shield shattered, and the vines immediately pressed against the hull, engulfing the vessel completely.</p>
+<p data-reading-anchor id="ch3061-p046">They wormed in through every entrance and even the smallest cracks.</p>
+<p data-reading-anchor id="ch3061-p047">“Report! Vine intrusion detected!”</p>
+<p data-reading-anchor id="ch3061-p048">Before the alien soldier could finish, a deafening crash rang out. A massive vine outside the control room slammed into its window, leaving a vast spiderweb of cracks.</p>
+<p data-reading-anchor id="ch3061-p049">The room fell silent.</p>
+<p data-reading-anchor id="ch3061-p050">The windows of ships capable of traveling through outer space were made from materials of the highest strength.</p>
+<p data-reading-anchor id="ch3061-p051">Yet a single impact had done this?</p>
+<p data-reading-anchor id="ch3061-p052">“Bang! Bang, bang!”</p>
+<p data-reading-anchor id="ch3061-p053">The tip of the vine outside twisted into a spiraling point and rammed the glass again.</p>
+<p data-reading-anchor id="ch3061-p054">“Thud! Thud! Thud, thud!”</p>
+<p data-reading-anchor id="ch3061-p055">Every blow left another deep spiderweb of cracks.</p>
+<p data-reading-anchor id="ch3061-p056">Until the cracks joined together.</p>
+<p data-reading-anchor id="ch3061-p057">“BOOM!”</p>
+<p data-reading-anchor id="ch3061-p058">The entire outer window shattered with a roar.</p>
+<p data-reading-anchor id="ch3061-p059">A dense tangle of vines poured through the opening.</p>
+<p data-reading-anchor id="ch3061-p060">“Fire!”</p>
+<p data-reading-anchor id="ch3061-p061">The guards in the control room raised their weapons and opened fire wildly at the vines.</p>
+<p data-reading-anchor id="ch3061-p062">It was useless!</p>
+<p data-reading-anchor id="ch3061-p063">The vines withstood most of the beam weapon fire. Smaller tendrils shot in from all directions, wrapped tightly around the crew's ankles, and hoisted them violently into the air.</p>
+<p data-reading-anchor id="ch3061-p064">The captain felt something snag his feet. The next instant, his entire field of vision flipped upside down, and a single thought flashed through his mind.</p>
+<p data-reading-anchor id="ch3061-p065">We're finished!</p>
+<p data-reading-anchor id="ch3061-p066">...</p>
+<p data-reading-anchor id="ch3061-p067">Meanwhile, the Shadow Clan's main force was still trapped in an immense sea of Lickers.</p>
+<p data-reading-anchor id="ch3061-p068">Wave after wave of alien insects fell.</p>
+<p data-reading-anchor id="ch3061-p069">Yet their numbers seemed endless.</p>
+<p data-reading-anchor id="ch3061-p070">The Shadow Clan commander had already realized the problem.</p>
+<p data-reading-anchor id="ch3061-p071">The insects' special abilities were extremely difficult to deal with. Killing even one for good was troublesome, and the battle would likely drag on for quite some time.</p>
+<p data-reading-anchor id="ch3061-p072">Suddenly, several squads received emergency signals from their ships.</p>
+<p data-reading-anchor id="ch3061-p073">Despite the powerful electromagnetic interference and spatial fluctuations in this area, certain species possessed special means of transmitting information, so simple signals could still get through.</p>
+<p data-reading-anchor id="ch3061-p074">“Commander, several allied species have received warnings from their ships. The vessels we left behind may be under attack by the insect swarm.”</p>
+<p data-reading-anchor id="ch3061-p075">After receiving the reports from several allies, the Shadow Clan grew wary as well.</p>
+<p data-reading-anchor id="ch3061-p076">They believed their ships' defenses should have no trouble handling mere insects.</p>
+<p data-reading-anchor id="ch3061-p077">But the battle against the alien insects had already ground to a stalemate.</p>
+<p data-reading-anchor id="ch3061-p078">Continuing to fight was unwise.</p>
+<p data-reading-anchor id="ch3061-p079">They might as well withdraw and protect their vessels first.</p>
+<p data-reading-anchor id="ch3061-p080">The Shadow Clan made the correct decision and ordered the entire force to retreat in an orderly fashion.</p>
+<p data-reading-anchor id="ch3061-p081">Korkalot also learned of the attack on the fleet over the communications network, and his heart immediately sank.</p>
+<p data-reading-anchor id="ch3061-p082">So this was a diversion, huh?</p>
+<p data-reading-anchor id="ch3061-p083">He had long suspected that Fang Heng would use the absence of the allied fleet's main forces to raid the ships, but he wasn't confident it would succeed.</p>
+<p data-reading-anchor id="ch3061-p084">Korkalot considered delaying the others to give Fang Heng more time. Unfortunately, several allies had received emergency signals and the Shadow Clan had already ordered a retreat. Unable to stop them, he could only try to warn Fang Heng so he could prepare.</p>
+<p data-reading-anchor id="ch3061-p085">“Fang Heng, I've done all I can. Just don't die too horribly.”</p>
+<p data-reading-anchor id="ch3061-p086">There was nothing else Korkalot could do to help. He could only mutter those words silently to himself.</p>
+<p data-reading-anchor id="ch3061-p087">What he didn't know was that...</p>
+<p data-reading-anchor id="ch3061-p088">Fang Heng was already wrapping things up.</p>
+</article>
+<p class="end" data-reading-anchor id="ch3061-end">— End of Chapter 3061 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Chinese Chapter 3062: 危险. English Chapter 3061: Danger. Narrative paragraphs: 88/88.</li><li>The escaped vessels number exactly two; forced warps fail once vines and spatial fluctuations block the fleet.</li><li>Abe Akaya’s vines possess illusion, corrosive, spatial-tearing, and energy-draining effects.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_3060_Seized.html#start">← Previous</a><a class="next" href="Global_Game_AFK_Chapter_3062_Desperate_Gamble.html#start">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

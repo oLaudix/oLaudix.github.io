@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 3084 — Immunity | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-3084">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3083_Another_Battle.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_3084_Immunity.html"><option value="Global_Game_AFK_Chapter_3084_Immunity.html" selected>3084 · Immunity</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3085_A_Major_Grind.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-3084" data-reading-anchor>
+<div class="chapter-num">Chapter 3084</div><h2 class="chapter-title">Immunity</h2>
+<p class="source-identity">From Chinese Chapter 3085 · 免疫</p>
+<article class="prose">
+<p data-reading-anchor id="ch3084-p001">Both sides' combat levels were noticeably higher in this match.</p>
+<p data-reading-anchor id="ch3084-p002">From Fang Heng's perspective, at least the fighting wouldn't be completely boring.</p>
+<p data-reading-anchor id="ch3084-p003">Soon the score reached eight to seven, with the Noel Clan narrowly ahead.</p>
+<p data-reading-anchor id="ch3084-p004">Liao Yun entered for the opposing team.</p>
+<p data-reading-anchor id="ch3084-p005">Hearing the name, Fang Heng's interest stirred and he looked up.</p>
+<p data-reading-anchor id="ch3084-p006">This was the fellow the elder had asked him to watch.</p>
+<p data-reading-anchor id="ch3084-p007">Liao Yun was powerfully built, his body brimming with explosive strength.</p>
+<p data-reading-anchor id="ch3084-p008">The Noel Clan warrior still on the platform grew visibly more serious when Liao Yun appeared.</p>
+<p data-reading-anchor id="ch3084-p009">“Begin!”</p>
+<p data-reading-anchor id="ch3084-p010">A melee fighter against an elemental specialist.</p>
+<p data-reading-anchor id="ch3084-p011">Liao Yun stood motionless.</p>
+<p data-reading-anchor id="ch3084-p012">“Bang!”</p>
+<p data-reading-anchor id="ch3084-p013">A burst of force exploded beneath his feet. In the next instant, he shot forward, darting quickly to the right.</p>
+<p data-reading-anchor id="ch3084-p014">Fang Heng's pupils contracted.</p>
+<p data-reading-anchor id="ch3084-p015">A martial technique!</p>
+<p data-reading-anchor id="ch3084-p016">It used explosive muscle power and internal force to produce a sudden burst of speed.</p>
+<p data-reading-anchor id="ch3084-p017">The burst lasted only an instant.</p>
+<p data-reading-anchor id="ch3084-p018">But for a warrior, that instant could be deadly.</p>
+<p data-reading-anchor id="ch3084-p019">“Freeze!”</p>
+<p data-reading-anchor id="ch3084-p020">The Noel Clan warrior immediately used an ice-element skill, trying to restrain Liao Yun's speed.</p>
+<p data-reading-anchor id="ch3084-p021">Ice spread across the ground and instantly formed frost around Liao Yun's feet.</p>
+<p data-reading-anchor id="ch3084-p022">“Bang!!!”</p>
+<p data-reading-anchor id="ch3084-p023">With another eruption of force, the frost around his feet shattered.</p>
+<p data-reading-anchor id="ch3084-p024">Whoosh!</p>
+<p data-reading-anchor id="ch3084-p025">Power burst beneath Liao Yun's feet again. His speed surged to an entirely new level, and he flashed across the distance, appearing on the Noel Clan warrior's right and driving a fist forward!</p>
+<p data-reading-anchor id="ch3084-p026">“Boom!!!”</p>
+<p data-reading-anchor id="ch3084-p027">His punch struck an ice curtain, shattering it with a thunderous crash.</p>
+<p data-reading-anchor id="ch3084-p028">Whoosh!</p>
+<p data-reading-anchor id="ch3084-p029">The referee appeared before Liao Yun and intercepted his next punch.</p>
+<p data-reading-anchor id="ch3084-p030">Staring coldly at him, the referee said, “You win.”</p>
+<p data-reading-anchor id="ch3084-p031">Seeing his ice curtain destroyed, the Noel Clan warrior shook his head inwardly, saluted Liao Yun with cupped fists, and jumped off the platform ahead of time. Returning to his companions, he spread his hands helplessly.</p>
+<p data-reading-anchor id="ch3084-p032">“Sorry. I'd hoped to wear him down a little, but that was all I could do.”</p>
+<p data-reading-anchor id="ch3084-p033">“Don't say that. You made him expend quite a bit of stamina. He can't use that move many times.”</p>
+<p data-reading-anchor id="ch3084-p034">Everyone had noticed the same thing.</p>
+<p data-reading-anchor id="ch3084-p035">Liao Yun was inherently a strong counter to elemental fighters, and his special martial technique made him even more dangerous. Unless an elemental specialist far surpassed his level, defeating him would be difficult.</p>
+<p data-reading-anchor id="ch3084-p036">Meng Hong's expression remained unreadable. “Fang Heng, you're up.”</p>
+<p data-reading-anchor id="ch3084-p037">“Yes, Elder.”</p>
+<p data-reading-anchor id="ch3084-p038">Fang Heng stood and made his way onto the platform.</p>
+<p data-reading-anchor id="ch3084-p039">He'd seen through the move.</p>
+<p data-reading-anchor id="ch3084-p040">That last technique actually involved spatial studies.</p>
+<p data-reading-anchor id="ch3084-p041">The martial technique, Instant Step, produced only a very brief acceleration. Liao Yun could extend it across such a long distance because he simultaneously executed an extremely short spatial jump.</p>
+<p data-reading-anchor id="ch3084-p042">He wasn't entering a spatial projection in the normal way. He was using spatial power for instantaneous reinforcement.</p>
+<p data-reading-anchor id="ch3084-p043">It resembled the time-acceleration effect attached to Tree World Descends, though it was vastly inferior overall.</p>
+<p data-reading-anchor id="ch3084-p044">In other words, Liao Yun combined spatial studies with close-combat ability.</p>
+<p data-reading-anchor id="ch3084-p045">While considering this, Fang Heng stepped onto the stage opposite Liao Yun.</p>
+<p data-reading-anchor id="ch3084-p046">Liao Yun looked him over.</p>
+<p data-reading-anchor id="ch3084-p047">An unfamiliar face.</p>
+<p data-reading-anchor id="ch3084-p048">A new warrior recruited by the Noel Clan?</p>
+<p data-reading-anchor id="ch3084-p049">Was he here to exhaust Liao Yun, or did he have an ability that could counter him?</p>
+<p data-reading-anchor id="ch3084-p050">The referee glanced at Fang Heng. Seeing his signal that he was ready, he announced solemnly, “Begin.”</p>
+<p data-reading-anchor id="ch3084-p051">Whoosh!</p>
+<p data-reading-anchor id="ch3084-p052">What?!</p>
+<p data-reading-anchor id="ch3084-p053">Liao Yun's pupils contracted sharply. Before he could move, his opponent was already rushing straight toward him!</p>
+<p data-reading-anchor id="ch3084-p054">Such speed!</p>
+<p data-reading-anchor id="ch3084-p055">The newcomer was a melee fighter too!</p>
+<p data-reading-anchor id="ch3084-p056">“Bang!!!”</p>
+<p data-reading-anchor id="ch3084-p057">Seeing Fang Heng charge directly at him along the shortest possible path, Liao Yun immediately counterattacked.</p>
+<p data-reading-anchor id="ch3084-p058">Fight!</p>
+<p data-reading-anchor id="ch3084-p059">They were both close-combat warriors.</p>
+<p data-reading-anchor id="ch3084-p060">Take a single step backward and he'd surrender the initiative, falling further and further behind!</p>
+<p data-reading-anchor id="ch3084-p061">Neither would back down like a coward!</p>
+<p data-reading-anchor id="ch3084-p062">What?!</p>
+<p data-reading-anchor id="ch3084-p063">“Boom!!!!”</p>
+<p data-reading-anchor id="ch3084-p064">Their fists collided. Liao Yun's heart lurched as an enormous force surged toward him. He couldn't resist it at all, and his entire right hand instantly went numb.</p>
+<p data-reading-anchor id="ch3084-p065">Whoosh!</p>
+<p data-reading-anchor id="ch3084-p066">Fang Heng swept his right leg across.</p>
+<p data-reading-anchor id="ch3084-p067">“Smack!!”</p>
+<p data-reading-anchor id="ch3084-p068">His kick sent Liao Yun flying. The man landed heavily on the ground beyond the arena platform with a loud crash.</p>
+<p data-reading-anchor id="ch3084-p069">He'd lost?</p>
+<p data-reading-anchor id="ch3084-p070">Liao Yun sprang up, mouth opening as his mind went blank.</p>
+<p data-reading-anchor id="ch3084-p071">He could vaguely remember the whole exchange.</p>
+<p data-reading-anchor id="ch3084-p072">He'd already lost?</p>
+<p data-reading-anchor id="ch3084-p073">He hadn't even managed to use his spatial abilities. He couldn't withstand a single punch from the other man.</p>
+<p data-reading-anchor id="ch3084-p074">Liao Yun raised his head toward Fang Heng on the platform, shock filling his eyes.</p>
+<p data-reading-anchor id="ch3084-p075">This guy...</p>
+<p data-reading-anchor id="ch3084-p076">Such terrifying strength from one punch!</p>
+<p data-reading-anchor id="ch3084-p077">The difference between them was absurd!</p>
+<p data-reading-anchor id="ch3084-p078">Liao Yun rose, shook his slowly recovering right hand, and saluted Fang Heng with cupped fists.</p>
+<p data-reading-anchor id="ch3084-p079">He had no idea how powerful his opponent truly was, or even how much strength he'd used. But he knew one thing: if Fang Heng hadn't held back and had wanted him dead, he'd already be a corpse.</p>
+<p data-reading-anchor id="ch3084-p080">The referee also regarded Fang Heng with wary eyes.</p>
+<p data-reading-anchor id="ch3084-p081">This youngster!</p>
+<p data-reading-anchor id="ch3084-p082">Melee combat was the most dangerous kind. A moment's carelessness could mean serious injury or death.</p>
+<p data-reading-anchor id="ch3084-p083">Under those circumstances, the referee would never have reacted in time to stop the fight.</p>
+<p data-reading-anchor id="ch3084-p084">There would be another name on the arena's list of dangerous individuals.</p>
+<p data-reading-anchor id="ch3084-p085">The referee nodded. “Red side wins. Prepare for the next match.”</p>
+<p data-reading-anchor id="ch3084-p086">The waiting areas on both sides fell quiet.</p>
+<p data-reading-anchor id="ch3084-p087">He'd won?</p>
+<p data-reading-anchor id="ch3084-p088">Nobody had expected Fang Heng to defeat Liao Yun in mere moments.</p>
+<p data-reading-anchor id="ch3084-p089">It had been a complete crushing victory.</p>
+<p data-reading-anchor id="ch3084-p090">A strange look flashed through Elder Meng Hong's eyes.</p>
+<p data-reading-anchor id="ch3084-p091">Elder Dilan had spoken highly of Fang Heng. Meng Hong had believed most of it, but he'd only expected the youngster to wear down the opponent a little.</p>
+<p data-reading-anchor id="ch3084-p092">He'd never imagined such an extraordinary surprise.</p>
+<p data-reading-anchor id="ch3084-p093">With that strength, Fang Heng definitely qualified as a high-ranked warrior.</p>
+<p data-reading-anchor id="ch3084-p094">A barely perceptible smile appeared on Meng Hong's face.</p>
+<p data-reading-anchor id="ch3084-p095">They'd stumbled upon a treasure.</p>
+<p data-reading-anchor id="ch3084-p096">Had he known, he'd have sent Fang Heng up first and crushed the entire match outright.</p>
+<p data-reading-anchor id="ch3084-p097">Liao Yun was already the opposing team's main fighter. They had only one person left, who was unlikely to turn things around.</p>
+<p data-reading-anchor id="ch3084-p098">After a stunned pause, the Noel Clan warriors finally erupted in cheers.</p>
+<p data-reading-anchor id="ch3084-p099">Where had this absurdly powerful youngster come from?</p>
+<p data-reading-anchor id="ch3084-p100">He'd even crushed Liao Yun?</p>
+<p data-reading-anchor id="ch3084-p101">The opposing side suddenly felt overwhelming pressure.</p>
+<p data-reading-anchor id="ch3084-p102">They'd originally hoped Liao Yun could eliminate three opponents by himself.</p>
+<p data-reading-anchor id="ch3084-p103">Now they had only their last fighter left.</p>
+<p data-reading-anchor id="ch3084-p104">And Fang Heng looked as though he hadn't expended any energy at all...</p>
+<p data-reading-anchor id="ch3084-p105">They probably couldn't beat him either.</p>
+<p data-reading-anchor id="ch3084-p106">Soon a small-statured alien stepped onto the platform and saluted Fang Heng.</p>
+<p data-reading-anchor id="ch3084-p107">The referee gave the smaller fighter a cautioning look. “Begin!”</p>
+<p data-reading-anchor id="ch3084-p108">Mind Pierce!</p>
+<p data-reading-anchor id="ch3084-p109">The alien warrior knew he stood no chance in a straight fight, so he'd settled on a plan before entering.</p>
+<p data-reading-anchor id="ch3084-p110">A sneaky attack with mental abilities!</p>
+<p data-reading-anchor id="ch3084-p111">If he could steal a win, great.</p>
+<p data-reading-anchor id="ch3084-p112">If not, he'd surrender immediately!</p>
+<p data-reading-anchor id="ch3084-p113">But it had absolutely no effect!</p>
+<p data-reading-anchor id="ch3084-p114">Damn it!</p>
+<p data-reading-anchor id="ch3084-p115">The alien warrior's face went white.</p>
+<p data-reading-anchor id="ch3084-p116">His Mind Pierce attack sank into Fang Heng's mind like a stone dropped into the ocean.</p>
+<p data-reading-anchor id="ch3084-p117">This guy was completely immune!</p>
+</article>
+<p class="end" data-reading-anchor id="ch3084-end">— End of Chapter 3084 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Chinese Chapter 3085: 免疫. English Chapter 3084: Immunity. Narrative paragraphs: 117/117.</li><li>Chinese calls the melee opponent 廖云 (Liao Yun) and briefly 廖凡 (Liao Fan) again; his name is normalized as Liao Yun and not treated as a separate person.</li><li>The referee intervenes to prevent fatalities, and the final opponent’s mental skill cannot affect Fang Heng.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_3083_Another_Battle.html#start">← Previous</a><a class="next" href="Global_Game_AFK_Chapter_3085_A_Major_Grind.html#start">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

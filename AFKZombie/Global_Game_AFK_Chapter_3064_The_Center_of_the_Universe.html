@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 3064 — The Center of the Universe | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-3064">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3063_Shattered.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_3064_The_Center_of_the_Universe.html"><option value="Global_Game_AFK_Chapter_3064_The_Center_of_the_Universe.html" selected>3064 · The Center of the Universe</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3065_Expansion.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-3064" data-reading-anchor>
+<div class="chapter-num">Chapter 3064</div><h2 class="chapter-title">The Center of the Universe</h2>
+<p class="source-identity">From Chinese Chapter 3065 · 宇宙中心</p>
+<article class="prose">
+<p data-reading-anchor id="ch3064-p001">Three months after the Western Federation's Star Map Project was completely suspended.</p>
+<p data-reading-anchor id="ch3064-p002">The human world remained peaceful.</p>
+<p data-reading-anchor id="ch3064-p003">Rumors circulated outside that the Shadow Clan alliance had mysteriously perished while preparing to invade humanity. Several smaller fleets later attempted attacks of their own, only to fall silent as well.</p>
+<p data-reading-anchor id="ch3064-p004">They were supposedly struck by some unknown force.</p>
+<p data-reading-anchor id="ch3064-p005">Every fleet that accepted a Kinsfolk-related mission to attack humanity vanished without a trace.</p>
+<p data-reading-anchor id="ch3064-p006">Naturally, no one dared accept those missions afterward.</p>
+<p data-reading-anchor id="ch3064-p007">The Kinsfolk weren't offering much in reward anyway. Considering the risks, who would be willing to take the job?</p>
+<p data-reading-anchor id="ch3064-p008">“Boss Fang, thanks to your help, we managed to collect those Grandmaster-level mysticism materials. It took an enormous effort, but we've arranged to have them delivered. They couldn't find you when they came, so we asked Mr. Mo to pass them on. Please check when you get a chance.”</p>
+<p data-reading-anchor id="ch3064-p009">Every few days, Chen Yu contacted Fang Heng on behalf of the Eastern Federation to express his gratitude and report recent developments. More importantly, he had been ordered by the Federation's senior leaders to discreetly inquire about Fang Heng's whereabouts.</p>
+<p data-reading-anchor id="ch3064-p010">Boss Fang had disappeared again these past few days.</p>
+<p data-reading-anchor id="ch3064-p011">No matter where they looked, no one could find him or learn where he had gone.</p>
+<p data-reading-anchor id="ch3064-p012">More troubling still, reports from the outside were gradually suggesting that the Kinsfolk had grown increasingly dissatisfied with humanity's actions and might be preparing to use their ultimate military force.</p>
+<p data-reading-anchor id="ch3064-p013">Only days earlier, humanity had received a final warning of extermination from the Kinsfolk.</p>
+<p data-reading-anchor id="ch3064-p014">Barring extraordinary circumstances, the Kinsfolk would not enter worlds connected to the Black Mist or the Ouroboros Seed in person. But that didn't mean they had no way to attack humanity.</p>
+<p data-reading-anchor id="ch3064-p015">For example, they possessed long-range, star-system-scale weapons of destruction.</p>
+<p data-reading-anchor id="ch3064-p016">It was said that a single shot could annihilate an entire world.</p>
+<p data-reading-anchor id="ch3064-p017">Of course, the Kinsfolk would pay a considerable price to do so.</p>
+<p data-reading-anchor id="ch3064-p018">They used this threat to demand that humanity restart the Star Map Project and complete its second phase within a set deadline.</p>
+<p data-reading-anchor id="ch3064-p019">The humans had no idea whether the threat was merely a bluff, but they dared not gamble.</p>
+<p data-reading-anchor id="ch3064-p020">What if it wasn't?</p>
+<p data-reading-anchor id="ch3064-p021">The Human Federation attempted to visit Fang Heng directly, but found no one. They learned that he had left several days earlier.</p>
+<p data-reading-anchor id="ch3064-p022">So Chen Yu called to check on him and discuss the problem posed by the Kinsfolk.</p>
+<p data-reading-anchor id="ch3064-p023">“Huh?”</p>
+<p data-reading-anchor id="ch3064-p024">Hearing where Fang Heng had gone, Chen Yu froze. “Where? The Seven-Realm Martial Capital?”</p>
+<p data-reading-anchor id="ch3064-p025">“That's right, the Seven-Realm Martial Capital,” Fang Heng replied calmly over the phone. “I received the advancement books. Thank you. Mm, I've heard about the Kinsfolk as well, but you don't need to worry too much. Interstellar high-grade beam cannons consume an enormous amount of energy. We don't think they'd go to all that trouble over a little planet like ours.”</p>
+<p data-reading-anchor id="ch3064-p026">Fang Heng shrugged and continued, “Still, we can't afford to be careless.”</p>
+<p data-reading-anchor id="ch3064-p027">“Mm. You're right, Boss Fang. That's what the federations think too. The world faces an unprecedented challenge. If we want to survive, we'll have to rely on ourselves.”</p>
+<p data-reading-anchor id="ch3064-p028">“We've launched the Black Mist Project together with the regional federations. Besides relocating some people into other worlds, we've begun trying to establish permanent bases in Black Mist regions and bringing some players into the mist.”</p>
+<p data-reading-anchor id="ch3064-p029">Currently, in addition to building defensive facilities and rapidly improving their strength through the game, the federations were orderly preparing two methods of evacuation.</p>
+<p data-reading-anchor id="ch3064-p030">If the worst came to pass, humanity would try to preserve the seed of its civilization.</p>
+<p data-reading-anchor id="ch3064-p031">The first approach was to hide completely inside the Black Mist. Even if their entire world were destroyed, some players could remain within the mist and avoid the outside devastation.</p>
+<p data-reading-anchor id="ch3064-p032">The other was to carry refugees aboard starships to settle in other worlds.</p>
+<p data-reading-anchor id="ch3064-p033">Their world hadn't yet been targeted by a stellar-class weapon, so neither escape route had been used. Preparations were nevertheless complete.</p>
+<p data-reading-anchor id="ch3064-p034">As Chen Yu spoke with Fang Heng, he accepted a report handed over by his assistant and skimmed the information on the Seven-Realm Martial Capital. Most of it was blank.</p>
+<p data-reading-anchor id="ch3064-p035">“Boss Fang, we have very little information about the Seven-Realm Martial Capital. You're going there to...?”</p>
+<p data-reading-anchor id="ch3064-p036">“If I had to put it simply, I'm going to resolve our Kinsfolk problem—and to learn,” Fang Heng replied with a shrug. “The Kinsfolk aren't the only highly intelligent species in the universe, and they certainly aren't the only powerful cosmic overlords.”</p>
+<p data-reading-anchor id="ch3064-p037">Chen Yu's heart stirred.</p>
+<p data-reading-anchor id="ch3064-p038">Was Boss Fang making another move?</p>
+<p data-reading-anchor id="ch3064-p039">“Do you have another plan, Boss Fang?”</p>
+<p data-reading-anchor id="ch3064-p040">“Mm.”</p>
+<p data-reading-anchor id="ch3064-p041">The elves' ancient heritage was not much younger than humanity's. More importantly, unlike humanity, their legacy had never been completely severed, so their body of knowledge was far better preserved.</p>
+<p data-reading-anchor id="ch3064-p042">That was why Fang Heng had obtained so much information from the elves.</p>
+<p data-reading-anchor id="ch3064-p043">“At present, the seven greatest overlord factions in the universe—including the Kinsfolk—jointly determine its future course and establish its rules.”</p>
+<p data-reading-anchor id="ch3064-p044">“Under those rules, the human world's territory falls within the Kinsfolk's designated sphere of influence.”</p>
+<p data-reading-anchor id="ch3064-p045">That was the general arrangement, though not an absolute one.</p>
+<p data-reading-anchor id="ch3064-p046">Many powers lay hidden in every corner of the cosmos. Less than one percent of the universe had been explored, and the forces concealed in the darkness were beyond counting.</p>
+<p data-reading-anchor id="ch3064-p047">The Ouroboros Seed, for example, had once suppressed all seven great races by itself, becoming a thorn in the side of each overlord.</p>
+<p data-reading-anchor id="ch3064-p048">“Simply put, the Seven-Realm Martial Capital is the highest authority in the known universe. The great overlords conduct their affairs there. The various species call it the Cosmic Administrative Office.”</p>
+<p data-reading-anchor id="ch3064-p049">“Our human world has never been registered with the cosmic authorities. It's classified as an undiscovered world without higher intelligence. In their eyes, we're probably no different from cattle or sheep.”</p>
+<p data-reading-anchor id="ch3064-p050">“Because of that classification, the Kinsfolk could wipe us out without violating either the letter or the spirit of their laws.”</p>
+<p data-reading-anchor id="ch3064-p051">“So on this trip I'll try to register the human world at the Seven-Realm Martial Capital. Once we're officially recognized as a low-tier world, an extermination attack by the Kinsfolk would violate rules jointly established by the seven overlord alliances. The other overlords would have grounds to oppose them, and we'd have the right to file a protest.”</p>
+<p data-reading-anchor id="ch3064-p052">So that was possible?</p>
+<p data-reading-anchor id="ch3064-p053">The assistant beside Chen Yu brightened immediately and began writing furiously, recording every word Fang Heng said.</p>
+<p data-reading-anchor id="ch3064-p054">In truth, even minor species like the Iron-Eating Beasts and Flying Squirrels knew nothing about this. Only the elves had some knowledge. The moment they informed Fang Heng, he set his plan in motion.</p>
+<p data-reading-anchor id="ch3064-p055">“As for the other reason, that's cultivation...”</p>
+<p data-reading-anchor id="ch3064-p056">Fang Heng narrowed his eyes slightly.</p>
+<p data-reading-anchor id="ch3064-p057">He still wasn't strong enough.</p>
+<p data-reading-anchor id="ch3064-p058">At the very least, Fang Heng could still see a great deal of room for improving himself.</p>
+</article>
+<p class="end" data-reading-anchor id="ch3064-end">— End of Chapter 3064 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Chinese Chapter 3065: 宇宙中心. English Chapter 3064: The Center of the Universe. Narrative paragraphs: 58/58.</li><li>Humanity’s proposed registration at the Seven-Realm Martial Capital is a legal/diplomatic plan, not a guarantee that the Kinsfolk will comply.</li><li>Two emergency survival routes are discussed separately: refuge in Black Mist and evacuation by starship.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_3063_Shattered.html#start">← Previous</a><a class="next" href="Global_Game_AFK_Chapter_3065_Expansion.html#start">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>
