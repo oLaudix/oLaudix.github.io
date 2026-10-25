@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html data-theme="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/><meta content="#171719" name="theme-color"/><title>Chapter 2944 — Assessment | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head><body><header class="topbar" role="banner"><div class="toolbar"><a aria-label="Previous chapter 2943" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2943_Suspicious_Inheritance.html#start" title="Previous chapter">‹</a><select aria-label="Choose a chapter" id="chapter-picker" data-chapter-file="Global_Game_AFK_Chapter_2944_Assessment.html"><option selected="selected" value="Global_Game_AFK_Chapter_2944_Assessment.html">2944 · Assessment</option></select><a aria-label="Next chapter 2945" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2945_World.html#start" title="Next chapter">›</a><button aria-label="Decrease font size" class="toolbtn" id="smaller" title="Smaller text">A−</button><button aria-label="Increase font size" class="toolbtn" id="larger" title="Larger text">A+</button><button aria-label="Toggle dark/light mode" class="toolbtn" id="theme" title="Toggle theme">◐</button></div><div id="progress-track"><div id="progress"></div></div></header><main><span aria-hidden="true" id="start"></span><section class="chapter-section" data-reading-anchor="" id="chapter-2944"><div class="chapter-num">Chapter 2944</div><h2 class="chapter-title">Assessment</h2><p class="source-identity">From original Chinese Chapter 2945 · 评估</p><article class="prose"><p data-reading-anchor="" id="ch2944-p001">&quot;According to our assessment of last night&#x27;s battle, Charlotte can exert more than 95% of her game-world strength in reality. As for Fang Heng, he hasn&#x27;t fought outside the game, so we can&#x27;t judge his true strength.&quot;</p><p data-reading-anchor="" id="ch2944-p002">&quot;The Crisis Response Office has assigned Fang Heng a disaster-level threat rating.&quot;</p><p data-reading-anchor="" id="ch2944-p003">The video-conference participants fell silent.</p><p data-reading-anchor="" id="ch2944-p004">A whole pack of monsters!</p><p data-reading-anchor="" id="ch2944-p005">Ordinary people who had just broken through their Locks could only use 20–30% of their power. Who could be as absurd as Charlotte, reaching almost 100% immediately?</p><p data-reading-anchor="" id="ch2944-p006">&quot;Furthermore, after returning to the Star Map Control Center late last night, Fang Heng entered our laboratory inside a Black Fog Prism. Apparently, he only inspected the staff list.&quot;</p><p data-reading-anchor="" id="ch2944-p007">Someone immediately asked, &quot;He only looked at a list? What the hell is he up to now?&quot;</p><p data-reading-anchor="" id="ch2944-p008">&quot;We don&#x27;t know. To be safe, we revoked his permission to enter the Black Fog Core area as soon as we received the report.&quot;</p><p data-reading-anchor="" id="ch2944-p009">&quot;Which brings us to our next concern: how we should deal with Fang Heng.&quot;</p><p data-reading-anchor="" id="ch2944-p010">Augustine finished his report and quietly waited for the others to speak.</p><p data-reading-anchor="" id="ch2944-p011">At an emergency meeting the previous night, the Inspectorate and council factions had argued fiercely with the military.</p><p data-reading-anchor="" id="ch2944-p012">The central dispute was how to treat Fang Heng.</p><p data-reading-anchor="" id="ch2944-p013">The military believed the Federation had handled him badly from the beginning, insisting on restrictions and creating an awkward situation.</p><p data-reading-anchor="" id="ch2944-p014">Now that he was beyond their control, why not lift the restrictions completely, cooperate sincerely, set aside their differences, and pursue mutual benefits?</p><p data-reading-anchor="" id="ch2944-p015">The Inspectorate insisted that the Emery case remained unresolved and that even Fang Heng might be implicated. His true identity was still unclear, and he was extremely dangerous, so they had to remain on guard.</p><p data-reading-anchor="" id="ch2944-p016">Some even suggested eliminating him while he had only just unlocked his real-world abilities and before he could fully exercise his strength—cutting the problem off at the root.</p><p data-reading-anchor="" id="ch2944-p017">In the end, senior military officers had lost their tempers, unusually enough, and clashed openly with the Inspectorate and council.</p><p data-reading-anchor="" id="ch2944-p018">If they couldn&#x27;t control Fang Heng, they should at least be honest and show a genuine willingness to cooperate.</p><p data-reading-anchor="" id="ch2944-p019">Enough of the tricks.</p><p data-reading-anchor="" id="ch2944-p020">Faced with the military&#x27;s unusually firm position, the Inspectorate had finally backed down a little.</p><p data-reading-anchor="" id="ch2944-p021">The night before, the Federation had ordered all restrictions on Fang Heng lifted. The military had also intervened to halt every investigation into his background and identity.</p><p data-reading-anchor="" id="ch2944-p022">Vice President Jasper tapped his fingers lightly as he considered the matter.</p><p data-reading-anchor="" id="ch2944-p023">Charlotte was already one ticking time bomb. Now they had Fang Heng as well?</p><p data-reading-anchor="" id="ch2944-p024">And Fang Heng seemed even harder to control.</p><p data-reading-anchor="" id="ch2944-p025">Should they deal with him ahead of time?</p><p data-reading-anchor="" id="ch2944-p026">What if an attempt to defuse the bomb merely set it off?</p><p data-reading-anchor="" id="ch2944-p027">As Jasper wrestled with the question, Military Minister Sigmund spoke. &quot;Mr. Vice President, councilors, the military has a new operational proposal.&quot;</p><p data-reading-anchor="" id="ch2944-p028">Everyone in the conference turned toward him.</p><p data-reading-anchor="" id="ch2944-p029">&quot;Go ahead.&quot;</p><p data-reading-anchor="" id="ch2944-p030">&quot;The cocoon theft case has been provisionally set aside. We&#x27;re preparing to reach a cooperation agreement with Fang Heng and accept a special A+-rank mission from the Kinsfolk. Mr. President, this is the military&#x27;s mission execution report.&quot;</p><p data-reading-anchor="" id="ch2944-p031">The participants found that strange.</p><p data-reading-anchor="" id="ch2944-p032">Only A+?</p><p data-reading-anchor="" id="ch2944-p033">Their previous mission against the nest had been SS-rank.</p><p data-reading-anchor="" id="ch2944-p034">Was this really worth making such a fuss over?</p><p data-reading-anchor="" id="ch2944-p035">Jasper examined the mission assessment report carefully and frowned.</p><p data-reading-anchor="" id="ch2944-p036">&quot;A mission in the real world?&quot;</p><p data-reading-anchor="" id="ch2944-p037">What?</p><p data-reading-anchor="" id="ch2944-p038">A real-world mission?!</p><p data-reading-anchor="" id="ch2944-p039">Whispers erupted throughout the video conference.</p><p data-reading-anchor="" id="ch2944-p040">A mission inside the game and one outside it were two completely different things!</p><p data-reading-anchor="" id="ch2944-p041">The SS-rank nest mission had nearly wiped out the entire military. They had barely scraped through, and now they wanted another operation this dangerous already?</p><p data-reading-anchor="" id="ch2944-p042">Had they forgotten their own limitations?</p><p data-reading-anchor="" id="ch2944-p043">&quot;Yes.&quot;</p><p data-reading-anchor="" id="ch2944-p044">&quot;Hmm. The report makes everything clear. If the military is confident, proceed. Do you need support from any other departments?&quot;</p><p data-reading-anchor="" id="ch2944-p045">&quot;The mission requires construction work and the collection of biological samples from the planet&#x27;s surface. We&#x27;ll need researchers to accompany us. I&#x27;ve prepared a list of personnel and would like those individuals assigned to the operation.&quot;</p><p data-reading-anchor="" id="ch2944-p046">&quot;Very well. I&#x27;ll arrange it.&quot;</p><p data-reading-anchor="" id="ch2944-p047">&quot;There&#x27;s one more thing. This mission requires Fang Heng&#x27;s assistance.&quot;</p><p data-reading-anchor="" id="ch2944-p048">The entire conference fell silent again.</p><p data-reading-anchor="" id="ch2944-p049">Fang Heng. Again!</p><p data-reading-anchor="" id="ch2944-p050">...</p><p data-reading-anchor="" id="ch2944-p051">Two days later, in the game world.</p><p data-reading-anchor="" id="ch2944-p052">[Hint: Player is currently initiating a warp operation...]</p><p data-reading-anchor="" id="ch2944-p053">[Hint: Player is leaving the game. The player&#x27;s physical body will be warped directly into the target world. Certain actions will be unavailable during this state...]</p><p data-reading-anchor="" id="ch2944-p054">[Hint: Please confirm the warp. If confirmation is not received within 5 seconds, the operation will be canceled...]</p><p data-reading-anchor="" id="ch2944-p055">[5...]</p><p data-reading-anchor="" id="ch2944-p056">[4...]</p><p data-reading-anchor="" id="ch2944-p057">[1.]</p><p data-reading-anchor="" id="ch2944-p058">[You have exited the game.]</p><p data-reading-anchor="" id="ch2944-p059">Whoosh!</p><p data-reading-anchor="" id="ch2944-p060">A flash of light appeared.</p><p data-reading-anchor="" id="ch2944-p061">A starship emerged from the warp passage onto a barren, desolate plain.</p><p data-reading-anchor="" id="ch2944-p062">Mechanical announcements sounded inside the ship.</p><p data-reading-anchor="" id="ch2944-p063">&quot;Warp system operation complete.&quot;</p><p data-reading-anchor="" id="ch2944-p064">&quot;Confirming surrounding environmental conditions...&quot;</p><p data-reading-anchor="" id="ch2944-p065">&quot;Initiating radar scan.&quot;</p><p data-reading-anchor="" id="ch2944-p066">&quot;Biological threat level: Low...&quot;</p><p data-reading-anchor="" id="ch2944-p067">&quot;No suspicious threats detected.&quot;</p><p data-reading-anchor="" id="ch2944-p068">&quot;Defensive barrier energy decreasing...&quot;</p><p data-reading-anchor="" id="ch2944-p069">&quot;Warning. Warning...&quot;</p><p data-reading-anchor="" id="ch2944-p070">&quot;External hull metal sustaining wear... Increasing defensive barrier energy output... Analyzing... Anomalous corrosive substance detected in the atmosphere...&quot;</p><p data-reading-anchor="" id="ch2944-p071">&quot;Warning: This world&#x27;s atmosphere contains an unidentified anomalous energy-based corrosive substance. It significantly affects defensive barriers. If the barrier fails, the substance will continuously damage the ship&#x27;s hull. Exercise caution.&quot;</p><p data-reading-anchor="" id="ch2944-p072">Fang Heng looked out through the cabin window.</p><p data-reading-anchor="" id="ch2944-p073">Orange-yellow sandstorms engulfed everything outside.</p><p data-reading-anchor="" id="ch2944-p074">On closer inspection, windblown sand filled the air, limiting visibility to less than ten meters.</p><p data-reading-anchor="" id="ch2944-p075">With the warp complete, Wayne and the other accompanying players began to move about.</p><p data-reading-anchor="" id="ch2944-p076">Everyone was somewhat nervous.</p><p data-reading-anchor="" id="ch2944-p077">This was completely unlike their previous gaming experiences.</p><p data-reading-anchor="" id="ch2944-p078">Before, they had always remained inside the game. This time, the ship had passed right through the game&#x27;s barrier and out into reality. They had left their game pods physically and warped directly into the starship&#x27;s cabin.</p><p data-reading-anchor="" id="ch2944-p079">The world outside was a real alien world!</p><p data-reading-anchor="" id="ch2944-p080">Click, click, click...</p><p data-reading-anchor="" id="ch2944-p081">Zaka pressed several buttons on his protective suit. A layer of energy immediately spread across it.</p><p data-reading-anchor="" id="ch2944-p082">The suit fitted his body like a thin film, allowing him to fight freely while providing an outer energy shield, automatic external-pressure adjustment, and a breathing-circulation system.</p><p data-reading-anchor="" id="ch2944-p083">Fang Heng exchanged a glance with Captain Giselle and nodded. &quot;Let&#x27;s begin.&quot;</p><p data-reading-anchor="" id="ch2944-p084">Because this was a real world and the warp distance was enormous, the Federation possessed only one large starship capable of reaching it.</p></article><p class="end" data-reading-anchor="" id="ch2944-end">— End of Chapter 2944 —</p><details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Fully translated from original Chinese Chapter 2945, title: 评估.</li><li>All 84 source narrative paragraphs translated in their original order. Website content and end markers excluded.</li><li>The source first identifies Jasper as Vice President and later addresses him as President; this apparent office-title inconsistency is retained as spoken.</li><li>The source calls the proposed Kinsfolk mission A+; the next chapter calls it S+. These are source discrepancies, not a translation change.</li></ul></details><nav aria-label="Chapter navigation" class="chapter-nav"><a href="Global_Game_AFK_Chapter_2943_Suspicious_Inheritance.html#start">← Previous chapter (2943)</a><a class="next" href="Global_Game_AFK_Chapter_2945_World.html#start">Next chapter (2945) →</a></nav></section><footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer></main><div aria-live="polite" id="reading-toast" role="status"></div><script src="chapters.js"></script><script>(()=>{
+'use strict';
+const storeKey='afk-reader-position:chapter-2944:v2';
+const sizeKey='afk-reader-font-size:compact-v3';
+const themeKey='afk-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem('afk-reader-test','ok');localStorage.removeItem('afk-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored('afk-last-chapter', "Global_Game_AFK_Chapter_2944_Assessment.html");
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();</script></body></html>

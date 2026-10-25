@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html data-theme="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/><meta content="#171719" name="theme-color"/><title>Chapter 2954 — The Grind | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head><body><header class="topbar" role="banner"><div class="toolbar"><a aria-label="Previous chapter 2953" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2953_Conveyor_Transport.html#start" title="Previous chapter">‹</a><select aria-label="Choose a chapter" id="chapter-picker" data-chapter-file="Global_Game_AFK_Chapter_2954_The_Grind.html"><option selected="selected" value="Global_Game_AFK_Chapter_2954_The_Grind.html">2954 · The Grind</option></select><a aria-label="Next chapter 2955" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2955_Mechanical_Legion.html#start" title="Next chapter">›</a><button aria-label="Decrease font size" class="toolbtn" id="smaller" title="Smaller text">A−</button><button aria-label="Increase font size" class="toolbtn" id="larger" title="Larger text">A+</button><button aria-label="Toggle dark/light mode" class="toolbtn" id="theme" title="Toggle theme">◐</button></div><div id="progress-track"><div id="progress"></div></div></header><main><span aria-hidden="true" id="start"></span><section class="chapter-section" data-reading-anchor="" id="chapter-2954"><div class="chapter-num">Chapter 2954</div><h2 class="chapter-title">The Grind</h2><p class="source-identity">From original Chinese Chapter 2955 · 肝</p><article class="prose"><p data-reading-anchor="" id="ch2954-p001">In the underground base&#x27;s research district.</p><p data-reading-anchor="" id="ch2954-p002">Li Zhixuan had gathered all the researchers in the starship-construction area.</p><p data-reading-anchor="" id="ch2954-p003">After spending a huge amount of Contribution Points, she and several colleagues had completed a simulated three-dimensional model of the starship on the base&#x27;s second underground level.</p><p data-reading-anchor="" id="ch2954-p004">Now Fang Heng didn&#x27;t need to say another word. Everyone understood what he was doing.</p><p data-reading-anchor="" id="ch2954-p005">Building a starship!</p><p data-reading-anchor="" id="ch2954-p006">And an enormous one, unlike anything they had ever attempted.</p><p data-reading-anchor="" id="ch2954-p007">The scientists were dumbstruck.</p><p data-reading-anchor="" id="ch2954-p008">Hadn&#x27;t they been assigned to build a Star Map communications base and a Kinsfolk warp passage?</p><p data-reading-anchor="" id="ch2954-p009">How had that turned into constructing a ship?</p><p data-reading-anchor="" id="ch2954-p010">And doing it in the real world, no less?</p><p data-reading-anchor="" id="ch2954-p011">Even with the Kinsfolk system&#x27;s assistance, building a starship in reality would be at least ten times harder than building one inside the game.</p><p data-reading-anchor="" id="ch2954-p012">Zaka and the other players were even more astonished.</p><p data-reading-anchor="" id="ch2954-p013">They had all known Fang Heng was working on something on the second underground level.</p><p data-reading-anchor="" id="ch2954-p014">But something this huge?</p><p data-reading-anchor="" id="ch2954-p015">Build a starship?</p><p data-reading-anchor="" id="ch2954-p016">Us?</p><p data-reading-anchor="" id="ch2954-p017">Was that even a job people like them could do?</p><p data-reading-anchor="" id="ch2954-p018">Excitement flashed through Alec&#x27;s eyes.</p><p data-reading-anchor="" id="ch2954-p019">As expected, no one in this world could threaten Boss Fang anymore. The Vampires were about to conquer the stars!</p><p data-reading-anchor="" id="ch2954-p020">&quot;Everyone, starship construction is the Federation&#x27;s highest-level secret mission. For security reasons, you were brought here under the cover of a different assignment. This project concerns humanity&#x27;s future. I hope every one of you will devote your full efforts to completing the ship.&quot;</p><p data-reading-anchor="" id="ch2954-p021">The Federation researchers were thoroughly taken in.</p><p data-reading-anchor="" id="ch2954-p022">Oh.</p><p data-reading-anchor="" id="ch2954-p023">So it was a secret Western Federation project.</p><p data-reading-anchor="" id="ch2954-p024">That made sense.</p><p data-reading-anchor="" id="ch2954-p025">The public assignment had been a cover to maintain secrecy.</p><p data-reading-anchor="" id="ch2954-p026">They had been recruited to build a giant interstellar warship from the start!</p><p data-reading-anchor="" id="ch2954-p027">No wonder.</p><p data-reading-anchor="" id="ch2954-p028">Could an ordinary person really construct an underground facility on this scale?</p><p data-reading-anchor="" id="ch2954-p029">The Federation had to be supporting Boss Fang from behind the scenes!</p><p data-reading-anchor="" id="ch2954-p030">Listening to Li Zhixuan&#x27;s speech, Fang Heng inwardly gave her a thumbs-up.</p><p data-reading-anchor="" id="ch2954-p031">Who would have guessed? Li Zhixuan usually seemed so quiet and scholarly, yet she could lie without missing a beat or feeling the slightest guilt!</p><p data-reading-anchor="" id="ch2954-p032">She had completely fooled the researchers.</p><p data-reading-anchor="" id="ch2954-p033">After a pause, Li Zhixuan looked toward Zaka and the others. &quot;As for the rest of you, once construction is complete, you&#x27;ll have the option of remaining aboard as members of the ship&#x27;s crew.&quot;</p><p data-reading-anchor="" id="ch2954-p034">Wayne and the other players felt their hearts leap. They turned toward Fang Heng. When he nodded, their apprehension vanished.</p><p data-reading-anchor="" id="ch2954-p035">Wayne had been worried that they&#x27;d offend the Western Federation during this operation and suffer for it once they parted ways with Fang Heng. He had even considered finding himself an escape route.</p><p data-reading-anchor="" id="ch2954-p036">But Boss Fang had already thought of their future!</p><p data-reading-anchor="" id="ch2954-p037">They were effectively building a starship for themselves!</p><p data-reading-anchor="" id="ch2954-p038">Once the ship was finished, they could become part of its crew!</p><p data-reading-anchor="" id="ch2954-p039">Li Zhixuan calmly surveyed the room and bowed. &quot;You&#x27;re among the Federation&#x27;s finest researchers. Thank you for everything you&#x27;re doing for humanity.&quot;</p><p data-reading-anchor="" id="ch2954-p040">&quot;Our warp passage is currently Level 3, and its carrying capacity is limited. It&#x27;s running twenty-four hours a day transporting the essential materials needed to build the ship, so we can&#x27;t obtain assistance from Kinsfolk mechanical creatures. Construction will be extremely difficult.&quot;</p><p data-reading-anchor="" id="ch2954-p041">&quot;Bear with it for now. First we&#x27;ll build the main body. Once the hull is complete, we can upgrade the passage immediately...&quot;</p><p data-reading-anchor="" id="ch2954-p042">&quot;If everything goes smoothly...&quot;</p><p data-reading-anchor="" id="ch2954-p043">After convincing the researchers, Li Zhixuan approached Fang Heng and spoke quietly. &quot;If we begin with the main hull, we could just about finish the basic structure in a month. Think of it as an empty shell. Fitting out every compartment, installing weapons, and completing the onboard systems could take more than six months.&quot;</p><p data-reading-anchor="" id="ch2954-p044">&quot;Good.&quot;</p><p data-reading-anchor="" id="ch2954-p045">An empty shell would be enough for the moment.</p><p data-reading-anchor="" id="ch2954-p046">Its compartments would be empty, it would have no offensive capabilities, and its defenses would be weak. But once the shell was complete, it could warp as a whole and escape the Western Federation&#x27;s restrictions.</p><p data-reading-anchor="" id="ch2954-p047">And he still had his zombie clones.</p><p data-reading-anchor="" id="ch2954-p048">He could speed construction up considerably!</p><p data-reading-anchor="" id="ch2954-p049">Following Li Zhixuan&#x27;s speech, the researchers and players threw themselves into around-the-clock shifts with renewed energy.</p><p data-reading-anchor="" id="ch2954-p050">The goal was to build the starship&#x27;s basic shell within a month.</p><p data-reading-anchor="" id="ch2954-p051">But the researchers soon began looking at Fang Heng more and more strangely.</p><p data-reading-anchor="" id="ch2954-p052">Every so often, a newly constructed ship compartment would seem to materialize from the lower levels, as though conjured by magic.</p><p data-reading-anchor="" id="ch2954-p053">They could tell it had only recently been built.</p><p data-reading-anchor="" id="ch2954-p054">It was rough and needed extensive finishing and later equipment installation.</p><p data-reading-anchor="" id="ch2954-p055">But considering the unbelievable construction speed...</p><p data-reading-anchor="" id="ch2954-p056">The researchers began to wonder whether several other teams were working around the clock on the fourth underground level.</p><p data-reading-anchor="" id="ch2954-p057">There was simply no other explanation for such efficiency.</p><p data-reading-anchor="" id="ch2954-p058">&quot;How does it look?&quot;</p><p data-reading-anchor="" id="ch2954-p059">&quot;The main compartments are usable. Some details still need modifying before we can assemble them. If the zombies can mass-produce these compartments, we could shorten the construction schedule by 50%. I&#x27;ll make some adjustments to the plan...&quot;</p><p data-reading-anchor="" id="ch2954-p060">Li Zhixuan nodded and called the researchers together to discuss the next stage.</p><p data-reading-anchor="" id="ch2954-p061">Excellent.</p><p data-reading-anchor="" id="ch2954-p062">Fang Heng continued directing the zombie clones below to construct compartment shells.</p><p data-reading-anchor="" id="ch2954-p063">The zombie clones...</p><p data-reading-anchor="" id="ch2954-p064">From here on, it was time to grind without stopping.</p><p data-reading-anchor="" id="ch2954-p065">Fang Heng opened the game notifications and took a glance.</p><p data-reading-anchor="" id="ch2954-p066">They had now explored most of the planet.</p><p data-reading-anchor="" id="ch2954-p067">Its mineral reserves were enormous. Even mining at full speed, he estimated that stripping the place bare would take two months.</p><p data-reading-anchor="" id="ch2954-p068">But one thing puzzled him.</p><p data-reading-anchor="" id="ch2954-p069">His Lickers hadn&#x27;t seen a single alien organism during their explorations.</p><p data-reading-anchor="" id="ch2954-p070">Were there really no Zerg on this world?</p><p data-reading-anchor="" id="ch2954-p071">Then what had wiped out the Kinsfolk mercenary teams on the previous mining expedition?</p><p data-reading-anchor="" id="ch2954-p072">...</p><p data-reading-anchor="" id="ch2954-p073">Five days later.</p><p data-reading-anchor="" id="ch2954-p074">Everything was proceeding in an orderly fashion.</p><p data-reading-anchor="" id="ch2954-p075">Since learning of Fang Heng&#x27;s starship project, Wayne&#x27;s players had been energized and worked harder than ever.</p><p data-reading-anchor="" id="ch2954-p076">Over the past few days, they had watched the three-dimensional blueprint gradually become a physical structure under Fang Heng and the research team&#x27;s efforts!</p><p data-reading-anchor="" id="ch2954-p077">They&#x27;d have stories to boast about afterward.</p><p data-reading-anchor="" id="ch2954-p078">Ever seen a starship?</p><p data-reading-anchor="" id="ch2954-p079">I built one with my own hands!</p><p data-reading-anchor="" id="ch2954-p080">Zaka grinned to himself as he went back to sorting ore.</p><p data-reading-anchor="" id="ch2954-p081">Nearby, Fang Heng checked his Kinsfolk Contribution at a newly installed central AI terminal.</p><p data-reading-anchor="" id="ch2954-p082">Although Wayne&#x27;s and Zaka&#x27;s teams had been sorting ore like men possessed, they were gradually falling behind the growing output.</p><p data-reading-anchor="" id="ch2954-p083">The good news was that after the main starship section was completed, the warp passage had reached Stage Four the day before, easing the bottleneck in materials transport.</p><p data-reading-anchor="" id="ch2954-p084">Should he recruit some advanced Kinsfolk robots to speed things up next?</p><p data-reading-anchor="" id="ch2954-p085">As he considered it, two players hurried down from the upper level, looking nervous.</p><p data-reading-anchor="" id="ch2954-p086">&quot;Boss Fang, Boss Wayne, we&#x27;ve got trouble. Strange creatures have been found outside. They might be hostile native life forms.&quot;</p></article><p class="end" data-reading-anchor="" id="ch2954-end">— End of Chapter 2954 —</p><details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Fully translated from original Chinese Chapter 2955, title: 肝.</li><li>All 86 source narrative paragraphs translated in their original order. Website content and end markers excluded.</li><li>Researcher Dr. Li Zhixuan presents starship construction as a secret Federation project to motivate the staff; her claim is deliberate misdirection.</li><li>Construction time estimates: one month for a shell, more than six months for full fitting, potentially 50% reduced with zombie assembly.</li></ul></details><nav aria-label="Chapter navigation" class="chapter-nav"><a href="Global_Game_AFK_Chapter_2953_Conveyor_Transport.html#start">← Previous chapter (2953)</a><a class="next" href="Global_Game_AFK_Chapter_2955_Mechanical_Legion.html#start">Next chapter (2955) →</a></nav></section><footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer></main><div aria-live="polite" id="reading-toast" role="status"></div><script src="chapters.js"></script><script>(()=>{
+'use strict';
+const storeKey='afk-reader-position:chapter-2954:v2';
+const sizeKey='afk-reader-font-size:compact-v3';
+const themeKey='afk-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem('afk-reader-test','ok');localStorage.removeItem('afk-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored('afk-last-chapter', "Global_Game_AFK_Chapter_2954_The_Grind.html");
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();</script></body></html>

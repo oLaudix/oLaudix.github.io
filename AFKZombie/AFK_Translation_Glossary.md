@@ -1,6 +1,6 @@
 # Global Game: AFK in the Zombie Apocalypse — Translation Glossary
 
-**Version:** 27 (24 October 2026)
+**Version:** 28 (25 October 2026)
 **Authority:** Names and wording already agreed in *our own* English translation. Our previously read published translation can establish a character alias when explicitly confirmed with the user (e.g., Charlotte); otherwise names are set by our translation and user decisions, not automatic third-party substitutions.  
 **Purpose:** A short, portable reference to include unchanged in each translation ZIP, and update only when new terminology is confirmed. The glossary governs spelling, not the novel's plot or prose.
 
@@ -791,3 +791,23 @@
 - Lock training uses multiple distinct timelines: Charlotte's prior **five months** of training and a prior month-long unconscious period, then the current exchange over **three days**. Keep distinct from the two-day phrasing used by Benny in the following chapter.
 - Chinese Chapter 2940 ends with the call to raise barriers during the island confrontation; the battle has not yet concluded.
 - All **1,490 / 1,490** original narrative paragraphs from Chinese 2921–2940 are preserved across the 20 English HTML chapters, with no duplicated in-body chapter headings found.
+
+
+## V28 additions — English 2940–2959 (Chinese 2941–2960)
+
+- **苏观瞳 → Su Guantong**, female operative of the **Eastern Federation Special Operations Bureau (东区联邦特勤局)**; **蓝瞳 → Blue Eyes** is her codename, not a second person.
+- **李芷萱 → Dr. Li Zhixuan**, female Federation research lead and Eastern Federation embedded operative. Keep distinct from **Li Shaoqiang** and other Li-named characters.
+- **新人类火种计划 → New Humanity Kindling Project**; **古人类 → Ancient Humans**, a historical alien humanlike civilization claiming descent from **泰坦 → Titans**, an ancient spacefaring race. Preserve the alleged status of this history.
+- **AU-092**: resource-rich, corrosive sandstorm world. Later destination is the Ancient Humans' world (Kinsfolk D danger rating, G resource rating), not AU-092.
+- **异化钨矿石 → Mutated Tungsten Ore** (raw material); **异化钢材 → Mutated Steel** (refined material), used for self-repairing, defensive alloys.
+- **反重力石块 → Antigravity Blocks**, modular 1.5 m cubic corrosion-resistant blocks, modes **Mobile / Adjustment / Fixed**; assembled into road platforms with **alloy conveyor belts** and protective shields. **抗腐蚀性合金 → corrosion-resistant alloy**.
+- **吉赛尔舰长 → Captain Giselle** (Western Federation military); **佐兰舰长 → Captain Zolan** appears unexpectedly in source CN2946 amid Giselle scenes; retain explicit source identity and flag the possible author substitution rather than merging silently.
+- **西格蒙德 → Sigmund** (Western Federation military minister); **杰斯珀 → Jasper** (vice president; source also calls him president). **阿纳托利 → Anatoly** (Federation minister).
+- **贾里德 → Colonel Jared** (Federation laboratory security); **维昂 → Vion**, presidential expert left behind to observe Fang Heng, *not* **维恩 → Wayne**, the mercenary team leader. Source accidentally uses 维恩 in Vion observation scenes.
+- **希洛克 → Shilock** (Inspectorate observation team leader). **柯莱特 → Colette** (male sergeant/deputy captain, Federation military, distinct from Chloe 克洛伊). **亚克力 / 亚力克 → Alec** (male Vampire Marquis), **扎卡 → Zaka**.
+- **沧鸟机械兵团 → Cangniao Mechanical Legion**: an awakened, highly territorial mechanical civilization. Its black flying spherical units predict energy-beam trajectories and nullify psychic control; weaker against Lightning Storm + biological cannon density. Never classify these as actual Zerg.
+- **星舰钥匙 → Starship Key**, compatible key required to construct a Kinsfolk starship. Fang Heng acquired his from Emery, originally linked to Western Federation resources.
+- **大型/巨型星舰 → large/giant starship** depending on literal source, constructed 73% complete as an empty shell with no onboard weapons/defensive installations. **Current combat rating LV 0** in one game hint; **ship strength LV 1** in mission-eligibility narrative. Keep both.
+- **眷族贡献度 → Kinsfolk Contribution Points**, **联邦贡献点数 → Federation Contribution Points**. The presidential expert faction attempts to replace the former with the latter when distributing ore profits; the currencies are not interchangeable.
+- **眷族主脑 → Kinsfolk central AI**; **跃迁通道 → warp passage** with Stages 1, 2, 3 and 4. A Stage Three passage can transfer nonliving materials but cannot warp people; completed shell permits an emergency whole-starship warp, despite risk of hull damage.
+- **Source discrepancies:** CN2945 uses A+ for planned offworld mission, CN2946 calls it S+ and Fang Heng later says A. CN2945 calls Jasper President after establishing Vice President. CN2946 mentions Captain Zolan in an otherwise Captain Giselle-led expedition. CN2952 and CN2953 sporadically call presidential expert Vion 'Wayne'. CN2957 gives ship combat LV 0 while later mission suitability is LV 1. CN2958 Vion wagers a *one-year* loan of researchers, but CN2959 Fang Heng promises safe return within *three months*. All are documented in chapter notes.

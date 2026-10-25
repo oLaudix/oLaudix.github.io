@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html data-theme="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/><meta content="#171719" name="theme-color"/><title>Chapter 2958 — Negotiations Collapse | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head><body><header class="topbar" role="banner"><div class="toolbar"><a aria-label="Previous chapter 2957" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2957_Cangniao.html#start" title="Previous chapter">‹</a><select aria-label="Choose a chapter" id="chapter-picker" data-chapter-file="Global_Game_AFK_Chapter_2958_Negotiations_Collapse.html"><option selected="selected" value="Global_Game_AFK_Chapter_2958_Negotiations_Collapse.html">2958 · Negotiations Collapse</option></select><a aria-label="Next chapter 2959" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2959_Tremors.html#start" title="Next chapter">›</a><button aria-label="Decrease font size" class="toolbtn" id="smaller" title="Smaller text">A−</button><button aria-label="Increase font size" class="toolbtn" id="larger" title="Larger text">A+</button><button aria-label="Toggle dark/light mode" class="toolbtn" id="theme" title="Toggle theme">◐</button></div><div id="progress-track"><div id="progress"></div></div></header><main><span aria-hidden="true" id="start"></span><section class="chapter-section" data-reading-anchor="" id="chapter-2958"><div class="chapter-num">Chapter 2958</div><h2 class="chapter-title">Negotiations Collapse</h2><p class="source-identity">From original Chinese Chapter 2959 · 谈崩</p><article class="prose"><p data-reading-anchor="" id="ch2958-p001">Even without Fang Heng&#x27;s Lightning Storm, the sheer density of biological cannon fire had increased so much that the black mechanical spheres were beginning to suffer losses.</p><p data-reading-anchor="" id="ch2958-p002">As Vion watched Fang Heng gradually seize control of the battlefield, fear entered his eyes.</p><p data-reading-anchor="" id="ch2958-p003">The mechanical spheres themselves had relatively weak physical defenses. A direct hit from an energy beam or biological cannon was enough to destroy one.</p><p data-reading-anchor="" id="ch2958-p004">And as the rate of biological fire increased, the machines had to devote so much processing power and movement to dodging that their own attack frequency plummeted.</p><p data-reading-anchor="" id="ch2958-p005">Each time Fang Heng unleashed another thunderstorm, entire swaths of mechanical creatures were blown apart.</p><p data-reading-anchor="" id="ch2958-p006">After fighting for a while, the black spheres had lost more than half their number. Their offensive weakened drastically, and they began to retreat, vanishing into the yellow haze of the sandstorm.</p><p data-reading-anchor="" id="ch2958-p007">Good grief! Had they really held them off?</p><p data-reading-anchor="" id="ch2958-p008">Vion was dumbfounded.</p><p data-reading-anchor="" id="ch2958-p009">&quot;Hahaha! What bullshit Cangniao? That&#x27;s all they&#x27;ve got!&quot;</p><p data-reading-anchor="" id="ch2958-p010">Alec raised his middle finger toward the retreating machines.</p><p data-reading-anchor="" id="ch2958-p011">Zaka strolled toward Vion, grinning. &quot;Well, Mr. Expert? What do you say now?&quot;</p><p data-reading-anchor="" id="ch2958-p012">Vion hated Fang Heng and his people with a passion. Outwardly, he forced himself to answer through gritted teeth. &quot;Don&#x27;t worry. The Federation won&#x27;t go back on its word. Once everything is over...&quot;</p><p data-reading-anchor="" id="ch2958-p013">Before he could finish, powerful spatial fluctuations appeared nearby.</p><p data-reading-anchor="" id="ch2958-p014">A large starship emerged from a white warp passage and slowly moved into position beside the platform.</p><p data-reading-anchor="" id="ch2958-p015">The starship completed its warp.</p><p data-reading-anchor="" id="ch2958-p016">Captain Giselle looked out at the platform surrounding the base and froze in disbelief.</p><p data-reading-anchor="" id="ch2958-p017">Good grief.</p><p data-reading-anchor="" id="ch2958-p018">He&#x27;d been away little more than half a month, and the place had developed this much?</p><p data-reading-anchor="" id="ch2958-p019">He&#x27;d worried about Fang Heng the entire time. Yet from the look of things, the man was doing better than anyone!</p><p data-reading-anchor="" id="ch2958-p020">Giselle personally led a group out of the ship to meet Fang Heng and his companions.</p><p data-reading-anchor="" id="ch2958-p021">&quot;I&#x27;m sorry we&#x27;re late.&quot;</p><p data-reading-anchor="" id="ch2958-p022">Captain Giselle looked around, then turned to Fang Heng. &quot;Some things happened. We&#x27;ve done everything we could.&quot;</p><p data-reading-anchor="" id="ch2958-p023">Vion approached with his men too.</p><p data-reading-anchor="" id="ch2958-p024">Emboldened by the arrival of reinforcements, Vion began thinking about making things difficult for Fang Heng again.</p><p data-reading-anchor="" id="ch2958-p025">Giselle glanced at him and said, &quot;The Cangniao&#x27;s main battle formation will be here soon. We must evacuate immediately. We can discuss everything in detail once we&#x27;re back at headquarters.&quot;</p><p data-reading-anchor="" id="ch2958-p026">&quot;No.&quot;</p><p data-reading-anchor="" id="ch2958-p027">Fang Heng shook his head. &quot;We&#x27;ve made other arrangements. I have an agreement with Mr. Vion, so I won&#x27;t return with you. The Western Federation&#x27;s researchers will also remain here to continue their work. They won&#x27;t be gone long. They&#x27;ll return safely within three months at most.&quot;</p><p data-reading-anchor="" id="ch2958-p028">The Federation soldiers stared at Fang Heng as though he had gone mad.</p><p data-reading-anchor="" id="ch2958-p029">Vion was equally stunned, staring at him in disbelief.</p><p data-reading-anchor="" id="ch2958-p030">He was really staying?</p><p data-reading-anchor="" id="ch2958-p031">Was he not afraid of dying?</p><p data-reading-anchor="" id="ch2958-p032">&quot;Hey! What are you doing?!&quot;</p><p data-reading-anchor="" id="ch2958-p033">While the others were still confused, Zaka stepped forward and blocked some soldiers who were preparing to detach and load the temporary base compartments. &quot;You lot, stop right there! Those are ours!&quot;</p><p data-reading-anchor="" id="ch2958-p034">Huh?</p><p data-reading-anchor="" id="ch2958-p035">The soldiers trying to load the compartments back aboard their starship were dumbfounded.</p><p data-reading-anchor="" id="ch2958-p036">What did he mean?</p><p data-reading-anchor="" id="ch2958-p037">Those compartments had originally come from their own ship. When had they become someone else&#x27;s property?</p><p data-reading-anchor="" id="ch2958-p038">Zaka swaggered up to the soldiers and pointed at Vion. &quot;This brat lost them to us in a wager. They&#x27;re payment for repelling the Cangniao combat group. Ask him if you don&#x27;t believe me!&quot;</p><p data-reading-anchor="" id="ch2958-p039">Faced with everyone&#x27;s stares, Vion said darkly, &quot;Yes, we did make that wager. But this isn&#x27;t the time for a transfer. Once we transport the compartments back to our world, then...&quot;</p><p data-reading-anchor="" id="ch2958-p040">Fang Heng said calmly, &quot;There&#x27;s no need to wait. Don&#x27;t take the compartments back. Leave them here. We&#x27;ll take care of them.&quot;</p><p data-reading-anchor="" id="ch2958-p041">Vion clenched his fists. &quot;Fang Heng! Are you determined to make an enemy of the Western Federation?&quot;</p><p data-reading-anchor="" id="ch2958-p042">Giselle stood silently to the side, apparently content to watch the show.</p><p data-reading-anchor="" id="ch2958-p043">He had no idea what had happened between them—or how his ship&#x27;s compartments had ended up being wagered away to Fang Heng.</p><p data-reading-anchor="" id="ch2958-p044">But after thinking it over, perhaps this was for the best.</p><p data-reading-anchor="" id="ch2958-p045">The three compartments were getting old anyway. Since the President&#x27;s Office had caused the trouble, he could demand that they pay for replacements when he got back.</p><p data-reading-anchor="" id="ch2958-p046">Besides, he disliked those damn presidential experts too.</p><p data-reading-anchor="" id="ch2958-p047">Zaka sneered. &quot;Why are you suddenly so angry? Can&#x27;t stand losing?&quot;</p><p data-reading-anchor="" id="ch2958-p048">&quot;Fine! I&#x27;d like to see how long you survive here! And those researchers were trained by the Western Federation. If a single hair on their heads is harmed, the Federation will not let the matter rest!&quot;</p><p data-reading-anchor="" id="ch2958-p049">Vion waved angrily and returned to the starship with his subordinates, leaving Fang Heng and the military personnel staring at each other.</p><p data-reading-anchor="" id="ch2958-p050">Colette approached Fang Heng, worried. &quot;Boss Fang, are you really not evacuating? You may have defeated one Cangniao formation, but their forces will only grow larger. I&#x27;m afraid...&quot;</p><p data-reading-anchor="" id="ch2958-p051">&quot;Thank you. We&#x27;ll be fine.&quot;</p><p data-reading-anchor="" id="ch2958-p052">&quot;Very well. Take care of yourselves. We have orders to follow, so we&#x27;ll leave you to it.&quot;</p><p data-reading-anchor="" id="ch2958-p053">...</p><p data-reading-anchor="" id="ch2958-p054">Vion returned to the starship in a foul mood.</p><p data-reading-anchor="" id="ch2958-p055">He had originally considered negotiating with Fang Heng again. If Fang Heng had been willing to yield, Vion might have offered him a small share of the profits. But after such defiance, he had no desire to speak with him further.</p><p data-reading-anchor="" id="ch2958-p056">The rest of the expert team had come aboard as well.</p><p data-reading-anchor="" id="ch2958-p057">The experts were in fairly good spirits.</p><p data-reading-anchor="" id="ch2958-p058">They&#x27;d heard that Fang Heng had extracted a huge amount of ore from this planet, and they had come to take possession of it.</p><p data-reading-anchor="" id="ch2958-p059">But when they saw Vion&#x27;s expression, their mood turned serious. Something had clearly gone wrong.</p><p data-reading-anchor="" id="ch2958-p060">&quot;Vion, what happened?&quot;</p><p data-reading-anchor="" id="ch2958-p061">&quot;Negotiations collapsed.&quot;</p><p data-reading-anchor="" id="ch2958-p062">Vion snapped the answer and quickly explained what had happened.</p><p data-reading-anchor="" id="ch2958-p063">The expert team fell silent again.</p><p data-reading-anchor="" id="ch2958-p064">What did he mean?</p><p data-reading-anchor="" id="ch2958-p065">They weren&#x27;t getting the ore?</p><p data-reading-anchor="" id="ch2958-p066">And they&#x27;d lost the compartments too?</p><p data-reading-anchor="" id="ch2958-p067">Not just the equipment—they&#x27;d lost the accompanying researchers as well?</p><p data-reading-anchor="" id="ch2958-p068">They looked at one another.</p><p data-reading-anchor="" id="ch2958-p069">This was absurd.</p><p data-reading-anchor="" id="ch2958-p070">How had they invested so much energy and so many resources in the journey, only to return with no profit and lose everything they&#x27;d brought?</p><p data-reading-anchor="" id="ch2958-p071">Soon the military personnel returned to the starship too.</p><p data-reading-anchor="" id="ch2958-p072">For Captain Giselle, there was at least one piece of good news.</p><p data-reading-anchor="" id="ch2958-p073">With the compartments and researchers lost to Fang Heng, only Colette&#x27;s soldiers and Vion&#x27;s men needed evacuation.</p><p data-reading-anchor="" id="ch2958-p074">Preparations took less than two minutes. The starship was ready to warp at any moment.</p><p data-reading-anchor="" id="ch2958-p075">&quot;Report!&quot; A soldier in the main control area nodded. &quot;Warp positioning is complete. We can activate the spatial warp and return to the main base whenever you give the order.&quot;</p><p data-reading-anchor="" id="ch2958-p076">&quot;Mm.&quot;</p><p data-reading-anchor="" id="ch2958-p077">Captain Giselle acknowledged him and looked out through the glass, but did not immediately order the ship to leave.</p><p data-reading-anchor="" id="ch2958-p078">Everyone else fell silent as well, staring through the reinforced windows.</p></article><p class="end" data-reading-anchor="" id="ch2958-end">— End of Chapter 2958 —</p><details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Fully translated from original Chinese Chapter 2959, title: 谈崩.</li><li>All 78 source narrative paragraphs translated in their original order. Website content and end markers excluded.</li><li>Fang Heng separately promises to return the researchers safely within three months; the earlier wager stated a one-year loan, an intentional discrepancy to flag.</li></ul></details><nav aria-label="Chapter navigation" class="chapter-nav"><a href="Global_Game_AFK_Chapter_2957_Cangniao.html#start">← Previous chapter (2957)</a><a class="next" href="Global_Game_AFK_Chapter_2959_Tremors.html#start">Next chapter (2959) →</a></nav></section><footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer></main><div aria-live="polite" id="reading-toast" role="status"></div><script src="chapters.js"></script><script>(()=>{
+'use strict';
+const storeKey='afk-reader-position:chapter-2958:v2';
+const sizeKey='afk-reader-font-size:compact-v3';
+const themeKey='afk-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem('afk-reader-test','ok');localStorage.removeItem('afk-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored('afk-last-chapter', "Global_Game_AFK_Chapter_2958_Negotiations_Collapse.html");
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();</script></body></html>

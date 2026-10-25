@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html data-theme="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/><meta content="#171719" name="theme-color"/><title>Chapter 2956 — Empty Shell | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head><body><header class="topbar" role="banner"><div class="toolbar"><a aria-label="Previous chapter 2955" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2955_Mechanical_Legion.html#start" title="Previous chapter">‹</a><select aria-label="Choose a chapter" id="chapter-picker" data-chapter-file="Global_Game_AFK_Chapter_2956_Empty_Shell.html"><option selected="selected" value="Global_Game_AFK_Chapter_2956_Empty_Shell.html">2956 · Empty Shell</option></select><a aria-label="Next chapter 2957" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2957_Cangniao.html#start" title="Next chapter">›</a><button aria-label="Decrease font size" class="toolbtn" id="smaller" title="Smaller text">A−</button><button aria-label="Increase font size" class="toolbtn" id="larger" title="Larger text">A+</button><button aria-label="Toggle dark/light mode" class="toolbtn" id="theme" title="Toggle theme">◐</button></div><div id="progress-track"><div id="progress"></div></div></header><main><span aria-hidden="true" id="start"></span><section class="chapter-section" data-reading-anchor="" id="chapter-2956"><div class="chapter-num">Chapter 2956</div><h2 class="chapter-title">Empty Shell</h2><p class="source-identity">From original Chinese Chapter 2957 · 空壳</p><article class="prose"><p data-reading-anchor="" id="ch2956-p001">&quot;What?&quot;</p><p data-reading-anchor="" id="ch2956-p002">Vion froze, then glared at Fang Heng furiously, looking ready to skin him alive.</p><p data-reading-anchor="" id="ch2956-p003">He hadn&#x27;t expected Fang Heng to be so stubborn.</p><p data-reading-anchor="" id="ch2956-p004">He would rather destroy all his ore than cooperate with the Federation?</p><p data-reading-anchor="" id="ch2956-p005">Fine!</p><p data-reading-anchor="" id="ch2956-p006">So he wanted them both to lose?</p><p data-reading-anchor="" id="ch2956-p007">Colette was worried. Perhaps Fang Heng was too young and acting out of spite. He tried to advise him quietly. &quot;Fang Heng, the Cangniao are formidable. With our current capabilities, I don&#x27;t think we can hold them off...&quot;</p><p data-reading-anchor="" id="ch2956-p008">&quot;I understand. I have some things to attend to, so I&#x27;ll take my leave.&quot; Fang Heng raised a hand to Wayne&#x27;s team. &quot;Let&#x27;s go.&quot;</p><p data-reading-anchor="" id="ch2956-p009">Colette watched Fang Heng and his players walk away, full of concern.</p><p data-reading-anchor="" id="ch2956-p010">Was Boss Fang planning to take a hard line and fight the Cangniao head-on?</p><p data-reading-anchor="" id="ch2956-p011">Young people were so prone to acting impulsively.</p><p data-reading-anchor="" id="ch2956-p012">Those Western Federation experts were certainly detestable, but there was no need to burn everything down with them.</p><p data-reading-anchor="" id="ch2956-p013">&quot;Colette, watch your position. Remember that you&#x27;re also a Federation officer. Understood?&quot;</p><p data-reading-anchor="" id="ch2956-p014">Seeing Colette&#x27;s concern, Vion felt even more irritated and mocked him coldly.</p><p data-reading-anchor="" id="ch2956-p015">He had personally watched tons upon tons of ore disappear into Fang Heng&#x27;s underground base.</p><p data-reading-anchor="" id="ch2956-p016">How much of it could Fang Heng possibly have exchanged using a Stage Three Kinsfolk warp system?</p><p data-reading-anchor="" id="ch2956-p017">Probably less than 1%!</p><p data-reading-anchor="" id="ch2956-p018">The rest was Federation property!</p><p data-reading-anchor="" id="ch2956-p019">So Fang Heng wanted mutual destruction?</p><p data-reading-anchor="" id="ch2956-p020">What would staying behind in defiance accomplish?</p><p data-reading-anchor="" id="ch2956-p021">They could return with the starship in another two weeks and haul all the underground ore away.</p><p data-reading-anchor="" id="ch2956-p022">The fish would die, but the net certainly wouldn&#x27;t break.</p><p data-reading-anchor="" id="ch2956-p023">Vion was already calculating how to cash in on that enormous stockpile.</p><p data-reading-anchor="" id="ch2956-p024">&quot;Report! Headquarters has sent word. The starship has launched in an emergency and should arrive within twenty minutes. Our orders are to cooperate with Captain Giselle&#x27;s evacuation plan.&quot;</p><p data-reading-anchor="" id="ch2956-p025">...</p><p data-reading-anchor="" id="ch2956-p026">[Hint: Player has constructed a Starship (Giant). Current completion: 73%. Current Combat Strength Rating: LV 0 (No defensive systems installed).]</p><p data-reading-anchor="" id="ch2956-p027">[Hint: Player may name the starship independently.]</p><p data-reading-anchor="" id="ch2956-p028">[Current overall starship status rating: G-.]</p><p data-reading-anchor="" id="ch2956-p029">Inside the starship&#x27;s control room, game notifications appeared one by one before Fang Heng&#x27;s eyes.</p><p data-reading-anchor="" id="ch2956-p030">Three days earlier, the Kinsfolk central AI had already recognized the craft as a starship whose initial construction was complete.</p><p data-reading-anchor="" id="ch2956-p031">Strictly speaking, it was still an empty shell. Apart from the main bridge, research district, rest areas, and storage compartments at the rear, no other sections had received detailed construction or finishing.</p><p data-reading-anchor="" id="ch2956-p032">It was the equivalent of a house mostly left unfinished.</p><p data-reading-anchor="" id="ch2956-p033">And one with only a single floor.</p><p data-reading-anchor="" id="ch2956-p034">Even the entire ship&#x27;s weapon systems had yet to be installed.</p><p data-reading-anchor="" id="ch2956-p035">Fang Heng asked, &quot;Can it warp?&quot;</p><p data-reading-anchor="" id="ch2956-p036">Li Zhixuan looked exhausted.</p><p data-reading-anchor="" id="ch2956-p037">The previous day she&#x27;d spent an entire day entering and verifying the Star Map coordinates she had memorized, finally giving the ship a working Kinsfolk navigation system.</p><p data-reading-anchor="" id="ch2956-p038">She had planned to prepare it only as a precaution. She hadn&#x27;t expected that precaution to become necessary so soon.</p><p data-reading-anchor="" id="ch2956-p039">&quot;In its current condition, we can make one emergency warp, but it will take some preparation. Give me another hour. A forced warp will also damage parts of the ship, and repairs will be needed afterward.&quot;</p><p data-reading-anchor="" id="ch2956-p040">&quot;Thank you. Start immediately.&quot;</p><p data-reading-anchor="" id="ch2956-p041">The Cangniao Mechanical Legion could launch its second attack at any moment. Fang Heng was confident he could hold them off for a while if necessary.</p><p data-reading-anchor="" id="ch2956-p042">But that would put them on the defensive.</p><p data-reading-anchor="" id="ch2956-p043">More importantly, what if the Cangniao attacked his ore-transport and supply lines?</p><p data-reading-anchor="" id="ch2956-p044">He had come here to mine ore.</p><p data-reading-anchor="" id="ch2956-p045">Without the ore, the fighting would become a pointless war of attrition.</p><p data-reading-anchor="" id="ch2956-p046">No sense wasting time.</p><p data-reading-anchor="" id="ch2956-p047">Better to make a run for it.</p><p data-reading-anchor="" id="ch2956-p048">He could mine resources on another world while continuing to improve his starship.</p><p data-reading-anchor="" id="ch2956-p049">Li Zhixuan said, &quot;There&#x27;s still one problem we need to solve: choosing a destination.&quot;</p><p data-reading-anchor="" id="ch2956-p050">Alec looked bewildered. &quot;What? Can&#x27;t we go back to our original world?&quot;</p><p data-reading-anchor="" id="ch2956-p051">&quot;No. We don&#x27;t know the encrypted identifier corresponding to our home world in the Star Map coordinate system.&quot;</p><p data-reading-anchor="" id="ch2956-p052">&quot;Trying random identifiers will almost certainly fail. Forcing a warp could send us into unstable space-time, where the ship might be swallowed by spatial turbulence. Unless we have no other choice, I strongly advise against it.&quot;</p><p data-reading-anchor="" id="ch2956-p053">Fang Heng asked, &quot;Our Kinsfolk Star Map system is connected now. I can see missions posted by other worlds. Couldn&#x27;t we accept one and obtain temporary coordinates for its destination?&quot;</p><p data-reading-anchor="" id="ch2956-p054">&quot;That would work in theory, but alliance missions are accepted by starships rather than individual players, and they have minimum ship-level requirements. Our newly built starship&#x27;s strength is only LV 1, so it doesn&#x27;t qualify. To improve its rating, we&#x27;d have to equip Kinsfolk weapons, raise its base score, and later participate in real battles to increase its combat level...&quot;</p><p data-reading-anchor="" id="ch2956-p055">&quot;Our ship isn&#x27;t fully built. It has only the most basic interstellar warp capability, so its score in the Kinsfolk system is extremely low.&quot; Li Zhixuan searched the terminal and shook her head. &quot;I&#x27;ve checked. There are currently no interstellar missions we can accept.&quot;</p><p data-reading-anchor="" id="ch2956-p056">Everyone fell silent.</p><p data-reading-anchor="" id="ch2956-p057">Fang Heng asked, &quot;Is there any other way?&quot;</p><p data-reading-anchor="" id="ch2956-p058">Li Zhixuan looked solemn and nodded. &quot;Fang Heng, we do have one set of coordinates.&quot;</p><p data-reading-anchor="" id="ch2956-p059">&quot;One? You mean...?&quot;</p><p data-reading-anchor="" id="ch2956-p060">&quot;Su Guantong should have told you about that world.&quot;</p><p data-reading-anchor="" id="ch2956-p061">Fang Heng&#x27;s heart gave a jolt as he understood.</p><p data-reading-anchor="" id="ch2956-p062">That one!</p><p data-reading-anchor="" id="ch2956-p063">The world connected to the Ancient Humans that the Eastern Federation had been searching for.</p><p data-reading-anchor="" id="ch2956-p064">According to Su Guantong, the Eastern Federation had stumbled across it during a long quest chain. It might be closely connected to humanity&#x27;s origins, and there was evidence that new systems of knowledge could be inherited there.</p><p data-reading-anchor="" id="ch2956-p065">One of the main reasons the Eastern Federation had planted Li Zhixuan inside the Western Federation was to identify that world&#x27;s true coordinates from its Kinsfolk encrypted identifier.</p><p data-reading-anchor="" id="ch2956-p066">&quot;I&#x27;ve checked and verified it through the Kinsfolk network. The world exists. Its danger rating is D, and its resource rating is G. We can go there and catch our breath.&quot;</p><p data-reading-anchor="" id="ch2956-p067">&quot;Good. We&#x27;ll go there. How much longer?&quot;</p><p data-reading-anchor="" id="ch2956-p068">&quot;About ninety minutes.&quot;</p><p data-reading-anchor="" id="ch2956-p069">&quot;All right. Get to work.&quot;</p><p data-reading-anchor="" id="ch2956-p070">The starship became a hive of activity once again.</p><p data-reading-anchor="" id="ch2956-p071">The researchers still didn&#x27;t understand the situation outside. They only knew that alien life forms had attacked, so they assumed the emergency warp was ordered by the Western Federation.</p><p data-reading-anchor="" id="ch2956-p072">Though they had their doubts, the situation was urgent, and the researchers and engineers asked no questions as they hurried to prepare.</p><p data-reading-anchor="" id="ch2956-p073">After only half an hour of work, two players rushed in with a report. &quot;Boss Fang, the outer energy barrier has detected powerful spatial fluctuations.&quot;</p><p data-reading-anchor="" id="ch2956-p074">&quot;Come on. Let&#x27;s take a look.&quot;</p></article><p class="end" data-reading-anchor="" id="ch2956-end">— End of Chapter 2956 —</p><details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Fully translated from original Chinese Chapter 2957, title: 空壳.</li><li>All 74 source narrative paragraphs translated in their original order. Website content and end markers excluded.</li><li>The ship is rated 73% complete with combat LV 0 due to lacking defenses; another line calls its combat-strength LV 1 for mission eligibility. Both figures are preserved as written.</li><li>Li Zhixuan identifies the encrypted Ancient Human coordinate as a D-risk, G-resource world.</li></ul></details><nav aria-label="Chapter navigation" class="chapter-nav"><a href="Global_Game_AFK_Chapter_2955_Mechanical_Legion.html#start">← Previous chapter (2955)</a><a class="next" href="Global_Game_AFK_Chapter_2957_Cangniao.html#start">Next chapter (2957) →</a></nav></section><footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer></main><div aria-live="polite" id="reading-toast" role="status"></div><script src="chapters.js"></script><script>(()=>{
+'use strict';
+const storeKey='afk-reader-position:chapter-2956:v2';
+const sizeKey='afk-reader-font-size:compact-v3';
+const themeKey='afk-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem('afk-reader-test','ok');localStorage.removeItem('afk-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored('afk-last-chapter', "Global_Game_AFK_Chapter_2956_Empty_Shell.html");
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();</script></body></html>

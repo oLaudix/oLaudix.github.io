@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html data-theme="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/><meta content="#171719" name="theme-color"/><title>Chapter 2941 — Return | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head><body><header class="topbar" role="banner"><div class="toolbar"><a aria-label="Previous chapter 2940" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2940_Missing.html#start" title="Previous chapter">‹</a><select aria-label="Choose a chapter" id="chapter-picker" data-chapter-file="Global_Game_AFK_Chapter_2941_Return.html"><option selected="selected" value="Global_Game_AFK_Chapter_2941_Return.html">2941 · Return</option></select><a aria-label="Next chapter 2942" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2942_Ancient_Humans.html#start" title="Next chapter">›</a><button aria-label="Decrease font size" class="toolbtn" id="smaller" title="Smaller text">A−</button><button aria-label="Increase font size" class="toolbtn" id="larger" title="Larger text">A+</button><button aria-label="Toggle dark/light mode" class="toolbtn" id="theme" title="Toggle theme">◐</button></div><div id="progress-track"><div id="progress"></div></div></header><main><span aria-hidden="true" id="start"></span><section class="chapter-section" data-reading-anchor="" id="chapter-2941"><div class="chapter-num">Chapter 2941</div><h2 class="chapter-title">Return</h2><p class="source-identity">From original Chinese Chapter 2942 · 返回</p><article class="prose"><p data-reading-anchor="" id="ch2941-p001">Doubt flickered across Augustine&#x27;s eyes. After thinking for a moment, he shook his head. &quot;I don&#x27;t think so. To prevent the Ouroboros Seed from spreading, the entire island is under extremely tight surveillance. Except for authorized personnel, people can enter but not leave.&quot;</p><p data-reading-anchor="" id="ch2941-p002">As he spoke, a soldier hurried over and whispered a few words in his ear.</p><p data-reading-anchor="" id="ch2941-p003">Augustine frowned and looked toward the center of the battlefield.</p><p data-reading-anchor="" id="ch2941-p004">After the Ouroboros Seed aggregate burst apart, the mercenary players had rushed forward to look for cocoons.</p><p data-reading-anchor="" id="ch2941-p005">Yet strangely enough, no one had found a single one.</p><p data-reading-anchor="" id="ch2941-p006">Fang Heng asked, &quot;Can we leave now?&quot;</p><p data-reading-anchor="" id="ch2941-p007">&quot;Of course. But before you go...&quot; Augustine gave a self-mocking smile. &quot;Forget it. I&#x27;ll have someone escort you out. Please use the secure passage on your way.&quot;</p><p data-reading-anchor="" id="ch2941-p008">He had almost asked them to submit to a search out of habit.</p><p data-reading-anchor="" id="ch2941-p009">What a joke!</p><p data-reading-anchor="" id="ch2941-p010">Search those two?</p><p data-reading-anchor="" id="ch2941-p011">If they had hidden anything, his men probably wouldn&#x27;t find a trace of it. And the attempt might only offend them.</p><p data-reading-anchor="" id="ch2941-p012">Besides...</p><p data-reading-anchor="" id="ch2941-p013">Given their strength, they could simply seize whatever they wanted in broad daylight and walk out. No one could stop them.</p><p data-reading-anchor="" id="ch2941-p014">Why bother?</p><p data-reading-anchor="" id="ch2941-p015">&quot;Thank you.&quot;</p><p data-reading-anchor="" id="ch2941-p016">Charlotte thanked him, turned, and followed Fang Heng away while extending a mental barrier around herself.</p><p data-reading-anchor="" id="ch2941-p017">Whoosh! Whoosh!</p><p data-reading-anchor="" id="ch2941-p018">Several Lickers leaped out of secondary spatial projection and appeared before Fang Heng.</p><p data-reading-anchor="" id="ch2941-p019">Fang Heng reached out, snatched the cocoon fragments they spat out, and swiftly absorbed them into the slit in his palm.</p><p data-reading-anchor="" id="ch2941-p020">[Hint: Player has absorbed Ouroboros Seed (Small Fragment) ×9. Current ability Ouroboros Seed has advanced to LV 10.]</p><p data-reading-anchor="" id="ch2941-p021">All of Fang Heng&#x27;s movements took place in a flash. No one saw a thing.</p><p data-reading-anchor="" id="ch2941-p022">By the time the two of them had left the Black Fog world, the Federation&#x27;s preliminary search report had only just reached Augustine.</p><p data-reading-anchor="" id="ch2941-p023">&quot;Report, sir!&quot;</p><p data-reading-anchor="" id="ch2941-p024">&quot;We&#x27;ve searched the scene. So far, we haven&#x27;t found any trace of an Ouroboros Seed.&quot;</p><p data-reading-anchor="" id="ch2941-p025">Still no Ouroboros Seed?</p><p data-reading-anchor="" id="ch2941-p026">Why?</p><p data-reading-anchor="" id="ch2941-p027">Augustine looked at the players still combing carefully through the carpet of fungus ahead.</p><p data-reading-anchor="" id="ch2941-p028">Neither the Federation nor the players had found anything.</p><p data-reading-anchor="" id="ch2941-p029">Why?</p><p data-reading-anchor="" id="ch2941-p030">The previous two thefts involving Ouroboros Seeds might have been connected to the Inspectorate.</p><p data-reading-anchor="" id="ch2941-p031">Could this be another one?</p><p data-reading-anchor="" id="ch2941-p032">Augustine turned to Director Zachary of the Inspectorate, who stood nearby with a dark expression.</p><p data-reading-anchor="" id="ch2941-p033">Impossible.</p><p data-reading-anchor="" id="ch2941-p034">He had kept an eye on Zachary the entire time. With so many people present, there was no way Zachary could have hidden the cocoons.</p><p data-reading-anchor="" id="ch2941-p035">Then where were they?</p><p data-reading-anchor="" id="ch2941-p036">Emery?</p><p data-reading-anchor="" id="ch2941-p037">The name suddenly surfaced in Augustine&#x27;s mind.</p><p data-reading-anchor="" id="ch2941-p038">It had to be him!</p><p data-reading-anchor="" id="ch2941-p039">No one had seen Emery throughout the entire battle against the swarm.</p><p data-reading-anchor="" id="ch2941-p040">Had he really escaped?</p><p data-reading-anchor="" id="ch2941-p041">And taken the cocoons with him beforehand?</p><p data-reading-anchor="" id="ch2941-p042">&quot;Pass on my orders. Until both the cocoons and Emery are found, no one is permitted to enter or leave the island. Special circumstances require approval and the strictest possible inspections. We must find Emery and the cocoons.&quot;</p><p data-reading-anchor="" id="ch2941-p043">&quot;Yes, sir!&quot;</p><p data-reading-anchor="" id="ch2941-p044">...</p><p data-reading-anchor="" id="ch2941-p045">While the Federation stayed behind to search for the missing cocoons, Fang Heng and Charlotte had already departed aboard a transport aircraft.</p><p data-reading-anchor="" id="ch2941-p046">They sat together in the rear cabin.</p><p data-reading-anchor="" id="ch2941-p047">A mental barrier surrounded them, preventing anyone outside it from hearing their conversation.</p><p data-reading-anchor="" id="ch2941-p048">&quot;Fang Heng, Emery is dead, but the cocoons on him are missing. I doubt the Western Federation will simply give up investigating.&quot;</p><p data-reading-anchor="" id="ch2941-p049">&quot;We&#x27;ve cleaned up the evidence. The Federation won&#x27;t be able to trace it to me. And even if it does...&quot; Fang Heng shrugged dismissively. &quot;So what?&quot;</p><p data-reading-anchor="" id="ch2941-p050">He could now use his game-world powers in reality.</p><p data-reading-anchor="" id="ch2941-p051">With overwhelming strength, he could simply force his way through any problem.</p><p data-reading-anchor="" id="ch2941-p052">&quot;Even if there&#x27;s nothing to fear, it would be troublesome. Try to be careful.&quot; Charlotte nodded. &quot;After breaking through the Lock restricting the real world, I&#x27;ve gained a deeper understanding of Psionics. I need some time to digest it.&quot;</p><p data-reading-anchor="" id="ch2941-p053">&quot;Planning to leave?&quot; Fang Heng asked.</p><p data-reading-anchor="" id="ch2941-p054">&quot;Yes. I need somewhere quiet to enter seclusion. This place won&#x27;t do. I have a feeling that after my breakthrough, the Hela cell tissue being cultivated inside me will no longer harm me.&quot;</p><p data-reading-anchor="" id="ch2941-p055">Charlotte glanced at him. &quot;Sometimes I really envy you. You can simply fuse with the power of the Ouroboros Seed. Once I&#x27;m done cultivating, I&#x27;ll look for other ways to strengthen my physical body and fill that missing piece of my strength.&quot;</p><p data-reading-anchor="" id="ch2941-p056">&quot;All right. I wish you luck.&quot; Fang Heng shrugged. &quot;I found a starship key on Emery. I&#x27;ll need help from the Kinsfolk system to build the ship, so I&#x27;ll stay here for a while. Keep in touch. Contact me anytime you need anything.&quot;</p><p data-reading-anchor="" id="ch2941-p057">&quot;The same goes for you. Fusing with the Ouroboros Seed has given you tremendous power, but it comes with tremendous danger. Be careful. If anything goes wrong, contact the Black Fortress immediately. I&#x27;ll bring people over at once.&quot;</p><p data-reading-anchor="" id="ch2941-p058">As Charlotte spoke, her mental barrier contracted around her until her entire figure vanished.</p><p data-reading-anchor="" id="ch2941-p059">The guards sitting opposite the pair blinked. Charlotte had disappeared from the aircraft cabin right before their eyes, and they looked around in confusion.</p><p data-reading-anchor="" id="ch2941-p060">&quot;Where&#x27;s Charlotte?&quot;</p><p data-reading-anchor="" id="ch2941-p061">&quot;She left. Just now.&quot; Fang Heng glanced at the Federation squad leader, a slight smile curling his lips. &quot;What? Were you planning to stop her?&quot;</p><p data-reading-anchor="" id="ch2941-p062">&quot;N-no, sir. It was just rather sudden.&quot;</p><p data-reading-anchor="" id="ch2941-p063">The guards exchanged helpless looks.</p><p data-reading-anchor="" id="ch2941-p064">Their superiors had repeatedly ordered them to keep the two under observation.</p><p data-reading-anchor="" id="ch2941-p065">But faced with monsters like these, what could they possibly do to prevent them from leaving?</p><p data-reading-anchor="" id="ch2941-p066">Staying alive was enough.</p><p data-reading-anchor="" id="ch2941-p067">Now they could only hope Fang Heng didn&#x27;t disappear too. At least let them keep one person to report back with!</p><p data-reading-anchor="" id="ch2941-p068">&quot;Mr. Fang Heng, we&#x27;re about to land. Please be careful.&quot;</p><p data-reading-anchor="" id="ch2941-p069">&quot;Mm.&quot;</p><p data-reading-anchor="" id="ch2941-p070">They returned to the Star Map Main Control Base.</p><p data-reading-anchor="" id="ch2941-p071">All along the way, Fang Heng was like a child with a new toy, constantly testing his various game skills.</p><p data-reading-anchor="" id="ch2941-p072">So far, he could reproduce every one of his abilities at full power.</p><p data-reading-anchor="" id="ch2941-p073">He hadn&#x27;t tried his two ultimate moves yet, but he doubted there would be a problem.</p><p data-reading-anchor="" id="ch2941-p074">In any case, today&#x27;s mission was complete. He could rest tonight and speak with the military tomorrow about where he might earn a large quantity of Kinsfolk Contribution Points.</p><p data-reading-anchor="" id="ch2941-p075">The starship key had been an unexpected bonus.</p><p data-reading-anchor="" id="ch2941-p076">He might as well build the thing while he was here.</p><p data-reading-anchor="" id="ch2941-p077">If the Western Federation refused to cooperate, he&#x27;d have to find another way to access the Kinsfolk network through another game world...</p><p data-reading-anchor="" id="ch2941-p078">Lost in thought, Fang Heng reached the door of his room and looked up at it.</p><p data-reading-anchor="" id="ch2941-p079">Huh?</p><p data-reading-anchor="" id="ch2941-p080">His blood-sense clearly detected someone inside.</p><p data-reading-anchor="" id="ch2941-p081">The intruder had tried to conceal their aura, but to a Vampire, those fluctuations of blood and vitality stood out like a beacon.</p></article><p class="end" data-reading-anchor="" id="ch2941-end">— End of Chapter 2941 —</p><details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Fully translated from original Chinese Chapter 2942, title: 返回.</li><li>All 81 source narrative paragraphs translated in their original order. Website content and end markers excluded.</li><li>The Ouroboros Seed upgrades to LV 10 after Fang Heng absorbs nine small fragments; the Federation does not know he took them.</li></ul></details><nav aria-label="Chapter navigation" class="chapter-nav"><a href="Global_Game_AFK_Chapter_2940_Missing.html#start">← Previous chapter (2940)</a><a class="next" href="Global_Game_AFK_Chapter_2942_Ancient_Humans.html#start">Next chapter (2942) →</a></nav></section><footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer></main><div aria-live="polite" id="reading-toast" role="status"></div><script src="chapters.js"></script><script>(()=>{
+'use strict';
+const storeKey='afk-reader-position:chapter-2941:v2';
+const sizeKey='afk-reader-font-size:compact-v3';
+const themeKey='afk-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem('afk-reader-test','ok');localStorage.removeItem('afk-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored('afk-last-chapter', "Global_Game_AFK_Chapter_2941_Return.html");
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();</script></body></html>

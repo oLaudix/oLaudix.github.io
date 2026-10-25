@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html data-theme="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/><meta content="#171719" name="theme-color"/><title>Chapter 2942 — Ancient Humans | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head><body><header class="topbar" role="banner"><div class="toolbar"><a aria-label="Previous chapter 2941" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2941_Return.html#start" title="Previous chapter">‹</a><select aria-label="Choose a chapter" id="chapter-picker" data-chapter-file="Global_Game_AFK_Chapter_2942_Ancient_Humans.html"><option selected="selected" value="Global_Game_AFK_Chapter_2942_Ancient_Humans.html">2942 · Ancient Humans</option></select><a aria-label="Next chapter 2943" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2943_Suspicious_Inheritance.html#start" title="Next chapter">›</a><button aria-label="Decrease font size" class="toolbtn" id="smaller" title="Smaller text">A−</button><button aria-label="Increase font size" class="toolbtn" id="larger" title="Larger text">A+</button><button aria-label="Toggle dark/light mode" class="toolbtn" id="theme" title="Toggle theme">◐</button></div><div id="progress-track"><div id="progress"></div></div></header><main><span aria-hidden="true" id="start"></span><section class="chapter-section" data-reading-anchor="" id="chapter-2942"><div class="chapter-num">Chapter 2942</div><h2 class="chapter-title">Ancient Humans</h2><p class="source-identity">From original Chinese Chapter 2943 · ‘古人类’</p><article class="prose"><p data-reading-anchor="" id="ch2942-p001">Strange.</p><p data-reading-anchor="" id="ch2942-p002">Someone from the Federation?</p><p data-reading-anchor="" id="ch2942-p003">Had they come to spy on him? They were seriously underestimating him.</p><p data-reading-anchor="" id="ch2942-p004">Without showing anything, Fang Heng opened the door, closed it softly behind him, and looked toward the curtains.</p><p data-reading-anchor="" id="ch2942-p005">Someone was hiding in the shadows beside the window.</p><p data-reading-anchor="" id="ch2942-p006">Su Guantong&#x27;s heart began to pound.</p><p data-reading-anchor="" id="ch2942-p007">He&#x27;d spotted her!</p><p data-reading-anchor="" id="ch2942-p008">A wave of helplessness washed over her.</p><p data-reading-anchor="" id="ch2942-p009">She had great confidence in her concealment skills and had completed several missions thanks to them. Yet she hadn&#x27;t lasted even 0.1 seconds against Fang Heng.</p><p data-reading-anchor="" id="ch2942-p010">The difference between her and a World Lord was simply too great.</p><p data-reading-anchor="" id="ch2942-p011">Su Guantong quickly composed herself and stepped openly out from behind the window.</p><p data-reading-anchor="" id="ch2942-p012">Perhaps that was for the best.</p><p data-reading-anchor="" id="ch2942-p013">The stronger Fang Heng was, the better her chances of completing this assignment!</p><p data-reading-anchor="" id="ch2942-p014">&quot;I&#x27;m sorry, Mr. Fang Heng. Forgive me for approaching you this way. I haven&#x27;t been able to find an opportunity to speak with you alone lately, so I had no choice but to resort to this.&quot;</p><p data-reading-anchor="" id="ch2942-p015">&quot;Oh, it&#x27;s you.&quot; Fang Heng shrugged. &quot;What is it?&quot;</p><p data-reading-anchor="" id="ch2942-p016">&quot;I&#x27;m with the Eastern Federation&#x27;s Special Operations Bureau. My codename is Blue Eyes. On behalf of the Eastern Federation, I hope to cooperate with you.&quot;</p><p data-reading-anchor="" id="ch2942-p017">Huh?</p><p data-reading-anchor="" id="ch2942-p018">Fang Heng was genuinely surprised and gave Su Guantong a closer look.</p><p data-reading-anchor="" id="ch2942-p019">He had worked with the Eastern Federation before.</p><p data-reading-anchor="" id="ch2942-p020">Their previous collaborations had gone fairly well. He remembered that the Eastern Federation had been the least influenced by the Holy Court; when the Court had ordered his pursuit, they hadn&#x27;t piled on.</p><p data-reading-anchor="" id="ch2942-p021">&quot;Is that so...&quot; Fang Heng scratched his head. &quot;So the Eastern Federation already knows who I am?&quot;</p><p data-reading-anchor="" id="ch2942-p022">&quot;I&#x27;m sorry. It&#x27;s my duty. I reported your information to my superiors. After reviewing it, they agreed to establish a partnership with you. I&#x27;m authorized to make independent decisions in an emergency—and the situation is extremely dangerous now.&quot;</p><p data-reading-anchor="" id="ch2942-p023">Su Guantong grew serious. &quot;Mr. Fang Heng, we need your help. The people of the Eastern Federation—no, the people of this entire world need your help...&quot;</p><p data-reading-anchor="" id="ch2942-p024">&quot;All right, all right. No need to exaggerate.&quot; Fang Heng casually gestured for her to sit. &quot;Tell me what&#x27;s going on first.&quot;</p><p data-reading-anchor="" id="ch2942-p025">&quot;As you know, the Kinsfolk have negotiated with the Western Federation to establish a Star Map. Once it&#x27;s complete, our world will be connected to the Star Map network. Our coordinates will be completely exposed to the Kinsfolk, and they may even be able to monitor our every move.&quot;</p><p data-reading-anchor="" id="ch2942-p026">&quot;After discussing the matter, the Eastern Federation unanimously concluded that the Western Federation&#x27;s plan is extremely risky. We can&#x27;t be sure how the Kinsfolk will treat us. At present, they&#x27;re vastly stronger than humanity, and we have neither a means to counter them nor even the power to protect ourselves.&quot;</p><p data-reading-anchor="" id="ch2942-p027">&quot;For now, the Kinsfolk may simply want to use us against the Black Fog. But nobody knows what will happen afterward. The outlook isn&#x27;t promising...&quot;</p><p data-reading-anchor="" id="ch2942-p028">Fang Heng asked, &quot;So what? You want to sabotage the Western Federation&#x27;s Star Map?&quot;</p><p data-reading-anchor="" id="ch2942-p029">&quot;No, not yet. From what we&#x27;ve learned, the Western Federation&#x27;s leadership has considered these concerns too. They only want to make use of the Kinsfolk and their Star Map. We expect them to deliberately delay handing it over during the later stages of construction.&quot;</p><p data-reading-anchor="" id="ch2942-p030">Fang Heng&#x27;s eyelid twitched. So that was their game. The Western Federation really was playing dirty—and had an enormous appetite.</p><p data-reading-anchor="" id="ch2942-p031">They wanted to reap the benefits of Kinsfolk technology while secretly researching the Ouroboros Seed.</p><p data-reading-anchor="" id="ch2942-p032">No wonder they had made such a spectacle of the Star Map Project.</p><p data-reading-anchor="" id="ch2942-p033">The Western Federation had probably already prepared countless excuses. Once construction was nearly complete, they could arrange some sudden terrorist attack, delay the schedule, and dump the blame on another Federation region.</p><p data-reading-anchor="" id="ch2942-p034">Hah!</p><p data-reading-anchor="" id="ch2942-p035">They really weren&#x27;t afraid of bringing the whole thing crashing down on their heads.</p><p data-reading-anchor="" id="ch2942-p036">Seeing him thinking, Su Guantong paused before adding, &quot;Although the Western and Central Federations appear to be at odds, some clues suggest that the Western Federation also discussed the Star Map Project with the Central Federation.&quot;</p><p data-reading-anchor="" id="ch2942-p037">&quot;You mean the Central Federation ordered them to do it? Why?&quot;</p><p data-reading-anchor="" id="ch2942-p038">&quot;I believe it&#x27;s because of you.&quot;</p><p data-reading-anchor="" id="ch2942-p039">&quot;What? Me?&quot;</p><p data-reading-anchor="" id="ch2942-p040">Fang Heng was baffled.</p><p data-reading-anchor="" id="ch2942-p041">&quot;The Central Federation isn&#x27;t a united front. Your appearance has made some of them realize that the Holy Court may not be as reliable as they thought. Some Central Federation councilors have proposed spreading their bets and using the Kinsfolk to counterbalance the Holy Court.&quot;</p><p data-reading-anchor="" id="ch2942-p042">&quot;The details are complicated. If you&#x27;re interested, I can explain them another time. In fact, the Eastern Federation has its own plan to resist the spread of the Black Fog.&quot;</p><p data-reading-anchor="" id="ch2942-p043">&quot;Oh?&quot; Fang Heng perked up. &quot;What plan?&quot;</p><p data-reading-anchor="" id="ch2942-p044">&quot;The New Humanity Kindling Project.&quot;</p><p data-reading-anchor="" id="ch2942-p045">&quot;It began many years ago. While exploring a high-tier world, we discovered important records and the spatial-system coordinates of a special location. The records gave us access to a great deal of new technology.&quot;</p><p data-reading-anchor="" id="ch2942-p046">&quot;After years of research and analysis, we concluded that an ancient extraterrestrial civilization had also encountered the Black Fog game.&quot;</p><p data-reading-anchor="" id="ch2942-p047">&quot;Everything suggests that this alien civilization was likely human, like us, with a way of life more than 98% similar to ours. We call them the &#x27;Ancient Humans.&#x27;&quot;</p><p data-reading-anchor="" id="ch2942-p048">&quot;The Ancient Humans claimed to be descendants of the Titans.&quot;</p><p data-reading-anchor="" id="ch2942-p049">&quot;Titans...&quot; Fang Heng murmured the word and shook his head. &quot;Never heard of them.&quot;</p><p data-reading-anchor="" id="ch2942-p050">&quot;We looked into the Titans through Kinsfolk records. According to those records, the Titans were an extraordinarily powerful race in the ancient universe. They loved traveling between star systems and were renowned as the most knowledgeable race in the cosmos. Every Titan also possessed terrifying strength.&quot;</p><p data-reading-anchor="" id="ch2942-p051">&quot;But the Titans encountered some kind of crisis and ultimately disappeared from the universe altogether.&quot;</p><p data-reading-anchor="" id="ch2942-p052">&quot;The Ancient Humans claimed to be their continuation—the spark of life left behind by Titans who had taken refuge.&quot;</p><p data-reading-anchor="" id="ch2942-p053">&quot;The coordinates point to a site where the Ancient Humans left behind their technological, cultural, and power-related inheritances. If we reach it, we may find more clues about the Black Fog game, perhaps even uncover its true nature.&quot;</p><p data-reading-anchor="" id="ch2942-p054">Fang Heng frowned as he listened.</p><p data-reading-anchor="" id="ch2942-p055">An inheritance?</p><p data-reading-anchor="" id="ch2942-p056">And the truth about the Black Fog game?</p><p data-reading-anchor="" id="ch2942-p057">He had never really considered such a question.</p><p data-reading-anchor="" id="ch2942-p058">A game was a game. What truth was there to uncover?</p><p data-reading-anchor="" id="ch2942-p059">&quot;Why did the Black Fog game appear? What does it want? And what will it eventually become? We hope the Ancient Humans&#x27; records can provide answers. Perhaps they can help us resist the Black Fog.&quot;</p><p data-reading-anchor="" id="ch2942-p060">Fang Heng curled his lip.</p><p data-reading-anchor="" id="ch2942-p061">To be fair, he wasn&#x27;t particularly interested in any of that, so he asked casually, &quot;Nice grand vision. How far have you actually gotten?&quot;</p></article><p class="end" data-reading-anchor="" id="ch2942-end">— End of Chapter 2942 —</p><details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Fully translated from original Chinese Chapter 2943, title: ‘古人类’.</li><li>All 61 source narrative paragraphs translated in their original order. Website content and end markers excluded.</li><li>Su Guantong reveals her Eastern Federation Special Operations Bureau codename, Blue Eyes.</li><li>The ancient race is described as Ancient Humans, descendants of the Titans; this is information reported by Su Guantong, not independently verified.</li></ul></details><nav aria-label="Chapter navigation" class="chapter-nav"><a href="Global_Game_AFK_Chapter_2941_Return.html#start">← Previous chapter (2941)</a><a class="next" href="Global_Game_AFK_Chapter_2943_Suspicious_Inheritance.html#start">Next chapter (2943) →</a></nav></section><footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer></main><div aria-live="polite" id="reading-toast" role="status"></div><script src="chapters.js"></script><script>(()=>{
+'use strict';
+const storeKey='afk-reader-position:chapter-2942:v2';
+const sizeKey='afk-reader-font-size:compact-v3';
+const themeKey='afk-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem('afk-reader-test','ok');localStorage.removeItem('afk-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored('afk-last-chapter', "Global_Game_AFK_Chapter_2942_Ancient_Humans.html");
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();</script></body></html>

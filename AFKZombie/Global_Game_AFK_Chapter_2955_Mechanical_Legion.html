@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html data-theme="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/><meta content="#171719" name="theme-color"/><title>Chapter 2955 — Mechanical Legion | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head><body><header class="topbar" role="banner"><div class="toolbar"><a aria-label="Previous chapter 2954" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2954_The_Grind.html#start" title="Previous chapter">‹</a><select aria-label="Choose a chapter" id="chapter-picker" data-chapter-file="Global_Game_AFK_Chapter_2955_Mechanical_Legion.html"><option selected="selected" value="Global_Game_AFK_Chapter_2955_Mechanical_Legion.html">2955 · Mechanical Legion</option></select><a aria-label="Next chapter 2956" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2956_Empty_Shell.html#start" title="Next chapter">›</a><button aria-label="Decrease font size" class="toolbtn" id="smaller" title="Smaller text">A−</button><button aria-label="Increase font size" class="toolbtn" id="larger" title="Larger text">A+</button><button aria-label="Toggle dark/light mode" class="toolbtn" id="theme" title="Toggle theme">◐</button></div><div id="progress-track"><div id="progress"></div></div></header><main><span aria-hidden="true" id="start"></span><section class="chapter-section" data-reading-anchor="" id="chapter-2955"><div class="chapter-num">Chapter 2955</div><h2 class="chapter-title">Mechanical Legion</h2><p class="source-identity">From original Chinese Chapter 2956 · 机械兵团</p><article class="prose"><p data-reading-anchor="" id="ch2955-p001">Hostile life forms?</p><p data-reading-anchor="" id="ch2955-p002">Everyone&#x27;s expression changed.</p><p data-reading-anchor="" id="ch2955-p003">More than half a month had passed since they arrived on this planet, and they hadn&#x27;t seen a single native creature. That was strange in itself.</p><p data-reading-anchor="" id="ch2955-p004">Fang Heng looked serious too. &quot;Let&#x27;s go outside and have a look.&quot;</p><p data-reading-anchor="" id="ch2955-p005">They followed the passage up to the surface.</p><p data-reading-anchor="" id="ch2955-p006">By now, the entire area paved with antigravity concrete blocks was protected by a visible energy barrier.</p><p data-reading-anchor="" id="ch2955-p007">Colette, Vion, and the other Federation personnel had also hurried over as soon as they detected the anomaly.</p><p data-reading-anchor="" id="ch2955-p008">Beyond the barrier, several black flying objects were slowly approaching through the distant yellow sandstorm.</p><p data-reading-anchor="" id="ch2955-p009">What the hell were those?</p><p data-reading-anchor="" id="ch2955-p010">The creatures were spherical and floated high above the ground. As they approached, they began circling the outer barrier while emitting a high-pitched buzzing noise.</p><p data-reading-anchor="" id="ch2955-p011">Li Zhixuan signaled her researchers to gather data, then warned quietly, &quot;Fang Heng, that isn&#x27;t ordinary acoustic interference. It&#x27;s some kind of unknown language. We can confirm they&#x27;re intelligent life forms capable of communicating information.&quot;</p><p data-reading-anchor="" id="ch2955-p012">Colette arrived beside Fang Heng with the military contingent.</p><p data-reading-anchor="" id="ch2955-p013">Hearing Li Zhixuan&#x27;s assessment, he immediately ordered the base&#x27;s loudspeakers to broadcast messages in human languages.</p><p data-reading-anchor="" id="ch2955-p014">The creatures apparently understood none of them. After several repetitions of their incomprehensible buzzing, they grew agitated and began flying more erratically around the barrier.</p><p data-reading-anchor="" id="ch2955-p015">Vion looked up at the rapidly moving spheres and murmured, &quot;This doesn&#x27;t look good.&quot;</p><p data-reading-anchor="" id="ch2955-p016">Fang Heng studied the floating objects.</p><p data-reading-anchor="" id="ch2955-p017">He couldn&#x27;t sense a trace of blood or vitality from them.</p><p data-reading-anchor="" id="ch2955-p018">Vion turned to his subordinates. &quot;Extract the recordings and send the audio back to headquarters for analysis and decoding immediately!&quot;</p><p data-reading-anchor="" id="ch2955-p019">&quot;Yes, sir!&quot;</p><p data-reading-anchor="" id="ch2955-p020">After circling a while longer, the black spheres pulled away and began firing short bursts of dark beams at the energy barrier!</p><p data-reading-anchor="" id="ch2955-p021">So they were mechanical!</p><p data-reading-anchor="" id="ch2955-p022">The dark beams struck and exploded against the outer shield. It immediately shifted to full-power mode, consuming its reserve energy to reinforce its defenses.</p><p data-reading-anchor="" id="ch2955-p023">The Federation soldiers raised their energy weapons and returned fire.</p><p data-reading-anchor="" id="ch2955-p024">Whoosh! Whoosh, whoosh, whoosh!!!</p><p data-reading-anchor="" id="ch2955-p025">But the black spheres were small and incredibly agile. They darted around high above the soldiers, exploiting their altitude.</p><p data-reading-anchor="" id="ch2955-p026">Every beam the soldiers fired missed.</p><p data-reading-anchor="" id="ch2955-p027">The spheres dodged while continuing to retaliate, striking the outer barrier with more short bursts of dark energy.</p><p data-reading-anchor="" id="ch2955-p028">Fortunately, there weren&#x27;t many of them.</p><p data-reading-anchor="" id="ch2955-p029">At this intensity, their attacks couldn&#x27;t breach the shield.</p><p data-reading-anchor="" id="ch2955-p030">&quot;Stop firing.&quot;</p><p data-reading-anchor="" id="ch2955-p031">After expending a full volley of ammunition, the soldiers lowered their weapons.</p><p data-reading-anchor="" id="ch2955-p032">Li Zhixuan studied the spheres&#x27; movements and frowned. &quot;They barely move to evade, and each time they dodge at the last possible moment. They likely have some kind of energy-detection system that predicts incoming attack trajectories and calculates extremely precise evasive maneuvers.&quot;</p><p data-reading-anchor="" id="ch2955-p033">Fang Heng raised a hand toward the objects overhead.</p><p data-reading-anchor="" id="ch2955-p034">Mind Control.</p><p data-reading-anchor="" id="ch2955-p035">Huh?</p><p data-reading-anchor="" id="ch2955-p036">That didn&#x27;t work either?</p><p data-reading-anchor="" id="ch2955-p037">The black spheres swallowed his psychic power like black holes.</p><p data-reading-anchor="" id="ch2955-p038">Completely nullified.</p><p data-reading-anchor="" id="ch2955-p039">&quot;Interesting...&quot;</p><p data-reading-anchor="" id="ch2955-p040">Fang Heng murmured and summoned the Book of Elements with a flick of his wrist.</p><p data-reading-anchor="" id="ch2955-p041">&quot;Lightning Strike!&quot;</p><p data-reading-anchor="" id="ch2955-p042">Boom!!</p><p data-reading-anchor="" id="ch2955-p043">A bolt of lightning fell instantly from above and struck one of the black spheres head-on.</p><p data-reading-anchor="" id="ch2955-p044">Bang!!</p><p data-reading-anchor="" id="ch2955-p045">The sphere shattered the moment it was hit.</p><p data-reading-anchor="" id="ch2955-p046">Fang Heng raised his eyebrows in surprise.</p><p data-reading-anchor="" id="ch2955-p047">The black spheres possessed fairly strong magical defenses. Had his Mental Strength been any lower, an ordinary player&#x27;s Lightning Strike might not have affected them at all.</p><p data-reading-anchor="" id="ch2955-p048">&quot;Beautifully done!&quot;</p><p data-reading-anchor="" id="ch2955-p049">Fang Heng&#x27;s success immediately raised the players&#x27; morale.</p><p data-reading-anchor="" id="ch2955-p050">Having suffered a casualty, the black spheres suddenly stopped attacking. They slowly regrouped in a line high overhead, then retreated into the sandstorm and vanished.</p><p data-reading-anchor="" id="ch2955-p051">They were withdrawing?</p><p data-reading-anchor="" id="ch2955-p052">Everyone exchanged looks.</p><p data-reading-anchor="" id="ch2955-p053">A researcher approached to report. &quot;We&#x27;ve uploaded the audio to the Kinsfolk central AI. It has identified them as the Cangniao Mechanical Legion.&quot;</p><p data-reading-anchor="" id="ch2955-p054">Zaka asked, &quot;What the hell is that? A mechanical legion?&quot;</p><p data-reading-anchor="" id="ch2955-p055">&quot;Yes. The Cangniao Mechanical Legion is an awakened mechanical civilization from another region of space. It&#x27;s mentioned in the Kinsfolk database, and it is extremely territorial.&quot;</p><p data-reading-anchor="" id="ch2955-p056">As Colette explained, he quickly read through the translated warning and handed the report to Fang Heng.</p><p data-reading-anchor="" id="ch2955-p057">&quot;That noise was a warning. The Cangniao regard this planet as one of their reserve resource sites. They consider our unauthorized mining an infringement of their interests.&quot;</p><p data-reading-anchor="" id="ch2955-p058">Alec curled his lip. &quot;Hah. They say it belongs to them, so it&#x27;s theirs? Where&#x27;s the proof? I can claim the mine belongs to us too.&quot;</p><p data-reading-anchor="" id="ch2955-p059">&quot;What we encountered was a Cangniao advance reconnaissance unit. More regular units will likely arrive soon.&quot;</p><p data-reading-anchor="" id="ch2955-p060">Colette looked at Vion. &quot;Our current defenses probably won&#x27;t hold against them.&quot;</p><p data-reading-anchor="" id="ch2955-p061">&quot;In the Kinsfolk&#x27;s threat rankings, the Cangniao Mechanical Legion is only one tier below the Black Fog—a threat on the same level as the Ouroboros Seed.&quot;</p><p data-reading-anchor="" id="ch2955-p062">&quot;Headquarters has been informed of the attack. They should dispatch a starship immediately to evacuate us.&quot;</p><p data-reading-anchor="" id="ch2955-p063">Vion had been nursing his anger for days. Now that the Cangniao had attacked, he saw an opportunity to regain the initiative.</p><p data-reading-anchor="" id="ch2955-p064">He looked toward Fang Heng. &quot;We&#x27;ll evacuate as soon as the starship arrives. Fang Heng, have your people prepare. Send the ore you&#x27;ve mined recently back to headquarters with us.&quot;</p><p data-reading-anchor="" id="ch2955-p065">Vion had already worked out his scheme, looking as though he had Fang Heng trapped.</p><p data-reading-anchor="" id="ch2955-p066">Once the ore was loaded aboard the Federation starship, wouldn&#x27;t the Western Federation Council control its fate?</p><p data-reading-anchor="" id="ch2955-p067">After all Fang Heng&#x27;s hard work mining it, he&#x27;d have no choice but to hand it over obediently!</p><p data-reading-anchor="" id="ch2955-p068">Seeing Fang Heng lower his head and think in silence, a grave look on his face, Vion felt even more delighted.</p><p data-reading-anchor="" id="ch2955-p069">Hahaha!</p><p data-reading-anchor="" id="ch2955-p070">Hadn&#x27;t this brat been arrogant all along? Now look at him!</p><p data-reading-anchor="" id="ch2955-p071">Colette sighed inwardly and patted Fang Heng&#x27;s shoulder. &quot;Boss Fang, we should move the supplies and prepare to evacuate as soon as possible.&quot;</p><p data-reading-anchor="" id="ch2955-p072">Fang Heng looked up as if waking from a trance and stared at him blankly. &quot;Hmm? What?&quot;</p><p data-reading-anchor="" id="ch2955-p073">What was he pretending for? Vion sneered. &quot;I&#x27;m saying the Federation starship is coming to collect us, Boss Fang. Hurry up and prepare the ore for transport.&quot;</p><p data-reading-anchor="" id="ch2955-p074">&quot;Oh. I understand.&quot;</p><p data-reading-anchor="" id="ch2955-p075">Fang Heng flatly refused.</p><p data-reading-anchor="" id="ch2955-p076">He was thinking about how to finish constructing his starship as soon as possible. Ore was a trivial detail by comparison. He waved a hand. &quot;We don&#x27;t have much stored ore left, so there&#x27;s no need to bother. Carry out your evacuation plan as you see fit. Don&#x27;t worry about me.&quot;</p></article><p class="end" data-reading-anchor="" id="ch2955-end">— End of Chapter 2955 —</p><details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Fully translated from original Chinese Chapter 2956, title: 机械兵团.</li><li>All 76 source narrative paragraphs translated in their original order. Website content and end markers excluded.</li><li>Cangniao is a mechanical civilization, not a Zerg species. The Kinsfolk rate its threat as comparable to the Ouroboros Seed.</li></ul></details><nav aria-label="Chapter navigation" class="chapter-nav"><a href="Global_Game_AFK_Chapter_2954_The_Grind.html#start">← Previous chapter (2954)</a><a class="next" href="Global_Game_AFK_Chapter_2956_Empty_Shell.html#start">Next chapter (2956) →</a></nav></section><footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer></main><div aria-live="polite" id="reading-toast" role="status"></div><script src="chapters.js"></script><script>(()=>{
+'use strict';
+const storeKey='afk-reader-position:chapter-2955:v2';
+const sizeKey='afk-reader-font-size:compact-v3';
+const themeKey='afk-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem('afk-reader-test','ok');localStorage.removeItem('afk-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored('afk-last-chapter', "Global_Game_AFK_Chapter_2955_Mechanical_Legion.html");
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();</script></body></html>

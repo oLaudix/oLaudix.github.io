@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html data-theme="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/><meta content="#171719" name="theme-color"/><title>Chapter 2952 — Blocks | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head><body><header class="topbar" role="banner"><div class="toolbar"><a aria-label="Previous chapter 2951" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2951_Coordinates.html#start" title="Previous chapter">‹</a><select aria-label="Choose a chapter" id="chapter-picker" data-chapter-file="Global_Game_AFK_Chapter_2952_Blocks.html"><option selected="selected" value="Global_Game_AFK_Chapter_2952_Blocks.html">2952 · Blocks</option></select><a aria-label="Next chapter 2953" class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2953_Conveyor_Transport.html#start" title="Next chapter">›</a><button aria-label="Decrease font size" class="toolbtn" id="smaller" title="Smaller text">A−</button><button aria-label="Increase font size" class="toolbtn" id="larger" title="Larger text">A+</button><button aria-label="Toggle dark/light mode" class="toolbtn" id="theme" title="Toggle theme">◐</button></div><div id="progress-track"><div id="progress"></div></div></header><main><span aria-hidden="true" id="start"></span><section class="chapter-section" data-reading-anchor="" id="chapter-2952"><div class="chapter-num">Chapter 2952</div><h2 class="chapter-title">Blocks</h2><p class="source-identity">From original Chinese Chapter 2953 · 土块</p><article class="prose"><p data-reading-anchor="" id="ch2952-p001">&quot;Report! Communications briefly came back online. The Federation Council ordered us to stay patient and keep watching. They&#x27;re convinced Fang Heng will compromise soon. We mustn&#x27;t lose our nerve.&quot;</p><p data-reading-anchor="" id="ch2952-p002">Bullshit!</p><p data-reading-anchor="" id="ch2952-p003">Vion wanted to curse.</p><p data-reading-anchor="" id="ch2952-p004">Lose their nerve, his ass!</p><p data-reading-anchor="" id="ch2952-p005">Compromise? Fang Heng had already gone out and started building his own base!</p><p data-reading-anchor="" id="ch2952-p006">They were on the verge of being abandoned inside the Federation&#x27;s temporary camp!</p><p data-reading-anchor="" id="ch2952-p007">&quot;Who issued that order? Tell that idiot Fang Heng has already built a base outside!&quot;</p><p data-reading-anchor="" id="ch2952-p008">&quot;Minister Anatoly issued it. The military also sent headquarters a report that Fang Heng is establishing a base, and urged them to dispatch reinforcements immediately.&quot;</p><p data-reading-anchor="" id="ch2952-p009">&quot;During earlier communications, the higher-ups repeatedly asked whether we&#x27;d personally seen Fang Heng&#x27;s underground base and whether we could confirm its size and scale.&quot;</p><p data-reading-anchor="" id="ch2952-p010">Another member of the expert team spoke calmly. &quot;The minister wants us to verify the report. He suspects Fang Heng and the military may be setting a trap.&quot;</p><p data-reading-anchor="" id="ch2952-p011">A trap?</p><p data-reading-anchor="" id="ch2952-p012">Vion paused, then looked toward the empty laboratory hall.</p><p data-reading-anchor="" id="ch2952-p013">Were they trying to trick him?</p><p data-reading-anchor="" id="ch2952-p014">Thinking it through...</p><p data-reading-anchor="" id="ch2952-p015">That was possible.</p><p data-reading-anchor="" id="ch2952-p016">Otherwise, why would Fang Heng refuse to let them inspect the underground area?</p><p data-reading-anchor="" id="ch2952-p017">Wouldn&#x27;t displaying the base openly have broken their opponents&#x27; resolve far more effectively?</p><p data-reading-anchor="" id="ch2952-p018">That was close!</p><p data-reading-anchor="" id="ch2952-p019">Looking back, the sudden appearance of Fang Heng&#x27;s supposed underground safe zone had been extremely suspicious.</p><p data-reading-anchor="" id="ch2952-p020">It really could be nothing more than a bluff!</p><p data-reading-anchor="" id="ch2952-p021">He&#x27;d almost fallen for it!</p><p data-reading-anchor="" id="ch2952-p022">But...</p><p data-reading-anchor="" id="ch2952-p023">Something still didn&#x27;t add up.</p><p data-reading-anchor="" id="ch2952-p024">What about the researchers?</p><p data-reading-anchor="" id="ch2952-p025">He had clearly watched them leave the ship, and the laboratory supplies had been taken away too!</p><p data-reading-anchor="" id="ch2952-p026">Where were they?</p><p data-reading-anchor="" id="ch2952-p027">Unless...</p><p data-reading-anchor="" id="ch2952-p028">The military and Fang Heng had conspired to hide all the researchers and equipment somewhere aboard the ship?</p><p data-reading-anchor="" id="ch2952-p029">Vion scratched his head.</p><p data-reading-anchor="" id="ch2952-p030">The ship&#x27;s safe zone was small. Hiding so many people would be difficult.</p><p data-reading-anchor="" id="ch2952-p031">&quot;I understand. I&#x27;ll investigate thoroughly.&quot;</p><p data-reading-anchor="" id="ch2952-p032">Vion nodded and ordered the earlier surveillance recordings brought up so he could review what had actually happened.</p><p data-reading-anchor="" id="ch2952-p033">He replayed the footage several times. It plainly showed Wayne leading the researchers down into the tunnel. None of them had appeared again since.</p><p data-reading-anchor="" id="ch2952-p034">Was it an elaborate deception, or had they really built something?</p><p data-reading-anchor="" id="ch2952-p035">Vion was so unsettled that he refused to leave the control room, continuing to stare at the monitors.</p><p data-reading-anchor="" id="ch2952-p036">The whole night passed.</p><p data-reading-anchor="" id="ch2952-p037">Vion&#x27;s eyes were heavy with exhaustion.</p><p data-reading-anchor="" id="ch2952-p038">Apart from Alec&#x27;s team and a few scattered Zerg creatures, no one had entered or left the tunnel. The ship&#x27;s safe zone had remained sealed throughout the night.</p><p data-reading-anchor="" id="ch2952-p039">Fang Heng had no idea someone had been watching him all night.</p><p data-reading-anchor="" id="ch2952-p040">With the engineers and researchers cooperating, the antigravity equipment in the underground passage had finally been installed in its basic configuration.</p><p data-reading-anchor="" id="ch2952-p041">The players could now remove their protective suits and move freely underground.</p><p data-reading-anchor="" id="ch2952-p042">The engineers would continue refining and expanding the system, reinforcing the inner passages and improving their defenses.</p><p data-reading-anchor="" id="ch2952-p043">&quot;Fang Heng, we&#x27;ve finished developing modified concrete blocks for this corrosive environment. We added a special metal to the mixture, strengthening the blocks and making them immune to erosion by the sandstorm.&quot;</p><p data-reading-anchor="" id="ch2952-p044">Now that was useful!</p><p data-reading-anchor="" id="ch2952-p045">Fang Heng took the blueprints from Li Zhixuan and nodded approvingly.</p><p data-reading-anchor="" id="ch2952-p046">He knew enough scientific and engineering skills to understand the design.</p><p data-reading-anchor="" id="ch2952-p047">With corrosion-resistant blocks, all they needed was mass production. They could install antigravity modules inside them and lay the blocks along the transport routes.</p><p data-reading-anchor="" id="ch2952-p048">That would greatly accelerate ore transportation.</p><p data-reading-anchor="" id="ch2952-p049">Li Zhixuan looked concerned. &quot;According to your design, production of the special antigravity blocks will be very low. One crucial step even requires alchemical energy conduction...&quot;</p><p data-reading-anchor="" id="ch2952-p050">&quot;Let me try. Do you have a prototype?&quot;</p><p data-reading-anchor="" id="ch2952-p051">&quot;Yes.&quot;</p><p data-reading-anchor="" id="ch2952-p052">Li Zhixuan beckoned to a nearby player.</p><p data-reading-anchor="" id="ch2952-p053">Two researchers wheeled over a cart bearing a dark-gray block.</p><p data-reading-anchor="" id="ch2952-p054">It was a cube with sides one and a half meters long.</p><p data-reading-anchor="" id="ch2952-p055">&quot;This is still only half-finished. We need to inscribe an alchemical imprint to improve its internal energy flow. Completing that step requires at least Intermediate Alchemy, and our team lacks anyone with those skills.&quot;</p><p data-reading-anchor="" id="ch2952-p056">&quot;That shouldn&#x27;t be a problem. I&#x27;ve happened to study a little alchemy.&quot;</p><p data-reading-anchor="" id="ch2952-p057">Fang Heng pressed his palm lightly against the block.</p><p data-reading-anchor="" id="ch2952-p058">Whoosh!</p><p data-reading-anchor="" id="ch2952-p059">A faint light flashed across its surface, leaving behind a pale imprint.</p><p data-reading-anchor="" id="ch2952-p060">That quickly?</p><p data-reading-anchor="" id="ch2952-p061">Had he really finished it?</p><p data-reading-anchor="" id="ch2952-p062">Several researchers stared at him in surprise.</p><p data-reading-anchor="" id="ch2952-p063">Fang Heng asked casually, &quot;These things are excellent. What&#x27;s our current production capacity?&quot;</p><p data-reading-anchor="" id="ch2952-p064">Production capacity?</p><p data-reading-anchor="" id="ch2952-p065">The researchers exchanged bewildered looks.</p><p data-reading-anchor="" id="ch2952-p066">If they had to estimate... perhaps one every three hours?</p><p data-reading-anchor="" id="ch2952-p067">What could he possibly want so many for?</p><p data-reading-anchor="" id="ch2952-p068">&quot;Forget it.&quot; Fang Heng could already read the answer on their faces. &quot;Find a way to expand production. We&#x27;ll need a lot of antigravity blocks. The more, the better.&quot;</p><p data-reading-anchor="" id="ch2952-p069">Li Zhixuan said, &quot;Mass production requires more raw materials and molds. We&#x27;ll have to acquire those through the Kinsfolk warp system.&quot;</p><p data-reading-anchor="" id="ch2952-p070">She and several researchers followed Fang Heng to the Kinsfolk central AI exchange terminal and watched him click through the exchange interface at lightning speed.</p><p data-reading-anchor="" id="ch2952-p071">Buy everything!</p><p data-reading-anchor="" id="ch2952-p072">They all stared in astonishment.</p><p data-reading-anchor="" id="ch2952-p073">Good grief...</p><p data-reading-anchor="" id="ch2952-p074">Why was he ordering so many materials? Was he setting up a production line?</p><p data-reading-anchor="" id="ch2952-p075">What on earth was Fang Heng planning?</p><p data-reading-anchor="" id="ch2952-p076">Now that he had a grinding goal, Fang Heng was wide awake again.</p><p data-reading-anchor="" id="ch2952-p077">The underground base had been divided into two levels.</p><p data-reading-anchor="" id="ch2952-p078">The researchers generally worked on the upper level.</p><p data-reading-anchor="" id="ch2952-p079">The lower level was still unfinished. Fang Heng assigned it to the zombie clones for ore refining and inscribing alchemical runes onto the antigravity blocks.</p><p data-reading-anchor="" id="ch2952-p080">The Kinsfolk warp system operated around the clock. Whenever the cooldown expired, another batch of forging tools was transported in.</p><p data-reading-anchor="" id="ch2952-p081">The blocks were built with a special alloy energy-conduction layer and antigravity module, covered by a concrete-metal composite, then given an outer defensive energy shield.</p><p data-reading-anchor="" id="ch2952-p082">Thirty-six hours later, the first batch of antigravity blocks was ready, and the research team immediately assembled for field testing.</p><p data-reading-anchor="" id="ch2952-p083">Outside the ship.</p><p data-reading-anchor="" id="ch2952-p084">Zaka and his players had been waiting for some time.</p><p data-reading-anchor="" id="ch2952-p085">Soon, Lickers dragged the blocks out of the cavern and onto the surface.</p><p data-reading-anchor="" id="ch2952-p086">Each block contained an antigravity module, so although they looked heavy, they floated in midair. Their behavior could be adjusted through internal settings.</p><p data-reading-anchor="" id="ch2952-p087">They had three modes: Mobile, Adjustment, and Fixed.</p><p data-reading-anchor="" id="ch2952-p088">In Mobile Mode, the blocks were much easier to move.</p><p data-reading-anchor="" id="ch2952-p089">Zaka stepped forward and tried pushing one.</p><p data-reading-anchor="" id="ch2952-p090">It was far lighter than expected, like pushing a small wooden cabinet on wheels.</p><p data-reading-anchor="" id="ch2952-p091">Zaka nodded to himself. Hearing the researchers&#x27; instructions over his headset, he turned to the players behind him. &quot;Brothers, time to get started. Let&#x27;s push some blocks!&quot;</p><p data-reading-anchor="" id="ch2952-p092">The players&#x27; job was to build roads!</p><p data-reading-anchor="" id="ch2952-p093">They would lay antigravity blocks outward one by one, gradually covering the surrounding area with a flat surface.</p><p data-reading-anchor="" id="ch2952-p094">The blocks were joined together in a continuous platform.</p><p data-reading-anchor="" id="ch2952-p095">Through their internal energy-conduction systems, all the blocks could be controlled from the cavern&#x27;s central control room, allowing their modes to be switched to Fixed.</p><p data-reading-anchor="" id="ch2952-p096">As more of the sandy ground was covered, the players could finally stand on the antigravity platform.</p><p data-reading-anchor="" id="ch2952-p097">&quot;These things really work!&quot;</p><p data-reading-anchor="" id="ch2952-p098">One excited player even jumped up and down on the surface.</p><p data-reading-anchor="" id="ch2952-p099">It was as solid as ordinary ground.</p><p data-reading-anchor="" id="ch2952-p100">At last, they could say goodbye to that awful feeling of stepping in soft shit.</p></article><p class="end" data-reading-anchor="" id="ch2952-end">— End of Chapter 2952 —</p><details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Fully translated from original Chinese Chapter 2953, title: 土块.</li><li>All 100 source narrative paragraphs translated in their original order. Website content and end markers excluded.</li><li>The source’s surveillance scene again occasionally confuses Vion with Wayne; translations distinguish the expert and mercenary leader.</li><li>A 1.5-meter cube is used for each modular antigravity block; exact modes and the 36-hour first-batch manufacturing time are preserved.</li></ul></details><nav aria-label="Chapter navigation" class="chapter-nav"><a href="Global_Game_AFK_Chapter_2951_Coordinates.html#start">← Previous chapter (2951)</a><a class="next" href="Global_Game_AFK_Chapter_2953_Conveyor_Transport.html#start">Next chapter (2953) →</a></nav></section><footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer></main><div aria-live="polite" id="reading-toast" role="status"></div><script src="chapters.js"></script><script>(()=>{
+'use strict';
+const storeKey='afk-reader-position:chapter-2952:v2';
+const sizeKey='afk-reader-font-size:compact-v3';
+const themeKey='afk-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem('afk-reader-test','ok');localStorage.removeItem('afk-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored('afk-last-chapter', "Global_Game_AFK_Chapter_2952_Blocks.html");
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();</script></body></html>
