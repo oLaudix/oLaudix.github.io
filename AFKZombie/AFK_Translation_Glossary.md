@@ -1,6 +1,6 @@
 # Global Game: AFK in the Zombie Apocalypse — Translation Glossary
 
-**Version:** 28 (25 October 2026)
+**Version:** 29 (25 October 2026)
 **Authority:** Names and wording already agreed in *our own* English translation. Our previously read published translation can establish a character alias when explicitly confirmed with the user (e.g., Charlotte); otherwise names are set by our translation and user decisions, not automatic third-party substitutions.  
 **Purpose:** A short, portable reference to include unchanged in each translation ZIP, and update only when new terminology is confirmed. The glossary governs spelling, not the novel's plot or prose.
 
@@ -814,3 +814,42 @@
 - **眷族贡献度 → Kinsfolk Contribution Points**, **联邦贡献点数 → Federation Contribution Points**. The presidential expert faction attempts to replace the former with the latter when distributing ore profits; the currencies are not interchangeable.
 - **眷族主脑 → Kinsfolk central AI**; **跃迁通道 → warp passage** with Stages 1, 2, 3 and 4. A Stage Three passage can transfer nonliving materials but cannot warp people; completed shell permits an emergency whole-starship warp, despite risk of hull damage.
 - **Source discrepancies:** CN2945 uses A+ for planned offworld mission, CN2946 calls it S+ and Fang Heng later says A. CN2945 calls Jasper President after establishing Vice President. CN2946 mentions Captain Zolan in an otherwise Captain Giselle-led expedition. CN2952 and CN2953 sporadically call presidential expert Vion 'Wayne'. CN2957 gives ship combat LV 0 while later mission suitability is LV 1. CN2958 Vion wagers a *one-year* loan of researchers, but CN2959 Fang Heng promises safe return within *three months*. All are documented in chapter notes.
+
+## V29 additions — English 2960–2979 (Chinese 2961–2980)
+
+The material below **extends** the cumulative V28 glossary above; no previous glossary sections or decisions have been discarded. This batch comprises **20 chapters, 1,667 of 1,667 source narrative paragraphs**. Source/English numbering remains Chinese N = English N + 1.
+
+### Newly encountered or reconfirmed names and terms
+
+| Established English | Chinese | Identification / continuity requirement |
+|---|---|---|
+| **Vampire King**; contextual address **Your Majesty** | 血族君王 / 君王大人 | Keep the established *Vampire King* title; **never Vampire Monarch**. Preserve a subordinate's deferential address. |
+| **Chen Yu** | 陈御 | Eastern Federation contact, distinct from other Chen-named characters. |
+| **Liu Haiyang** | 刘海洋 | Eastern Federation special task force leader; coordinates the research expedition. |
+| **Dr. Li Zhixuan** | 李芷萱 | Female scientist, continuing established spelling; never conflate with another Li. |
+| **Bulle** | 布勒 | Male Vampire Prince, deferential toward Fang Heng. |
+| **Alec** | 亚克力 / 亚力克 | Male Vampire Marquis; not an English phonetic transliteration of the Chinese word for acrylic. |
+| **Wayne** | 维恩 | Mercenary/team leader, distinct from **Vion**. |
+| **Vion** | 维昂 | Western Federation presidential expert, distinct from **Wayne**. |
+| **Notar** | 诺塔尔 | Nether Clan leader; retain established name. |
+| **Abe Akaya** | 阿部赤耶 | Fang Heng's established summoned entity. |
+| **Su Guantong**, code name **Blue Eyes** | 苏观瞳 / 蓝瞳 | The same female operative, not separate identities. |
+| **Proust** | 普鲁斯特 | Calamity evolver in Death Realm events. |
+| **Mu Qingxin** | 慕清馨 | Calamity-linked Cultivator; distinct from other Mu-named characters. |
+| **Ancient Humans** | 古人类 | Earlier civilization being studied by the Eastern Federation. |
+| **Kinsfolk** | 眷族 | Established faction name, not generic family relatives. |
+| **Ouroboros Seed** | 乌洛波洛斯之种 | Preserve full technical term, level changes and modification-slot counts. |
+| **Eye of Stars** | 星辰之眼 | High-tier Kinsfolk weapon against Ouroboros Seed nests; preserve positioning-device and attack-cost details. |
+| **Shadow Clan** | 影族 / 影之一族 | Dominant Kinsfolk alliance participant, coordinating the high-rank nest campaign. |
+| **Iron-Eaters** | 食铁族 / 食铁兽一族 | Allied builders capable of erecting Eye of Stars structures. |
+| **Charlotte** | 沙琳 | Established female leader, not Shalin. |
+| **Georgi** | 格奥尔吉 | Source Chinese 2966 names an Undead Council chair this way; an earlier glossary Georgi is a Holy Court commander. **Do not infer those are the same person.** Treat identity overlap as a source-name ambiguity pending confirmation. |
+
+### Source continuity and translation notes
+
+- The Flying Squirrel captain is called **Mousse (慕斯)** and **Janni (简妮 / 简尼)** in different source passages; retain this discrepancy as an unresolved author-side identity/name issue rather than merging them silently.
+- Preserve the **30 initial Vampire slots**, the later **50 total participants** and the associated personnel-exchange terms exactly as they occur in the story. Do not smooth numerical discrepancies.
+- Keep **ship and fleet numbers**, mission tiers, Ouroboros Seed levels, contribution figures, and research/repair durations literal to their respective chapters.
+- **Titles, ranks, courtesy and register are locked**: Vampire King, Vampire Prince, federation officers, and deferential subordinates must not be arbitrarily renamed or casualized.
+- **Idioms and sharp dialogue** should retain actual Chinese imagery/force where it makes sense; explanatory notes must match expressions in the corresponding chapter rather than neighboring chapters.
+- **Editing and Source Notes** in individual HTML chapters remain the chapter-specific location for author mistakes and translation decisions; these glossary cautions are cumulative project-wide guidance.
