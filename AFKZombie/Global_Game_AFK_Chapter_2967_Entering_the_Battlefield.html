@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 2967 — Entering the Battlefield | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-2967">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2966_The_Fleet.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_2967_Entering_the_Battlefield.html"><option value="Global_Game_AFK_Chapter_2967_Entering_the_Battlefield.html" selected>2967 · Entering the Battlefield</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2968_War_Council.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-2967" data-reading-anchor>
+<div class="chapter-num">Chapter 2967</div><h2 class="chapter-title">Entering the Battlefield</h2>
+<p class="source-identity">From Chinese Chapter 2968 · 入场</p>
+<article class="prose">
+<p data-reading-anchor id="ch2967-p001">Without Fang Heng, the Western Federation lacked the ability to complete high-level missions.</p>
+<p data-reading-anchor id="ch2967-p002">Construction of the star map continued, but progress was slow.</p>
+<p data-reading-anchor id="ch2967-p003">In truth, the Western Federation didn't even want the star map completed too quickly. They had been deliberately dragging their feet.</p>
+<p data-reading-anchor id="ch2967-p004">Without Fang Heng and Charlotte's assistance, the Western Federation's experience farming speed had also fallen drastically.</p>
+<p data-reading-anchor id="ch2967-p005">A single high-level mission had taken them more than a month to complete.</p>
+<p data-reading-anchor id="ch2967-p006">“Reporting!”</p>
+<p data-reading-anchor id="ch2967-p007">“Come in.”</p>
+<p data-reading-anchor id="ch2967-p008">Under the watchful eyes of the Western Federation's senior officials, a young soldier entered the conference room and reported, “Captain, the president has approved your emergency mission request. We can depart for the target star system at any time.”</p>
+<p data-reading-anchor id="ch2967-p009">“Good!”</p>
+<p data-reading-anchor id="ch2967-p010">Captain Giselle stood up and surveyed everyone present.</p>
+<p data-reading-anchor id="ch2967-p011">“Everyone, the mission begins in ten minutes. Make your preparations.”</p>
+<p data-reading-anchor id="ch2967-p012">Two days earlier, Captain Giselle had accepted an emergency mission issued by the Kinsfolk system.</p>
+<p data-reading-anchor id="ch2967-p013">A mission involving the Ouroboros Seed.</p>
+<p data-reading-anchor id="ch2967-p014">Its difficulty was the highest possible: SSS-grade.</p>
+<p data-reading-anchor id="ch2967-p015">Under normal circumstances, Captain Giselle and the Western Federation would never have accepted such a high-risk mission.</p>
+<p data-reading-anchor id="ch2967-p016">But this assignment was different. It was a support mission, and several factions would be participating at once.</p>
+<p data-reading-anchor id="ch2967-p017">The Western Federation figured they could tag along, put in an appearance, and perhaps get lucky.</p>
+<p data-reading-anchor id="ch2967-p018">What if they managed to find an Ouroboros Seed?</p>
+<p data-reading-anchor id="ch2967-p019">At the very least, they could meet several Kinsfolk allies, try to build good relationships, gain experience fighting alongside alliance forces, and broaden their horizons.</p>
+<p data-reading-anchor id="ch2967-p020">The Federation therefore formed an observation delegation to accompany the fleet on the mission.</p>
+<p data-reading-anchor id="ch2967-p021">It even included an expert group from the Presidential Office, much to Captain Giselle's displeasure.</p>
+<p data-reading-anchor id="ch2967-p022">“Prepare for departure.”</p>
+<p data-reading-anchor id="ch2967-p023">Seven starships roared to life. Pale-white points of light surrounded them as they entered jump mode one after another.</p>
+<p data-reading-anchor id="ch2967-p024" class="scene">...</p>
+<p data-reading-anchor id="ch2967-p025">Half an hour later, the human starships emerged from the jump passage.</p>
+<p data-reading-anchor id="ch2967-p026">The Western Federation fleet led by Captain Giselle arrived at the battlefield in formation.</p>
+<p data-reading-anchor id="ch2967-p027">Looking through the starships' protective barriers, they saw vast stretches of red fungal carpet shrouded in Calamity as far as the eye could see. Countless low-level insect nests lay scattered across it like scars.</p>
+<p data-reading-anchor id="ch2967-p028">Captain Giselle's expression turned grave.</p>
+<p data-reading-anchor id="ch2967-p029">The strength of an SSS-grade insect nest was truly terrifying. Lower-grade nests were practically everywhere, and the Western Federation had never faced an environment this hostile.</p>
+<p data-reading-anchor id="ch2967-p030">At their fleet's current strength, they could probably only handle some low-level nests around the battlefield's outer edges.</p>
+<p data-reading-anchor id="ch2967-p031">Senior officials from the Federation's various departments had gathered in the flagship's control room to observe the situation outside.</p>
+<p data-reading-anchor id="ch2967-p032">Besides inspecting the insect swarm, they were also watching the Kinsfolk's allied forces.</p>
+<p data-reading-anchor id="ch2967-p033">Good grief.</p>
+<p data-reading-anchor id="ch2967-p034">The gap in strength was enormous.</p>
+<p data-reading-anchor id="ch2967-p035">The allied races routinely deployed fleets with dozens of ships, including many enormous warships.</p>
+<p data-reading-anchor id="ch2967-p036">By comparison, the Western Federation's forces weren't even worth looking at.</p>
+<p data-reading-anchor id="ch2967-p037">“Other allied battle fleets have hundreds of ships in their formations and carry more advanced equipment. Our current strength really is rather limited.”</p>
+<p data-reading-anchor id="ch2967-p038">“Don't belittle yourselves. We've simply started later than they did. What they can accomplish, we can accomplish someday too. For now, we need to rely on the Kinsfolk and find ways to strengthen ourselves as quickly as possible.”</p>
+<p data-reading-anchor id="ch2967-p039">“Let's treat this as an opportunity to broaden our horizons.”</p>
+<p data-reading-anchor id="ch2967-p040">“Mm.”</p>
+<p data-reading-anchor id="ch2967-p041">Everyone nodded.</p>
+<p data-reading-anchor id="ch2967-p042">The starships entered combat mode. Their onboard cannons deployed and began coordinating attacks against the insect swarm.</p>
+<p data-reading-anchor id="ch2967-p043">Meanwhile, the delegation secretly observed the warships of other races.</p>
+<p data-reading-anchor id="ch2967-p044">Generally speaking, most races relied on Kinsfolk starships in combat.</p>
+<p data-reading-anchor id="ch2967-p045">However, each race had modified its ships to suit its own strengths and needs. Some carried extraordinary defensive systems and weapons, including anti-magic hulls, spatial barriers, and compressed-space cannons.</p>
+<p data-reading-anchor id="ch2967-p046">By comparison, their own ships looked terribly shabby.</p>
+<p data-reading-anchor id="ch2967-p047">They were almost entirely standard Kinsfolk products, with scarcely any modifications at all.</p>
+<p data-reading-anchor id="ch2967-p048">“Beep, beep...”</p>
+<p data-reading-anchor id="ch2967-p049">A soft alert sounded through the main control room.</p>
+<p data-reading-anchor id="ch2967-p050">“We've received a message from another race on the Kinsfolk battlefield. It appears to be from an alien fleet behind us. We're trying to decode it...”</p>
+<p data-reading-anchor id="ch2967-p051">A moment later, the researchers finished decoding the message. The researcher reading the translated text on the screen frowned deeply.</p>
+<p data-reading-anchor id="ch2967-p052">Captain Giselle asked, “What does it say?”</p>
+<p data-reading-anchor id="ch2967-p053">“They're telling us to move toward the rear flank and stay out of their way. They say we shouldn't loiter in the main battle zone and interfere with their deployments. They want us to get the hell out of their way.”</p>
+<p data-reading-anchor id="ch2967-p054">“What does that mean?”</p>
+<p data-reading-anchor id="ch2967-p055">The staff member swallowed and replied softly, “The Shadow Clan, which leads the alliance, has convened the forces to arrange an attack on the central SSS-grade insect nest. At the appointed time, fleets will launch simultaneous assaults from several sectors, each under a designated commander. We weren't invited to take part in the planning meeting...”</p>
+<p data-reading-anchor id="ch2967-p056">Captain Giselle's expression darkened.</p>
+<p data-reading-anchor id="ch2967-p057">“Captain, if we don't move, they'll run straight over us...”</p>
+<p data-reading-anchor id="ch2967-p058">“Bang!!!”</p>
+<p data-reading-anchor id="ch2967-p059">Fury rising in their chest, Captain Giselle slammed a fist onto the ship's table and ordered through gritted teeth, “Evade toward the right rear sector.”</p>
+<p data-reading-anchor id="ch2967-p060">Damn it!</p>
+<p data-reading-anchor id="ch2967-p061">They had been far too naive.</p>
+<p data-reading-anchor id="ch2967-p062">In this world where the strong preyed upon the weak, none of the Kinsfolk allies took them seriously.</p>
+<p data-reading-anchor id="ch2967-p063">Only strength could earn respect.</p>
+<p data-reading-anchor id="ch2967-p064">It was all because of those idiot experts from the Federal Inspectorate and the Presidential Office!</p>
+<p data-reading-anchor id="ch2967-p065">If either Fang Heng or Charlotte were here, they wouldn't feel nearly so helpless.</p>
+<p data-reading-anchor id="ch2967-p066">“Pay no attention to these alien barbarians. We need only proceed according to our plan. At present there's a gap between our strength and the Kinsfolk's high-tier allies, but that's nothing to fear. Given a little more time, we're confident we can gradually close it.”</p>
+<p data-reading-anchor id="ch2967-p067">Vion had also joined the accompanying observation delegation as a member of the Presidential Office's expert group.</p>
+<p data-reading-anchor id="ch2967-p068">Seeing the situation, he started trying to save face.</p>
+<p data-reading-anchor id="ch2967-p069">“Fall back for now. Don't get into a conflict with the allied forces.”</p>
+<p data-reading-anchor id="ch2967-p070">The Western Federation's seven starships began slowly retreating toward the right rear.</p>
+<p data-reading-anchor id="ch2967-p071">After withdrawing some distance, they were clear of the alien ships.</p>
+<p data-reading-anchor id="ch2967-p072">Suddenly, points of flickering spatial light appeared off the fleet's left front flank.</p>
+<p data-reading-anchor id="ch2967-p073">The flashes rapidly multiplied until they formed a broad field of light.</p>
+<p data-reading-anchor id="ch2967-p074">An interstellar fleet!</p>
+<p data-reading-anchor id="ch2967-p075">Judging by the intensity of the jump beams, another alien fleet must have arrived at the battlefield.</p>
+<p data-reading-anchor id="ch2967-p076">Looking toward the battlefield's center, they saw a fleet of more than ninety ships arrive.</p>
+<p data-reading-anchor id="ch2967-p077">The advanced energy-beam weapons aboard the ships immediately activated, unleashing a dense barrage into the insect swarm ahead.</p>
+<p data-reading-anchor id="ch2967-p078">Watching the fierce battle through their windows, the Federation soldiers couldn't help feeling a little envious.</p>
+<p data-reading-anchor id="ch2967-p079">The attack power of a large fleet like that was on an entirely different level from their ordinary squadron.</p>
+<p data-reading-anchor id="ch2967-p080">When would they ever be able to assemble such a mighty fleet?</p>
+<p data-reading-anchor id="ch2967-p081">Ten years?</p>
+<p data-reading-anchor id="ch2967-p082">Or twenty?</p>
+</article>
+<p class="end" data-reading-anchor id="ch2967-end">— End of Chapter 2967 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Original Chinese Chapter 2968: 入场. English Chapter 2967: Entering the Battlefield. Narrative paragraphs: 82/82.</li><li>The source contains minor repetition in the star-map construction sentence; no narrative information is omitted.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_2966_The_Fleet.html#start">← Previous</a><a href="Global_Game_AFK_Chapter_2968_War_Council.html#start" class="next">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

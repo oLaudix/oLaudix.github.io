@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 2979 — A Headache | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-2979">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2978_Taking_It_Away.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_2979_A_Headache.html"><option value="Global_Game_AFK_Chapter_2979_A_Headache.html" selected>2979 · A Headache</option></select>
+<span class="toolbtn jump-link disabled" aria-disabled="true">›</span>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-2979" data-reading-anchor>
+<div class="chapter-num">Chapter 2979</div><h2 class="chapter-title">A Headache</h2>
+<p class="source-identity">From Chinese Chapter 2980 · 糟心</p>
+<article class="prose">
+<p data-reading-anchor id="ch2979-p001">The ships under Captain Giselle's command had just completed their jump calculations and positioning.</p>
+<p data-reading-anchor id="ch2979-p002">“Captain, we can return to the main base at any time.”</p>
+<p data-reading-anchor id="ch2979-p003">“Mm.”</p>
+<p data-reading-anchor id="ch2979-p004">Captain Giselle acknowledged the report and looked toward Vion. “Have you found anything?”</p>
+<p data-reading-anchor id="ch2979-p005">Vion shook his head slightly.</p>
+<p data-reading-anchor id="ch2979-p006">During the final preparations for departure, Vion had remained in the control room, looking through the glass toward Fang Heng's flagship outside.</p>
+<p data-reading-anchor id="ch2979-p007">He was intensely curious.</p>
+<p data-reading-anchor id="ch2979-p008">What were Fang Heng and his people still planning to do here?</p>
+<p data-reading-anchor id="ch2979-p009">Hadn't they stopped mining ore already?</p>
+<p data-reading-anchor id="ch2979-p010">Captain Giselle said, “In that case, let's initiate the jump...”</p>
+<p data-reading-anchor id="ch2979-p011">“Wait!”</p>
+<p data-reading-anchor id="ch2979-p012">Suddenly, Vion noticed something and stared at Fang Heng's enormous Nethersea starship in the distance.</p>
+<p data-reading-anchor id="ch2979-p013">“Look! What's that?!”</p>
+<p data-reading-anchor id="ch2979-p014">Everyone aboard turned their eyes toward the distant ship.</p>
+<p data-reading-anchor id="ch2979-p015">They saw Kinsfolk machines moving large pieces of equipment from underground tunnels in the ground into the Nethersea.</p>
+<p data-reading-anchor id="ch2979-p016">What were those enormous mechanical structures?</p>
+<p data-reading-anchor id="ch2979-p017">They looked like parts of some larger device.</p>
+<p data-reading-anchor id="ch2979-p018">Vion frowned deeply.</p>
+<p data-reading-anchor id="ch2979-p019">“Prisms?”</p>
+<p data-reading-anchor id="ch2979-p020">Then they saw part of a dark-green prism exposed outside one of the components, and everyone's expression changed.</p>
+<p data-reading-anchor id="ch2979-p021">Could it be...?</p>
+<p data-reading-anchor id="ch2979-p022">That's right!</p>
+<p data-reading-anchor id="ch2979-p023">Those were Eye of Stars prism positioning devices!</p>
+<p data-reading-anchor id="ch2979-p024">Good grief!</p>
+<p data-reading-anchor id="ch2979-p025">At last, Vion understood why Fang Heng had stayed behind.</p>
+<p data-reading-anchor id="ch2979-p026">He intended to haul away the entire Eye of Stars positioning system!</p>
+<p data-reading-anchor id="ch2979-p027">Wouldn't that offend the entire alliance, including the Shadow Clan?</p>
+<p data-reading-anchor id="ch2979-p028">Was he really not afraid?</p>
+<p data-reading-anchor id="ch2979-p029">Vion and Captain Giselle exchanged glances, each seeing the surprise in the other's eyes.</p>
+<p data-reading-anchor id="ch2979-p030">“Outrageous!”</p>
+<p data-reading-anchor id="ch2979-p031">Perhaps from fear, Vion's voice shook as he exclaimed angrily, “And what if all of humanity gets dragged into this because of him?”</p>
+<p data-reading-anchor id="ch2979-p032">Still stunned by Fang Heng's audacity, Captain Giselle drew a deep breath and was about to speak when he noticed Iron-Eater Clan members coming up from underground and entering the Nethersea as well.</p>
+<p data-reading-anchor id="ch2979-p033">He was even taking the Iron-Eater Clan away with him?</p>
+<p data-reading-anchor id="ch2979-p034">Giselle paused, then gave a bitter smile.</p>
+<p data-reading-anchor id="ch2979-p035">Now he genuinely didn't know what to say.</p>
+<p data-reading-anchor id="ch2979-p036">That man had guts.</p>
+<p data-reading-anchor id="ch2979-p037">“Perhaps...”</p>
+<p data-reading-anchor id="ch2979-p038">Looking toward Fang Heng's fleet in the distance, Captain Giselle slowly said, “Perhaps Fang Heng is confident he can deal with the Shadow Clan.”</p>
+<p data-reading-anchor id="ch2979-p039">“Hmm?”</p>
+<p data-reading-anchor id="ch2979-p040">Vion turned to look at Captain Giselle in astonishment.</p>
+<p data-reading-anchor id="ch2979-p041">The Iron-Eater Clan had its own doubts about Fang Heng's actions.</p>
+<p data-reading-anchor id="ch2979-p042">Were humans really all this insane?</p>
+<p data-reading-anchor id="ch2979-p043">Were they truly not afraid of retaliation?</p>
+<p data-reading-anchor id="ch2979-p044">In any case, the Iron-Eaters had no choice now.</p>
+<p data-reading-anchor id="ch2979-p045">Similar things had happened before. The races left behind had suffered the Shadow Clan's wrath and been wiped out completely.</p>
+<p data-reading-anchor id="ch2979-p046">Better to follow Fang Heng than remain behind and wait to die.</p>
+<p data-reading-anchor id="ch2979-p047">Even a miserable life was better than a good death.</p>
+<p data-reading-anchor id="ch2979-p048">One more day alive was one more day.</p>
+<p data-reading-anchor id="ch2979-p049">“Boss Fang, all supplies are ready. The fleet can begin the jump.”</p>
+<p data-reading-anchor id="ch2979-p050">“Mm. Initiate the jump procedure.”</p>
+<p data-reading-anchor id="ch2979-p051">“Yes! Preparing to jump.”</p>
+<p data-reading-anchor id="ch2979-p052">Fang Heng looked at Chen Yu beside him, who seemed to have something to say, and asked, “What? Is there something bothering you?”</p>
+<p data-reading-anchor id="ch2979-p053">“Boss Fang.”</p>
+<p data-reading-anchor id="ch2979-p054">Chen Yu chose his words carefully. “I'm a little worried. Things have ended badly between us and the Shadow Clan and its alliance. We may run into trouble if we meet them again.”</p>
+<p data-reading-anchor id="ch2979-p055">“Don't worry about it. We'll deal with that when we meet them.”</p>
+<p data-reading-anchor id="ch2979-p056">Fang Heng curled his lip.</p>
+<p data-reading-anchor id="ch2979-p057">Again? Who knew when that would be?</p>
+<p data-reading-anchor id="ch2979-p058">He was an Ouroboros Seed himself now. Sooner or later, the Kinsfolk would place him on their enemies list.</p>
+<p data-reading-anchor id="ch2979-p059">If he wasn't even afraid of the entire Kinsfolk faction, why should he fear these little allied groups?</p>
+<p data-reading-anchor id="ch2979-p060">If the Kinsfolk and their allies weren't still useful to him, he'd have flipped the table and walked away long ago.</p>
+<p data-reading-anchor id="ch2979-p061">“Oh, right. Return to base first and relocate the Eye of Stars prisms. They're very important to me. I'll temporarily hand command of the fleet to the Eastern Federation. I have another important matter to take care of.”</p>
+<p data-reading-anchor id="ch2979-p062">“Huh? Right now?” Chen Yu was startled. “But the jump procedure has already...”</p>
+<p data-reading-anchor id="ch2979-p063">“It's fine. I have a way to get back.”</p>
+<p data-reading-anchor id="ch2979-p064">Fang Heng nodded lightly and leapt off the flagship before the jump began, swiftly disappearing from everyone's sight.</p>
+<p data-reading-anchor id="ch2979-p065" class="scene">...</p>
+<p data-reading-anchor id="ch2979-p066">With the SSS-grade insect nest destroyed, the war entered its final battlefield cleanup phase.</p>
+<p data-reading-anchor id="ch2979-p067">The Shadow Clan and the other races had just finished clearing the main battlefield and were regrouping to divide up the world when news arrived from the Eye of Stars sites in the rear: the humans had dismantled and packed up the various Eye of Stars prisms and taken them away.</p>
+<p data-reading-anchor id="ch2979-p068">And not just the Eye of Stars. The humans had packed up the Iron-Eater Clan that built the prism installations and taken them too.</p>
+<p data-reading-anchor id="ch2979-p069">The assembled delegates were stunned. They fell silent for a moment as they tried to digest the news.</p>
+<p data-reading-anchor id="ch2979-p070">“How dare they!”</p>
+<p data-reading-anchor id="ch2979-p071">“What outrageous audacity!”</p>
+<p data-reading-anchor id="ch2979-p072">Were humans actually this crazy?</p>
+<p data-reading-anchor id="ch2979-p073">Who had ever dared do such a thing before?</p>
+<p data-reading-anchor id="ch2979-p074">Their excuse was even more ridiculous.</p>
+<p data-reading-anchor id="ch2979-p075">What did they mean, they had built the equipment, so they were entitled to take it away?</p>
+<p data-reading-anchor id="ch2979-p076">They were nothing but robbers!</p>
+<p data-reading-anchor id="ch2979-p077">“I'll go stop them!” a crocodile representative growled. “The humans have no respect for us whatsoever!”</p>
+<p data-reading-anchor id="ch2979-p078">The Shadow Clan's allies erupted into furious indignation.</p>
+<p data-reading-anchor id="ch2979-p079">Looking back now, they finally recognized how cunning the humans had been.</p>
+<p data-reading-anchor id="ch2979-p080">No wonder they'd volunteered so eagerly to help construct the Eye of Stars prism towers, acting like such generous souls.</p>
+<p data-reading-anchor id="ch2979-p081">They'd had their eyes on those prism towers from the very beginning!</p>
+<p data-reading-anchor id="ch2979-p082">It had all been premeditated.</p>
+<p data-reading-anchor id="ch2979-p083">Several Shadow Clan captains exchanged glances.</p>
+<p data-reading-anchor id="ch2979-p084">They had tested humanity's strength in the recent battle. The humans were no weaklings.</p>
+<p data-reading-anchor id="ch2979-p085">And to quietly load the prism towers and the entire Iron-Eater Clan onto their ships in such a short time, while everyone else was clearing the battlefield...</p>
+<p data-reading-anchor id="ch2979-p086">They were not to be underestimated.</p>
+<p data-reading-anchor id="ch2979-p087">“Calm yourselves. The humans' present whereabouts are unknown. Even if we intend to retaliate, now isn't the time.”</p>
+<p data-reading-anchor id="ch2979-p088">Once the Shadow Clan spoke, the other races fell silent.</p>
+<p data-reading-anchor id="ch2979-p089">Only the Crocodile Clan and the Red-Ghost Clan kept cursing inwardly.</p>
+<p data-reading-anchor id="ch2979-p090">Of course the Shadow Clan wasn't in a hurry!</p>
+<p data-reading-anchor id="ch2979-p091">But the bases and prism crystals had been supplied by the Crocodile Clan and Red-Ghost Clan respectively!</p>
+<p data-reading-anchor id="ch2979-p092">If Fang Heng divided them up and carried them off, those would be enormous losses for them.</p>
+<p data-reading-anchor id="ch2979-p093">“Issue an alliance-wide order to track humanity's movements. The next time we encounter humans, the Shadow Clan will take action.”</p>
+<p data-reading-anchor id="ch2979-p094" class="scene">...</p>
+<p data-reading-anchor id="ch2979-p095">An hour later, once the surviving Ouroboros Seeds on the battlefield had all been eliminated and divided among the victors, the various races finished negotiating ownership of the planet's mines and jumped away from the main battlefield in their ships.</p>
+<p data-reading-anchor id="ch2979-p096">The smaller races recruited to do the grunt work had outlived their usefulness and were gradually told to leave the world.</p>
+<p data-reading-anchor id="ch2979-p097">The final cleanup had begun.</p>
+<p data-reading-anchor id="ch2979-p098">The Crocodile Clan was in a foul mood after the humans stole its prism defense towers.</p>
+<p data-reading-anchor id="ch2979-p099">The Iron-Eater Clan wasn't just good at construction; it also had decent mining abilities. Originally, the crocodiles could have enslaved them to extract ore, but now they'd have to leave that work to Kinsfolk machines.</p>
+<p data-reading-anchor id="ch2979-p100">Mining efficiency would predictably fall sharply.</p>
+<p data-reading-anchor id="ch2979-p101">And that wasn't the end of their troubles.</p>
+<p data-reading-anchor id="ch2979-p102">The mining teams they'd just dispatched discovered that the ore reserves in their mines had shrunk dramatically. Less than 20% of the expected deposits remained.</p>
+<p data-reading-anchor id="ch2979-p103">What was left was low-grade, inferior ore of very little mining value.</p>
+<p data-reading-anchor id="ch2979-p104">Humans!</p>
+<p data-reading-anchor id="ch2979-p105">Those damned bastards!</p>
+</article>
+<p class="end" data-reading-anchor id="ch2979-end">— End of Chapter 2979 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Original Chinese Chapter 2980: 糟心. English Chapter 2979: A Headache. Narrative paragraphs: 105/105.</li><li>The source again uses 宇宙之眼 for prisms previously called 星辰之眼. The established Eye of Stars is kept, with the source variation noted.</li><li>The source specifies 80% of expected ore is missing: less than 20% remains.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_2978_Taking_It_Away.html#start">← Previous</a><span class="next" aria-disabled="true">Next →</span></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

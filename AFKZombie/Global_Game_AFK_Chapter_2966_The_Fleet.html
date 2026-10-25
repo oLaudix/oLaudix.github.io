@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 2966 — The Fleet | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-2966">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2965_Planning.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_2966_The_Fleet.html"><option value="Global_Game_AFK_Chapter_2966_The_Fleet.html" selected>2966 · The Fleet</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2967_Entering_the_Battlefield.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-2966" data-reading-anchor>
+<div class="chapter-num">Chapter 2966</div><h2 class="chapter-title">The Fleet</h2>
+<p class="source-identity">From Chinese Chapter 2967 · 舰队</p>
+<article class="prose">
+<p data-reading-anchor id="ch2966-p001">The starship's main control room.</p>
+<p data-reading-anchor id="ch2966-p002">“Boss Fang, we've been waiting for you for ages.”</p>
+<p data-reading-anchor id="ch2966-p003">Zaka and Chen Yu had both been in excellent spirits lately. When Fang Heng returned, they reported on the starship's latest progress.</p>
+<p data-reading-anchor id="ch2966-p004">“We've already divided up nearly all the resources in this world. Also, our cooperation with the Flying Squirrel clan has gone very smoothly, and they'd like to join our fleet.”</p>
+<p data-reading-anchor id="ch2966-p005">As the team's strength grew, they had encountered quite a few Kinsfolk allies while farming contribution points and materials.</p>
+<p data-reading-anchor id="ch2966-p006">Many races were willing to join Fang Heng's group and form an interstellar expedition fleet together.</p>
+<p data-reading-anchor id="ch2966-p007">The Flying Squirrel clan was one of their recent acquaintances.</p>
+<p data-reading-anchor id="ch2966-p008">After witnessing Fang Heng's insectoid-biological modified starship during a mission, they were utterly astonished. They immediately latched onto this powerful backer and refused to let go, joining Fang Heng and the Federation in carving up that world's resources.</p>
+<p data-reading-anchor id="ch2966-p009" class="game">[Game Hint: Flying Squirrel Fleet (5) has temporarily joined the player's interstellar fleet. Current number of ships in the player's fleet: 125. Fleet level increased to LV: 72.]</p>
+<p data-reading-anchor id="ch2966-p010" class="game">[Game Hint: The Nethersea Fleet's overall strength has entered the top 100 of the Kinsfolk Alliance rankings. Current rank: 98.]</p>
+<p data-reading-anchor id="ch2966-p011">Dr. Li Zhixuan nodded. “We've recently deciphered part of a stone tablet discovered in the Ancient Humans' world. One passage describes a species called 'Gods.' This species may have been the source of the crisis that threatened the Titans.”</p>
+<p data-reading-anchor id="ch2966-p012">“Judging by the description, the Gods were extraordinarily powerful. The Titans may have offended them and were gradually driven to the brink of destruction.”</p>
+<p data-reading-anchor id="ch2966-p013">Gods...</p>
+<p data-reading-anchor id="ch2966-p014">Fang Heng murmured the word and frowned.</p>
+<p data-reading-anchor id="ch2966-p015">“That's all the information we have for now.” Dr. Li Zhixuan nodded. “We'll continue our research and hopefully uncover more useful information.”</p>
+<p data-reading-anchor id="ch2966-p016">Chen Yu took over. “Boss Fang, let's put ancient history aside for now. We have something to deal with. We've just received a message from another race in the alliance.”</p>
+<p data-reading-anchor id="ch2966-p017">“Oh? What did they say?”</p>
+<p data-reading-anchor id="ch2966-p018">“A mission invitation concerning the Ouroboros Seed. One of the Kinsfolk Alliance races is undertaking a mission to destroy an SSS-grade Ouroboros Seed insect nest.”</p>
+<p data-reading-anchor id="ch2966-p019">Fang Heng's interest stirred.</p>
+<p data-reading-anchor id="ch2966-p020">An SSS-grade insect nest!</p>
+<p data-reading-anchor id="ch2966-p021">The alliance races were certainly no weaklings.</p>
+<p data-reading-anchor id="ch2966-p022">Chen Yu explained, “The mission was initiated by the Shadow Clan. According to their invitation, they recruited fleets from several races and started the mission chain to eliminate the SSS-grade nest twenty days ago.”</p>
+<p data-reading-anchor id="ch2966-p023">“Perhaps our fleet caught their attention after entering the top hundred. The Shadow Clan sent us an invitation to join them in destroying the Ouroboros Seed nest.”</p>
+<p data-reading-anchor id="ch2966-p024">Fang Heng narrowed his eyes.</p>
+<p data-reading-anchor id="ch2966-p025">As his Kinsfolk honor level had risen, his permissions within the Kinsfolk communications network had gradually unlocked.</p>
+<p data-reading-anchor id="ch2966-p026">He'd looked through some publicly available information on Ouroboros Seeds in the Kinsfolk mainframe.</p>
+<p data-reading-anchor id="ch2966-p027">Any Ouroboros Seed Calamity exceeding a certain strength threshold was classified as SSS-grade by the Kinsfolk system.</p>
+<p data-reading-anchor id="ch2966-p028">The one in the Death Realm, for example, fell within the Kinsfolk's SSS-grade category.</p>
+<p data-reading-anchor id="ch2966-p029">“An SSS-grade insect nest is extremely powerful.”</p>
+<p data-reading-anchor id="ch2966-p030">“Mm. We've also learned a little about the mission from other sources. To complete it, the Shadow Clan invited fleets from many races to cooperate in advance. They even redeemed an advanced Eye of Stars from the Kinsfolk. The Iron-Eater Clan specializes in assembling it.”</p>
+<p data-reading-anchor id="ch2966-p031">“They probably still need more ships on the front line, because the Shadow Clan keeps recruiting participants.”</p>
+<p data-reading-anchor id="ch2966-p032">Is that so...</p>
+<p data-reading-anchor id="ch2966-p033">Fang Heng was clearly interested.</p>
+<p data-reading-anchor id="ch2966-p034">Beside him, however, the Flying Squirrel captain repeatedly shook his head. “Mr. Fang Heng, the Shadow Clan ranks among the top three Kinsfolk allies in strength, and they possess a powerful modified fleet. But their people have difficult, eccentric temperaments. They're hard to cooperate with.”</p>
+<p data-reading-anchor id="ch2966-p035">“So you advise against it?”</p>
+<p data-reading-anchor id="ch2966-p036">“Strongly. We'd probably suffer losses.” The Flying Squirrel captain thought for a moment, his expression turning troubled. “But if we refuse them to their faces, they might take offense, think we've shown them disrespect, and turn hostile.”</p>
+<p data-reading-anchor id="ch2966-p037">“Hmph!” Alec snorted disdainfully. “Tch. They get angry just because someone doesn't give them face? Don't they think they're a little too important?”</p>
+<p data-reading-anchor id="ch2966-p038">Fang Heng motioned for Alec to calm down.</p>
+<p data-reading-anchor id="ch2966-p039">He'd only read about the Eye of Stars in the Kinsfolk descriptions; he couldn't judge its true power yet.</p>
+<p data-reading-anchor id="ch2966-p040">This was the perfect chance to examine it firsthand.</p>
+<p data-reading-anchor id="ch2966-p041">Then there was the Ouroboros Seed.</p>
+<p data-reading-anchor id="ch2966-p042">His Ouroboros Seed was currently LV: 13 and had only three modification slots. He couldn't equip Stealth, Biological Cannon, and Splitting all at the same time.</p>
+<p data-reading-anchor id="ch2966-p043">An SSS-grade nest would surely contain a high-level cocoon.</p>
+<p data-reading-anchor id="ch2966-p044">That should be enough to reach LV: 15 and unlock another modification slot.</p>
+<p data-reading-anchor id="ch2966-p045">With luck, he might even find better modification options.</p>
+<p data-reading-anchor id="ch2966-p046">Besides, he could take the opportunity to observe the Kinsfolk Alliance's high-end combat strength and assess it for himself.</p>
+<p data-reading-anchor id="ch2966-p047">Fang Heng nodded. “Send the Shadow Clan a reply. Tell them we're very interested in the mission and will arrive as soon as possible to help them complete it.”</p>
+<p data-reading-anchor id="ch2966-p048">“Huh?”</p>
+<p data-reading-anchor id="ch2966-p049">The Flying Squirrel clan members were plainly worried.</p>
+<p data-reading-anchor id="ch2966-p050">“There's no rush. We're only going to take a look.”</p>
+<p data-reading-anchor id="ch2966-p051">“Well...” The Flying Squirrel clan had suffered badly at the Shadow Clan's hands before. After thinking it over, the captain nodded. “We're willing to accompany you, but if anything unpleasant happens, the Flying Squirrel clan will withdraw.”</p>
+<p data-reading-anchor id="ch2966-p052">“Of course.”</p>
+<p data-reading-anchor id="ch2966-p053" class="scene">...</p>
+<p data-reading-anchor id="ch2966-p054">The V-0129 interstellar world.</p>
+<p data-reading-anchor id="ch2966-p055">A Western Federation starship base established within the game.</p>
+<p data-reading-anchor id="ch2966-p056">Captain Giselle and senior officials from various Federation departments were gathered in a conference room.</p>
+<p data-reading-anchor id="ch2966-p057">Something was strange.</p>
+<p data-reading-anchor id="ch2966-p058">Recently, the human faction's overall contribution level within the Kinsfolk had been rising at an extraordinary pace.</p>
+<p data-reading-anchor id="ch2966-p059">In just two months, the entire alliance faction had advanced by two major tiers!</p>
+<p data-reading-anchor id="ch2966-p060">The speed of that improvement struck Captain Giselle as highly suspicious. A few days earlier, Giselle had tried contacting the Kinsfolk leadership to ask what was going on.</p>
+<p data-reading-anchor id="ch2966-p061">The Kinsfolk leadership had always been cold toward humanity.</p>
+<p data-reading-anchor id="ch2966-p062">Only today had a response arrived.</p>
+<p data-reading-anchor id="ch2966-p063">A Kinsfolk executive explained that the system evaluated and ranked a faction based on the combined population of the entire race on their planet.</p>
+<p data-reading-anchor id="ch2966-p064">What did that mean?</p>
+<p data-reading-anchor id="ch2966-p065">Apart from the Western Federation, were other regional Federations on their planet also cooperating with the Kinsfolk?</p>
+<p data-reading-anchor id="ch2966-p066">Captain Giselle's heart skipped a beat, recalling the giant starship they'd seen during the earlier evacuation.</p>
+<p data-reading-anchor id="ch2966-p067">Could it be...?</p>
+<p data-reading-anchor id="ch2966-p068">Fang Heng?</p>
+<p data-reading-anchor id="ch2966-p069">“No, no. Impossible.”</p>
+<p data-reading-anchor id="ch2966-p070">Giselle shook his head, driving the impossible answer from his mind.</p>
+<p data-reading-anchor id="ch2966-p071">Back then, the starship had been nothing but an empty shell. Two months should barely have been enough to finish building it. Could it already be running missions?</p>
+<p data-reading-anchor id="ch2966-p072">Not to mention the astronomical contribution required to advance two major tiers in succession.</p>
+<p data-reading-anchor id="ch2966-p073">It couldn't be Fang Heng.</p>
+<p data-reading-anchor id="ch2966-p074">So had something gone wrong with the system?</p>
+<p data-reading-anchor id="ch2966-p075">The good news was that the faction's rise in rank also raised the grade of war machinery they could redeem. Many high-level missions that had previously been unavailable were now open to them.</p>
+<p data-reading-anchor id="ch2966-p076">Unfortunately, following Fang Heng's disappearance and the fallout from the Emery incident, the Federation's mission completion rate had once again slowed considerably.</p>
+</article>
+<p class="end" data-reading-anchor id="ch2966-end">— End of Chapter 2966 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Original Chinese Chapter 2967: 舰队. English Chapter 2966: The Fleet. Narrative paragraphs: 76/76.</li><li>The source names the Flying Squirrel captain 慕斯 (Mousse). His identity is kept separate from a later inconsistent name until the source clarifies it.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_2965_Planning.html#start">← Previous</a><a href="Global_Game_AFK_Chapter_2967_Entering_the_Battlefield.html#start" class="next">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

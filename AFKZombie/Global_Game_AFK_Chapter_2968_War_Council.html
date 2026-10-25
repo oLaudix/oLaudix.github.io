@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 2968 — War Council | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-2968">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2967_Entering_the_Battlefield.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_2968_War_Council.html"><option value="Global_Game_AFK_Chapter_2968_War_Council.html" selected>2968 · War Council</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2969_Logistics.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-2968" data-reading-anchor>
+<div class="chapter-num">Chapter 2968</div><h2 class="chapter-title">War Council</h2>
+<p class="source-identity">From Chinese Chapter 2969 · 作战会议</p>
+<article class="prose">
+<p data-reading-anchor id="ch2968-p001">Giselle took a deep breath.</p>
+<p data-reading-anchor id="ch2968-p002">Humanity had a weak foundation. Only through the influence of the Black Fog Game had some humans 'evolved' and acquired strength beyond ordinary people.</p>
+<p data-reading-anchor id="ch2968-p003">There was no point blaming heaven or others for their circumstances.</p>
+<p data-reading-anchor id="ch2968-p004">They just had to work hard and build their strength little by little.</p>
+<p data-reading-anchor id="ch2968-p005">One day, they would surpass those races!</p>
+<p data-reading-anchor id="ch2968-p006">As he thought, a starship crew member suddenly noticed another incoming message. Startled, he looked up and reported, “Captain, we've received a message from the Shadow Clan of the alliance. They've invited us to the Red starship to discuss the battle plan.”</p>
+<p data-reading-anchor id="ch2968-p007">Hmm?</p>
+<p data-reading-anchor id="ch2968-p008">Everyone's eyes lit up, and they exchanged glances.</p>
+<p data-reading-anchor id="ch2968-p009">What did this mean? The allied forces had just told them to get lost, and now they were suddenly inviting them to join a strategic planning meeting?</p>
+<p data-reading-anchor id="ch2968-p010">Something wasn't right!</p>
+<p data-reading-anchor id="ch2968-p011">They weren't planning to use the humans as cannon fodder, were they?</p>
+<p data-reading-anchor id="ch2968-p012">“Mm. Let's go and see.”</p>
+<p data-reading-anchor id="ch2968-p013">Giselle made the decision immediately.</p>
+<p data-reading-anchor id="ch2968-p014">They might be weak now, but they could work to become stronger. If they didn't even dare attend a battle-planning meeting, they couldn't blame others for looking down on them.</p>
+<p data-reading-anchor id="ch2968-p015">A teleportation passage was quickly established inside the ship, and Giselle led several Federation members through it to the Red starship.</p>
+<p data-reading-anchor id="ch2968-p016">“Welcome aboard the Red.”</p>
+<p data-reading-anchor id="ch2968-p017">The Crocodile Clan was a branch of the Beastmen and ranked among the top ten Kinsfolk allies in overall strength.</p>
+<p data-reading-anchor id="ch2968-p018">To human eyes, Crocodile Clan members were ugly, with naturally thuggish faces and rather stocky builds.</p>
+<p data-reading-anchor id="ch2968-p019">Several crocodile people greeted Giselle's group in a language they spoke rather awkwardly, their gazes carrying a trace of curiosity. “Is it only you? Are the rest of your companions still on the way?”</p>
+<p data-reading-anchor id="ch2968-p020">Vion nodded. “Mm. It's just us.”</p>
+<p data-reading-anchor id="ch2968-p021">“Hmm? That doesn't seem right.” The crocodile looked puzzled. “We received more than one teleportation request...”</p>
+<p data-reading-anchor id="ch2968-p022">“Never mind. Perhaps there was a small error somewhere. In any case, please follow me. I'll show you to your seats.”</p>
+<p data-reading-anchor id="ch2968-p023">The crocodile guard led Captain Giselle and the other players to a large round conference table.</p>
+<p data-reading-anchor id="ch2968-p024">The meeting hadn't begun, but many aliens were already gathered around the table, conversing in different languages.</p>
+<p data-reading-anchor id="ch2968-p025">Unfortunately, Giselle's group couldn't understand a word of any of them.</p>
+<p data-reading-anchor id="ch2968-p026">After a while, the crocodile's awkward speech sounded behind them again. “Your companions have arrived.”</p>
+<p data-reading-anchor id="ch2968-p027">Hmm?</p>
+<p data-reading-anchor id="ch2968-p028">Companions?</p>
+<p data-reading-anchor id="ch2968-p029">Giselle and the others instinctively turned around.</p>
+<p data-reading-anchor id="ch2968-p030">Huh?</p>
+<p data-reading-anchor id="ch2968-p031">What the hell?</p>
+<p data-reading-anchor id="ch2968-p032">Why was it Fang Heng?!</p>
+<p data-reading-anchor id="ch2968-p033">Led by crocodile guards, Fang Heng and several companions entered the conference hall and walked toward them.</p>
+<p data-reading-anchor id="ch2968-p034">So Fang Heng was the companion the crocodile had meant?</p>
+<p data-reading-anchor id="ch2968-p035">Had his group accepted the same mission?</p>
+<p data-reading-anchor id="ch2968-p036">Fang Heng spotted Captain Giselle's group as he entered and looked a little surprised. After taking his seat, he raised a hand in greeting. “Captain Giselle, long time no see. I didn't expect to run into you here. What a coincidence.”</p>
+<p data-reading-anchor id="ch2968-p037">Giselle and Vion also noticed several players following Fang Heng, and their expressions changed.</p>
+<p data-reading-anchor id="ch2968-p038">People from the Eastern Federation!</p>
+<p data-reading-anchor id="ch2968-p039">And they were all high-ranking Eastern Federation officials!</p>
+<p data-reading-anchor id="ch2968-p040">Military officers, at that.</p>
+<p data-reading-anchor id="ch2968-p041">Although Giselle hadn't met these Eastern Federation military officers personally, the Western Federation had gathered basic intelligence on their identities.</p>
+<p data-reading-anchor id="ch2968-p042">How had they gotten here?</p>
+<p data-reading-anchor id="ch2968-p043">Could it be...?</p>
+<p data-reading-anchor id="ch2968-p044">Captain Giselle immediately drew a conclusion.</p>
+<p data-reading-anchor id="ch2968-p045">It seemed that after departing aboard his interstellar starship, Fang Heng had turned around and established contact with the Eastern Federation.</p>
+<p data-reading-anchor id="ch2968-p046">Unexpectedly, the Eastern Federation's intelligence control was so effective that the Western Federation hadn't heard a whisper of it recently.</p>
+<p data-reading-anchor id="ch2968-p047">Captain Giselle's expression darkened. He shot a sidelong glance at the two Presidential Office experts beside him.</p>
+<p data-reading-anchor id="ch2968-p048">Those idiots!</p>
+<p data-reading-anchor id="ch2968-p049">If they hadn't constantly been stirring up trouble, the Western Federation military would be earning points alongside Fang Heng right now. How could the Eastern Federation have beaten them to it otherwise?</p>
+<p data-reading-anchor id="ch2968-p050">Captain Giselle nodded to Fang Heng and asked a question he already knew the answer to. “Are these gentlemen friends of yours?”</p>
+<p data-reading-anchor id="ch2968-p051">Fang Heng introduced them openly. “Mm. They're friends from the Eastern Federation. We've entered into some cooperation.”</p>
+<p data-reading-anchor id="ch2968-p052">Two captains among the Eastern Federation's senior military officers nodded to Giselle. “Captain Giselle, we've heard much about you. We never expected to meet under these circumstances. A pleasure to make your acquaintance.”</p>
+<p data-reading-anchor id="ch2968-p053">Although the Eastern and Western Federations competed behind the scenes, they could still maintain an outward show of cordiality and exchange pleasantries.</p>
+<p data-reading-anchor id="ch2968-p054">Giselle sighed deeply inwardly and asked, “I didn't realize the Eastern Federation had finished building starships too. When did that happen?”</p>
+<p data-reading-anchor id="ch2968-p055">“It's been a month or two now. This is confidential Eastern Federation business, so we'd appreciate your discretion, Director Giselle.”</p>
+<p data-reading-anchor id="ch2968-p056">“Of course.”</p>
+<p data-reading-anchor id="ch2968-p057">Giselle had mixed feelings.</p>
+<p data-reading-anchor id="ch2968-p058">Vion's expression was equally unsettled.</p>
+<p data-reading-anchor id="ch2968-p059">A month or two ago?</p>
+<p data-reading-anchor id="ch2968-p060">Wasn't that precisely when the Western Federation had fallen out with Fang Heng?</p>
+<p data-reading-anchor id="ch2968-p061">Vion was about to probe further with a few questions when a crocodile approached the head of the conference table, cleared his throat, and gestured for the attendees to put on the signal wristbands lying on the table.</p>
+<p data-reading-anchor id="ch2968-p062">Fang Heng picked one up and put it on. Almost immediately, the crocodile's words were translated directly into human language by the device and sounded in his mind.</p>
+<p data-reading-anchor id="ch2968-p063">The objective of this Kinsfolk mission was to destroy the ultimate SSS-grade insect nest.</p>
+<p data-reading-anchor id="ch2968-p064">It was no easy task.</p>
+<p data-reading-anchor id="ch2968-p065">The Crocodile Clan began explaining the mission in detail.</p>
+<p data-reading-anchor id="ch2968-p066">Fang Heng frowned slightly, puzzled.</p>
+<p data-reading-anchor id="ch2968-p067">Wasn't the Shadow Clan supposed to have organized the mission? The invitation they'd received was from the Shadow Clan too. Why, then, had the Crocodile Clan been chairing the meeting from beginning to end?</p>
+<p data-reading-anchor id="ch2968-p068">“Mr. Fang Heng.”</p>
+<p data-reading-anchor id="ch2968-p069">After discussing the battle plan for a while, the crocodile captain turned the conversation toward Fang Heng. He rose, fixed Fang Heng with a rather officious look, and said, “This is humanity's first time joining an allied military operation. After discussion, the alliance has assigned the human Nethersea Fleet to construct and defend Area Six of the Eye of Stars. Does humanity consider this arrangement acceptable?”</p>
+<p data-reading-anchor id="ch2968-p070">Captain Giselle and his companions, who had been silent throughout, were utterly shocked. They all turned toward Fang Heng.</p>
+<p data-reading-anchor id="ch2968-p071">What? A fleet?!</p>
+<p data-reading-anchor id="ch2968-p072">What was going on?</p>
+<p data-reading-anchor id="ch2968-p073">Since when did Fang Heng have an entire fleet?</p>
+<p data-reading-anchor id="ch2968-p074">Fang Heng remained calm. “That's fine. What about the distribution of benefits afterward?”</p>
+<p data-reading-anchor id="ch2968-p075">“The Kinsfolk mission system will provide the appropriate mission points. As for the final offensive, humanity probably won't be allowed to participate. This is our first cooperation, and humans have yet to prove their strength. The alliance won't take the risk of including you.”</p>
+<p data-reading-anchor id="ch2968-p076">“If humanity still has strength to spare after completing its assignment, you may help the logistics teams transport supplies.”</p>
+<p data-reading-anchor id="ch2968-p077">The conference hall fell quiet for a moment. Delegates from every race looked toward Fang Heng.</p>
+<p data-reading-anchor id="ch2968-p078">A rear-line logistics assignment was really just a job collecting scraps around the edges.</p>
+<p data-reading-anchor id="ch2968-p079">Not only was it exhausting work, but it also offered no chance of claiming the lion's share of the mission rewards.</p>
+<p data-reading-anchor id="ch2968-p080">Fang Heng shrugged. “All right. We accept. We're newcomers, and this is our first time working together. I hope you'll all look after us.”</p>
+<p data-reading-anchor id="ch2968-p081">The aliens looked away one after another.</p>
+<p data-reading-anchor id="ch2968-p082">The Crocodile Clan representative was quite pleased. He thought the humans were surprisingly sensible.</p>
+<p data-reading-anchor id="ch2968-p083">If so, once the mission was over, he could throw them a few leftover scraps of bone.</p>
+<p data-reading-anchor id="ch2968-p084">“Excellent. Then the Nethersea Fleet will assist with security until the Eye of Stars has been constructed. Finally, I must warn all our allies to attend to your own duties. Do not allow your actions to delay the alliance's overall operation.”</p>
+</article>
+<p class="end" data-reading-anchor id="ch2968-end">— End of Chapter 2968 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Original Chinese Chapter 2969: 作战会议. English Chapter 2968: War Council. Narrative paragraphs: 84/84.</li><li>The Crocodile Clan hosts the meeting even though the Shadow Clan issued the invitations, a distinction Fang Heng notices explicitly.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_2967_Entering_the_Battlefield.html#start">← Previous</a><a href="Global_Game_AFK_Chapter_2969_Logistics.html#start" class="next">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

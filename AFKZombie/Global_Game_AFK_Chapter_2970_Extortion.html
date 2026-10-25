@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 2970 — Extortion | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-2970">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2969_Logistics.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_2970_Extortion.html"><option value="Global_Game_AFK_Chapter_2970_Extortion.html" selected>2970 · Extortion</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2971_Ambush.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-2970" data-reading-anchor>
+<div class="chapter-num">Chapter 2970</div><h2 class="chapter-title">Extortion</h2>
+<p class="source-identity">From Chinese Chapter 2971 · 欺压</p>
+<article class="prose">
+<p data-reading-anchor id="ch2970-p001">Huh?</p>
+<p data-reading-anchor id="ch2970-p002">He'd just been thinking of seeking them out, and now they'd come to him first?</p>
+<p data-reading-anchor id="ch2970-p003">“Approve the jump. Let them come over.”</p>
+<p data-reading-anchor id="ch2970-p004">What a poor deal. Led in by a soldier, the Iron-Eater Clan's leader entered the conference room.</p>
+<p data-reading-anchor id="ch2970-p005">The leader bowed to Fang Heng. “Great human captain, we've received orders from the Shadow Clan. We hope you will protect us and buy us enough time to build the Eye of Stars prism positioning devices.”</p>
+<p data-reading-anchor id="ch2970-p006">The Iron-Eater Clan excelled at forging and construction, but its members were relatively weak compared with other races, so they maintained a humble attitude.</p>
+<p data-reading-anchor id="ch2970-p007">“Mm. We'll protect you. How far has construction progressed, and how much longer will it take?”</p>
+<p data-reading-anchor id="ch2970-p008">“Esteemed Captain, that is precisely why we've come.”</p>
+<p data-reading-anchor id="ch2970-p009">The Iron-Eater leader respectfully handed a document to a nearby soldier. “This is a list of materials we're currently missing for construction of the prism tower. We've managed to gather some of them ourselves, but the remainder is beyond our means. The Shadow Clan assured us that the humans would provide those materials.”</p>
+<p data-reading-anchor id="ch2970-p010">Fang Heng took the list and examined it. His brows drew together slightly before he passed it to Chen Yu and the others to look over.</p>
+<p data-reading-anchor id="ch2970-p011">The Iron-Eater Clan's attitude was so respectful that there was nothing to criticize.</p>
+<p data-reading-anchor id="ch2970-p012">Fang Heng remained calm. “I understand. Is there anything else to report?”</p>
+<p data-reading-anchor id="ch2970-p013">“No. The shortage of materials will slow construction of the prism defense system. We hope the supplies can be replenished as soon as possible. If construction is delayed, all the allied races will blame the Iron-Eater Clan. Thank you very much.”</p>
+<p data-reading-anchor id="ch2970-p014">As soon as the Iron-Eater representatives left, Zaka couldn't hold back. He curled his lip. “Fuck, that's extortion! It's not enough that they get our fighting strength for free to deal with the insects. Now they want us to hand over construction materials free of charge too? How come every damn advantage goes to them?”</p>
+<p data-reading-anchor id="ch2970-p015">Fang Heng looked toward the Flying Squirrel captain. “Has the Shadow Clan always operated like this?”</p>
+<p data-reading-anchor id="ch2970-p016">The Flying Squirrel captain gave a bitter smile. Inwardly, he thought this was actually a relatively mild case.</p>
+<p data-reading-anchor id="ch2970-p017">Fang Heng understood his expression. After a moment's thought, he said, “No rush. Let's communicate with the Shadow Clan first.”</p>
+<p data-reading-anchor id="ch2970-p018">Before long, another soldier arrived with a report. “The Shadow Clan says they're aware of the situation. Given the wartime emergency, they hope we can find our own solution. They say there are many mineral deposits in this world, and we're free to gather the materials ourselves.”</p>
+<p data-reading-anchor id="ch2970-p019">Everyone had been furiously cursing the Shadow Clan, but on hearing this, the curses stopped. They looked at one another.</p>
+<p data-reading-anchor id="ch2970-p020">Uh...</p>
+<p data-reading-anchor id="ch2970-p021">Such a wonderful opportunity actually existed?</p>
+<p data-reading-anchor id="ch2970-p022">Surely those people had no idea how terrifyingly fast Boss Fang could strip a mining district of resources?</p>
+<p data-reading-anchor id="ch2970-p023">Sure enough, Fang Heng's eyes lit up at once.</p>
+<p data-reading-anchor id="ch2970-p024">“How generous. They're allowing us to mine freely?”</p>
+<p data-reading-anchor id="ch2970-p025">Fang Heng immediately turned to the Flying Squirrel captain. “Mousse, have you located the mining areas?”</p>
+<p data-reading-anchor id="ch2970-p026">Mousse's heart skipped a beat at being called on.</p>
+<p data-reading-anchor id="ch2970-p027">The Flying Squirrel clan possessed a special mineral-sensing ability. They could detect different minerals across vast distances and even determine the reserves and grades of ore deposits.</p>
+<p data-reading-anchor id="ch2970-p028">“There are several mines nearby.”</p>
+<p data-reading-anchor id="ch2970-p029">Mousse nodded, then hastily added a qualification.</p>
+<p data-reading-anchor id="ch2970-p030">“Boss Fang, most allied forces have concentrated their military strength on the front line, but they've already claimed nearly all the mining areas. They may not be extracting the ore, but they occupy the deposits. If we force our way in and start mining, we could offend them and even spark a conflict...”</p>
+<p data-reading-anchor id="ch2970-p031">The Flying Squirrel clan was timid. They certainly wouldn't dare confront the Shadow Clan head-on.</p>
+<p data-reading-anchor id="ch2970-p032">In fact, the Shadow Clan and its allies were counting on Fang Heng not daring to touch the mines they'd claimed.</p>
+<p data-reading-anchor id="ch2970-p033">This was one of the Shadow Clan's usual methods for exploiting other fleets.</p>
+<p data-reading-anchor id="ch2970-p034">They coerced other races into assisting with construction, then refused to supply the materials, effectively making them pay out of their own pockets for the privilege of working.</p>
+<p data-reading-anchor id="ch2970-p035">“Tch.”</p>
+<p data-reading-anchor id="ch2970-p036">Alec's fists were itching for a fight again. He said irritably, “They tell us to find mining areas while secretly occupying almost all of them. Obviously they want us to pay for the materials! Those dog bastards. Boss Fang, shall we make a move?”</p>
+<p data-reading-anchor id="ch2970-p037">Mousse, the Flying Squirrel captain, immediately shrank his neck.</p>
+<p data-reading-anchor id="ch2970-p038">Good grief. Were these people really ready to fight at the slightest disagreement?</p>
+<p data-reading-anchor id="ch2970-p039">Humans were terrifying.</p>
+<p data-reading-anchor id="ch2970-p040">“No need to fight just yet. We're not some evil faction. We should try to resolve problems through communication, seeking common ground while respecting differences.”</p>
+<p data-reading-anchor id="ch2970-p041">Wearing an honest, good-natured smile, Fang Heng looked at Mousse. “We'll cooperate as before. Our side will handle mining, transporting, and smelting the ore, while your Flying Squirrel clan helps locate and sort the deposits.”</p>
+<p data-reading-anchor id="ch2970-p042">“Of course. We'd be delighted to help.” Mousse nodded repeatedly, but still warned anxiously, “Boss Fang, the Shadow Clan is extremely strong and domineering. Please don't underestimate them.”</p>
+<p data-reading-anchor id="ch2970-p043">The Flying Squirrel representatives hurried away.</p>
+<p data-reading-anchor id="ch2970-p044">The remaining people all turned toward Fang Heng.</p>
+<p data-reading-anchor id="ch2970-p045">“No rush. Zaka and Alec, come with me to inspect the mines. Everyone else, hold your positions and deal with the insect swarms as planned.”</p>
+<p data-reading-anchor id="ch2970-p046">“Yes! Understood!”</p>
+<p data-reading-anchor id="ch2970-p047" class="scene">...</p>
+<p data-reading-anchor id="ch2970-p048">A mining area near Area Six of the Eye of Stars.</p>
+<p data-reading-anchor id="ch2970-p049">In fact, Fang Heng and the Federation had underestimated just how disgusting the Shadow Clan's allies could be.</p>
+<p data-reading-anchor id="ch2970-p050">Before Fang Heng's group had even arrived in this world, the major allied forces had already divided up every resource location.</p>
+<p data-reading-anchor id="ch2970-p051">Ownership of every mine had been clearly assigned.</p>
+<p data-reading-anchor id="ch2970-p052">The alliance deliberately withheld much of the material needed to build the Eye of Stars, forcing the other 'suckers' who accepted construction missions to find their own supplies.</p>
+<p data-reading-anchor id="ch2970-p053">Officially, of course, those teams were free to gather materials locally.</p>
+<p data-reading-anchor id="ch2970-p054">But in reality...</p>
+<p data-reading-anchor id="ch2970-p055">The smaller races didn't dare offend the alliance by seizing mines already occupied by the stronger ones.</p>
+<p data-reading-anchor id="ch2970-p056">What?</p>
+<p data-reading-anchor id="ch2970-p057">You say you can't find any ore?</p>
+<p data-reading-anchor id="ch2970-p058">Well, that's your own incompetence. What's that got to do with the Shadow Clan? Sorry, then you'll simply have to pay for it. After all, you can't let the entire alliance fail its mission because of your mistake, can you?</p>
+<p data-reading-anchor id="ch2970-p059">Looking toward the mine from a distance, Fang Heng saw a flag marking it as territory occupied by the Crocodile Clan.</p>
+<p data-reading-anchor id="ch2970-p060">The Crocodile Clan ranked among the top thirty Kinsfolk allies in overall strength. Like the Shadow Clan, it maintained an enormous fleet and had always been one of the Shadow Clan's loyal underlings.</p>
+<p data-reading-anchor id="ch2970-p061">“Come on. Let's go take a look.”</p>
+<p data-reading-anchor id="ch2970-p062">Outside the mining area.</p>
+<p data-reading-anchor id="ch2970-p063">Noticing Fang Heng and his companions in protective suits, the crocodile guards immediately raised their weapons and aimed at them. “Humans! Leave this place! This mine belongs to us! It's our private territory! Get out at once, or we'll treat you as intruders!”</p>
+<p data-reading-anchor id="ch2970-p064">The Crocodile Clan possessed powerful physiques and could adapt to most hostile planetary environments, so they needed no protective suits outdoors.</p>
+<p data-reading-anchor id="ch2970-p065">When Fang Heng made no move to leave, the crocodile guard captain pulled his weapon's trigger in warning.</p>
+<p data-reading-anchor id="ch2970-p066">“Whoosh!”</p>
+<p data-reading-anchor id="ch2970-p067">An energy beam struck the ground beside Zaka, blasting out a small crater and making him jump.</p>
+<p data-reading-anchor id="ch2970-p068">“Hahahaha!”</p>
+<p data-reading-anchor id="ch2970-p069">The crocodile guards burst out laughing. “Get lost, humans! This is no place for the likes of you!”</p>
+</article>
+<p class="end" data-reading-anchor id="ch2970-end">— End of Chapter 2970 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Original Chinese Chapter 2971: 欺压. English Chapter 2970: Extortion. Narrative paragraphs: 69/69.</li><li>The source inserts the colloquial phrase 很亏哎 at the Iron-Eater leaders’ entrance; its awkward placement has not been treated as extra plot information.</li><li>食铁兽 and 食铁族 both refer to the Iron-Eater Clan here.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_2969_Logistics.html#start">← Previous</a><a href="Global_Game_AFK_Chapter_2971_Ambush.html#start" class="next">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

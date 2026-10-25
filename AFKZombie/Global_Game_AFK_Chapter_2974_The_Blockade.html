@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 2974 — The Blockade | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-2974">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2973_Backing_Down.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_2974_The_Blockade.html"><option value="Global_Game_AFK_Chapter_2974_The_Blockade.html" selected>2974 · The Blockade</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2975_Farming.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-2974" data-reading-anchor>
+<div class="chapter-num">Chapter 2974</div><h2 class="chapter-title">The Blockade</h2>
+<p class="source-identity">From Chinese Chapter 2975 · 封锁</p>
+<article class="prose">
+<p data-reading-anchor id="ch2974-p001">The alliance's blockade of the Ouroboros Seed continued intermittently for five days.</p>
+<p data-reading-anchor id="ch2974-p002">During that time, the insect nest erupted into several frenzied assaults.</p>
+<p data-reading-anchor id="ch2974-p003">Using the Shadow Clan's powerful racial abilities and advanced Kinsfolk weapons, the allied forces forcibly contained the Ouroboros Seed. Each outbreak from the nest was ultimately driven back into the blockade zone by the Shadow Clan's special powers.</p>
+<p data-reading-anchor id="ch2974-p004">At last, every Eye of Stars prism had been constructed, linked, and positioned.</p>
+<p data-reading-anchor id="ch2974-p005">The Shadow Clan sent messages to its allies, ordering the fleets of every race to prepare for the decisive battle.</p>
+<p data-reading-anchor id="ch2974-p006">The human fleet had been assigned only to defend the Area Six prism tower during the final confrontation, a relatively light task. Fang Heng therefore accepted the Shadow Clan's invitation to board their flagship and participate in the main battlefield mission alongside them.</p>
+<p data-reading-anchor id="ch2974-p007">All the allied races taking part in the operation assembled on the Shadow Clan flagship's deck.</p>
+<p data-reading-anchor id="ch2974-p008">Tens of thousands of warships formed a vast ring around the central battlefield, tightly restricting the insect swarm's movements.</p>
+<p data-reading-anchor id="ch2974-p009">Giselle and the other players were stunned by the sight.</p>
+<p data-reading-anchor id="ch2974-p010">Compared with fighting on this scale, their earlier operations against SS-grade insect nests looked like children playing pretend.</p>
+<p data-reading-anchor id="ch2974-p011">A layer of dark clouds covered the sky.</p>
+<p data-reading-anchor id="ch2974-p012">As violent purple spatial fluctuations erupted, enormous gun barrels appeared through rifts torn open high above.</p>
+<p data-reading-anchor id="ch2974-p013">The barrels formed a ring, aiming down at the dense mass of insects gathered below.</p>
+<p data-reading-anchor id="ch2974-p014">“Energy bombardment!!”</p>
+<p data-reading-anchor id="ch2974-p015">Boom!!!</p>
+<p data-reading-anchor id="ch2974-p016">A dazzling purple radiance erupted!</p>
+<p data-reading-anchor id="ch2974-p017">In an instant, the insects struck directly by the beams were reduced to ashes.</p>
+<p data-reading-anchor id="ch2974-p018">The violent purple beam bombardment continued for a full twenty minutes before gradually dying away.</p>
+<p data-reading-anchor id="ch2974-p019">The area ahead, once covered by fungal carpet, had been completely cleared.</p>
+<p data-reading-anchor id="ch2974-p020">The many warships advanced toward the center!</p>
+<p data-reading-anchor id="ch2974-p021">Across the barren ground, enormous numbers of leaping insects surged forward in a dense tide.</p>
+<p data-reading-anchor id="ch2974-p022">The insectoid creatures of this world were exceptionally high-level. Two types formed the bulk of their forces. One was a swift creature with tremendous jumping power, capable of leaping twenty times its own height. These were known as Leapers.</p>
+<p data-reading-anchor id="ch2974-p023">The other was a special flying unit, the Venomwing.</p>
+<p data-reading-anchor id="ch2974-p024">Venomwings were as small as Leapers and flew extremely fast, but they struggled to move sideways in midair. On the main battlefield, the warships' powerful firepower could destroy them almost instantly.</p>
+<p data-reading-anchor id="ch2974-p025">Yet they were just as dangerous.</p>
+<p data-reading-anchor id="ch2974-p026">Once a Venomwing approached an enemy, it would self-destruct, bursting open and spraying a highly acidic fluid from within its body. This fluid could inflict enormous damage on energy barriers and various alloy metals.</p>
+<p data-reading-anchor id="ch2974-p027">The alliance warships immediately laid down suppressive fire, bursting the approaching insects into clouds of blood in the distance.</p>
+<p data-reading-anchor id="ch2974-p028">Still more Leapers rushed forward over the corpses of their companions.</p>
+<p data-reading-anchor id="ch2974-p029">Further away, massive insectoid creatures gradually emerged into view.</p>
+<p data-reading-anchor id="ch2974-p030">Spiked Elephant Beetles.</p>
+<p data-reading-anchor id="ch2974-p031">Elephant Beetles were rare large-scale insect combat units. Each was as big as a giant elephant and charged wildly across the battlefield. Their main means of attack was physical impact, while their formidable armored bodies could absorb damage and regenerate rapidly.</p>
+<p data-reading-anchor id="ch2974-p032">Faced with the insect swarm's offensive, the fleets began displaying their own special techniques.</p>
+<p data-reading-anchor id="ch2974-p033">Fang Heng quietly observed from the sidelines.</p>
+<p data-reading-anchor id="ch2974-p034">Very interesting.</p>
+<p data-reading-anchor id="ch2974-p035">The Shadow Clan had initiated the mission and was also the strongest race in the entire alliance.</p>
+<p data-reading-anchor id="ch2974-p036">Its warriors could release spherical balls of shadow.</p>
+<p data-reading-anchor id="ch2974-p037">Under the influence of those dark orbs, insectoid creatures were pulled firmly into place and rendered unable to move.</p>
+<p data-reading-anchor id="ch2974-p038">Hmm?</p>
+<p data-reading-anchor id="ch2974-p039">Fang Heng suddenly sensed the aura of an Ouroboros Seed. He raised his head, looked into the distance, and narrowed his eyes.</p>
+<p data-reading-anchor id="ch2974-p040">At this range, the SSS-grade nest aggregate had evidently detected the aura of its own kind coming from Fang Heng too.</p>
+<p data-reading-anchor id="ch2974-p041">As the warships continued advancing, the outline of the SSS-grade insect nest finally became visible in the distance.</p>
+<p data-reading-anchor id="ch2974-p042">The giant nest sprawled across the ground like a rising hill. Its dark-purple, horny outer shell was covered in volcanic-looking folds and fissures. Tens of thousands of reddish-brown tendrils, like blood vessels, sank deep into the fungal carpet, while the entire nest contracted and throbbed continuously.</p>
+<p data-reading-anchor id="ch2974-p043">Whoosh! Whoosh, whoosh!!!</p>
+<p data-reading-anchor id="ch2974-p044">Huh?</p>
+<p data-reading-anchor id="ch2974-p045">Thick layers of hardened fungal matter began peeling away from the nest's outer surface.</p>
+<p data-reading-anchor id="ch2974-p046">As those layers fell to the ground, they rapidly condensed into throbbing fleshy cocoons.</p>
+<p data-reading-anchor id="ch2974-p047">Huh?</p>
+<p data-reading-anchor id="ch2974-p048">A question rose in Fang Heng's mind.</p>
+<p data-reading-anchor id="ch2974-p049">They were actually Ouroboros Seed aggregates!</p>
+<p data-reading-anchor id="ch2974-p050">Whoosh! Whoosh, whoosh!!!</p>
+<p data-reading-anchor id="ch2974-p051">Two cocoons abruptly burst open!</p>
+<p data-reading-anchor id="ch2974-p052">Two humanoid Ouroboros Seed entities flew from them, blended into the swarm, and charged straight toward the warships!</p>
+<p data-reading-anchor id="ch2974-p053">Fang Heng fixed his eyes on the aggregates.</p>
+<p data-reading-anchor id="ch2974-p054">They only barely maintained human forms. Their bodies consisted entirely of twisted, tangled, tiny insects, and without skeletons to support them, their movements looked extraordinarily strange.</p>
+<p data-reading-anchor id="ch2974-p055">Two high-ranking Shadow Clan warriors immediately moved to intercept them, releasing shadow orbs in an attempt to restrain the Ouroboros Seeds.</p>
+<p data-reading-anchor id="ch2974-p056">Under the orbs' illumination, the shadows of the two humanoid Seeds stretched rapidly, and their movement speed fell drastically.</p>
+<p data-reading-anchor id="ch2974-p057">Focused attack!!</p>
+<p data-reading-anchor id="ch2974-p058">“Whoosh! Whoosh, whoosh!!”</p>
+<p data-reading-anchor id="ch2974-p059">Hundreds of focused energy-beam weapons aboard the warships aimed at the Ouroboros Seeds and fired simultaneously!</p>
+<p data-reading-anchor id="ch2974-p060">“Boom! Boom, boom!!!!”</p>
+<p data-reading-anchor id="ch2974-p061">The two Ouroboros Seed aggregates exploded beneath the focused beams!</p>
+<p data-reading-anchor id="ch2974-p062">Hmm?</p>
+<p data-reading-anchor id="ch2974-p063">The battle wasn't over yet.</p>
+<p data-reading-anchor id="ch2974-p064">The insects scattered across the ground as clumps of flesh wriggled rapidly toward a central point. In the blink of an eye, the Ouroboros Seeds formed humanoid bodies once again and rushed toward the warships!</p>
+<p data-reading-anchor id="ch2974-p065">And they weren't alone. More and more Ouroboros Seed aggregates were emerging from bursting cocoons behind them and joining the frontal battle.</p>
+<p data-reading-anchor id="ch2974-p066">Aboard the flagship, the assembled observers from various races looked grim.</p>
+<p data-reading-anchor id="ch2974-p067">Were they actually beginning to lose ground?</p>
+<p data-reading-anchor id="ch2974-p068">The Ouroboros Seed aggregates could somehow revive even after suffering devastating damage. They were extraordinarily difficult to deal with.</p>
+<p data-reading-anchor id="ch2974-p069">The Shadow Clan captain said solemnly, “Don't let them get close to the ships.”</p>
+<p data-reading-anchor id="ch2974-p070">“Understood.”</p>
+<p data-reading-anchor id="ch2974-p071">Seeing this, the other allied races participating in the battle also dispatched squads to intercept the Ouroboros Seed aggregates.</p>
+<p data-reading-anchor id="ch2974-p072">Each race had its own special capabilities, and none was at a disadvantage against these exceptionally regenerative Ouroboros Seeds.</p>
+<p data-reading-anchor id="ch2974-p073">They might not be able to destroy the Seeds completely, but at least they could keep them outside the security perimeter.</p>
+<p data-reading-anchor id="ch2974-p074">Standing at the back of the crowd, Captain Giselle watched from afar. He regarded the operation as an opportunity to broaden his horizons and quietly reminded himself to stay cautious.</p>
+<p data-reading-anchor id="ch2974-p075">Compared with these races and their special abilities, humanity really was rather weak.</p>
+<p data-reading-anchor id="ch2974-p076">Frankly, it was almost a miracle that humans had survived until now without being attacked by extraterrestrial races.</p>
+<p data-reading-anchor id="ch2974-p077">Perhaps they had avoided the aliens' attention only because the human world possessed no mineral resources worth taking?</p>
+<p data-reading-anchor id="ch2974-p078">From a certain perspective, had the black mist actually given humanity an opportunity to become stronger?</p>
+<p data-reading-anchor id="ch2974-p079">Was the Black Fog Game ultimately a disaster or a savior?</p>
+<p data-reading-anchor id="ch2974-p080">Giselle shook his head and put the question aside.</p>
+<p data-reading-anchor id="ch2974-p081">“The Red-Eyed Clan is quite capable too. They can completely destroy those troublesome Ouroboros Seeds...”</p>
+<p data-reading-anchor id="ch2974-p082">A crocodile captain who had come to watch the battle suddenly looked toward Fang Heng and steered the conversation to humanity. “Captain Fang Heng, this is humanity's first time on an allied battlefield. How about showing us what you can do?”</p>
+</article>
+<p class="end" data-reading-anchor id="ch2974-end">— End of Chapter 2974 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Original Chinese Chapter 2975: 封锁. English Chapter 2974: The Blockade. Narrative paragraphs: 82/82.</li><li>The source calls one allied race 赤眼 (Red-Eyed), distinct in wording from 赤瞳 and 赤鬼 appearing later.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_2973_Backing_Down.html#start">← Previous</a><a href="Global_Game_AFK_Chapter_2975_Farming.html#start" class="next">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>
