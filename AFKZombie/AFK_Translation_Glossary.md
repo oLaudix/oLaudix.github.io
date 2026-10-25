@@ -4,10 +4,13 @@
 **Authority:** Names and wording already agreed in *our own* English translation. Our previously read published translation can establish a character alias when explicitly confirmed with the user (e.g., Charlotte); otherwise names are set by our translation and user decisions, not automatic third-party substitutions.  
 **Purpose:** A short, portable reference to include unchanged in each translation ZIP, and update only when new terminology is confirmed. The glossary governs spelling, not the novel's plot or prose.
 
+**Mandatory quality control (25 October 2026):** This glossary is a HARD term lock for every future translation batch. Before release, check every story paragraph and Editing and Source Notes against established Chinese→English names, titles, rejected variants, gender and identities; do not assume that listing a term here proves the story used it correctly. Independently compare idiom imagery, harsh language, formal register, numbers and coverage directly against the Chinese, not just the English expression notes. A confirmed inconsistency in prose must be corrected before publishing. These checks apply to ALL translated paragraphs, not only those with Chinese Expressions notes.
+
 ## Locked names and terms
 
 | English spelling — always use | Chinese source (where confirmed) | Meaning / identification | Do not use |
 |---|---|---|---|
+| **Vampire King** | 血族君王 | Established title for the vampire ruler and its bloodline power. Preserve **King** in narration and related titles; do not swap in a near-synonym just for stylistic variation. Chinese 2126 (English 2125) confirms the source wording. | Vampire Monarch |
 | **Chiboreya** | 奇波雷亚 | Ancient-setting game world linked to Duncha by the Holy Court passage; scene of the coordinated Merk-array activation. | Qiboreya |
 | **Merk** | — | Figure associated with the runes, teleportation/spatial-transfer arrays, and the quest to recreate his grand conception. Also keep **Merk Temple**, **Merk's Magic Array**, etc. | Merck; Merck Temple; Merck's Magic Array |
 | **Mu Xiting** | 穆希廷 | Powerful Holy Court Arbiter commanding reinforcements and operations against the undead. | Muhiting; Mihitung |
