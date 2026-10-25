@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 2976 — Awakening | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-2976">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2975_Farming.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_2976_Awakening.html"><option value="Global_Game_AFK_Chapter_2976_Awakening.html" selected>2976 · Awakening</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2977_Time_to_Run.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-2976" data-reading-anchor>
+<div class="chapter-num">Chapter 2976</div><h2 class="chapter-title">Awakening</h2>
+<p class="source-identity">From Chinese Chapter 2977 · 唤醒</p>
+<article class="prose">
+<p data-reading-anchor id="ch2976-p001">The other alien races were gradually catching on too.</p>
+<p data-reading-anchor id="ch2976-p002">Good grief.</p>
+<p data-reading-anchor id="ch2976-p003">They'd invited the human into battle to test humanity's strength.</p>
+<p data-reading-anchor id="ch2976-p004">And that brat had immediately started farming cocoons?</p>
+<p data-reading-anchor id="ch2976-p005">None of the assembled allied races said anything aloud, but they knew perfectly well that every Ouroboros Seed cocoon could be exchanged for a considerable amount of Kinsfolk contribution.</p>
+<p data-reading-anchor id="ch2976-p006">Fang Heng had already collected a large number of cocoons in the brief time since joining the fight.</p>
+<p data-reading-anchor id="ch2976-p007">Those cocoons had originally been destined for division among the races participating in the main battle.</p>
+<p data-reading-anchor id="ch2976-p008">Now Fang Heng had taken them all for himself.</p>
+<p data-reading-anchor id="ch2976-p009">Worse still, the Shadow Clan had authorized this test of humanity's strength. Under the circumstances, the others could hardly object.</p>
+<p data-reading-anchor id="ch2976-p010">“Hum...”</p>
+<p data-reading-anchor id="ch2976-p011">A moment later, the Eye of Stars gathered energy high above for its second attack. Only then did Fang Heng reluctantly leave its blast radius, retreating to safety while clearly wishing he could farm a little longer.</p>
+<p data-reading-anchor id="ch2976-p012">“Boom!!!”</p>
+<p data-reading-anchor id="ch2976-p013">Purple light descended again, completely enveloping the area ahead, including the SSS-grade insect nest!</p>
+<p data-reading-anchor id="ch2976-p014">Purification!</p>
+<p data-reading-anchor id="ch2976-p015">Under the powerful energy beams' purifying effect, huge swathes of fungal carpet and insect units disintegrated directly into ash.</p>
+<p data-reading-anchor id="ch2976-p016">Even many Ouroboros Seed aggregates melted into pools of red slime beneath the beams.</p>
+<p data-reading-anchor id="ch2976-p017">Whoosh!!!</p>
+<p data-reading-anchor id="ch2976-p018">The moment the beams faded, before the other races had even seen what remained of the battlefield, Fang Heng turned into a dark blur and rushed in first from one side!</p>
+<p data-reading-anchor id="ch2976-p019">“Divine Punishment!”</p>
+<p data-reading-anchor id="ch2976-p020">“Boom!”</p>
+<p data-reading-anchor id="ch2976-p021">A bolt of lightning struck a mass of dark-red slime gathering on the ground, charring it completely. Fang Heng raised a hand, drew the Ouroboros cocoon into his palm, and rushed toward another mass of Seed slime.</p>
+<p data-reading-anchor id="ch2976-p022">What the hell?!</p>
+<p data-reading-anchor id="ch2976-p023">Only then did the other alien squads react. They rushed onto the battlefield and used their various techniques against the Ouroboros Seeds attempting to revive.</p>
+<p data-reading-anchor id="ch2976-p024">The broken Ouroboros Seeds had been gravely wounded and their health drastically reduced by the Eye of Stars' continuing purification effect. Only their special abilities kept them from dying outright.</p>
+<p data-reading-anchor id="ch2976-p025">In moments, the various allied forces flooding into the battlefield divided the spoils among themselves.</p>
+<p data-reading-anchor id="ch2976-p026">The Crocodile Clan was left rather embarrassed.</p>
+<p data-reading-anchor id="ch2976-p027">After all, their captain was the one who had invited Fang Heng into battle.</p>
+<p data-reading-anchor id="ch2976-p028">Who could have imagined he would be so fierce?</p>
+<p data-reading-anchor id="ch2976-p029">“Lord Shadow Guard, this...”</p>
+<p data-reading-anchor id="ch2976-p030">The Shadow Clan captain glanced over the battlefield and said coldly, “Continue advancing.”</p>
+<p data-reading-anchor id="ch2976-p031">“Yes!”</p>
+<p data-reading-anchor id="ch2976-p032">Thanks to Fang Heng's ferocious performance, the threat from the Ouroboros Seed aggregates had been resolved, and the warships once again slowly approached the massive central SSS-grade cocoon.</p>
+<p data-reading-anchor id="ch2976-p033">“Squish, squish...”</p>
+<p data-reading-anchor id="ch2976-p034">The giant SSS-grade cocoon had just suffered a severe blow from the Eye of Stars. It was now swelling and contracting continuously, while foul-smelling black liquid seeped out beneath its dark-brown hardened shell.</p>
+<p data-reading-anchor id="ch2976-p035">The Shadow Clan alliance warships gradually approached until they were within firing range.</p>
+<p data-reading-anchor id="ch2976-p036">“Whoosh! Whoosh, whoosh, whoosh!!!!”</p>
+<p data-reading-anchor id="ch2976-p037">Numerous focused energy beams shot from the ships, concentrating their fire on the central SSS-grade cocoon.</p>
+<p data-reading-anchor id="ch2976-p038">Fang Heng looked toward it. Under the sustained barrage, the cocoon's total health was falling only by the tiniest increments.</p>
+<p data-reading-anchor id="ch2976-p039">“Regroup!!!”</p>
+<p data-reading-anchor id="ch2976-p040">The flagship issued an order to assemble and withdraw.</p>
+<p data-reading-anchor id="ch2976-p041">The combat squads scattered across the battlefield quickly retreated toward the ships.</p>
+<p data-reading-anchor id="ch2976-p042">Although Fang Heng wanted to remain and farm a little longer, every alien unit on the front line was withdrawing. He wasn't prepared to cause trouble over this, so he too fell back and returned to the flagship.</p>
+<p data-reading-anchor id="ch2976-p043">“Thank you all for your hard work.”</p>
+<p data-reading-anchor id="ch2976-p044">When Fang Heng returned to the ship, several allied races felt an inexplicable sense of relief.</p>
+<p data-reading-anchor id="ch2976-p045">If they let him keep fighting like that, the brat would collect every last Ouroboros cocoon himself.</p>
+<p data-reading-anchor id="ch2976-p046">They would have to swallow this loss in silence. Next time, under no circumstances could they allow Fang Heng onto the battlefield again.</p>
+<p data-reading-anchor id="ch2976-p047">The crocodile captain said, “Allies, the cocoon's outer defenses are extremely strong. It seems even the Eye of Stars cannot break through in a short time.”</p>
+<p data-reading-anchor id="ch2976-p048">Everyone nodded inwardly.</p>
+<p data-reading-anchor id="ch2976-p049">Even after being struck twice by the Eye of Stars, the aggregated Ouroboros Seed nest still had an enormous amount of health.</p>
+<p data-reading-anchor id="ch2976-p050">“It seems we'll need more time to destroy its outer defenses completely.”</p>
+<p data-reading-anchor id="ch2976-p051">“We'll have to wear it down for longer...”</p>
+<p data-reading-anchor id="ch2976-p052">“There's no need to rush. We can slowly grind down the nest's strength...”</p>
+<p data-reading-anchor id="ch2976-p053">As the races discussed the situation, Fang Heng watched the Ouroboros Seed under concentrated fire from the warships and felt something stir in his mind.</p>
+<p data-reading-anchor id="ch2976-p054">He could sense power gathering rapidly deep within the nest.</p>
+<p data-reading-anchor id="ch2976-p055">The enemies they'd encountered before had all come from shattered cocoons.</p>
+<p data-reading-anchor id="ch2976-p056">Their strength had been relatively low.</p>
+<p data-reading-anchor id="ch2976-p057">But this time was different.</p>
+<p data-reading-anchor id="ch2976-p058">Judging by the Ouroboros Seed's aura, a complete 'Cultivator' was probably hidden inside the SSS-grade nest.</p>
+<p data-reading-anchor id="ch2976-p059">The Cultivator might have been badly wounded and fallen into dormancy.</p>
+<p data-reading-anchor id="ch2976-p060">'It' was now being rapidly awakened.</p>
+<p data-reading-anchor id="ch2976-p061">Fang Heng said, “I don't think that's necessarily the case.”</p>
+<p data-reading-anchor id="ch2976-p062">Everyone turned to look at him.</p>
+<p data-reading-anchor id="ch2976-p063">Fang Heng's performance just now had earned their respect.</p>
+<p data-reading-anchor id="ch2976-p064">The crocodile captain asked, “Fang Heng, what do you think?”</p>
+<p data-reading-anchor id="ch2976-p065">“The main body of the Ouroboros Seed in the SSS-grade nest was originally dormant. The earlier attacks have gradually awakened it, and it's recovering its strength rapidly.”</p>
+<p data-reading-anchor id="ch2976-p066">Watching the nest, Fang Heng continued in a low voice, “The nest has been drawing in its power and remaining on the defensive to buy time. Once its strength recovers to a certain limit, it will launch its own attack.”</p>
+<p data-reading-anchor id="ch2976-p067">The others listened in silence for a moment.</p>
+<p data-reading-anchor id="ch2976-p068">A captain of the Red-Pupil Clan snorted and retorted, “Hmph! Ridiculous! As far as I know, humanity only encountered Ouroboros Seeds recently. Since when have you known so much about them?”</p>
+<p data-reading-anchor id="ch2976-p069">“Indeed, nothing like that has ever happened with an Ouroboros before...”</p>
+<p data-reading-anchor id="ch2976-p070">A Shadow Clan representative raised a hand, stopping the objections, then looked up at Fang Heng. “Human, what evidence do you have for that claim?”</p>
+<p data-reading-anchor id="ch2976-p071">“None.”</p>
+<p data-reading-anchor id="ch2976-p072">Fang Heng shook his head. “I'm simply saying the Ouroboros Seed is very strong. The Eye of Stars can only assist us. Don't be careless.”</p>
+<p data-reading-anchor id="ch2976-p073">“Gurgle, gurgle, gurgle...”</p>
+<p data-reading-anchor id="ch2976-p074">As they argued, the SSS-grade nest suddenly began pulsing violently again, and dense waves of insects flooded out of the fungal carpet extending from it.</p>
+<p data-reading-anchor id="ch2976-p075">Another counterattack!</p>
+<p data-reading-anchor id="ch2976-p076">Huh?</p>
+<p data-reading-anchor id="ch2976-p077">Zaka suddenly noticed something and shouted, “Look!”</p>
+<p data-reading-anchor id="ch2976-p078">The nest and the ground beneath it trembled violently.</p>
+<p data-reading-anchor id="ch2976-p079">An opening split across the nest's crown, and the surrounding slabs of brown fleshy tissue slid apart like a flower bud unfurling.</p>
+<p data-reading-anchor id="ch2976-p080">At the top of the nest, a brown, balloon-like fleshy tumor slowly rose into the air.</p>
+<p data-reading-anchor id="ch2976-p081">The mass floated upward like a seed being hatched by the nest. Layer after layer of decaying matter peeled off its surface like the petals of a wilting flower, falling continuously from above.</p>
+<p data-reading-anchor id="ch2976-p082">Hmm?</p>
+<p data-reading-anchor id="ch2976-p083">The creature inside that growth...</p>
+<p data-reading-anchor id="ch2976-p084">An Ouroboros Seed.</p>
+<p data-reading-anchor id="ch2976-p085">A humanoid form?</p>
+</article>
+<p class="end" data-reading-anchor id="ch2976-end">— End of Chapter 2976 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Original Chinese Chapter 2977: 唤醒. English Chapter 2976: Awakening. Narrative paragraphs: 85/85.</li><li>The source prints 赤瞳 for a captain (Red-Pupil). It is not silently merged with 赤眼 or 赤鬼 from other chapters.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_2975_Farming.html#start">← Previous</a><a href="Global_Game_AFK_Chapter_2977_Time_to_Run.html#start" class="next">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>
