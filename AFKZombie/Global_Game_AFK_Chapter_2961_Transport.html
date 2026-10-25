@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 2961 — Transport | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-2961">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2960_Entering.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_2961_Transport.html"><option value="Global_Game_AFK_Chapter_2961_Transport.html" selected>2961 · Transport</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2962_News.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-2961" data-reading-anchor>
+<div class="chapter-num">Chapter 2961</div><h2 class="chapter-title">Transport</h2>
+<p class="source-identity">From Chinese Chapter 2962 · 输送</p>
+<article class="prose">
+<p data-reading-anchor id="ch2961-p001">The situation in the Death Realm had been steadily worsening of late.</p>
+<p data-reading-anchor id="ch2961-p002">The war between the Death Realm and the Calamities was still raging.</p>
+<p data-reading-anchor id="ch2961-p003">Under the Calamities' attacks, the armies of the Death Realm's four great empires were rapidly pulling back their defensive lines. Worse still, as the environment deteriorated, the death aura was growing so thin that Nether Stones could no longer even form.</p>
+<p data-reading-anchor id="ch2961-p004">More and more members of the Nether race were choosing to migrate to the new world.</p>
+<p data-reading-anchor id="ch2961-p005">After listening to Notar's account, Fang Heng rubbed his chin.</p>
+<p data-reading-anchor id="ch2961-p006">This really was difficult.</p>
+<p data-reading-anchor id="ch2961-p007">The Calamities in the Death Realm were on an entirely different level from those he'd encountered during previous Kinsfolk missions.</p>
+<p data-reading-anchor id="ch2961-p008">One was an aggregate of shattered Ouroboros Seed fragments; the other was a complete Ouroboros Seed, accompanied by a Cultivator no less.</p>
+<p data-reading-anchor id="ch2961-p009">Then again, they'd previously tried using the Kinsfolk defensive line to attack an SS-grade insect nest.</p>
+<p data-reading-anchor id="ch2961-p010">The results had been fairly good.</p>
+<p data-reading-anchor id="ch2961-p011">Could the same trick work in the Death Realm?</p>
+<p data-reading-anchor id="ch2961-p012">They were all Ouroboros Seeds. If he installed enhancement devices here, could he weaken the Ouroboros Seed's power?</p>
+<p data-reading-anchor id="ch2961-p013">Previously, the Death Realm had been so saturated with death aura that any technological devices brought inside would quickly corrode.</p>
+<p data-reading-anchor id="ch2961-p014">But the concentration of death aura had now fallen by more than tenfold.</p>
+<p data-reading-anchor id="ch2961-p015">Fang Heng scratched his head.</p>
+<p data-reading-anchor id="ch2961-p016">Maybe it was worth a try.</p>
+<p data-reading-anchor id="ch2961-p017">One step at a time.</p>
+<p data-reading-anchor id="ch2961-p018">For now, the starship problem came first.</p>
+<p data-reading-anchor id="ch2961-p019">“I understand. I'll figure something out. Take me to the teleportation passage.”</p>
+<p data-reading-anchor id="ch2961-p020">“Very well.”</p>
+<p data-reading-anchor id="ch2961-p021">Soon, Fang Heng returned through Abe Akaya and used Abe Akaya's teleportation to enter the Vampire Apocalypse.</p>
+<p data-reading-anchor id="ch2961-p022">Then Fang Heng found Chen Yu in his friends list and tried sending him a message.</p>
+<p data-reading-anchor id="ch2961-p023">“Boss Fang!”</p>
+<p data-reading-anchor id="ch2961-p024">Chen Yu had recently been transferred to handle day-to-day affairs in the Vampire Apocalypse. Receiving a sudden message from Fang Heng startled him, and he immediately made contact.</p>
+<p data-reading-anchor id="ch2961-p025">Fang Heng was always as elusive as a divine dragon, showing his head but never his tail. And now he'd actually contacted him first?</p>
+<p data-reading-anchor id="ch2961-p026">This had to be something big!</p>
+<p data-reading-anchor id="ch2961-p027">Before long, guided by the vampires, Chen Yu reached the Vampire Temple and saw Fang Heng sitting on the Vampire Throne.</p>
+<p data-reading-anchor id="ch2961-p028">They hadn't met in more than a year.</p>
+<p data-reading-anchor id="ch2961-p029">Back then, Fang Heng had been nothing more than a newcomer to the Zombie Apocalypse.</p>
+<p data-reading-anchor id="ch2961-p030">Now he'd reached heights Chen Yu couldn't even hope to attain.</p>
+<p data-reading-anchor id="ch2961-p031">“Brother, I need an urgent favor. Contact your superiors for me. Tell them the person 'Blue Eyes' asked me to protect is safe. We've traveled together aboard a starship and entered that world, but we haven't found any traces of the Ancient Humans yet. We need their help with the next steps.”</p>
+<p data-reading-anchor id="ch2961-p032">“Huh?! Boss Fang, what are you talking about?”</p>
+<p data-reading-anchor id="ch2961-p033">Just as he had a year ago, Chen Yu scratched his head in bewilderment.</p>
+<p data-reading-anchor id="ch2961-p034">A starship?</p>
+<p data-reading-anchor id="ch2961-p035">A world? Ancient Humans?</p>
+<p data-reading-anchor id="ch2961-p036">What the hell was all this? He couldn't understand a word!</p>
+<p data-reading-anchor id="ch2961-p037">“It's fine. Report to your superiors and repeat exactly what I said. Pass it up the chain of command. Someone will understand. Quickly, now. I'll wait for your news.”</p>
+<p data-reading-anchor id="ch2961-p038">“Understood, Boss Fang. I'll pass the message along right away.”</p>
+<p data-reading-anchor id="ch2961-p039" class="scene">...</p>
+<p data-reading-anchor id="ch2961-p040">The latest news about the Ancient Humans exploration project was soon passed from Chen Yu's superiors up through successive levels until it reached the Eastern Federation's highest leadership.</p>
+<p data-reading-anchor id="ch2961-p041">The Eastern Federation leadership was just as dumbfounded. They immediately convened an emergency meeting and summoned the relevant departments to form a joint special task force.</p>
+<p data-reading-anchor id="ch2961-p042">The task force had questions swirling through everyone's heads.</p>
+<p data-reading-anchor id="ch2961-p043">Fang Heng had already entered that world?</p>
+<p data-reading-anchor id="ch2961-p044">A starship? A Western Federation starship?</p>
+<p data-reading-anchor id="ch2961-p045">Then what role had the Western Federation played in all this?</p>
+<p data-reading-anchor id="ch2961-p046">Set the confusion aside for now.</p>
+<p data-reading-anchor id="ch2961-p047">In truth, the Eastern Federation hadn't expected the Ancient Humans project to progress anywhere near this quickly.</p>
+<p data-reading-anchor id="ch2961-p048">The first step was supposed to be acquiring the Kinsfolk star map.</p>
+<p data-reading-anchor id="ch2961-p049">After obtaining it, they would still have to decipher it, analyze the coordinates, find a means of interstellar travel, and finally assemble an expedition to investigate the target world.</p>
+<p data-reading-anchor id="ch2961-p050">Good grief. The Federation was still stuck on the first step with no progress at all. Not long ago, they'd merely heard from Su Guantong that she'd encountered Fang Heng while carrying out the star-map acquisition mission.</p>
+<p data-reading-anchor id="ch2961-p051">Since the two sides had gotten along fairly well in the past, they'd decided to ask Fang Heng for help.</p>
+<p data-reading-anchor id="ch2961-p052">So what was going on?</p>
+<p data-reading-anchor id="ch2961-p053">How had Fang Heng already flown Dr. Li Zhixuan to that world after only half a month?</p>
+<p data-reading-anchor id="ch2961-p054">The team originally responsible for the project was even more baffled.</p>
+<p data-reading-anchor id="ch2961-p055">With news from the Western Federation tightly blocked, the Eastern Federation had only heard that Fang Heng and Dr. Li Zhixuan were stranded in an outer star system and unable to return.</p>
+<p data-reading-anchor id="ch2961-p056">The Eastern Federation was powerless to do anything beyond the planet, so all they could do was wait.</p>
+<p data-reading-anchor id="ch2961-p057">Then Chen Yu's message arrived. They came to the meeting in a daze, only to discover Fang Heng had already established contact with the Federation's leadership.</p>
+<p data-reading-anchor id="ch2961-p058">Once the appointments were settled, task force leader Liu Haiyang immediately gathered the team and set them to work.</p>
+<p data-reading-anchor id="ch2961-p059">“We can't reach Su Guantong for now. She's probably still in the Western Federation's star-map research facility, and I doubt she can get away to contact us.”</p>
+<p data-reading-anchor id="ch2961-p060">“First, let's find a way to speak with Fang Heng and establish the situation. Also, grant Chen Yu special approval to join the task force as deputy leader.”</p>
+<p data-reading-anchor id="ch2961-p061">The task force leader rubbed his temples and thought for a moment. “I'll enter the Vampire game world immediately and try to coordinate with Fang Heng in person.”</p>
+<p data-reading-anchor id="ch2961-p062">With a preliminary plan in place, Liu Haiyang hurried into the Vampire Apocalypse with Chen Yu.</p>
+<p data-reading-anchor id="ch2961-p063">By now, Zone Five of the Vampire Apocalypse had become a safe area under the control of a single vampire faction.</p>
+<p data-reading-anchor id="ch2961-p064">It was jointly administered by the Eastern Federation and the vampires.</p>
+<p data-reading-anchor id="ch2961-p065">The vampires living there cultivated as usual. Following review by the Council of Elders, a small number could be selected for advancement and then travel through teleportation passages into other game worlds for various trials. The place had practically become a miniature headquarters.</p>
+<p data-reading-anchor id="ch2961-p066">But the vampires enforced such strict loyalty screening that even players with vampire bloodlines rarely entered the upper ranks.</p>
+<p data-reading-anchor id="ch2961-p067">For lower-level players, meanwhile, the entire Vampire Apocalypse was practically paradise.</p>
+<p data-reading-anchor id="ch2961-p068">With both the Federation and the vampires maintaining everyday security, its crime rate was even lower than that of the normal world.</p>
+<p data-reading-anchor id="ch2961-p069">At the Vampire Temple, Liu Haiyang and most of the task force met Fang Heng again.</p>
+<p data-reading-anchor id="ch2961-p070">Once Fang Heng confirmed that they had built a starship and successfully jumped into the ancestral world at the ancient coordinates, the entire task force fell silent.</p>
+<p data-reading-anchor id="ch2961-p071">All right, Su Guantong had indeed asked Fang Heng to help contact Dr. Li Zhixuan, but nobody had told them to build an entire starship and fly straight to the Ancient Humans' coordinates!</p>
+<p data-reading-anchor id="ch2961-p072">“I'm sorry. This news is just so... uh... so far beyond anything we imagined that we can't quite take it in...”</p>
+<p data-reading-anchor id="ch2961-p073">Liu Haiyang composed himself and slowly organized his thoughts. “Fang Heng, cooperation between you and the Eastern Federation has always gone smoothly. I don't want to hide anything from you, but we hope you'll keep the information we're about to share confidential.”</p>
+<p data-reading-anchor id="ch2961-p074">“Of course. Go ahead.”</p>
+<p data-reading-anchor id="ch2961-p075">“According to the latest information we've obtained, the world at the Ancient Humans' coordinates is connected to humanity's ancestors, the Titans. Our research indicates that the Titan race faced extinction. To preserve the spark of humanity's survival, they chose to scatter the human bloodlines of their various tribes across different worlds.”</p>
+</article>
+<p class="end" data-reading-anchor id="ch2961-end">— End of Chapter 2961 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Original Chinese Chapter 2962: 输送. English Chapter 2961: Transport. Narrative paragraphs: 75/75.</li><li>The source repeats Abe Akaya in the sentence describing the teleportation route; the repeated wording is treated as an obvious author slip.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_2960_Entering.html#start">← Previous</a><a href="Global_Game_AFK_Chapter_2962_News.html#start" class="next">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>
