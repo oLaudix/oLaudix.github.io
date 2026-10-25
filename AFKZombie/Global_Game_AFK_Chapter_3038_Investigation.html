@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 3038 — Investigation | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-3038">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3037_Materials.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_3038_Investigation.html"><option value="Global_Game_AFK_Chapter_3038_Investigation.html" selected>3038 · Investigation</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3039_Fracture.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-3038" data-reading-anchor>
+<div class="chapter-num">Chapter 3038</div><h2 class="chapter-title">Investigation</h2>
+<p class="source-identity">From Chinese Chapter 3039 · 探查</p>
+<article class="prose">
+<p data-reading-anchor id="ch3038-p001">Kappa felt a little calmer now that he had managed to fool Doris for the time being. He began wandering around the enormous cavern.</p>
+<p data-reading-anchor id="ch3038-p002">On closer inspection, vast sections of writing were engraved on its stone walls.</p>
+<p data-reading-anchor id="ch3038-p003">Much of the writing had been corroded and was extremely difficult to make out.</p>
+<p data-reading-anchor id="ch3038-p004">He didn't know a damn thing about ancient Elven script.</p>
+<p data-reading-anchor id="ch3038-p005">All he could do was put on an act and wait for Fang Heng's response.</p>
+<p data-reading-anchor id="ch3038-p006">In truth, the cavern hall was very spacious. Besides Kappa, more than a dozen small translation teams from different races were present.</p>
+<p data-reading-anchor id="ch3038-p007">No one noticed that Fang Heng, in his soul form, was floating before a wall and studying it carefully.</p>
+<p data-reading-anchor id="ch3038-p008">“Hmm...”</p>
+<p data-reading-anchor id="ch3038-p009">Fang Heng looked over the inscriptions on the rock, thoughtful.</p>
+<p data-reading-anchor id="ch3038-p010">Very interesting.</p>
+<p data-reading-anchor id="ch3038-p011">He couldn't understand most of the characters, but an enormous magic array had been drawn across the entire wall.</p>
+<p data-reading-anchor id="ch3038-p012">“Whoosh!”</p>
+<p data-reading-anchor id="ch3038-p013">The Omniscient Eye spun rapidly in Fang Heng's right pupil.</p>
+<p data-reading-anchor id="ch3038-p014">The array had been there for so long that its traces had become badly worn. Even its overall outline was hard to distinguish, and huge sections were missing.</p>
+<p data-reading-anchor id="ch3038-p015">Even with his Alchemy knowledge and the Omniscient Eye, he could only make out the array's general structure.</p>
+<p data-reading-anchor id="ch3038-p016">An alchemical magic array connected to the ancient Tree of Life.</p>
+<p data-reading-anchor id="ch3038-p017">And it bore similarities to quite a few ancient magic arrays used by the Tree Spirit Clan!</p>
+<p data-reading-anchor id="ch3038-p018">One thing was certain: the Elven Clan and the Tree Spirits, and the Tree of Life and Abe Akaya, were connected in some way.</p>
+<p data-reading-anchor id="ch3038-p019">Fang Heng silently memorized the alchemical arrays from several murals, then floated back to Kappa in his soul form and whispered so only Kappa could hear. “Kappa, we're already on the Elven Clan's planet. I'm going to leave for a while and investigate some clues. Stay here and wait. You'll be fine.”</p>
+<p data-reading-anchor id="ch3038-p020">Hearing him, Kappa nervously shrank his neck again.</p>
+<p data-reading-anchor id="ch3038-p021">Seriously? He was leaving already?</p>
+<p data-reading-anchor id="ch3038-p022">Could they please stop taking such enormous risks?</p>
+<p data-reading-anchor id="ch3038-p023">“Don't worry. Believe in yourself. You can bluff your way through this.”</p>
+<p data-reading-anchor id="ch3038-p024">Before Kappa could respond, Fang Heng's soul form slowly rose and flew toward the opening high in the cavern ceiling.</p>
+<p data-reading-anchor id="ch3038-p025">Fang Heng had already surveyed the place with his senses.</p>
+<p data-reading-anchor id="ch3038-p026">Perhaps the elves had made limited progress studying soul forms, or perhaps they'd simply lived peacefully for tens of millions of years. In any case, he found no seals or protective measures against spirit bodies anywhere in the cavern.</p>
+<p data-reading-anchor id="ch3038-p027">The outer defenses were little more than a simple layer.</p>
+<p data-reading-anchor id="ch3038-p028">In his soul form, he could pass through them easily.</p>
+<p data-reading-anchor id="ch3038-p029">After leaving the cavern, Fang Heng floated over a towering mountain peak and extended his senses to survey the surrounding area.</p>
+<p data-reading-anchor id="ch3038-p030">The entire Elven Clan world was covered in lush greenery.</p>
+<p data-reading-anchor id="ch3038-p031">It resembled the World of Ten Thousand Forests somewhat.</p>
+<p data-reading-anchor id="ch3038-p032">Fang Heng turned his gaze east and narrowed his eyes.</p>
+<p data-reading-anchor id="ch3038-p033">That...</p>
+<p data-reading-anchor id="ch3038-p034">An ancient tree towering into the clouds.</p>
+<p data-reading-anchor id="ch3038-p035">It bore a considerable resemblance to Abe Akaya.</p>
+<p data-reading-anchor id="ch3038-p036">No wonder Klevi had once mistaken Abe Akaya for the ancient Tree of Life.</p>
+<p data-reading-anchor id="ch3038-p037">But Fang Heng could sense that the Tree of Life's power was gradually fading.</p>
+<p data-reading-anchor id="ch3038-p038">Even with the naked eye, he could see piles of yellowed leaves beneath it and broad patches of dark, dried-out roots along the ground.</p>
+<p data-reading-anchor id="ch3038-p039">Perhaps ten years earlier, the area covered by the Tree of Life had been at least a third larger than it was now.</p>
+<p data-reading-anchor id="ch3038-p040">And its power was still declining, slowly withering and shrinking the ground it occupied.</p>
+<p data-reading-anchor id="ch3038-p041">“Hmm...”</p>
+<p data-reading-anchor id="ch3038-p042">Had some external influence caused this?</p>
+<p data-reading-anchor id="ch3038-p043">Was the Tree of Life decaying from within, driving the elves to seek new energy and a way to save their failing ancient tree?</p>
+<p data-reading-anchor id="ch3038-p044">Was that why they'd targeted Abe Akaya, hoping to sustain the Tree of Life by absorbing its power?</p>
+<p data-reading-anchor id="ch3038-p045">Fang Heng had formed a rough theory.</p>
+<p data-reading-anchor id="ch3038-p046">But could it really work?</p>
+<p data-reading-anchor id="ch3038-p047">Absorbing so much power still hadn't changed the fact that the Tree of Life was slowly dying.</p>
+<p data-reading-anchor id="ch3038-p048">In any case, he needed to find Klevi first.</p>
+<p data-reading-anchor id="ch3038-p049">She was probably somewhere near the Tree of Life.</p>
+<p data-reading-anchor id="ch3038-p050">Fang Heng extended his senses to search and darted toward the ancient tree.</p>
+<p data-reading-anchor id="ch3038-p051" class="scene">...</p>
+<p data-reading-anchor id="ch3038-p052">The outer region of the Tree of Life.</p>
+<p data-reading-anchor id="ch3038-p053">An elven patrol was standing guard.</p>
+<p data-reading-anchor id="ch3038-p054">A gentle wind passed, carrying yellowed leaves to the ground.</p>
+<p data-reading-anchor id="ch3038-p055">The patrol captain, Tewen, shook his head sadly at the sight.</p>
+<p data-reading-anchor id="ch3038-p056">Year after year, the area covered by the Tree of Life had shrunk. Countless vines and branches withered, and its roots were steadily losing vitality.</p>
+<p data-reading-anchor id="ch3038-p057">He had thought he'd grown used to it.</p>
+<p data-reading-anchor id="ch3038-p058">But over the last two years, the tree had been withering faster and faster.</p>
+<p data-reading-anchor id="ch3038-p059">Even he could feel that the Tree of Life was approaching its end more rapidly.</p>
+<p data-reading-anchor id="ch3038-p060">They didn't have much time left.</p>
+<p data-reading-anchor id="ch3038-p061">The High Priest had begun searching everywhere for a way to revive the Tree of Life a hundred years ago.</p>
+<p data-reading-anchor id="ch3038-p062">Unfortunately, none had been found.</p>
+<p data-reading-anchor id="ch3038-p063">At this rate, how much longer could the Tree of Life survive?</p>
+<p data-reading-anchor id="ch3038-p064">Ten years?</p>
+<p data-reading-anchor id="ch3038-p065">Or twenty?</p>
+<p data-reading-anchor id="ch3038-p066">“Hmm?”</p>
+<p data-reading-anchor id="ch3038-p067">The elven patrol suddenly sensed something and turned sharply toward a thicket to the right.</p>
+<p data-reading-anchor id="ch3038-p068">“Who's there? Show yourself!”</p>
+<p data-reading-anchor id="ch3038-p069">Whoosh!!</p>
+<p data-reading-anchor id="ch3038-p070">A dark figure suddenly burst from the shadows.</p>
+<p data-reading-anchor id="ch3038-p071">An enemy!?</p>
+<p data-reading-anchor id="ch3038-p072">Tewen's pupils contracted. He immediately released his psychic perception to lock onto the intruder.</p>
+<p data-reading-anchor id="ch3038-p073">The elven world hadn't encountered an invader in tens of thousands of years.</p>
+<p data-reading-anchor id="ch3038-p074">Had someone from another elven tribe wandered in by mistake?</p>
+<p data-reading-anchor id="ch3038-p075">While Tewen wondered, two of his patrolmen had already launched attacks at the dark figure.</p>
+<p data-reading-anchor id="ch3038-p076">Arrows of Nature!</p>
+<p data-reading-anchor id="ch3038-p077">“Whoosh! Whoosh, whoosh!!”</p>
+<p data-reading-anchor id="ch3038-p078">Dozens of arrows condensed from highly concentrated psychic power and natural energy shot toward Fang Heng.</p>
+<p data-reading-anchor id="ch3038-p079">“Bang! Bang, bang!!”</p>
+<p data-reading-anchor id="ch3038-p080">Before they could hit, the arrows abruptly exploded in midair near the dark figure!</p>
+<p data-reading-anchor id="ch3038-p081">What?</p>
+<p data-reading-anchor id="ch3038-p082">Tewen's heart jumped. Before he could see anything clearly, he heard two dull impacts and both his subordinates were thrown backward. Then the dark figure was suddenly in front of him, with one hand clamped around his throat.</p>
+<p data-reading-anchor id="ch3038-p083">What the hell!</p>
+<p data-reading-anchor id="ch3038-p084">What was this thing?!</p>
+<p data-reading-anchor id="ch3038-p085">Only then did Tewen clearly see the intruder's face. His pupils widened enormously.</p>
+<p data-reading-anchor id="ch3038-p086">A human!?</p>
+<p data-reading-anchor id="ch3038-p087">How could a human be here?</p>
+<p data-reading-anchor id="ch3038-p088">Had the elven world been exposed?</p>
+<p data-reading-anchor id="ch3038-p089">Forcing himself to stay calm, Tewen asked hoarsely, “W-who are you?”</p>
+<p data-reading-anchor id="ch3038-p090">“I'm looking for Klevi. Where is she?”</p>
+<p data-reading-anchor id="ch3038-p091">“I don't know any Klevi. Human, you've come to the wrong place! You have no business here! How did you enter our world?”</p>
+<p data-reading-anchor id="ch3038-p092">Fang Heng looked coldly at Tewen.</p>
+<p data-reading-anchor id="ch3038-p093">He seemed to be a low-ranking patrolman with little strength. It wasn't surprising he knew nothing about Klevi.</p>
+<p data-reading-anchor id="ch3038-p094">But Fang Heng remembered that while searching Klevi's house, the two elves had said she'd been imprisoned.</p>
+<p data-reading-anchor id="ch3038-p095">“You're in no position to ask questions.” Fang Heng shook his head. “Where is the Elven Clan's prison?”</p>
+<p data-reading-anchor id="ch3038-p096">Tewen's face changed. He fell silent, his thoughts racing.</p>
+<p data-reading-anchor id="ch3038-p097">The mysterious young man had asked for the prison's location at once. He didn't look like anyone with normal intentions.</p>
+<p data-reading-anchor id="ch3038-p098">“Hmph!”</p>
+<p data-reading-anchor id="ch3038-p099">Fang Heng snorted and raised a hand beside Tewen's ear.</p>
+<p data-reading-anchor id="ch3038-p100">The elf on the right, who had just been knocked away, had secretly crept up behind Fang Heng to attack him. Suddenly, he found himself floating helplessly in midair.</p>
+</article>
+<p class="end" data-reading-anchor id="ch3038-end">— End of Chapter 3038 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Chinese Chapter 3039: 探查. English Chapter 3038: Investigation. Narrative paragraphs: 100/100.</li><li>The source alternates 特文 and 文特 for the same elven patrol captain; this chapter uses Tewen and notes the inconsistency instead of inventing a second character.</li><li>Fang Heng uses his soul form to pass through elven defenses and sees that their Tree of Life is visibly dying.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_3037_Materials.html#start">← Previous</a><a class="next" href="Global_Game_AFK_Chapter_3039_Fracture.html#start">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 3021 — Appearance | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-3021">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3020_Pressure.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_3021_Appearance.html"><option value="Global_Game_AFK_Chapter_3021_Appearance.html" selected>3021 · Appearance</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3022_Separate_Actions.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-3021" data-reading-anchor>
+<div class="chapter-num">Chapter 3021</div><h2 class="chapter-title">Appearance</h2>
+<p class="source-identity">From Chinese Chapter 3022 · 现身</p>
+<article class="prose">
+<p data-reading-anchor id="ch3021-p001">Dean watched Fang Heng charge into the crowd of Hell monsters alone, helplessness showing in his eyes.</p>
+<p data-reading-anchor id="ch3021-p002">He couldn't shake the feeling that the brat had talked him into something.</p>
+<p data-reading-anchor id="ch3021-p003">Why did it feel as if he'd come all the way to Hell just to act as Fang Heng's assistant?</p>
+<p data-reading-anchor id="ch3021-p004">Dean shook his head and put the thought aside. He concentrated on coordinating and commanding the Holy Court forces from the rear while keeping a close eye on Fang Heng, ready to come to his aid.</p>
+<p data-reading-anchor id="ch3021-p005">Even without a Demon Seed joining the battle, so many high-level Hell creatures would give the Holy Court plenty of trouble!</p>
+<p data-reading-anchor id="ch3021-p006">Fortunately, Fang Heng was strong enough to hold the front line single-handedly, drawing the vast majority of the Hell creatures' attacks.</p>
+<p data-reading-anchor id="ch3021-p007">Dean reckoned that even if he personally joined the fighting, he probably couldn't do a better job.</p>
+<p data-reading-anchor id="ch3021-p008">That brat!</p>
+<p data-reading-anchor id="ch3021-p009">Watching Fang Heng dart back and forth among the elite monsters, killing one after another, Dean couldn't help praising him inwardly.</p>
+<p data-reading-anchor id="ch3021-p010">They had only met briefly in the Divine Realm last time, but Dean could clearly feel that Fang Heng had grown even stronger since then.</p>
+<p data-reading-anchor id="ch3021-p011">“Whoosh!”</p>
+<p data-reading-anchor id="ch3021-p012">Here it came!</p>
+<p data-reading-anchor id="ch3021-p013">Dean's pupils contracted. His gaze shot toward the distant cavern ceiling.</p>
+<p data-reading-anchor id="ch3021-p014">As a mighty aura erupted overhead, the layer of molten rock began to stir. Dark-red veins of magma appeared, and a long, illusory fissure suddenly opened, revealing the shadow of a pair of eyes.</p>
+<p data-reading-anchor id="ch3021-p015">A hideous demonic face gradually took shape on the lava-coated ceiling.</p>
+<p data-reading-anchor id="ch3021-p016">“Roar!!!”</p>
+<p data-reading-anchor id="ch3021-p017">The demon roared. Its massive right arm, formed from molten rock and wreathed in boiling magma, punched toward Fang Heng!</p>
+<p data-reading-anchor id="ch3021-p018">“Get out of Hell, you Holy Court scum!”</p>
+<p data-reading-anchor id="ch3021-p019">“Hmph!”</p>
+<p data-reading-anchor id="ch3021-p020">Fang Heng snorted and swung his staff directly at the enormous lava fist!</p>
+<p data-reading-anchor id="ch3021-p021">“Boom!!!!”</p>
+<p data-reading-anchor id="ch3021-p022">With a deafening explosion, the hideous demon on the ceiling shattered completely under Fang Heng's strike, sending scalding chunks of lava flying in every direction.</p>
+<p data-reading-anchor id="ch3021-p023">A woman's figure emerged from the shattered stone.</p>
+<p data-reading-anchor id="ch3021-p024">Fang Heng narrowed his eyes at the scantily clad young woman.</p>
+<p data-reading-anchor id="ch3021-p025">Her figure could only be described as perfect; merely standing there, she was enough to set hearts racing.</p>
+<p data-reading-anchor id="ch3021-p026">Eseklyna!</p>
+<p data-reading-anchor id="ch3021-p027">Fang Heng lightly licked his lips, excitement appearing in his eyes.</p>
+<p data-reading-anchor id="ch3021-p028">The Envy Demon Seed's true body.</p>
+<p data-reading-anchor id="ch3021-p029">Finally, I've found you!</p>
+<p data-reading-anchor id="ch3021-p030">“Whoosh!!”</p>
+<p data-reading-anchor id="ch3021-p031">Before Eseklyna could speak, Fang Heng suddenly accelerated and charged straight at her.</p>
+<p data-reading-anchor id="ch3021-p032">Eseklyna frowned slightly.</p>
+<p data-reading-anchor id="ch3021-p033">“Whoosh!!”</p>
+<p data-reading-anchor id="ch3021-p034">Dark, curling, ribbon-like tendrils emerged from the gaps in Eseklyna's clothes.</p>
+<p data-reading-anchor id="ch3021-p035">Tongues of Envy!</p>
+<p data-reading-anchor id="ch3021-p036">The Tongues of Envy unfolded and twisted in midair as though alive. Thousands of scarlet eyes suddenly opened across their surfaces, each shining with a strange light that seemed to draw everything around it inward.</p>
+<p data-reading-anchor id="ch3021-p037">Psychic illusion!</p>
+<p data-reading-anchor id="ch3021-p038" class="game">[Hint: The player has been struck by an illusion-type effect.]</p>
+<p data-reading-anchor id="ch3021-p039" class="game">[Hint: The player's Omniscient Eye has taken effect. Illusion dispelled.]</p>
+<p data-reading-anchor id="ch3021-p040">Fang Heng lost focus for an instant, then his eyes immediately cleared. Sacred power enveloped his God-Bestowed Staff as he swept it forward with a fierce whistle.</p>
+<p data-reading-anchor id="ch3021-p041">“Whoosh!!!”</p>
+<p data-reading-anchor id="ch3021-p042">Huh?</p>
+<p data-reading-anchor id="ch3021-p043">The Tongues of Envy were weightless and offered no resistance, as though they existed within space itself. The staff passed through them without affecting them at all, like two objects occupying different dimensions.</p>
+<p data-reading-anchor id="ch3021-p044">Not good!</p>
+<p data-reading-anchor id="ch3021-p045">Fang Heng swiftly dodged to the right.</p>
+<p data-reading-anchor id="ch3021-p046">A moment too late.</p>
+<p data-reading-anchor id="ch3021-p047">Three Tongues of Envy had already fastened onto his right leg and wrapped around it tightly.</p>
+<p data-reading-anchor id="ch3021-p048">“Hee-hee-hee... Little brother...”</p>
+<p data-reading-anchor id="ch3021-p049">Eseklyna let out a string of eerie giggles and lunged at Fang Heng like a ghost.</p>
+<p data-reading-anchor id="ch3021-p050">“Hmph!”</p>
+<p data-reading-anchor id="ch3021-p051">Fang Heng snorted and dodged right again, glancing down out of the corner of his eye.</p>
+<p data-reading-anchor id="ch3021-p052">The eyes on the dark Tongues of Envy wrapped around his leg clung stubbornly to his body.</p>
+<p data-reading-anchor id="ch3021-p053">The power within him was slowly flowing toward those eyes beyond his control.</p>
+<p data-reading-anchor id="ch3021-p054">Energy absorption?</p>
+<p data-reading-anchor id="ch3021-p055">Interest appeared in Fang Heng's eyes.</p>
+<p data-reading-anchor id="ch3021-p056">Eseklyna probably used this ability to absorb the power of other Demon Seeds for herself.</p>
+<p data-reading-anchor id="ch3021-p057">“Whoosh!!!”</p>
+<p data-reading-anchor id="ch3021-p058">Eseklyna materialized at Fang Heng's right side like an apparition.</p>
+<p data-reading-anchor id="ch3021-p059">“Whoosh!!!”</p>
+<p data-reading-anchor id="ch3021-p060">Sensing her position in advance, Fang Heng spun around and threw a punch without another word!</p>
+<p data-reading-anchor id="ch3021-p061">Layer upon layer of threadlike Tongues of Envy instantly spread in front of Eseklyna.</p>
+<p data-reading-anchor id="ch3021-p062">“Boom!”</p>
+<p data-reading-anchor id="ch3021-p063">One punch!</p>
+<p data-reading-anchor id="ch3021-p064">Fang Heng's fist pierced straight through the layers of demonic tongues and struck Eseklyna, blowing her body apart in midair!</p>
+<p data-reading-anchor id="ch3021-p065">Huh!? He hit her!?</p>
+<p data-reading-anchor id="ch3021-p066">Not far away, Dean was directing the Holy Court troops to retreat out of the cavern to gain more room to maneuver when he suddenly saw Fang Heng smash Eseklyna apart with a single punch.</p>
+<p data-reading-anchor id="ch3021-p067">What tremendous impact.</p>
+<p data-reading-anchor id="ch3021-p068">But something seemed wrong.</p>
+<p data-reading-anchor id="ch3021-p069">“Hee-hee-hee... Little brother, how cruel of you...”</p>
+<p data-reading-anchor id="ch3021-p070">“Whoosh!!”</p>
+<p data-reading-anchor id="ch3021-p071">Eseklyna's shattered body re-formed a short distance from Fang Heng.</p>
+<p data-reading-anchor id="ch3021-p072">Dean stared gravely at the resurrected Eseklyna.</p>
+<p data-reading-anchor id="ch3021-p073">He'd known a Demon Seed wouldn't be that easy to kill.</p>
+<p data-reading-anchor id="ch3021-p074">But it was strange. That punch had definitely connected, and from what Dean saw, it hadn't struck an illusion.</p>
+<p data-reading-anchor id="ch3021-p075">What sort of special ability was this?</p>
+<p data-reading-anchor id="ch3021-p076">Fang Heng withdrew his fist and looked toward the revived Eseklyna on his right.</p>
+<p data-reading-anchor id="ch3021-p077">He had just smashed her apart, but at the same moment his fist connected, Tongues of Envy covered in hideous red eyes had attached themselves to his skin.</p>
+<p data-reading-anchor id="ch3021-p078" class="game">[Hint: The player's sacred power is being drained...]</p>
+<p data-reading-anchor id="ch3021-p079" class="game">[Warning: Under the influence of an unknown force, the player's current Grand Sage bloodline experience is permanently decreasing...]</p>
+<p data-reading-anchor id="ch3021-p080" class="game">[Warning: An unknown effect is draining the player's power. Exercise caution.]</p>
+<p data-reading-anchor id="ch3021-p081">Interesting.</p>
+<p data-reading-anchor id="ch3021-p082">Fang Heng glanced over the game notifications.</p>
+<p data-reading-anchor id="ch3021-p083">The Tongues of Envy could siphon the sacred energy from his body, weakening him. Added to that were Eseklyna's unknown defense and resurrection abilities...</p>
+<p data-reading-anchor id="ch3021-p084">“Hee-hee-hee! What's wrong? Not going to continue?”</p>
+<p data-reading-anchor id="ch3021-p085">Eseklyna's voice changed, and her formerly delicate expression turned vicious. “Then die!”</p>
+<p data-reading-anchor id="ch3021-p086">Hundreds of dark Tongues of Envy spilled from Eseklyna's body and surged at Fang Heng once more.</p>
+<p data-reading-anchor id="ch3021-p087">Fang Heng tapped the ground lightly and dodged at speed while considering his options.</p>
+<p data-reading-anchor id="ch3021-p088">The situation completely reversed. Fang Heng now had to weave through a dense mass of Tongues of Envy.</p>
+<p data-reading-anchor id="ch3021-p089">“Hahahaha! Wasn't this fun? Why aren't you playing anymore?”</p>
+<p data-reading-anchor id="ch3021-p090">Eseklyna had gained complete control of the battlefield. Her eyes gleamed with excitement as she savored the pleasure of tormenting him.</p>
+<p data-reading-anchor id="ch3021-p091">Dean watched anxiously from the side, repeatedly wanting to step in and rescue him.</p>
+<p data-reading-anchor id="ch3021-p092">But Fang Heng had specifically told him not to provide support unless he asked for help.</p>
+</article>
+<p class="end" data-reading-anchor id="ch3021-end">— End of Chapter 3021 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Chinese Chapter 3022: 现身. English Chapter 3021: Appearance. Narrative paragraphs: 92/92.</li><li>The Tongues of Envy (嫉妒之舌) can phase through physical attacks and drain Fang Heng’s Sacred Studies. Eseklyna’s reconstitution is real, not merely an illusion.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_3020_Pressure.html#start">← Previous</a><a class="next" href="Global_Game_AFK_Chapter_3022_Separate_Actions.html#start">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

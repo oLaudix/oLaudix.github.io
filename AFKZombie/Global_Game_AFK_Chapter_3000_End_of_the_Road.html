@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 2999 — Dealing with It | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-3000">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_2999_Dealing_with_It.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_3000_End_of_the_Road.html"><option value="Global_Game_AFK_Chapter_3000_End_of_the_Road.html" selected>3000 · End of the Road</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3001_Revival.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-3000" data-reading-anchor>
+<div class="chapter-num">Chapter 3000</div><h2 class="chapter-title">End of the Road</h2>
+<p class="source-identity">From Chinese Chapter 3001 · 尽头</p>
+<article class="prose">
+<p data-reading-anchor id="ch3000-p001">Chen Yu happened to be among the team. His strength was near the bottom of the group, so the others had kept him protected in the center, and he hadn't immediately recognized Fang Heng.</p>
+<p data-reading-anchor id="ch3000-p002">Yi Qingzhi ventured, "Friends from the Holy Court, could you try breaking through these spatial creatures from the outside? But please be extremely careful. Don't get too close. They're terribly difficult to deal with. If you approach them carelessly, you might end up trapped in the middle just like us."</p>
+<p data-reading-anchor id="ch3000-p003">Whiteman certainly wasn't going to make that decision himself. He merely looked to Fang Heng.</p>
+<p data-reading-anchor id="ch3000-p004">"Got it. I'll get you out right now."</p>
+<p data-reading-anchor id="ch3000-p005">Fang Heng spotted Chen Yu and gave a slight nod. Then he told Whiteman and the others, "Stay here and wait for me."</p>
+<p data-reading-anchor id="ch3000-p006">The Holy Court believers nodded respectfully. None of them saw anything wrong with that.</p>
+<p data-reading-anchor id="ch3000-p007">"Yes, Grand Sage."</p>
+<p data-reading-anchor id="ch3000-p008">A Grand Sage could single-handedly overpower even the Calamity.</p>
+<p data-reading-anchor id="ch3000-p009">Wouldn't dealing with these spatial creatures be child's play?</p>
+<p data-reading-anchor id="ch3000-p010">Huh?</p>
+<p data-reading-anchor id="ch3000-p011">Chen Yu froze at the sound of the voice.</p>
+<p data-reading-anchor id="ch3000-p012">That voice?</p>
+<p data-reading-anchor id="ch3000-p013">Then he saw the mask covering the newcomer's face and shouted in delighted surprise, "Boss Fang?"</p>
+<p data-reading-anchor id="ch3000-p014">Fang Heng?</p>
+<p data-reading-anchor id="ch3000-p015">Yi Qingzhi's heart skipped at Chen Yu's shout. He turned to the masked young man as well.</p>
+<p data-reading-anchor id="ch3000-p016">Who else could Chen Yu call Boss Fang but Fang Heng?</p>
+<p data-reading-anchor id="ch3000-p017">So this was Fang Heng?</p>
+<p data-reading-anchor id="ch3000-p018">The man who had helped the entire Eastern Federation establish its fleet?</p>
+<p data-reading-anchor id="ch3000-p019">Respect immediately rose in Yi Qingzhi's heart.</p>
+<p data-reading-anchor id="ch3000-p020">But since when had he gotten mixed up with the Holy Court?</p>
+<p data-reading-anchor id="ch3000-p021">And judging by the way they were standing, didn't the Holy Court people seem ready to follow Fang Heng's every command?</p>
+<p data-reading-anchor id="ch3000-p022" class="sound">"Whoosh!"</p>
+<p data-reading-anchor id="ch3000-p023">While Yi Qingzhi was still trying to make sense of it, Fang Heng lightly pushed off the ground and approached the center.</p>
+<p data-reading-anchor id="ch3000-p024">His pace was neither particularly fast nor slow.</p>
+<p data-reading-anchor id="ch3000-p025">What?</p>
+<p data-reading-anchor id="ch3000-p026">He was coming straight over?</p>
+<p data-reading-anchor id="ch3000-p027">Yi Qingzhi grew anxious and shouted, "Watch out!"</p>
+<p data-reading-anchor id="ch3000-p028">Too late.</p>
+<p data-reading-anchor id="ch3000-p029">The moment Fang Heng approached the hall's center, more than a dozen points of spatial light began flickering around him.</p>
+<p data-reading-anchor id="ch3000-p030" class="sound">"Whoosh! Whoosh, whoosh!"</p>
+<p data-reading-anchor id="ch3000-p031">Glowing spheres sprang out from those points and lunged at Fang Heng from every direction.</p>
+<p data-reading-anchor id="ch3000-p032" class="sound">"Bang!"</p>
+<p data-reading-anchor id="ch3000-p033">A muffled explosion erupted in midair from one of the spheres attacking him.</p>
+<p data-reading-anchor id="ch3000-p034">Nobody even saw Fang Heng make a move. The instant the glowing sphere drew near him, it burst into a cloud of blood mist!</p>
+<p data-reading-anchor id="ch3000-p035" class="sound">"Bang! Bang, bang, bang!"</p>
+<p data-reading-anchor id="ch3000-p036">For a time, explosions rang out in rapid succession.</p>
+<p data-reading-anchor id="ch3000-p037">What the hell?</p>
+<p data-reading-anchor id="ch3000-p038">Before the astonished onlookers, almost every glowing sphere that rushed at Fang Heng exploded in the air and was smashed into bloody mist!</p>
+<p data-reading-anchor id="ch3000-p039">Traces of spatial energy escaped from the blood mist and flowed into Fang Heng's Sea of Consciousness.</p>
+<p data-reading-anchor id="ch3000-p040">Fang Heng did nothing else. He paid no attention to the clouds of blood erupting around him and continued walking step by step toward the hall's center.</p>
+<p data-reading-anchor id="ch3000-p041">The Holy Court followers watched him from behind with reverence.</p>
+<p data-reading-anchor id="ch3000-p042">They were certainly shaken, but not overly surprised. Along the way, they had already witnessed a portion of the Grand Sage's power.</p>
+<p data-reading-anchor id="ch3000-p043">The Eastern Federation's elite squad, however, was genuinely stunned.</p>
+<p data-reading-anchor id="ch3000-p044">Those same glowing creatures had forced the squad to defend helplessly in the center of the hall for over twenty minutes. They still hadn't found a way out, yet Fang Heng was strolling toward them as though it were nothing.</p>
+<p data-reading-anchor id="ch3000-p045">Was this guy really that terrifyingly strong?</p>
+<p data-reading-anchor id="ch3000-p046">And his way of fighting seemed entirely different from that of the Holy Court members they had seen before.</p>
+<p data-reading-anchor id="ch3000-p047">Fang Heng ignored their stares.</p>
+<p data-reading-anchor id="ch3000-p048">These monsters were simply too easy for him to deal with.</p>
+<p data-reading-anchor id="ch3000-p049">Their spatial jumps caused such pronounced fluctuations that his senses could detect them effortlessly. He calculated their approach angles in advance and detonated the blood inside their bodies.</p>
+<p data-reading-anchor id="ch3000-p050">A straightforward crushing advantage in attributes.</p>
+<p data-reading-anchor id="ch3000-p051">Clearing the glowing creatures along the way, Fang Heng walked straight past the Eastern Federation elites to the stone pillar at the center of the hall and gently pressed his hand against it.</p>
+<p data-reading-anchor id="ch3000-p052">"Hum..."</p>
+<p data-reading-anchor id="ch3000-p053">A dense surge of spatial power immediately poured into his body through his palm before racing into his Sea of Consciousness!</p>
+<p data-reading-anchor id="ch3000-p054">There it was!</p>
+<p data-reading-anchor id="ch3000-p055">Spatial energy!</p>
+<p data-reading-anchor id="ch3000-p056">Compared with elemental and natural energy, spatial energy was extremely rare.</p>
+<p data-reading-anchor id="ch3000-p057">Absorb it!</p>
+<p data-reading-anchor id="ch3000-p058">Drain every last drop in one go!</p>
+<p data-reading-anchor id="ch3000-p059" class="sound">"Whoosh! Whoosh, whoosh!"</p>
+<p data-reading-anchor id="ch3000-p060">As Fang Heng absorbed the ice-crystal pillar's energy, every glowing creature in the hall was enraged. They swarmed out of secondary spatial projections and charged him!</p>
+<p data-reading-anchor id="ch3000-p061" class="sound">"Bang! Bang, bang, bang!"</p>
+<p data-reading-anchor id="ch3000-p062">Exactly the same result!</p>
+<p data-reading-anchor id="ch3000-p063">Anything that approached Fang Heng was instantly blasted into bloody mist!</p>
+<p data-reading-anchor id="ch3000-p064">It went on for more than three full minutes.</p>
+<p data-reading-anchor id="ch3000-p065">Only after draining all the energy from the altar did Fang Heng finally lower his hand.</p>
+<p data-reading-anchor id="ch3000-p066">By then, every glowing creature in the hall had been wiped out. Silence settled over the chamber.</p>
+<p data-reading-anchor id="ch3000-p067">Yi Qingzhi took a deep breath and cautiously led the Eastern Federation group over to him.</p>
+<p data-reading-anchor id="ch3000-p068">"Thank you for your assistance, Mr. Fang."</p>
+<p data-reading-anchor id="ch3000-p069">Yi Qingzhi studied him, secretly puzzled.</p>
+<p data-reading-anchor id="ch3000-p070">Fang Heng's appearance had changed dramatically, and he was even associating with the Holy Court?</p>
+<p data-reading-anchor id="ch3000-p071">Weren't those two sworn enemies?</p>
+<p data-reading-anchor id="ch3000-p072">"I'm not Fang Heng. You can call me Fang Bai." Fang Heng waved a hand, glanced at Chen Yu, and added, "Or you can call me Boss Fang, like he does."</p>
+<p data-reading-anchor id="ch3000-p073">Yi Qingzhi raised an eyebrow. Several thoughts flashed through his mind before he nodded. "I understand, Boss Fang. Thank you for helping us."</p>
+<p data-reading-anchor id="ch3000-p074">At that moment, Archbishop Whiteman arrived with the rest of the Holy Court party.</p>
+<p data-reading-anchor id="ch3000-p075">Seeing Chen Yu dusty, disheveled, and utterly dejected, Fang Heng asked, "How did you end up looking like that?"</p>
+<p data-reading-anchor id="ch3000-p076">"Don't ask. Those bastards from the Southern Federation screwed us over."</p>
+<p data-reading-anchor id="ch3000-p077">Chen Yu smiled bitterly and began pouring out his grievances. "When we arrived, the Southern Federation was fighting those spatial creatures. They invited us to help."</p>
+<p data-reading-anchor id="ch3000-p078">"Then, halfway through, they used us. They activated a skill to escape and left us trapped here instead."</p>
+<p data-reading-anchor id="ch3000-p079">Yi Qingzhi raised a hand to stop him and addressed Fang Heng. "Boss Fang, we can discuss that later. The Western Federation entered some time ago. The Apocalypse Treasure could fall into their hands at any moment. Shouldn't we catch up first?"</p>
+<p data-reading-anchor id="ch3000-p080">"All right."</p>
+<p data-reading-anchor id="ch3000-p081">Without further delay, they continued following the direction indicated by the Key of Apocalypse.</p>
+<p data-reading-anchor id="ch3000-p082">Soon they passed through the spatial trial hall and another short stretch of labyrinth. The ice-crystal floor opened up again.</p>
+<p data-reading-anchor id="ch3000-p083">The expanse of ice broadened until it resembled a vast plain.</p>
+<p data-reading-anchor id="ch3000-p084">They continued across it, and before long a gigantic metal door, fully seven meters high, came into view at the far end, set into an ice-crystal wall.</p>
+<p data-reading-anchor id="ch3000-p085">From a distance, they could see quite a few people gathered outside its entrance.</p>
+<p data-reading-anchor id="ch3000-p086">The Key of Apocalypse pointed directly toward the metal door in the center.</p>
+<p data-reading-anchor id="ch3000-p087">Huh?</p>
+<p data-reading-anchor id="ch3000-p088">Fang Heng raised an eyebrow.</p>
+<p data-reading-anchor id="ch3000-p089">A ripple of energy was leaking from a crack in the door.</p>
+<p data-reading-anchor id="ch3000-p090">An extremely familiar energy fluctuation.</p>
+<p data-reading-anchor id="ch3000-p091">"Come on. Let's take a look."</p>
+<p data-reading-anchor id="ch3000-p092">Fang Heng arrived outside the metal door at the end of the ice with the Eastern Federation and Holy Court parties.</p>
+</article>
+<p class="end" data-reading-anchor id="ch3000-end">— End of Chapter 3000 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Chinese Chapter 3001: 尽头. English Chapter 3000: End of the Road. Narrative paragraphs: 92/92.</li><li>The original distinguishes the Eastern Federation leader Yi Qingzhi from Chen Yu, who recognizes Fang Heng by his voice.</li><li>Fang Heng gives his alias Fang Bai while allowing his companions to keep addressing him as Boss Fang.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_2999_Dealing_with_It.html#start">← Previous</a><a class="next" href="Global_Game_AFK_Chapter_3001_Revival.html#start">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

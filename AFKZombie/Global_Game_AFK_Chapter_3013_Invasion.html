@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 2999 — Dealing with It | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-3013">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3012_Search.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_3013_Invasion.html"><option value="Global_Game_AFK_Chapter_3013_Invasion.html" selected>3013 · Invasion</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3014_Taking_the_Initiative.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-3013" data-reading-anchor>
+<div class="chapter-num">Chapter 3013</div><h2 class="chapter-title">Invasion</h2>
+<p class="source-identity">From Chinese Chapter 3014 · 入侵</p>
+<article class="prose">
+<p data-reading-anchor id="ch3013-p001">"Pfft! Pfft!"</p>
+<p data-reading-anchor id="ch3013-p002">The next moment, both elves spat blood and collapsed unconscious.</p>
+<p data-reading-anchor id="ch3013-p003">Fang Heng frowned deeply.</p>
+<p data-reading-anchor id="ch3013-p004">A conflict of mental powers.</p>
+<p data-reading-anchor id="ch3013-p005">Someone had implanted a mental suggestion in them beforehand, with extremely rigid restrictions. The clash between the two mental forces would probably leave both elves insane even if they regained consciousness.</p>
+<p data-reading-anchor id="ch3013-p006">"The Elven Clan..."</p>
+<p data-reading-anchor id="ch3013-p007">Fang Heng murmured to himself, then walked to the alchemical magic array and examined it.</p>
+<p data-reading-anchor id="ch3013-p008">It was a small teleportation array.</p>
+<p data-reading-anchor id="ch3013-p009">Its function was to transport certain objects to a designated location.</p>
+<p data-reading-anchor id="ch3013-p010">He looked at the jars and bottles arranged around it.</p>
+<p data-reading-anchor id="ch3013-p011">They contained various plants.</p>
+<p data-reading-anchor id="ch3013-p012">He'd heard Klevi liked growing strange plants at home.</p>
+<p data-reading-anchor id="ch3013-p013">Did the elves want those plants?</p>
+<p data-reading-anchor id="ch3013-p014">"Mr. Fang Heng? Mr. Fang Heng! Are you all right?"</p>
+<p data-reading-anchor id="ch3013-p015">Urgent shouts sounded through his earpiece.</p>
+<p data-reading-anchor id="ch3013-p016">"Mm, I'm fine." Fang Heng touched the device. "The problem's solved. You can come in."</p>
+<p data-reading-anchor id="ch3013-p017">Outside, Lu Yunhao's emergency team had heard a few muffled bangs over the connection, followed by silence. They'd been considering whether to move in. On receiving Fang Heng's answer, Lu Yunhao immediately signaled his squad to enter.</p>
+<p data-reading-anchor id="ch3013-p018">The response team stepped into the villa and saw two unconscious elves and a mass of exploded flesh in the room.</p>
+<p data-reading-anchor id="ch3013-p019">"Boss Fang, these two..."</p>
+<p data-reading-anchor id="ch3013-p020">"Unconscious. The other one is dead."</p>
+<p data-reading-anchor id="ch3013-p021">Lu Yunhao cautiously approached Fang Heng, who was crouched near the array at the center of the hall. "May we take these two for questioning?"</p>
+<p data-reading-anchor id="ch3013-p022">"Mm. Take them. They're elves, not players, and they're quite strong. Be careful."</p>
+<p data-reading-anchor id="ch3013-p023">"Absolutely."</p>
+<p data-reading-anchor id="ch3013-p024">Lu Yunhao ordered his men to take the prisoners away, then regarded the array before Fang Heng with a bitter expression. "Boss Fang, what's going on here?"</p>
+<p data-reading-anchor id="ch3013-p025">"I came to investigate the disappearance of a half-elf friend. This villa is her home."</p>
+<p data-reading-anchor id="ch3013-p026">Fang Heng explained, "This is a special elven teleportation array. By the time we arrived, the elves had already transported some of the plants from these bottles and jars elsewhere."</p>
+<p data-reading-anchor id="ch3013-p027">"Plants?"</p>
+<p data-reading-anchor id="ch3013-p028">Lu Yunhao grew curious and crouched to inspect them. "Mr. Fang Heng, may we take these plants back for examination?"</p>
+<p data-reading-anchor id="ch3013-p029">Fang Heng was about to reply when he noticed one jar contained a cutting from Abe Akaya.</p>
+<p data-reading-anchor id="ch3013-p030">Klevi had indeed mentioned trying to combine Abe Akaya with unusual species of plants to promote its further evolution.</p>
+<p data-reading-anchor id="ch3013-p031">"Mr. Fang Heng? Mr. Fang Heng?" Lu Yunhao asked quietly.</p>
+<p data-reading-anchor id="ch3013-p032">"Mm. Take everything back and examine it. Tell me immediately if you find anything."</p>
+<p data-reading-anchor id="ch3013-p033">"Of course! Thank you for your support!"</p>
+<p data-reading-anchor id="ch3013-p034" class="scene">...</p>
+<p data-reading-anchor id="ch3013-p035">Of the three elves, two had lost their minds and one was dead. The trail had gone cold for now.</p>
+<p data-reading-anchor id="ch3013-p036">The Federation probably wouldn't uncover much more useful information.</p>
+<p data-reading-anchor id="ch3013-p037">Judging from the current evidence, Klevi had most likely gone to the elven world.</p>
+<p data-reading-anchor id="ch3013-p038">Still, wandering around like a headless fly wasn't a plan. Fang Heng could only ask around for a way to reach that world.</p>
+<p data-reading-anchor id="ch3013-p039">Returning to the World of Ten Thousand Forests, he settled back into cultivation.</p>
+<p data-reading-anchor id="ch3013-p040">For a change of pace, he switched to Elemental Studies.</p>
+<p data-reading-anchor id="ch3013-p041">Specks of natural energy gathered and condensed. With Abe Akaya's help, they were absorbed and flowed into Fang Heng's body.</p>
+<p data-reading-anchor id="ch3013-p042">As the natural power circulated, his bloodline ability converted it into Qi.</p>
+<p data-reading-anchor id="ch3013-p043">Qi was then converted again into pure elemental energy.</p>
+<p data-reading-anchor id="ch3013-p044">Fang Heng regulated his breathing and maintained a calm mind.</p>
+<p data-reading-anchor id="ch3013-p045">As he cultivated, game notifications gradually appeared.</p>
+<p data-reading-anchor id="ch3013-p046" class="game">[Hint: Player gained 12,192 Master Elemental Studies EXP...]</p>
+<p data-reading-anchor id="ch3013-p047" class="game">[Hint: Player's Master Elemental Studies has risen to LV: 21.]</p>
+<p data-reading-anchor id="ch3013-p048" class="game">[Hint: Player gained 12,192 Master Elemental Studies EXP...]</p>
+<p data-reading-anchor id="ch3013-p049">After an unknown interval, a dark-red warning suddenly appeared.</p>
+<p data-reading-anchor id="ch3013-p050" class="game">[Hint: Player gained 12,192 Master Elemental Studies EXP...]</p>
+<p data-reading-anchor id="ch3013-p051" class="game">[Hint: Abe Akaya's energy is being absorbed.]</p>
+<p data-reading-anchor id="ch3013-p052" class="game">[Warning: Due to an unknown force, Abe Akaya's EXP is decreasing.]</p>
+<p data-reading-anchor id="ch3013-p053">Huh?</p>
+<p data-reading-anchor id="ch3013-p054">What was going on?</p>
+<p data-reading-anchor id="ch3013-p055">The notifications abruptly jolted Fang Heng out of cultivation.</p>
+<p data-reading-anchor id="ch3013-p056">Energy being absorbed?</p>
+<p data-reading-anchor id="ch3013-p057">How?</p>
+<p data-reading-anchor id="ch3013-p058">Looking more carefully, he saw Abe Akaya's energy declining at an extremely slow rate.</p>
+<p data-reading-anchor id="ch3013-p059">"Abe Akaya! What's happening?"</p>
+<p data-reading-anchor id="ch3013-p060">Abe Akaya immediately established a mental communication link.</p>
+<p data-reading-anchor id="ch3013-p061">Just now, an invisible power had begun affecting it, slowly drawing energy from its body.</p>
+<p data-reading-anchor id="ch3013-p062">The force was highly unusual and entirely one-sided, a predatory extraction. The best Abe Akaya could do was resist with all its might and sharply slow the rate of theft.</p>
+<p data-reading-anchor id="ch3013-p063">Missing Klevi... the Elven Clan... Abe Akaya...</p>
+<p data-reading-anchor id="ch3013-p064">Fang Heng frowned slightly.</p>
+<p data-reading-anchor id="ch3013-p065">It was all connected.</p>
+<p data-reading-anchor id="ch3013-p066">The elves' real target was very likely Abe Akaya.</p>
+<p data-reading-anchor id="ch3013-p067">He asked, "Can you determine where the power is coming from?"</p>
+<p data-reading-anchor id="ch3013-p068">"You can't...?"</p>
+<p data-reading-anchor id="ch3013-p069">Receiving Abe Akaya's negative reply, Fang Heng frowned even more.</p>
+<p data-reading-anchor id="ch3013-p070">Abe Akaya possessed enormous reserves of energy. At this slow rate of depletion, the immediate impact was insignificant.</p>
+<p data-reading-anchor id="ch3013-p071">But if it continued, the enemy might increase the rate of extraction.</p>
+<p data-reading-anchor id="ch3013-p072">He needed to solve this quickly.</p>
+<p data-reading-anchor id="ch3013-p073">While he was thinking, Abe Akaya's teleportation array began operating.</p>
+<p data-reading-anchor id="ch3013-p074">Alec stepped out of the array with Lu Yunhao.</p>
+<p data-reading-anchor id="ch3013-p075">"Your Majesty, this man said he needed to see you."</p>
+<p data-reading-anchor id="ch3013-p076">After traveling through one teleportation passage after another, Lu Yunhao was somewhat dizzy. Seeing Fang Heng, he quickly nodded. "Boss Fang, we've learned something about the Elven Clan and came to tell you immediately."</p>
+<p data-reading-anchor id="ch3013-p077">"Do you have any clues to the coordinates of the elven world?"</p>
+<p data-reading-anchor id="ch3013-p078">"Unfortunately, no." Lu Yunhao shook his head. "But we've confirmed something through the Iron-Eating Beast Clan. Elves have appeared among the Kinsfolk's allied forces. They rarely deploy with entire fleets. Usually one to three of them join individual fleets as mercenaries."</p>
+<p data-reading-anchor id="ch3013-p079">"Individual elves are among the strongest fighters of all races, so fleets welcome them. But the Elven Clan is extremely secretive and has never revealed its world's coordinates."</p>
+<p data-reading-anchor id="ch3013-p080">"We've learned something else. While carrying out missions, the elves have also been asking around for information about the Tree of Life or Tree of Creation."</p>
+<p data-reading-anchor id="ch3013-p081">Fang Heng rubbed his chin.</p>
+<p data-reading-anchor id="ch3013-p082">"The Tree of Life..."</p>
+<p data-reading-anchor id="ch3013-p083">He remembered.</p>
+<p data-reading-anchor id="ch3013-p084">Klevi had called Abe Akaya that before.</p>
+<p data-reading-anchor id="ch3013-p085">"Mr. Fang Heng, the two elves we brought back have completely lost their minds. We can't learn anything more from them. This is all we have for now, but we'll continue gathering information and contact you immediately if we discover anything."</p>
+<p data-reading-anchor id="ch3013-p086">"All right."</p>
+<p data-reading-anchor id="ch3013-p087">Fang Heng nodded and signaled Alec to escort Lu Yunhao out.</p>
+</article>
+<p class="end" data-reading-anchor id="ch3013-end">— End of Chapter 3013 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Chinese Chapter 3014: 入侵. English Chapter 3013: Invasion. Narrative paragraphs: 87/87.</li><li>Source states Abe Akaya’s energy/EXP is being siphoned by an unknown external force; the attacker and its location are not definitively identified.</li><li>The elven prisoners become mentally incapacitated due to a conflict of imposed suggestions.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_3012_Search.html#start">← Previous</a><a class="next" href="Global_Game_AFK_Chapter_3014_Taking_the_Initiative.html#start">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

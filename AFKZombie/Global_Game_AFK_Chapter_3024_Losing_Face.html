@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 3024 — Losing Face | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-3024">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3023_Chains.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_3024_Losing_Face.html"><option value="Global_Game_AFK_Chapter_3024_Losing_Face.html" selected>3024 · Losing Face</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3025_Infighting.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-3024" data-reading-anchor>
+<div class="chapter-num">Chapter 3024</div><h2 class="chapter-title">Losing Face</h2>
+<p class="source-identity">From Chinese Chapter 3025 · 丢脸</p>
+<article class="prose">
+<p data-reading-anchor id="ch3024-p001">Dean had been waiting for Fang Heng to call for help all along. When he finally heard him shout after being badly injured and knocked down, Dean instantly darted out from the right and pursued Eseklyna.</p>
+<p data-reading-anchor id="ch3024-p002">“You brat! Why go to such desperate lengths!?”</p>
+<p data-reading-anchor id="ch3024-p003">Dean had been cursing Fang Heng furiously in his mind.</p>
+<p data-reading-anchor id="ch3024-p004">Demon Seeds were immortal creatures. Kill one, and sooner or later another would take its place.</p>
+<p data-reading-anchor id="ch3024-p005">Was it really worth damaging his own fundamental power just to get a little peace after killing one Demon Seed?</p>
+<p data-reading-anchor id="ch3024-p006">But matters had already reached this point. Dean had been put on the spot and had no choice but to step forward, forcibly blocking Eseklyna's escape route.</p>
+<p data-reading-anchor id="ch3024-p007">“Holy Court!”</p>
+<p data-reading-anchor id="ch3024-p008">Eseklyna had already expended strength fighting Fang Heng, and the Demon-Binding Chains had weakened her further. No longer at her peak, she sent her Tongues of Envy surging toward Dean.</p>
+<p data-reading-anchor id="ch3024-p009">“Shield of Protection!”</p>
+<p data-reading-anchor id="ch3024-p010">A protective shield gathered in front of Dean, completely isolating the Tongues of Envy's power.</p>
+<p data-reading-anchor id="ch3024-p011">“Bang!!!”</p>
+<p data-reading-anchor id="ch3024-p012">The tongues shattered one after another.</p>
+<p data-reading-anchor id="ch3024-p013">Huh?</p>
+<p data-reading-anchor id="ch3024-p014">To Eseklyna's surprise, the Tongues of Envy couldn't simply bypass Dean's sacred shield.</p>
+<p data-reading-anchor id="ch3024-p015">“Heh...”</p>
+<p data-reading-anchor id="ch3024-p016">Dean chuckled softly.</p>
+<p data-reading-anchor id="ch3024-p017">He represented Protection, one of the Twelve Sages.</p>
+<p data-reading-anchor id="ch3024-p018">His specialty was close combat, with more emphasis on support and absorbing damage.</p>
+<p data-reading-anchor id="ch3024-p019">The Sacred Shield was reputed to withstand every form of damage.</p>
+<p data-reading-anchor id="ch3024-p020">Players outside the Holy Court had even bestowed the title “King of Turtle Shells” upon the Holy Court's Glory Guard under his command.</p>
+<p data-reading-anchor id="ch3024-p021">Seeing that Eseklyna wanted to flee and judging her to be weakened and restrained, Dean said coldly, “Fiend, you cannot leave this place. Surrender.”</p>
+<p data-reading-anchor id="ch3024-p022">“In your dreams!”</p>
+<p data-reading-anchor id="ch3024-p023">Eseklyna flashed around repeatedly, trying to slip past Dean and escape.</p>
+<p data-reading-anchor id="ch3024-p024">But Dean blocked her attacks every time, intercepting her path again and again.</p>
+<p data-reading-anchor id="ch3024-p025">What a coincidence, wasn't it?</p>
+<p data-reading-anchor id="ch3024-p026">Protection just happened to be Dean's specialty.</p>
+<p data-reading-anchor id="ch3024-p027">He might not excel at dealing explosive damage in a short fight, but when it came to restraining someone, he had ten thousand ways to torment his opponent!</p>
+<p data-reading-anchor id="ch3024-p028">A perfect match for his profession!</p>
+<p data-reading-anchor id="ch3024-p029">The more anxious Eseklyna became, the calmer Dean was. He methodically blocked her escape route.</p>
+<p data-reading-anchor id="ch3024-p030">They remained entangled for a full three minutes.</p>
+<p data-reading-anchor id="ch3024-p031">Then Eseklyna's pupils contracted.</p>
+<p data-reading-anchor id="ch3024-p032">Not good!</p>
+<p data-reading-anchor id="ch3024-p033">Her connection to her demonic pet was growing faint.</p>
+<p data-reading-anchor id="ch3024-p034">“Roar!!”</p>
+<p data-reading-anchor id="ch3024-p035">Eseklyna's eyes turned bloodred, and dense hellfire erupted violently from within her!</p>
+<p data-reading-anchor id="ch3024-p036">The Tongues of Envy extending from her heart burst outward, ripping her flesh apart. Accepting injury to her very essence, she forcibly broke through part of the Demon-Binding Chains' suppression!</p>
+<p data-reading-anchor id="ch3024-p037">The raging tongues expanded dozens of times over and swept wildly in all directions.</p>
+<p data-reading-anchor id="ch3024-p038">Not good!</p>
+<p data-reading-anchor id="ch3024-p039">Dean's heart jolted.</p>
+<p data-reading-anchor id="ch3024-p040">She's going all out!</p>
+<p data-reading-anchor id="ch3024-p041">Even more unexpectedly, the Tongues of Envy weren't aimed at him. Instead, they swept past him toward the Holy Court forces fighting the high-level Hell fiends behind him.</p>
+<p data-reading-anchor id="ch3024-p042">“Aksu! Fall back!”</p>
+<p data-reading-anchor id="ch3024-p043">Dean shouted, gathering his psychic power and forcibly raising a sacred barrier to intercept them.</p>
+<p data-reading-anchor id="ch3024-p044">“Bang! Bang, bang!!!!”</p>
+<p data-reading-anchor id="ch3024-p045">The wildly thrashing tongues slammed into the barrier, spreading deep cracks across it!</p>
+<p data-reading-anchor id="ch3024-p046">Aside from physical attacks, the vertical pupils on the tongues carried illusion effects.</p>
+<p data-reading-anchor id="ch3024-p047">Dean could endure them, but large numbers of paladins fell into confused states under the illusions.</p>
+<p data-reading-anchor id="ch3024-p048">Meanwhile, tiny Tongues of Envy emerged from beneath the skin at the backs of the Hell fiends' necks. Under their influence, the high-level fiends fighting the Holy Court entered a berserk state one after another.</p>
+<p data-reading-anchor id="ch3024-p049">The berserk Hell fiends' strength rose sharply!</p>
+<p data-reading-anchor id="ch3024-p050">Caught by the two attacks at once, the sacred barrier protecting the front of the Holy Court's main force collapsed. Large numbers of fiends poured in, and the entire formation threatened to rout.</p>
+<p data-reading-anchor id="ch3024-p051">Damn it! How despicable!</p>
+<p data-reading-anchor id="ch3024-p052">Dean inwardly cursed. Unable to keep intercepting Eseklyna, he hurried back to rescue his troops.</p>
+<p data-reading-anchor id="ch3024-p053">Those were the Holy Court's elites, its treasured fighters.</p>
+<p data-reading-anchor id="ch3024-p054">He couldn't allow them all to die here!</p>
+<p data-reading-anchor id="ch3024-p055">Sacred light poured down, and Dean sheltered the Holy Court forces behind him, stabilizing the battlefield.</p>
+<p data-reading-anchor id="ch3024-p056">At the same time, he could only watch helplessly as Eseklyna, having created the chaos, turned into a ghostly streak and fled the cavern.</p>
+<p data-reading-anchor id="ch3024-p057">There was nothing he could do.</p>
+<p data-reading-anchor id="ch3024-p058">Dean felt deeply helpless.</p>
+<p data-reading-anchor id="ch3024-p059">In front of everyone... He'd clearly promised Fang Heng he'd stop the Demon Seed, yet he'd been forced to give up.</p>
+<p data-reading-anchor id="ch3024-p060">That was rather humiliating...</p>
+<p data-reading-anchor id="ch3024-p061">As Dean thought this, he cast Fang Heng an apologetic look.</p>
+<p data-reading-anchor id="ch3024-p062">Fang Bai had sacrificed so much of his Grand Sage power to severely injure Eseklyna, yet Dean had failed to hold her.</p>
+<p data-reading-anchor id="ch3024-p063">Then again, the Demon Seed was burning her own essence and sacrificing so many subordinates to cover her escape. There was little he could do.</p>
+<p data-reading-anchor id="ch3024-p064">This was Hell, not their home battlefield. Otherwise, they might have had a chance...</p>
+<p data-reading-anchor id="ch3024-p065">Huh?</p>
+<p data-reading-anchor id="ch3024-p066">What?</p>
+<p data-reading-anchor id="ch3024-p067">As Dean glanced toward where Fang Heng had fallen, he saw something completely different from the half-dead, exhausted figure he'd expected. Fang Heng had already jumped to his feet and was racing after the escaping Eseklyna!</p>
+<p data-reading-anchor id="ch3024-p068">What?</p>
+<p data-reading-anchor id="ch3024-p069">Wasn't he seriously injured? How could he still move so nimbly?</p>
+<p data-reading-anchor id="ch3024-p070">Dean's heart skipped a beat.</p>
+<p data-reading-anchor id="ch3024-p071">Something wasn't right!</p>
+<p data-reading-anchor id="ch3024-p072">He was still chasing her?</p>
+<p data-reading-anchor id="ch3024-p073">Hadn't Eseklyna's Tongues of Envy just drained him dry? He had almost no sacred power left. Even a hundred years of bitter cultivation might not make up for the loss, so where did he get the confidence to chase her again?</p>
+<p data-reading-anchor id="ch3024-p074" class="scene">...</p>
+<p data-reading-anchor id="ch3024-p075">Meanwhile, in Echidna's cavern on the twenty-ninth level of Hell.</p>
+<p data-reading-anchor id="ch3024-p076">A sword was buried deep in the center head of Echidna's true body, the three-headed giant serpent. Her body shook violently before finally collapsing into the lava under the combined assault of over twenty Demon Seeds.</p>
+<p data-reading-anchor id="ch3024-p077">The blue fluid coating the magma gradually dissipated.</p>
+<p data-reading-anchor id="ch3024-p078">The cavern's temperature quickly rose, returning to the lava's usual scorching heat.</p>
+<p data-reading-anchor id="ch3024-p079">Meanwhile, the blue secret patterns on the five Demon Cores spinning around the stone pillar faded.</p>
+<p data-reading-anchor id="ch3024-p080">The cores were no longer under control and began revolving around the pillar even faster.</p>
+<p data-reading-anchor id="ch3024-p081">“Whoosh!!!!”</p>
+<p data-reading-anchor id="ch3024-p082">Jing'er and Zhuang Yufei had prepared themselves and leapt toward the Demon Cores together.</p>
+<p data-reading-anchor id="ch3024-p083">But they were already a step too late.</p>
+<p data-reading-anchor id="ch3024-p084">Plenty of Demon Seeds had their eyes on the cores.</p>
+<p data-reading-anchor id="ch3024-p085">With Echidna dead, the backlash from the Demon Cores vanished. This was the perfect chance to seize them!</p>
+<p data-reading-anchor id="ch3024-p086">“Whoosh!!”</p>
+<p data-reading-anchor id="ch3024-p087">The instant Echidna fell, two Demon Seeds, as though they'd arranged it beforehand, flew toward the spinning cores from opposite sides.</p>
+<p data-reading-anchor id="ch3024-p088">“Stop!”</p>
+<p data-reading-anchor id="ch3024-p089">Ignoring Jing'er's shout behind them, both reached greedily toward the Demon Cores!</p>
+<p data-reading-anchor id="ch3024-p090">“Boom!!!!”</p>
+<p data-reading-anchor id="ch3024-p091">Just as their hands were about to touch them, a mighty force erupted from the five spinning cores, blasting the two right back the way they'd come!</p>
+<p data-reading-anchor id="ch3024-p092">“I said stop, all of you!”</p>
+<p data-reading-anchor id="ch3024-p093">Using that brief opening, Jing'er, Zhuang Yufei, and an elderly Demon Seed accompanying them caught up. The three stood before the spinning cores, shielding them and glaring coldly at the others.</p>
+</article>
+<p class="end" data-reading-anchor id="ch3024-end">— End of Chapter 3024 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Chinese Chapter 3025: 丢脸. English Chapter 3024: Losing Face. Narrative paragraphs: 93/93.</li><li>Grand Sage Dean represents Protection. His “King of Turtle Shells” nickname is what other players call the Holy Court Glory Guard, not his official title.</li><li>The source introduces Aksu (阿克苏) as one of the Holy Court team.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_3023_Chains.html#start">← Previous</a><a class="next" href="Global_Game_AFK_Chapter_3025_Infighting.html#start">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

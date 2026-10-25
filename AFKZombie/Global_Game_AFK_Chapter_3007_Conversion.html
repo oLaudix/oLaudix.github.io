@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 2999 — Dealing with It | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-3007">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3006_Defeating_the_Enemy.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_3007_Conversion.html"><option value="Global_Game_AFK_Chapter_3007_Conversion.html" selected>3007 · Conversion</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3008_Untitled.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-3007" data-reading-anchor>
+<div class="chapter-num">Chapter 3007</div><h2 class="chapter-title">Conversion</h2>
+<p class="source-identity">From Chinese Chapter 3008 · 转换</p>
+<article class="prose">
+<p data-reading-anchor id="ch3007-p001">At the same time, Eternal Tree Domain stopped circulating.</p>
+<p data-reading-anchor id="ch3007-p002">The vines gathered around Fang Heng dispersed and disappeared.</p>
+<p data-reading-anchor id="ch3007-p003">The hall returned to silence, leaving only players wearing a variety of expressions.</p>
+<p data-reading-anchor id="ch3007-p004">What the hell had just happened?</p>
+<p data-reading-anchor id="ch3007-p005">The Southern Federation squad looked at Fang Heng as though he were a terrifying demon.</p>
+<p data-reading-anchor id="ch3007-p006">Was this guy insane?</p>
+<p data-reading-anchor id="ch3007-p007">He'd actually killed humanity's Titan ancestor!</p>
+<p data-reading-anchor id="ch3007-p008">"Retreat!"</p>
+<p data-reading-anchor id="ch3007-p009">Dorian met Fang Heng's gaze and felt his heart jump. This was bad. With a wave of his hand, he led his people away at once.</p>
+<p data-reading-anchor id="ch3007-p010">They were finished!</p>
+<p data-reading-anchor id="ch3007-p011">They'd thought they could summon reinforcements to deal with Fang Heng. Now even their reinforcement had been destroyed.</p>
+<p data-reading-anchor id="ch3007-p012">Why weren't they running already?</p>
+<p data-reading-anchor id="ch3007-p013">Terrified Fang Heng might pursue them, Dorian and the Southern Federation fled the hall in a panic.</p>
+<p data-reading-anchor id="ch3007-p014">Archbishop Whiteman and the Holy Court members gathered around Fang Heng and watched them flee. "Grand Sage, shall we give chase?"</p>
+<p data-reading-anchor id="ch3007-p015">"Leave them alone."</p>
+<p data-reading-anchor id="ch3007-p016">Fang Heng shook his head and looked away.</p>
+<p data-reading-anchor id="ch3007-p017">There was no reason to waste time on them.</p>
+<p data-reading-anchor id="ch3007-p018">The Titan was dealt with, but the energy jewel was still here.</p>
+<p data-reading-anchor id="ch3007-p019">Keep absorbing!</p>
+<p data-reading-anchor id="ch3007-p020">Ignoring the astonished looks of everyone else, Fang Heng sat cross-legged again, stimulated the jewel with his mental power, and resumed absorbing its energy at full strength.</p>
+<p data-reading-anchor id="ch3007-p021">Absorb!</p>
+<p data-reading-anchor id="ch3007-p022">Keep going!</p>
+<p data-reading-anchor id="ch3007-p023">Immediately, a huge amount of energy burst from the jewel and formed a vortex above Fang Heng!</p>
+<p data-reading-anchor id="ch3007-p024">The remaining players exchanged uneasy looks.</p>
+<p data-reading-anchor id="ch3007-p025">What a terrifying man.</p>
+<p data-reading-anchor id="ch3007-p026">People outside had recently been saying the Holy Court had declined. Whoever spread that nonsense had almost fooled them!</p>
+<p data-reading-anchor id="ch3007-p027">This Grand Sage had shattered even the Titan ancestor!</p>
+<p data-reading-anchor id="ch3007-p028">Fortunately, the Holy Court didn't seem inclined to drive them away.</p>
+<p data-reading-anchor id="ch3007-p029">What were they waiting for? They should hurry and absorb more energy!</p>
+<p data-reading-anchor id="ch3007-p030">They sat down again and resumed cultivating without hesitation.</p>
+<p data-reading-anchor id="ch3007-p031" class="scene">...</p>
+<p data-reading-anchor id="ch3007-p032">Six full hours passed.</p>
+<p data-reading-anchor id="ch3007-p033">The glowing sphere at the center of the hall gradually lost its radiance.</p>
+<p data-reading-anchor id="ch3007-p034">Fang Heng opened his eyes.</p>
+<p data-reading-anchor id="ch3007-p035">He'd absorbed almost enough.</p>
+<p data-reading-anchor id="ch3007-p036">As the sphere's output weakened until only thin traces of power escaped, the players cultivating around the ice crystal also opened their eyes and looked toward Fang Heng.</p>
+<p data-reading-anchor id="ch3007-p037">He slowly approached the central jewel.</p>
+<p data-reading-anchor id="ch3007-p038">It was still releasing Qi energy.</p>
+<p data-reading-anchor id="ch3007-p039">But only a very small amount.</p>
+<p data-reading-anchor id="ch3007-p040">Fang Heng reached out and pressed his hand against it.</p>
+<p data-reading-anchor id="ch3007-p041">The jewel felt cool to the touch.</p>
+<p data-reading-anchor id="ch3007-p042">It appeared to be an object capable of storing Qi. It also drew elemental power from the surrounding ice-crystal labyrinth and slowly converted it into Qi.</p>
+<p data-reading-anchor id="ch3007-p043">The conversion was slow, but it was definitely happening.</p>
+<p data-reading-anchor id="ch3007-p044">Did that mean the Qi released earlier had accumulated inside the jewel over tens of thousands of years?</p>
+<p data-reading-anchor id="ch3007-p045">As Fang Heng studied it, a thought struck him.</p>
+<p data-reading-anchor id="ch3007-p046">He'd noticed a resemblance before. Looking more closely, this jewel really did resemble the Death Realm Jewel and Divine Realm Jewel.</p>
+<p data-reading-anchor id="ch3007-p047">Was that just a coincidence?</p>
+<p data-reading-anchor id="ch3007-p048">They were all round jewels, so some resemblance was natural.</p>
+<p data-reading-anchor id="ch3007-p049">Whoosh!</p>
+<p data-reading-anchor id="ch3007-p050">Fang Heng tried placing the jewel into his inventory.</p>
+<p data-reading-anchor id="ch3007-p051">Huh? It actually worked?</p>
+<p data-reading-anchor id="ch3007-p052" class="game">[Hint: Player has obtained item—Titan's Refined Jewel.]</p>
+<p data-reading-anchor id="ch3007-p053" class="game">Item: Titan's Refined Jewel.</p>
+<p data-reading-anchor id="ch3007-p054" class="game">Description: A jewel refined using the secret techniques of the ancient Titan race. It can store Qi. When placed in an energy-rich environment, it absorbs energy of other attributes and slowly converts it into Qi.</p>
+<p data-reading-anchor id="ch3007-p055">Just as expected!</p>
+<p data-reading-anchor id="ch3007-p056">It could convert energy into Qi.</p>
+<p data-reading-anchor id="ch3007-p057">A thought occurred to Fang Heng, and he looked at the pedestal beneath the jewel.</p>
+<p data-reading-anchor id="ch3007-p058">The slab that had supported the floating jewel was engraved with dense, intricate patterns.</p>
+<p data-reading-anchor id="ch3007-p059">They resembled an alchemical magic array.</p>
+<p data-reading-anchor id="ch3007-p060">The array served two functions: suspending the jewel in midair and accelerating its absorption of energy from the environment.</p>
+<p data-reading-anchor id="ch3007-p061">Fang Heng activated his All-Knowing Eye at full strength. The pattern spun rapidly in his pupils as he forcibly recorded the entire array in his Sea of Consciousness.</p>
+<p data-reading-anchor id="ch3007-p062">"Grand Sage." Whiteman saw Fang Heng standing there, apparently deep in realization, and approached respectfully. "Are you all right?"</p>
+<p data-reading-anchor id="ch3007-p063">"There's something I don't understand. You can go ahead. I need to stay here and think."</p>
+<p data-reading-anchor id="ch3007-p064">Fang Heng closed his eyes again and sat down on the spot.</p>
+<p data-reading-anchor id="ch3007-p065">"Yes, Grand Sage. We're willing to remain and guard you."</p>
+<p data-reading-anchor id="ch3007-p066">Whiteman spoke with formal precision, then signaled his men to form a protective ring around Fang Heng and watch the others.</p>
+<p data-reading-anchor id="ch3007-p067">The remaining players and Federation groups didn't dare speak. They merely exchanged glances.</p>
+<p data-reading-anchor id="ch3007-p068">They'd come here to obtain the so-called Apocalypse Treasure.</p>
+<p data-reading-anchor id="ch3007-p069">Now it seemed that treasure had been the jewel they'd just seen.</p>
+<p data-reading-anchor id="ch3007-p070">And the Holy Court had taken possession of it.</p>
+<p data-reading-anchor id="ch3007-p071">Steal it from the Holy Court?</p>
+<p data-reading-anchor id="ch3007-p072">Everyone had witnessed Fang Heng's strength. Ordinary teams lacked the courage to try.</p>
+<p data-reading-anchor id="ch3007-p073">The Western Federation had already been frightened out of its wits by him, so it certainly wouldn't dare.</p>
+<p data-reading-anchor id="ch3007-p074">The Central Federation, mindful of its relationship with the Holy Court and wary of Fang Heng's power, also refused to act rashly.</p>
+<p data-reading-anchor id="ch3007-p075">The Eastern Federation knew Fang Heng's true identity, but with so many outsiders watching, it couldn't conveniently approach and speak with him.</p>
+<p data-reading-anchor id="ch3007-p076">After waiting a while and seeing no sign of Fang Heng emerging from cultivation, the Federation teams conferred. Each left a small detachment behind to await his awakening while the others went to explore the remaining ice-crystal labyrinth.</p>
+<p data-reading-anchor id="ch3007-p077">Fang Heng had already withdrawn his attention completely from the outside world. Eyes closed, he focused on studying the Qi he'd absorbed.</p>
+<p data-reading-anchor id="ch3007-p078">According to the skill description, Qi could transform into other forms of energy.</p>
+<p data-reading-anchor id="ch3007-p079">But during his earlier test, he couldn't convert it into sacred power.</p>
+<p data-reading-anchor id="ch3007-p080">Now that he had time, he carefully performed further experiments.</p>
+<p data-reading-anchor id="ch3007-p081">If converting Qi outward didn't work, why not try the reverse? He would transform energy from another discipline into Qi.</p>
+<p data-reading-anchor id="ch3007-p082">Fang Heng attempted to convert the Natural Studies energy in his Sea of Consciousness.</p>
+<p data-reading-anchor id="ch3007-p083">Success!</p>
+<p data-reading-anchor id="ch3007-p084">The natural energy swiftly circulated through his body, following an instinctive pathway, and returned to his Sea of Consciousness in a different form: Qi.</p>
+<p data-reading-anchor id="ch3007-p085">So it really worked!</p>
+<p data-reading-anchor id="ch3007-p086">But the process wasn't easy. It required absolute concentration.</p>
+<p data-reading-anchor id="ch3007-p087">And there was also the question of efficiency.</p>
+<p data-reading-anchor id="ch3007-p088">The conversion cost 50% of the energy.</p>
+<p data-reading-anchor id="ch3007-p089">If he could convert it in reverse, why couldn't he convert it forward?</p>
+<p data-reading-anchor id="ch3007-p090">Fang Heng considered the problem and tried once more.</p>
+<p data-reading-anchor id="ch3007-p091">Huh?</p>
+<p data-reading-anchor id="ch3007-p092">After Qi circulated through his body, it successfully transformed back into natural energy.</p>
+<p data-reading-anchor id="ch3007-p093">But after two conversions, fully 75% of the original natural energy was gone.</p>
+<p data-reading-anchor id="ch3007-p094">Of course!</p>
+<p data-reading-anchor id="ch3007-p095">Understanding suddenly dawned on Fang Heng.</p>
+<p data-reading-anchor id="ch3007-p096">The Titan system of Academic Unification was only partially completed. Sacred Studies energy might simply fall outside the range of energies it could convert!</p>
+</article>
+<p class="end" data-reading-anchor id="ch3007-end">— End of Chapter 3007 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Chinese Chapter 3008: 转换. English Chapter 3007: Conversion. Narrative paragraphs: 96/96.</li><li>Titan’s Refined Jewel is a new item whose ability is storage and gradual conversion to Qi. It is not confirmed to be the same as the other world jewels.</li><li>Source has a specific 50% energy loss for one conversion and 75% cumulative loss for two.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_3006_Defeating_the_Enemy.html#start">← Previous</a><a class="next" href="Global_Game_AFK_Chapter_3008_Untitled.html#start">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

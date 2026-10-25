@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 3037 — Materials | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-3037">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3036_Energy_Seeds.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_3037_Materials.html"><option value="Global_Game_AFK_Chapter_3037_Materials.html" selected>3037 · Materials</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3038_Investigation.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-3037" data-reading-anchor>
+<div class="chapter-num">Chapter 3037</div><h2 class="chapter-title">Materials</h2>
+<p class="source-identity">From Chinese Chapter 3038 · 资料</p>
+<article class="prose">
+<p data-reading-anchor id="ch3037-p001">Fang Heng studied the projected ancient characters and frowned to himself.</p>
+<p data-reading-anchor id="ch3037-p002">He had the feeling he'd seen writing like this somewhere before.</p>
+<p data-reading-anchor id="ch3037-p003">“Found anything, Boss Fang?”</p>
+<p data-reading-anchor id="ch3037-p004">“Mm. I think I've encountered something similar elsewhere.” Fang Heng considered for a moment, then turned around. “Alec, go back to the Tree Spirit Clan and bring someone here for me.”</p>
+<p data-reading-anchor id="ch3037-p005">Alec was a Vampire accompanying Fang Heng. Hearing the instruction, he nodded immediately. “Yes.”</p>
+<p data-reading-anchor id="ch3037-p006">A little more than ten minutes later, Alec brought two Tree Spirit elders onto the ship through Abe Akaya's teleportation passage.</p>
+<p data-reading-anchor id="ch3037-p007">For Abe Akaya in Complete Form, the energy cost of such a transfer was insignificant.</p>
+<p data-reading-anchor id="ch3037-p008">The two elders bowed respectfully to Fang Heng. “Boss Fang.”</p>
+<p data-reading-anchor id="ch3037-p009">“Mm. No need for formalities. Come over here.”</p>
+<p data-reading-anchor id="ch3037-p010">Fang Heng pointed to the ancient characters on the screen. “Take a look at this writing. Any thoughts?”</p>
+<p data-reading-anchor id="ch3037-p011">The elders studied the characters. Something stirred in their minds, and they exchanged glances, the same puzzled expression appearing in both pairs of eyes.</p>
+<p data-reading-anchor id="ch3037-p012">“Well? Don't hold back. Tell me whatever you think.”</p>
+<p data-reading-anchor id="ch3037-p013">“Boss Fang, this writing resembles the language and script of our Tree Spirit Clan very closely, but the meaning of the characters when joined together is different. We could attempt a translation, though it would take time.”</p>
+<p data-reading-anchor id="ch3037-p014">One elder paused and added, “We suspect this script may have some connection to our ancient Tree Spirit ancestors. Could you tell us where it came from?”</p>
+<p data-reading-anchor id="ch3037-p015">“It's an ancient Elven language. Have you heard of the Elven Clan?”</p>
+<p data-reading-anchor id="ch3037-p016">Elves?</p>
+<p data-reading-anchor id="ch3037-p017">The two elders looked at each other and shook their heads.</p>
+<p data-reading-anchor id="ch3037-p018">“Never heard of them.”</p>
+<p data-reading-anchor id="ch3037-p019">Fang Heng nodded and gestured to Kappa. “I'll have people obtain more materials for you. Don't put too much pressure on yourselves. Just translate as much as you can.”</p>
+<p data-reading-anchor id="ch3037-p020">“Yes!”</p>
+<p data-reading-anchor id="ch3037-p021" class="scene">...</p>
+<p data-reading-anchor id="ch3037-p022">The following day.</p>
+<p data-reading-anchor id="ch3037-p023">At the Elven Clan's daily morning meeting.</p>
+<p data-reading-anchor id="ch3037-p024">Doris, the elder responsible for ancient-record translation, received a review report from the Waterstar Clan concerning a translation of the elves' ancient language.</p>
+<p data-reading-anchor id="ch3037-p025">“Huh?”</p>
+<p data-reading-anchor id="ch3037-p026">Doris made a small sound of surprise.</p>
+<p data-reading-anchor id="ch3037-p027">The task seeking scholars of ancient languages had been posted to outsiders for decades.</p>
+<p data-reading-anchor id="ch3037-p028">At first, people had shown interest, but over the years fewer and fewer candidates had come to the Waterstar Clan to accept it.</p>
+<p data-reading-anchor id="ch3037-p029">The elves had even hired a group of linguists, providing them with fine food and accommodation while they studied within elven territory.</p>
+<p data-reading-anchor id="ch3037-p030">Even so, progress remained slow.</p>
+<p data-reading-anchor id="ch3037-p031">The scholars weren't really to blame. They were confronting a language no one had ever seen, and the elves could provide far too little source material.</p>
+<p data-reading-anchor id="ch3037-p032">Yet this new translation looked convincing, and seventy percent of its contents matched what the elves had already translated. It clearly wasn't random guesswork.</p>
+<p data-reading-anchor id="ch3037-p033">Doris grew more serious. “Who submitted this translation?”</p>
+<p data-reading-anchor id="ch3037-p034">“The captain of a Flying Squirrel ship. They arrived yesterday. He claims to understand some ancient scripts.”</p>
+<p data-reading-anchor id="ch3037-p035">Doris thought for a moment. “Has his identity been checked? Is he safe?”</p>
+<p data-reading-anchor id="ch3037-p036">“The rodent races are numerous, with a vast network of connections, so it's difficult to investigate them thoroughly. But his strength is average, his ship is low-grade, and he has no accompanying escort ships. We don't expect a major problem, though we'll continue investigating.”</p>
+<p data-reading-anchor id="ch3037-p037">“Mm. Bring him to see me first. Only the translator himself.”</p>
+<p data-reading-anchor id="ch3037-p038">“Understood!”</p>
+<p data-reading-anchor id="ch3037-p039">Before long, Captain Kappa was invited by the Waterstar Clan to their main ship.</p>
+<p data-reading-anchor id="ch3037-p040">Suspecting that the translation Fang Heng had instructed him to submit had attracted the elves' attention, Kappa felt nervous as he followed two Waterstar guards along the corridor.</p>
+<p data-reading-anchor id="ch3037-p041">To bolster his courage, Kappa insisted on bringing two assistants.</p>
+<p data-reading-anchor id="ch3037-p042">“Don't be nervous.”</p>
+<p data-reading-anchor id="ch3037-p043">Fang Heng could clearly hear Kappa's accelerating heartbeat. “Remember, you're a scholar proficient in ancient scripts. With me here, no one can hurt you.”</p>
+<p data-reading-anchor id="ch3037-p044">Easy for him to say, but...</p>
+<p data-reading-anchor id="ch3037-p045">Kappa was miserable.</p>
+<p data-reading-anchor id="ch3037-p046">Why did he have to go through all of this?</p>
+<p data-reading-anchor id="ch3037-p047">“Once this is over, I'll give you another ten percent of the profits.”</p>
+<p data-reading-anchor id="ch3037-p048">Kappa's expression immediately changed. He became excited and full of fighting spirit.</p>
+<p data-reading-anchor id="ch3037-p049">“Mr. Kappa, we're about to teleport to an ancient cavern. Your two guards can wait outside while we show you the inscriptions we need translated.”</p>
+<p data-reading-anchor id="ch3037-p050">“Very well. Lead the way.”</p>
+<p data-reading-anchor id="ch3037-p051">The Waterstar Clan had always been subordinate to the elves. Once they'd verified Kappa's identity, they invited him into the teleportation hall.</p>
+<p data-reading-anchor id="ch3037-p052">Of course, they weren't going to tell Kappa that the passage actually led to the Elven Clan's sacred territory.</p>
+<p data-reading-anchor id="ch3037-p053">An ancient ritual cavern.</p>
+<p data-reading-anchor id="ch3037-p054">Upon entering the hall and seeing the teleportation array, Kappa had already guessed part of the truth, but pretended not to know.</p>
+<p data-reading-anchor id="ch3037-p055">After several rounds of teleportation, he was brought into an ancient elven cavern.</p>
+<p data-reading-anchor id="ch3037-p056">It was a vast, deep cavern, but its ceiling was open in places, allowing shafts of sunlight to spill through the cracks.</p>
+<p data-reading-anchor id="ch3037-p057">Several towering trees grew inside, giving the place a vibrant appearance.</p>
+<p data-reading-anchor id="ch3037-p058">“Welcome, expert from the Flying Squirrel Clan.”</p>
+<p data-reading-anchor id="ch3037-p059">Kappa looked up and focused on an elderly elf sitting cross-legged beneath a large tree.</p>
+<p data-reading-anchor id="ch3037-p060">“Are you an elf?”</p>
+<p data-reading-anchor id="ch3037-p061">“That's right. I'm Doris. The Waterstar Clan invited me here, and I've long overseen the translation of the ancient relics in this cavern.”</p>
+<p data-reading-anchor id="ch3037-p062">Doris studied Kappa. “I've examined your translation. Very impressive. Some passages you translated are highly similar to our own results. Have you worked in translation before?”</p>
+<p data-reading-anchor id="ch3037-p063">“Yes.”</p>
+<p data-reading-anchor id="ch3037-p064">Kappa nodded respectfully. “When our Flying Squirrel Clan was mining abroad, we once encountered a rare species calling themselves Tree Spirits. Their ancient language resembles the writing in this cavern somewhat.”</p>
+<p data-reading-anchor id="ch3037-p065">“Tree Spirits...”</p>
+<p data-reading-anchor id="ch3037-p066">Doris murmured the words, then looked up. “Do you have any records concerning them?”</p>
+<p data-reading-anchor id="ch3037-p067">“Nothing beyond some written accounts, and those concern events thousands of years ago.”</p>
+<p data-reading-anchor id="ch3037-p068">“Very well. I expect the Waterstar Clan has explained the task to you. If you're willing to accept it, please remain here and research the wall inscriptions for the time being. You will not be able to leave before completing the mission. You must also disclose nothing you see here to outsiders. Can you comply?”</p>
+<p data-reading-anchor id="ch3037-p069">“I understand the rules. I'd like my two assistants to come in to help record the translation. I also have some ancient Tree Spirit texts and translation notes aboard my ship that I'll need brought here...”</p>
+<p data-reading-anchor id="ch3037-p070">“Very well, I agree. If you need anything, ask the guards. As long as your requests aren't excessive, they'll try to accommodate them.”</p>
+<p data-reading-anchor id="ch3037-p071">Doris was also interested in the ancient Tree Spirit records. With a wave, she instructed the Waterstar attendants to do as Kappa requested, then closed her eyes and returned to cultivation, blending with the environment around her.</p>
+</article>
+<p class="end" data-reading-anchor id="ch3037-end">— End of Chapter 3037 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Chinese Chapter 3038: 资料. English Chapter 3037: Materials. Narrative paragraphs: 71/71.</li><li>Alec (亚克力), an established Vampire subordinate, brings two Tree Spirit elders to examine the ancient script.</li><li>Doris (朵莉丝), female Elven elder, studies the ancient records. Elven script is only partly comparable with old Tree Spirit writing.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_3036_Energy_Seeds.html#start">← Previous</a><a class="next" href="Global_Game_AFK_Chapter_3038_Investigation.html#start">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

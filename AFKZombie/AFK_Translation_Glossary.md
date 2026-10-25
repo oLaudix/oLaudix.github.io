@@ -1,6 +1,6 @@
 # Global Game: AFK in the Zombie Apocalypse — Translation Glossary
 
-**Version:** 30 (25 October 2026)
+**Version:** 32 (25 October 2026)
 **Authority:** Names and wording already agreed in *our own* English translation. Our previously read published translation can establish a character alias when explicitly confirmed with the user (e.g., Charlotte); otherwise names are set by our translation and user decisions, not automatic third-party substitutions.  
 **Purpose:** A short, portable reference to include unchanged in each translation ZIP, and update only when new terminology is confirmed. The glossary governs spelling, not the novel's plot or prose.
 
@@ -890,3 +890,70 @@ The material below **extends** the cumulative V28 glossary above; no previous gl
 - Chinese Chapter 2996 has Luo Ao's name as 奥罗 once. Chinese 2999 has Whiteman variants 怀特曼 / 怀特恩, and 2997 prints 坏特曼 once. Use the established names with source variations documented.
 - Preserve **Vampire King**, **Bulle**, **Alec**, **Jia'er**, **Fang Bai**, **Abe Akaya**, **Notar**, **Georgi**, **Proust**, **Mu Qingxin**, **Xia Xi**, **Sura**, and **Envy** exactly. Preserve strong dialogue and distinct titles/identities.
 - English 2980–2999 translate Chinese 2981–3000. Patch English 2979's Next links to 2980. New index spans 2000–2999 (**1,000** chapters). Approved CSS, shared `chapters.js` and reader JavaScript are unchanged.
+
+
+## V31 additions — English Chapters 3000–3019 (Chinese 3001–3020)
+
+| Established or newly locked English | Chinese | Continuity / usage |
+|---|---|---|
+| **Archbishop Whiteman** | 怀特曼 / 坏特曼 | Established Holy Court archbishop accompanying Fang Bai in the Apocalypse labyrinth and Hell. The source uses 坏特曼 by mistake. Do not use Whitman; use Whiteman. |
+| **Dr. Li Zhixuan** | 李芷萱 | Eastern Federation researcher studying ancient Titan records; her research team deciphers the stone-wall inscriptions. |
+| **Yi Qingzhi** | 羿清之 | Eastern Federation expedition leader, distinct from Chen Yu. |
+| **Luo Ao** | 罗奥 | Central Federation expedition commander in the Land of Apocalypse. |
+| **Augustine** | 奥古斯丁 | Western Federation expedition leader. The source once incorrectly describes his group as Southern Federation. |
+| **Dorian / Lawrence** | 多里安 / 劳伦斯 | Southern Federation leader / guard fighting Fang Heng over the treasure. Separate from Western Federation's Augustine. |
+| **Ancient Titan Bloodline** | 泰坦古族血脉 | Titan inheritance gained after 100% bloodline awakening; foundational, non-evolving LV:MAX bloodline. |
+| **Titan Mark (Wandering Scholar Branch)** | 泰坦族印记（游学者分支印记） | Fang Heng's original special mark, now fused with his Titan bloodline. Source links it to Xia Xi only as a suspicion. |
+| **Erudite Wanderer** | 博学的游历者 | Titan bloodline bonus: +1,000% environmental adaptability in all worlds. |
+| **Academic Unification (Pseudo)** | 学术大一统（伪） | Titan bloodline skill reducing extra academic learning penalties 50%; total with existing Academic Fusion reaches 87%. Conversion system remains incomplete. |
+| **Qi** | 炁 | Attribute-less energy developed by ancient Titans. Can convert with several academic energies, with 50% loss per conversion. Necromancy, Sacred Studies, and Hell Studies currently cannot be converted; do not assume unlimited conversions. Keep distinction from ordinary 气. |
+| **Titan's Refined Jewel** | 泰坦的精炼宝珠 | Item storing Qi and very slowly refining energy from the surroundings. Not confirmed to be the same as the Divine Realm or Death Realm jewels. |
+| **Origin Light Jewel** | 本源光珠 | Titan Guardian's name for the source of light/power in the temple; relationship to Titan's Refined Jewel is contextual. |
+| **Wandering Scholar Mark** | 游学者印记 | Titan inheritance reportedly lost by the Guardian after an unknown attack, possibly taken by Xia Xi. |
+| **Titan Guardian** | 泰坦守护者 | Five-meter guardian of humanity's concealed Titan-descended world; source says he seals the world's presence/coordinates. |
+| **Elven Clan / Elven Council** | 精灵一族 / 精灵议会 | Secretive elven species and governing council pursuing information about the Trees of Life and Creation. |
+| **Klevi / Divine Maiden** | 克莱薇 / 神女 | Established half-elf caregiver and administrator of Abe Akaya and the World of Ten Thousand Forests. Source reports her missing, then later says she returned to the Elven Clan for punishment; whether voluntarily is initially uncertain. |
+| **Orianna** | 欧莉安娜 | Natural Studies mentor who entrusted half-elf Klevi to Fang Heng. |
+| **Lu Yunhao** | 卢云皓 | Leader of Eastern Federation Crisis Response Team investigating the elf intrusion at Klevi's villa. |
+| **Echidna** | 厄客德娜 | Female Guardian of the Hell Abyss ruling layers 21–30 and serving Envy; pale-blue slime/lava is part of her body and senses. |
+| **Tongue of Envy / Eseklyna** | 嫉妒之舌 / 埃塞克莉娜 | Envy's surveillance projection can enable her true body to appear in Hell. Preserve established distinct Demon Seed/source identity. |
+| **Liu Mo / Marcus** | 刘默 / 马库斯 | Thin and heavyset Demon Seeds guarding the approach to Jing'er's position; not the same as Jing'er or Bai Mu. |
+| **Lucius / Grand Sage Dean / Grand Sage Alairdin** | 卢修斯 / 迪安 / 阿莱尔丁 | Grand Sages discussing Fang Bai's sudden offensive against Hell. Lucius is named in this batch. |
+| **Distant Holy War** | 遥远的圣战 | Holy Court quest requiring at least 60% Hell-cleansing completion; progresses Sacred Will condensation, failure causes backlash. |
+| **Will of the Twelve Sages / Sacred Will condensation** | 十二圣贤的意志 / 神圣意志凝练度 | Advancement-related progress observed during the Holy Court invasion of Hell. Source gives 0.7% and later 12.92%. |
+
+**V31 source cautions:** Chinese Chapter 3009 has no subtitle; English 3008 is labeled Untitled without inventing an original heading. Original Chinese Chapter 3003 briefly calls the golem spectators Western Federation players amid Southern Federation action; Chapter 3006 similarly calls Augustine's party Southern although he is established as Western. Whiteman's Chinese surname briefly shifts 怀特曼 / 坏特曼. The source lists Astrology twice in the Chapter 3010 list of desired academic books; preserve both. Klevi's departure is uncertain until clues from the elven intruders; the Elven Clan's role and location remain partly unconfirmed. In Chinese Chapter 3020, Echidna's object of protection is briefly written 恶魔之种 although previous chapters establish five Demon Cores (恶魔之核). Note these inconsistencies instead of silently creating new entities.
+
+**V49 continuity:** English 3000–3019 translate Chinese 3001–3020. English Chapter 2999 “Dealing with It” is linked forward to 3000 “End of the Road.” Reader CSS, shared `chapters.js` integration, positioning, font and theme JavaScript remain unchanged from V48. Cumulative index spans 2000–3019 (1,020 chapters). All previous locked glossary entries from V30 remain in force.
+
+
+## V32 additions — English Chapters 3020–3039 (Chinese 3021–3040)
+
+| Established or new English term | Chinese | Continuity and source notes |
+|---|---|---|
+| **Eseklyna / Envy Demon Seed** | 埃塞克莉娜 / 嫉妒魔种 | Female Demon Seed. Her Eyes of Envy can observe remotely, and Tongues of Envy drain energy. Fang Heng kills this inheritor; Envy as a power can reincarnate in a new person. |
+| **Echidna** | 厄客德娜 | Eseklyna's demonic pet, a blue-lava three-headed giant serpent killed by the Demon Seed coalition on Hell's 29th level. Separate entity from Eseklyna. |
+| **Jing'er / Zhuang Yufei / Liu Mo** | 京格尔 / 庄雨霏 / 刘默 | Established Demon Seeds. Jing'er is male and aligned with Pride; Zhuang Yufei is female; Liu Mo is associated with Wrath. Source occasionally prints 庄雨菲 for 庄雨霏. |
+| **Demon-Binding Chains** | 缚魔锁链 | Fang Heng has three sets forged by the Council of the Undead; they pierce Eseklyna's real body and restrain her core. Source sometimes slips to 附魔锁链, not a new artifact. |
+| **Tongues of Envy / Prison of Envy** | 嫉妒之舌 / 嫉妒之狱 | Envy's dark eye-covered tendrils, energy-draining ability and restraint domain. Distinguish from Demon-Binding Chains. |
+| **Demon Cores** | 恶魔之核 | Five cores originally controlled by Eseklyna/Echidna, then captured by Fang Heng through Abe Akaya. One represents Wrath; cores continuously regenerate energy. |
+| **Wrath / Pride / Greed / Envy** | 愤怒 / 忿怒 / 傲慢 / 贪婪 / 嫉妒 | Named Demon Seed powers, never arbitrary alternate names. 愤怒 and 忿怒 both refer to Wrath in this batch. Greed is linked to Fang Heng's own Demon Seed bloodline. |
+| **Nether Orbs** | 幽冥之球 | Fang Heng uses exactly 24 orbiting necromantic orbs. Chinese 3031 once erroneously calls them 24 恶魔之核; context confirms Nether Orbs. |
+| **Descent of the Death Realm** | 死界降临 | Fang Heng's new domain suppressing enemies' senses, soul wills and physical vitality; it can overlap Envy's domain. Separate from Descent of the Tree Domain (树界降临). |
+| **Scythe of the Nether God** | 冥神镰刀 | Death Realm weapon Fang Heng manifests in combat against Eseklyna. |
+| **Will of the Twelve Sages (Initial)** | 十二圣贤意志（初阶） | Completed to 100% at Distant Holy War quest completion 1,000%. Sacred will crystal occupies a different part of Fang Heng's Sea of Consciousness from his stronger Necromancy crystal. |
+| **Abe Akaya — Complete Form** | 阿部赤耶（完全体） | Evolved to LV:277 with dual natural and Hell attributes; stores, absorbs and converts Demon Core energy. Vines spread through Hell's layers; the source provides different level ranges as its expansion progresses. |
+| **Korkalot** | 科尔卡洛特 | Elven prince and prospective successor to the Elven King, visiting the Shadow Clan before its invasion of humanity. New transliteration. |
+| **Shadow Clan** | 影族 | Kinsfolk-aligned species preparing an invasion of the human world, but its captain initially refuses to attack without an official Kinsfolk order. |
+| **Mouse King / Captain Kappa** | 鼠王号 / 卡帕 | Flying Squirrel Clan's small ship and its captain; transports Fang Heng while he tracks the elves. Do not mix up with other named Flying Squirrel captains. |
+| **Waterstar Clan** | 水之星一族 | Peaceful Kinsfolk-aligned race, an elven subordinate which buys Energy Seeds and recruits ancient-script specialists. |
+| **Energy Seeds** | 能量种子 | Small rice-grain-size condensed natural energy items; Abe Akaya can produce them and Fang Heng puts tracking marks in seeds sold to Waterstar. |
+| **Nick / Doris** | 妮克 / 朵莉丝 | Nick: female Waterstar spaceport security captain. Doris: female elder of the Elven Clan who oversees ancient inscription translation. |
+| **Alec** | 亚克力 | Established Vampire aide who transports Tree Spirit elders using Abe Akaya's passage. |
+| **Tree of Life / ancient Tree of Life** | 生命之树 / 生命古树 | Elven sacred tree, weakening and shrinking over time. Elven Clan siphons energy from Abe Akaya to try to revive it; distinguish from Abe Akaya itself. |
+| **Tewen / Brand** | 特文、文特 / 布兰德 | Tewen: elven patrol captain (source alternates 特文/文特). Brand: senior Elven elder who oversees Klevi's imprisonment. |
+| **Root Prison** | 树根监狱 | Elven prison beneath the Tree of Life where Klevi is held captive. |
+
+**V32 source cautions:** Chinese Chapters 3029 and 3030 lack subtitles; English Chapters 3028 and 3029 use “Untitled” as a display placeholder. Chinese 3031 mistakenly prints 24 Demon Cores when Fang Heng's orbiting projectiles are clearly 24 Nether Orbs. Chinese 3032 prints 十二五层 in place of 25th level. Chinese 3039 alternates 特文 and 文特 for its patrol captain. Chinese 3024–3025 occasionally uses 附魔锁链 for the established 缚魔锁链. Keep the sharp insults and author errors documented; do not invent new entities to account for these slips. The Elven Clan's direct involvement in siphoning Abe Akaya and imprisoning Klevi is established by the end of Chinese 3040.
+
+**V50 continuity:** English Chapters 3020–3039 translate Chinese 3021–3040. English Chapter 3019 “Closing In” is linked forward to 3020 “Pressure.” The approved CSS, JavaScript reader and shared `chapters.js` mechanism are retained without modification. The cumulative index spans 2000–3039 (1,040 chapters). All previous V31 and older locked glossary entries remain authoritative.

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 2999 — Dealing with It | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-3015">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3014_Taking_the_Initiative.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_3015_Exploring_Hell.html"><option value="Global_Game_AFK_Chapter_3015_Exploring_Hell.html" selected>3015 · Exploring Hell</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3016_Finding_a_Way.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-3015" data-reading-anchor>
+<div class="chapter-num">Chapter 3015</div><h2 class="chapter-title">Exploring Hell</h2>
+<p class="source-identity">From Chinese Chapter 3016 · 探查地狱</p>
+<article class="prose">
+<p data-reading-anchor id="ch3015-p001">What the hell?</p>
+<p data-reading-anchor id="ch3015-p002">Both Demon Seeds were surprised to be repelled with a single strike.</p>
+<p data-reading-anchor id="ch3015-p003">This guy was strong!</p>
+<p data-reading-anchor id="ch3015-p004">Again!</p>
+<p data-reading-anchor id="ch3015-p005">They didn't realize Fang Heng had held back. They merely thought he was formidable, not beyond their combined ability. The blow only aroused their ferocity.</p>
+<p data-reading-anchor id="ch3015-p006" class="sound">"Whoosh! Whoosh!"</p>
+<p data-reading-anchor id="ch3015-p007">The thinner Demon Seed conjured a seal before his chest. He and his heavyset partner flanked Fang Heng, one on each side and one slightly ahead of the other.</p>
+<p data-reading-anchor id="ch3015-p008">At the same time, the solid ground around Fang Heng rapidly transformed into searing lava. Several molten tendrils rose from the swamp-like magma to bind him in place.</p>
+<p data-reading-anchor id="ch3015-p009">Fang Heng didn't attempt to evade. He simply watched them approach and said calmly, "Don't be so quick to fight. I'm here to see Jing'er."</p>
+<p data-reading-anchor id="ch3015-p010">"I don't give a damn who you are! Get on your fucking knees!"</p>
+<p data-reading-anchor id="ch3015-p011">Perhaps eager to recover his pride after Fang Heng's first blow, the thin Demon Seed, Liu Mo, laughed angrily and attacked even more fiercely.</p>
+<p data-reading-anchor id="ch3015-p012" class="sound">"Boom! Boom, boom!"</p>
+<p data-reading-anchor id="ch3015-p013">Stone pillars erupted from the molten ground.</p>
+<p data-reading-anchor id="ch3015-p014">Their interiors were honeycombed with crystals. Violent energy vibrations sent tens of thousands of sharp crystal shards spraying outward like a fan-shaped shotgun blast!</p>
+<p data-reading-anchor id="ch3015-p015">Huh?</p>
+<p data-reading-anchor id="ch3015-p016">To their amazement, Fang Heng still made no attempt to dodge, allowing the superheated shards to slam into him.</p>
+<p data-reading-anchor id="ch3015-p017">He was simply standing there and letting them attack?</p>
+<p data-reading-anchor id="ch3015-p018">Fuck! He was looking down on them?!</p>
+<p data-reading-anchor id="ch3015-p019">Liu Mo was even more enraged by Fang Heng's apparent contempt.</p>
+<p data-reading-anchor id="ch3015-p020">Then he'd make him explode!</p>
+<p data-reading-anchor id="ch3015-p021" class="sound">"Boom! Boom, boom, boom!"</p>
+<p data-reading-anchor id="ch3015-p022">The dense lava crystals detonated one after another on Fang Heng's body.</p>
+<p data-reading-anchor id="ch3015-p023" class="sound">"Whoosh!"</p>
+<p data-reading-anchor id="ch3015-p024">Using the scattering fragments as cover, Liu Mo flew straight toward Fang Heng.</p>
+<p data-reading-anchor id="ch3015-p025">"Die, idiot!"</p>
+<p data-reading-anchor id="ch3015-p026" class="sound">"Whoosh!"</p>
+<p data-reading-anchor id="ch3015-p027">He threw a punch into Fang Heng's chest, but to his horror, it felt like striking a wall of solid bronze. His fist couldn't advance another inch.</p>
+<p data-reading-anchor id="ch3015-p028">It was as though the force of his punch had been completely absorbed!</p>
+<p data-reading-anchor id="ch3015-p029">What?</p>
+<p data-reading-anchor id="ch3015-p030">Shock flashed across Liu Mo's face.</p>
+<p data-reading-anchor id="ch3015-p031">He hadn't even broken the defense?</p>
+<p data-reading-anchor id="ch3015-p032">Even Jing'er would never have dared absorb his entire chain of attacks head-on.</p>
+<p data-reading-anchor id="ch3015-p033">Yet this opponent had stood still and taken everything without dodging.</p>
+<p data-reading-anchor id="ch3015-p034">"Enough. I've already told you I'm here to see Jing'er."</p>
+<p data-reading-anchor id="ch3015-p035">Fang Heng spoke calmly, seized Liu Mo's extended fist, and tossed him bodily backward.</p>
+<p data-reading-anchor id="ch3015-p036">Huh?</p>
+<p data-reading-anchor id="ch3015-p037">Looking down, Fang Heng saw a scarlet magic array rapidly forming around the mark Liu Mo's fist had left on his skin.</p>
+<p data-reading-anchor id="ch3015-p038">Liu Mo couldn't control his flight, but a bloodthirsty smile appeared on his face even as he hurtled away.</p>
+<p data-reading-anchor id="ch3015-p039">"Fatty! Kill him!"</p>
+<p data-reading-anchor id="ch3015-p040">"Hm?"</p>
+<p data-reading-anchor id="ch3015-p041">Fang Heng's pupils contracted.</p>
+<p data-reading-anchor id="ch3015-p042">Marcus, the Demon Seed who had transformed into a blood shadow and disappeared from his senses during the attack, suddenly reappeared. A face squirmed out of the magic array on Fang Heng's skin. Marcus emerged, opened his mouth wide, and bit viciously into the right half of Fang Heng's body!</p>
+<p data-reading-anchor id="ch3015-p043" class="sound">"Bang!"</p>
+<p data-reading-anchor id="ch3015-p044">With a single bite, Marcus tore apart and swallowed most of Fang Heng's right side, including his shoulder!</p>
+<p data-reading-anchor id="ch3015-p045">"Ha! Got him!"</p>
+<p data-reading-anchor id="ch3015-p046">The fat man shouted in triumph after swallowing the flesh. But the next moment, Fang Heng clamped a hand tightly around his neck.</p>
+<p data-reading-anchor id="ch3015-p047">"What?!"</p>
+<p data-reading-anchor id="ch3015-p048">Liu Mo hadn't even had time to celebrate. He watched Fang Heng, half his body missing, seize Marcus's neck with his remaining hand and forcibly drag the fat man, inch by inch, out of the magic array fused to his chest!</p>
+<p data-reading-anchor id="ch3015-p049" class="sound">"Bang!"</p>
+<p data-reading-anchor id="ch3015-p050">Marcus's world spun as he was flung away, crashing hard into the rock wall.</p>
+<p data-reading-anchor id="ch3015-p051">What?!</p>
+<p data-reading-anchor id="ch3015-p052">Marcus and Liu Mo struggled up one after the other and stared at Fang Heng in fear.</p>
+<p data-reading-anchor id="ch3015-p053">The shredded right half of his body wriggled grotesquely and regenerated at a speed visible to the naked eye. The magic array's traces on his chest quickly vanished too.</p>
+<p data-reading-anchor id="ch3015-p054">Fang Heng's expression darkened, and his voice turned colder. "I told you. I'm here to find Jing'er."</p>
+<p data-reading-anchor id="ch3015-p055">After being attacked again and again, anger finally rose within him.</p>
+<p data-reading-anchor id="ch3015-p056">If his strength hadn't increased so dramatically recently, their coordinated combination might genuinely have caught him off guard.</p>
+<p data-reading-anchor id="ch3015-p057">"An interesting technique. Now it's my turn."</p>
+<p data-reading-anchor id="ch3015-p058">Without allowing either man to speak, Fang Heng raised a hand and pointed at Liu Mo.</p>
+<p data-reading-anchor id="ch3015-p059">Liu Mo's heart sank. With Fang Heng's hand directed at him, his body slowly lifted into the air against his will.</p>
+<p data-reading-anchor id="ch3015-p060">What?!</p>
+<p data-reading-anchor id="ch3015-p061">Liu Mo panicked as he realized he'd lost all control of his body.</p>
+<p data-reading-anchor id="ch3015-p062">How was this happening?</p>
+<p data-reading-anchor id="ch3015-p063">Marcus was equally stunned. He stared at Fang Heng, sensed sacred energy leaking from him, and began trembling involuntarily.</p>
+<p data-reading-anchor id="ch3015-p064">They were finished.</p>
+<p data-reading-anchor id="ch3015-p065">Why did he feel such an instinctive, inborn terror?</p>
+<p data-reading-anchor id="ch3015-p066">Who was this kid, and why was he radiating sacred power?</p>
+<p data-reading-anchor id="ch3015-p067">Was he from the Holy Court?</p>
+<p data-reading-anchor id="ch3015-p068">But why would anyone from the Holy Court come to a hellhole like this?</p>
+<p data-reading-anchor id="ch3015-p069" class="sound">"Boom!"</p>
+<p data-reading-anchor id="ch3015-p070">A thunderclap suddenly reverberated through the dark cavern.</p>
+<p data-reading-anchor id="ch3015-p071">Divine Punishment!</p>
+<p data-reading-anchor id="ch3015-p072">A violet bolt of lightning struck Liu Mo instantly.</p>
+<p data-reading-anchor id="ch3015-p073">His expression changed abruptly.</p>
+<p data-reading-anchor id="ch3015-p074">Unlike the superficial wounds from the earlier attacks, Divine Punishment lightning inflicted devastating damage to his very origin!</p>
+<p data-reading-anchor id="ch3015-p075" class="sound">"Boom! Boom, boom!"</p>
+<p data-reading-anchor id="ch3015-p076">Lightning descended repeatedly.</p>
+<p data-reading-anchor id="ch3015-p077">Each bolt struck Liu Mo, but Marcus trembled in terror beside him, his heart lurching with every impact.</p>
+<p data-reading-anchor id="ch3015-p078">Liu Mo clenched his teeth so hard he couldn't speak. He glared at Fang Heng, eyes blazing with wrath.</p>
+<p data-reading-anchor id="ch3015-p079">Every lightning strike hit his origin and could permanently diminish his strength for a time. He felt his fundamental power being weakened, step by step.</p>
+<p data-reading-anchor id="ch3015-p080">Soon, perhaps, the lightning would shatter him completely.</p>
+<p data-reading-anchor id="ch3015-p081">"Fang Heng."</p>
+<p data-reading-anchor id="ch3015-p082">A voice emerged from the darkness.</p>
+<p data-reading-anchor id="ch3015-p083">"That's enough, don't you think? He's learned his lesson. Do me a favor and spare him. He'll still be useful later."</p>
+<p data-reading-anchor id="ch3015-p084">Fang Heng turned his attention away from Liu Mo and toward the nearby shadows.</p>
+<p data-reading-anchor id="ch3015-p085">Jing'er emerged with two Demon Seeds from the Divine Realm.</p>
+<p data-reading-anchor id="ch3015-p086">"Hmph."</p>
+<p data-reading-anchor id="ch3015-p087">Fang Heng snorted and flicked his hand.</p>
+<p data-reading-anchor id="ch3015-p088">Bang!</p>
+<p data-reading-anchor id="ch3015-p089">Liu Mo was flung sideways, slamming into the rock wall and leaving a huge depression.</p>
+<p data-reading-anchor id="ch3015-p090">"Congratulations. Your strength has improved greatly since we last met."</p>
+<p data-reading-anchor id="ch3015-p091">Jing'er had been on the twenty-ninth layer. Only after sensing the sacred-energy fluctuations above had he come to investigate. Recognizing Fang Heng, he was privately astonished.</p>
+<p data-reading-anchor id="ch3015-p092">Fang Heng's power had grown considerably since their last encounter. Even Jing'er could no longer see the limits of his strength.</p>
+<p data-reading-anchor id="ch3015-p093">This kid...</p>
+<p data-reading-anchor id="ch3015-p094">How the hell did he cultivate?</p>
+<p data-reading-anchor id="ch3015-p095">How could his strength increase so frighteningly fast?</p>
+<p data-reading-anchor id="ch3015-p096">Fang Heng stepped forward with a smile. "Jing'er, you're not easy to find. It's been a while. What have you been hiding down here doing?"</p>
+</article>
+<p class="end" data-reading-anchor id="ch3015-end">— End of Chapter 3015 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Chinese Chapter 3016: 探查地狱. English Chapter 3015: Exploring Hell. Narrative paragraphs: 96/96.</li><li>Liu Mo and Marcus are introduced as distinct Demon Seeds. The latter enters through a blood-based magic array.</li><li>Fang Heng uses Divine Punishment, not simply conventional lightning, against their origins.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_3014_Taking_the_Initiative.html#start">← Previous</a><a class="next" href="Global_Game_AFK_Chapter_3016_Finding_a_Way.html#start">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

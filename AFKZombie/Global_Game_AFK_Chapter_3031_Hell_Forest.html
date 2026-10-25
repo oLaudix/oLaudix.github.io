@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 3031 — Hell Forest | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-3031">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3030_Condensation.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_3031_Hell_Forest.html"><option value="Global_Game_AFK_Chapter_3031_Hell_Forest.html" selected>3031 · Hell Forest</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3032_Complete_Form.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-3031" data-reading-anchor>
+<div class="chapter-num">Chapter 3031</div><h2 class="chapter-title">Hell Forest</h2>
+<p class="source-identity">From Chinese Chapter 3032 · 地狱树丛</p>
+<article class="prose">
+<p data-reading-anchor id="ch3031-p001">The twenty-fifth level of Hell.</p>
+<p data-reading-anchor id="ch3031-p002">After more than three hours of bitter fighting, Dean finally managed to get the Holy Court forces under control and led them back toward the entrance to the level above.</p>
+<p data-reading-anchor id="ch3031-p003">The Hell creatures sent by Envy had been elite fiends cultivated over many years, all extremely powerful. Only their numbers were slightly inferior to those of the Holy Court.</p>
+<p data-reading-anchor id="ch3031-p004">Combined with their home-field advantage in Hell, they could unleash terrifying strength.</p>
+<p data-reading-anchor id="ch3031-p005">In fact, things had been manageable at the beginning. The Holy Court had been able to retreat in good order.</p>
+<p data-reading-anchor id="ch3031-p006">But as time passed, the buffs Fang Heng had bestowed on the paladins gradually faded, and the force's overall combat ability plummeted.</p>
+<p data-reading-anchor id="ch3031-p007">To prevent the Holy Court army from being wiped out, Dean had been forced to join the fight himself and lead the team in a slow withdrawal.</p>
+<p data-reading-anchor id="ch3031-p008">“Nothing's happened to Fang Heng, has it?”</p>
+<p data-reading-anchor id="ch3031-p009">Dean glanced cautiously toward the depths of Hell, uneasy.</p>
+<p data-reading-anchor id="ch3031-p010">It had been more than three hours. They'd cleared out some of Envy's summoned monsters, but there was still no word from Fang Heng.</p>
+<p data-reading-anchor id="ch3031-p011">That brat had always been ridiculously bold, but this time...</p>
+<p data-reading-anchor id="ch3031-p012">Huh?</p>
+<p data-reading-anchor id="ch3031-p013">As he pondered, Dean suddenly felt the ground trembling faintly beneath his feet.</p>
+<p data-reading-anchor id="ch3031-p014">What?</p>
+<p data-reading-anchor id="ch3031-p015">The Holy Court troops reacted as though facing a great enemy. They backed away, gathered together, and erected a thick sacred defensive barrier.</p>
+<p data-reading-anchor id="ch3031-p016">“Be careful!!”</p>
+<p data-reading-anchor id="ch3031-p017">As the lava rock shook, tiny cracks appeared across the ground.</p>
+<p data-reading-anchor id="ch3031-p018">Looking closer, they saw thin vines crawling from the gaps in the fractured rock.</p>
+<p data-reading-anchor id="ch3031-p019">What the hell?!</p>
+<p data-reading-anchor id="ch3031-p020">Dark-red, veinlike patterns covered their surfaces. They spread quickly across the ground, and the sulfurous rock beneath them hissed as though dissolving.</p>
+<p data-reading-anchor id="ch3031-p021">Thicker roots emerged from the broken ground beneath the vines, driving deep into the gaps in the floor and walls and anchoring themselves firmly.</p>
+<p data-reading-anchor id="ch3031-p022">Within mere moments, the trembling subsided. Every visible part of Hell's twenty-fifth level was covered in dense vines and roots!</p>
+<p data-reading-anchor id="ch3031-p023">The vines were still spreading, growing toward the higher levels of Hell.</p>
+<p data-reading-anchor id="ch3031-p024">“What kind of bizarre plant is that?”</p>
+<p data-reading-anchor id="ch3031-p025">Dean slowly retreated with the Holy Court forces. Looking at the strange “Hell forest” spreading before his eyes, he felt a powerful sense of unease.</p>
+<p data-reading-anchor id="ch3031-p026">Studying the vines, he saw tiny thorns puncturing the rock as the plants clung to the walls, almost as if they were absorbing Hell's energy.</p>
+<p data-reading-anchor id="ch3031-p027">Some kind of Hell creature?</p>
+<p data-reading-anchor id="ch3031-p028">Was it connected to their intrusion?</p>
+<p data-reading-anchor id="ch3031-p029">At first glance, the roots and vines didn't seem hostile to the Hell creatures—or to the Holy Court.</p>
+<p data-reading-anchor id="ch3031-p030">Before Dean could understand the situation, the frenzied Hell creatures serving Envy attacked the nearest vines and roots!</p>
+<p data-reading-anchor id="ch3031-p031">Blades wrapped in hellfire chopped the plants apart, leaving flames burning fiercely around the wounds.</p>
+<p data-reading-anchor id="ch3031-p032">“Bang! Bang, bang!!!”</p>
+<p data-reading-anchor id="ch3031-p033">The vines and roots were just as savage as the denizens of Hell. Once attacked, they retaliated immediately. Sharp spikes shot from the roots, while extending vines coiled frantically around the fiends.</p>
+<p data-reading-anchor id="ch3031-p034">The plants were exceptionally powerful!</p>
+<p data-reading-anchor id="ch3031-p035">All the creatures still capable of fighting were high-level Hell fiends recruited by Envy.</p>
+<p data-reading-anchor id="ch3031-p036">Yet even they couldn't gain the slightest advantage against the vines and roots!</p>
+<p data-reading-anchor id="ch3031-p037">Faced with countless entangling vines and stabbing roots, even if they destroyed the plants completely, more vines would gather the very next second.</p>
+<p data-reading-anchor id="ch3031-p038">And if they made one mistake...</p>
+<p data-reading-anchor id="ch3031-p039">“Whoosh! Whoosh, whoosh!!!!”</p>
+<p data-reading-anchor id="ch3031-p040">The roots immediately seized the chance, tightly binding one fiend's ankle, hoisting it into the air, and slamming it heavily to the ground!</p>
+<p data-reading-anchor id="ch3031-p041">“Bang!!”</p>
+<p data-reading-anchor id="ch3031-p042">Dense vines swarmed over, bound the fiend completely, and dragged it beneath the ground until it disappeared.</p>
+<p data-reading-anchor id="ch3031-p043">“Gulp...”</p>
+<p data-reading-anchor id="ch3031-p044">The Holy Court paladins swallowed nervously as they watched the battlefield.</p>
+<p data-reading-anchor id="ch3031-p045">“This...”</p>
+<p data-reading-anchor id="ch3031-p046">The roots emanated a strong Hell aura. They had to be some kind of Hell creature, so why were the creatures of Hell fighting one another?</p>
+<p data-reading-anchor id="ch3031-p047">“Stay alert.”</p>
+<p data-reading-anchor id="ch3031-p048">Dean didn't dare be careless. He led the Holy Court troops into a corner.</p>
+<p data-reading-anchor id="ch3031-p049">Hell was not merely vast; it seemed bottomless. The Holy Court's records only explored as far as its fifty-fifth level. So much remained unknown that even Dean had no idea what these bizarre vines actually were.</p>
+<p data-reading-anchor id="ch3031-p050">“Grand Sage, things don't look right here. Should we withdraw first?”</p>
+<p data-reading-anchor id="ch3031-p051">“Mm.”</p>
+<p data-reading-anchor id="ch3031-p052">Dean nodded softly.</p>
+<p data-reading-anchor id="ch3031-p053">While the vines showed no hostility toward them, they had better get as far away as possible and let the Hell creatures fight the plants.</p>
+<p data-reading-anchor id="ch3031-p054">Hmm?</p>
+<p data-reading-anchor id="ch3031-p055">Dean was about to lead the group away when he suddenly frowned and looked toward the right.</p>
+<p data-reading-anchor id="ch3031-p056">Amid the strange tangle of vines, Jing'er and several other Demon Seeds hurried through Abe Akaya's growth toward the exit they'd prepared, crossing paths with the Holy Court troops.</p>
+<p data-reading-anchor id="ch3031-p057">Both sides regarded each other warily but tacitly refrained from attacking.</p>
+<p data-reading-anchor id="ch3031-p058">Jing'er's expression was gloomy, and he was in an absolutely terrible mood.</p>
+<p data-reading-anchor id="ch3031-p059">Judging from the auras around them, part of the restrictions Envy had imposed on their bodies had disappeared.</p>
+<p data-reading-anchor id="ch3031-p060">They would no longer be under Eseklyna's control.</p>
+<p data-reading-anchor id="ch3031-p061">But remembering how Fang Heng had seized the Demon Cores at the last moment filled Jing'er with fury.</p>
+<p data-reading-anchor id="ch3031-p062">He would remember this.</p>
+<p data-reading-anchor id="ch3031-p063">If an opportunity arose, he'd definitely take revenge!</p>
+<p data-reading-anchor id="ch3031-p064">Zhuang Yufei and the others traveling with him looked grave.</p>
+<p data-reading-anchor id="ch3031-p065">The disappearance of Envy's restrictions likely meant that she was dead.</p>
+<p data-reading-anchor id="ch3031-p066">Who had done it?</p>
+<p data-reading-anchor id="ch3031-p067">Thinking back, Fang Heng seemed by far the most likely candidate!</p>
+<p data-reading-anchor id="ch3031-p068">Furthermore, on their journey, dense vines and roots had spread throughout Hell's twenty-ninth to twenty-fifth levels—and perhaps still farther.</p>
+<p data-reading-anchor id="ch3031-p069">There was no doubt that Fang Heng controlled those strange plants!</p>
+<p data-reading-anchor id="ch3031-p070">Just how powerful had he become?</p>
+<p data-reading-anchor id="ch3031-p071">With the Demon Cores in his hands, life probably wouldn't be easy for the other Demon Seeds in the future.</p>
+<p data-reading-anchor id="ch3031-p072" class="scene">...</p>
+<p data-reading-anchor id="ch3031-p073">Meanwhile, on Hell's twenty-ninth level.</p>
+<p data-reading-anchor id="ch3031-p074">Abe Akaya's vines swiftly gathered the five Demon Cores together and wound tightly around them, continually absorbing their power. At the same time, it took root in Hell and spread rapidly across the twentieth through thirty-fourth levels.</p>
+<p data-reading-anchor id="ch3031-p075">Fang Heng slowly opened his eyes.</p>
+<p data-reading-anchor id="ch3031-p076" class="game">[Hint: Abe Akaya has advanced to Complete Form.]</p>
+<p data-reading-anchor id="ch3031-p077" class="game">[Hint: Abe Akaya is converting accumulated levels...]</p>
+<p data-reading-anchor id="ch3031-p078" class="game">[Hint: Abe Akaya, Complete Form (LV:277).]</p>
+<p data-reading-anchor id="ch3031-p079">Because Fang Heng's soul was already bound to Abe Akaya, as it gained levels, his Sea of Consciousness was nourished again. A mighty flood of soul power flowed into it, continuously soothing and strengthening the origin of his soul.</p>
+</article>
+<p class="end" data-reading-anchor id="ch3031-end">— End of Chapter 3031 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Chinese Chapter 3032: 地狱树丛. English Chapter 3031: Hell Forest. Narrative paragraphs: 79/79.</li><li>Source briefly writes 地狱十二五层, an error for Hell’s 25th level.</li><li>Abe Akaya advances to Complete Form LV:277 and spreads through Hell; its vines do not initially attack the Holy Court.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_3030_Condensation.html#start">← Previous</a><a class="next" href="Global_Game_AFK_Chapter_3032_Complete_Form.html#start">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

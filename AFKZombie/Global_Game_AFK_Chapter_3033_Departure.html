@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 3033 — Departure | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-3033">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3032_Complete_Form.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_3033_Departure.html"><option value="Global_Game_AFK_Chapter_3033_Departure.html" selected>3033 · Departure</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3034_Conversion.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-3033" data-reading-anchor>
+<div class="chapter-num">Chapter 3033</div><h2 class="chapter-title">Departure</h2>
+<p class="source-identity">From Chinese Chapter 3034 · 脱离</p>
+<article class="prose">
+<p data-reading-anchor id="ch3033-p001">But putting himself in Fang Heng's shoes, Dean had to admit that even if their abilities were exchanged, he certainly couldn't do what Fang Heng had done. He wouldn't even have the courage to come to Hell and pick a fight with Envy.</p>
+<p data-reading-anchor id="ch3033-p002">The envy in Dean's eyes turned into admiration. He nodded and praised him. “Grand Sage Fang Bai has done another great service for the Holy Court and its believers. By the way, you saw those plants in the lower levels of Hell, didn't you? Do you know what they are?”</p>
+<p data-reading-anchor id="ch3033-p003">“I'm not sure. They absorbed some of the Demon Seeds' power during the fighting. Perhaps they underwent a mutation.”</p>
+<p data-reading-anchor id="ch3033-p004">Unwilling to explain further, Fang Heng looked around and said, “Grand Sage Dean, now that Eseklyna is dead, our mission in Hell is complete. Staying here consumes a great deal of power. Let's return to the Eternal City first.”</p>
+<p data-reading-anchor id="ch3033-p005">“Mm, very well.”</p>
+<p data-reading-anchor id="ch3033-p006">That was exactly what Dean wanted. Hearing Fang Heng suggest it, he immediately waved for the Holy Court troops to withdraw.</p>
+<p data-reading-anchor id="ch3033-p007">Their expedition into Hell was over, and the army began the return journey.</p>
+<p data-reading-anchor id="ch3033-p008">Fang Heng and Dean followed near the rear of the column, remaining alert for pursuers from the depths of Hell.</p>
+<p data-reading-anchor id="ch3033-p009">“Fang Bai, initially condensing the Will of the Twelve Sages is only the beginning of advancing to the rank of Twelve Sages. For the next step, we'll need to return to the sacred temple in the Divine Realm.”</p>
+<p data-reading-anchor id="ch3033-p010">Assuming Fang Heng had entered Hell to advance along the Twelve Sages path, Dean naturally offered suggestions and quietly reminded him, “I once read records saying that advancing to the Twelve Sages requires the assistance of the other Grand Sages and the God King. The Holy Court is much weaker now than it used to be, so I fear it won't be so simple.”</p>
+<p data-reading-anchor id="ch3033-p011">“Besides, the God King has entered seclusion again, and no one knows when he'll emerge.”</p>
+<p data-reading-anchor id="ch3033-p012">Fang Heng wasn't eager to rush off and advance his sacred power, but the mention of the God King caught his attention. “Has something happened to the God King? Why has he entered seclusion again? The Ouroboros Seed has already been cleared away. He should have recovered.”</p>
+<p data-reading-anchor id="ch3033-p013">“Mm, you haven't returned to the Divine Realm, so it's understandable you don't know the details,” Dean explained quietly. “The God King's current seclusion actually has nothing to do with the Ouroboros Seed.”</p>
+<p data-reading-anchor id="ch3033-p014">“Then what is it?”</p>
+<p data-reading-anchor id="ch3033-p015">“The God-Bestowed Jewel has developed an abnormality.”</p>
+<p data-reading-anchor id="ch3033-p016">Dean sighed again as he said it.</p>
+<p data-reading-anchor id="ch3033-p017">Their Divine Realm had truly been struck with terrible luck lately.</p>
+<p data-reading-anchor id="ch3033-p018">One disaster after another, with no sign of stopping.</p>
+<p data-reading-anchor id="ch3033-p019">He could only hope that having Fang Bai, this new Grand Sage, strengthen the Holy Court would bring some good fortune and turn their luck around.</p>
+<p data-reading-anchor id="ch3033-p020">“We don't know exactly what caused the God-Bestowed Jewel to change. We suspect its outer protective mesh was damaged while it was being used against the Ouroboros Seed.”</p>
+<p data-reading-anchor id="ch3033-p021">“The loss of that mesh wasn't a major problem in the short term. But as time passed, the sacred energy fluctuations released by the jewel became increasingly powerful and gradually began destabilizing the Divine Realm.”</p>
+<p data-reading-anchor id="ch3033-p022">“As more time went by without the outer protective mesh, even moving the God-Bestowed Jewel became extremely difficult.”</p>
+<p data-reading-anchor id="ch3033-p023">Dean shook his head and sighed again. “The God King has entered seclusion to consume the surplus energy released by the jewel. At the same time, he hopes to use its power to strengthen himself and break through the final barrier.”</p>
+<p data-reading-anchor id="ch3033-p024">Fang Heng nodded.</p>
+<p data-reading-anchor id="ch3033-p025">After all that explanation, the God King was cultivating with the help of the jewel, right?</p>
+<p data-reading-anchor id="ch3033-p026">Fang Heng understood how dangerous that was.</p>
+<p data-reading-anchor id="ch3033-p027">Take the Death Realm Jewel, for example.</p>
+<p data-reading-anchor id="ch3033-p028">After advancing Necromancy to the Super-Divine level, he'd also tried remaining in front of the Death Realm Jewel and using its power to improve himself.</p>
+<p data-reading-anchor id="ch3033-p029">But it had been extremely dangerous.</p>
+<p data-reading-anchor id="ch3033-p030">And the cultivation speed hadn't been particularly fast, even with the protective layer surrounding the jewel.</p>
+<p data-reading-anchor id="ch3033-p031">Without its protective layer, the Divine Realm Jewel would be harder to cultivate beside.</p>
+<p data-reading-anchor id="ch3033-p032">However...</p>
+<p data-reading-anchor id="ch3033-p033">An odd thought suddenly occurred to Fang Heng.</p>
+<p data-reading-anchor id="ch3033-p034">The God King of the Divine Realm.</p>
+<p data-reading-anchor id="ch3033-p035">What level was his strength?</p>
+<p data-reading-anchor id="ch3033-p036">Divine level?</p>
+<p data-reading-anchor id="ch3033-p037">Or Super-Divine level?</p>
+<p data-reading-anchor id="ch3033-p038">Come to think of it, given the God King's age, if he'd cultivated at the Divine level for tens of thousands of years, he might not be much weaker than Fang Heng, who had only just reached the Super-Divine level.</p>
+<p data-reading-anchor id="ch3033-p039">If the two of them actually fought, who would win?</p>
+<p data-reading-anchor id="ch3033-p040">“Fang Bai, what are you thinking about?”</p>
+<p data-reading-anchor id="ch3033-p041">“Hmm...”</p>
+<p data-reading-anchor id="ch3033-p042">Fang Heng looked up. “Nothing. I was just curious where the God-Bestowed Jewel originally came from. Perhaps if we traced its origins, we'd find a way to control it.”</p>
+<p data-reading-anchor id="ch3033-p043">“I really don't know. The jewel has always been in the Divine Realm. Only the God King can use it, and it's always been kept on the attic's highest floor. I suppose it might be part of the Divine Realm itself.”</p>
+<p data-reading-anchor id="ch3033-p044">Dean paused before continuing, “With the God King in seclusion, advancing to the Twelve Sages could be rather troublesome. But don't worry. Once we return to the Divine Realm, all the Grand Sages will discuss it together and find a way to help you break through. Besides, although you've advanced to Grand Sage, the proper ceremony hasn't yet been held. We can use this opportunity to hold the ceremony...”</p>
+<p data-reading-anchor id="ch3033-p045">The Holy Court's reputation among humans was declining. Their great victory in Hell had lifted morale, and if they could publicly introduce a powerful new Grand Sage as well, it would be a perfect chance to restore their standing.</p>
+<p data-reading-anchor id="ch3033-p046">“No, Grand Sage Dean. I still have things to handle, so I won't return to the Holy Court just yet.”</p>
+<p data-reading-anchor id="ch3033-p047">“Hmm?”</p>
+<p data-reading-anchor id="ch3033-p048">Dean looked at Fang Heng in bewilderment.</p>
+<p data-reading-anchor id="ch3033-p049">Strange. Hadn't the brat rushed here precisely to advance to the Twelve Sages?</p>
+<p data-reading-anchor id="ch3033-p050">Why was he suddenly in no hurry?</p>
+<p data-reading-anchor id="ch3033-p051">Fang Heng smiled faintly.</p>
+<p data-reading-anchor id="ch3033-p052">After all, they wouldn't find a way to advance to the Twelve Sages any time soon even if he returned to the Holy Court. Meanwhile, Klevi might be in danger and needed his help immediately.</p>
+<p data-reading-anchor id="ch3033-p053">He wouldn't waste time.</p>
+<p data-reading-anchor id="ch3033-p054">“Just a few odds and ends. I'll be quick. Once I've finished dealing with them, I'll return to the Divine Realm at once.”</p>
+<p data-reading-anchor id="ch3033-p055">“Very well.”</p>
+<p data-reading-anchor id="ch3033-p056">Dean thought the new Grand Sage certainly had a lot on his plate. There was no talking him out of it, so he simply nodded. “Then I'll return to the Divine Realm first and discuss things with the Grand Sages. We'll try to find a path for your advancement.”</p>
+<p data-reading-anchor id="ch3033-p057">“Thank you, Grand Sage Dean.”</p>
+<p data-reading-anchor id="ch3033-p058">Fang Heng cupped his hands in thanks.</p>
+<p data-reading-anchor id="ch3033-p059">From his experience in Necromancy, Fang Heng knew that a Super-Divine level existed above the Divine level.</p>
+<p data-reading-anchor id="ch3033-p060">If he successfully advanced to the Twelve Sages, it should correspond to the Lesser-Divine or Divine level of Sacred Studies.</p>
+<p data-reading-anchor id="ch3033-p061">But advancing still further...</p>
+<p data-reading-anchor id="ch3033-p062">Could it be...</p>
+<p data-reading-anchor id="ch3033-p063">Did he have to become the God King?</p>
+<p data-reading-anchor id="ch3033-p064">One thing was certain: there was only one slot at the Super-Divine level.</p>
+<p data-reading-anchor id="ch3033-p065">In other words, if the God King was already Super-Divine, then as long as the God King remained, Fang Heng would never be able to advance his Sacred Studies to the final level.</p>
+</article>
+<p class="end" data-reading-anchor id="ch3033-end">— End of Chapter 3033 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Chinese Chapter 3034: 脱离. English Chapter 3033: Departure. Narrative paragraphs: 65/65.</li><li>The God-Bestowed Jewel’s protective mesh is damaged; the God King is cultivating with the exposed power.</li><li>Dean offers help for the Twelve Sages advancement, but Fang Heng leaves to search for Klevi.</li><li>The source establishes a one-person limit at Super-Divine level; Fang Heng only hypothesizes that the God King occupies that position.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_3032_Complete_Form.html#start">← Previous</a><a class="next" href="Global_Game_AFK_Chapter_3034_Conversion.html#start">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

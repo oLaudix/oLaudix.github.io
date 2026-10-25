@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 2999 — Dealing with It | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-3011">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3010_Plans.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_3011_Disappearance.html"><option value="Global_Game_AFK_Chapter_3011_Disappearance.html" selected>3011 · Disappearance</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3012_Search.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-3011" data-reading-anchor>
+<div class="chapter-num">Chapter 3011</div><h2 class="chapter-title">Disappearance</h2>
+<p class="source-identity">From Chinese Chapter 3012 · 失踪</p>
+<article class="prose">
+<p data-reading-anchor id="ch3011-p001">More than half a month later.</p>
+<p data-reading-anchor id="ch3011-p002">Within the World of Ten Thousand Forests.</p>
+<p data-reading-anchor id="ch3011-p003">The vines of Abe Akaya glimmered faintly, radiating abundant natural energy.</p>
+<p data-reading-anchor id="ch3011-p004">Fang Heng sat cross-legged beneath its roots, absorbing the surrounding natural power.</p>
+<p data-reading-anchor id="ch3011-p005">The entire World of Ten Thousand Forests continuously generated natural energy.</p>
+<p data-reading-anchor id="ch3011-p006">The supply here was over ten times greater than in the ice-crystal labyrinth.</p>
+<p data-reading-anchor id="ch3011-p007">So more than ten days earlier, Fang Heng had simply left the Titan Jewel in the labyrinth, handing its management to the Holy Court and the Federations for shared custody and allocated use.</p>
+<p data-reading-anchor id="ch3011-p008">He himself stayed beneath Abe Akaya's vines, using the domain's rich natural energy to cultivate.</p>
+<p data-reading-anchor id="ch3011-p009" class="game">[Hint: Player's Grandmaster Natural Studies has reached LV: 44.]</p>
+<p data-reading-anchor id="ch3011-p010">"Phew..."</p>
+<p data-reading-anchor id="ch3011-p011">Fang Heng glanced at the notification and slowly exhaled, bringing this round of cultivation to an end.</p>
+<p data-reading-anchor id="ch3011-p012">He rose and turned to the Tree Spirit elders waiting respectfully behind him. "What is it?"</p>
+<p data-reading-anchor id="ch3011-p013">"Mr. Fang Heng."</p>
+<p data-reading-anchor id="ch3011-p014">Two elders stepped forward and reported respectfully, "Forgive us for interrupting your cultivation. It concerns the Divine Maiden."</p>
+<p data-reading-anchor id="ch3011-p015">Klevi?</p>
+<p data-reading-anchor id="ch3011-p016">Fang Heng's attention sharpened.</p>
+<p data-reading-anchor id="ch3011-p017">Klevi was a half-elf, capable of sensing part of Abe Akaya's consciousness. She was therefore responsible for caring for the Divine Tree in everyday life.</p>
+<p data-reading-anchor id="ch3011-p018">With Fang Heng's encouragement, she'd gradually become involved in managing the World of Ten Thousand Forests's daily affairs as well.</p>
+<p data-reading-anchor id="ch3011-p019">After all, Fang Heng had neither the time nor the inclination. He preferred to be a hands-off boss.</p>
+<p data-reading-anchor id="ch3011-p020">Thus, in the eyes of the Tree Spirits living within the domain, Klevi's ability to communicate with the Divine Tree made her their Divine Maiden, responsible for most of its affairs.</p>
+<p data-reading-anchor id="ch3011-p021">Only Fang Heng stood above her in status.</p>
+<p data-reading-anchor id="ch3011-p022">An elder bowed and reported, "The Divine Maiden has been missing for twenty-four hours. This has never happened before. We searched her room and found no sign of her. We're concerned and wanted to ask whether you know where she might be."</p>
+<p data-reading-anchor id="ch3011-p023">"Missing?"</p>
+<p data-reading-anchor id="ch3011-p024">Fang Heng was surprised. After thinking a moment, he asked, "When did you last see Klevi? Was anything unusual happening?"</p>
+<p data-reading-anchor id="ch3011-p025">"At yesterday's morning meeting. She presided as usual, and nothing seemed out of the ordinary. Afterward, she personally tended the Divine Tree. Nobody has seen her since. She missed today's meeting without sending word, which has never happened before. Everyone is worried."</p>
+<p data-reading-anchor id="ch3011-p026">Fang Heng rubbed his chin.</p>
+<p data-reading-anchor id="ch3011-p027">Klevi had been entrusted to his care by Orianna, his Natural Studies mentor.</p>
+<p data-reading-anchor id="ch3011-p028">She shouldn't have gotten into trouble inside the game.</p>
+<p data-reading-anchor id="ch3011-p029">At the very least, everywhere in the World of Ten Thousand Forests touched by trees or vines lay under Abe Akaya's protection and watchful eye.</p>
+<p data-reading-anchor id="ch3011-p030">Could it have happened outside the game?</p>
+<p data-reading-anchor id="ch3011-p031">"Understood. You may go."</p>
+<p data-reading-anchor id="ch3011-p032">Fang Heng waved them away.</p>
+<p data-reading-anchor id="ch3011-p033">"Yes."</p>
+<p data-reading-anchor id="ch3011-p034">The two elders bowed and withdrew.</p>
+<p data-reading-anchor id="ch3011-p035">Fang Heng closed his eyes and reached out to Abe Akaya. Soon he'd established a mental link.</p>
+<p data-reading-anchor id="ch3011-p036">According to the messages transmitted through Abe Akaya's consciousness, Klevi had come looking for him more than once during his secluded cultivation. Unfortunately, he'd remained in seclusion until she disappeared.</p>
+<p data-reading-anchor id="ch3011-p037">After yesterday's morning meeting, she had sought him again and failed to find him. Then she'd logged out and left, never returning to the World of Ten Thousand Forests.</p>
+<p data-reading-anchor id="ch3011-p038">Fang Heng grew suspicious.</p>
+<p data-reading-anchor id="ch3011-p039">So Klevi really had disappeared in the real world.</p>
+<p data-reading-anchor id="ch3011-p040">Abe Akaya's vines slowly gathered around Fang Heng and gently brushed his shoulder.</p>
+<p data-reading-anchor id="ch3011-p041">"Really? You're worried about her? Mm, so am I." Fang Heng nodded. "In that case, we'll go find her ourselves."</p>
+<p data-reading-anchor id="ch3011-p042" class="scene">...</p>
+<p data-reading-anchor id="ch3011-p043">Fang Heng actually knew very little about Klevi's background beyond her being a half-elf.</p>
+<p data-reading-anchor id="ch3011-p044">No matter. Her Natural Studies mentor ought to know where she'd really gone.</p>
+<p data-reading-anchor id="ch3011-p045">Two hours later, Fang Heng found Orianna in a forest mage's cottage.</p>
+<p data-reading-anchor id="ch3011-p046">"I suspect Klevi may have returned to the Elven Clan."</p>
+<p data-reading-anchor id="ch3011-p047">After listening to his account, Orianna sighed softly and continued, "I expected this day might come. Klevi is a half-elf. The Elven Clan regards her bloodline as impure, and her mother has been imprisoned among the elves because of it. She must miss her mother terribly. Perhaps the clan summoned her back, and she left for a while."</p>
+<p data-reading-anchor id="ch3011-p048">Fang Heng frowned. "You mean Klevi left of her own free will?"</p>
+<p data-reading-anchor id="ch3011-p049">"I can't be sure." Orianna shook her head. "But if she'd resisted, we should have sensed her aura or received some message from her."</p>
+<p data-reading-anchor id="ch3011-p050">"Do you know where the Elven Clan lives?"</p>
+<p data-reading-anchor id="ch3011-p051">"The elves conceal their movements extremely well. I met Klevi in another game world myself."</p>
+<p data-reading-anchor id="ch3011-p052">"Thank you, Mentor." Fang Heng nodded. "Klevi is my friend. Please tell me immediately if you hear anything about her."</p>
+<p data-reading-anchor id="ch3011-p053">"Of course."</p>
+<p data-reading-anchor id="ch3011-p054">After saying farewell and leaving Orianna's cottage, Fang Heng looked down, deep in thought.</p>
+<p data-reading-anchor id="ch3011-p055">Most of the clues pointed to Klevi having left voluntarily, very likely for the Elven Clan.</p>
+<p data-reading-anchor id="ch3011-p056">Unfortunately, nobody had discovered an elven world among the high-tier games, and none of his channels had information about it.</p>
+<p data-reading-anchor id="ch3011-p057">Could it be a hidden world?</p>
+<p data-reading-anchor id="ch3011-p058">For now, at least, he had no way of entering it.</p>
+<p data-reading-anchor id="ch3011-p059">After some thought, Fang Heng decided to search Klevi's real-world home for clues about the elves.</p>
+<p data-reading-anchor id="ch3011-p060">He transformed into a bat and flew straight toward her residence.</p>
+<p data-reading-anchor id="ch3011-p061">Before disappearing, Klevi had spent most of her time inside the game.</p>
+<p data-reading-anchor id="ch3011-p062">Outside the game, she disliked interacting with others, so Mo Jiawei had helped purchase a detached villa in the suburbs for her.</p>
+<p data-reading-anchor id="ch3011-p063">Klevi sometimes stayed at the villa in the real world.</p>
+<p data-reading-anchor id="ch3011-p064">An hour later, as Fang Heng approached the area around it, he frowned.</p>
+<p data-reading-anchor id="ch3011-p065">What was going on?</p>
+<p data-reading-anchor id="ch3011-p066">He looked down from a distance.</p>
+<p data-reading-anchor id="ch3011-p067">A Federation Crisis Response Team had surrounded Klevi's villa with layer upon layer of security.</p>
+<p data-reading-anchor id="ch3011-p068">Something was wrong!</p>
+<p data-reading-anchor id="ch3011-p069">Something had definitely happened.</p>
+<p data-reading-anchor id="ch3011-p070">Fang Heng descended and returned to human form.</p>
+<p data-reading-anchor id="ch3011-p071">"Who's there?!"</p>
+<p data-reading-anchor id="ch3011-p072">Lu Yunhao, leader of the Eastern Federation Crisis Response Team, turned alertly. The sudden appearance behind him gave him a fright, and he and the investigators immediately aimed their weapons at the newcomer.</p>
+<p data-reading-anchor id="ch3011-p073">"It's me. Fang Heng."</p>
+<p data-reading-anchor id="ch3011-p074">A person's reputation casts a long shadow.</p>
+<p data-reading-anchor id="ch3011-p075">As soon as they recognized him, the investigators' expressions changed.</p>
+<p data-reading-anchor id="ch3011-p076">In the Eastern Federation, practically everyone familiar with the game had heard Fang Heng's name.</p>
+<p data-reading-anchor id="ch3011-p077">The Federation players present knew even more about his identity.</p>
+<p data-reading-anchor id="ch3011-p078">He was the World Lord of both Vampire Apocalypse and Zombie Apocalypse.</p>
+<p data-reading-anchor id="ch3011-p079">Rumors had also recently begun circulating that Fang Heng had inherited the power of the Vampire King.</p>
+<p data-reading-anchor id="ch3011-p080">An ordinary high-ranking vampire player was already among the elite. The Vampire King was on another level entirely.</p>
+<p data-reading-anchor id="ch3011-p081">His power was terrifying.</p>
+<p data-reading-anchor id="ch3011-p082">Moreover, Fang Heng was a close partner of the Eastern Federation with the highest possible clearance. To some extent, he even had the authority to temporarily requisition the Crisis Response Team's cooperation.</p>
+<p data-reading-anchor id="ch3011-p083">And they were pointing guns at him? Had they gone mad?</p>
+<p data-reading-anchor id="ch3011-p084">Lu Yunhao hastily signaled his investigators to lower their weapons and apologized. "I'm sorry, Mr. Fang Heng. Forgive us for not recognizing you."</p>
+</article>
+<p class="end" data-reading-anchor id="ch3011-end">— End of Chapter 3011 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Chinese Chapter 3012: 失踪. English Chapter 3011: Disappearance. Narrative paragraphs: 84/84.</li><li>The Divine Maiden is established Klevi (克莱薇), distinct from any newly introduced elf.</li><li>Fang Heng’s inherited title is Vampire King (血族君王). Maintain the established royal title verbatim.</li><li>The source does not establish that Klevi was forcibly abducted.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_3010_Plans.html#start">← Previous</a><a class="next" href="Global_Game_AFK_Chapter_3012_Search.html#start">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

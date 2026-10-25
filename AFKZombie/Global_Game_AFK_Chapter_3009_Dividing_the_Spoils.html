@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 2999 — Dealing with It | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-3009">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3008_Untitled.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_3009_Dividing_the_Spoils.html"><option value="Global_Game_AFK_Chapter_3009_Dividing_the_Spoils.html" selected>3009 · Dividing the Spoils</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3010_Plans.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-3009" data-reading-anchor>
+<div class="chapter-num">Chapter 3009</div><h2 class="chapter-title">Dividing the Spoils</h2>
+<p class="source-identity">From Chinese Chapter 3010 · 瓜分</p>
+<article class="prose">
+<p data-reading-anchor id="ch3009-p001">The others exchanged glances.</p>
+<p data-reading-anchor id="ch3009-p002">In fact, the Federations had long wondered why no extraterrestrial life had ever visited their world after so many years.</p>
+<p data-reading-anchor id="ch3009-p003">Even contact with the Kinsfolk had happened only because humanity followed various clues, located them, and reached out first.</p>
+<p data-reading-anchor id="ch3009-p004">And during earlier exchanges between the Western Federation and the Kinsfolk, it had become clear that the Kinsfolk didn't possess their world's exact coordinates.</p>
+<p data-reading-anchor id="ch3009-p005">As far as the Kinsfolk were concerned, their world was effectively invisible.</p>
+<p data-reading-anchor id="ch3009-p006">Now that the Titan's protection had failed, any race hostile toward humanity might come knocking.</p>
+<p data-reading-anchor id="ch3009-p007">Perhaps even the gods who had once exterminated the Titans.</p>
+<p data-reading-anchor id="ch3009-p008">The Northern Federation leader snorted. "Hmph! What's there to fear? Have humans faced too few disasters? Haven't we survived every single one? Instead of trembling and worrying about what might happen, we might as well fight with everything we've got and carve out a future!"</p>
+<p data-reading-anchor id="ch3009-p009">The others smiled bitterly but nodded along.</p>
+<p data-reading-anchor id="ch3009-p010">What else could they do?</p>
+<p data-reading-anchor id="ch3009-p011">At least they couldn't afford to lose their morale.</p>
+<p data-reading-anchor id="ch3009-p012">First the Calamity, then black fog, and now some kind of gods.</p>
+<p data-reading-anchor id="ch3009-p013">What a disaster-plagued world...</p>
+<p data-reading-anchor id="ch3009-p014" class="scene">...</p>
+<p data-reading-anchor id="ch3009-p015">Half an hour passed.</p>
+<p data-reading-anchor id="ch3009-p016">At the temple's center, Fang Heng ended his secluded cultivation and opened his eyes.</p>
+<p data-reading-anchor id="ch3009-p017">Qi really was useful.</p>
+<p data-reading-anchor id="ch3009-p018">It could convert among different forms of academic energy.</p>
+<p data-reading-anchor id="ch3009-p019">The only problem was how long it took. Since the energy was stored in his Sea of Consciousness, his zombie clones couldn't do it for him.</p>
+<p data-reading-anchor id="ch3009-p020">"Grand Sage."</p>
+<p data-reading-anchor id="ch3009-p021">Archbishop Whiteman bowed respectfully and handed over a note. "The Federations found a secret chamber next door. This is the translation of the inscriptions recorded on its stone walls."</p>
+<p data-reading-anchor id="ch3009-p022">Fang Heng read the note and silently considered it.</p>
+<p data-reading-anchor id="ch3009-p023">The records were probably genuine.</p>
+<p data-reading-anchor id="ch3009-p024">By his reasoning, the Titan Guardian they'd encountered really had existed to protect humanity.</p>
+<p data-reading-anchor id="ch3009-p025">The problem was that while guarding the ice-crystal labyrinth, he'd encountered an intruder: Xia Xi.</p>
+<p data-reading-anchor id="ch3009-p026">Xia Xi defeated him, took the Wandering Scholar Mark, and left an Ouroboros Seed in the labyrinth.</p>
+<p data-reading-anchor id="ch3009-p027">So the person secretly controlling the Land of Apocalypse was probably Xia Xi.</p>
+<p data-reading-anchor id="ch3009-p028">She'd guided him here to obtain Titan power.</p>
+<p data-reading-anchor id="ch3009-p029">Fang Heng narrowed his eyes slightly.</p>
+<p data-reading-anchor id="ch3009-p030">Xia Xi had usually paid him little attention. Yet recently she'd been giving him hints, both openly and indirectly, helping him grow stronger quickly.</p>
+<p data-reading-anchor id="ch3009-p031">Most likely a far more dangerous mission was waiting for him afterward.</p>
+<p data-reading-anchor id="ch3009-p032">He raised the note and read it again.</p>
+<p data-reading-anchor id="ch3009-p033">What concerned him most was the mention of gods.</p>
+<p data-reading-anchor id="ch3009-p034">If the Titan ancestors had been exterminated by gods, then what exactly were those gods?</p>
+<p data-reading-anchor id="ch3009-p035">The Federation teams left in the hall noticed he'd awakened and came forward.</p>
+<p data-reading-anchor id="ch3009-p036">The Central Federation didn't know Fang Heng's true identity and thought him a Grand Sage from the Divine Realm. Relying on its longstanding friendship with the Holy Court, Luo Ao approached first and bowed respectfully.</p>
+<p data-reading-anchor id="ch3009-p037">"Grand Sage, the Central Federation hopes to borrow the jewel in your possession to help us awaken our bloodlines."</p>
+<p data-reading-anchor id="ch3009-p038">Borrow the jewel?</p>
+<p data-reading-anchor id="ch3009-p039">Fang Heng glanced at the Titan Jewel's information in his inventory.</p>
+<p data-reading-anchor id="ch3009-p040">Its energy had already been drained. Although it could slowly convert ambient energy, the efficiency was poor. Its main function was storage, so it wasn't terribly useful to him.</p>
+<p data-reading-anchor id="ch3009-p041">The Qi in his Sea of Consciousness would already last him a long time.</p>
+<p data-reading-anchor id="ch3009-p042">Collecting more Qi through the jewel would be painfully slow.</p>
+<p data-reading-anchor id="ch3009-p043">Lending it to the Federations might actually be a good idea.</p>
+<p data-reading-anchor id="ch3009-p044">Fang Heng considered this and asked, "Oh? What are you willing to offer in exchange?"</p>
+<p data-reading-anchor id="ch3009-p045">Luo Ao looked surprised.</p>
+<p data-reading-anchor id="ch3009-p046">The Holy Court had always acted arrogantly in its dealings with the Federations, but it at least cared about appearances. It had never asked for benefits so bluntly.</p>
+<p data-reading-anchor id="ch3009-p047">This Grand Sage certainly had an unconventional way of doing things.</p>
+<p data-reading-anchor id="ch3009-p048">"The Central Federation has always cooperated closely with the Holy Court. If you need anything, you need only ask, and we'll do our best to provide it."</p>
+<p data-reading-anchor id="ch3009-p049">"Ahem."</p>
+<p data-reading-anchor id="ch3009-p050">Afraid the Central Federation would beat them to it, Yi Qingzhi of the Eastern Federation cleared his throat. "Grand Sage, the Eastern Federation would also like to offer something in exchange for temporary use of the jewel."</p>
+<p data-reading-anchor id="ch3009-p051">"We'd like to borrow it for a while too."</p>
+<p data-reading-anchor id="ch3009-p052">Augustine of the Western Federation and the Northern Federation leader quickly nodded in agreement.</p>
+<p data-reading-anchor id="ch3009-p053">"Since everyone is so interested in the jewel..."</p>
+<p data-reading-anchor id="ch3009-p054">Fang Heng thought for a moment. "Very well. I always believe in fairness. Right now, I need advancement books for various academic disciplines. Whoever provides higher-level advancement books can use the jewel longer."</p>
+<p data-reading-anchor id="ch3009-p055">He took pen and paper from Archbishop Whiteman and began listing the academic skills he currently possessed.</p>
+<p data-reading-anchor id="ch3009-p056">There was no need to list Sacred Studies or Necromancy. There were no books that could directly advance them anyway.</p>
+<p data-reading-anchor id="ch3009-p057">As for the others...</p>
+<p data-reading-anchor id="ch3009-p058">Comparing the list with his existing academic levels, Fang Heng wrote down his requirements.</p>
+<p data-reading-anchor id="ch3009-p059">Astrology: Advanced-level advancement book or higher.</p>
+<p data-reading-anchor id="ch3009-p060">Alchemy: Master-level advancement book or higher.</p>
+<p data-reading-anchor id="ch3009-p061">Mysticism (Curse Studies): Master-level advancement book or higher.</p>
+<p data-reading-anchor id="ch3009-p062">Summoning Studies (Contract Studies)...</p>
+<p data-reading-anchor id="ch3009-p063">Spatial Studies...</p>
+<p data-reading-anchor id="ch3009-p064">Natural Studies...</p>
+<p data-reading-anchor id="ch3009-p065">Elemental Studies...</p>
+<p data-reading-anchor id="ch3009-p066">Psionics...</p>
+<p data-reading-anchor id="ch3009-p067">Sealing Studies...</p>
+<p data-reading-anchor id="ch3009-p068">Arcane Studies...</p>
+<p data-reading-anchor id="ch3009-p069">Astrology...</p>
+<p data-reading-anchor id="ch3009-p070">"Oh, right." Halfway through, Fang Heng remembered something and added, "Special bloodline skill books will also do."</p>
+<p data-reading-anchor id="ch3009-p071">The Federation representatives stared at one another in confusion.</p>
+<p data-reading-anchor id="ch3009-p072">Then Fang Heng handed them the completed list.</p>
+<p data-reading-anchor id="ch3009-p073">They grew even more puzzled. Their expressions turned strange as they looked at him.</p>
+<p data-reading-anchor id="ch3009-p074">Wasn't he supposed to be a Holy Court Grand Sage?</p>
+<p data-reading-anchor id="ch3009-p075">Why did he need so many academic advancement books?</p>
+<p data-reading-anchor id="ch3009-p076">And books of such extraordinarily high levels, at that.</p>
+<p data-reading-anchor id="ch3009-p077">Looking closely, apart from Necromancy, Sacred Studies, and Hell Studies, the list included practically every academic discipline currently known!</p>
+<p data-reading-anchor id="ch3009-p078">"We'll do our best to look," Luo Ao said with a headache. "Grand Sage, high-tier advancement books are exceedingly rare, and most are bound to individuals. But if we can find a related quest or information..."</p>
+<p data-reading-anchor id="ch3009-p079">"That works too, though it'll buy less time with the jewel. Also, I only need one copy of each. Don't submit duplicates."</p>
+<p data-reading-anchor id="ch3009-p080">"Understood."</p>
+<p data-reading-anchor id="ch3009-p081">Luo Ao committed the requirements to memory and hurried away.</p>
+<p data-reading-anchor id="ch3009-p082">The Federations all had some academic advancement books in reserve.</p>
+<p data-reading-anchor id="ch3009-p083">They were kept for elites they were training themselves.</p>
+<p data-reading-anchor id="ch3009-p084">If they searched their stores carefully, Master- and Grandmaster-level books might still be found, though they were exceptionally rare.</p>
+<p data-reading-anchor id="ch3009-p085">Related advancement quests were particularly promising!</p>
+<p data-reading-anchor id="ch3009-p086">The sooner they found one and delivered it to Fang Heng, the sooner they'd gain access to the jewel and strengthen their own Federation's players!</p>
+</article>
+<p class="end" data-reading-anchor id="ch3009-end">— End of Chapter 3009 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Chinese Chapter 3010: 瓜分. English Chapter 3009: Dividing the Spoils. Narrative paragraphs: 86/86.</li><li>Astrology is written twice in Fang Heng’s requested skill list; both repetitions are preserved.</li><li>The Federations offer academic advancement books or clues to the relevant quests in exchange for limited use of the jewel.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_3008_Untitled.html#start">← Previous</a><a class="next" href="Global_Game_AFK_Chapter_3010_Plans.html#start">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

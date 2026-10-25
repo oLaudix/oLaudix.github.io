@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 3034 — Conversion | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-3034">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3033_Departure.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_3034_Conversion.html"><option value="Global_Game_AFK_Chapter_3034_Conversion.html" selected>3034 · Conversion</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3035_Waterstar.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-3034" data-reading-anchor>
+<div class="chapter-num">Chapter 3034</div><h2 class="chapter-title">Conversion</h2>
+<p class="source-identity">From Chinese Chapter 3035 · 转化</p>
+<article class="prose">
+<p data-reading-anchor id="ch3034-p001">Eighty star-seas away from humanity's planet in the real world.</p>
+<p data-reading-anchor id="ch3034-p002">The Shadow Clan and various allied races that had accepted the relevant missions arrived one after another.</p>
+<p data-reading-anchor id="ch3034-p003">The Kinsfolk hadn't yet issued a mission to attack humanity, but the Shadow Clan had already impatiently assembled an allied army. As soon as the mission appeared, they would invade the human world.</p>
+<p data-reading-anchor id="ch3034-p004">The Shadow Clan thought it rather unfortunate.</p>
+<p data-reading-anchor id="ch3034-p005">The human world was affected by the Black Fog, and the Kinsfolk wanted to preserve it for research and as a front line against the fog. Thus, according to the Kinsfolk, they didn't want to exterminate humanity entirely, but they did want to teach the humans a lesson.</p>
+<p data-reading-anchor id="ch3034-p006">The Shadow Clan had suffered a terrible loss at humanity's hands during the previous SSS-rank insect-nest mission.</p>
+<p data-reading-anchor id="ch3034-p007">Now countless eyes were watching them.</p>
+<p data-reading-anchor id="ch3034-p008">If the Shadow Clan failed to teach those arrogant humans a proper lesson, how would they ever command respect again? How could they lead the Kinsfolk alliance into battle?</p>
+<p data-reading-anchor id="ch3034-p009">They were simply waiting for the Kinsfolk to publish the exact coordinates of the human world. The Shadow Clan would attack at once.</p>
+<p data-reading-anchor id="ch3034-p010">“Welcome, Prince Korkalot of the Elven Clan.”</p>
+<p data-reading-anchor id="ch3034-p011">Korkalot was an esteemed prince of the Elven Clan, heir to the next Elven King, and possessed tremendous influence among his people.</p>
+<p data-reading-anchor id="ch3034-p012">The Shadow Clan captain found his visit strange.</p>
+<p data-reading-anchor id="ch3034-p013">The elves rarely undertook outside missions in large groups. Yet this time, when the Kinsfolk rallied forces to attack humanity, they had shown exceptional enthusiasm, even sending more than twenty high-grade ships.</p>
+<p data-reading-anchor id="ch3034-p014">Elven vessels weren't particularly powerful, but their individual warriors were generally strong.</p>
+<p data-reading-anchor id="ch3034-p015">Out of consideration for the Elven Clan, the Shadow Clan captain rose to greet him. “Your Highness, what brings you here in person?”</p>
+<p data-reading-anchor id="ch3034-p016">Korkalot, cold-faced and arrogant, glanced at the captain. “Captain, the Elven Clan has already discovered the precise coordinates of the human world. We needn't wait any longer. I'll have my people share the coordinates with everyone. Order the allied army to attack humanity immediately.”</p>
+<p data-reading-anchor id="ch3034-p017">The Shadow Clan captain resented Korkalot's commanding tone.</p>
+<p data-reading-anchor id="ch3034-p018">They'd shown him a little respect for his people's sake, and now he thought he could act like a prince over them?</p>
+<p data-reading-anchor id="ch3034-p019">Ordering the Shadow Clan around?</p>
+<p data-reading-anchor id="ch3034-p020">The Shadow Clan alliance wasn't run by the Elven Clan.</p>
+<p data-reading-anchor id="ch3034-p021">“Is that so... The elves really are impressive, finding even the hidden coordinates of the human world so easily.” The Shadow Clan captain's expression cooled. After that faint compliment, he asked, “But can the Elven Clan confirm that the coordinates are correct?”</p>
+<p data-reading-anchor id="ch3034-p022">“Of course. We've already made a reconnaissance trip into the human world and confirmed that humans live there.” Korkalot said coldly, “In exchange, once the human world is conquered, our Elven Clan needs to search for something there...”</p>
+<p data-reading-anchor id="ch3034-p023">“I see. Understood.”</p>
+<p data-reading-anchor id="ch3034-p024">After saying that, the Shadow Clan captain fell silent. He didn't agree or refuse. He merely sat back down and treated the elven visitors as though they weren't there.</p>
+<p data-reading-anchor id="ch3034-p025">Korkalot frowned, his expression turning colder. “Captain, what is the meaning of this?”</p>
+<p data-reading-anchor id="ch3034-p026">“The Kinsfolk have already said they'll give humanity some more time. Officially, humans are still their allies. Since the Kinsfolk haven't issued an order to attack, the Shadow Clan will not strike at an ally on its own initiative.”</p>
+<p data-reading-anchor id="ch3034-p027">The captain's initial warmth had vanished. He said icily, “If your Elven Clan is interested, you're welcome to attack humanity yourselves. But don't say I didn't warn you: humans aren't weak.”</p>
+<p data-reading-anchor id="ch3034-p028">“Hmph!”</p>
+<p data-reading-anchor id="ch3034-p029">Having been rebuffed, Korkalot gave a heavy snort and returned to his ship.</p>
+<p data-reading-anchor id="ch3034-p030">The two Tree Spirit elders accompanying him shook their heads inwardly.</p>
+<p data-reading-anchor id="ch3034-p031">Korkalot was too young and had too little experience outside his homeland. In a few short sentences, he'd revealed the Elven Clan's cards to the Shadow Clan.</p>
+<p data-reading-anchor id="ch3034-p032">The elves had already investigated humanity ahead of time.</p>
+<p data-reading-anchor id="ch3034-p033">Black Fog level twelve.</p>
+<p data-reading-anchor id="ch3034-p034">That meant all humans on the planet had been affected by the Black Fog. The world had been partly invaded by it, and some humans had already gained partial control over its power.</p>
+<p data-reading-anchor id="ch3034-p035">It would be difficult for the Elven Clan to conquer the human world completely with its forces alone.</p>
+<p data-reading-anchor id="ch3034-p036">For now, they could only wait for the Kinsfolk to give the final order to attack.</p>
+<p data-reading-anchor id="ch3034-p037" class="scene">...</p>
+<p data-reading-anchor id="ch3034-p038">Five days later.</p>
+<p data-reading-anchor id="ch3034-p039">Aboard the Mouse King, a ship sailing through the sea of stars.</p>
+<p data-reading-anchor id="ch3034-p040">Cargo hold seven.</p>
+<p data-reading-anchor id="ch3034-p041">Dense vines had completely engulfed the warehouse.</p>
+<p data-reading-anchor id="ch3034-p042">A large Abe Akaya summoning array occupied its center. Thin strands of black aura seeped continuously from its edge, while thick tangles of vines and roots emerged from the middle and extended outward.</p>
+<p data-reading-anchor id="ch3034-p043">If anyone else had been present, the density of natural energy in the hold would have shocked them.</p>
+<p data-reading-anchor id="ch3034-p044">Since Abe Akaya had evolved to Complete Form and gained control of most of Hell's twentieth through thirty-fourth levels, it had been absorbing Hell's power every moment to strengthen itself.</p>
+<p data-reading-anchor id="ch3034-p045">And it was absorbing energy from the Demon Cores at the same time.</p>
+<p data-reading-anchor id="ch3034-p046">Even with the Elven Clan continuously draining power from Abe Akaya, it still had tremendous energy to spare.</p>
+<p data-reading-anchor id="ch3034-p047">That surplus could fuel its own advancement, or Abe Akaya could convert it into natural energy for Fang Heng's cultivation.</p>
+<p data-reading-anchor id="ch3034-p048">At the moment, Fang Heng sat beneath Abe Akaya's vines, absorbing natural energy and then converting it to elemental energy through Qi.</p>
+<p data-reading-anchor id="ch3034-p049" class="game">[Hint: The player's current Elemental Studies experience +28,133...]</p>
+<p data-reading-anchor id="ch3034-p050" class="game">[Hint: The player's current Master-level Elemental Studies has reached MAX.]</p>
+<p data-reading-anchor id="ch3034-p051">Done!</p>
+<p data-reading-anchor id="ch3034-p052">Another discipline finished.</p>
+<p data-reading-anchor id="ch3034-p053">Fang Heng opened his eyes.</p>
+<p data-reading-anchor id="ch3034-p054">With Abe Akaya's teleportation array, he could cultivate in seclusion almost anywhere, even aboard a ship making continuous spatial jumps.</p>
+<p data-reading-anchor id="ch3034-p055">There was one thing that concerned him.</p>
+<p data-reading-anchor id="ch3034-p056">As they sailed farther into the sea of stars and away from the human world, Abe Akaya's magic array had been slightly affected, operating with a little resistance.</p>
+<p data-reading-anchor id="ch3034-p057">Overall, though, the effect was minor.</p>
+<p data-reading-anchor id="ch3034-p058">There was also the matter of the wisps of black fog that appeared around Abe Akaya's summoning array whenever it operated.</p>
+<p data-reading-anchor id="ch3034-p059">It was the same aura as the game's Black Fog.</p>
+<p data-reading-anchor id="ch3034-p060">Very strange. He didn't remember seeing anything like it when operating the array before.</p>
+<p data-reading-anchor id="ch3034-p061">Fang Heng had examined the aura but found nothing abnormal, so he'd eventually left the fog alone and focused on cultivation.</p>
+<p data-reading-anchor id="ch3034-p062">That would do for today.</p>
+<p data-reading-anchor id="ch3034-p063">Fang Heng rose and left the cabin.</p>
+<p data-reading-anchor id="ch3034-p064">By his calculations, they should be able to locate the Elven Clan within the next couple of days.</p>
+<p data-reading-anchor id="ch3034-p065">Outside, two Flying Squirrel guards were waiting at the door. When they saw Fang Heng emerge, they nodded respectfully. “Boss Fang, Captain Kappa invites you to the main control hall.”</p>
+<p data-reading-anchor id="ch3034-p066">“All right. Lead the way.”</p>
+<p data-reading-anchor id="ch3034-p067">Through directional tracing, Abe Akaya had confirmed that it had locked onto the source siphoning off its energy.</p>
+<p data-reading-anchor id="ch3034-p068">But most functions of the human ship's Kinsfolk system were currently restricted. They couldn't link the elves' physical coordinates to the virtual positioning system on the Kinsfolk network.</p>
+<p data-reading-anchor id="ch3034-p069">Put simply, they couldn't use the Kinsfolk jump system to travel directly to that world.</p>
+</article>
+<p class="end" data-reading-anchor id="ch3034-end">— End of Chapter 3034 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Chinese Chapter 3035: 转化. English Chapter 3034: Conversion. Narrative paragraphs: 69/69.</li><li>The Elven Prince 科尔卡洛特 is rendered Korkalot; the source does not establish a prior English spelling.</li><li>The Shadow Clan declines to invade before receiving the Kinsfolk’s final command despite elf pressure.</li><li>Black Fog is assessed at level 12 in the human world by the elves’ reconnaissance.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_3033_Departure.html#start">← Previous</a><a class="next" href="Global_Game_AFK_Chapter_3035_Waterstar.html#start">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

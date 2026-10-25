@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 2999 — Dealing with It | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-3018">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3017_Condensing_Will.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_3018_Will_Refinement.html"><option value="Global_Game_AFK_Chapter_3018_Will_Refinement.html" selected>3018 · Will Refinement</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3019_Closing_In.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-3018" data-reading-anchor>
+<div class="chapter-num">Chapter 3018</div><h2 class="chapter-title">Will Refinement</h2>
+<p class="source-identity">From Chinese Chapter 3019 · 凝练</p>
+<article class="prose">
+<p data-reading-anchor id="ch3018-p001">Since Fang Heng's disappearance, Hain had remained in the Divine Realm, searching for him through every channel available.</p>
+<p data-reading-anchor id="ch3018-p002">The instant he learned Fang Heng had appeared in the Eternal Holy City, he hadn't even taken time to inform the Grand Sages. He left a note and hurried down to greet him.</p>
+<p data-reading-anchor id="ch3018-p003">At last, he'd found Fang Heng in Hell.</p>
+<p data-reading-anchor id="ch3018-p004">"Greetings, Grand Sage."</p>
+<p data-reading-anchor id="ch3018-p005">"Hain, it's been a long time. You've worked hard." Fang Heng smiled and nodded. "You'll accompany me this time."</p>
+<p data-reading-anchor id="ch3018-p006">"Yes, sir!"</p>
+<p data-reading-anchor id="ch3018-p007">Suppressing his excitement, Hain straightened and said solemnly, "The Divine Punishment Knights will follow the Grand Sage to the death."</p>
+<p data-reading-anchor id="ch3018-p008">"Almost everyone's here. Let's begin."</p>
+<p data-reading-anchor id="ch3018-p009">Fang Heng stood at the head of the assembled army and raised his Sacred Greatsword high. "For our fallen comrades! For eternal peace in the world! Follow me, and together we'll wash Hell in blood!"</p>
+<p data-reading-anchor id="ch3018-p010">"Wash Hell in blood!"</p>
+<p data-reading-anchor id="ch3018-p011">Thousands of Holy Court soldiers chanted in unison behind Fang Heng.</p>
+<p data-reading-anchor id="ch3018-p012">Sacred light gathered and erupted, sending waves of holy power outward and rapidly purifying the surrounding infernal environment.</p>
+<p data-reading-anchor id="ch3018-p013">"March!"</p>
+<p data-reading-anchor id="ch3018-p014">The Holy Court knight orders advanced, gradually clearing a path deeper into Hell.</p>
+<p data-reading-anchor id="ch3018-p015">Behind them, the priest teams cast sacred purification spells, cleansing broad swaths of the hellish terrain.</p>
+<p data-reading-anchor id="ch3018-p016">Slow and steady.</p>
+<p data-reading-anchor id="ch3018-p017">This grand, conspicuous campaign to wash Hell in blood was something Fang Heng had deliberately arranged.</p>
+<p data-reading-anchor id="ch3018-p018">If they swaggered through Hell like this, Envy would probably notice long before they reached the twenty-ninth layer and come personally to stop the invasion.</p>
+<p data-reading-anchor id="ch3018-p019">And then...</p>
+<p data-reading-anchor id="ch3018-p020">Fang Heng narrowed his eyes.</p>
+<p data-reading-anchor id="ch3018-p021">He'd finally see just how much strength separated him from Demon Seed Envy!</p>
+<p data-reading-anchor id="ch3018-p022" class="scene">...</p>
+<p data-reading-anchor id="ch3018-p023">The Holy Court army was enormous, and its individual members were hardly weak.</p>
+<p data-reading-anchor id="ch3018-p024">Even so, Hell's suppressive environment began slowing their advance after they reached the sixteenth layer.</p>
+<p data-reading-anchor id="ch3018-p025">Ahead, waves of hellish creatures poured out of the rock caverns, roaring as they charged the Holy Court formations.</p>
+<p data-reading-anchor id="ch3018-p026">Glory Knight squads held the front under the buffs provided by the priest teams, fighting bravely to block the fiends. Behind them, the priests purified the terrain while casting healing spells on the front lines.</p>
+<p data-reading-anchor id="ch3018-p027">The army's progress slowed noticeably.</p>
+<p data-reading-anchor id="ch3018-p028">It looked as though the sixteenth layer was the Holy Court's limit.</p>
+<p data-reading-anchor id="ch3018-p029">After considering the situation, Fang Heng raised his God-Bestowed Staff.</p>
+<p data-reading-anchor id="ch3018-p030">"Sacred Blessing!"</p>
+<p data-reading-anchor id="ch3018-p031">"Hum..."</p>
+<p data-reading-anchor id="ch3018-p032">Golden light burst from the staff, showering the Holy Court knights ahead with sacred beneficial blessings.</p>
+<p data-reading-anchor id="ch3018-p033">Their bodies immediately glowed with dark-golden sacred light.</p>
+<p data-reading-anchor id="ch3018-p034">Under Fang Heng's buffs, the knights felt power surging from within.</p>
+<p data-reading-anchor id="ch3018-p035">The effectiveness of sacred support skills generally depended on skill level, Sacred Studies proficiency, talent, and a player's mental attributes. With Fang Heng's immense mental power, high Sacred Studies level, and talent, the effects were terrifying!</p>
+<p data-reading-anchor id="ch3018-p036">Lightning of Judgment, defensive blessings, willpower blessings, regeneration, Sacred Blessing, Blessing of Honor—he poured the entire collection of buffs onto the Holy Court army at once.</p>
+<p data-reading-anchor id="ch3018-p037">Its strength skyrocketed!</p>
+<p data-reading-anchor id="ch3018-p038">The heavily enhanced front-line knights firmly withstood wave after wave of hellish creatures, while purple bolts of judgment lightning repeatedly crashed down from above.</p>
+<p data-reading-anchor id="ch3018-p039">The situation reversed in an instant!</p>
+<p data-reading-anchor id="ch3018-p040">The Holy Court army surged forward with unstoppable momentum.</p>
+<p data-reading-anchor id="ch3018-p041">Hain and his knights didn't join the front-line battle, remaining firmly at Fang Heng's side. Seeing this, excitement glimmered in Hain's eyes.</p>
+<p data-reading-anchor id="ch3018-p042">Since Grand Sage Croesus's death, when had the Holy Court last been able to hold its head so high?</p>
+<p data-reading-anchor id="ch3018-p043">He'd never imagined Fang Bai would be this bold—launching an assault on Hell so soon after becoming a Grand Sage inheritor.</p>
+<p data-reading-anchor id="ch3018-p044">Fang Heng glanced over the battlefield and nodded to Hain, signaling the army to continue advancing.</p>
+<p data-reading-anchor id="ch3018-p045">Not enough.</p>
+<p data-reading-anchor id="ch3018-p046">This was only the sixteenth layer.</p>
+<p data-reading-anchor id="ch3018-p047">To attract Envy's attention, they would have to grind their way to at least the twentieth.</p>
+<p data-reading-anchor id="ch3018-p048">While contemplating his upcoming battle against Envy, Fang Heng suddenly saw a game notification appear on his retina.</p>
+<p data-reading-anchor id="ch3018-p049" class="game">[Hint: Player has triggered quest—Distant Holy War.]</p>
+<p data-reading-anchor id="ch3018-p050" class="game">Quest name: Distant Holy War.</p>
+<p data-reading-anchor id="ch3018-p051" class="game">Quest description: Long ago, one of the Holy Court's Twelve Sages fell during a mission to seal an entrance to Hell. Hell inflicted a wound upon the Holy Court that never healed. Now it is time to seek justice from Hell.</p>
+<p data-reading-anchor id="ch3018-p052" class="game">Quest requirement: Cleanse Hell to at least 60% completion. (As completion increases, the player gains Holy Court recognition and gradually condenses the Will of the Twelve Sages. If the quest fails, the will-condensation attempt also fails. Failure to condense the will causes backlash.)</p>
+<p data-reading-anchor id="ch3018-p053" class="game">Quest reward: Initially Condensed Will.</p>
+<p data-reading-anchor id="ch3018-p054">Huh?</p>
+<p data-reading-anchor id="ch3018-p055">Fang Heng's interest was piqued by the notification.</p>
+<p data-reading-anchor id="ch3018-p056">The Twelve Sages.</p>
+<p data-reading-anchor id="ch3018-p057">Was this an advancement beyond Grand Sage?</p>
+<p data-reading-anchor id="ch3018-p058">He'd previously thought the two were the same thing.</p>
+<p data-reading-anchor id="ch3018-p059">Now it seemed the Twelve Sages wasn't merely a title, but perhaps a higher form of the Grand Sage advancement?</p>
+<p data-reading-anchor id="ch3018-p060">But what exactly was this newly introduced will condensation?</p>
+<p data-reading-anchor id="ch3018-p061">It sounded somewhat like a recognition metric.</p>
+<p data-reading-anchor id="ch3018-p062">Troublesome. Failure could bring some sort of penalty, and if that interfered with his plan to kill Envy, he'd be in trouble.</p>
+<p data-reading-anchor id="ch3018-p063">"Grand Sage?"</p>
+<p data-reading-anchor id="ch3018-p064">Seeing Fang Heng deep in thought, his expression grave, Hain couldn't help asking, "Is there a problem?"</p>
+<p data-reading-anchor id="ch3018-p065">"No."</p>
+<p data-reading-anchor id="ch3018-p066">As soon as he spoke, another game hint appeared on Fang Heng's retina.</p>
+<p data-reading-anchor id="ch3018-p067" class="game">[Hint: Player has successfully cleansed part of Hell. Holy Court reputation increased. Current Sacred Will condensation: 0.7%.]</p>
+<p data-reading-anchor id="ch3018-p068">Fang Heng glanced at the message and shook his head. "Don't worry. We continue."</p>
+<p data-reading-anchor id="ch3018-p069">"Understood."</p>
+<p data-reading-anchor id="ch3018-p070">As the army advanced deeper into Hell, the quest completion rate slowly increased, and the will-condensation value climbed alongside it.</p>
+<p data-reading-anchor id="ch3018-p071">The Holy Court's army was large, so it moved slowly, eventually fighting its way to the nineteenth cavern layer.</p>
+<p data-reading-anchor id="ch3018-p072">Several Holy Court paladins hurried up from the rear and whispered to Fang Heng, "Grand Sage, we've received word from the Divine Realm. Grand Sage Dean is coming with reinforcements. We're advised to slow our advance and regroup with him before proceeding."</p>
+<p data-reading-anchor id="ch3018-p073">Oh?</p>
+<p data-reading-anchor id="ch3018-p074">Surprise flashed through Fang Heng's eyes. After a moment's thought, he looked toward the path ahead.</p>
+<p data-reading-anchor id="ch3018-p075">That made sense.</p>
+<p data-reading-anchor id="ch3018-p076">Once they entered the twentieth layer, they would enter the detection range of Echidna, Envy's demonic pet. Envy should then learn that Hell was under attack.</p>
+<p data-reading-anchor id="ch3018-p077">He hadn't expected the Holy Court to dispatch another Grand Sage.</p>
+<p data-reading-anchor id="ch3018-p078">But that was fine.</p>
+<p data-reading-anchor id="ch3018-p079">When he confronted Envy, having a second Grand Sage on his side would improve his chances.</p>
+<p data-reading-anchor id="ch3018-p080">"Very well. Slow the advance. Pass down the order: once we've cleared the entrance to the twentieth layer, we'll stop there and rest briefly."</p>
+<p data-reading-anchor id="ch3018-p081">"Yes, sir."</p>
+</article>
+<p class="end" data-reading-anchor id="ch3018-end">— End of Chapter 3018 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Chinese Chapter 3019: 凝练. English Chapter 3018: Will Refinement. Narrative paragraphs: 81/81.</li><li>The Distant Holy War quest requires at least 60% cleansing, with will-condensation backlash if the quest fails.</li><li>The Holy Court army’s support buffs come from Fang Heng’s high Sacred Studies and attributes.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_3017_Condensing_Will.html#start">← Previous</a><a class="next" href="Global_Game_AFK_Chapter_3019_Closing_In.html#start">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

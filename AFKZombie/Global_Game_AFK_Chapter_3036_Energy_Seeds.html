@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 3036 — Energy Seeds | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-3036">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3035_Waterstar.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_3036_Energy_Seeds.html"><option value="Global_Game_AFK_Chapter_3036_Energy_Seeds.html" selected>3036 · Energy Seeds</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3037_Materials.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-3036" data-reading-anchor>
+<div class="chapter-num">Chapter 3036</div><h2 class="chapter-title">Energy Seeds</h2>
+<p class="source-identity">From Chinese Chapter 3037 · 能量种子</p>
+<article class="prose">
+<p data-reading-anchor id="ch3036-p001">Ten minutes later, the Flying Squirrel Clan's Mouse King landed at a Waterstar Clan jump port.</p>
+<p data-reading-anchor id="ch3036-p002">Kappa looked at Fang Heng. “Boss Fang, humanity is currently wanted by the Shadow Clan, and the Waterstar Clan has ties to the elves. Showing yourself rashly could cause trouble.”</p>
+<p data-reading-anchor id="ch3036-p003">“Mm. You go meet them. I'll follow.”</p>
+<p data-reading-anchor id="ch3036-p004">As Fang Heng spoke, his aura rapidly disappeared and his form gradually faded into space until he vanished completely inside the ship.</p>
+<p data-reading-anchor id="ch3036-p005">Kappa looked astonished.</p>
+<p data-reading-anchor id="ch3036-p006">What an amazing ability! He'd disappeared completely.</p>
+<p data-reading-anchor id="ch3036-p007">Fang Heng maintained his soul form, floating behind Kappa.</p>
+<p data-reading-anchor id="ch3036-p008">After advancing Necromancy to the Super-Divine level, Fang Heng could freely enter and leave his soul form. He could even attach himself to objects for short periods while in that form, hiding his aura completely.</p>
+<p data-reading-anchor id="ch3036-p009">Fang Heng was very confident.</p>
+<p data-reading-anchor id="ch3036-p010">Anyone below Divine level would be unable to detect him, even with an ability to perceive spirits.</p>
+<p data-reading-anchor id="ch3036-p011">Kappa couldn't see Fang Heng, but he could hear his voice beside his ear.</p>
+<p data-reading-anchor id="ch3036-p012">“Let's go. Represent the Flying Squirrel Clan and speak with Waterstar. I'll follow you and give you instructions along the way. Just do what I say.”</p>
+<p data-reading-anchor id="ch3036-p013">“A-all right.”</p>
+<p data-reading-anchor id="ch3036-p014">Kappa shivered involuntarily.</p>
+<p data-reading-anchor id="ch3036-p015">Boss Fang had so many tricks. He could even turn invisible and follow right beside him without leaving the slightest trace.</p>
+<p data-reading-anchor id="ch3036-p016" class="scene">...</p>
+<p data-reading-anchor id="ch3036-p017">Kappa disembarked with several ship guards.</p>
+<p data-reading-anchor id="ch3036-p018">Nick, the captain of the Waterstar Clan's spaceport security team, was already waiting at the exit.</p>
+<p data-reading-anchor id="ch3036-p019">“Welcome to the Waterstar Clan. I hear you've found the Energy Seeds we're looking for?”</p>
+<p data-reading-anchor id="ch3036-p020">“Greetings. We're from the Flying Squirrel Clan. I'm Captain Kappa.”</p>
+<p data-reading-anchor id="ch3036-p021">Kappa bowed slightly.</p>
+<p data-reading-anchor id="ch3036-p022">The Flying Squirrel Clan ranked relatively low in strength among the Kinsfolk, but its members were widely distributed. They were a branch of the rodent races, possessed special talents for prospecting and mining, and held grudges. Most races preferred not to make enemies of them.</p>
+<p data-reading-anchor id="ch3036-p023">“We came across some substances resembling Energy Seeds. As we happened to be passing through, we brought them for you to examine. If they're what you're looking for, so much the better.”</p>
+<p data-reading-anchor id="ch3036-p024">Kappa handed the Waterstar officer a small cloth pouch that Fang Heng had given him in advance.</p>
+<p data-reading-anchor id="ch3036-p025">The pouch contained roughly four or five hundred Energy Seeds.</p>
+<p data-reading-anchor id="ch3036-p026">That seemed like a lot, but condensing them had taken Abe Akaya only five minutes of energy expenditure.</p>
+<p data-reading-anchor id="ch3036-p027">Nick examined the seeds. Seeing the pouch filled to the brim, excitement appeared in her eyes. “Yes, these are high-grade Energy Seeds. We're willing to buy them for twice our advertised price. By the way, would you mind telling us where you got them?”</p>
+<p data-reading-anchor id="ch3036-p028">“We once traded with a small race while doing business abroad. They couldn't pay us, so they settled their debt with these seeds. Apparently, they'd acquired them by chance a long time ago. I'm afraid tracing their origins would be difficult...”</p>
+<p data-reading-anchor id="ch3036-p029">Kappa offered a few vague explanations and changed the subject. “I also heard you're recruiting scholars knowledgeable in Natural Studies and ancient scripts. Do you need something written in an old language translated?”</p>
+<p data-reading-anchor id="ch3036-p030">Nick passed the pouch to a subordinate. “That's correct. We found some ancient writing and want it translated. Does the Flying Squirrel Clan know anything about ancient scripts?”</p>
+<p data-reading-anchor id="ch3036-p031">“We've studied some.”</p>
+<p data-reading-anchor id="ch3036-p032">Nick looked surprised, then more serious. “May I ask which scholar?”</p>
+<p data-reading-anchor id="ch3036-p033">Kappa pointed at his own nose.</p>
+<p data-reading-anchor id="ch3036-p034">“Me.”</p>
+<p data-reading-anchor id="ch3036-p035">“The script we need translated is rather unusual. You may never have encountered it.” Nick waved to her people and received a sheet covered in ancient characters, then handed it to Kappa. “This is part of the text. Do you recognize it?”</p>
+<p data-reading-anchor id="ch3036-p036">Kappa took the sheet, and his face immediately crumpled into a miserable expression.</p>
+<p data-reading-anchor id="ch3036-p037">What the hell was this?!</p>
+<p data-reading-anchor id="ch3036-p038">It looked like ghost-drawn talismans. He couldn't understand a thing.</p>
+<p data-reading-anchor id="ch3036-p039">The Waterstar representatives noticed his expression and smiled. “There's no hurry. You can take it back and work on the translation at your own pace.”</p>
+<p data-reading-anchor id="ch3036-p040">“Ahem.”</p>
+<p data-reading-anchor id="ch3036-p041">Kappa coughed lightly. Naturally, he knew this was a test the Waterstar Clan gave outsiders. He forced himself to remain composed. “This language is indeed rare. I'll return to my ship and consult some references.”</p>
+<p data-reading-anchor id="ch3036-p042">“Of course. If you need anything, please contact me. We've already verified the Energy Seeds you supplied, and the Kinsfolk contribution points have been credited to your account. Please check them. Your ship can also receive supplies here, and you're welcome to explore the planet's designated trade district.”</p>
+<p data-reading-anchor id="ch3036-p043">Nick smiled. “I won't keep you any longer. Contact me whenever you need something.”</p>
+<p data-reading-anchor id="ch3036-p044">“Thank you.”</p>
+<p data-reading-anchor id="ch3036-p045">Afraid they'd see through him, Kappa nodded politely and hurried back to the ship.</p>
+<p data-reading-anchor id="ch3036-p046" class="scene">...</p>
+<p data-reading-anchor id="ch3036-p047">“Don't worry. They can't detect my presence in this state.”</p>
+<p data-reading-anchor id="ch3036-p048">As Kappa returned to the main control room, Fang Heng's figure slowly appeared behind him.</p>
+<p data-reading-anchor id="ch3036-p049">“Boss Fang, you're incredible. My nerves nearly failed me back there.”</p>
+<p data-reading-anchor id="ch3036-p050">Kappa gave Fang Heng a thumbs-up.</p>
+<p data-reading-anchor id="ch3036-p051">As they spoke, a Flying Squirrel operator approached and whispered, “Captain, we've checked. We just received 5.1 million Kinsfolk contribution points.”</p>
+<p data-reading-anchor id="ch3036-p052">That many?</p>
+<p data-reading-anchor id="ch3036-p053">Kappa clicked his tongue inwardly and stole a glance at Fang Heng.</p>
+<p data-reading-anchor id="ch3036-p054">Good grief.</p>
+<p data-reading-anchor id="ch3036-p055">Boss Fang really was something else. Five million points from a casual transaction.</p>
+<p data-reading-anchor id="ch3036-p056">Even Fang Heng opened his mouth slightly in surprise.</p>
+<p data-reading-anchor id="ch3036-p057">The Waterstar Clan was that generous?</p>
+<p data-reading-anchor id="ch3036-p058">Should he simply have Abe Akaya produce more seeds and farm additional contribution points?</p>
+<p data-reading-anchor id="ch3036-p059">The thought vanished almost as quickly as it appeared.</p>
+<p data-reading-anchor id="ch3036-p060">Five million was already a great deal. If he farmed much more, the elves might not be able to afford that many points, and it could cause even greater trouble.</p>
+<p data-reading-anchor id="ch3036-p061">The Flying Squirrel ship's personnel promptly sent the ancient script to the Human Federation, asking their scholars to attempt a translation.</p>
+<p data-reading-anchor id="ch3036-p062">The Human Federation soon replied that they had never encountered similar writing. They possessed little information about it, and even another year or two probably wouldn't be enough for a proper translation.</p>
+<p data-reading-anchor id="ch3036-p063">“Boss Fang, the Waterstar Clan is wary of us. If we can't translate this passage, it'll be difficult to use them to find the elves.” Kappa shrank his neck and asked cautiously, “Are you preparing to use force?”</p>
+<p data-reading-anchor id="ch3036-p064">“No rush. The hook's already been set. They'll bite soon enough.”</p>
+<p data-reading-anchor id="ch3036-p065">“Huh?”</p>
+<p data-reading-anchor id="ch3036-p066">Kappa looked utterly confused.</p>
+<p data-reading-anchor id="ch3036-p067">A hook?</p>
+<p data-reading-anchor id="ch3036-p068">What hook?</p>
+<p data-reading-anchor id="ch3036-p069">“The Energy Seeds you just gave them.”</p>
+<p data-reading-anchor id="ch3036-p070">While examining the ancient script projected on the screen, Fang Heng stroked his chin and explained, “I remember Klevi once mentioning the Tree Spirit Clan's Tree of Life. My guess is that the seeds are being supplied to the Tree of Life, so I left Abe Akaya's marks inside them in advance. That lets me track their location. When the time comes, we can follow the vines back to their roots and find where the Elven Clan lives.”</p>
+<p data-reading-anchor id="ch3036-p071">“Oh! So Boss Fang had everything planned from the beginning.”</p>
+<p data-reading-anchor id="ch3036-p072">Kappa swallowed nervously.</p>
+<p data-reading-anchor id="ch3036-p073">He had a premonition.</p>
+<p data-reading-anchor id="ch3036-p074">The Elven Clan was in serious trouble.</p>
+</article>
+<p class="end" data-reading-anchor id="ch3036-end">— End of Chapter 3036 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Chinese Chapter 3037: 能量种子. English Chapter 3036: Energy Seeds. Narrative paragraphs: 74/74.</li><li>Nick (妮克) is the female Waterstar spaceport security captain; Kappa (卡帕) is the Flying Squirrel ship captain.</li><li>Abe Akaya marks the Energy Seeds to trace their destination. Kappa’s sale earns 5.1 million Kinsfolk contribution points.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_3035_Waterstar.html#start">← Previous</a><a class="next" href="Global_Game_AFK_Chapter_3037_Materials.html#start">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

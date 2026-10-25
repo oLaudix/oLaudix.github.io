@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 2999 — Dealing with It | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-3012">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3011_Disappearance.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_3012_Search.html"><option value="Global_Game_AFK_Chapter_3012_Search.html" selected>3012 · Search</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3013_Invasion.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-3012" data-reading-anchor>
+<div class="chapter-num">Chapter 3012</div><h2 class="chapter-title">Search</h2>
+<p class="source-identity">From Chinese Chapter 3013 · 搜寻</p>
+<article class="prose">
+<p data-reading-anchor id="ch3012-p001">Fang Heng paid the incident no mind. He nodded toward the villa. "What happened over there?"</p>
+<p data-reading-anchor id="ch3012-p002">"Between 13:30 and 14:15 today, a series of attacks occurred in the city's Lotus District, partially paralyzing local transportation. Seven police officers were severely injured and twelve civilians suffered minor injuries. Three suspects were involved. Based on eyewitness accounts, we suspect they may be players who have achieved second-stage unlocking in the real world."</p>
+<p data-reading-anchor id="ch3012-p003">"Two hours ago, all three suspects entered this villa, apparently intending to establish a temporary base."</p>
+<p data-reading-anchor id="ch3012-p004">"The First Reconnaissance Team was exposed while approaching the villa's interior at 16:23. The targets initiated an attack, leaving eight of our personnel seriously injured and two dead. Based on the strength of their attacks and residual energy analysis, their threat rating has been raised to 2S."</p>
+<p data-reading-anchor id="ch3012-p005">"Thermal imaging shows three moving heat signatures inside. The Federation Crisis Response Office has authorized assembling the Falcon, Red Wolf, and Windrider task forces to enter and investigate. We expect to deploy three SSS-rank and twelve SS-rank players... The personnel are still gathering..."</p>
+<p data-reading-anchor id="ch3012-p006">Fang Heng stared at the villa in the distance and extended his senses.</p>
+<p data-reading-anchor id="ch3012-p007">Only three presences.</p>
+<p data-reading-anchor id="ch3012-p008">Klevi wasn't inside.</p>
+<p data-reading-anchor id="ch3012-p009">"I'll take a look."</p>
+<p data-reading-anchor id="ch3012-p010">Lu Yunhao swallowed nervously.</p>
+<p data-reading-anchor id="ch3012-p011">"All right, Boss Fang. All three have been hiding in the ground-floor hall. They ambush anyone who approaches with ranged arrows, so please be careful. If you can, wear this earpiece. Should anything go wrong, we'll rush in to rescue you immediately."</p>
+<p data-reading-anchor id="ch3012-p012">"Got it."</p>
+<p data-reading-anchor id="ch3012-p013">Fang Heng took the earpiece Lu Yunhao offered and put it on.</p>
+<p data-reading-anchor id="ch3012-p014">Under the watchful eyes of the Federation's elite response team, he walked toward the villa entrance.</p>
+<p data-reading-anchor id="ch3012-p015">The moment he pushed open the front gate and entered the courtyard, hidden automatic traps activated. Several pale-green arrows shot out of the villa.</p>
+<p data-reading-anchor id="ch3012-p016" class="sound">"Bang! Bang, bang!"</p>
+<p data-reading-anchor id="ch3012-p017">The arrows exploded one after another in midair, shattered by an unknown force.</p>
+<p data-reading-anchor id="ch3012-p018" class="sound">"Whoosh!"</p>
+<p data-reading-anchor id="ch3012-p019">Fang Heng lightly pushed off the ground and flashed through the courtyard into the villa.</p>
+<p data-reading-anchor id="ch3012-p020">Three elves were crouched in the ground-floor hall, arranging some kind of alchemical magic array on the floor. They were startled when Fang Heng burst in and turned toward him.</p>
+<p data-reading-anchor id="ch3012-p021">Elves!</p>
+<p data-reading-anchor id="ch3012-p022">One look at their slender bodies and sharp, pointed ears was enough for Fang Heng to recognize them.</p>
+<p data-reading-anchor id="ch3012-p023">The three suspects pursued by the Federation weren't players at all—they were elves!</p>
+<p data-reading-anchor id="ch3012-p024">They appeared to be preparing an alchemical array in the hall. Bottles and jars had been arranged all around it.</p>
+<p data-reading-anchor id="ch3012-p025">"Who are you?"</p>
+<p data-reading-anchor id="ch3012-p026">Fang Heng's intrusion disrupted their activation of the array. It failed, and all three elves raised their heads toward him.</p>
+<p data-reading-anchor id="ch3012-p027">The leading elf frowned in annoyance and barked, "Kill him!"</p>
+<p data-reading-anchor id="ch3012-p028" class="sound">"Whoosh!"</p>
+<p data-reading-anchor id="ch3012-p029">The other two elves moved with extraordinary agility, dodging left and right while green arrows rapidly formed around them and shot toward Fang Heng in succession.</p>
+<p data-reading-anchor id="ch3012-p030" class="sound">"Bang! Bang, bang, bang!"</p>
+<p data-reading-anchor id="ch3012-p031">Fang Heng didn't move. Every arrow exploded before it came within two meters of him.</p>
+<p data-reading-anchor id="ch3012-p032">Huh? He had blocked them that easily?</p>
+<p data-reading-anchor id="ch3012-p033">The elven reconnaissance captain was about to warn his subordinates when his vision suddenly blurred.</p>
+<p data-reading-anchor id="ch3012-p034">What?!</p>
+<p data-reading-anchor id="ch3012-p035" class="sound">"Bang! Bang!"</p>
+<p data-reading-anchor id="ch3012-p036">Two dull impacts rang out almost simultaneously. The two elves who'd attacked Fang Heng flew in opposite directions and slammed into the walls.</p>
+<p data-reading-anchor id="ch3012-p037">The captain hadn't seen how Fang Heng struck them at all.</p>
+<p data-reading-anchor id="ch3012-p038">Whoosh!</p>
+<p data-reading-anchor id="ch3012-p039">The next instant, Fang Heng appeared directly before him as if he'd crossed the intervening space in a single step.</p>
+<p data-reading-anchor id="ch3012-p040" class="sound">"Bang!"</p>
+<p data-reading-anchor id="ch3012-p041">Agony exploded in the captain's abdomen. Like his subordinates, he was knocked backward and crashed into the wall.</p>
+<p data-reading-anchor id="ch3012-p042">"Human!"</p>
+<p data-reading-anchor id="ch3012-p043">The captain looked up, glaring at Fang Heng with seething rage. "Lowly human! Do you know what you're doing? You dare harm the noble Elven Clan? The Elven Council will flatten your entire human world! Kneel and kowtow in apology right now, and I might still give you one chance..."</p>
+<p data-reading-anchor id="ch3012-p044">"Hah. Are you threatening me?"</p>
+<p data-reading-anchor id="ch3012-p045">Fang Heng laughed coldly and raised a hand.</p>
+<p data-reading-anchor id="ch3012-p046">The captain's heart lurched. His blood suddenly surged uncontrollably and his body froze in place. Then he felt warmth trickling from his nose and ears.</p>
+<p data-reading-anchor id="ch3012-p047">What?</p>
+<p data-reading-anchor id="ch3012-p048">Looking down, he discovered blood pouring uncontrollably from his facial openings.</p>
+<p data-reading-anchor id="ch3012-p049">Crimson lines spread across his skin like a spiderweb.</p>
+<p data-reading-anchor id="ch3012-p050">Controlled by the blood within him, the elven captain was slowly lifted into the air against his will.</p>
+<p data-reading-anchor id="ch3012-p051">Fang Heng stared into his eyes. "What are you searching for? Where's Klevi?"</p>
+<p data-reading-anchor id="ch3012-p052">"Let me go!" Fear rose in the elf's heart, but he still glared viciously. "Klevi sheltered outsiders! She's already been taken back to the Elven Clan for punishment. Human, release me, or else..."</p>
+<p data-reading-anchor id="ch3012-p053">Fang Heng frowned.</p>
+<p data-reading-anchor id="ch3012-p054">Blood rapidly crept down the captain's cheeks toward his neck, wrapping around his throat and tightening.</p>
+<p data-reading-anchor id="ch3012-p055">The elf went pale and clawed desperately at his neck, struggling violently.</p>
+<p data-reading-anchor id="ch3012-p056">"Last chance," Fang Heng asked coldly. "What are you looking for?"</p>
+<p data-reading-anchor id="ch3012-p057">"Don't think I'll tell you, human..."</p>
+<p data-reading-anchor id="ch3012-p058" class="sound">"Bang!"</p>
+<p data-reading-anchor id="ch3012-p059">Fang Heng clenched his fist. The captain exploded in midair into a cloud of bloody mist.</p>
+<p data-reading-anchor id="ch3012-p060">The two other elves, badly injured by Fang Heng's punches, had just begun struggling to rise. Seeing their captain reduced to mist, they stared at Fang Heng in terror.</p>
+<p data-reading-anchor id="ch3012-p061">"What about you two?"</p>
+<p data-reading-anchor id="ch3012-p062">Fang Heng looked at them and slowly raised his right hand again.</p>
+<p data-reading-anchor id="ch3012-p063">Blood began streaming from the two elves' facial openings, just as it had from their captain. They lost control of their bodies and were lifted slowly into the air.</p>
+<p data-reading-anchor id="ch3012-p064">"Answer my question. What are you searching for?"</p>
+<p data-reading-anchor id="ch3012-p065">"Human, you won't get a single word out of us! You'll regret what you've done today! The Elven Council will wash your world in blood! Your world will be destroyed because of you!"</p>
+<p data-reading-anchor id="ch3012-p066">"Really?"</p>
+<p data-reading-anchor id="ch3012-p067">Fang Heng laughed coldly. A rotating magic array appeared in the pupil of his right eye.</p>
+<p data-reading-anchor id="ch3012-p068">All-Knowing Eye.</p>
+<p data-reading-anchor id="ch3012-p069">Illusion effects combined with Psionic suggestion.</p>
+<p data-reading-anchor id="ch3012-p070">When the elves met Fang Heng's gaze, matching rotating arrays appeared in their pupils, and their eyes gradually lost focus.</p>
+<p data-reading-anchor id="ch3012-p071">Fang Heng asked again, "Tell me. Why did you come here?"</p>
+<p data-reading-anchor id="ch3012-p072">"W-we were ordered to search Klevi's residence for..."</p>
+<p data-reading-anchor id="ch3012-p073" class="sound">"Whoosh!"</p>
+<p data-reading-anchor id="ch3012-p074">Suddenly, as if something had stimulated them, the two elves under mental suggestion turned violently red-eyed. Their faces flushed from pale to crimson, and scarlet veins bulged beneath their skin, making them look horrifying.</p>
+</article>
+<p class="end" data-reading-anchor id="ch3012-end">— End of Chapter 3012 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Chinese Chapter 3013: 搜寻. English Chapter 3012: Search. Narrative paragraphs: 74/74.</li><li>The intruders in Klevi’s home are elves, not second-stage-unlocked players, despite the Federation’s initial suspicion.</li><li>The elven leader threatens Fang Heng with the Elven Council; his threats are character dialogue, not narration.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_3011_Disappearance.html#start">← Previous</a><a class="next" href="Global_Game_AFK_Chapter_3013_Invasion.html#start">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

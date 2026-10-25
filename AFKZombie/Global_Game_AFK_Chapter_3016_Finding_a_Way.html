@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 2999 — Dealing with It | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-3016">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3015_Exploring_Hell.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_3016_Finding_a_Way.html"><option value="Global_Game_AFK_Chapter_3016_Finding_a_Way.html" selected>3016 · Finding a Way</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3017_Condensing_Will.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-3016" data-reading-anchor>
+<div class="chapter-num">Chapter 3016</div><h2 class="chapter-title">Finding a Way</h2>
+<p class="source-identity">From Chinese Chapter 3017 · 想办法</p>
+<article class="prose">
+<p data-reading-anchor id="ch3016-p001">"We've run into a rather difficult problem." Jing'er spread his hands helplessly. "Come with me. You'll understand when you see it."</p>
+<p data-reading-anchor id="ch3016-p002">The fat man cautiously stepped forward and helped the badly injured Liu Mo up. Anger and resentment covered Liu Mo's face.</p>
+<p data-reading-anchor id="ch3016-p003">Jing'er led Fang Heng down to Hell's twenty-ninth layer and headed deeper inside.</p>
+<p data-reading-anchor id="ch3016-p004">Soon they reached a cavern.</p>
+<p data-reading-anchor id="ch3016-p005">Fang Heng glanced around and saw more than twenty Demon Seeds gathered there.</p>
+<p data-reading-anchor id="ch3016-p006">Some lay on the floor, others leaned against rock walls, and a few hung upside down from the ceiling.</p>
+<p data-reading-anchor id="ch3016-p007">Noticing Jing'er personally escorting someone, many looked at Fang Heng curiously.</p>
+<p data-reading-anchor id="ch3016-p008">Most Demon Seeds were proud and unruly. Their appraising gazes carried open provocation.</p>
+<p data-reading-anchor id="ch3016-p009">"Fang Heng, Echidna occupies the thirtieth layer and guards the Demon Cores. To avoid trouble, we need to conceal our auras."</p>
+<p data-reading-anchor id="ch3016-p010">After giving that warning, Jing'er nodded to Zhuang Yufei.</p>
+<p data-reading-anchor id="ch3016-p011">She snapped her fingers, enveloping the three of them, Jing'er included, in a dark protective veil.</p>
+<p data-reading-anchor id="ch3016-p012">"Let's go. I'll show you the Demon Cores."</p>
+<p data-reading-anchor id="ch3016-p013">After winding through a maze of underground tunnels, Jing'er brought Fang Heng to the entrance of Hell's thirtieth layer and stepped through first.</p>
+<p data-reading-anchor id="ch3016-p014">The moment they entered, a cold aura swept over them.</p>
+<p data-reading-anchor id="ch3016-p015">Fang Heng frowned slightly.</p>
+<p data-reading-anchor id="ch3016-p016">Hell usually felt oppressively hot. That heat constantly stirred up negative emotions.</p>
+<p data-reading-anchor id="ch3016-p017">But the thirtieth layer was different. It felt chillingly cold.</p>
+<p data-reading-anchor id="ch3016-p018">Looking closely, he saw pale-blue, mucus-like material coating the rock walls.</p>
+<p data-reading-anchor id="ch3016-p019">Not just the walls—even the surfaces of the ubiquitous lava pools were covered by a slowly moving layer of pale-blue matter.</p>
+<p data-reading-anchor id="ch3016-p020">"That's Echidna."</p>
+<p data-reading-anchor id="ch3016-p021">"This is probably your first time hearing the name. In short, Echidna is one of the Guardians of the Hell Abyss and rules layers twenty-one through thirty."</p>
+<p data-reading-anchor id="ch3016-p022">As they proceeded, Jing'er explained, "Envy has already taken control of her, making Echidna her servant. She's been assigned to guard the Demon Cores."</p>
+<p data-reading-anchor id="ch3016-p023">Seeing how cautiously Jing'er behaved, even concealing his aura, Fang Heng asked, "You seem awfully careful. Is she that strong?"</p>
+<p data-reading-anchor id="ch3016-p024">"She's strong enough." Jing'er nodded. "But the real problem is Eseklyna, the Tongue of Envy."</p>
+<p data-reading-anchor id="ch3016-p025">"Eseklyna has placed a Tongue of Envy projection here, allowing her to sense what's happening at any moment. If a crisis occurs, her true body can enter this place directly through that projection."</p>
+<p data-reading-anchor id="ch3016-p026">"We can handle Echidna, but we can't kill her without alerting Envy."</p>
+<p data-reading-anchor id="ch3016-p027">"I understand."</p>
+<p data-reading-anchor id="ch3016-p028">Fang Heng nodded.</p>
+<p data-reading-anchor id="ch3016-p029">Soon Jing'er led him to a broken cliff wall.</p>
+<p data-reading-anchor id="ch3016-p030">Before it lay what should have been a broad pool of flowing magma. Now it glowed an eerie blue and radiated a bone-chilling cold.</p>
+<p data-reading-anchor id="ch3016-p031">Zhuang Yufei pointed above the lava pool. "Fang Heng, there."</p>
+<p data-reading-anchor id="ch3016-p032">He looked upward.</p>
+<p data-reading-anchor id="ch3016-p033">Five Demon Cores, each about the size of a human head, hung above the frozen magma, rotating slowly in a circle around a towering central pillar.</p>
+<p data-reading-anchor id="ch3016-p034">Blue liquid condensed from the magma below and crept up the pillar like a spiderweb, spreading until it covered all five cores and linked them to the pillar as a single whole.</p>
+<p data-reading-anchor id="ch3016-p035">"Those are the Demon Cores corresponding to our five sources of power."</p>
+<p data-reading-anchor id="ch3016-p036">Jing'er explained coldly, "The blue magma you see, and all the blue material we passed on the way here, are parts of Echidna's actual body."</p>
+<p data-reading-anchor id="ch3016-p037">"That blue mucus is spread throughout layers twenty-one to thirty. It's all her eyes, allowing her to detect approaching danger in advance."</p>
+<p data-reading-anchor id="ch3016-p038">"Fortunately, her senses aren't particularly sharp. By hiding our auras, we can observe this place before she notices us."</p>
+<p data-reading-anchor id="ch3016-p039">Zhuang Yufei shrugged helplessly. "But however weak her perception is, the moment we try taking a Demon Core, Echidna will notice. And then the Tongue of Envy will sense something wrong too."</p>
+<p data-reading-anchor id="ch3016-p040">"See that? That's the Tongue of Envy."</p>
+<p data-reading-anchor id="ch3016-p041">Fang Heng raised his head toward the high ceiling Jing'er indicated.</p>
+<p data-reading-anchor id="ch3016-p042">Above the slowly circling cores, something soft and tongue-shaped hung from the cavern roof, swaying gently.</p>
+<p data-reading-anchor id="ch3016-p043">Looking closely, tiny eyes could be seen covering its tip.</p>
+<p data-reading-anchor id="ch3016-p044">"Ordinarily, Envy controls Echidna through her Tongue. In our last battle against her, she remotely manipulated the Demon Cores, interfering with our origins and draining a huge amount of our power."</p>
+<p data-reading-anchor id="ch3016-p045">Fang Heng rubbed his chin and considered the five floating Demon Cores.</p>
+<p data-reading-anchor id="ch3016-p046">Zhuang Yufei said, "Our plan is to split into two groups. One stays here to watch. The other travels between worlds, recruiting scattered Demon Seeds. Once we've gathered enough strength, we'll find a way to divert Envy's attention and destroy Echidna as quickly as possible while she's distracted."</p>
+<p data-reading-anchor id="ch3016-p047">"Hmph." Jing'er snorted. "Without the Demon Cores, Envy would be within our power to destroy completely."</p>
+<p data-reading-anchor id="ch3016-p048">Zhuang Yufei continued, "As you can see, Fang Heng, we're the group waiting here for an opportunity. Bai Mu is leading the others between worlds. They don't seem to have made much progress yet, but you've arrived."</p>
+<p data-reading-anchor id="ch3016-p049">After hearing the full explanation, Fang Heng thought briefly, then asked, "How much time would you need?"</p>
+<p data-reading-anchor id="ch3016-p050">"What?"</p>
+<p data-reading-anchor id="ch3016-p051">"With your present strength, assuming Envy doesn't interfere, how long would it take to kill Echidna and retrieve the Demon Cores?"</p>
+<p data-reading-anchor id="ch3016-p052">Zhuang Yufei and Jing'er exchanged a look.</p>
+<p data-reading-anchor id="ch3016-p053">"Echidna is powerful, and with her special abilities, she can draw on the Demon Cores to interfere with us if threatened..."</p>
+<p data-reading-anchor id="ch3016-p054">Jing'er interrupted, "Three minutes if we're fast. Ten at the most."</p>
+<p data-reading-anchor id="ch3016-p055">"Is that so...?"</p>
+<p data-reading-anchor id="ch3016-p056">Fang Heng calculated silently.</p>
+<p data-reading-anchor id="ch3016-p057">Even ten minutes, then.</p>
+<p data-reading-anchor id="ch3016-p058">That wasn't particularly long.</p>
+<p data-reading-anchor id="ch3016-p059">"Don't wait for Bai Mu. Prepare to move. I'll find a way to draw Eseklyna's attention and hold her off for ten minutes."</p>
+<p data-reading-anchor id="ch3016-p060">Fang Heng shrugged and continued, "Once you've secured the cores, we'll regroup and deal with Eseklyna together."</p>
+<p data-reading-anchor id="ch3016-p061">Jing'er's face shifted. He stared at Fang Heng.</p>
+<p data-reading-anchor id="ch3016-p062">"You're that confident?"</p>
+<p data-reading-anchor id="ch3016-p063">Both Jing'er and Zhuang Yufei could sense Fang Heng had become much stronger since their last meeting. Even so, neither had imagined he'd be so arrogant as to believe he could restrain Eseklyna alone.</p>
+<p data-reading-anchor id="ch3016-p064">They exchanged another glance.</p>
+<p data-reading-anchor id="ch3016-p065">Confidence itself was no bad thing.</p>
+<p data-reading-anchor id="ch3016-p066">But failure could ruin the Demon Core operation they'd planned for so long. If Envy discovered their attempt, a second chance would be much harder to find.</p>
+<p data-reading-anchor id="ch3016-p067">"Relax." Seeing their doubts, Fang Heng said, "Don't forget, there's no Demon Core here belonging to me. Envy can't use one to interfere with my power. I'm the best person for this task."</p>
+<p data-reading-anchor id="ch3016-p068">Jing'er asked, "How do you intend to draw Envy's attention?"</p>
+<p data-reading-anchor id="ch3016-p069">Fang Heng curled his lip. "By borrowing the power of sacred light, of course."</p>
+</article>
+<p class="end" data-reading-anchor id="ch3016-end">— End of Chapter 3016 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Chinese Chapter 3017: 想办法. English Chapter 3016: Finding a Way. Narrative paragraphs: 69/69.</li><li>Echidna guards the Demon Cores on Hell’s thirtieth layer; her blue substance extends through layers 21–30.</li><li>The Tongue of Envy projection can enable Eseklyna to appear directly; the group fears alerting her true body.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_3015_Exploring_Hell.html#start">← Previous</a><a class="next" href="Global_Game_AFK_Chapter_3017_Condensing_Will.html#start">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

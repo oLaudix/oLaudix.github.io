@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 2999 — Dealing with It | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-3017">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3016_Finding_a_Way.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_3017_Condensing_Will.html"><option value="Global_Game_AFK_Chapter_3017_Condensing_Will.html" selected>3017 · Condensing Will</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3018_Will_Refinement.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-3017" data-reading-anchor>
+<div class="chapter-num">Chapter 3017</div><h2 class="chapter-title">Condensing Will</h2>
+<p class="source-identity">From Chinese Chapter 3018 · 凝聚意志</p>
+<article class="prose">
+<p data-reading-anchor id="ch3017-p001">The Divine Realm.</p>
+<p data-reading-anchor id="ch3017-p002">After the Calamity crisis ended, the revived God King hastily issued several orders before entering seclusion once again.</p>
+<p data-reading-anchor id="ch3017-p003">Rumors claimed that years of fighting the Calamity had brought him new insight and that he needed secluded cultivation to achieve a breakthrough.</p>
+<p data-reading-anchor id="ch3017-p004">The truth was quite different.</p>
+<p data-reading-anchor id="ch3017-p005">During the battle against the Calamity, the Holy Court's God-Bestowed Jewel had shifted position because of Fang Heng.</p>
+<p data-reading-anchor id="ch3017-p006">And with its outer protective mesh removed, the jewel's power was rapidly leaking away.</p>
+<p data-reading-anchor id="ch3017-p007">The God King had no choice but to cultivate using that power, consuming it to prevent it from spreading too widely.</p>
+<p data-reading-anchor id="ch3017-p008">Meanwhile, reconstruction work throughout the Divine Realm began in earnest.</p>
+<p data-reading-anchor id="ch3017-p009">After the destruction wrought by the Demon Seeds and the Calamity, almost everything needed rebuilding.</p>
+<p data-reading-anchor id="ch3017-p010">Following discussions with the Divine Realm's Grand Sages, the God King decided to focus on reconstruction for the time being. The Holy Court would stop making enemies everywhere as it had before.</p>
+<p data-reading-anchor id="ch3017-p011">"Report!"</p>
+<p data-reading-anchor id="ch3017-p012">A Divine Realm guard hurried into the Pantheon and bowed respectfully. "Grand Sage!"</p>
+<p data-reading-anchor id="ch3017-p013">Grand Sage Alairdin slowly opened his eyes. "What's happened? Why are you so agitated?"</p>
+<p data-reading-anchor id="ch3017-p014">"Grand Sage, Captain Hain of the Divine Punishment Knights left a message. He received word from Grand Sage Fang Bai and immediately led his knights to the lower worlds to meet him."</p>
+<p data-reading-anchor id="ch3017-p015">"What? Fang Bai?"</p>
+<p data-reading-anchor id="ch3017-p016">Alairdin was surprised.</p>
+<p data-reading-anchor id="ch3017-p017">Fang Bai's background was certainly peculiar. He'd left the Divine Realm with an enormous mess to clean up, but he'd also helped greatly in the battle against the Calamity. The Divine Realm hadn't seriously questioned his identity.</p>
+<p data-reading-anchor id="ch3017-p018">Since Fang Heng disappeared, they'd merely sent people to look for news of him.</p>
+<p data-reading-anchor id="ch3017-p019">As a Grand Sage, Fang Heng couldn't be ordered around by anyone except the God King.</p>
+<p data-reading-anchor id="ch3017-p020">Even the other three Grand Sages were his equals.</p>
+<p data-reading-anchor id="ch3017-p021">If they found him, they could at most pass along a few messages. There was no possibility of forcing Fang Bai to return.</p>
+<p data-reading-anchor id="ch3017-p022">Besides, the Grand Sages assumed he had good reasons for visiting the lower worlds, so unnecessary interference would be unwise.</p>
+<p data-reading-anchor id="ch3017-p023">And with no word of Fang Bai for so long, most had nearly forgotten the matter.</p>
+<p data-reading-anchor id="ch3017-p024">Grand Sage Dean, sitting nearby, asked, "So the Divine Punishment Knights have news of him? Where is he?"</p>
+<p data-reading-anchor id="ch3017-p025">"The Eternal Holy City."</p>
+<p data-reading-anchor id="ch3017-p026">The guard nodded respectfully. "We only just learned that Grand Sage Fang Bai arrived in the Eternal Holy City last night. He immediately began recruiting Holy Court crusaders and elites from multiple worlds, including but not limited to paladin teams, priest teams, archbishops, adjudicators, and guard units."</p>
+<p data-reading-anchor id="ch3017-p027">"The summoned teams are assembling now and rapidly gathering in the Eternal Holy City."</p>
+<p data-reading-anchor id="ch3017-p028">What was going on?</p>
+<p data-reading-anchor id="ch3017-p029">Such a huge mobilization? Why did he need so many people?</p>
+<p data-reading-anchor id="ch3017-p030">Dean and the other Grand Sages were stunned.</p>
+<p data-reading-anchor id="ch3017-p031">They'd only recently agreed with the God King that the Holy Court should lie low for a while. How much time had passed before Fang Bai began mobilizing everyone?</p>
+<p data-reading-anchor id="ch3017-p032">"What does he intend to do?"</p>
+<p data-reading-anchor id="ch3017-p033">"Reportedly, he's preparing to enter Hell through the Eternal Holy City's trial passage."</p>
+<p data-reading-anchor id="ch3017-p034">The three Grand Sages exchanged looks.</p>
+<p data-reading-anchor id="ch3017-p035">This newly appointed Fang Bai was usually impossible to find. Now he'd suddenly appeared and picked a fight with Hell?</p>
+<p data-reading-anchor id="ch3017-p036">True, the Holy Court had always opposed Hell and considered it a mortal threat. But why would he launch an unprovoked assault at a time like this?</p>
+<p data-reading-anchor id="ch3017-p037">The main issue was the cost.</p>
+<p data-reading-anchor id="ch3017-p038">Hell had been spreading slowly for ages. Pouring the Holy Court's precious fighting strength into it would hardly be worthwhile.</p>
+<p data-reading-anchor id="ch3017-p039">Thus, unless Hell expanded drastically, the Holy Court generally avoided pushing deep into it. At most, it sent small teams for training.</p>
+<p data-reading-anchor id="ch3017-p040">Alairdin frowned. "Did Grand Sage Fang Bai mention a specific objective in Hell?"</p>
+<p data-reading-anchor id="ch3017-p041">"Uh... about that..."</p>
+<p data-reading-anchor id="ch3017-p042">The guard lowered his head, cautiously glanced at the three Grand Sages, and murmured, "He said he intends to avenge the Holy Court members who died fighting Hell. Apparently, he plans to wash Hell in blood."</p>
+<p data-reading-anchor id="ch3017-p043">"Huh?"</p>
+<p data-reading-anchor id="ch3017-p044">All three Grand Sages were stunned, then broke into bitter smiles.</p>
+<p data-reading-anchor id="ch3017-p045">This newly appointed Grand Sage certainly had a wild imagination and an unconventional disposition.</p>
+<p data-reading-anchor id="ch3017-p046">Wash Hell in blood? That didn't sound like something a Holy Court Grand Sage should be saying at all.</p>
+<p data-reading-anchor id="ch3017-p047">"Very well. You may withdraw."</p>
+<p data-reading-anchor id="ch3017-p048">Alairdin dismissed the guard, turned to the other two, and asked, "What do you think?"</p>
+<p data-reading-anchor id="ch3017-p049">For a moment, nobody could understand what Fang Heng was trying to accomplish.</p>
+<p data-reading-anchor id="ch3017-p050">"Fang Bai has always been eccentric, but he is one of our Grand Sages. I doubt he'd deliberately harm the Holy Court. Still, invading Hell is extremely dangerous. Perhaps we should send someone to support him and learn the circumstances before deciding anything."</p>
+<p data-reading-anchor id="ch3017-p051">The three exchanged another look.</p>
+<p data-reading-anchor id="ch3017-p052">"Grand Sage Fang Bai's strength is sufficient for most problems. Sending ordinary troops probably won't persuade him to change course. One of us may have to go personally."</p>
+<p data-reading-anchor id="ch3017-p053">"I'll go."</p>
+<p data-reading-anchor id="ch3017-p054">Grand Sage Dean rose from his magic array. "I've been cooped up here too long. I wouldn't mind stretching my limbs. And I rather like that kid's personality. I'll pay him a visit myself."</p>
+<p data-reading-anchor id="ch3017-p055">"Very well. Take plenty of people with you, Grand Sage Dean, and please be careful. Oh, and one more thing..."</p>
+<p data-reading-anchor id="ch3017-p056">Lucius paused, considered something, and looked around. "Do you think Fang Bai might be trying to condense the Will of the Twelve Sages?"</p>
+<p data-reading-anchor id="ch3017-p057">At those words, the three Grand Sages fell silent.</p>
+<p data-reading-anchor id="ch3017-p058">Dean, already about to leave, stopped and turned back.</p>
+<p data-reading-anchor id="ch3017-p059">The Will of the Twelve Sages!</p>
+<p data-reading-anchor id="ch3017-p060">Well, now that was a bold idea!</p>
+<p data-reading-anchor id="ch3017-p061">Condensing the Will of the Twelve Sages was extraordinarily difficult. All of them had attempted it, and every attempt had failed.</p>
+<p data-reading-anchor id="ch3017-p062">And how long had Fang Bai been a Grand Sage?</p>
+<p data-reading-anchor id="ch3017-p063">He was daring enough to attempt it already?</p>
+<p data-reading-anchor id="ch3017-p064">But then again...</p>
+<p data-reading-anchor id="ch3017-p065">Thinking it over, why else would the kid suddenly go mad and charge into Hell?</p>
+<p data-reading-anchor id="ch3017-p066">And Hell really was an excellent place to temper and condense one's will!</p>
+<p data-reading-anchor id="ch3017-p067" class="scene">...</p>
+<p data-reading-anchor id="ch3017-p068">Hell, sixth layer.</p>
+<p data-reading-anchor id="ch3017-p069">As the Holy Court's spatial passage opened, crusaders, reserve crusaders, and priest and paladin teams from the lower worlds assembled and entered Hell one after another.</p>
+<p data-reading-anchor id="ch3017-p070">Burning sacred light drove back the oppressive heat hanging over Hell.</p>
+<p data-reading-anchor id="ch3017-p071">Fang Heng had already wiped out the first wave of hellish creatures. Under the intense waves of sacred power that followed, no monster in the vicinity was foolish enough to approach.</p>
+<p data-reading-anchor id="ch3017-p072">Hain soon arrived with the Divine Punishment Knights.</p>
+</article>
+<p class="end" data-reading-anchor id="ch3017-end">— End of Chapter 3017 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Chinese Chapter 3018: 凝聚意志. English Chapter 3017: Condensing Will. Narrative paragraphs: 72/72.</li><li>The God-Bestowed Jewel of the Divine Realm is losing power after its protective mesh was removed.</li><li>Grand Sage Dean, Alairdin and Lucius discuss Fang Bai’s Hell mobilization; Hain joins the operation independently.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_3016_Finding_a_Way.html#start">← Previous</a><a class="next" href="Global_Game_AFK_Chapter_3018_Will_Refinement.html#start">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

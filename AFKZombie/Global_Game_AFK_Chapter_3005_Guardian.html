@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 2999 — Dealing with It | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-3005">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3004_Transmutation.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_3005_Guardian.html"><option value="Global_Game_AFK_Chapter_3005_Guardian.html" selected>3005 · Guardian</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3006_Defeating_the_Enemy.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-3005" data-reading-anchor>
+<div class="chapter-num">Chapter 3005</div><h2 class="chapter-title">Guardian</h2>
+<p class="source-identity">From Chinese Chapter 3006 · 守护者</p>
+<article class="prose">
+<p data-reading-anchor id="ch3005-p001">"Hm? What did you say? Power of faith?"</p>
+<p data-reading-anchor id="ch3005-p002">Confusion appeared in the Titan Guardian's eyes as he looked at the Holy Court players standing before Fang Heng.</p>
+<p data-reading-anchor id="ch3005-p003">Under his gaze, Archbishop Whiteman suddenly felt an immense pressure bearing down upon him. His face paled, and even breathing became difficult.</p>
+<p data-reading-anchor id="ch3005-p004">"Hum..."</p>
+<p data-reading-anchor id="ch3005-p005">Sensing danger, his Sacred Shield automatically formed around him.</p>
+<p data-reading-anchor id="ch3005-p006">"Oh?"</p>
+<p data-reading-anchor id="ch3005-p007">The Titan Guardian looked puzzled when he saw the shield. After a pause, understanding seemed to dawn. With a note of regret, he said, "So it's a crude imitation of the gods. Humans, you've taken the wrong path. This is not the road the Titans should follow."</p>
+<p data-reading-anchor id="ch3005-p008" class="sound">"Bang! Bang, bang, bang!"</p>
+<p data-reading-anchor id="ch3005-p009">The Guardian extended one finger and tapped lightly in the air. The shields surrounding Whiteman and the others shattered. They coughed blood and staggered backward.</p>
+<p data-reading-anchor id="ch3005-p010">The onlookers' expressions changed.</p>
+<p data-reading-anchor id="ch3005-p011">A Holy Court archbishop had been grievously injured by the Titan's most casual gesture.</p>
+<p data-reading-anchor id="ch3005-p012">The Guardian looked at them indifferently. "Is this how you acquired your strength? How regrettable. You chose false faith in pursuit of power and even attacked your own kin. You've disgraced the bloodline within you. You're unfit to remain in this world..."</p>
+<p data-reading-anchor id="ch3005-p013">Yi Qingzhi, leading the Eastern Federation party, hurriedly spoke up. "Titan Ancestor! That's not what happened! Mr. Fang—"</p>
+<p data-reading-anchor id="ch3005-p014">"Silence. No explanations. Destroying the seal only adds to your crimes."</p>
+<p data-reading-anchor id="ch3005-p015">The Titan lightly moved his finger toward Archbishop Whiteman, who stood before Fang Heng.</p>
+<p data-reading-anchor id="ch3005-p016">Whoosh!</p>
+<p data-reading-anchor id="ch3005-p017">An invisible ripple erupted from his fingertip!</p>
+<p data-reading-anchor id="ch3005-p018">Already internally injured and pinned in place by the Titan's pressure, Whiteman couldn't move. All he could do was sense a terrifying force racing toward him.</p>
+<p data-reading-anchor id="ch3005-p019" class="sound">"Bang!"</p>
+<p data-reading-anchor id="ch3005-p020">The next instant, that force exploded in front of Whiteman. The resulting blast of air struck him and the surrounding Holy Court players head-on, making it hard to keep their eyes open.</p>
+<p data-reading-anchor id="ch3005-p021">Only when the wave dissipated did the oppressive force vanish. The Holy Court players gulped down fresh air.</p>
+<p data-reading-anchor id="ch3005-p022">Looking up, they found Fang Heng standing before them. He had blocked the Titan's attack.</p>
+<p data-reading-anchor id="ch3005-p023">"Grand Sage!"</p>
+<p data-reading-anchor id="ch3005-p024">Whiteman felt as though he'd just walked through the gates of death. He and the others bowed to Fang Heng in gratitude.</p>
+<p data-reading-anchor id="ch3005-p025">Without his intervention, that single attack would probably have killed them.</p>
+<p data-reading-anchor id="ch3005-p026">"Fall back."</p>
+<p data-reading-anchor id="ch3005-p027">Fang Heng left them with those words, looked up at the Guardian, and asked coldly, "You claim to be humanity's Titan ancestor. What proof do you have?"</p>
+<p data-reading-anchor id="ch3005-p028">The Titan Guardian was clearly surprised Fang Heng had blocked the blow. He frowned at the question. "What proof would you require?"</p>
+<p data-reading-anchor id="ch3005-p029">"Hah." Fang Heng's face hardened and killing intent surged from his body. "You want to be my ancestor? First see if you can survive me!"</p>
+<p data-reading-anchor id="ch3005-p030">Whoosh!</p>
+<p data-reading-anchor id="ch3005-p031">Fang Heng lightly pushed off the ground and sprang toward the Titan Guardian.</p>
+<p data-reading-anchor id="ch3005-p032">Humanity's ancestor?</p>
+<p data-reading-anchor id="ch3005-p033">Hah!</p>
+<p data-reading-anchor id="ch3005-p034">First he'd test how strong this thing really was!</p>
+<p data-reading-anchor id="ch3005-p035">The players watching from inside the hall were horrified.</p>
+<p data-reading-anchor id="ch3005-p036">Was Fang Heng trying to get himself killed? Ancestor or not, the giant was undeniably terrifying, and Fang Heng had actually attacked him first?</p>
+<p data-reading-anchor id="ch3005-p037">Yi Qingzhi, commander of the Eastern Federation team, stared intently with furrowed brows.</p>
+<p data-reading-anchor id="ch3005-p038">He'd gone mad!</p>
+<p data-reading-anchor id="ch3005-p039">Judging from all the information previously gathered by the Eastern Federation, the giant almost certainly was a Titan ancestor.</p>
+<p data-reading-anchor id="ch3005-p040">Fang Heng should have realized that too.</p>
+<p data-reading-anchor id="ch3005-p041">According to ancient records, the Titans had once been the largest clan in the universe.</p>
+<p data-reading-anchor id="ch3005-p042">Their strength was terrifying.</p>
+<p data-reading-anchor id="ch3005-p043">What on earth was this kid thinking?</p>
+<p data-reading-anchor id="ch3005-p044">Augustine of the Western Federation knew how powerful Fang Heng was. He quickly signaled his team to withdraw toward the metal door, ready to retreat at any moment.</p>
+<p data-reading-anchor id="ch3005-p045">When two immortals fought, ordinary people had better stay far away!</p>
+<p data-reading-anchor id="ch3005-p046" class="sound">"Whoosh!"</p>
+<p data-reading-anchor id="ch3005-p047">Fang Heng rushed in, summoned his Sacred Greatsword, and struck the Guardian's petrified body with a heavy, dull impact.</p>
+<p data-reading-anchor id="ch3005-p048" class="sound">"Bang!"</p>
+<p data-reading-anchor id="ch3005-p049">The spreading sacred ripples instantly produced a second explosion across the Titan's body.</p>
+<p data-reading-anchor id="ch3005-p050">Their blinding light forced the players to avert their eyes. When they looked again, the Titan appeared completely unharmed.</p>
+<p data-reading-anchor id="ch3005-p051">No effect?</p>
+<p data-reading-anchor id="ch3005-p052">The Guardian seemed to have suffered no injury at all. He abruptly raised his right hand.</p>
+<p data-reading-anchor id="ch3005-p053" class="sound">"Thud!"</p>
+<p data-reading-anchor id="ch3005-p054">A heavy impact!</p>
+<p data-reading-anchor id="ch3005-p055">Nobody in the hall could see how the Titan had swung his palm. They heard only a dull blow, then saw Fang Heng struck by a massive slap. His Sacred Shield burst instantly!</p>
+<p data-reading-anchor id="ch3005-p056">A cloud of blood erupted amid the sacred light, and Fang Heng was hurled backward, drenched in blood!</p>
+<p data-reading-anchor id="ch3005-p057">Not good!</p>
+<p data-reading-anchor id="ch3005-p058">Whiteman's heart tightened.</p>
+<p data-reading-anchor id="ch3005-p059">Was the difference in strength insurmountable?</p>
+<p data-reading-anchor id="ch3005-p060">Wait!</p>
+<p data-reading-anchor id="ch3005-p061">The onlookers realized with surprise that Fang Heng hadn't lost control of his body. Even as he flew backward, he picked a landing point, bounced across the ground several times to disperse the impact, and adjusted his stance.</p>
+<p data-reading-anchor id="ch3005-p062">He looked miserable, blood seeping through his skin, but he clearly hadn't lost the ability to fight.</p>
+<p data-reading-anchor id="ch3005-p063">"Look! The Titan's body!"</p>
+<p data-reading-anchor id="ch3005-p064">Someone suddenly exclaimed in a hushed voice.</p>
+<p data-reading-anchor id="ch3005-p065">The others looked up. Where Fang Heng's Sacred Greatsword had struck the Titan, spiderweb cracks had appeared across the stone-like surface, threaded with golden lines.</p>
+<p data-reading-anchor id="ch3005-p066">The Titan Guardian stared at Fang Heng in disbelief.</p>
+<p data-reading-anchor id="ch3005-p067">The power of a human inheritor...</p>
+<p data-reading-anchor id="ch3005-p068">It could actually injure his body?</p>
+<p data-reading-anchor id="ch3005-p069">Whoosh!</p>
+<p data-reading-anchor id="ch3005-p070">Before the Guardian could think further, Fang Heng charged him again!</p>
+<p data-reading-anchor id="ch3005-p071">This time the Guardian took no chances. He locked his senses tightly onto Fang Heng and raised his right palm in advance.</p>
+<p data-reading-anchor id="ch3005-p072" class="sound">"Whoosh!"</p>
+<p data-reading-anchor id="ch3005-p073">Huh?</p>
+<p data-reading-anchor id="ch3005-p074">The players froze. Fang Heng had disappeared from space in the middle of his charge.</p>
+<p data-reading-anchor id="ch3005-p075">Secondary Space Projection!</p>
+<p data-reading-anchor id="ch3005-p076" class="sound">"Whoosh!"</p>
+<p data-reading-anchor id="ch3005-p077">As though he could see Fang Heng even within the projection, the Guardian swung his right arm, twisting his body as he slapped fiercely to his right.</p>
+<p data-reading-anchor id="ch3005-p078" class="sound">"Bang!"</p>
+<p data-reading-anchor id="ch3005-p079">An explosive impact!</p>
+<p data-reading-anchor id="ch3005-p080">The Titan's slap knocked Fang Heng straight out of Secondary Space Projection and sent him flying again, blood mist erupting around him!</p>
+<p data-reading-anchor id="ch3005-p081">What the hell?</p>
+<p data-reading-anchor id="ch3005-p082">The players collectively gasped.</p>
+<p data-reading-anchor id="ch3005-p083">That had been Secondary Space Projection.</p>
+<p data-reading-anchor id="ch3005-p084">Fang Heng had already entered the projection, yet the Guardian's slap had knocked him right out of it.</p>
+<p data-reading-anchor id="ch3005-p085">The Titan could attack through Secondary Space Projection itself!</p>
+<p data-reading-anchor id="ch3005-p086" class="sound">"Bang!"</p>
+<p data-reading-anchor id="ch3005-p087">Fang Heng was sent flying. His back struck the ice wall hard. He landed, braced himself with his hands, and rose quickly, a cold smile touching his lips.</p>
+</article>
+<p class="end" data-reading-anchor id="ch3005-end">— End of Chapter 3005 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Chinese Chapter 3006: 守护者. English Chapter 3005: Guardian. Narrative paragraphs: 87/87.</li><li>A Southern Federation player is mistakenly named Augustine in this passage, whereas Augustine was established as a Western Federation representative. The translation keeps Augustine while noting the affiliation discrepancy.</li><li>The Titan Guardian can strike someone even while they are using Secondary Space Projection.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_3004_Transmutation.html#start">← Previous</a><a class="next" href="Global_Game_AFK_Chapter_3006_Defeating_the_Enemy.html#start">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>
