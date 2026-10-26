@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 3136 — Obstruction | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-3136">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3135_Earth_s_Core_Flame_Vein.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_3136_Obstruction.html"><option value="Global_Game_AFK_Chapter_3136_Obstruction.html" selected>3136 · Obstruction</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3137_Overconfidence.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-3136" data-reading-anchor>
+<div class="chapter-num">Chapter 3136</div><h2 class="chapter-title">Obstruction</h2>
+<p class="source-identity">From Chinese Chapter 3137 · 阻碍</p>
+<article class="prose">
+<p data-reading-anchor id="ch3136-p001">“Hiss, hissss…”</p>
+<p data-reading-anchor id="ch3136-p002">As a bead of blood blossomed at the center of Fang Heng's forehead, fine streams of black mist began leaking from it.</p>
+<p data-reading-anchor id="ch3136-p003">Fang Heng could sense it.</p>
+<p data-reading-anchor id="ch3136-p004">Even here in the Frozen Soul Land, his special game abilities encountered some resistance.</p>
+<p data-reading-anchor id="ch3136-p005">Fortunately, it wasn't severe. The main effect was that his skill activation times were extended by more than tenfold.</p>
+<p data-reading-anchor id="ch3136-p006">Supported by Fang Heng's enormous mental power, the blood seeping from his forehead slowly floated into midair.</p>
+<p data-reading-anchor id="ch3136-p007">“Hiss, hisss…”</p>
+<p data-reading-anchor id="ch3136-p008">The blood gathered and gradually formed a scarlet spatial gate in the air.</p>
+<p data-reading-anchor id="ch3136-p009">The blood-colored portal slowly fused with the surrounding space.</p>
+<p data-reading-anchor id="ch3136-p010">Unlike the previous times he'd used the Vampire Teleportation Gate, thin strands of black mist now leaked continuously from the seams where it merged with the torn fabric of space.</p>
+<p data-reading-anchor id="ch3136-p011">The portal also opened far more slowly than usual.</p>
+<p data-reading-anchor id="ch3136-p012">“Click!!!”</p>
+<p data-reading-anchor id="ch3136-p013">With a soft crack, the spatial gate slowly opened high in the air.</p>
+<p data-reading-anchor id="ch3136-p014">The Vampire Prince Garr, accompanied by two Vampire elders, flew out of the passage first. Arriving before Fang Heng, they all knelt on one knee. “Greetings, Your Majesty.”</p>
+<p data-reading-anchor id="ch3136-p015">“Garr, I want you to occupy this planet as quickly as possible. Take control of everything in this world and sever all contact with the outside,” Fang Heng said calmly, gazing into the distance. “Go. The insects will cooperate with you.”</p>
+<p data-reading-anchor id="ch3136-p016">“Yes, Your Majesty!”</p>
+<p data-reading-anchor id="ch3136-p017">Garr's spirits rose.</p>
+<p data-reading-anchor id="ch3136-p018">The Vampires' bloodline power had increased dramatically several times in succession. They felt they'd been accumulating strength for ages, but Fang Heng had kept them largely confined to the Vampire world, and chances to train in the outside world were rare.</p>
+<p data-reading-anchor id="ch3136-p019">In truth, most Vampires longed for an opportunity to fight outsiders.</p>
+<p data-reading-anchor id="ch3136-p020">Now their chance had come!</p>
+<p data-reading-anchor id="ch3136-p021">Korkalot raised his head and stared at the unfamiliar people emerging continuously from the Vampire Teleportation Gate overhead, amazement shining in his eyes.</p>
+<p data-reading-anchor id="ch3136-p022">What race was this?</p>
+<p data-reading-anchor id="ch3136-p023">He'd never seen them before.</p>
+<p data-reading-anchor id="ch3136-p024">And Fang Heng seemed to be their leader?</p>
+<p data-reading-anchor id="ch3136-p025">At the very least, Korkalot could sense power from Garr that was in no way inferior to his own.</p>
+<p data-reading-anchor id="ch3136-p026">“Stop staring!” Kappa gave Korkalot a shove. “They're Vampires. Come on, take them to the starship area. First, cut off the ships' communications with the outside world. Don't let any of them escape!”</p>
+<p data-reading-anchor id="ch3136-p027">“Mm…”</p>
+<p data-reading-anchor id="ch3136-p028">Korkalot withdrew his gaze.</p>
+<p data-reading-anchor id="ch3136-p029">Under the leadership of Garr and Bule, elite Vampires flew continuously out of the spatial gate and joined Kappa in charging toward the starship district.</p>
+<p data-reading-anchor id="ch3136-p030">The security guards inside the caverns were going mad.</p>
+<p data-reading-anchor id="ch3136-p031">Where had all these monsters come from?</p>
+<p data-reading-anchor id="ch3136-p032">They were ordinary guards with limited strength. Their beam weapons couldn't inflict lethal damage on the insects, and before they could even flee, Vampires joined the battle.</p>
+<p data-reading-anchor id="ch3136-p033">Thanks to their racial characteristics and immense attributes, the Vampires completely overwhelmed ordinary security personnel in one-sided battles.</p>
+<p data-reading-anchor id="ch3136-p034">With support from the Licker swarm, Garr led his forces straight through the front lines.</p>
+<p data-reading-anchor id="ch3136-p035">Fang Heng looked at the Vampire elders kneeling before him and nodded slightly. “Elders, let's begin.”</p>
+<p data-reading-anchor id="ch3136-p036">“Yes, Your Majesty.”</p>
+<p data-reading-anchor id="ch3136-p037">Several elders highly proficient in alchemy immediately helped Fang Heng construct Abe Akaya's summoning magic array.</p>
+<p data-reading-anchor id="ch3136-p038">They were among the Vampires most skilled in alchemical arrays, selected specifically to help establish Abe Akaya's array quickly.</p>
+<p data-reading-anchor id="ch3136-p039">Hm?</p>
+<p data-reading-anchor id="ch3136-p040">Fang Heng raised a hand and tapped lightly at several points in empty space. The outline of a magic array slowly appeared on the ground.</p>
+<p data-reading-anchor id="ch3136-p041">The Vampire elders were astonished.</p>
+<p data-reading-anchor id="ch3136-p042">In the time since they'd last met, their king's accomplishments in alchemical magic arrays had advanced terrifyingly far.</p>
+<p data-reading-anchor id="ch3136-p043">They put aside their surprise and concentrated on helping Fang Heng complete the formation.</p>
+<p data-reading-anchor id="ch3136-p044">Just over ten minutes later.</p>
+<p data-reading-anchor id="ch3136-p045">Dense black mist seeped from the array, followed by Abe Akaya's vines bursting forth.</p>
+<p data-reading-anchor id="ch3136-p046">The array had likewise suffered interference.</p>
+<p data-reading-anchor id="ch3136-p047">Fang Heng raised his head and glanced toward the distant disturbance in blood energy. Then he stopped what he was doing, looked at the elders, and said solemnly, “Stay here and continue constructing the array. I'll go take a look.”</p>
+<p data-reading-anchor id="ch3136-p048">“Yes, Your Majesty!”</p>
+<p class="scene" data-reading-anchor id="ch3136-p049">…</p>
+<p data-reading-anchor id="ch3136-p050">Two Vampire Princes led a group of elite Vampires out of the underground caverns.</p>
+<p data-reading-anchor id="ch3136-p051">Meanwhile, the Kinsfolk's outsourced security company on the Frozen Soul Land began to respond to the Vampires emerging from underground, immediately sounding the alarm.</p>
+<p data-reading-anchor id="ch3136-p052">At first, the company assumed the prisoners had started a riot and organized personnel to suppress it.</p>
+<p data-reading-anchor id="ch3136-p053">But when they entered the underground caverns and saw a vast swarm of insect creatures charging toward them, their scalps tingled with horror.</p>
+<p data-reading-anchor id="ch3136-p054">Where had so many insects come from?</p>
+<p data-reading-anchor id="ch3136-p055">Before long, an elite guard team assembled by the company's leadership arrived on the battlefield.</p>
+<p data-reading-anchor id="ch3136-p056">Chen Hanyu was the chief commander of the interstellar security guards. By the time he'd assembled his men and reached the cavern entrance, an overwhelming number of insect creatures were already pouring out!</p>
+<p data-reading-anchor id="ch3136-p057">The security company's defensive teams fired beam weapons furiously into the swarm while slowly retreating.</p>
+<p data-reading-anchor id="ch3136-p058">The battle was almost entirely one-sided.</p>
+<p data-reading-anchor id="ch3136-p059">They couldn't hold them back at all!</p>
+<p data-reading-anchor id="ch3136-p060">Chen Hanyu frowned deeply.</p>
+<p data-reading-anchor id="ch3136-p061">The insects' defenses were ridiculously strong!</p>
+<p data-reading-anchor id="ch3136-p062">Even the highest-grade high-frequency beam weapons couldn't injure them!</p>
+<p data-reading-anchor id="ch3136-p063">This was difficult.</p>
+<p data-reading-anchor id="ch3136-p064">Security on the Frozen Soul Land had been designed to control prisoners. Ordinary-grade beam weapons were more than adequate for that.</p>
+<p data-reading-anchor id="ch3136-p065">They had hardly any equipment suitable for repelling a planetary invasion.</p>
+<p data-reading-anchor id="ch3136-p066">Hm? What was that? Chen Hanyu looked up and saw numerous unfamiliar flying beings emerging from the cavern.</p>
+<p data-reading-anchor id="ch3136-p067">The airborne Vampires were continuously launching blood-colored spheres at the security teams, disrupting their formations.</p>
+<p data-reading-anchor id="ch3136-p068">Chen Hanyu looked surprised.</p>
+<p data-reading-anchor id="ch3136-p069">An invasion by pan-human races?</p>
+<p data-reading-anchor id="ch3136-p070">Were they controlling the insect swarm from behind the scenes?</p>
+<p data-reading-anchor id="ch3136-p071">Damn it! Why hadn't there been any warning?</p>
+<p data-reading-anchor id="ch3136-p072">Where had they come from?</p>
+<p data-reading-anchor id="ch3136-p073">“Report to headquarters and request reinforcements. Prepare the starships for emergency departure.”</p>
+<p data-reading-anchor id="ch3136-p074">Chen Hanyu immediately made his decision and issued orders. “Evacuate all personnel. All starships are to prepare for warp departure at once.”</p>
+<p data-reading-anchor id="ch3136-p075">“Yes!”</p>
+<p data-reading-anchor id="ch3136-p076">The security teams hurried away to prepare their retreat.</p>
+<p data-reading-anchor id="ch3136-p077">“Everyone else, follow me! Help cover the evacuation!”</p>
+<p data-reading-anchor id="ch3136-p078">“Yes!”</p>
+<p data-reading-anchor id="ch3136-p079">With that, Chen Hanyu immediately led a group of warriors beside him into the battle.</p>
+<p data-reading-anchor id="ch3136-p080">He understood the situation clearly.</p>
+<p data-reading-anchor id="ch3136-p081">The enemy's numbers were certainly far greater than what he could see, and their individual strength was generally high.</p>
+<p data-reading-anchor id="ch3136-p082">His security force had only one high-tier warrior—himself—along with five mid-tier warriors and a little over twenty low-tier warriors. Even if they managed to win a small local engagement, they couldn't hold out against so many insects.</p>
+<p data-reading-anchor id="ch3136-p083">At best, they could delay the enemy long enough for the others to evacuate.</p>
+<p data-reading-anchor id="ch3136-p084">“Whoosh! Whoosh, whoosh!!!”</p>
+<p data-reading-anchor id="ch3136-p085">More than thirty elite warriors entered the fray and immediately selected the Vampires as their targets, carrying out focused attacks to kill them!</p>
+<p data-reading-anchor id="ch3136-p086">Sensing his subordinates dying one after another, Garr grew solemn. He looked toward the right side of the battlefield, fixing his gaze on Chen Hanyu.</p>
+</article>
+<p class="end" data-reading-anchor id="ch3136-end">— End of Chapter 3136 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Chinese Chapter 3137: 阻碍. English Chapter 3136: Obstruction. Narrative paragraphs: 86/86 (source/English).</li><li>Removed the duplicate website chapter title that appeared at the start of the story body.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_3135_Earth_s_Core_Flame_Vein.html#start">← Previous</a><a href="Global_Game_AFK_Chapter_3137_Overconfidence.html#start" class="next">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

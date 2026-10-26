@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 3102 — Comprehension | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-3102">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3101_Reversal.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_3102_Comprehension.html"><option value="Global_Game_AFK_Chapter_3102_Comprehension.html" selected>3102 · Comprehension</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3103_Run_Ragged.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-3102" data-reading-anchor>
+<div class="chapter-num">Chapter 3102</div><h2 class="chapter-title">Comprehension</h2>
+<p class="source-identity">From Chinese Chapter 3103 · 感悟</p>
+<article class="prose">
+<p class="sound" data-reading-anchor id="ch3102-p001">"Bang!!!"</p>
+<p data-reading-anchor id="ch3102-p002">The defensive barrier shattered in an instant!</p>
+<p data-reading-anchor id="ch3102-p003">Grand spat a mouthful of blood and flew backward, staring at Fang Heng in disbelief.</p>
+<p data-reading-anchor id="ch3102-p004">He could feel it: the outer barrier hadn't broken under an external attack. It had shattered under the impact of unbalanced laws!</p>
+<p class="sound" data-reading-anchor id="ch3102-p005">"Hiss, hiss-hiss-hiss..."</p>
+<p data-reading-anchor id="ch3102-p006">At some point, fine vines extending from the swamp had wrapped around both his legs.</p>
+<p data-reading-anchor id="ch3102-p007">Grand stared in horror at Fang Heng, who was suspended in midair.</p>
+<p data-reading-anchor id="ch3102-p008">Nature Studies!</p>
+<p data-reading-anchor id="ch3102-p009">That brat was also a Nature Studies scholar, and he'd even broken Grand's domain!</p>
+<p data-reading-anchor id="ch3102-p010">Fang Heng landed on the ground, contemplating the power of manipulating laws.</p>
+<p data-reading-anchor id="ch3102-p011">Game notifications appeared on his retina.</p>
+<p class="game" data-reading-anchor id="ch3102-p012">[Hint: Player is attempting to control the law power of Nature Studies.]</p>
+<p class="game" data-reading-anchor id="ch3102-p013">[Hint: Player has successfully gained control of the law power of Nature Studies.]</p>
+<p class="game" data-reading-anchor id="ch3102-p014">[Hint: Player's Nature Studies has advanced to Transcendent-level Nature Studies.]</p>
+<p data-reading-anchor id="ch3102-p015">He had broken through?</p>
+<p data-reading-anchor id="ch3102-p016">Fang Heng checked the game notifications.</p>
+<p data-reading-anchor id="ch3102-p017">That was pretty easy.</p>
+<p data-reading-anchor id="ch3102-p018">Fewer people studied Nature Studies than Elemental Studies. He hadn't even found a mentor yet, but he had unexpectedly advanced in Nature Studies first.</p>
+<p data-reading-anchor id="ch3102-p019">That saved a great deal of time.</p>
+<p data-reading-anchor id="ch3102-p020">Who would have thought a trip to the arena could bring such a reward?</p>
+<p data-reading-anchor id="ch3102-p021">Fang Heng nodded in satisfaction.</p>
+<p data-reading-anchor id="ch3102-p022">On reflection, though, his previous alchemical training and repeated use of the Tree Realm Descent domain had given him a profound grasp of natural laws. Otherwise, the advancement wouldn't have been so effortless.</p>
+<p data-reading-anchor id="ch3102-p023">Reproducing this method of advancement in Elemental Studies or other disciplines would be considerably harder.</p>
+<p data-reading-anchor id="ch3102-p024">Probably impossible.</p>
+<p data-reading-anchor id="ch3102-p025">Still thinking, Fang Heng looked away from Grand and toward the referee.</p>
+<p data-reading-anchor id="ch3102-p026">The referee had already recognized the gap in strength. Secretly astonished, he glanced at Grand's stunned face on the ground and asked, "Do you wish to continue?"</p>
+<p data-reading-anchor id="ch3102-p027">Only then did Grand slowly recover his senses. A bitter smile tugged at his lips.</p>
+<p data-reading-anchor id="ch3102-p028">What a monster!</p>
+<p data-reading-anchor id="ch3102-p029">"No. I concede."</p>
+<p data-reading-anchor id="ch3102-p030">The entire arena erupted into cheers again.</p>
+<p data-reading-anchor id="ch3102-p031">Most warriors hadn't reached the level where they could understand laws, so they could only enjoy the spectacle. But seeing a low-ranking warrior defeat a high-ranking one—something that might not happen for centuries—was enough to bring them to their feet.</p>
+<p data-reading-anchor id="ch3102-p032">Fang Heng stepped back and glanced down at the Kinsfolk waiting area.</p>
+<p data-reading-anchor id="ch3102-p033">They still had two mid-ranking warriors left.</p>
+<p data-reading-anchor id="ch3102-p034">Nothing to worry about.</p>
+<p data-reading-anchor id="ch3102-p035">The fight had barely drained him. He could easily handle several more rounds.</p>
+<p data-reading-anchor id="ch3102-p036">The Kinsfolk's waiting area was deathly quiet.</p>
+<p data-reading-anchor id="ch3102-p037">They were finished.</p>
+<p data-reading-anchor id="ch3102-p038">Even Grand had lost! What the hell was the point of continuing?</p>
+<p data-reading-anchor id="ch3102-p039">Fang Heng still looked fresh after defeating Grand, and the Noel Clan still had an unused high-ranking warrior. The disparity was overwhelming, and the morale of the warriors recruited by the Kinsfolk sank to rock bottom.</p>
+<p data-reading-anchor id="ch3102-p040">The elder leading the Kinsfolk hadn't come in person, but he had watched the entire fight on a screen. His eyes darkened.</p>
+<p data-reading-anchor id="ch3102-p041">Fang Heng!</p>
+<p data-reading-anchor id="ch3102-p042">A pan-human.</p>
+<p data-reading-anchor id="ch3102-p043">Could this man be connected to the Black Mist discovered recently?</p>
+<p data-reading-anchor id="ch3102-p044">Whatever the case, he was an enormous threat!</p>
+<p data-reading-anchor id="ch3102-p045">...</p>
+<p data-reading-anchor id="ch3102-p046">The final two rounds passed without incident. The two Kinsfolk warriors went onto the platform in turn and were each dispatched by a single punch from Fang Heng.</p>
+<p data-reading-anchor id="ch3102-p047">The arena competition ended in an overwhelming victory for the Noel Clan.</p>
+<p data-reading-anchor id="ch3102-p048">Hainiya of the Sea Clan watched Fang Heng's departing figure with interest.</p>
+<p data-reading-anchor id="ch3102-p049">The entire match had ended without her throwing a single punch. She never imagined there would be a day when someone else carried her to victory.</p>
+<p data-reading-anchor id="ch3102-p050">After the match, Anxi took Fang Heng back to the villa.</p>
+<p data-reading-anchor id="ch3102-p051">He considered it nothing more than an ordinary arena competition.</p>
+<p data-reading-anchor id="ch3102-p052">A single match would hardly be enough to persuade the Kinsfolk to abandon their hostility toward humanity.</p>
+<p data-reading-anchor id="ch3102-p053">One step at a time.</p>
+<p data-reading-anchor id="ch3102-p054">At least for now, the Kinsfolk's plan to exterminate humanity was viewed as immoral by the universe's other races. Implementing it would be difficult, so he still had some time.</p>
+<p data-reading-anchor id="ch3102-p055">Perhaps...</p>
+<p data-reading-anchor id="ch3102-p056">Fang Heng narrowed his eyes.</p>
+<p data-reading-anchor id="ch3102-p057">He needed somewhere to release the accumulated Black Mist anyway. Since he had nothing else to do, why not cause the Kinsfolk a little trouble in the process?</p>
+<p data-reading-anchor id="ch3102-p058">In the driver's seat, Anxi concentrated on driving. Catching sight of Fang Heng deep in thought out of the corner of her eye, she inexplicably felt uneasy.</p>
+<p data-reading-anchor id="ch3102-p059">...</p>
+<p data-reading-anchor id="ch3102-p060">Back at the villa, Fang Heng immediately returned to the seventh basement level and began setting up an alchemical magic array.</p>
+<p data-reading-anchor id="ch3102-p061">Participating in the competition had been worthwhile.</p>
+<p data-reading-anchor id="ch3102-p062">The mid- and high-ranking warriors had broadened his horizons, and he had even taken the opportunity to advance Nature Studies beyond the Grandmaster level.</p>
+<p data-reading-anchor id="ch3102-p063">He had also thought of a way to alleviate the Black Mist accumulating in the basement.</p>
+<p data-reading-anchor id="ch3102-p064">A two-way spatial passage magic array!</p>
+<p data-reading-anchor id="ch3102-p065">Keeping such an array operating continuously would consume a considerable amount of energy.</p>
+<p data-reading-anchor id="ch3102-p066">The greater the distance between its two ends, the more energy it would consume and the stronger the spatial fluctuations. Beyond a certain distance, the passage would fail entirely.</p>
+<p data-reading-anchor id="ch3102-p067">That wasn't much of a problem.</p>
+<p data-reading-anchor id="ch3102-p068">He still had some energy crystals in his backpack. Enough for the time being.</p>
+<p data-reading-anchor id="ch3102-p069">Fang Heng spent two hours setting up one end of the teleportation array in the basement and inscribing the other end onto a stone slab.</p>
+<p data-reading-anchor id="ch3102-p070">Next, he only needed to activate the passage from the stone-slab side, connect the two ends, and let the basement's Black Mist flow out through the spatial channel.</p>
+<p data-reading-anchor id="ch3102-p071">After some thought, Fang Heng put the slab into his game backpack. His body gradually faded in midair as he entered soul form and left the villa.</p>
+<p data-reading-anchor id="ch3102-p072">The Kinsfolk had installed detection prisms throughout the Seven-Realm Martial Capital, covering the entire city. The slightest disturbance would immediately trigger an alarm.</p>
+<p data-reading-anchor id="ch3102-p073">Fang Heng approached another corner of the Kinsfolk-controlled district until he entered the underground parking garage of an office building.</p>
+<p data-reading-anchor id="ch3102-p074">In soul form, he glanced at the surveillance cameras in the basement.</p>
+<p class="sound" data-reading-anchor id="ch3102-p075">"Bang! Bang, bang!!!"</p>
+<p data-reading-anchor id="ch3102-p076">Several cameras burst apart under the influence of Mentalism.</p>
+<p data-reading-anchor id="ch3102-p077">Fang Heng gradually returned to physical form, took the stone slab from his backpack, and held it aloft in one hand.</p>
+<p class="sound" data-reading-anchor id="ch3102-p078">"Whoosh!!"</p>
+<p data-reading-anchor id="ch3102-p079">The alchemical magic array spun rapidly within his right pupil.</p>
+<p data-reading-anchor id="ch3102-p080">Omniscient Eye!</p>
+<p data-reading-anchor id="ch3102-p081">Remote control of the magic array.</p>
+<p data-reading-anchor id="ch3102-p082">The spatial passage on the slab slowly opened.</p>
+<p class="sound" data-reading-anchor id="ch3102-p083">"Hiss, hiss-hiss-hiss!!"</p>
+<p data-reading-anchor id="ch3102-p084">The two-way spatial passage gradually connected.</p>
+<p data-reading-anchor id="ch3102-p085">The instant the link was established, thick Black Mist spilled from the spatial channel!</p>
+<p data-reading-anchor id="ch3102-p086">It worked!</p>
+<p data-reading-anchor id="ch3102-p087">The difference in Black Mist concentration between the two ends was enormous. He didn't need to do anything else; the mist naturally flowed out through the passage.</p>
+<p data-reading-anchor id="ch3102-p088">Black Mist surged into the parking garage, filled it rapidly, and spread through every entrance and exit.</p>
+<p data-reading-anchor id="ch3102-p089">The prism detection towers detected the mist and sounded their alarms immediately.</p>
+<p data-reading-anchor id="ch3102-p090">The Kinsfolk control center received yet another warning.</p>
+<p data-reading-anchor id="ch3102-p091">A little over ten minutes later, fully armed Central Guards and Kinsfolk security teams surrounded the entire building.</p>
+<p data-reading-anchor id="ch3102-p092">To the assembled warriors outside, it looked as though dense Black Mist was continuously billowing out of the whole building.</p>
+<p data-reading-anchor id="ch3102-p093">What the hell was going on!</p>
+<p data-reading-anchor id="ch3102-p094">Guard Captain Balin led the cordon around the building, his brows tightly drawn.</p>
+<p data-reading-anchor id="ch3102-p095">This Black Mist was far denser than during the previous attack on the Kinsfolk building!</p>
+</article>
+<p class="end" data-reading-anchor id="ch3102-end">— End of Chapter 3102 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Chinese Chapter 3103: 感悟. English Chapter 3102: Comprehension. Narrative paragraphs: 95/95.</li><li>The game states Fang Heng acquired Transcendent Nature Studies (超凡级); a later narrative line describes having broken past Grandmaster Nature Studies. Kept this as an advancement beyond Grandmaster rather than overriding the system rank.</li><li>Two-way spatial passage used to release accumulated Black Mist; it does not eliminate the source.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_3101_Reversal.html#start">← Previous</a><a class="next" href="Global_Game_AFK_Chapter_3103_Run_Ragged.html#start">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

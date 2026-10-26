@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 3135 — Earth&#x27;s Core Flame Vein | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-3135">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3134_Frozen_Soul_Land.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_3135_Earth_s_Core_Flame_Vein.html"><option value="Global_Game_AFK_Chapter_3135_Earth_s_Core_Flame_Vein.html" selected>3135 · Earth&#x27;s Core Flame Vein</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3136_Obstruction.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-3135" data-reading-anchor>
+<div class="chapter-num">Chapter 3135</div><h2 class="chapter-title">Earth&#x27;s Core Flame Vein</h2>
+<p class="source-identity">From Chinese Chapter 3136 · 地心炎脉</p>
+<article class="prose">
+<p data-reading-anchor id="ch3135-p001">Nearby, Kappa lay sideways on a rock with a reed between his teeth. Watching the convicts laboring so diligently, he couldn't help sighing inwardly.</p>
+<p data-reading-anchor id="ch3135-p002">When would these miserable days ever end…?</p>
+<p data-reading-anchor id="ch3135-p003">So much ore was being extracted, only for the Kinsfolk to take it all away in the end.</p>
+<p data-reading-anchor id="ch3135-p004">It was heartbreaking.</p>
+<p data-reading-anchor id="ch3135-p005">Why hadn't Boss Fang come to rescue them yet?</p>
+<p data-reading-anchor id="ch3135-p006">“Kappa, looks like life isn't treating you too badly here.”</p>
+<p data-reading-anchor id="ch3135-p007">Suddenly, Kappa heard a familiar voice beside his ear. Startled, he sat bolt upright on the rock and looked around.</p>
+<p data-reading-anchor id="ch3135-p008">Boss Fang!?</p>
+<p data-reading-anchor id="ch3135-p009">Finally, you've come!</p>
+<p data-reading-anchor id="ch3135-p010">Still in his spirit form, Fang Heng hovered beside Kappa. “You look pretty comfortable staying here.”</p>
+<p data-reading-anchor id="ch3135-p011">“Boss Fang, please don't tease me.”</p>
+<p data-reading-anchor id="ch3135-p012">Kappa rolled over and quickly hid behind the rock. With a miserable expression, he whispered, “Comfortable? I haven't seen the sun in ages. At this rate, our Flying Squirrel Clan will turn into the Mole Clan.”</p>
+<p data-reading-anchor id="ch3135-p013">“Sorry. I was away from the Seven Realms Martial Capital for a while, and only learned you were imprisoned after I got back. To keep things brief, the Kinsfolk have run into some serious trouble and may decide to act against you. I need to get you both out before they make their move.”</p>
+<p data-reading-anchor id="ch3135-p014">Kappa immediately brightened up.</p>
+<p data-reading-anchor id="ch3135-p015">He could finally escape this damned place!</p>
+<p data-reading-anchor id="ch3135-p016">With Boss Fang taking action, what was there to be afraid of?</p>
+<p data-reading-anchor id="ch3135-p017">“Breaking you out won't be difficult. The problem is that we don't have a starship to leave in. That could be troublesome. Any ideas?”</p>
+<p data-reading-anchor id="ch3135-p018">Kappa's little black eyes darted about as a plan came to him. “I remember quite a few scrapped ships and vessels awaiting repairs were left in an abandoned cavern a long time ago. We can get our hands on one, modify it ourselves until it can fly, and we'll be fine.”</p>
+<p data-reading-anchor id="ch3135-p019">“Good.”</p>
+<p data-reading-anchor id="ch3135-p020">Fang Heng thought the plan was workable and prepared to act immediately.</p>
+<p data-reading-anchor id="ch3135-p021">“Boss Fang, wait.” Kappa suddenly remembered something and stopped him. His eyes gleamed as he whispered, “Boss Fang, I almost forgot. This world has another very special treasure.</p>
+<p data-reading-anchor id="ch3135-p022">We have to take it with us before we leave.”</p>
+<p data-reading-anchor id="ch3135-p023">Treasure?! Fang Heng's interest was immediately aroused. Lowering his voice as well, he asked, “What treasure? Tell me more.”</p>
+<p data-reading-anchor id="ch3135-p024">“This planet is the largest of all known worlds discovered in the Seven Realms Martial Capital so far. Most of its surface is covered in ice and snow. Publicly, the Kinsfolk claim there is a special ore near the surface called Extreme Cold Purple Ore, which can maintain energy circulation at very low temperatures. That's why they send so many convicts to mine it every year.”</p>
+<p data-reading-anchor id="ch3135-p025">Fang Heng had heard of Extreme Cold Purple Ore.</p>
+<p data-reading-anchor id="ch3135-p026">It was fairly valuable, but it wasn't considered an especially rare mineral, much less some priceless treasure.</p>
+<p data-reading-anchor id="ch3135-p027">The reserves on this planet were so vast they could supply the entire star region with ease. As a result, its price had always remained relatively low.</p>
+<p data-reading-anchor id="ch3135-p028">“I only found out after arriving that the Kinsfolk aren't really interested in the purple ore. What they want are the Earth's Core Flame Veins hidden deep underground. The natural mineral extracted from those veins can sell for an astronomical price!”</p>
+<p data-reading-anchor id="ch3135-p029">“Earth's Core Flame Ore.”</p>
+<p data-reading-anchor id="ch3135-p030">Fang Heng's eyes lit up. “Are you sure?”</p>
+<p data-reading-anchor id="ch3135-p031">“Absolutely, completely sure! I was the one who surveyed and confirmed the ore deposits! Mining it is difficult, and the deeper you go, the more extreme the heat becomes. They need specially designed Kinsfolk mechs to excavate it, so production is very slow.”</p>
+<p data-reading-anchor id="ch3135-p032">Kappa nodded enthusiastically and continued, “The security teams transport the ore they've collected into storage, then move it to a refining zone for processing. Every week, a starship takes the refined ore back to the Kinsfolk.”</p>
+<p data-reading-anchor id="ch3135-p033">Fang Heng understood exactly what Kappa was suggesting.</p>
+<p data-reading-anchor id="ch3135-p034">So before leaving, they should seize all the Kinsfolk's ore, right?</p>
+<p data-reading-anchor id="ch3135-p035">Well…</p>
+<p data-reading-anchor id="ch3135-p036">He'd already offended the Kinsfolk quite thoroughly, and since he was here anyway…</p>
+<p data-reading-anchor id="ch3135-p037">Why not take everything in one fell swoop?</p>
+<p data-reading-anchor id="ch3135-p038">Fang Heng looked at Kappa. “How extensive are the mineral deposits on this planet?”</p>
+<p data-reading-anchor id="ch3135-p039">“A lot. An enormous amount!”</p>
+<p data-reading-anchor id="ch3135-p040">Kappa nodded repeatedly and lowered his voice. “This planet is huge. Just the Earth's Core Flame Veins I can sense have tremendous reserves. The amount hidden beyond the reach of my perception is impossible to estimate.”</p>
+<p data-reading-anchor id="ch3135-p041">Excellent.</p>
+<p data-reading-anchor id="ch3135-p042">Fang Heng nodded inwardly.</p>
+<p data-reading-anchor id="ch3135-p043">Might as well go all the way and seize the entire planet.</p>
+<p data-reading-anchor id="ch3135-p044">It was a Kinsfolk-controlled world, after all. He wouldn't feel the slightest guilt about taking it from them.</p>
+<p data-reading-anchor id="ch3135-p045">Korkalot still hadn't noticed that Fang Heng had arrived. He stood nearby, cold-faced, suppressing the rage in his heart.</p>
+<p data-reading-anchor id="ch3135-p046">He was an esteemed prince of the elves. When had he ever been treated like this?</p>
+<p data-reading-anchor id="ch3135-p047">If he got a chance to leave, he'd take savage revenge on the Kinsfolk!</p>
+<p data-reading-anchor id="ch3135-p048">Huh?</p>
+<p data-reading-anchor id="ch3135-p049">Hm? Korkalot suddenly sensed something and looked toward the rock.</p>
+<p data-reading-anchor id="ch3135-p050">“Whoosh! Whoosh, whoosh!!!”</p>
+<p data-reading-anchor id="ch3135-p051">Several alchemical runes erupted, and a number of Lickers instantly sprang out, rapidly splitting into more creatures as they moved at high speed!</p>
+<p data-reading-anchor id="ch3135-p052">What was that?!</p>
+<p data-reading-anchor id="ch3135-p053">Excitement immediately shone in Korkalot's eyes.</p>
+<p data-reading-anchor id="ch3135-p054">Boss Fang's summoned creatures!?</p>
+<p data-reading-anchor id="ch3135-p055">There had never been an insect-creature attack in this mining district before. The convict miners panicked the instant they spotted the Lickers.</p>
+<p data-reading-anchor id="ch3135-p056">None of the miners had weapons. Naturally, they weren't about to face insect monsters with nothing but their bodies, so they dropped their tools and fled toward the exit.</p>
+<p data-reading-anchor id="ch3135-p057">There weren't many guards stationed on the ninth underground level.</p>
+<p data-reading-anchor id="ch3135-p058">Hearing shouts from deeper in the cavern, the guards turned toward the disturbance.</p>
+<p data-reading-anchor id="ch3135-p059">What the hell?!</p>
+<p data-reading-anchor id="ch3135-p060">Before they could figure out what was happening, they saw masses of miners racing out of the cavern, shouting as they ran.</p>
+<p data-reading-anchor id="ch3135-p061">Behind them came a dense swarm of insect creatures!</p>
+<p data-reading-anchor id="ch3135-p062">The ordinary security guards were far below even the level of beginner warriors. Armed only with beam weapons and advanced protective combat suits, they immediately drew their guns and opened fire when they saw the insects.</p>
+<p data-reading-anchor id="ch3135-p063">“Whoosh! Whoosh, whoosh!!!”</p>
+<p data-reading-anchor id="ch3135-p064">Energy beams struck the Lickers' outer defensive skin and exploded.</p>
+<p data-reading-anchor id="ch3135-p065">No effect!</p>
+<p data-reading-anchor id="ch3135-p066">After firing several times, the security team discovered to its horror that ordinary beam weapons couldn't even pierce the swarm's outer defenses!</p>
+<p data-reading-anchor id="ch3135-p067">Damn it!</p>
+<p data-reading-anchor id="ch3135-p068">What was the point in fighting?!</p>
+<p data-reading-anchor id="ch3135-p069">The guards turned and fled, mixing into the crowd of miners.</p>
+<p data-reading-anchor id="ch3135-p070">Korkalot looked back in excitement.</p>
+<p data-reading-anchor id="ch3135-p071">Fang Heng had somehow appeared at the rear of the cavern, standing atop a rock as tiny streams of blood began seeping from the center of his forehead.</p>
+<p data-reading-anchor id="ch3135-p072">Hahaha!</p>
+<p data-reading-anchor id="ch3135-p073">It really was him!</p>
+<p data-reading-anchor id="ch3135-p074">Boss Fang had come to save them!</p>
+<p data-reading-anchor id="ch3135-p075">Korkalot was instantly invigorated. He shouted at the chaotic crowd of miners, “Damn it! All of you, shut up and crouch down! Otherwise those insects will attack you, and you'll die!”</p>
+<p data-reading-anchor id="ch3135-p076">Most of the laborers had suffered at Korkalot's hands before. Some ignored him and kept fleeing, while others obeyed, covering their heads and crouching down.</p>
+<p data-reading-anchor id="ch3135-p077">Sure enough.</p>
+<p data-reading-anchor id="ch3135-p078">The insect swarm wasn't targeting the ordinary laborers. As soon as the convicts crouched, the creatures stopped pursuing them and charged furiously at the fully armed Kinsfolk security teams instead.</p>
+</article>
+<p class="end" data-reading-anchor id="ch3135-end">— End of Chapter 3135 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Chinese Chapter 3136: 地心炎脉. English Chapter 3135: Earth&#x27;s Core Flame Vein. Narrative paragraphs: 78/78 (source/English).</li><li>地心炎脉 is rendered Earth’s Core Flame Vein; preserves the geological/flame-vein meaning.</li><li>Restored separate reactions, sound effects, and dialogue breaks where the earlier V55 draft merged or missed them; source paragraph boundaries checked against the Chinese upload.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_3134_Frozen_Soul_Land.html#start">← Previous</a><a href="Global_Game_AFK_Chapter_3136_Obstruction.html#start" class="next">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

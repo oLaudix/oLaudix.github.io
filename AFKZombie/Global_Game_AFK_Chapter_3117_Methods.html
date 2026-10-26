@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 3117 — Methods | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-3117">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3116_Trap.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_3117_Methods.html"><option value="Global_Game_AFK_Chapter_3117_Methods.html" selected>3117 · Methods</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3118_Let_s_Play.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-3117" data-reading-anchor>
+<div class="chapter-num">Chapter 3117</div><h2 class="chapter-title">Methods</h2>
+<p class="source-identity">From Chinese Chapter 3118 · 手段</p>
+<article class="prose">
+<p data-reading-anchor id="ch3117-p001">At the bottom of the labyrinthine cavern...</p>
+<p data-reading-anchor id="ch3117-p002">Nasir studied the magic arrays carved into the rock walls for a while, then frowned deeply with a bitter expression.</p>
+<p data-reading-anchor id="ch3117-p003">They were finished.</p>
+<p data-reading-anchor id="ch3117-p004">The arrays were too advanced. They were already at the law level, far beyond his ability to break.</p>
+<p data-reading-anchor id="ch3117-p005">Something powerful enough to keep an evil god sealed inside also kept Nasir sealed in with it.</p>
+<p class="sound" data-reading-anchor id="ch3117-p006">"Hiss, hiss-hiss..."</p>
+<p data-reading-anchor id="ch3117-p007">Suddenly hearing a sound behind him, Nasir's heart jumped. He turned toward the Evil Embryo slowly stirring on the cavern floor.</p>
+<p class="sound" data-reading-anchor id="ch3117-p008">"Hiss, hiss-hiss..."</p>
+<p data-reading-anchor id="ch3117-p009">The rotting flesh slowly expanded and contracted, while the yellowish eyeballs embedded in the mass opened and closed in succession.</p>
+<p data-reading-anchor id="ch3117-p010">The moment Nasir met their gaze, an agitated sensation rose from the depths of his heart.</p>
+<p data-reading-anchor id="ch3117-p011">This was bad!</p>
+<p data-reading-anchor id="ch3117-p012">A mind-affecting spell.</p>
+<p data-reading-anchor id="ch3117-p013">Nasir forced himself to look away and swallowed a pill. He concentrated on protecting his Sea of Consciousness and warned, "Fang Heng, be careful. I think that thing is waking up."</p>
+<p data-reading-anchor id="ch3117-p014">"Mm."</p>
+<p data-reading-anchor id="ch3117-p015">Fang Heng also sensed the illusory effect emanating from the eyes. But his Omniscient Eye granted such high-level immunity to illusions that he lost focus for only an instant before becoming completely immune to the negative effect.</p>
+<p data-reading-anchor id="ch3117-p016">Even so, he didn't dare be careless.</p>
+<p data-reading-anchor id="ch3117-p017">This could be troublesome.</p>
+<p data-reading-anchor id="ch3117-p018">The Evil Embryo was still some distance away. In theory, the farther an illusion traveled, the weaker its effects became.</p>
+<p data-reading-anchor id="ch3117-p019">He normally ignored illusion effects entirely, yet this one had briefly dazed him.</p>
+<p data-reading-anchor id="ch3117-p020">If the Evil Embryo came closer, the combined illusory assault from all those eyes might overwhelm him with negative effects.</p>
+<p class="game" data-reading-anchor id="ch3117-p021">[Hint: Player is affected by a negative pressure effect. Agility attribute partially reduced.]</p>
+<p class="sound" data-reading-anchor id="ch3117-p022">"Hiss, hiss-hiss, hiss-hiss..."</p>
+<p data-reading-anchor id="ch3117-p023">As the eyeballs covering the rotting flesh repeatedly opened and closed, the blood vessels protruding from the mass began writhing and twisting, pulling free of the surrounding space.</p>
+<p data-reading-anchor id="ch3117-p024">Dark shadows started spreading from the Evil Embryo's enormous body.</p>
+<p data-reading-anchor id="ch3117-p025">The shadows gathered and slowly approached the two men in the corner of the cavern.</p>
+<p data-reading-anchor id="ch3117-p026">They were finished!</p>
+<p data-reading-anchor id="ch3117-p027">The Evil Embryo had definitely awakened!</p>
+<p data-reading-anchor id="ch3117-p028">Seeing this, a fine layer of cold sweat appeared on Nasir's forehead.</p>
+<p data-reading-anchor id="ch3117-p029">Simply resisting the illusion's negative effects took most of his concentration. How was he supposed to fight at the same time?</p>
+<p data-reading-anchor id="ch3117-p030">Besides, the cavern wasn't particularly large once the Evil Embryo's massive body was taken into account. The two men had very little room to dodge.</p>
+<p data-reading-anchor id="ch3117-p031">The dark tendrils advanced slowly, but the power within them made Nasir's heart quiver with dread.</p>
+<p data-reading-anchor id="ch3117-p032">"Brother Fang Heng, looks like we'll have to fight for our lives."</p>
+<p data-reading-anchor id="ch3117-p033">Nasir glanced at Fang Heng, intending to say something else, but suddenly froze.</p>
+<p data-reading-anchor id="ch3117-p034">Hm?</p>
+<p data-reading-anchor id="ch3117-p035">Fang Heng didn't seem affected by the creature's illusion. He stood there staring directly at the Evil Embryo, then suddenly raised a hand.</p>
+<p class="sound" data-reading-anchor id="ch3117-p036">"Whoosh! Whoosh, whoosh!!!"</p>
+<p data-reading-anchor id="ch3117-p037">Elemental spheres of different colors condensed and shot toward the dark tendrils gathering around the Evil Embryo!</p>
+<p data-reading-anchor id="ch3117-p038">Huh!?</p>
+<p data-reading-anchor id="ch3117-p039">The dark tendrils seemed to exist in a different dimension from the elemental spheres. When the two met, nothing happened; the spheres simply passed straight through!</p>
+<p class="sound" data-reading-anchor id="ch3117-p040">"Boom! Boom, boom, boom!"</p>
+<p data-reading-anchor id="ch3117-p041">The elemental spheres struck the mountain of rotten flesh and exploded, tearing large, bloody wounds across its surface.</p>
+<p data-reading-anchor id="ch3117-p042">Small pieces of flesh splattered onto the ground, instantly corroding tiny black pits into the rock.</p>
+<p data-reading-anchor id="ch3117-p043">But those injuries were insignificant to a creature of the Evil Embryo's size.</p>
+<p class="sound" data-reading-anchor id="ch3117-p044">"Glug, glug, glug..."</p>
+<p data-reading-anchor id="ch3117-p045">The creature made a series of wet gurgling sounds as the wounds on its body rapidly healed.</p>
+<p data-reading-anchor id="ch3117-p046">Fang Heng's expression grew grave.</p>
+<p data-reading-anchor id="ch3117-p047">Those might have been ordinary elemental spheres, but with his Grandmaster-level Elemental Studies and immense mental strength, they were extremely powerful. A direct hit would seriously injure even a high-ranking warrior.</p>
+<p class="sound" data-reading-anchor id="ch3117-p048">"Hiss, hiss-hiss..."</p>
+<p data-reading-anchor id="ch3117-p049">The dark shadows continued creeping toward them.</p>
+<p data-reading-anchor id="ch3117-p050">"Fall back first."</p>
+<p data-reading-anchor id="ch3117-p051">Seeing Fang Heng's attack fail, Nasir retreated into the narrow passage they'd used to enter.</p>
+<p data-reading-anchor id="ch3117-p052">But the dark tendrils had already locked onto the two men and continued their slow advance.</p>
+<p data-reading-anchor id="ch3117-p053">Fortunately, the tendrils weren't fast.</p>
+<p data-reading-anchor id="ch3117-p054">Nasir's face grew solemn. He pressed his palms together, rapidly formed a seal before him, and pushed it toward the ground.</p>
+<p class="sound" data-reading-anchor id="ch3117-p055">"Hum..."</p>
+<p data-reading-anchor id="ch3117-p056">A defensive light curtain rose and enveloped them both.</p>
+<p data-reading-anchor id="ch3117-p057">In the next instant, however, the approaching dark tendrils ignored the curtain entirely, passing directly through it and continuing toward them.</p>
+<p data-reading-anchor id="ch3117-p058">They were doomed!</p>
+<p data-reading-anchor id="ch3117-p059">Nasir's face changed abruptly.</p>
+<p data-reading-anchor id="ch3117-p060">He had nothing left.</p>
+<p data-reading-anchor id="ch3117-p061">He didn't know what these tendrils were, but none of his techniques affected them.</p>
+<p data-reading-anchor id="ch3117-p062">Their only other option was to attack the Evil Embryo itself. But the monster was terrifying; merely looking at it triggered powerful illusions, let alone attacking it directly.</p>
+<p data-reading-anchor id="ch3117-p063">What could they do?</p>
+<p data-reading-anchor id="ch3117-p064">A chill ran down Nasir's spine.</p>
+<p data-reading-anchor id="ch3117-p065">He was about to close his eyes and wait for death when his heart suddenly jolted.</p>
+<p data-reading-anchor id="ch3117-p066">What?</p>
+<p data-reading-anchor id="ch3117-p067">He turned around and saw Fang Heng form a hand seal. The aura around Fang Heng abruptly changed.</p>
+<p data-reading-anchor id="ch3117-p068">Golden light spilled from Fang Heng's body.</p>
+<p data-reading-anchor id="ch3117-p069">Immediately afterward, a barrier of sacred power rose around both of them.</p>
+<p data-reading-anchor id="ch3117-p070">Nasir stared at Fang Heng as though he'd witnessed something incredible.</p>
+<p data-reading-anchor id="ch3117-p071">"You..."</p>
+<p data-reading-anchor id="ch3117-p072">Before he could ask, Nasir looked back and saw the black tendrils touch the sacred barrier.</p>
+<p class="sound" data-reading-anchor id="ch3117-p073">"Hiss, hiss-hiss-hiss..."</p>
+<p data-reading-anchor id="ch3117-p074">The barrier immediately crackled and hissed.</p>
+<p data-reading-anchor id="ch3117-p075">The tendrils evaporated almost instantly, giving off blue-white smoke!</p>
+<p data-reading-anchor id="ch3117-p076">As though badly wounded, they abruptly recoiled.</p>
+<p data-reading-anchor id="ch3117-p077">Apparently realizing the sacred barrier was different, the tendrils withdrew a short distance before cautiously approaching again and touching it bit by bit.</p>
+<p class="sound" data-reading-anchor id="ch3117-p078">"Hiss! Hiss-hiss!!!"</p>
+<p data-reading-anchor id="ch3117-p079">But every time a dark tendril neared the sacred barrier, it was dispersed and forced back a short distance.</p>
+<p data-reading-anchor id="ch3117-p080">The shadow tendrils had been stopped!</p>
+<p data-reading-anchor id="ch3117-p081">It worked!</p>
+<p data-reading-anchor id="ch3117-p082">Nasir was overjoyed and wiped the cold sweat from his forehead.</p>
+<p data-reading-anchor id="ch3117-p083">Fang Heng also breathed a little easier.</p>
+<p data-reading-anchor id="ch3117-p084">The Evil Embryo was a strange one.</p>
+<p data-reading-anchor id="ch3117-p085">Just as he'd suspected, the shadow tendrils seemed to involve something on the level of faith. Sacred Studies, which also dealt in the power of faith, was more effective against them.</p>
+<p data-reading-anchor id="ch3117-p086">Nasir looked at him and whispered, "Brother Fang Heng, how did you learn the methods of the gods?"</p>
+<p data-reading-anchor id="ch3117-p087">"Hm? The gods?"</p>
+<p data-reading-anchor id="ch3117-p088">Seeing Fang Heng's expression, Nasir seemed to misunderstand. He mimed sewing his mouth shut and said solemnly, "I understand. You only used it to save us. I swear on my life I won't tell anyone."</p>
+<p data-reading-anchor id="ch3117-p089">Sacred Studies was a method used by the race of gods?</p>
+<p data-reading-anchor id="ch3117-p090">Fang Heng frowned even more, thoroughly confused.</p>
+<p data-reading-anchor id="ch3117-p091">Hadn't he already concluded that the Holy Court had nothing to do with the race of gods?</p>
+</article>
+<p class="end" data-reading-anchor id="ch3117-end">— End of Chapter 3117 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Chinese Chapter 3118: 手段. English Chapter 3117: Methods. Narrative paragraphs: 91/91.</li><li>Sacred Studies is effective against the evil god&#x27;s shadow tendrils, which ignore ordinary elemental attacks and barriers.</li><li>Nasir associates the power with the race of gods, but Fang Heng remains uncertain of its relationship with the Holy Court. This uncertainty is retained.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_3116_Trap.html#start">← Previous</a><a class="next" href="Global_Game_AFK_Chapter_3118_Let_s_Play.html#start">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

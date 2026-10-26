@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 3127 — Breaking Through | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-3127">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3126_Crystallization.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_3127_Breaking_Through.html"><option value="Global_Game_AFK_Chapter_3127_Breaking_Through.html" selected>3127 · Breaking Through</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3128_Assassination.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-3127" data-reading-anchor>
+<div class="chapter-num">Chapter 3127</div><h2 class="chapter-title">Breaking Through</h2>
+<p class="source-identity">From Chinese Chapter 3128 · 破除</p>
+<article class="prose">
+<p data-reading-anchor id="ch3127-p001">Anxi stayed hidden inside the car at a distance. She'd tried to contact the outside world immediately, but interference from an external magnetic field made her phone useless. All she could do was huddle in the driver's seat, anxiously watching Fang Heng confront the five warriors sent by the Kinsfolk on his own.</p>
+<p data-reading-anchor id="ch3127-p002">That man was Carlton!</p>
+<p data-reading-anchor id="ch3127-p003">Anxi's heart jolted when his face was exposed.</p>
+<p data-reading-anchor id="ch3127-p004">A high-tier warrior recruited by the Kinsfolk!</p>
+<p data-reading-anchor id="ch3127-p005">A member of the Crystal Clan!</p>
+<p data-reading-anchor id="ch3127-p006">The Crystal Clan had very few members, with dimensional levels ranging from 20 to 35. Besides their relatively high dimensional level, they possessed an extraordinarily powerful racial crystallization ability.</p>
+<p data-reading-anchor id="ch3127-p007">Carlton was one of the Crystal Clan's most prominent representatives. He'd won many battles throughout the Seven Realms Martial Capital and ranked among its finest high-tier warriors.</p>
+<p data-reading-anchor id="ch3127-p008">The others seemed to be experts from the Crystal Clan as well.</p>
+<p data-reading-anchor id="ch3127-p009">What made the Crystal Clan terrifying was their ability to instantly crystallize their bodies, gaining incredibly strong defenses. They could also blend elemental abilities into the crystals, producing combined effects far greater than the sum of their parts.</p>
+<p data-reading-anchor id="ch3127-p010">They excelled both offensively and defensively.</p>
+<p data-reading-anchor id="ch3127-p011">Among the Seven Realms Martial Capital's elite warriors, academic mastery was generally quite similar. The factor that truly separated them was racial talent.</p>
+<p data-reading-anchor id="ch3127-p012">Anxi's heart pounded wildly.</p>
+<p data-reading-anchor id="ch3127-p013">This was going to be trouble.</p>
+<p data-reading-anchor id="ch3127-p014">Surprise also appeared on Fang Heng's face. His punches now carried terrifying force, and he'd expected that one blow would shatter his opponent completely. Instead, it felt like he'd struck an exceptionally hard alloy.</p>
+<p data-reading-anchor id="ch3127-p015">Heh…</p>
+<p data-reading-anchor id="ch3127-p016">He'd still underestimated the Seven Realms Martial Capital.</p>
+<p data-reading-anchor id="ch3127-p017">Carlton was even more astonished.</p>
+<p data-reading-anchor id="ch3127-p018">No one had ever sent him flying through sheer physical strength before.</p>
+<p data-reading-anchor id="ch3127-p019">After that single strike, cracks had spread across his lower abdomen. He'd almost been shattered.</p>
+<p data-reading-anchor id="ch3127-p020">Thanks to his racial talent, the damaged crystalline body rapidly healed.</p>
+<p data-reading-anchor id="ch3127-p021">Still shaken, Carlton suddenly felt a frightening aura erupt from Fang Heng. His brows shot up and he shouted, “Watch out!”</p>
+<p data-reading-anchor id="ch3127-p022">The Crystal Clan warriors looked up. An extraordinarily dense aura of death burst from Fang Heng, and twenty-four Netherworld Orbs emerged from his body, spinning rapidly around him!</p>
+<p data-reading-anchor id="ch3127-p023">“Whoosh! Whoosh, whoosh!!!”</p>
+<p data-reading-anchor id="ch3127-p024">After circling dozens of times in midair, the Netherworld Orbs shot toward the surrounding Crystal Clan warriors!</p>
+<p data-reading-anchor id="ch3127-p025">Seeing the black spheres approach, the warriors didn't dare take them lightly.</p>
+<p data-reading-anchor id="ch3127-p026">They cast elemental spells to intercept them.</p>
+<p data-reading-anchor id="ch3127-p027">Elemental—Crystal Barrier! They combined their racial crystallization talent with ice elemental power, forming a brilliant crystalline barrier before themselves!</p>
+<p data-reading-anchor id="ch3127-p028">It was dozens of times more resilient than an ordinary ice-crystal barrier!</p>
+<p class="sound" data-reading-anchor id="ch3127-p029">“BOOM!!!”</p>
+<p data-reading-anchor id="ch3127-p030">The Netherworld Orbs struck the crystalline ice and exploded!</p>
+<p data-reading-anchor id="ch3127-p031">Thick black mist burst outward!</p>
+<p data-reading-anchor id="ch3127-p032">The concentrated eruption of death power instantly blasted a black hole through the crystal barrier!</p>
+<p data-reading-anchor id="ch3127-p033">What terrifying strength!</p>
+<p data-reading-anchor id="ch3127-p034">The warrior directly in the path of a Netherworld Orb looked horrified.</p>
+<p data-reading-anchor id="ch3127-p035">The Crystal Barrier had been broken in a single strike?</p>
+<p data-reading-anchor id="ch3127-p036">At almost the same moment, the undead's sinister mist rapidly spread outward from the point where the death aura had erupted.</p>
+<p data-reading-anchor id="ch3127-p037">All five warriors simultaneously felt their hearts tighten.</p>
+<p data-reading-anchor id="ch3127-p038">Within the sinister undead mist, they suddenly sensed something wrong with their blood.</p>
+<p data-reading-anchor id="ch3127-p039">It began surging faster and faster beyond their control.</p>
+<p data-reading-anchor id="ch3127-p040">Whoosh! Fang Heng's figure flashed through the dense undead mist and appeared before Carlton.</p>
+<p data-reading-anchor id="ch3127-p041">One punch!</p>
+<p data-reading-anchor id="ch3127-p042">Carlton's pupils contracted. He hastily crystallized the part of his body the fist was about to hit.</p>
+<p class="sound" data-reading-anchor id="ch3127-p043">“BOOM!!!”</p>
+<p data-reading-anchor id="ch3127-p044">Carlton took another direct punch to the chest, spat out a mouthful of blood, and was flung violently backward.</p>
+<p data-reading-anchor id="ch3127-p045">His chest felt unbearably tight as he hurtled through the air and crashed heavily to the ground.</p>
+<p data-reading-anchor id="ch3127-p046">He looked down, and his expression changed dramatically.</p>
+<p data-reading-anchor id="ch3127-p047">As before, countless fine cracks had appeared in the crystallized area struck by the fist. But this time there was something different: a wound was forming there, continually corroded by black energy!</p>
+<p data-reading-anchor id="ch3127-p048">The black aura carried corrosion, aging, weakening, and other negative effects. It spread along the cracks in the crystal, preventing the damaged structure from healing.</p>
+<p data-reading-anchor id="ch3127-p049">Not only couldn't it heal—the wound was actually continuing to spread!</p>
+<p data-reading-anchor id="ch3127-p050">What ability was this?</p>
+<p data-reading-anchor id="ch3127-p051">Carlton looked up at the curtain of sinister undead mist before him, his heart filled with dread.</p>
+<p class="sound" data-reading-anchor id="ch3127-p052">“Whoosh!!!”</p>
+<p data-reading-anchor id="ch3127-p053">Fang Heng had single-handedly torn an opening through the encirclement formed by the five warriors.</p>
+<p data-reading-anchor id="ch3127-p054">It's over! The mission has failed!</p>
+<p data-reading-anchor id="ch3127-p055">And Fang Heng wasn't even leaving!</p>
+<p data-reading-anchor id="ch3127-p056">Could he be…</p>
+<p data-reading-anchor id="ch3127-p057">Cold sweat beaded on Carlton's forehead.</p>
+<p data-reading-anchor id="ch3127-p058">Did this kid have no intention of letting them go?</p>
+<p data-reading-anchor id="ch3127-p059">“Bang! Bang, bang!!!”</p>
+<p data-reading-anchor id="ch3127-p060">Muffled explosions rang repeatedly from the area shrouded in sinister undead mist.</p>
+<p data-reading-anchor id="ch3127-p061">The Crystal Clan warriors couldn't locate Fang Heng within the mist. Panicking, they resorted to defensive abilities to protect themselves, but whenever they raised a Crystal Barrier, an incoming black Netherworld Orb instantly smashed it apart.</p>
+<p data-reading-anchor id="ch3127-p062">They failed to notice that the more frightened they became, the faster their blood circulated. It had accelerated so much that it was beginning to disrupt their internal energy.</p>
+<p class="sound" data-reading-anchor id="ch3127-p063">“Whoosh!!”</p>
+<p data-reading-anchor id="ch3127-p064">Fang Heng emerged from the undead mist like a ghost and drove a fist forward!</p>
+<p data-reading-anchor id="ch3127-p065">A straightforward, head-on punch!</p>
+<p data-reading-anchor id="ch3127-p066">With his raw physical attributes and the undead element's many negative effects, he smashed through the Crystal Clan's defenses again and again!</p>
+<p class="sound" data-reading-anchor id="ch3127-p067">“BOOM!!!!”</p>
+<p data-reading-anchor id="ch3127-p068">The Crystal Clan's bodily defenses, seemingly invincible to outsiders, were like paper before Fang Heng. A single punch sent a warrior flying, and dense cracks spread over his fully crystallized body.</p>
+<p data-reading-anchor id="ch3127-p069">Black undead energy surged beneath those cracks!</p>
+<p data-reading-anchor id="ch3127-p070">One blow was enough to inflict a grievous injury.</p>
+<p data-reading-anchor id="ch3127-p071">“Pfft!!!”</p>
+<p data-reading-anchor id="ch3127-p072">The Crystal Clan warrior was sent flying by Fang Heng's attack. He had barely pushed himself off the ground when he spat another mouthful of blood, unable to regain control of his energy.</p>
+<p data-reading-anchor id="ch3127-p073">What was happening?</p>
+<p data-reading-anchor id="ch3127-p074">What was wrong with his body?</p>
+<p data-reading-anchor id="ch3127-p075">Sweat covered the Crystal Clan warrior's forehead.</p>
+<p data-reading-anchor id="ch3127-p076">Less than half a minute into the battle, everyone realized something was terribly wrong. Their bodies seemed to be under assault from two different forces, inside and out. Their blood boiled and burned with unnatural speed, while external death energy gnawed into them through the cracks in their crystals.</p>
+<p data-reading-anchor id="ch3127-p077">The warrior could no longer withstand both assaults at once and rapidly withdrew from his crystallized state.</p>
+<p class="sound" data-reading-anchor id="ch3127-p078">“BOOM!!”</p>
+<p data-reading-anchor id="ch3127-p079">The moment his crystalline defense vanished, his body could no longer endure the terrifying damage. It exploded into pieces before the eyes of the other four Crystal Clan warriors!</p>
+<p data-reading-anchor id="ch3127-p080">The survivors were visibly horrified.</p>
+<p data-reading-anchor id="ch3127-p081">Dead?!</p>
+<p data-reading-anchor id="ch3127-p082">All of them now felt the threat of death firsthand. Looking toward the mass of black undead mist, they were filled with fear and wariness.</p>
+</article>
+<p class="end" data-reading-anchor id="ch3127-end">— End of Chapter 3127 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Chinese Chapter 3128: 破除. English Chapter 3127: Breaking Through. Narrative paragraphs: 82/82 (source/English).</li><li>Source briefly misspells 卡尔顿 as 卡尔则顿; kept Carlton as the same person.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_3126_Crystallization.html#start">← Previous</a><a href="Global_Game_AFK_Chapter_3128_Assassination.html#start" class="next">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 3131 — Energy Capture | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-3131">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3130_Intrusion.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_3131_Energy_Capture.html"><option value="Global_Game_AFK_Chapter_3131_Energy_Capture.html" selected>3131 · Energy Capture</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3132_Law_Orbs.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-3131" data-reading-anchor>
+<div class="chapter-num">Chapter 3131</div><h2 class="chapter-title">Energy Capture</h2>
+<p class="source-identity">From Chinese Chapter 3132 · 能量捕捉</p>
+<article class="prose">
+<p data-reading-anchor id="ch3131-p001">Lila, a Kinsfolk Administrator, said coldly, “So it's a spirit. Activate energy capture!”</p>
+<p data-reading-anchor id="ch3131-p002">Fang Heng's exact location was immediately projected onto the mech's cockpit display.</p>
+<p data-reading-anchor id="ch3131-p003">Mental Shock!</p>
+<p data-reading-anchor id="ch3131-p004">More than a dozen mental shocks, amplified by the mech's prisms, slammed toward Fang Heng!</p>
+<p data-reading-anchor id="ch3131-p005">His sea of consciousness was struck by a violent psychic disturbance. He briefly lost his concentration, and his vision blurred for an instant.</p>
+<p data-reading-anchor id="ch3131-p006">By the time his Eye of Omniscience broke through the illusion, great waves of energy beams from the mechs were already bearing down on him!</p>
+<p data-reading-anchor id="ch3131-p007">Hmph!</p>
+<p data-reading-anchor id="ch3131-p008">Hmph! Fang Heng snorted coldly and rapidly materialized in midair. Netherworld Orbs seeped from beneath his skin and revolved around him at tremendous speed, crashing into and detonating the incoming beam attacks!</p>
+<p data-reading-anchor id="ch3131-p009">“BOOM! Boom, boom, boom!!!”</p>
+<p data-reading-anchor id="ch3131-p010">Amid the exploding waves of energy, Fang Heng advanced instead of retreating. Lightly touching the ground with his toes, he sprinted toward the Kinsfolk to kill them!</p>
+<p data-reading-anchor id="ch3131-p011">“Tap…”</p>
+<p data-reading-anchor id="ch3131-p012">The distance between the two sides was already short, and he closed it almost instantly!</p>
+<p data-reading-anchor id="ch3131-p013">The Kinsfolk possessed terrifying mental strength and excelled at mechanical technology, but their actual physical bodies were comparatively weak.</p>
+<p class="sound" data-reading-anchor id="ch3131-p014">“BANG!!!”</p>
+<p data-reading-anchor id="ch3131-p015">Fang Heng threw a punch!!! Hm?!</p>
+<p data-reading-anchor id="ch3131-p016">Huh?!</p>
+<p data-reading-anchor id="ch3131-p017">A gentle glow appeared on the surface of the high-grade alloy mech, absorbing roughly seventy percent of the force behind his punch!</p>
+<p class="sound" data-reading-anchor id="ch3131-p018">“BOOM!!!”</p>
+<p data-reading-anchor id="ch3131-p019">The remaining thirty percent struck the mech and sent it flying backward.</p>
+<p data-reading-anchor id="ch3131-p020">Such powerful defenses!</p>
+<p data-reading-anchor id="ch3131-p021">Fang Heng snorted inwardly and pounced at the mech once more!</p>
+<p data-reading-anchor id="ch3131-p022">Administrator Lila, who was controlling it, was horrified.</p>
+<p data-reading-anchor id="ch3131-p023">Even with both a defensive barrier and a reinforced alloy shell, his single punch had broken through their defenses. How could his physical attributes be so terrifying?!</p>
+<p data-reading-anchor id="ch3131-p024">Panicking, Lila barked, “Activate the electromagnetic network! Restrain him!”</p>
+<p data-reading-anchor id="ch3131-p025">“Detection complete. Activating electromagnetic network!”</p>
+<p class="sound" data-reading-anchor id="ch3131-p026">“Hum…!”</p>
+<p data-reading-anchor id="ch3131-p027">The mechs simultaneously released an invisible, high-frequency electromagnetic network.</p>
+<p data-reading-anchor id="ch3131-p028">Caught at its center, Fang Heng felt his heart lurch as its effects took hold.</p>
+<p data-reading-anchor id="ch3131-p029">Electromagnetic Control!</p>
+<p data-reading-anchor id="ch3131-p030">His body seemed to be severely restricted, and the surrounding space felt like a deep swamp.</p>
+<p data-reading-anchor id="ch3131-p031">“Hmph!!”</p>
+<p data-reading-anchor id="ch3131-p032">Damned troublesome Kinsfolk!</p>
+<p data-reading-anchor id="ch3131-p033">Spatial abilities!</p>
+<p data-reading-anchor id="ch3131-p034">Fang Heng vanished instantly into a subspace projection.</p>
+<p class="sound" data-reading-anchor id="ch3131-p035">Whoosh!</p>
+<p data-reading-anchor id="ch3131-p036">Whoosh! When he emerged from the projection again, he was already standing before another Kinsfolk mech.</p>
+<p data-reading-anchor id="ch3131-p037">The Kinsfolk piloting it grew extremely tense upon seeing Fang Heng and raised his defensive barrier to maximum power!</p>
+<p class="sound" data-reading-anchor id="ch3131-p038">“BOOM!!!!”</p>
+<p data-reading-anchor id="ch3131-p039">Another punch flew forward!</p>
+<p data-reading-anchor id="ch3131-p040">A layer of dark light covered his fist.</p>
+<p data-reading-anchor id="ch3131-p041">Empowered by Super-God-level Necromancy, the dark light began fluctuating violently the instant it touched the defensive barrier!</p>
+<p data-reading-anchor id="ch3131-p042">“Hiss, hissss…!”</p>
+<p data-reading-anchor id="ch3131-p043">The Kinsfolk pilot was horrified.</p>
+<p data-reading-anchor id="ch3131-p044">The energy readings on his display were plunging crazily!</p>
+<p data-reading-anchor id="ch3131-p045">They dropped all the way to the bottom.</p>
+<p class="sound" data-reading-anchor id="ch3131-p046">“BOOM!!!”</p>
+<p data-reading-anchor id="ch3131-p047">The defensive barrier lasted less than a second before shattering completely!</p>
+<p data-reading-anchor id="ch3131-p048">Fang Heng's punch landed squarely against the mech behind it.</p>
+<p class="sound" data-reading-anchor id="ch3131-p049">“Hiss!!”</p>
+<p data-reading-anchor id="ch3131-p050">The dark light coating his fist corroded a huge opening in the alloy. Death energy rushed inside and erupted, causing the entire mech to explode!</p>
+<p data-reading-anchor id="ch3131-p051">Most Kinsfolk had frail bodies. With so little time to escape, the pilot was obliterated in the explosion.</p>
+<p class="sound" data-reading-anchor id="ch3131-p052">“Whoosh!!”</p>
+<p data-reading-anchor id="ch3131-p053">Inside the great hall, the remaining Kinsfolk watched their companion's mech explode in shock. Before Administrator Lila could issue another order, Fang Heng passed through space again and appeared before another pilot.</p>
+<p class="sound" data-reading-anchor id="ch3131-p054">“BOOM!!!!”</p>
+<p data-reading-anchor id="ch3131-p055">Another punch, and another mech exploded!</p>
+<p data-reading-anchor id="ch3131-p056">In the space of a few moments, Fang Heng smashed all dozen or so mechs in the room apart with his fists.</p>
+<p data-reading-anchor id="ch3131-p057">Done.</p>
+<p data-reading-anchor id="ch3131-p058">Fang Heng looked around. He could already sense a large number of high-tier warriors reaching the upper floor and fighting his Lickers near the corridor entrance.</p>
+<p data-reading-anchor id="ch3131-p059">The spatial passage he'd opened was small, too narrow for Lickers to pass through freely. Consequently, he hadn't brought many of them this time. They couldn't hold the warriors off for long.</p>
+<p data-reading-anchor id="ch3131-p060">It was time to withdraw.</p>
+<p data-reading-anchor id="ch3131-p061">At least eliminating those senior Kinsfolk had allowed him to vent some anger.</p>
+<p data-reading-anchor id="ch3131-p062">Thinking this, Fang Heng swept the room once more in search of anything valuable.</p>
+<p data-reading-anchor id="ch3131-p063">Unfortunately, this wasn't inside the game.</p>
+<p data-reading-anchor id="ch3131-p064">Otherwise, killing so many high-ranking Kinsfolk would surely have caused something worthwhile to drop.</p>
+<p data-reading-anchor id="ch3131-p065">Hm?</p>
+<p data-reading-anchor id="ch3131-p066">Fang Heng suddenly raised his brows, noticing a cluster of pale-purple light hovering over the conference table.</p>
+<p data-reading-anchor id="ch3131-p067">The Kinsfolk's language system was unlike that of most races. It was based on a special kind of psychic construction.</p>
+<p data-reading-anchor id="ch3131-p068">The glowing cluster resembled a letter in human communication and carried a strong personal imprint.</p>
+<p data-reading-anchor id="ch3131-p069">Fang Heng approached the table and used psychic power to inspect the information contained in the purple light.</p>
+<p data-reading-anchor id="ch3131-p070">Interesting!</p>
+<p data-reading-anchor id="ch3131-p071">The information had been recorded by Lila, the highest-ranking Kinsfolk official stationed in the Seven Realms Martial Capital. She was responsible both for investigating the black-mist incidents and for a separate special assignment.</p>
+<p data-reading-anchor id="ch3131-p072">Because no new black-mist incidents had occurred for more than a month, the Kinsfolk considered their operation to eliminate the black mist's suspected pan-human sources preliminarily complete.</p>
+<p data-reading-anchor id="ch3131-p073">They had originally planned to end the operation entirely in another two weeks.</p>
+<p data-reading-anchor id="ch3131-p074">The purple orb contained a report Lila was preparing to send to Kinsfolk headquarters.</p>
+<p data-reading-anchor id="ch3131-p075">It gave an exhaustive account of the Kinsfolk's activities during the past month.</p>
+<p data-reading-anchor id="ch3131-p076">Fang Heng skimmed through it rapidly using his psychic abilities.</p>
+<p data-reading-anchor id="ch3131-p077">Hm?</p>
+<p data-reading-anchor id="ch3131-p078">Hm? Lila's special assignment? A proposed list of participants for a fourth round of testing?</p>
+<p data-reading-anchor id="ch3131-p079">Puzzled, Fang Heng browsed through it.</p>
+<p data-reading-anchor id="ch3131-p080">Every person had an accompanying dossier, and none were weak. Each was at least a low-tier warrior.</p>
+<p data-reading-anchor id="ch3131-p081">The selection list contained a full 203 people.</p>
+<p data-reading-anchor id="ch3131-p082">What were they selecting these people for?</p>
+<p data-reading-anchor id="ch3131-p083">Fang Heng wondered.</p>
+<p data-reading-anchor id="ch3131-p084">Not good. The people outside were closing in.</p>
+<p data-reading-anchor id="ch3131-p085">Sensing more than a dozen powerful mental presences rapidly approaching the door, Fang Heng wasted no more time. He put away the purple light orb, returned to his spirit form, passed through the wall into the adjacent room, and made a quick escape.</p>
+<p class="scene" data-reading-anchor id="ch3131-p086">…</p>
+<p data-reading-anchor id="ch3131-p087">Meanwhile, Qi Yuntao arrived in the corridor with a group of elite high-tier guards.</p>
+<p data-reading-anchor id="ch3131-p088">Seeing the dense black mist ahead, Qi Yuntao's eyes turned exceptionally grave.</p>
+<p data-reading-anchor id="ch3131-p089">An unfamiliar, unusual aura.</p>
+<p data-reading-anchor id="ch3131-p090">Very different from the game's black mist.</p>
+<p data-reading-anchor id="ch3131-p091">“Disperse it!”</p>
+<p data-reading-anchor id="ch3131-p092">Every warrior who'd come as reinforcement was high-tier. They immediately cast purification spells to begin cleansing the area.</p>
+<p data-reading-anchor id="ch3131-p093">Suddenly, Qi Yuntao narrowed his eyes and looked upward.</p>
+<p data-reading-anchor id="ch3131-p094">“Who's there?! Who's up there?!”</p>
+<p data-reading-anchor id="ch3131-p095">Qi Yuntao shouted and flicked his hand, sending several sharp dark needles toward the ceiling.</p>
+<p data-reading-anchor id="ch3131-p096">“Puff! Puff, puff!!”</p>
+<p data-reading-anchor id="ch3131-p097">The densely packed needles dissolved a series of dark holes through the ceiling.</p>
+<p data-reading-anchor id="ch3131-p098">Qi Yuntao frowned deeply.</p>
+<p data-reading-anchor id="ch3131-p099">“My lord.”</p>
+<p data-reading-anchor id="ch3131-p100">Several guards hurried over and looked up as well, but saw nothing.</p>
+<p data-reading-anchor id="ch3131-p101">“There was someone there just now. He got away.”</p>
+<p data-reading-anchor id="ch3131-p102">Qi Yuntao offered a brief explanation, withdrew his gaze, and turned his attention back to the black mist.</p>
+<p data-reading-anchor id="ch3131-p103">Two minutes passed, and the mist in the corridor outside the room was dispersed.</p>
+<p data-reading-anchor id="ch3131-p104">Qi Yuntao and the high-tier warriors who'd come to help looked at the bodies of their comrades sprawled in disorder across the floor, unease and wariness in their eyes.</p>
+</article>
+<p class="end" data-reading-anchor id="ch3131-end">— End of Chapter 3131 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Chinese Chapter 3132: 能量捕捉. English Chapter 3131: Energy Capture. Narrative paragraphs: 104/104 (source/English).</li><li>Restored separate reactions, sound effects, and dialogue breaks where the earlier V55 draft merged or missed them; source paragraph boundaries checked against the Chinese upload.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_3130_Intrusion.html#start">← Previous</a><a href="Global_Game_AFK_Chapter_3132_Law_Orbs.html#start" class="next">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

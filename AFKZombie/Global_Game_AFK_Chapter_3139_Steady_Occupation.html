@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 3139 — Steady Occupation | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-3139">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3138_Spreading_the_Black_Mist.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_3139_Steady_Occupation.html"><option value="Global_Game_AFK_Chapter_3139_Steady_Occupation.html" selected>3139 · Steady Occupation</option></select>
+<span class="toolbtn jump-link disabled" aria-disabled="true">›</span>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-3139" data-reading-anchor>
+<div class="chapter-num">Chapter 3139</div><h2 class="chapter-title">Steady Occupation</h2>
+<p class="source-identity">From Chinese Chapter 3140 · 稳步占据</p>
+<article class="prose">
+<p class="game" data-reading-anchor id="ch3139-p001">[Hint: Current world's black-mist spread: 0.0221%.]</p>
+<p data-reading-anchor id="ch3139-p002">As the Vampires and large numbers of zombie clones gradually entered the Frozen Soul Land, the world's black-mist spread was slowly increasing.</p>
+<p data-reading-anchor id="ch3139-p003">He was eager to learn what would happen if the world's black-mist infection reached one hundred percent.</p>
+<p data-reading-anchor id="ch3139-p004">The pressure in the Seven Realms Martial Capital had been too great for him to experiment. Here in the Frozen Soul Land, however, he had no such concerns.</p>
+<p data-reading-anchor id="ch3139-p005">Fang Heng didn't hesitate any longer. He looked at Garr and Bule. “You two will be responsible for controlling the situation. I want mining operations throughout the underground caverns restored to normal as quickly as possible. At the same time, prepare to repel a Kinsfolk attack. Can you do that?”</p>
+<p data-reading-anchor id="ch3139-p006">“Yes, Your Majesty!”</p>
+<p data-reading-anchor id="ch3139-p007">Fang Heng turned toward Kappa and Korkalot. “You two are responsible for repairing the starships for now. Gather the personnel you need, restore the main control systems first, and secure control of the vessels.”</p>
+<p data-reading-anchor id="ch3139-p008">Korkalot had commanded a fleet before. Hearing this, he stepped forward in front of Kappa and nodded. “Understood. Leave it to me.”</p>
+<p class="scene" data-reading-anchor id="ch3139-p009">…</p>
+<p data-reading-anchor id="ch3139-p010">At the Kinsfolk headquarters' administrative council chamber.</p>
+<p data-reading-anchor id="ch3139-p011">After receiving news of the rebellion on the Frozen Soul Land, the Kinsfolk immediately convened another emergency meeting of their senior leadership.</p>
+<p data-reading-anchor id="ch3139-p012">Just the previous night, their corporate headquarters in the Seven Realms Martial Capital had been attacked by insects. Administrator Lila and numerous senior Kinsfolk officials in the building had all been killed.</p>
+<p data-reading-anchor id="ch3139-p013">The incident was considered a targeted assassination against the Kinsfolk. The entire race was furious and determined to eliminate the killer and the organization behind him.</p>
+<p data-reading-anchor id="ch3139-p014">They'd barely drawn up an investigation team and dispatched personnel to investigate when, before they could even catch their breath, another report arrived. One of their important mining planets had been invaded by an alien race.</p>
+<p data-reading-anchor id="ch3139-p015">As reports of the attack were shared among everyone attending through the psychic council, the senior Kinsfolk administrators all wore grave expressions.</p>
+<p data-reading-anchor id="ch3139-p016">They found the incident deeply strange.</p>
+<p data-reading-anchor id="ch3139-p017">During the entire attack, the Kinsfolk had received only three reports. The request for reinforcements had come within a few minutes, and communications from the planet then failed completely. From the initial reports, all they could determine was that the invaders were a pan-human race.</p>
+<p data-reading-anchor id="ch3139-p018">The attackers called themselves Vampires.</p>
+<p data-reading-anchor id="ch3139-p019">Strangest of all, the Vampires seemed to have appeared out of nowhere on the Frozen Soul Land. There were roughly five hundred to a thousand of them, with uniformly high strength. They were clearly elites of their race.</p>
+<p data-reading-anchor id="ch3139-p020">A force of five hundred to a thousand people was already a large formation, usually requiring three or four starships to transport.</p>
+<p data-reading-anchor id="ch3139-p021">Before the attack, the Frozen Soul Land hadn't detected any arriving ships or received any unusual signals from outside.</p>
+<p data-reading-anchor id="ch3139-p022">So how had this group of Vampires appeared?</p>
+<p data-reading-anchor id="ch3139-p023">Furthermore, the planet had a powerful security contingent and no fewer than three warships. Its guards even included a warrior who'd already mastered a Domain.</p>
+<p data-reading-anchor id="ch3139-p024">It was difficult to imagine that such a mid-tier security force could be routed in just five minutes, to the point that all communications were cut off.</p>
+<p data-reading-anchor id="ch3139-p025">And in the few reports they'd received, there had even been descriptions of insect creatures.</p>
+<p data-reading-anchor id="ch3139-p026">Ouroboros insects working with an alien race?</p>
+<p data-reading-anchor id="ch3139-p027">The whole thing was far too strange.</p>
+<p data-reading-anchor id="ch3139-p028">“The Frozen Soul Land is our primary source of Earth's Core Flame Veins. It is of vital importance to us. We must do everything possible to recapture it without delay.”</p>
+<p data-reading-anchor id="ch3139-p029">The Kinsfolk Grand Administrator looked around at the assembled officials.</p>
+<p data-reading-anchor id="ch3139-p030">“Grand Administrator, something about this invasion is unusual. It may not be an ordinary attack. We've suffered several incidents in quick succession recently. It's quite possible we're being deliberately targeted.”</p>
+<p data-reading-anchor id="ch3139-p031">“Mm, indeed. Mobilize the external assault fleet. Prepare the mechanical legions for deployment. Issue a chain of missions through the alliance system, directing allied races to the Frozen Soul Land to investigate. Deploy prism attack arrays and eliminate the threat as quickly as possible!”</p>
+<p data-reading-anchor id="ch3139-p032">“Yes!”</p>
+<p class="scene" data-reading-anchor id="ch3139-p033">…</p>
+<p data-reading-anchor id="ch3139-p034">The Frozen Soul Land.</p>
+<p data-reading-anchor id="ch3139-p035">Inside a cavern.</p>
+<p data-reading-anchor id="ch3139-p036">Fang Heng casually tossed a large dimensional crystal core into the air and caught it again, repeating the motion as he pondered.</p>
+<p data-reading-anchor id="ch3139-p037">Inside the game, dimensional crystal cores were extremely precious items.</p>
+<p data-reading-anchor id="ch3139-p038">Using alchemical magic arrays and Abe Akaya to activate a dimensional core's power allowed Abe Akaya to absorb the strength of an entire world and improve the bloodline's dimensional level.</p>
+<p data-reading-anchor id="ch3139-p039">Unfortunately, very few of these items appeared in the game.</p>
+<p data-reading-anchor id="ch3139-p040">Fang Heng had also asked around outside the game, but hadn't found any dimensional crystals there.</p>
+<p data-reading-anchor id="ch3139-p041">He'd spent large quantities of them in the game recently to raise his dimensional level at great speed. Now he had only two large dimensional crystal cores left.</p>
+<p data-reading-anchor id="ch3139-p042">His dimensional level had already reached a certain point, making further grinding increasingly difficult.</p>
+<p data-reading-anchor id="ch3139-p043">He was saving those two large crystals for emergencies.</p>
+<p data-reading-anchor id="ch3139-p044">In fact, he'd previously considered using a dimensional core to destroy a world outright when dealing with the Kinsfolk.</p>
+<p data-reading-anchor id="ch3139-p045">Unfortunately, it hadn't worked.</p>
+<p data-reading-anchor id="ch3139-p046">Outside the game world, the dimensional crystal cores had been labeled unusable.</p>
+<p data-reading-anchor id="ch3139-p047">But just now, he'd unexpectedly noticed that the unusable label on the game notification had disappeared, replaced by an additional special explanation.</p>
+<p data-reading-anchor id="ch3139-p048">[Item: Dimensional Crystal Core.]</p>
+<p data-reading-anchor id="ch3139-p049">Special Description: The current world's black-mist concentration is low. Using a Dimensional Crystal Core under these conditions will greatly reduce its effects.</p>
+<p data-reading-anchor id="ch3139-p050">Now that was interesting.</p>
+<p data-reading-anchor id="ch3139-p051">So the black mist was the reason he'd been unable to use dimensional crystals!</p>
+<p data-reading-anchor id="ch3139-p052">In other words, once he'd spread enough black mist, he might be able to use a dimensional crystal to absorb this entire world?</p>
+<p data-reading-anchor id="ch3139-p053">Fang Heng stroked his chin, an intrigued smile appearing on his face.</p>
+<p data-reading-anchor id="ch3139-p054">“Boss Fang.”</p>
+<p data-reading-anchor id="ch3139-p055">Kappa entered the cavern with Garr and Bule.</p>
+<p data-reading-anchor id="ch3139-p056">Kappa reported first. “Boss Fang, we've restored the main control room's defensive systems. We can now detect any starships or spatial fluctuations entering the planet's orbital region.”</p>
+<p data-reading-anchor id="ch3139-p057">“We haven't detected any Kinsfolk activity yet, but we expect it soon. They won't abandon this mining planet easily.”</p>
+<p data-reading-anchor id="ch3139-p058">“Mm.” Fang Heng turned toward Garr. “How are things on your side?”</p>
+<p data-reading-anchor id="ch3139-p059">“All security personnel have been imprisoned. The Vampires have taken control of the entire underground mining complex, and the smelting area has already resumed operations.”</p>
+<p data-reading-anchor id="ch3139-p060">Garr nodded and continued, “This world is enormous. According to the miners, they've developed less than ten percent of the Earth's Core Flame Veins beneath the caverns so far.”</p>
+<p data-reading-anchor id="ch3139-p061">Fang Heng focused his gaze on Garr.</p>
+<p data-reading-anchor id="ch3139-p062">Looking carefully, he could see thin wisps of black mist escaping from his body.</p>
+<p data-reading-anchor id="ch3139-p063">They were extremely faint.</p>
+<p data-reading-anchor id="ch3139-p064">Probably only someone with a Perception attribute exceeding 150 would notice anything unusual.</p>
+<p data-reading-anchor id="ch3139-p065">Fang Heng then looked toward Kappa.</p>
+<p data-reading-anchor id="ch3139-p066">Not the slightest trace of black mist was leaking from Kappa.</p>
+<p data-reading-anchor id="ch3139-p067">Fang Heng himself had never emitted black-mist energy either.</p>
+<p data-reading-anchor id="ch3139-p068">Combining these observations with everything he'd seen previously, perhaps he could draw a conclusion.</p>
+<p data-reading-anchor id="ch3139-p069">Was it only things originating from worlds infected by the black mist that produced the game's black mist after being brought outside the game?</p>
+<p data-reading-anchor id="ch3139-p070">If that was true…</p>
+<p data-reading-anchor id="ch3139-p071">Fang Heng raised his head and ordered Garr, “You have half an hour. Return to the Vampire world and make arrangements. I need more Vampires brought into this world. As many as possible.”</p>
+<p data-reading-anchor id="ch3139-p072">Garr's expression grew solemn, and he immediately nodded. “Yes, Your Majesty!”</p>
+<p data-reading-anchor id="ch3139-p073">“Bule, the prisoners in the Frozen Soul Land come from many different worlds and races. Find some prisoners who have high standing among their respective races and bring them to see me.”</p>
+<p data-reading-anchor id="ch3139-p074">“Yes, Your Majesty!”</p>
+<p data-reading-anchor id="ch3139-p075">“Kappa, take me to see the Earth's Core Flame Vein mining area.”</p>
+<p data-reading-anchor id="ch3139-p076">“You got it.”</p>
+</article>
+<p class="end" data-reading-anchor id="ch3139-end">— End of Chapter 3139 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Chinese Chapter 3140: 稳步占据. English Chapter 3139: Steady Occupation. Narrative paragraphs: 76/76 (source/English).</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_3138_Spreading_the_Black_Mist.html#start">← Previous</a><span class="next" aria-disabled="true">Next →</span></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 3124 — Stable Structure | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-3124">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3123_Outrageous.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_3124_Stable_Structure.html"><option value="Global_Game_AFK_Chapter_3124_Stable_Structure.html" selected>3124 · Stable Structure</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3125_Coming_to_the_Door.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-3124" data-reading-anchor>
+<div class="chapter-num">Chapter 3124</div><h2 class="chapter-title">Stable Structure</h2>
+<p class="source-identity">From Chinese Chapter 3125 · 稳固结构</p>
+<article class="prose">
+<p data-reading-anchor id="ch3124-p001">After demonstrating his recent progress, Fang Heng slowly lowered his hand and continued, “I know the inheritance for the Demigod level can't be shared publicly. That's why I used the excuse of further Transcendent-level training to come and ask you for guidance.”</p>
+<p data-reading-anchor id="ch3124-p002">“All… all right…”</p>
+<p data-reading-anchor id="ch3124-p003">Mu Shunan unconsciously scratched his head again.</p>
+<p data-reading-anchor id="ch3124-p004">What kind of monster was this kid?</p>
+<p data-reading-anchor id="ch3124-p005">His alchemy had already reached the peak of the Transcendent level, and now his Occultism had reached the same stage.</p>
+<p data-reading-anchor id="ch3124-p006">And then there were the disciplines he primarily specialized in.</p>
+<p data-reading-anchor id="ch3124-p007">Those couldn't possibly be at low levels either.</p>
+<p data-reading-anchor id="ch3124-p008">“Like you, my Occultism is only at the peak of the Transcendent level. But I've spent more than ten years studying how to advance to the Demigod level, so I know some of the theory. As for exactly how to do it, I can't really say. With your talent, you might even find a better method. Just take this as something to consider.”</p>
+<p data-reading-anchor id="ch3124-p009">“All right.”</p>
+<p data-reading-anchor id="ch3124-p010">“At the Transcendent level, Occultism has already integrated the laws inside and outside the body, allowing them to interact more closely. To reach the Demigod level, we need to form a vortex within ourselves. The vortex accelerates the influx of external law power into the body, briefly disrupting the balance of laws outside. Then, through the vortex's rotation, the energy we release from within can influence those external laws.”</p>
+<p data-reading-anchor id="ch3124-p011">Fang Heng narrowed his eyes as he listened.</p>
+<p data-reading-anchor id="ch3124-p012">Another connection.</p>
+<p data-reading-anchor id="ch3124-p013">It was all about laws again.</p>
+<p data-reading-anchor id="ch3124-p014">In theory, advancing either Occultism or Alchemy to the Demigod level required influencing the laws outside the body.</p>
+<p data-reading-anchor id="ch3124-p015">Alchemy broke them apart and then reconstructed them.</p>
+<p data-reading-anchor id="ch3124-p016">Occultism likewise involved a small-scale disruption followed by exerting an influence.</p>
+<p data-reading-anchor id="ch3124-p017">The methods differed, but the intended results were similar.</p>
+<p data-reading-anchor id="ch3124-p018">Seeing Fang Heng appear to understand, Mu Shunan continued, “The so-called vortex theory is only a theory. How to apply it and control the circulation of energy within the body differs from person to person, depending on their constitution and the disciplines they've mastered. Ultimately, you must figure out your own cultivation method. Nobody else can do that part for you.”</p>
+<p data-reading-anchor id="ch3124-p019">“Mm, I understand. Cultivation is ultimately one's own responsibility.”</p>
+<p data-reading-anchor id="ch3124-p020">Fang Heng murmured to himself as he considered Mu Shunan's words and tried to sense the changes in the power within his body.</p>
+<p data-reading-anchor id="ch3124-p021">The internal and external laws had already reached a state of equilibrium.</p>
+<p data-reading-anchor id="ch3124-p022">Now he needed to shape the power inside him into a vortex, then gradually establish self-sustaining rotation.</p>
+<p data-reading-anchor id="ch3124-p023">It didn't sound particularly difficult. He understood the theory perfectly.</p>
+<p data-reading-anchor id="ch3124-p024">Let's give it a try!</p>
+<p class="game" data-reading-anchor id="ch3124-p025">[Hint: You have triggered a quest—Occultism Advancement (Demigod).]</p>
+<p data-reading-anchor id="ch3124-p026">Quest Name: Occultism Advancement (Demigod).</p>
+<p data-reading-anchor id="ch3124-p027">Quest Description: With a companion's help, you have gradually learned a method for advancing your Occultism to the next stage.</p>
+<p data-reading-anchor id="ch3124-p028">Quest Requirement: Construct an internal vortex and stabilize its circulation.</p>
+<p data-reading-anchor id="ch3124-p029">Quest Completion: 0%.</p>
+<p data-reading-anchor id="ch3124-p030">There it is!</p>
+<p data-reading-anchor id="ch3124-p031">Fang Heng glanced at the game notification.</p>
+<p data-reading-anchor id="ch3124-p032">The game's prompts were an enormous cheat even outside the game itself.</p>
+<p data-reading-anchor id="ch3124-p033">Thanks to that cheat, he could now be certain Mu Shunan's proposed path of advancement was correct.</p>
+<p data-reading-anchor id="ch3124-p034">The question was how to put it into practice!</p>
+<p data-reading-anchor id="ch3124-p035">Fang Heng immediately sat cross-legged, entered a state of internal observation, and began by trying to control the changes in the laws within his body.</p>
+<p data-reading-anchor id="ch3124-p036">First, with the laws inside and outside already in equilibrium, creating a vortex would be impossible because external laws would interfere. He therefore had to close the channels through his skin's pores, separating the internal from the external.</p>
+<p data-reading-anchor id="ch3124-p037">Only then could he begin directing the energy flowing within him.</p>
+<p data-reading-anchor id="ch3124-p038">Very quickly, Fang Heng realized the difficulty.</p>
+<p data-reading-anchor id="ch3124-p039">Because he had studied so many different disciplines, his mental powers of various attributes were incredibly mixed and disorderly. Even with his tremendous mental strength, controlling multiple kinds of energy simultaneously was troublesome.</p>
+<p data-reading-anchor id="ch3124-p040">Energy moved sluggishly through his body, not to mention the conflicts between its different forms.</p>
+<p data-reading-anchor id="ch3124-p041">If those energies clashed, he would be in serious trouble.</p>
+<p data-reading-anchor id="ch3124-p042">This wasn't easy.</p>
+<p data-reading-anchor id="ch3124-p043">After trying a few times, Fang Heng realized that creating a circulating vortex might demand considerably more effort from him than from other people.</p>
+<p data-reading-anchor id="ch3124-p044">Having grasped the problem, Fang Heng opened his eyes again and lowered his head in thought, searching for a solution.</p>
+<p data-reading-anchor id="ch3124-p045">“Not simple, is it?”</p>
+<p data-reading-anchor id="ch3124-p046">“Mm, you're right. It's a bit troublesome.”</p>
+<p data-reading-anchor id="ch3124-p047">Seeing Fang Heng stop cultivating, Mu Shunan smiled and nodded encouragingly. “That's fine. Take your time. It took me a long while to reach this point too. There are a few tricks. If you can greatly increase your mental strength and sort through, or even discard, some of your more disorderly mental powers…”</p>
+<p data-reading-anchor id="ch3124-p048">Hm?</p>
+<p data-reading-anchor id="ch3124-p049">Mu Shunan was in the middle of sharing the experience he'd accumulated over more than ten years when he noticed something wasn't right. He looked at Fang Heng, who had already closed his eyes to cultivate again, and horror appeared in his gaze.</p>
+<p data-reading-anchor id="ch3124-p050">What the hell?!</p>
+<p data-reading-anchor id="ch3124-p051">Something was wrong with this kid!</p>
+<p data-reading-anchor id="ch3124-p052">The faint energies moving through the surroundings were accelerating as they poured into Fang Heng's body.</p>
+<p data-reading-anchor id="ch3124-p053">That was clearly the state reached after an internal vortex had formed and begun communicating with the outside world to establish equilibrium.</p>
+<p data-reading-anchor id="ch3124-p054">What?!</p>
+<p data-reading-anchor id="ch3124-p055">Did that mean he'd already finished constructing his internal vortex?</p>
+<p data-reading-anchor id="ch3124-p056">Mu Shunan stared at Fang Heng as though he'd seen a ghost.</p>
+<p data-reading-anchor id="ch3124-p057">Was this kid deliberately making a fool of him?</p>
+<p data-reading-anchor id="ch3124-p058">At that moment, Fang Heng was controlling the newly formed vortex inside his body.</p>
+<p data-reading-anchor id="ch3124-p059">Only now did he truly understand why Occultism was said to be the foundation of most academic disciplines.</p>
+<p data-reading-anchor id="ch3124-p060">Advancing in Occultism also involved the laws.</p>
+<p data-reading-anchor id="ch3124-p061">Once the internal vortex took shape and he reopened the passages connecting his body to the outside, any external law power entering him was absorbed by the balanced vortex. It kept the laws within his body in an extraordinarily stable state.</p>
+<p data-reading-anchor id="ch3124-p062">It could even absorb external energy for his own use!</p>
+<p data-reading-anchor id="ch3124-p063">Energy from outside was gradually flowing into his body!</p>
+<p data-reading-anchor id="ch3124-p064">In other words, once the vortex formed, it would continuously draw in external power and strengthen his various abilities, even if he did nothing.</p>
+<p data-reading-anchor id="ch3124-p065">Although the rate was extremely slow.</p>
+<p data-reading-anchor id="ch3124-p066">If he cultivated somewhere saturated with Abe Akaya's natural power, combined it with the Transcendent-level Occultism technique of opening his pores to absorb external energy, and then drove the completed vortex at full strength, his rate of absorbing external natural power would undergo another qualitative leap!</p>
+<p data-reading-anchor id="ch3124-p067">He couldn't test it yet, but Fang Heng could feel that his current cultivation speed was at least ten times what it had been with Transcendent-level Occultism!</p>
+<p data-reading-anchor id="ch3124-p068">In addition, when casting certain spells, mental energy compressed and circulated through his internal vortex would receive a further enhancement from external law power as it was released.</p>
+<p data-reading-anchor id="ch3124-p069">Together, those two effects offered roughly a two-to-threefold boost!</p>
+<p data-reading-anchor id="ch3124-p070">The predecessor who'd invented the internal vortex technique must have been a genius!</p>
+<p data-reading-anchor id="ch3124-p071">Fang Heng was secretly astonished.</p>
+<p data-reading-anchor id="ch3124-p072">Then a game notification appeared on his retina.</p>
+<p class="game" data-reading-anchor id="ch3124-p073">[Hint: Quest completion has reached 100%. You have forgotten the skill Occultism (Transcendent) and acquired the skill Occultism (Demigod).]</p>
+<p data-reading-anchor id="ch3124-p074">Success!</p>
+<p data-reading-anchor id="ch3124-p075">It had taken even less time than he'd expected!</p>
+<p data-reading-anchor id="ch3124-p076">And the reason he'd managed it so quickly was simple.</p>
+<p data-reading-anchor id="ch3124-p077">Besides the extensive experience he'd gained studying the laws in the cavern, his greatest asset had actually been the power of his bloodline!</p>
+<p data-reading-anchor id="ch3124-p078">The diverse energies in his body were too chaotic to control?</p>
+<p data-reading-anchor id="ch3124-p079">No problem!</p>
+<p data-reading-anchor id="ch3124-p080">He had the Titan bloodline's special ability!</p>
+<p data-reading-anchor id="ch3124-p081">Convert them directly!</p>
+<p data-reading-anchor id="ch3124-p082">All the chaotic energies inside his body had now been uniformly transformed into 'Qi'.</p>
+</article>
+<p class="end" data-reading-anchor id="ch3124-end">— End of Chapter 3124 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Chinese Chapter 3125: 稳固结构. English Chapter 3124: Stable Structure. Narrative paragraphs: 82/82 (source/English).</li><li>Restored separate reactions, sound effects, and dialogue breaks where the earlier V55 draft merged or missed them; source paragraph boundaries checked against the Chinese upload.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_3123_Outrageous.html#start">← Previous</a><a href="Global_Game_AFK_Chapter_3125_Coming_to_the_Door.html#start" class="next">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

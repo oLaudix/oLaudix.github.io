@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 3128 — Assassination | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-3128">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3127_Breaking_Through.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_3128_Assassination.html"><option value="Global_Game_AFK_Chapter_3128_Assassination.html" selected>3128 · Assassination</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3129_Intrusion.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-3128" data-reading-anchor>
+<div class="chapter-num">Chapter 3128</div><h2 class="chapter-title">Assassination</h2>
+<p class="source-identity">From Chinese Chapter 3129 · 袭杀</p>
+<article class="prose">
+<p data-reading-anchor id="ch3128-p001">Fang Heng!</p>
+<p data-reading-anchor id="ch3128-p002">His strength was far beyond anything he'd shown in the arena!</p>
+<p data-reading-anchor id="ch3128-p003">“Run!”</p>
+<p data-reading-anchor id="ch3128-p004">Carlton's back was soaked in cold sweat. Any desire to avenge his fallen companion was gone. He wanted only to get away from Fang Heng, as far away as possible!</p>
+<p data-reading-anchor id="ch3128-p005">“Hmph! Trying to run?”</p>
+<p data-reading-anchor id="ch3128-p006">A cold smile tugged at Fang Heng's mouth. Moving like a ghost, he appeared directly in Carlton's path of escape.</p>
+<p class="sound" data-reading-anchor id="ch3128-p007">“BOOM!!!”</p>
+<p data-reading-anchor id="ch3128-p008">A fist flew forward!</p>
+<p data-reading-anchor id="ch3128-p009">Although Carlton had sensed Fang Heng coming and raised both arms to defend himself in advance, it did no good.</p>
+<p data-reading-anchor id="ch3128-p010">Overwhelmed by Fang Heng's superior attributes, he took the punch head-on and was knocked back into the area covered by sinister undead mist once again.</p>
+<p data-reading-anchor id="ch3128-p011">The other three Crystal Clan warriors trying to break out of the black fog fared no better. Every time they tried to escape, Fang Heng burst from the mist and punched them straight back inside.</p>
+<p data-reading-anchor id="ch3128-p012">Not only had they failed to flee, their injuries had only grown worse.</p>
+<p data-reading-anchor id="ch3128-p013">Despair filled the sinister undead mist. All four could feel death drawing steadily closer.</p>
+<p data-reading-anchor id="ch3128-p014">What could they do?</p>
+<p data-reading-anchor id="ch3128-p015">Carlton could almost feel his life counting down toward its end.</p>
+<p data-reading-anchor id="ch3128-p016">When they'd accepted the Kinsfolk's mission, they'd spent most of their time planning how to block Fang Heng's escape routes. They'd never imagined ending up in this situation.</p>
+<p data-reading-anchor id="ch3128-p017">Fang Heng had trapped all of them by himself?</p>
+<p data-reading-anchor id="ch3128-p018">Now they were the cornered beasts fighting for their lives!</p>
+<p class="sound" data-reading-anchor id="ch3128-p019">“Bang!!!”</p>
+<p data-reading-anchor id="ch3128-p020">Another muffled explosion sounded, followed by a powerful smell of blood.</p>
+<p data-reading-anchor id="ch3128-p021">Carlton's heart jolted.</p>
+<p data-reading-anchor id="ch3128-p022">Not good!</p>
+<p data-reading-anchor id="ch3128-p023">Inside the sinister undead mist, most of his aura-sensing abilities were blocked, making it impossible to determine what was happening around him. But from the sound and the bloody smell in the air, he could tell that another companion had succumbed to his injuries and died.</p>
+<p class="sound" data-reading-anchor id="ch3128-p024">“Whoosh!!”</p>
+<p data-reading-anchor id="ch3128-p025">Carlton's pupils contracted as he saw another figure spring from the black mist.</p>
+<p class="sound" data-reading-anchor id="ch3128-p026">Whoosh!!</p>
+<p data-reading-anchor id="ch3128-p027">This time the attack wasn't aimed at him, but at another companion concealed within the undead mist.</p>
+<p class="sound" data-reading-anchor id="ch3128-p028">“BOOM!!!”</p>
+<p data-reading-anchor id="ch3128-p029">Another dull impact rang out, accompanied by a wave of bloody odor.</p>
+<p data-reading-anchor id="ch3128-p030">“Fang Heng! Come out!”</p>
+<p data-reading-anchor id="ch3128-p031">Carlton clenched his fists tightly.</p>
+<p data-reading-anchor id="ch3128-p032">He could sense his fellow clansmen falling one by one around him, yet he could do nothing to save them!</p>
+<p data-reading-anchor id="ch3128-p033">Consumed by rage, Carlton erupted with crystalline energy and charged into the black mist, determined to take Fang Heng down with him even at the cost of his own life.</p>
+<p data-reading-anchor id="ch3128-p034">But he still couldn't do it!</p>
+<p data-reading-anchor id="ch3128-p035">Fang Heng moved like a ghost through the sinister undead mist. Carlton couldn't catch him merely by trying to lock onto his aura!</p>
+<p data-reading-anchor id="ch3128-p036">Rage boiled within Carlton, and his blood circulated faster and faster. He felt a pressure building in his chest that he couldn't release.</p>
+<p data-reading-anchor id="ch3128-p037">If it continued like this, he'd probably suffer a backlash before anything else.</p>
+<p data-reading-anchor id="ch3128-p038">No other choice!</p>
+<p data-reading-anchor id="ch3128-p039">Carlton forced himself to sense Fang Heng's location and hurled a punch toward it!</p>
+<p class="sound" data-reading-anchor id="ch3128-p040">“Whoosh!!!”</p>
+<p data-reading-anchor id="ch3128-p041">A blast of ice crystals infused with crystallization power erupted in the direction of his fist!</p>
+<p data-reading-anchor id="ch3128-p042">“BOOM! Boom, boom, boom!!!”</p>
+<p data-reading-anchor id="ch3128-p043">Crystalline and elemental forces combined into a series of violent explosions inside the undead mist.</p>
+<p data-reading-anchor id="ch3128-p044">Damn it!</p>
+<p data-reading-anchor id="ch3128-p045">Damn it!</p>
+<p data-reading-anchor id="ch3128-p046">He'd missed again! Carlton's heart sank. Then he heard a calm voice beside his ear.</p>
+<p data-reading-anchor id="ch3128-p047">“Not bad. Your aim needs work, though.”</p>
+<p data-reading-anchor id="ch3128-p048">Carlton's pupils contracted.</p>
+<p class="sound" data-reading-anchor id="ch3128-p049">“BOOM!!!”</p>
+<p data-reading-anchor id="ch3128-p050">An immensely heavy punch smashed into Carlton's abdomen again. Cracks instantly covered his body as he was sent flying backward once more, coughing up blood.</p>
+<p data-reading-anchor id="ch3128-p051">Black mist penetrated layer after layer of his crystallized abdomen until it burst apart with a pop, scattering pink crystalline dust through the air.</p>
+<p data-reading-anchor id="ch3128-p052">The broken upper half of Carlton's body rolled across the ground. The light slowly faded from his eyes before he exploded on the spot with a bang, leaving a cloud of bloody mist.</p>
+<p data-reading-anchor id="ch3128-p053">Not far away, inside the car, Anxi anxiously watched the area ahead engulfed by black fog.</p>
+<p data-reading-anchor id="ch3128-p054">She couldn't see a thing. All she could hear were repeated muffled impacts.</p>
+<p data-reading-anchor id="ch3128-p055">The impacts were accompanied by a heavy scent of blood.</p>
+<p data-reading-anchor id="ch3128-p056">Ten minutes later, as the black mist slowly dispersed, Anxi saw Fang Heng emerge from it.</p>
+<p data-reading-anchor id="ch3128-p057">Where were the others?</p>
+<p data-reading-anchor id="ch3128-p058">Were they all dead?</p>
+<p data-reading-anchor id="ch3128-p059">Anxi swallowed nervously as she watched Fang Heng stroll back to the car and open the rear door.</p>
+<p data-reading-anchor id="ch3128-p060">“It's taken care of. We can go back now.”</p>
+<p data-reading-anchor id="ch3128-p061">“O-okay…”</p>
+<p data-reading-anchor id="ch3128-p062">Anxi glanced toward the area still shrouded in black energy, but didn't dare ask further questions. She started the car, turned around, and drove Fang Heng home by another route.</p>
+<p data-reading-anchor id="ch3128-p063">“Mr. Fang Heng, those men just now were sent by the Kinsfolk.”</p>
+<p data-reading-anchor id="ch3128-p064">“Mm. I know.”</p>
+<p data-reading-anchor id="ch3128-p065">Fang Heng responded quietly and opened his palm.</p>
+<p data-reading-anchor id="ch3128-p066">More than a dozen small, white crystalline beads rested in his hand.</p>
+<p data-reading-anchor id="ch3128-p067">Law Orbs.</p>
+<p data-reading-anchor id="ch3128-p068">Swallowing them helped a person comprehend the surrounding laws, making them very useful for cultivation.</p>
+<p data-reading-anchor id="ch3128-p069">The Kinsfolk pursuers he'd killed previously had carried similar items.</p>
+<p data-reading-anchor id="ch3128-p070">He'd just recovered more than a dozen Law Orbs from the warriors he'd killed.</p>
+<p data-reading-anchor id="ch3128-p071">Earlier, he and Nasir had discussed a theory that the Kinsfolk were using these things to control the warriors they recruited.</p>
+<p data-reading-anchor id="ch3128-p072">If that was true, a never-ending stream of warriors might come after him from now on.</p>
+<p data-reading-anchor id="ch3128-p073">Fang Heng slowly clenched his fist, anger stirring within him.</p>
+<p data-reading-anchor id="ch3128-p074">If the Kinsfolk kept hunting him, when would he have any time left to cultivate?</p>
+<p data-reading-anchor id="ch3128-p075">Seeing that Fang Heng didn't seem inclined to speak and that his expression remained gloomy, Anxi obediently kept quiet.</p>
+<p data-reading-anchor id="ch3128-p076">As she sat behind the wheel, unease gradually settled over her. Ever since they'd been attacked by people apparently sent by the Kinsfolk, she could sense that Fang Heng was suppressing his anger.</p>
+<p data-reading-anchor id="ch3128-p077">Half an hour later, the car stopped outside the villa.</p>
+<p data-reading-anchor id="ch3128-p078">“Mr. Fang Heng, we're here.” Anxi looked at him in the rearview mirror, hesitated, then couldn't help advising him, “Please give us a little more time. The Noel Clan will take responsibility for your safety. Please don't enter into a direct confrontation with the Kinsfolk.”</p>
+<p data-reading-anchor id="ch3128-p079">“Mm. I understand. Thank you.”</p>
+<p data-reading-anchor id="ch3128-p080">Fang Heng got out, entered the villa, and shut the door behind him.</p>
+<p data-reading-anchor id="ch3128-p081">Since the Kinsfolk dared openly send assassins after him, he had no objection to teaching them a lesson.</p>
+<p data-reading-anchor id="ch3128-p082">With that thought, Fang Heng flexed his wrists and slowly walked toward the basement.</p>
+<p data-reading-anchor id="ch3128-p083">On the seventh underground level, black mist had accumulated into a thick layer.</p>
+<p data-reading-anchor id="ch3128-p084">Fang Heng swept his gaze across the large hall.</p>
+<p data-reading-anchor id="ch3128-p085">His zombie clones were gathered in the basement, endlessly constructing magic arrays to grind experience.</p>
+<p data-reading-anchor id="ch3128-p086">Thin wisps of black mist leaked from their bodies.</p>
+<p data-reading-anchor id="ch3128-p087">It was strange, now that he thought about it.</p>
+<p data-reading-anchor id="ch3128-p088">Why were the Kinsfolk so afraid of the game's black mist when other races didn't seem to care about it at all?</p>
+<p data-reading-anchor id="ch3128-p089">Never mind that for now.</p>
+<p data-reading-anchor id="ch3128-p090">Fang Heng entered his spirit form, left the villa, and headed for the Kinsfolk headquarters district.</p>
+<p class="scene" data-reading-anchor id="ch3128-p091">…</p>
+<p data-reading-anchor id="ch3128-p092">The Kinsfolk had no idea what had happened inside the Lanyue Clan's territory after their agents left. At first, they'd assumed that their plan to kill Fang Heng had succeeded.</p>
+<p data-reading-anchor id="ch3128-p093">During the following month of investigations, they'd adopted an attitude of killing the innocent rather than risking letting anyone escape. Pan-human races connected to the matter were directly eliminated.</p>
+<p data-reading-anchor id="ch3128-p094">Kappa and Korkalot had also been detained by the Kinsfolk, who intended to use them as bait to lure their target into the open.</p>
+<p data-reading-anchor id="ch3128-p095">But after more than a month, everything seemed to have returned to normal.</p>
+<p data-reading-anchor id="ch3128-p096">The black mist hadn't appeared again.</p>
+<p data-reading-anchor id="ch3128-p097">Fang Heng wasn't certain exactly where Kappa and Korkalot were being held, and he suspected the Kinsfolk might have deliberately kept them alive as bait. Until the Noel Clan clarified the situation, he decided not to attempt a direct rescue. Instead, he'd make trouble for the Kinsfolk and retaliate as much as possible.</p>
+<p data-reading-anchor id="ch3128-p098">By spreading the black mist, for example.</p>
+</article>
+<p class="end" data-reading-anchor id="ch3128-end">— End of Chapter 3128 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Chinese Chapter 3129: 袭杀. English Chapter 3128: Assassination. Narrative paragraphs: 98/98 (source/English).</li><li>Restored separate reactions, sound effects, and dialogue breaks where the earlier V55 draft merged or missed them; source paragraph boundaries checked against the Chinese upload.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_3127_Breaking_Through.html#start">← Previous</a><a href="Global_Game_AFK_Chapter_3129_Intrusion.html#start" class="next">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

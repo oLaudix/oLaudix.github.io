@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 3107 — Tracking | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-3107">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3106_Conversion.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_3107_Tracking.html"><option value="Global_Game_AFK_Chapter_3107_Tracking.html" selected>3107 · Tracking</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3108_Fight_to_the_Death.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-3107" data-reading-anchor>
+<div class="chapter-num">Chapter 3107</div><h2 class="chapter-title">Tracking</h2>
+<p class="source-identity">From Chinese Chapter 3108 · 追踪</p>
+<article class="prose">
+<p data-reading-anchor id="ch3107-p001">When Fang Heng left the villa a few days ago, he hadn't noticed anything unusual. Today was different. He suddenly sensed several powerful blood-energy fluctuations coming from covert surveillance positions established around the villa.</p>
+<p data-reading-anchor id="ch3107-p002">The watchers had suppressed their auras, but they couldn't suppress their blood-energy fluctuations, which his vampire bloodline detected easily.</p>
+<p data-reading-anchor id="ch3107-p003">Fang Heng remained suspended in midair in soul form, extended his senses, and focused on the warriors.</p>
+<p data-reading-anchor id="ch3107-p004">Interesting.</p>
+<p data-reading-anchor id="ch3107-p005">Those warriors were clearly here for him.</p>
+<p data-reading-anchor id="ch3107-p006">Were they working for the Kinsfolk?</p>
+<p data-reading-anchor id="ch3107-p007">Had they specifically come to investigate him?</p>
+<p data-reading-anchor id="ch3107-p008">When had he given himself away?</p>
+<p data-reading-anchor id="ch3107-p009">After some thought, Fang Heng decided to ignore them for now and accelerated toward the distant Mechanical Clan hotel where the Flying Squirrel Clan members were staying.</p>
+<p data-reading-anchor id="ch3107-p010">...</p>
+<p data-reading-anchor id="ch3107-p011">At the hotel operated by the Mechanical Clan...</p>
+<p data-reading-anchor id="ch3107-p012">Kappa and the Elven prince Korkalot checked the time.</p>
+<p data-reading-anchor id="ch3107-p013">This was troublesome. Their routine hearing was scheduled for today.</p>
+<p data-reading-anchor id="ch3107-p014">The final review would take place today. Once their documents and the on-site questioning were approved, humanity would be officially registered with the Seven-Realm Martial Capital. In the future, if the Kinsfolk tried to use some devastating weapon against humanity's planet, it would be protected jointly by the Seven-Realm Martial Capital.</p>
+<p data-reading-anchor id="ch3107-p015">Kappa had a strong premonition that the people secretly watching them would definitely make their move!</p>
+<p data-reading-anchor id="ch3107-p016">"Come on. We'll be late if we don't leave now."</p>
+<p data-reading-anchor id="ch3107-p017">Korkalot gave Kappa a sideways glance, strode out of the building, and climbed into a waiting taxi. "Boss Fang is with us. What are you afraid of?"</p>
+<p data-reading-anchor id="ch3107-p018">Kappa took a deep breath at the hotel entrance, patted his cheeks, and got into the vehicle as well.</p>
+<p data-reading-anchor id="ch3107-p019">"Driver, take us to the Seven-Realm Martial Capital Department of External Affairs."</p>
+<p data-reading-anchor id="ch3107-p020">"You got it. Sit tight, both of you."</p>
+<p data-reading-anchor id="ch3107-p021">The driver, a member of another race, greeted them and drove toward the city center.</p>
+<p data-reading-anchor id="ch3107-p022">They had barely passed two intersections when Kappa's expression turned miserable.</p>
+<p data-reading-anchor id="ch3107-p023">In the rearview mirror, he could clearly see several cars following them.</p>
+<p data-reading-anchor id="ch3107-p024">And the pursuers weren't even trying to hide it.</p>
+<p data-reading-anchor id="ch3107-p025">They were finished.</p>
+<p data-reading-anchor id="ch3107-p026">Once they left the streets controlled by the Mechanical Clan, the Kinsfolk's pursuers would probably attack!</p>
+<p data-reading-anchor id="ch3107-p027">Kappa and Korkalot exchanged glances, wondering whether to turn back. Suddenly, a familiar voice sounded beside Kappa's ear.</p>
+<p data-reading-anchor id="ch3107-p028">"Kappa, don't worry. I'm right beside you."</p>
+<p data-reading-anchor id="ch3107-p029">Hearing Fang Heng's voice, Kappa immediately perked up, delight spreading across his face.</p>
+<p data-reading-anchor id="ch3107-p030">"Boss Fang!"</p>
+<p data-reading-anchor id="ch3107-p031">Kappa had seen Fang Heng use soul form when entering the Elven Clan's territory, so he recognized it immediately.</p>
+<p data-reading-anchor id="ch3107-p032">As far as he understood, it was a form of special spirit possession.</p>
+<p data-reading-anchor id="ch3107-p033">Korkalot still hadn't understood and asked in confusion, "What?"</p>
+<p data-reading-anchor id="ch3107-p034">"Boss Fang is here. We'll be fine now."</p>
+<p data-reading-anchor id="ch3107-p035">With Fang Heng supporting them, Kappa stopped worrying altogether. Following his instructions, he told the driver, "Change of plans. Forget the department. Head toward the outskirts first, somewhere with fewer people."</p>
+<p data-reading-anchor id="ch3107-p036">"Sure thing."</p>
+<p data-reading-anchor id="ch3107-p037">The driver had no idea what was going on with his passengers, but he followed their request, turned around, and drove toward the outskirts.</p>
+<p data-reading-anchor id="ch3107-p038">As soon as the taxi left the central district, the cars behind them closed in brazenly.</p>
+<p data-reading-anchor id="ch3107-p039">The driver finally realized that something was wrong. Looking back at Kappa and Korkalot, he asked, "What's going on with you two? Are those cars following you?"</p>
+<p data-reading-anchor id="ch3107-p040">"Heh-heh, just some friends. Don't worry, brother. Whatever happens next, just keep driving forward."</p>
+<p class="sound" data-reading-anchor id="ch3107-p041">"Boom!!!"</p>
+<p data-reading-anchor id="ch3107-p042">Before the driver could respond, everything changed in an instant.</p>
+<p data-reading-anchor id="ch3107-p043">The pursuing cars suddenly exploded without warning!</p>
+<p data-reading-anchor id="ch3107-p044">Several figures leaped from the raging flames.</p>
+<p data-reading-anchor id="ch3107-p045">Fang Heng returned from soul form to his human body and stood before the wrecked vehicles.</p>
+<p data-reading-anchor id="ch3107-p046">Without anyone noticing when, a thin layer of Black Mist had spread across the surroundings.</p>
+<p data-reading-anchor id="ch3107-p047">Seven warriors working for the Kinsfolk stared at Fang Heng in the mist, their expressions growing grave.</p>
+<p data-reading-anchor id="ch3107-p048">"Captain, that kid looks familiar. He's the warrior who recently joined the Noel Clan. He's quite strong."</p>
+<p data-reading-anchor id="ch3107-p049">Fang Heng had fought three matches in the Seven-Realm Martial Capital's arena. His last victory as a low-ranking warrior over a high-ranking opponent had attracted considerable attention.</p>
+<p data-reading-anchor id="ch3107-p050">Because he specialized in close combat, many warriors had watched recordings of his matches.</p>
+<p data-reading-anchor id="ch3107-p051">Dario, the captain assigned to carry out the elimination order, glanced at the taxi speeding away and slowly turned back to Fang Heng. "Fang Heng?"</p>
+<p data-reading-anchor id="ch3107-p052">Standing in the path of all seven warriors, Fang Heng asked, "Did the Kinsfolk send you?"</p>
+<p data-reading-anchor id="ch3107-p053">"Hmph. You know perfectly well." Dario snorted and called to his men, "You three, chase them. Don't let them get away."</p>
+<p data-reading-anchor id="ch3107-p054">"Yes, sir!"</p>
+<p data-reading-anchor id="ch3107-p055">The three mid-ranking warriors acknowledged the order and were about to give chase.</p>
+<p class="sound" data-reading-anchor id="ch3107-p056">"Whoosh!!!"</p>
+<p data-reading-anchor id="ch3107-p057">Fang Heng abruptly became a dark shadow and charged at them at terrifying speed.</p>
+<p data-reading-anchor id="ch3107-p058">So fast!</p>
+<p data-reading-anchor id="ch3107-p059">"Good! Come on, then! I'll take you on!"</p>
+<p data-reading-anchor id="ch3107-p060">Among the seven pursuers was Alray, a high-ranking warrior who also specialized in close combat. He stepped across with an excited expression and blocked Fang Heng's path.</p>
+<p data-reading-anchor id="ch3107-p061">Reaching the high ranks as a close-combat warrior was exceptionally difficult. Alray had been extremely interested in Fang Heng, and now his excitement rose further. Elemental energy swirled around his body, while his eyes burned with fighting spirit.</p>
+<p data-reading-anchor id="ch3107-p062">Alray hadn't actually been Fang Heng's intended target. He had planned to deal with the small fry first.</p>
+<p data-reading-anchor id="ch3107-p063">There were seven opponents, two high-ranking and five mid-ranking. Letting even one escape could become very troublesome.</p>
+<p data-reading-anchor id="ch3107-p064">Fang Heng intended to bypass Alray, but as he drew closer he frowned.</p>
+<p data-reading-anchor id="ch3107-p065">Hm?</p>
+<p data-reading-anchor id="ch3107-p066">Alray stood across his path, his body shrouded in elemental power. He seemed to have become one with the earth itself, giving an impression of absolute immovability.</p>
+<p data-reading-anchor id="ch3107-p067">For an instant, Fang Heng even experienced a strange illusion.</p>
+<p data-reading-anchor id="ch3107-p068">It was as though he could not pass the mountain standing before him.</p>
+<p data-reading-anchor id="ch3107-p069">Laws!</p>
+<p data-reading-anchor id="ch3107-p070">Fang Heng narrowed his eyes and understood immediately.</p>
+<p data-reading-anchor id="ch3107-p071">This man had fused elemental laws with his power.</p>
+<p data-reading-anchor id="ch3107-p072">And unlike ordinary warriors, Alray incorporated that law energy directly into close combat.</p>
+<p data-reading-anchor id="ch3107-p073">Very interesting!</p>
+<p data-reading-anchor id="ch3107-p074">If he couldn't go around...</p>
+<p data-reading-anchor id="ch3107-p075">"Then let's see if I can smash through!"</p>
+<p class="sound" data-reading-anchor id="ch3107-p076">Whoosh!</p>
+<p data-reading-anchor id="ch3107-p077">Fang Heng changed targets, lowered his body, and charged straight at Alray.</p>
+<p class="sound" data-reading-anchor id="ch3107-p078">"Thud!!!!!!"</p>
+<p data-reading-anchor id="ch3107-p079">Dario's pupils contracted sharply as a dull impact sounded beside him.</p>
+<p class="sound" data-reading-anchor id="ch3107-p080">"Bang!!"</p>
+<p data-reading-anchor id="ch3107-p081">Fang Heng appeared before Alray and punched him backward. Blood poured from all seven of Alray's orifices, while a spreading layer of black corruption appeared at the point of impact. The sight was horrifying.</p>
+<p data-reading-anchor id="ch3107-p082">What!?</p>
+<p data-reading-anchor id="ch3107-p083">Everyone's expression changed.</p>
+<p data-reading-anchor id="ch3107-p084">Alray was a high-ranking warrior known as the Mountain. His defense was strong enough to withstand even the ultimate attacks of other high-ranking warriors. Nearly everyone who had ever fought him found him an exceptionally difficult opponent.</p>
+<p data-reading-anchor id="ch3107-p085">Yet he couldn't even withstand one punch from Fang Heng?</p>
+<p data-reading-anchor id="ch3107-p086">Dario had watched Fang Heng's recorded fights and knew his close-combat abilities were formidable. But he was moving even faster now, and his attacks were far more powerful than in the recordings.</p>
+</article>
+<p class="end" data-reading-anchor id="ch3107-end">— End of Chapter 3107 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Chinese Chapter 3108: 追踪. English Chapter 3107: Tracking. Narrative paragraphs: 86/86.</li><li>Dario (达里奥) leads a seven-person Kinsfolk-contracted team: two high-ranking and five mid-ranking warriors. Alray (阿尔雷) is the physically powerful high-ranking defender.</li><li>Korkalot (科尔卡洛特) is the Elven prince and Kappa (卡帕) the Flying Squirrel captain.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_3106_Conversion.html#start">← Previous</a><a class="next" href="Global_Game_AFK_Chapter_3108_Fight_to_the_Death.html#start">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

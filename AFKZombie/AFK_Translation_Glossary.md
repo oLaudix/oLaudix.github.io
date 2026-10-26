@@ -1,6 +1,6 @@
 # Global Game: AFK in the Zombie Apocalypse — Translation Glossary
 
-**Version:** 35 (25 October 2026)
+**Version:** 37 (26 October 2026)
 **Authority:** Names and wording already agreed in *our own* English translation. Our previously read published translation can establish a character alias when explicitly confirmed with the user (e.g., Charlotte); otherwise names are set by our translation and user decisions, not automatic third-party substitutions.  
 **Purpose:** A short, portable reference to include unchanged in each translation ZIP, and update only when new terminology is confirmed. The glossary governs spelling, not the novel's plot or prose.
 
@@ -1054,3 +1054,75 @@ The entire V34 cumulative glossary above remains unchanged and authoritative. Ne
 **V35 source cautions:** Chinese 3084 identifies the arena opponent as 廖云, then uses 廖凡 in two later lines; Chinese 3085 also says 廖凡 once. English identifies the fighter consistently as Liao Yun. Chinese 3086 describes completing an alchemy advancement as 宗师级炼金学, although the surrounding quest and skill-exp messages concern the Transcendent stage; original levels are kept where explicitly stated in the game notices. Chinese 3095 calls the eye 炼金之瞳 once, rather than the established 全知之瞳. The source's later narrative also distinguishes a Black Mist **gathering** array from any means of destroying or permanently removing the mist.
 
 **V53 release continuity:** English 3080–3099 translate Chinese 3081–3100, retaining 1,725 narrative paragraphs. Chapter 3079 “Fierce Training” links forward to 3080 “Calm Down.” The cumulative index and `chapters.js` cover English chapters 2000–3099 (1,100 chapters). The prior reader CSS and JavaScript remain unchanged.
+
+
+## V36 terminology and continuity — English 3100–3119 (Chinese 3101–3120)
+
+| Locked English | Chinese | Notes |
+|---|---|---|
+| **Noel Clan** | 诺尔一族 | Established name of the warrior-recruiting clan; **not** Notar (诺塔尔), the distinct Nether Clan leader. Chinese 3110 includes a source typo 诺塔一族. |
+| **Grand** | 格兰德 | High-ranking arena warrior using Nature Studies, Arcane puppets, and law-driven natural barriers. |
+| **Xili** | 西莉 | Female wind-spirit demon who fights Fang Heng in the arena. |
+| **Administrator Lila** | 执政官莉拉 | Female Kinsfolk administrator given supreme local authority; orders suspicion-based elimination of pan-humans. |
+| **Dario** | 达里奥 | Captain of the seven-member assassination squad recruited by the Kinsfolk. |
+| **Alray** | 阿尔雷 | Male high-ranking close-combat warrior known as the Mountain, member of Dario's squad. |
+| **Law Bead** | 法则宝珠 / 圆珠 | Translucent pearl-like bead that temporarily sharpens perception of laws; source duration roughly an hour. |
+| **Lanyue Clan** | 澜月一族 / 澜月族 | Ancient Alchemy-related people on the Noel Clan's new mineral-extraction world. |
+| **Captain Hoffman** | 霍夫曼 | Noel Clan starship captain in charge of the mining escort and subsequent rescue. |
+| **Edwin** | 艾德文 | Warrior who betrays Fang Heng's escort squad and joins the Lanyue ambush on behalf of the Kinsfolk. |
+| **Nick** | 尼克 | Second warrior who betrays the Noel Clan escort in the Lanyue ambush. |
+| **Dimensional Evil Embryo** | 次元邪胎 | Massive corrupted-flesh manifestation of an evil god imprisoned beneath the Lanyue Clan's ceremonial caves. |
+| **Evil God Phoenicia** | 邪神腓尼基 | Name associated with the Dimensional Evil Embryo; transliteration provisionally set to Phoenicia. |
+| **Endless Void** | 无尽空域 | Region outside normal explored cosmic space from which the Evil Embryo can allegedly be summoned. |
+| **Attribute Absorption** | 能力汲取 | Licker modification that drains a target's attributes with each successful damaging strike. |
+| **Vampire King bloodline** | 君王级的血脉 | Preserve the established **Vampire King**, never “Vampire Monarch.” |
+| **Sacred Studies** | 神圣学 | Powers Fang Heng can use against shadow tendrils. Nasir attributes them to the ancient race of gods; its relationship with the Holy Court remains uncertain in the narrative. |
+
+**V36 source cautions:** Chinese 3103 gives an advancement to Transcendent-level Nature Studies, while one subsequent narrator line describes surpassing Grandmaster. Chinese 3107 has 帕卡 for the established Kappa (卡帕). Chinese 3109's fighting duration contains mutually inconsistent phrases (“a few minutes” and “less than a minute”). Chinese 3110 has 诺塔一族 for 诺尔一族 (Noel Clan). Chinese 3114 has a repeated speaker label 木书楠 after Mu Shunan himself introduces the bead; in English that surprised reaction is assigned to Nasir and the inconsistency documented in notes. Chinese 3120 prints the game damage value **-124**, retained without silently normalizing its sign. Chinese 3120 calls the being 神胎 (“Divine Embryo”) in a priest's frightened remark, separate from the established narrator term “Evil Embryo.”
+
+**V54 release continuity:** English 3100–3119 translate Chinese 3101–3120, retaining 1,726 narrative paragraphs. Chapter 3099 “Battle Preparations” now links to 3100 “No Problem.” Cumulative index and `chapters.js` cover English chapters 2000–3119 (1,120 chapters). CSS and chapter-reader JavaScript are unchanged from V53.
+
+
+## V55 — New glossary confirmations (English 3120–3139 / Chinese 3121–3140)
+
+| Chinese | English | Notes |
+|---|---|---|
+| 诺尔一族 | Noel Clan | Established faction, opposed to the Kinsfolk's influence |
+| 眷族 | Kinsfolk | Established hostile faction, not translated as “retainers” |
+| 澜月一族 | Lanyue Clan | Custodians of the sealed evil embryo |
+| 科尔卡洛特 | Korkalot | Elf prince, Kappa's companion |
+| 卡帕 | Kappa | Flying Squirrel clan captain; imprisoned with Korkalot |
+| 纳西尔 | Nasir | Alchemy specialist |
+| 木书楠 | Mu Shunan | Noel Clan martial artist and Occultism scholar |
+| 安茜 | Anxi | Fang Heng's Noel Clan liaison |
+| 卡尔顿 | Carlton | Crystal Clan assassin |
+| 晶之一族 | Crystal Clan | Racial crystallization ability, 20–35 dimensional level |
+| 次元邪胎 / 邪胎 | dimensional evil embryo / evil embryo | Sealed manifestation of an evil god |
+| 远古知识 | ancient knowledge | Recovered upon destruction of evil embryo |
+| 神秘学 | Occultism | Discipline distinct from Alchemy |
+| 炼金学 | Alchemy | Fang Heng advances to Demigod level |
+| 次神级 | Demigod-level | After Transcendent, before God-level |
+| 超神级 | Super-God-level | Fang Heng mentions beyond God-level |
+| 法则类魔法阵 | law-type magic array | Changes surrounding laws, permanently if reconstructed |
+| 炁 | Qi | Titan bloodline unifies disparate energies into one neutral energy |
+| 亡灵诡雾 | eerie undead mist | Obscures enemies and applies debuffs |
+| 幽冥之球 | Nether Orbs | Fang Heng summons 24 of them in this battle |
+| 法则宝珠 | Law Orbs | Law-comprehension treasures Kinsfolk distribute to proxies |
+| 赫利俄姆 | Heliom | Kinsfolk research world; provisional transliteration |
+| 冰魄之地 | Frozen Soul Land | World with frozen outer surface and hollow interior |
+| 地心炎脉 | Earth's Core Flame Vein | Resource seam beneath Frozen Soul Land |
+| 迦尔 | Garr | Vampire prince in charge of the operation |
+| 布勒 | Bule | Vampire prince tasked with administration |
+| 纯净水晶 | pure crystal | Treasure favored by the Moonling race |
+| 黑雾扩散度 | black-mist spread | World-specific percentage shown by game prompts |
+
+### Source errata noted in per-chapter files
+
+- CN 3122 erroneously identifies the captured Lanyue leaders as Noel leaders during interrogation.
+- CN 3124 erroneously credits Kinsfolk elders, not Noel Clan elders, with arranging Fang Heng's public return to Noel headquarters.
+- CN 3128 briefly misspells 卡尔顿; translation preserves Carlton.
+- CN 3130 and 3131 have the same source title 闯入 (two distinct chapters).
+- CN 3137 contains a repeated website-style chapter title, excluded from narrative.
+
+
+**V55 source fidelity repair:** The first V55 draft combined multiple consecutive source paragraphs and overlooked several short utterances/sound effects. This corrected V55 release restores the source paragraph boundaries and missing reactions, comparing against all 1,735 story paragraphs (one duplicate website heading in Chinese 3137 excluded). Full original V54 glossary retained.

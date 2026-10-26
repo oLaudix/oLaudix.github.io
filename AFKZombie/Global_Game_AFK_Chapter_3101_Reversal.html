@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 3101 — Reversal | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-3101">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3100_No_Problem.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_3101_Reversal.html"><option value="Global_Game_AFK_Chapter_3101_Reversal.html" selected>3101 · Reversal</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3102_Comprehension.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-3101" data-reading-anchor>
+<div class="chapter-num">Chapter 3101</div><h2 class="chapter-title">Reversal</h2>
+<p class="source-identity">From Chinese Chapter 3102 · 翻转</p>
+<article class="prose">
+<p data-reading-anchor id="ch3101-p001">"Tch! All flashy tricks!"</p>
+<p data-reading-anchor id="ch3101-p002">Fang Heng snorted disdainfully as the runes of an alchemical magic array spun rapidly in his pupil.</p>
+<p data-reading-anchor id="ch3101-p003">Huh!?</p>
+<p data-reading-anchor id="ch3101-p004">They weren't illusions.</p>
+<p data-reading-anchor id="ch3101-p005">They were physical clones!</p>
+<p data-reading-anchor id="ch3101-p006">Arcane puppets!</p>
+<p data-reading-anchor id="ch3101-p007">So this fellow combined Nature Studies with Arcane Studies.</p>
+<p data-reading-anchor id="ch3101-p008">What a rich bastard. Arcane puppets cost an absolute fortune.</p>
+<p data-reading-anchor id="ch3101-p009">His own zombie clones were much more practical.</p>
+<p class="sound" data-reading-anchor id="ch3101-p010">"Whoosh!!"</p>
+<p data-reading-anchor id="ch3101-p011">With a light tap of his foot, Fang Heng darted right, slipping through gaps between the dense roots and vines pressing in on him. He swung a fist straight at Grand!</p>
+<p class="sound" data-reading-anchor id="ch3101-p012">"Bang!!!!"</p>
+<p data-reading-anchor id="ch3101-p013">A tremendous explosion rang out!</p>
+<p data-reading-anchor id="ch3101-p014">Surprise flashed through Grand's eyes.</p>
+<p data-reading-anchor id="ch3101-p015">What terrifying strength.</p>
+<p class="sound" data-reading-anchor id="ch3101-p016">"Boom!!!!"</p>
+<p data-reading-anchor id="ch3101-p017">Several solid walls that had risen before Grand exploded under Fang Heng's punch!</p>
+<p data-reading-anchor id="ch3101-p018">Splinters flew everywhere, landing on Fang Heng and triggering a succession of explosions!</p>
+<p data-reading-anchor id="ch3101-p019">Hm!?</p>
+<p data-reading-anchor id="ch3101-p020">Grand's brow tightened further.</p>
+<p data-reading-anchor id="ch3101-p021">Why did the explosions seem completely ineffective against this guy?</p>
+<p data-reading-anchor id="ch3101-p022">Damn it.</p>
+<p data-reading-anchor id="ch3101-p023">Nature-based attacks weren't especially powerful, but surely they weren't *this* weak?</p>
+<p data-reading-anchor id="ch3101-p024">While Grand was still puzzled, Fang Heng ducked and became a dark blur racing toward him again. Grand's heart jolted.</p>
+<p data-reading-anchor id="ch3101-p025">What was going on?</p>
+<p data-reading-anchor id="ch3101-p026">How had he picked out the real Grand among so many puppets!?</p>
+<p data-reading-anchor id="ch3101-p027">Fang Heng narrowed his eyes slightly, his gaze locked firmly onto Grand's true body.</p>
+<p data-reading-anchor id="ch3101-p028">With the Omniscient Eye and his blood-sensing ability, Grand's real body stood out far too clearly!</p>
+<p data-reading-anchor id="ch3101-p029">Fang Heng charged straight toward him.</p>
+<p data-reading-anchor id="ch3101-p030">Heh!</p>
+<p data-reading-anchor id="ch3101-p031">Interesting!</p>
+<p data-reading-anchor id="ch3101-p032">The power of laws!</p>
+<p data-reading-anchor id="ch3101-p033">As he approached, Fang Heng keenly sensed something abnormal in the fluctuations of natural energy around Grand.</p>
+<p data-reading-anchor id="ch3101-p034">Grand was influencing the power of laws.</p>
+<p data-reading-anchor id="ch3101-p035">His Nature Studies had already reached the Transcendent level, perhaps even the Demigod level!</p>
+<p class="sound" data-reading-anchor id="ch3101-p036">Whoosh!!</p>
+<p data-reading-anchor id="ch3101-p037">Fang Heng suddenly appeared to the right of Grand's true body and drove his right fist forward again.</p>
+<p class="sound" data-reading-anchor id="ch3101-p038">"Bang!! Bang, bang!!!"</p>
+<p data-reading-anchor id="ch3101-p039">Even before the blow connected, the natural laws gathered in the surroundings reacted to counter it. A layer of natural energy actually appeared around Fang Heng's fist.</p>
+<p data-reading-anchor id="ch3101-p040">Fine vines grew out of thin air around his knuckles and coiled over them, attempting to weaken the punch.</p>
+<p data-reading-anchor id="ch3101-p041">At the same time, a green natural barrier appeared around Grand.</p>
+<p data-reading-anchor id="ch3101-p042">Interesting!</p>
+<p data-reading-anchor id="ch3101-p043">Laws!</p>
+<p data-reading-anchor id="ch3101-p044">Very interesting!</p>
+<p data-reading-anchor id="ch3101-p045">Fang Heng unleashed his aura. The vines wrapped around his fist instantly shattered, and his punch crashed heavily into the barrier formed by those laws.</p>
+<p class="sound" data-reading-anchor id="ch3101-p046">"Boom!!!!"</p>
+<p data-reading-anchor id="ch3101-p047">A powerful rebound force struck him. Frowning, Fang Heng used it to retreat quickly, then flickered back and forth around Grand, probing how his opponent used laws to serve his own purposes.</p>
+<p data-reading-anchor id="ch3101-p048">Grand stared in astonishment.</p>
+<p data-reading-anchor id="ch3101-p049">What the hell!</p>
+<p data-reading-anchor id="ch3101-p050">That single blow had already cracked the barrier. It only looked intact because it had not completely disintegrated.</p>
+<p data-reading-anchor id="ch3101-p051">Never had he seen a close-combat warrior with such terrifying strength—someone capable of forcibly resisting his law-bound domain through physical power alone.</p>
+<p data-reading-anchor id="ch3101-p052">Where on earth had this brat come from?</p>
+<p data-reading-anchor id="ch3101-p053">Even the power of his domain couldn't completely trap him.</p>
+<p data-reading-anchor id="ch3101-p054">What an infuriating opponent!</p>
+<p data-reading-anchor id="ch3101-p055">A fine layer of cold sweat appeared on Grand's forehead.</p>
+<p data-reading-anchor id="ch3101-p056">Could a physical-enhancement warrior really possess such strength?</p>
+<p data-reading-anchor id="ch3101-p057">Fang Heng wasn't using his full power. He was simply curious about the natural barrier, so he kept attacking it from different angles to test its strength.</p>
+<p data-reading-anchor id="ch3101-p058">Otherwise, with his Strength attribute, he could smash through its outer layer with a few punches through brute force alone.</p>
+<p data-reading-anchor id="ch3101-p059">And if he added an academic power, such as necromancy, a single punch would easily shatter it.</p>
+<p data-reading-anchor id="ch3101-p060">After circling and testing the nature shield for a while, Fang Heng began to understand.</p>
+<p data-reading-anchor id="ch3101-p061">So that's how it works.</p>
+<p data-reading-anchor id="ch3101-p062">Grand was using his own power to create a special space governed by altered laws.</p>
+<p data-reading-anchor id="ch3101-p063">Essentially, he activated his Nature Studies power and circulated it to affect the laws outside his body.</p>
+<p data-reading-anchor id="ch3101-p064">Nasir had been right after all.</p>
+<p data-reading-anchor id="ch3101-p065">Higher academic disciplines, like the Alchemy and Mysticism Fang Heng had been studying, were about understanding and using laws.</p>
+<p data-reading-anchor id="ch3101-p066">He thought back to Tree Realm Descent, which he had used many times.</p>
+<p data-reading-anchor id="ch3101-p067">It was actually a similar domain ability, though its focus was different.</p>
+<p data-reading-anchor id="ch3101-p068">Understand one principle, and others fall into place.</p>
+<p data-reading-anchor id="ch3101-p069">Fang Heng's perception was extremely sharp. By repeatedly touching the defensive barrier, he had already sensed the flow of law power around Grand.</p>
+<p data-reading-anchor id="ch3101-p070">Fortunately, he had practiced working with laws before.</p>
+<p data-reading-anchor id="ch3101-p071">His alchemical training had honed his perception of environmental laws to an exceptionally fine degree.</p>
+<p data-reading-anchor id="ch3101-p072">His perception was up to the task.</p>
+<p data-reading-anchor id="ch3101-p073">Next came control.</p>
+<p data-reading-anchor id="ch3101-p074">That required a foundation of powerful mental strength and Nature Studies ability.</p>
+<p data-reading-anchor id="ch3101-p075">He could do it!</p>
+<p data-reading-anchor id="ch3101-p076">In an instant, Fang Heng had an overwhelming intuition that his current abilities were also sufficient to try manipulating the surrounding laws!</p>
+<p data-reading-anchor id="ch3101-p077">It wasn't difficult! He could absolutely give it a try!</p>
+<p data-reading-anchor id="ch3101-p078">At that moment, several lines of game notifications appeared on his retina.</p>
+<p class="game" data-reading-anchor id="ch3101-p079">[Hint: Player has come into contact with certain laws. All attributes have reached the minimum requirements. Quest triggered: Nature Studies Advancement (Transcendent).]</p>
+<p class="game" data-reading-anchor id="ch3101-p080">Quest Name: Nature Studies Advancement (Transcendent).</p>
+<p class="game" data-reading-anchor id="ch3101-p081">Quest Description: While attempting to perceive the laws of Nature Studies, you have discovered possible paths for advancement.</p>
+<p class="game" data-reading-anchor id="ch3101-p082">Quest Requirement: Attempt to use Nature Studies abilities to affect the formation of laws.</p>
+<p class="game" data-reading-anchor id="ch3101-p083">Quest Reward: Nature Studies advancement.</p>
+<p class="sound" data-reading-anchor id="ch3101-p084">Whoosh!</p>
+<p data-reading-anchor id="ch3101-p085">Fang Heng narrowed his eyes and darted forward again.</p>
+<p class="sound" data-reading-anchor id="ch3101-p086">"Whoosh!!!"</p>
+<p class="sound" data-reading-anchor id="ch3101-p087">Bang!!!</p>
+<p data-reading-anchor id="ch3101-p088">His fist struck the defensive barrier surrounding Grand.</p>
+<p class="sound" data-reading-anchor id="ch3101-p089">"Crack, crack-crack, crack-crack..."</p>
+<p data-reading-anchor id="ch3101-p090">Fine vines spread along the barrier and attached themselves to Fang Heng's wrists, quickly wrapping around his body.</p>
+<p data-reading-anchor id="ch3101-p091">Hm?</p>
+<p data-reading-anchor id="ch3101-p092">An opportunity?</p>
+<p data-reading-anchor id="ch3101-p093">Grand's heart leaped. He didn't understand why Fang Heng had suddenly let the vines restrain him, but this was undoubtedly his chance!</p>
+<p data-reading-anchor id="ch3101-p094">Heart-Piercing Thorns!</p>
+<p data-reading-anchor id="ch3101-p095">Sharp wooden spikes erupted out of thin air and thrust viciously toward Fang Heng in midair.</p>
+<p data-reading-anchor id="ch3101-p096">Hm!?</p>
+<p data-reading-anchor id="ch3101-p097">In the next instant, Grand's pupils contracted sharply.</p>
+<p data-reading-anchor id="ch3101-p098">The thorns had barely appeared before they shattered in midair.</p>
+<p data-reading-anchor id="ch3101-p099">What!</p>
+<p data-reading-anchor id="ch3101-p100">His Heart-Piercing Thorns spell had failed to form?</p>
+<p data-reading-anchor id="ch3101-p101">Grand's expression changed drastically.</p>
+<p data-reading-anchor id="ch3101-p102">How was this possible?</p>
+<p data-reading-anchor id="ch3101-p103">Still in shock, he noticed that the vines which had been racing along Fang Heng's wrists had stopped spreading. Then they reversed course, growing even faster toward Grand's outer natural barrier.</p>
+<p class="sound" data-reading-anchor id="ch3101-p104">"Hiss! Hiss-hiss-hiss!!!"</p>
+<p data-reading-anchor id="ch3101-p105">This was bad!</p>
+<p data-reading-anchor id="ch3101-p106">Grand could sense the laws of Nature Studies around him changing.</p>
+<p data-reading-anchor id="ch3101-p107">They were even being reversed.</p>
+<p data-reading-anchor id="ch3101-p108">Stunned and uncertain, he stared at Fang Heng outside his defensive barrier.</p>
+<p data-reading-anchor id="ch3101-p109">Could that brat be doing this!?</p>
+<p class="sound" data-reading-anchor id="ch3101-p110">Whoosh! Whoosh, whoosh, whoosh!!!</p>
+<p data-reading-anchor id="ch3101-p111">In an instant, fine vines enveloped the entire invisible defensive barrier.</p>
+</article>
+<p class="end" data-reading-anchor id="ch3101-end">— End of Chapter 3101 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Chinese Chapter 3102: 翻转. English Chapter 3101: Reversal. Narrative paragraphs: 111/111.</li><li>Arcane puppets (奥秘傀儡) are physical constructs, not illusions. Fang Heng&#x27;s Omniscient Eye and blood sense distinguish Grand&#x27;s original body.</li><li>The new Nature Studies quest is explicitly Transcendent level; laws and domain effects are kept separate from ordinary spellcasting.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_3100_No_Problem.html#start">← Previous</a><a class="next" href="Global_Game_AFK_Chapter_3102_Comprehension.html#start">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

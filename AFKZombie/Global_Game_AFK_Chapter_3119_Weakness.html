@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 3119 — Weakness | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-3119">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3118_Let_s_Play.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_3119_Weakness.html"><option value="Global_Game_AFK_Chapter_3119_Weakness.html" selected>3119 · Weakness</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3120_A_Way.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-3119" data-reading-anchor>
+<div class="chapter-num">Chapter 3119</div><h2 class="chapter-title">Weakness</h2>
+<p class="source-identity">From Chinese Chapter 3120 · 虚弱</p>
+<article class="prose">
+<p data-reading-anchor id="ch3119-p001">"Attack!"</p>
+<p class="sound" data-reading-anchor id="ch3119-p002">Whoosh! Whoosh, whoosh, whoosh!!</p>
+<p data-reading-anchor id="ch3119-p003">The swarm of Lickers immediately pounced toward the Evil Embryo's mountain of flesh.</p>
+<p data-reading-anchor id="ch3119-p004">Provoked, the Evil Embryo waved its dense array of fleshy spikes and counterattacked!</p>
+<p data-reading-anchor id="ch3119-p005">In an instant, the two sides were locked in fierce combat throughout the cavern!</p>
+<p data-reading-anchor id="ch3119-p006">Lickers repeatedly froze under the effects of illusions and were impaled, only to be freed by their companions.</p>
+<p data-reading-anchor id="ch3119-p007">After a period of fierce struggle, some of the Lickers gradually approached the Evil Embryo's main body.</p>
+<p class="sound" data-reading-anchor id="ch3119-p008">"Slash!!!"</p>
+<p data-reading-anchor id="ch3119-p009">Razor-sharp claws left a blood-red mark across the Evil Embryo's flesh.</p>
+<p data-reading-anchor id="ch3119-p010">The mark disappeared almost immediately as the flesh regenerated.</p>
+<p data-reading-anchor id="ch3119-p011">What terrifying defenses and self-healing ability!</p>
+<p data-reading-anchor id="ch3119-p012">Nasir frowned repeatedly as he watched.</p>
+<p data-reading-anchor id="ch3119-p013">This was going to be difficult!</p>
+<p data-reading-anchor id="ch3119-p014">Attacking the Evil Embryo with Lickers was like taking a pair of nail clippers and trying to carve a mountain.</p>
+<p data-reading-anchor id="ch3119-p015">Yet a playful smile appeared at the corners of Fang Heng's mouth.</p>
+<p data-reading-anchor id="ch3119-p016">The Evil Embryo's regeneration wasn't the real problem.</p>
+<p data-reading-anchor id="ch3119-p017">Its damage-reflection ability was.</p>
+<p data-reading-anchor id="ch3119-p018">Whenever a Licker slashed with its claws, a layer of shadow immediately spread across them and inflicted a passive corrosive damage-reflection effect.</p>
+<p data-reading-anchor id="ch3119-p019">Purification!</p>
+<p data-reading-anchor id="ch3119-p020">A sacred scepter appeared in Fang Heng's hand, and he cast Sacred Purification toward the creatures from a distance!</p>
+<p data-reading-anchor id="ch3119-p021">The negative effects attached to the Lickers were removed.</p>
+<p data-reading-anchor id="ch3119-p022">Done!</p>
+<p data-reading-anchor id="ch3119-p023">The Lickers pounced on the Evil Embryo again, slashing furiously!</p>
+<p data-reading-anchor id="ch3119-p024">The monster's physical defenses were even more terrifying than its resistance to magic. It was harder to deal with than Fang Heng had expected.</p>
+<p data-reading-anchor id="ch3119-p025">However...</p>
+<p data-reading-anchor id="ch3119-p026">Fang Heng glanced at the game notifications out of the corner of his eye.</p>
+<p class="game" data-reading-anchor id="ch3119-p027">[Hint: Your zombie clone has dealt -124 damage to an unknown life form.]</p>
+<p class="game" data-reading-anchor id="ch3119-p028">[Hint: Your zombie clone's special ability has activated. Your zombie clone has absorbed 0.1 Constitution attribute points from the target.]</p>
+<p data-reading-anchor id="ch3119-p029">Attribute Absorption!</p>
+<p data-reading-anchor id="ch3119-p030">In addition to Division, the Lickers' modifications included Attribute Absorption.</p>
+<p data-reading-anchor id="ch3119-p031">That effect was exceptionally effective against boss-level creatures like the Evil Embryo, whose defenses and life force were terrifying!</p>
+<p data-reading-anchor id="ch3119-p032">The Lickers didn't need to deal heavy damage. They merely needed to break through its defenses. Every successful attack could drain a small amount of its attributes.</p>
+<p data-reading-anchor id="ch3119-p033">Each individual drain was minor, but the sheer number of his Lickers made all the difference!</p>
+<p data-reading-anchor id="ch3119-p034">Little by little, it would add up.</p>
+<p data-reading-anchor id="ch3119-p035">Drain it completely dry!</p>
+<p data-reading-anchor id="ch3119-p036">Fang Heng raised his hand again, pulled a stack of sealing rune papers from his backpack, and scattered them outside the sacred barrier.</p>
+<p class="sound" data-reading-anchor id="ch3119-p037">"Bang! Bang, bang!!"</p>
+<p data-reading-anchor id="ch3119-p038">Lickers burst from the exploding rune papers and charged toward the Evil Embryo in the center of the cavern, dividing again and again as they advanced!</p>
+<p data-reading-anchor id="ch3119-p039">Nasir's eyelids twitched wildly.</p>
+<p data-reading-anchor id="ch3119-p040">Good grief!</p>
+<p data-reading-anchor id="ch3119-p041">There were so many!</p>
+<p data-reading-anchor id="ch3119-p042">In the blink of an eye, thousands of Lickers filled more than half the cavern, surging toward the monster at its center!</p>
+<p class="sound" data-reading-anchor id="ch3119-p043">"Hiss, hiss-hiss-hiss..."</p>
+<p data-reading-anchor id="ch3119-p044">The Evil Embryo frantically thrust its thornlike tendrils outward.</p>
+<p data-reading-anchor id="ch3119-p045">Another chaotic battle erupted.</p>
+<p data-reading-anchor id="ch3119-p046">Nasir watched from the side, casting a cautious glance at Fang Heng.</p>
+<p data-reading-anchor id="ch3119-p047">Was this Fang Heng's true strength?</p>
+<p data-reading-anchor id="ch3119-p048">A Summoning Studies scholar!</p>
+<p data-reading-anchor id="ch3119-p049">At first glance, the Lickers didn't seem particularly powerful, but that was because their opponent was a legendary creature!</p>
+<p data-reading-anchor id="ch3119-p050">On closer inspection, Nasir could tell that each Licker had attributes comparable to a low-ranking warrior.</p>
+<p data-reading-anchor id="ch3119-p051">Their self-healing ability was especially terrifying.</p>
+<p data-reading-anchor id="ch3119-p052">He watched one Licker get severed by one of the Evil Embryo's tendrils, only to regenerate its body within seconds!</p>
+<p data-reading-anchor id="ch3119-p053">And there was their even more terrifying ability to revive shortly after death.</p>
+<p data-reading-anchor id="ch3119-p054">The Evil Embryo, however, was also tremendously powerful.</p>
+<p data-reading-anchor id="ch3119-p055">It was as immovable as a mountain.</p>
+<p data-reading-anchor id="ch3119-p056">By comparison, the Lickers were like wave after wave of ants that couldn't be killed.</p>
+<p data-reading-anchor id="ch3119-p057">Neither side seemed able to deal a decisive blow to the other.</p>
+<p data-reading-anchor id="ch3119-p058">Nasir looked toward Fang Heng again.</p>
+<p data-reading-anchor id="ch3119-p059">Fang Heng appeared completely confident and showed no intention of stopping. He simply allowed his summoned creatures to keep attacking.</p>
+<p data-reading-anchor id="ch3119-p060">In a short while, dense rings of Lickers surrounded the Evil Embryo's mountain of flesh.</p>
+<p data-reading-anchor id="ch3119-p061">The Lickers were constantly pierced by spiked tendrils or sent flying.</p>
+<p data-reading-anchor id="ch3119-p062">Yet some always slipped through the defensive net of spikes, landed on the Evil Embryo, and attacked without stopping!</p>
+<p data-reading-anchor id="ch3119-p063">...</p>
+<p data-reading-anchor id="ch3119-p064">In the upper cavern...</p>
+<p data-reading-anchor id="ch3119-p065">Outside the ritual magic array...</p>
+<p data-reading-anchor id="ch3119-p066">The Lanyue priests knelt before the ritual array, praying and keeping it active.</p>
+<p data-reading-anchor id="ch3119-p067">Black shadow tendrils continuously extended from the array, crept toward the kneeling priests, drained their life force completely, and dragged their bodies into the array to be devoured!</p>
+<p data-reading-anchor id="ch3119-p068">One priest after another had their lives consumed by the Evil Embryo.</p>
+<p data-reading-anchor id="ch3119-p069">Nearby, the Lanyue patriarch and several clan elders had never witnessed anything like this before. Terror entered their eyes.</p>
+<p data-reading-anchor id="ch3119-p070">"The Divine Embryo has never been this hungry."</p>
+<p data-reading-anchor id="ch3119-p071">"What's happening?"</p>
+<p data-reading-anchor id="ch3119-p072">The Lanyue Clan's ancestors had summoned the evil god through a ritual and had raised it at the bottom of the labyrinth ever since. Their people offered sacrifices and prayed to it in exchange for knowledge and various powers.</p>
+<p data-reading-anchor id="ch3119-p073">In the past, the evil god consumed the lives of hundreds of clan members each year. But this was the first time it had become so strangely agitated, ravenously devouring its followers.</p>
+<p data-reading-anchor id="ch3119-p074">An elder said gravely, "The Evil God is growing weaker. It needs to consume more flesh and feed on more suffering."</p>
+<p data-reading-anchor id="ch3119-p075">"Why is it weakening? Could it be because of the two sacrifices down there?"</p>
+<p data-reading-anchor id="ch3119-p076">Everyone's expression grew grave.</p>
+<p data-reading-anchor id="ch3119-p077">Nobody could answer the question.</p>
+<p data-reading-anchor id="ch3119-p078">Could someone survive after being thrown into the evil god's sacrificial cavern?</p>
+<p data-reading-anchor id="ch3119-p079">Impossible!</p>
+<p data-reading-anchor id="ch3119-p080">...</p>
+<p data-reading-anchor id="ch3119-p081">Two hours later.</p>
+<p data-reading-anchor id="ch3119-p082">Outside the labyrinth...</p>
+<p data-reading-anchor id="ch3119-p083">Several Noel Clan elders arrived with a group of warriors and more than twenty starships to provide reinforcements. They immediately began organizing a team to explore the entire labyrinth thoroughly.</p>
+<p data-reading-anchor id="ch3119-p084">Worried about the two men trapped inside, Mu Shunan stepped forward and volunteered. "I was there when Fang Heng and Nasir disappeared. I know something about the layout and conditions inside the mist-filled cavern. I request permission to join the search team."</p>
+<p data-reading-anchor id="ch3119-p085">"Very well."</p>
+<p data-reading-anchor id="ch3119-p086">The leading Noel Clan elder nodded lightly.</p>
+<p data-reading-anchor id="ch3119-p087">"Elder, we've questioned members of the Lanyue Clan. The labyrinth has always been sacred ground. Normally, no one except priests goes near it. Ordinary clan members have no idea what takes place inside."</p>
+<p data-reading-anchor id="ch3119-p088">"We've also searched their memories using mental suggestions, but found no clues."</p>
+<p data-reading-anchor id="ch3119-p089">"We won't wait any longer. Move out."</p>
+<p data-reading-anchor id="ch3119-p090">The Noel Clan elder waved a hand and led the squads into the labyrinth to begin searching.</p>
+<p data-reading-anchor id="ch3119-p091">Anxious for his companions' safety, Mu Shunan led the group deeper along the passage he'd taken earlier.</p>
+<p data-reading-anchor id="ch3119-p092">Just as during their first exploration, the teams didn't encounter a single enemy along the way.</p>
+<p data-reading-anchor id="ch3119-p093">Soon they reached the enormous magic array where Fang Heng and Nasir had vanished.</p>
+<p data-reading-anchor id="ch3119-p094">The two Noel Clan elders most knowledgeable about Alchemy approached the formation and bent down to study it.</p>
+<p data-reading-anchor id="ch3119-p095">After waiting a full five minutes, the commanding elder grew impatient. "Well, elders? What have you found?"</p>
+<p data-reading-anchor id="ch3119-p096">The two elders stood up, exchanged glances, and shook their heads.</p>
+<p data-reading-anchor id="ch3119-p097">"We can confirm it's an unusual large-scale magic array of at least Transcendent level. Activating it requires a specific sequence."</p>
+</article>
+<p class="end" data-reading-anchor id="ch3119-end">— End of Chapter 3119 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Chinese Chapter 3120: 虚弱. English Chapter 3119: Weakness. Narrative paragraphs: 97/97.</li><li>The game notification prints &#x27;-124 points of damage&#x27; (造成-124点伤害) with a negative sign in the source. The sign is retained verbatim and its meaning is not silently reinterpreted.</li><li>Attribute Absorption grants 0.1 Constitution per successful hit; large Licker numbers matter even when individual damage is low.</li><li>Lanyue priests note the Evil Embryo is growing weaker; the final chapter ends while Noel Clan elders investigate the teleportation array.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_3118_Let_s_Play.html#start">← Previous</a><a href="Global_Game_AFK_Chapter_3120_A_Way.html#start" class="next">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

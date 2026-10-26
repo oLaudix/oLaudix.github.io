@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 3112 — Demigods and Gods | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-3112">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3111_Taboo.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_3112_Demigods_and_Gods.html"><option value="Global_Game_AFK_Chapter_3112_Demigods_and_Gods.html" selected>3112 · Demigods and Gods</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3113_Secrets_of_the_Lanyue_Clan.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-3112" data-reading-anchor>
+<div class="chapter-num">Chapter 3112</div><h2 class="chapter-title">Demigods and Gods</h2>
+<p class="source-identity">From Chinese Chapter 3113 · 次神与神</p>
+<article class="prose">
+<p data-reading-anchor id="ch3112-p001">"The gods, of course."</p>
+<p data-reading-anchor id="ch3112-p002">Nasir gradually recovered his composure, conceded the board game, and said, "Laws are believed to be the domain of the gods. Starting at the Transcendent level, an academic discipline gradually enters divine territory. Advancing beyond that means understanding laws more deeply and learning to wield them."</p>
+<p data-reading-anchor id="ch3112-p003">"The Demigod level approaches the power of the gods, while the final God level is considered to grant the same abilities as the gods themselves. To the gods, that's an act of gross disrespect."</p>
+<p data-reading-anchor id="ch3112-p004">Fang Heng furrowed his brows as the implications dawned on him.</p>
+<p data-reading-anchor id="ch3112-p005">"Are you saying that gods are a kind of living creature?"</p>
+<p data-reading-anchor id="ch3112-p006">"An ancient race," Mu Shunan explained. "They possess immense power from birth. Every movement can affect the laws. Even a warrior who has truly mastered a God-level academic discipline would be no match for a god."</p>
+<p data-reading-anchor id="ch3112-p007">Fang Heng's heart jolted.</p>
+<p data-reading-anchor id="ch3112-p008">Gods?</p>
+<p data-reading-anchor id="ch3112-p009">An entire race!</p>
+<p data-reading-anchor id="ch3112-p010">If he understood it that way, things might finally make sense.</p>
+<p data-reading-anchor id="ch3112-p011">He thought back carefully.</p>
+<p data-reading-anchor id="ch3112-p012">Sura had told him that the Ouroboros Seed was once destroyed by the gods.</p>
+<p data-reading-anchor id="ch3112-p013">Of course, not completely. The Ouroboros Seed had stubbornly survived and continued evolving, preparing to make a comeback.</p>
+<p data-reading-anchor id="ch3112-p014">And there were the Titans.</p>
+<p data-reading-anchor id="ch3112-p015">The Titan ruins discovered in humanity's world also contained descriptions of gods on their stone walls.</p>
+<p data-reading-anchor id="ch3112-p016">He had previously assumed those references meant the God Kings of the Divine Realm and the Holy Court.</p>
+<p data-reading-anchor id="ch3112-p017">Now it seemed the race of gods was something entirely different from the God Kings.</p>
+<p data-reading-anchor id="ch3112-p018">"Do gods really exist?" Fang Heng asked.</p>
+<p data-reading-anchor id="ch3112-p019">"Of course."</p>
+<p data-reading-anchor id="ch3112-p020">"The gods call themselves the rulers of the world. Some have estimated that, in terms of dimensional level alone, members of their race must reach at least level 200."</p>
+<p data-reading-anchor id="ch3112-p021">"Their power is terrifying, but their numbers are extremely small. If I remember correctly, the last recorded appearance of a god was more than two hundred years ago. The seven overlord races of the Seven-Realm Martial Capital know far more about gods than ordinary people like us. I've even heard rumors that the capital was founded under the gods' instruction."</p>
+<p data-reading-anchor id="ch3112-p022">Fang Heng frowned inwardly.</p>
+<p data-reading-anchor id="ch3112-p023">The race of gods.</p>
+<p data-reading-anchor id="ch3112-p024">They sounded extraordinarily strong.</p>
+<p data-reading-anchor id="ch3112-p025">A dimensional level above 200 would be terrifying from attribute bonuses alone.</p>
+<p data-reading-anchor id="ch3112-p026">"Yes, gods exist, but they rarely appear before us. That's always been the custom throughout the universe. Out of awe and fear of the gods, practitioners generally avoid openly progressing once their academic power approaches the divine level."</p>
+<p data-reading-anchor id="ch3112-p027">"Gods are unpredictable. Even if people want to advance further, they won't announce it openly, much less teach public courses," Nasir added with a curl of his lip. "If you offend a god, you might die without even knowing what killed you."</p>
+<p data-reading-anchor id="ch3112-p028">Fang Heng looked at the pair. "What about you two? I imagine you've both reached the threshold of the Demigod level. Have you tried advancing further?"</p>
+<p data-reading-anchor id="ch3112-p029">"I'd be lying if I said I hadn't. Once you reach this stage, I don't believe any warrior would stop advancing solely out of fear of gods."</p>
+<p data-reading-anchor id="ch3112-p030">Mu Shunan gave a self-mocking smile. "But breaking through isn't easy. I've been at the perfected Transcendent stage for more than ten years and have tried constantly to advance. Even now, I've only scratched the surface. I'm still far from a real breakthrough."</p>
+<p data-reading-anchor id="ch3112-p031">"I'm a little behind. My Alchemy hasn't reached perfection yet, though I'm not far off."</p>
+<p data-reading-anchor id="ch3112-p032">As Nasir spoke, a bitter smile appeared at the corners of his mouth.</p>
+<p data-reading-anchor id="ch3112-p033">He had originally been Fang Heng's Alchemy instructor. Who could have imagined that in just one short month, Fang Heng would surpass him academically?</p>
+<p data-reading-anchor id="ch3112-p034">How was anyone supposed to cope with that?</p>
+<p data-reading-anchor id="ch3112-p035">Nasir had no intention of keeping secrets. "I don't know exactly how to reach Demigod-level Alchemy. But my teacher once told me that it involves a further application of laws. To enter the Demigod stage, you must use magic arrays to permanently influence and modify laws."</p>
+<p data-reading-anchor id="ch3112-p036">Fang Heng murmured the words to himself.</p>
+<p data-reading-anchor id="ch3112-p037">"Permanently modify laws..."</p>
+<p data-reading-anchor id="ch3112-p038">Taken literally, until now they had been influencing laws temporarily by keeping alchemical magic arrays running.</p>
+<p data-reading-anchor id="ch3112-p039">At the Demigod stage, they would be able to alter the laws of the surrounding environment permanently.</p>
+<p data-reading-anchor id="ch3112-p040">One activation of a magic array, and the effect would last forever?</p>
+<p data-reading-anchor id="ch3112-p041">How could that be done?</p>
+<p data-reading-anchor id="ch3112-p042">Curious, Fang Heng asked, "Is there a corresponding training array?"</p>
+<p data-reading-anchor id="ch3112-p043">"No. My teacher left behind no diagrams or written material. Only a handful of people within the Alchemy Association have truly broken through to the Demigod level."</p>
+<p data-reading-anchor id="ch3112-p044">Nasir shook his head. "Generally, people who reach that level receive warnings from various parties. As a result, the association's elders aren't willing to teach it publicly. And the final God level is considered a taboo that absolutely must not be crossed."</p>
+<p data-reading-anchor id="ch3112-p045">Troublesome.</p>
+<p data-reading-anchor id="ch3112-p046">Fang Heng sighed inwardly at the difficulty of the situation.</p>
+<p data-reading-anchor id="ch3112-p047">It seemed his effortless, cheat-like advancement could carry him to the threshold of the Demigod level, but progressing beyond that would require an enormous amount of work.</p>
+<p data-reading-anchor id="ch3112-p048">As far as Alchemy was concerned, creating an array that influenced laws might not be as difficult as he imagined.</p>
+<p data-reading-anchor id="ch3112-p049">But permanently changing them... Perhaps there was some method of altering the laws' underlying structure?</p>
+<p data-reading-anchor id="ch3112-p050">Thinking it over, Fang Heng extended his hand and traced several lines of a magic array in the air.</p>
+<p data-reading-anchor id="ch3112-p051">No, that wasn't right.</p>
+<p data-reading-anchor id="ch3112-p052">He had barely traced part of the pattern when a sense of frustration and inability to proceed overwhelmed him. He shook his head, stopped, and closed his eyes to concentrate again.</p>
+<p data-reading-anchor id="ch3112-p053">Seeing Fang Heng sink into thought and then sit down to cultivate in the middle of their conversation, Nasir and Mu Shunan exchanged looks, shook their heads, and quietly withdrew.</p>
+<p class="game" data-reading-anchor id="ch3112-p054">[Hint: Quest triggered: Alchemy Advancement (Demigod).]</p>
+<p class="game" data-reading-anchor id="ch3112-p055">Quest Name: Alchemy Advancement (Demigod).</p>
+<p class="game" data-reading-anchor id="ch3112-p056">Quest Requirement: You have learned some clues about breaking through the bottleneck in Alchemy. Attempt to break through the barrier to Demigod-level Alchemy.</p>
+<p class="game" data-reading-anchor id="ch3112-p057">Current Quest Progress: 0.01%.</p>
+<p data-reading-anchor id="ch3112-p058">After a long while, Fang Heng opened his eyes again.</p>
+<p data-reading-anchor id="ch3112-p059">It was difficult.</p>
+<p data-reading-anchor id="ch3112-p060">Although he could now clearly distinguish the activity of different energies in his surroundings, he still couldn't figure out how Alchemy could directly alter the operation of the surrounding laws.</p>
+<p data-reading-anchor id="ch3112-p061">The laws around him were originally in balance.</p>
+<p data-reading-anchor id="ch3112-p062">Could it be...</p>
+<p data-reading-anchor id="ch3112-p063">What if he simply broke that balance and then reconstructed a new one?</p>
+<p data-reading-anchor id="ch3112-p064">That would be much harder than continuously influencing an existing balance through a magic array.</p>
+<p data-reading-anchor id="ch3112-p065">He would try again.</p>
+<p data-reading-anchor id="ch3112-p066">...</p>
+<p data-reading-anchor id="ch3112-p067">The night passed.</p>
+<p data-reading-anchor id="ch3112-p068">Fang Heng sat on the starship's deck, deep in thought.</p>
+<p data-reading-anchor id="ch3112-p069">Even after an entire night, he had failed to develop a complete line of reasoning.</p>
+<p data-reading-anchor id="ch3112-p070">But when he checked the game notifications, the quest's progress had risen to 1%.</p>
+<p data-reading-anchor id="ch3112-p071">Perhaps that meant he was thinking in the right direction?</p>
+<p data-reading-anchor id="ch3112-p072">"Well? Any insights yet?"</p>
+<p data-reading-anchor id="ch3112-p073">Fang Heng turned toward Nasir and Mu Shunan, who were ambling over after breakfast, and shook his head. "I tried, but it's difficult. I still haven't found a proper approach."</p>
+</article>
+<p class="end" data-reading-anchor id="ch3112-end">— End of Chapter 3112 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Chinese Chapter 3113: 次神与神. English Chapter 3112: Demigods and Gods. Narrative paragraphs: 73/73.</li><li>The race of gods (神之一族) is described as an ancient race, distinct from God Kings and the Holy Court. Its reputed dimensional level is at least 200.</li><li>Demigod and God academic stages are taboo to teach openly; this does not mean nobody has ever reached them.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_3111_Taboo.html#start">← Previous</a><a class="next" href="Global_Game_AFK_Chapter_3113_Secrets_of_the_Lanyue_Clan.html#start">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 3121 — Dispelling | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-3121">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3120_A_Way.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_3121_Dispelling.html"><option value="Global_Game_AFK_Chapter_3121_Dispelling.html" selected>3121 · Dispelling</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3122_Done.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-3121" data-reading-anchor>
+<div class="chapter-num">Chapter 3121</div><h2 class="chapter-title">Dispelling</h2>
+<p class="source-identity">From Chinese Chapter 3122 · 驱散</p>
+<article class="prose">
+<p data-reading-anchor id="ch3121-p001">“It's fine. I have a way.”</p>
+<p data-reading-anchor id="ch3121-p002">As Fang Heng spoke, he raised his hand and cast a Holy Purification spell at the cloud of ancient knowledge.</p>
+<p data-reading-anchor id="ch3121-p003">Holy light descended.</p>
+<p data-reading-anchor id="ch3121-p004">“Hiss, hisss…”</p>
+<p data-reading-anchor id="ch3121-p005">A layer of golden light instantly appeared over the black mist, and white vapor billowed upward.</p>
+<p data-reading-anchor id="ch3121-p006">Moments later, the dark mist had turned into a pale-blue cloud of energy.</p>
+<p data-reading-anchor id="ch3121-p007">Watching Fang Heng so easily purify the evil embryo's aura, Nasir couldn't help feeling a little envious.</p>
+<p data-reading-anchor id="ch3121-p008">If he'd tried to remove that aura himself, it would have taken considerable effort.</p>
+<p data-reading-anchor id="ch3121-p009">Fang Heng stepped forward and reached out to touch the energy.</p>
+<p data-reading-anchor id="ch3121-p010">The next instant, a cool current flowed into his body.</p>
+<p data-reading-anchor id="ch3121-p011">Mysterious images accompanied by vast quantities of esoteric knowledge poured rapidly into his sea of consciousness.</p>
+<p class="game" data-reading-anchor id="ch3121-p012">[Hint: You have obtained a portion of knowledge.]</p>
+<p class="game" data-reading-anchor id="ch3121-p013">[Hint: You have absorbed occult energy. Occultism EXP +57,000.]</p>
+<p class="game" data-reading-anchor id="ch3121-p014">[Hint: You have absorbed occult knowledge. Occultism EXP +12,380,000…]</p>
+<p class="game" data-reading-anchor id="ch3121-p015">[Hint: Your current Occultism level has reached MAX. Please advance your Occultism rank.]</p>
+<p data-reading-anchor id="ch3121-p016">So much ancient knowledge flooded his sea of consciousness that Fang Heng's Occultism reached MAX before he even had time to examine and digest it properly.</p>
+<p data-reading-anchor id="ch3121-p017">What a treasure!</p>
+<p data-reading-anchor id="ch3121-p018">Fang Heng's eyes lit up.</p>
+<p data-reading-anchor id="ch3121-p019">This was far more efficient than grinding experience in his basement!</p>
+<p data-reading-anchor id="ch3121-p020">He had absorbed only a small fraction of the knowledge energy, leaving a huge amount untouched, yet Occultism was already maxed out.</p>
+<p data-reading-anchor id="ch3121-p021">Absorbing any more now would be a waste.</p>
+<p data-reading-anchor id="ch3121-p022">After a moment's thought, Fang Heng contained the remaining knowledge energy in a safe region of his sea of consciousness. He would use it once he broke through to the Demigod level in Occultism.</p>
+<p data-reading-anchor id="ch3121-p023">After taking a while to organize his sea of consciousness, Fang Heng opened his eyes again.</p>
+<p data-reading-anchor id="ch3121-p024">“How does it feel?” Nasir asked.</p>
+<p data-reading-anchor id="ch3121-p025">“Very good. It's excellent stuff.”</p>
+<p data-reading-anchor id="ch3121-p026">Fang Heng nodded. “The evil embryo is dealt with. Let's look around and see if we can find a way out.”</p>
+<p data-reading-anchor id="ch3121-p027">“Right.”</p>
+<p data-reading-anchor id="ch3121-p028">Nasir had the same idea. He and Fang Heng split up to inspect the magic arrays engraved into the cavern walls.</p>
+<p data-reading-anchor id="ch3121-p029">Fang Heng wasn't in a hurry. He patiently studied the arrays arranged throughout the cave, occasionally exchanging observations with Nasir as they inspired each other.</p>
+<p data-reading-anchor id="ch3121-p030">While the pair were absorbed in academic discussion of alchemy, several Lanyue Clan elders in the upper caverns stood rooted to the spot.</p>
+<p data-reading-anchor id="ch3121-p031">It was over.</p>
+<p data-reading-anchor id="ch3121-p032">Completely over.</p>
+<p data-reading-anchor id="ch3121-p033">Although the evil god's magic array was still operating, the evil god's power within the ritual array had completely dissipated.</p>
+<p data-reading-anchor id="ch3121-p034">The evil god had actually perished!</p>
+<p data-reading-anchor id="ch3121-p035">And that was after devouring the life force of so many sacrifices.</p>
+<p data-reading-anchor id="ch3121-p036">Just what sort of terrifying existence had they encountered?</p>
+<p data-reading-anchor id="ch3121-p037">The Kinsfolk had demanded Fang Heng's elimination in exchange for protecting the Lanyue Clan.</p>
+<p data-reading-anchor id="ch3121-p038">They didn't know whether Fang Heng was dead, but the evil embryo had certainly lost all its life force.</p>
+<p data-reading-anchor id="ch3121-p039">With the evil embryo dead, they had no means left to protect themselves and no bargaining chips whatsoever.</p>
+<p data-reading-anchor id="ch3121-p040">Hoping for reinforcements from the Kinsfolk was now nothing but a fantasy.</p>
+<p data-reading-anchor id="ch3121-p041">Everyone turned toward the Lanyue Clan chief.</p>
+<p data-reading-anchor id="ch3121-p042">“We have lost…”</p>
+<p data-reading-anchor id="ch3121-p043">The chief drew a deep breath and slowly accepted reality. As though the last of his strength had drained away, he sighed. “Come out with me, all of you. Perhaps only our deaths will appease the Noel Clan and allow the last spark of the Lanyue Clan's bloodline to survive.”</p>
+<p data-reading-anchor id="ch3121-p044">“Yes, Clan Chief…”</p>
+<p class="scene" data-reading-anchor id="ch3121-p045">…</p>
+<p data-reading-anchor id="ch3121-p046">In the lower caverns, Mu Shunan and the Noel Clan's warriors still didn't know that Fang Heng had escaped danger. They continued searching carefully, trying to locate where the spatial array had transported the two men and where the Lanyue Clan was hiding.</p>
+<p data-reading-anchor id="ch3121-p047">The Noel Clan had dispatched extremely powerful high-ranking warriors. Even with their senses obstructed, finding the Lanyue Clan was only a matter of time.</p>
+<p data-reading-anchor id="ch3121-p048">“Nasir, please hold on…”</p>
+<p data-reading-anchor id="ch3121-p049">Mu Shunan was deeply uneasy and silently prayed.</p>
+<p data-reading-anchor id="ch3121-p050">Then he saw a purple glow suddenly appear ahead.</p>
+<p data-reading-anchor id="ch3121-p051">The Lanyue Clan!</p>
+<p data-reading-anchor id="ch3121-p052">The high-ranking warriors instantly detected the newcomers, grew alert, and assumed combat stances.</p>
+<p data-reading-anchor id="ch3121-p053">Yet the Lanyue Clan chief was the first to kneel before them.</p>
+<p data-reading-anchor id="ch3121-p054">All the other Lanyue Clan members knelt as well.</p>
+<p data-reading-anchor id="ch3121-p055">“Members of the Noel Clan, I am the current chief of the Lanyue Clan. We have lost. We are willing to surrender.</p>
+<p data-reading-anchor id="ch3121-p056">All we ask is that our bloodline be spared.”</p>
+<p data-reading-anchor id="ch3121-p057">Huh? They were surrendering?</p>
+<p data-reading-anchor id="ch3121-p058">Seriously?</p>
+<p data-reading-anchor id="ch3121-p059">Wariness appeared on Mu Shunan's face.</p>
+<p data-reading-anchor id="ch3121-p060">The Noel Clan elder didn't respond to the surrender. Instead, he stared coldly at the man and demanded, “Where are Fang Heng and Nasir?”</p>
+<p data-reading-anchor id="ch3121-p061">Several Lanyue Clan elders exchanged glances, bitterness welling up inside them.</p>
+<p data-reading-anchor id="ch3121-p062">“They were sent through a teleportation passage into the sealed cavern below. When our ancestor created that cavern, he never built an exit. There is only a way in, no way out.”</p>
+<p data-reading-anchor id="ch3121-p063">Mu Shunan couldn't help pressing him. “What's inside that sealed cavern?”</p>
+<p data-reading-anchor id="ch3121-p064">“The dimensional evil embryo raised by our Lanyue Clan.</p>
+<p data-reading-anchor id="ch3121-p065">It is a manifestation of the evil god Phoenicia.”</p>
+<p data-reading-anchor id="ch3121-p066">What?! The Lanyue Clan had dared to imprison an evil god from the Endless Void beneath their caves?</p>
+<p data-reading-anchor id="ch3121-p067">The warriors' expressions immediately turned grave.</p>
+<p data-reading-anchor id="ch3121-p068">So that explained it.</p>
+<p data-reading-anchor id="ch3121-p069">Had the Lanyue Clan killed Fang Heng, accomplished their objective, and only then come out to surrender?</p>
+<p data-reading-anchor id="ch3121-p070">The Kinsfolk was far too audacious! Did they really have so little regard for the Noel Clan?</p>
+<p data-reading-anchor id="ch3121-p071">“Where are Fang Heng and the others?!”</p>
+<p data-reading-anchor id="ch3121-p072">“We don't know.” The Lanyue Clan chief shook his head with a bitter smile. “We can no longer sense the evil god's aura. I believe it has been destroyed. Whether Fang Heng and Nasir were responsible, however, we cannot say.”</p>
+<p data-reading-anchor id="ch3121-p073">At those words, silence settled over the cavern for a moment.</p>
+<p data-reading-anchor id="ch3121-p074">Huh?</p>
+<p data-reading-anchor id="ch3121-p075">What? Were the Lanyue Clan saying that Fang Heng and his companion had fallen into their trap, only to slaughter the evil god inside it?</p>
+<p data-reading-anchor id="ch3121-p076">Just the two of them?</p>
+<p data-reading-anchor id="ch3121-p077">Was an evil god really that easy to deal with?</p>
+<p data-reading-anchor id="ch3121-p078">Several Noel Clan elders exchanged looks.</p>
+<p data-reading-anchor id="ch3121-p079">Something about this didn't add up. The whole affair felt distinctly strange.</p>
+<p data-reading-anchor id="ch3121-p080">The elder in command ordered the warriors to detain the Lanyue Clan's senior members first, then separate and question them thoroughly.</p>
+<p data-reading-anchor id="ch3121-p081">“Elder, Fang Heng and the others…”</p>
+<p data-reading-anchor id="ch3121-p082">The leading elder gestured for Mu Shunan to remain calm. “Mm. Don't rush. We need to proceed more cautiously in a situation like this. Let's establish the facts first.”</p>
+<p class="scene" data-reading-anchor id="ch3121-p083">…</p>
+<p data-reading-anchor id="ch3121-p084">They spent another half hour or more questioning every surrendered Lanyue Clan member. Only then did the Noel Clan elders summon everyone again to discuss their findings.</p>
+<p data-reading-anchor id="ch3121-p085">“We've questioned them all. The Lanyue Clan's account checks out. They colluded with the Kinsfolk and made an agreement to teleport Fang Heng and Nasir into the deepest part of the labyrinth, where they raised the evil embryo.”</p>
+<p data-reading-anchor id="ch3121-p086">Another Noel Clan elder proficient in magic arrays nodded. “I also inspected the array used to sacrifice to the evil god. Traces of its aura are indeed present. Just as the Lanyue Clan said, the evil embryo's aura vanished not long ago.”</p>
+<p data-reading-anchor id="ch3121-p087">The warriors looked at one another.</p>
+<p data-reading-anchor id="ch3121-p088">So Fang Heng and Nasir really had killed an evil god?</p>
+<p data-reading-anchor id="ch3121-p089">Was the evil god too weak, or were those two simply too strong?</p>
+<p data-reading-anchor id="ch3121-p090">“The magic array leading to the evil embryo's breeding ground deep in the labyrinth works in only one direction. Given the evil god's terrifying strength and the consequences of releasing it, the array was designed as one-way from the beginning. At present, we cannot confirm Fang Heng and Nasir's condition.”</p>
+<p data-reading-anchor id="ch3121-p091">“We must go down and check as soon as possible.”</p>
+<p data-reading-anchor id="ch3121-p092">“Even if the Lanyue Clan is telling the truth and Fang Heng and Nasir exhausted themselves killing the evil god, they can't possibly be in good condition. They need immediate treatment.”</p>
+<p data-reading-anchor id="ch3121-p093">The elders nodded in agreement.</p>
+<p data-reading-anchor id="ch3121-p094">“Let's move. The first team has already been selected. We'll use the teleportation passage to enter the lower labyrinth and support Fang Heng and Nasir.”</p>
+<p data-reading-anchor id="ch3121-p095">“Yes!”</p>
+</article>
+<p class="end" data-reading-anchor id="ch3121-end">— End of Chapter 3121 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Chinese Chapter 3122: 驱散. English Chapter 3121: Dispelling. Narrative paragraphs: 95/95 (source/English).</li><li>The source accidentally says 诺尔一族高层 (Noel Clan leaders) while ordering the detained Lanyue leaders interrogated. Corrected the clear faction-name slip.</li><li>Restored separate reactions, sound effects, and dialogue breaks where the earlier V55 draft merged or missed them; source paragraph boundaries checked against the Chinese upload.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_3120_A_Way.html#start">← Previous</a><a href="Global_Game_AFK_Chapter_3122_Done.html#start" class="next">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 3130 — Intrusion | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-3130">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3129_Intrusion.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_3130_Intrusion.html"><option value="Global_Game_AFK_Chapter_3130_Intrusion.html" selected>3130 · Intrusion</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3131_Energy_Capture.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-3130" data-reading-anchor>
+<div class="chapter-num">Chapter 3130</div><h2 class="chapter-title">Intrusion</h2>
+<p class="source-identity">From Chinese Chapter 3131 · 闯入</p>
+<article class="prose">
+<p data-reading-anchor id="ch3130-p001">The corridor wasn't particularly wide. Fragments of ice soul scattered across almost its entire breadth in an instant, engulfing the insect creatures!</p>
+<p data-reading-anchor id="ch3130-p002">“Thud! Thud, thud!!!”</p>
+<p data-reading-anchor id="ch3130-p003">The ice-soul fragments didn't explode when they struck the creatures. Instead, they dissolved into crystals of extremely low-temperature ice, which spread rapidly until they covered great portions of the Lickers' bodies and froze them solid!</p>
+<p data-reading-anchor id="ch3130-p004">Phew.</p>
+<p data-reading-anchor id="ch3130-p005">With three high-tier warriors and a number of lower-ranking ones present, dealing with a handful of insects shouldn't be too difficult. The security team relaxed a little.</p>
+<p data-reading-anchor id="ch3130-p006">But although the creatures had been halted, the black mist pouring from behind them showed no sign of stopping. It advanced rapidly around the corner, growing denser as though it meant to swallow everyone whole.</p>
+<p data-reading-anchor id="ch3130-p007">“Purify!”</p>
+<p data-reading-anchor id="ch3130-p008">A high-tier warrior formed a sigil before himself, summoning multiple purification arrows through a nature-element spell and sending them flying into the mist.</p>
+<p data-reading-anchor id="ch3130-p009">“Puff! Puff, puff!!!”</p>
+<p data-reading-anchor id="ch3130-p010">More than a dozen natural purification arrows disappeared into the mist and exploded, producing hissing noises within it.</p>
+<p data-reading-anchor id="ch3130-p011">It worked.</p>
+<p data-reading-anchor id="ch3130-p012">But the effect was hardly significant.</p>
+<p data-reading-anchor id="ch3130-p013">The guard's expression changed.</p>
+<p data-reading-anchor id="ch3130-p014">The purification energy in his arrows was being completely suppressed.</p>
+<p data-reading-anchor id="ch3130-p015">The academic power contained within the black mist was of a far higher tier than his nature-element spells. As a result, his purification effect was almost useless.</p>
+<p data-reading-anchor id="ch3130-p016">Edmond noticed it too.</p>
+<p data-reading-anchor id="ch3130-p017">Most high-tier warriors had reached at least Transcendent-level proficiency in their disciplines, and a small minority had even broken through to the Demigod level.</p>
+<p data-reading-anchor id="ch3130-p018">The mist before them was unquestionably of an even higher rank!</p>
+<p data-reading-anchor id="ch3130-p019">Very possibly God level!</p>
+<p data-reading-anchor id="ch3130-p020">Edmond frowned. “It might be an evolved form of the game's black mist. Everyone, don't let it reach the rooms! Attack! Find a way to stop it!”</p>
+<p data-reading-anchor id="ch3130-p021">No one held back any longer. Three warriors formed seals simultaneously and combined their abilities to create an invisible spatial barrier in front of the group, blocking the black mist's advance.</p>
+<p data-reading-anchor id="ch3130-p022">A high-tier warrior drove his nature-element purification abilities to their limits, while the other guards unleashed great sheets of elemental Leaping Thunder ahead.</p>
+<p data-reading-anchor id="ch3130-p023">Leaping Thunder could deal with the Lickers and inflicted a troublesome paralysis effect. It also had a thunder-based purification effect against the black mist.</p>
+<p data-reading-anchor id="ch3130-p024">The mist reacted with a more intense series of popping explosions and dimmed slightly.</p>
+<p data-reading-anchor id="ch3130-p025">For the moment, they appeared to have stopped it.</p>
+<p data-reading-anchor id="ch3130-p026">But before anyone could truly relax, Edmond's heart suddenly jolted.</p>
+<p data-reading-anchor id="ch3130-p027">What?!</p>
+<p class="sound" data-reading-anchor id="ch3130-p028">“Whoosh!!!”</p>
+<p data-reading-anchor id="ch3130-p029">Several black spheres suddenly shot from deep within the mist.</p>
+<p data-reading-anchor id="ch3130-p030">Edmond sensed an unsettling aura in them. His pupils contracted as he shouted, “Watch out!!!”</p>
+<p class="sound" data-reading-anchor id="ch3130-p031">“BOOM!”</p>
+<p data-reading-anchor id="ch3130-p032">A Netherworld Orb slammed heavily into the spatial barrier.</p>
+<p data-reading-anchor id="ch3130-p033">Countless tiny cracks instantly spread across it.</p>
+<p data-reading-anchor id="ch3130-p034">At the same time, dense black mist erupted from the orb, sharply increasing the concentration of the surrounding fog.</p>
+<p data-reading-anchor id="ch3130-p035">The three warriors controlling the spatial barrier turned pale. They forcibly gathered their mental strength and slowly repaired the cracks.</p>
+<p data-reading-anchor id="ch3130-p036">Edmond relaxed a little.</p>
+<p data-reading-anchor id="ch3130-p037">Fortunately, they'd blocked it.</p>
+<p data-reading-anchor id="ch3130-p038">But in the very next instant, his expression changed again as he looked deeper into the passage.</p>
+<p data-reading-anchor id="ch3130-p039">What the hell?!</p>
+<p data-reading-anchor id="ch3130-p040">Whoosh! Whoosh! Whoosh, whoosh!!!</p>
+<p data-reading-anchor id="ch3130-p041">Netherworld Orbs emerged from the black mist one after another and hurtled directly toward the spatial barrier!</p>
+<p data-reading-anchor id="ch3130-p042">“BOOM! BOOM! Boom, boom!!!”</p>
+<p data-reading-anchor id="ch3130-p043">After four successive impacts, the three barrier controllers could no longer hold on. They simultaneously spat blood and were flung backward, crashing heavily into the metal wall behind them.</p>
+<p data-reading-anchor id="ch3130-p044">The spatial barrier shattered completely. Dense undead energy erupted along with the sinister undead mist, rapidly engulfing Edmond and the other guards in black fog.</p>
+<p data-reading-anchor id="ch3130-p045">Damn it!</p>
+<p data-reading-anchor id="ch3130-p046">Where was everyone?</p>
+<p data-reading-anchor id="ch3130-p047">He couldn't see!</p>
+<p data-reading-anchor id="ch3130-p048">Cold sweat formed on Edmond's forehead.</p>
+<p data-reading-anchor id="ch3130-p049">Not only did the mist obscure his vision, it also severely impeded his perception. Even so, he felt an intense sense of danger.</p>
+<p data-reading-anchor id="ch3130-p050">As though the god of death himself were about to descend.</p>
+<p data-reading-anchor id="ch3130-p051">Fang Heng slowly emerged from the sinister undead mist behind Edmond.</p>
+<p data-reading-anchor id="ch3130-p052">The black fog gathered into the shape of a scythe in Fang Heng's hand.</p>
+<p class="sound" data-reading-anchor id="ch3130-p053">“Whoosh!”</p>
+<p data-reading-anchor id="ch3130-p054">Death Scythe!</p>
+<p data-reading-anchor id="ch3130-p055">Just as the scythe descended, Edmond felt the hairs on the back of his neck stand on end. He spun around, only to glimpse a cold, dark gleam sweep across his vision.</p>
+<p class="sound" data-reading-anchor id="ch3130-p056">“BOOM!!!”</p>
+<p data-reading-anchor id="ch3130-p057">Undead power exploded, almost instantly smashing apart the elemental armor gathered around his body. The force hurled him backward until he slammed into the metal wall, leaving a deep dent.</p>
+<p data-reading-anchor id="ch3130-p058">“Pfft!”</p>
+<p data-reading-anchor id="ch3130-p059">Edmond spat a mouthful of dark blood and stared at the shadowy figure concealed by the black mist ahead.</p>
+<p data-reading-anchor id="ch3130-p060">Who was this enemy?</p>
+<p data-reading-anchor id="ch3130-p061">Not even in the Seven Realms Martial Capital's highest-level battlefields had he ever been reduced to such a miserable state by a single attack.</p>
+<p data-reading-anchor id="ch3130-p062">Hm?</p>
+<p data-reading-anchor id="ch3130-p063">Hm? Edmond suddenly realized that his opponent's assault wasn't finished.</p>
+<p data-reading-anchor id="ch3130-p064">The black mist around him was being manipulated by an invisible force, flowing into his body through the openings in his shattered elemental armor.</p>
+<p data-reading-anchor id="ch3130-p065">Now Edmond noticed something was wrong with his body, too.</p>
+<p data-reading-anchor id="ch3130-p066">His heart was beating far too quickly.</p>
+<p data-reading-anchor id="ch3130-p067">The blood circulating within him also felt unnatural—much too fast.</p>
+<p data-reading-anchor id="ch3130-p068">“Pfft!”</p>
+<p data-reading-anchor id="ch3130-p069">Edmond felt his chest tighten violently and couldn't help coughing up another mouthful of blood.</p>
+<p data-reading-anchor id="ch3130-p070">Without his noticing, blood began seeping from his facial orifices, then seemed to move of its own accord, rapidly winding toward his neck.</p>
+<p data-reading-anchor id="ch3130-p071">What was happening?</p>
+<p data-reading-anchor id="ch3130-p072">What was happening? Edmond snapped awake and struggled to his feet, hurriedly wiping the blood from his neck.</p>
+<p data-reading-anchor id="ch3130-p073">An illusion?</p>
+<p data-reading-anchor id="ch3130-p074">He'd lost track of the enemy in the black mist and could hear only a faint rustling.</p>
+<p data-reading-anchor id="ch3130-p075">Here it comes!</p>
+<p class="sound" data-reading-anchor id="ch3130-p076">“Whoosh!!!”</p>
+<p data-reading-anchor id="ch3130-p077">Ice Soul!</p>
+<p data-reading-anchor id="ch3130-p078">Edmond didn't dare take risks. He thrust his hand forward, sending a dense barrage of ice crystals toward the direction of the sound!</p>
+<p data-reading-anchor id="ch3130-p079">“Bang! Bang, bang!!!”</p>
+<p data-reading-anchor id="ch3130-p080">It was an insect!</p>
+<p data-reading-anchor id="ch3130-p081">The creature was struck by Edmond's desperate blow, covered in ice crystals, and sent flying into the depths of the black fog.</p>
+<p data-reading-anchor id="ch3130-p082">Edmond remained on high alert, pressing his back tightly against the wall.</p>
+<p data-reading-anchor id="ch3130-p083">Where was the one who'd ambushed him earlier?</p>
+<p data-reading-anchor id="ch3130-p084">Edmond expanded his perception as far as it would reach.</p>
+<p data-reading-anchor id="ch3130-p085">Meanwhile, Fang Heng had used the black mist as cover to eliminate several troublesome guards in rapid succession.</p>
+<p data-reading-anchor id="ch3130-p086">Sensing that reinforcements were already coming up from below, he decided to waste no more time. He fixed his gaze on the room's entrance.</p>
+<p data-reading-anchor id="ch3130-p087">Some high-ranking Kinsfolk should be inside.</p>
+<p data-reading-anchor id="ch3130-p088">Fang Heng stepped forward, entered his spirit form, passed directly through the door, and walked into the room.</p>
+<p data-reading-anchor id="ch3130-p089">The Kinsfolk!</p>
+<p data-reading-anchor id="ch3130-p090">Their true bodies resembled a state somewhere between a physical being and a spirit, though they were visible to the naked eye.</p>
+<p data-reading-anchor id="ch3130-p091">At this moment, however, every Kinsfolk member was fully equipped and seated inside a towering humanoid mech.</p>
+<p data-reading-anchor id="ch3130-p092">Humanoid mechs.</p>
+<p data-reading-anchor id="ch3130-p093">Enhanced with the Kinsfolk's cutting-edge technology.</p>
+<p data-reading-anchor id="ch3130-p094">Although they couldn't see him, two Kinsfolk had already pinpointed Fang Heng with their keen senses. Both turned to look directly at his position.</p>
+</article>
+<p class="end" data-reading-anchor id="ch3130-end">— End of Chapter 3130 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Chinese Chapter 3131: 闯入. English Chapter 3130: Intrusion. Narrative paragraphs: 94/94 (source/English).</li><li>The author repeats 闯入 (“Intrusion”) from the preceding chapter; kept the duplicated official title without merging chapters.</li><li>Restored separate reactions, sound effects, and dialogue breaks where the earlier V55 draft merged or missed them; source paragraph boundaries checked against the Chinese upload.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_3129_Intrusion.html#start">← Previous</a><a href="Global_Game_AFK_Chapter_3131_Energy_Capture.html#start" class="next">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

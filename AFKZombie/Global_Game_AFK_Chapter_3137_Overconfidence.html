@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 3137 — Overconfidence | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-3137">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3136_Obstruction.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_3137_Overconfidence.html"><option value="Global_Game_AFK_Chapter_3137_Overconfidence.html" selected>3137 · Overconfidence</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3138_Spreading_the_Black_Mist.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-3137" data-reading-anchor>
+<div class="chapter-num">Chapter 3137</div><h2 class="chapter-title">Overconfidence</h2>
+<p class="source-identity">From Chinese Chapter 3138 · 膨胀</p>
+<article class="prose">
+<p data-reading-anchor id="ch3137-p001">After spending so long in the Vampire world, Garr had grown somewhat overconfident, almost feeling invincible.</p>
+<p data-reading-anchor id="ch3137-p002">Especially after absorbing dimensional power, which had qualitatively transformed the Vampires' various attributes.</p>
+<p data-reading-anchor id="ch3137-p003">Now, sensing an opponent whose strength was no weaker than his own, his fighting spirit surged.</p>
+<p data-reading-anchor id="ch3137-p004">Attack!</p>
+<p class="sound" data-reading-anchor id="ch3137-p005">“Whoosh!!”</p>
+<p data-reading-anchor id="ch3137-p006">Garr personally entered the battle, charging straight at Chen Hanyu.</p>
+<p data-reading-anchor id="ch3137-p007">Sensing powerful blood-energy fluctuations approaching, Chen Hanyu raised his hand and sent a dense barrage of rock spikes crashing toward Garr.</p>
+<p data-reading-anchor id="ch3137-p008">“BOOM! Boom, boom, boom, boom!!!”</p>
+<p data-reading-anchor id="ch3137-p009">A series of violent explosions erupted.</p>
+<p data-reading-anchor id="ch3137-p010">Garr burst out of the explosions and retreated, his eyes filled with surprise.</p>
+<p data-reading-anchor id="ch3137-p011">Such powerful magical attacks!</p>
+<p data-reading-anchor id="ch3137-p012">Only after leaving the Vampire world did he truly understand that there were always people stronger than himself, and heavens beyond the heavens.</p>
+<p data-reading-anchor id="ch3137-p013">This opponent wouldn't be easy to deal with!</p>
+<p data-reading-anchor id="ch3137-p014">He had an enormous advantage in spells, and his overall strength might even be slightly superior to theirs.</p>
+<p class="sound" data-reading-anchor id="ch3137-p015">“Whoosh!”</p>
+<p data-reading-anchor id="ch3137-p016">Chen Hanyu quickly formed a sigil before himself. A blue ice crystal appeared on his forehead.</p>
+<p data-reading-anchor id="ch3137-p017">“Thousand-Mile Freeze!”</p>
+<p data-reading-anchor id="ch3137-p018">The violent, surging mental power surrounding Chen Hanyu materialized into an immense wave of blue ice crystals, sweeping forward in an instant!</p>
+<p data-reading-anchor id="ch3137-p019">The freezing crystals rushed toward them in a vast tide!</p>
+<p data-reading-anchor id="ch3137-p020">Garr, more than twenty Vampires within the spell's range, and nearly a hundred Lickers were frozen solid in the blink of an eye.</p>
+<p class="sound" data-reading-anchor id="ch3137-p021">“BOOM!!!”</p>
+<p data-reading-anchor id="ch3137-p022">Garr forcibly circulated his blood energy, shattered the ice covering him, and darted toward the right.</p>
+<p data-reading-anchor id="ch3137-p023">What terrifying frost power!</p>
+<p data-reading-anchor id="ch3137-p024">From that one area attack, more than a dozen of his Vampire subordinates had been frozen completely and lost all signs of life.</p>
+<p data-reading-anchor id="ch3137-p025">They could not win!</p>
+<p data-reading-anchor id="ch3137-p026">He couldn't win! Garr stared at Chen Hanyu from a distance, deep wariness shining in his eyes.</p>
+<p data-reading-anchor id="ch3137-p027">Hm?</p>
+<p data-reading-anchor id="ch3137-p028">He raised his head and looked toward the horizon, where tiny points of spatial light were gradually appearing.</p>
+<p data-reading-anchor id="ch3137-p029">Starships were arriving via spatial jumps.</p>
+<p data-reading-anchor id="ch3137-p030">Once they'd stabilized, panels on both sides of the ships opened, and their mounted energy-beam cannons locked onto the Vampires and the Licker swarm.</p>
+<p data-reading-anchor id="ch3137-p031">“Whoosh! Whoosh, whoosh, whoosh!!!”</p>
+<p data-reading-anchor id="ch3137-p032">The Vampires came under precise beam fire and scattered to evade it.</p>
+<p data-reading-anchor id="ch3137-p033">The starships!</p>
+<p data-reading-anchor id="ch3137-p034">They were trying to escape!</p>
+<p data-reading-anchor id="ch3137-p035">Garr saw the ships opening their hatches and small warp passages to receive the fleeing security teams, and his heart sank.</p>
+<p data-reading-anchor id="ch3137-p036">He couldn't let them retreat so easily!</p>
+<p data-reading-anchor id="ch3137-p037">He had to keep every starship here!</p>
+<p data-reading-anchor id="ch3137-p038">Garr gritted his teeth and prepared to charge forward again, when a figure suddenly materialized beside him.</p>
+<p data-reading-anchor id="ch3137-p039">Who was it?</p>
+<p data-reading-anchor id="ch3137-p040">Who? Garr's heart jolted. Then he recognized the newcomer, turned, and respectfully bowed his head. “Your Majesty.”</p>
+<p data-reading-anchor id="ch3137-p041">“Leave those people to me. You deal with the starships. Don't let any of them escape.”</p>
+<p data-reading-anchor id="ch3137-p042">“Yes!”</p>
+<p data-reading-anchor id="ch3137-p043">Without further hesitation, Garr led his Vampire subordinates toward the ships.</p>
+<p data-reading-anchor id="ch3137-p044">Seeing the Vampires move again, Chen Hanyu frowned and charged toward the Vampire leader to intercept him. But in the next instant, his perception detected a terrifying killing intent that locked onto him completely!</p>
+<p data-reading-anchor id="ch3137-p045">Every hair on Chen Hanyu's body seemed to stand on end as he turned sharply toward its source.</p>
+<p data-reading-anchor id="ch3137-p046">“Who goes there?”</p>
+<p data-reading-anchor id="ch3137-p047">Fang Heng slowly materialized less than twenty meters in front of him.</p>
+<p data-reading-anchor id="ch3137-p048">Chen Hanyu's heart sank as he watched Fang Heng appear out of nowhere. Sensing that this was no ordinary opponent, he said grimly, “Who are you people? Do you know whose territory this is?”</p>
+<p data-reading-anchor id="ch3137-p049">“Of course I know. This world belongs to the Kinsfolk.” Fang Heng's mouth curled into a cold smile. “And the Kinsfolk are exactly who I'm looking for!”</p>
+<p class="sound" data-reading-anchor id="ch3137-p050">“Whoosh!”</p>
+<p data-reading-anchor id="ch3137-p051">As soon as he finished speaking, Fang Heng turned into a dark blur and shot through the air toward Chen Hanyu.</p>
+<p data-reading-anchor id="ch3137-p052">Chen Hanyu didn't dare be careless. He thrust his hand forward, summoning multiple dense ranks of earth-element barriers.</p>
+<p data-reading-anchor id="ch3137-p053">“BOOM! Boom, boom, boom!!!”</p>
+<p data-reading-anchor id="ch3137-p054">Fang Heng smashed straight through the exploding earth barriers! Shattered!</p>
+<p data-reading-anchor id="ch3137-p055">Shatter!</p>
+<p data-reading-anchor id="ch3137-p056">He destroyed every earth-element barrier one after another by sheer brute force!</p>
+<p data-reading-anchor id="ch3137-p057">Astonishment flashed in Chen Hanyu's eyes.</p>
+<p data-reading-anchor id="ch3137-p058">The dust covering Fang Heng quickly hardened into tiny clumps of earth, but layers of black mist seeped from them.</p>
+<p data-reading-anchor id="ch3137-p059">The death aura of the black mist rapidly dissolved those clumps.</p>
+<p data-reading-anchor id="ch3137-p060">Chen Hanyu stared in amazement.</p>
+<p data-reading-anchor id="ch3137-p061">His Guardian Domain of Rock had been broken so easily?</p>
+<p data-reading-anchor id="ch3137-p062">In the next instant, Fang Heng abruptly appeared right in front of him.</p>
+<p class="sound" data-reading-anchor id="ch3137-p063">“BOOM!!!”</p>
+<p data-reading-anchor id="ch3137-p064">A punch!</p>
+<p data-reading-anchor id="ch3137-p065">An enormous fist-shaped depression appeared across Chen Hanyu's chest, and his armor of earth and rock shattered instantly!</p>
+<p data-reading-anchor id="ch3137-p066">He couldn't withstand it!</p>
+<p data-reading-anchor id="ch3137-p067">Chen Hanyu flew backward, his mind briefly blank.</p>
+<p data-reading-anchor id="ch3137-p068">Who was this man?</p>
+<p data-reading-anchor id="ch3137-p069">How could he be so terrifyingly strong? Since perfecting his Law Domain, Chen Hanyu hadn't encountered a worthy opponent. He feared no ordinary high-tier warrior.</p>
+<p data-reading-anchor id="ch3137-p070">Yet this unfamiliar alien who'd appeared from nowhere was different!</p>
+<p class="sound" data-reading-anchor id="ch3137-p071">Whoosh!</p>
+<p data-reading-anchor id="ch3137-p072">Fang Heng instantly appeared before Chen Hanyu again and threw another punch!</p>
+<p class="sound" data-reading-anchor id="ch3137-p073">“BANG!!”</p>
+<p data-reading-anchor id="ch3137-p074">Struck once more, Chen Hanyu spat blood. The earth armor that had just formed around him shattered again, and he plummeted toward the ground!</p>
+<p class="sound" data-reading-anchor id="ch3137-p075">“BOOM!!!”</p>
+<p data-reading-anchor id="ch3137-p076">Before he could even hit the ground, Chen Hanyu lost consciousness. Unable to withstand or control the wildly surging blood inside him, his body exploded into a cloud of blood in midair.</p>
+<p data-reading-anchor id="ch3137-p077">The blood mist gradually condensed into a single drop of blood essence, which slowly entered the short dagger behind Fang Heng.</p>
+<p data-reading-anchor id="ch3137-p078">Fang Heng withdrew his gaze from below.</p>
+<p data-reading-anchor id="ch3137-p079">This wasn't easy.</p>
+<p data-reading-anchor id="ch3137-p080">Chen Hanyu had already mastered the power of a Domain.</p>
+<p data-reading-anchor id="ch3137-p081">Without activating his own Domain, Fang Heng's attributes were somewhat weakened inside his opponent's Domain. That prevented him from completely overwhelming the enemy.</p>
+<p data-reading-anchor id="ch3137-p082">Killing a warrior of Chen Hanyu's caliber still demanded a fair amount of effort.</p>
+<p data-reading-anchor id="ch3137-p083">And that was when Chen Hanyu wasn't particularly skilled at controlling his Domain. If his control had been more refined, the suppression of Fang Heng's attributes would have been even stronger.</p>
+<p data-reading-anchor id="ch3137-p084">Of course, things would be different if Fang Heng activated his own Domain skill as well.</p>
+<p data-reading-anchor id="ch3137-p085">An opponent of Chen Hanyu's level was naturally nothing he needed to take seriously then.</p>
+<p data-reading-anchor id="ch3137-p086">Seeing Chen Hanyu die so horribly at Fang Heng's hands, the remaining security warriors looked frightened and hesitated to approach.</p>
+<p data-reading-anchor id="ch3137-p087">Who was this kid?</p>
+<p data-reading-anchor id="ch3137-p088">Chen Hanyu was a famous high-tier warrior who'd fought thousands of battles. He'd also undergone one of the Kinsfolk's special experiments recently and returned with greatly increased strength. Rumor had it he'd begun comprehending the power of a Law Domain.</p>
+<p data-reading-anchor id="ch3137-p089">Once someone mastered the laws, they possessed strength approaching that of a god within their Domain.</p>
+<p data-reading-anchor id="ch3137-p090">Wasn't he supposed to be invincible?</p>
+<p data-reading-anchor id="ch3137-p091">Yet someone had forcibly defeated Chen Hanyu inside his own Domain?</p>
+<p data-reading-anchor id="ch3137-p092">The sight completely overturned the warriors' basic understanding of the laws.</p>
+<p data-reading-anchor id="ch3137-p093">Fang Heng swept a cold gaze over the remaining high-tier warriors. They immediately felt as though a deadly venomous snake had fixed its eyes on them, and chills ran down their spines.</p>
+<p data-reading-anchor id="ch3137-p094">“You…”</p>
+<p data-reading-anchor id="ch3137-p095">Fang Heng hesitated, then shook his head. “Forget it. It'll save trouble if I deal with all of you at once.”</p>
+<p class="sound" data-reading-anchor id="ch3137-p096">Whoosh!</p>
+<p data-reading-anchor id="ch3137-p097">Whoosh! In the next instant, Fang Heng became a dark shadow and flashed rapidly toward the group of warriors.</p>
+</article>
+<p class="end" data-reading-anchor id="ch3137-end">— End of Chapter 3137 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Chinese Chapter 3138: 膨胀. English Chapter 3137: Overconfidence. Narrative paragraphs: 97/97 (source/English).</li><li>Restored separate reactions, sound effects, and dialogue breaks where the earlier V55 draft merged or missed them; source paragraph boundaries checked against the Chinese upload.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_3136_Obstruction.html#start">← Previous</a><a href="Global_Game_AFK_Chapter_3138_Spreading_the_Black_Mist.html#start" class="next">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 3106 — Conversion | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-3106">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3105_Learning_by_Analogy.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_3106_Conversion.html"><option value="Global_Game_AFK_Chapter_3106_Conversion.html" selected>3106 · Conversion</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3107_Tracking.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-3106" data-reading-anchor>
+<div class="chapter-num">Chapter 3106</div><h2 class="chapter-title">Conversion</h2>
+<p class="source-identity">From Chinese Chapter 3107 · 转化</p>
+<article class="prose">
+<p data-reading-anchor id="ch3106-p001">Give it a try!</p>
+<p data-reading-anchor id="ch3106-p002">Fang Heng immediately circulated the law energy that had entered his body and tried to convert it into Qi, sending it into his Sea of Consciousness.</p>
+<p data-reading-anchor id="ch3106-p003">It worked.</p>
+<p data-reading-anchor id="ch3106-p004">And it was easy.</p>
+<p data-reading-anchor id="ch3106-p005">After all, he already had experience absorbing external natural energy and converting it into Qi.</p>
+<p data-reading-anchor id="ch3106-p006">The external energy was extremely mixed, however. Even with his powerful innate abilities forcibly converting it into Qi, the conversion efficiency was very low.</p>
+<p data-reading-anchor id="ch3106-p007">It couldn't compare to absorbing pure natural energy.</p>
+<p data-reading-anchor id="ch3106-p008">At that moment, the game notifications refreshed again.</p>
+<p class="game" data-reading-anchor id="ch3106-p009">[Hint: Player has successfully merged with external laws and absorbed law energy.]</p>
+<p class="game" data-reading-anchor id="ch3106-p010">[Hint: Quest completed. Grandmaster-level Mysticism has been forgotten. Player has obtained Transcendent-level Mysticism.]</p>
+<p data-reading-anchor id="ch3106-p011">Done!</p>
+<p data-reading-anchor id="ch3106-p012">With the game's confirmation, Fang Heng opened his eyes again and looked at Mu Shunan, who sat before him as if he'd seen a ghost.</p>
+<p data-reading-anchor id="ch3106-p013">"Thank you, Mr. Mu. Your guidance has been a great help."</p>
+<p data-reading-anchor id="ch3106-p014">Fang Heng rose and thanked him with a respectful cupped-fist salute.</p>
+<p data-reading-anchor id="ch3106-p015">He had successfully obtained Transcendent-level Mysticism.</p>
+<p data-reading-anchor id="ch3106-p016">Achieving it so quickly was inseparable from his previous breakthroughs in Alchemy and Nature Studies.</p>
+<p data-reading-anchor id="ch3106-p017">Next, he needed to become familiar with the process and spend natural energy converting it into Qi, gaining experience and grinding levels quickly.</p>
+<p data-reading-anchor id="ch3106-p018">Back to the villa for more grinding!</p>
+<p data-reading-anchor id="ch3106-p019">Fang Heng estimated that this part would take quite a while.</p>
+<p data-reading-anchor id="ch3106-p020">No rush.</p>
+<p data-reading-anchor id="ch3106-p021">You couldn't get fat on a single mouthful. Once he'd maxed out his experience, he could return to Mu Shunan to ask about advancing to the Demigod level.</p>
+<p data-reading-anchor id="ch3106-p022">"Ah, this..."</p>
+<p data-reading-anchor id="ch3106-p023">He really broke through?</p>
+<p data-reading-anchor id="ch3106-p024">As easily as eating or drinking?</p>
+<p data-reading-anchor id="ch3106-p025">Mu Shunan's head was buzzing. He had no idea what had happened afterward, and by the time he truly came to his senses, Fang Heng had already said goodbye and left the training room.</p>
+<p data-reading-anchor id="ch3106-p026">What was that supposed to mean?</p>
+<p data-reading-anchor id="ch3106-p027">He taught him the first step, and the brat taught himself the second and immediately broke through?</p>
+<p data-reading-anchor id="ch3106-p028">Had Fang Heng's comprehension of laws already reached an even higher realm?</p>
+<p data-reading-anchor id="ch3106-p029">If he hadn't confirmed that Fang Heng was merely at the Grandmaster level of Mysticism when he arrived, with no sign that his internal energy had merged with the external laws, Mu Shunan would have suspected he had reached Transcendent Mysticism long ago and had come here just to make a fool of him.</p>
+<p data-reading-anchor id="ch3106-p030">Meanwhile, Fang Heng hurried back to the seventh basement level of the villa.</p>
+<p data-reading-anchor id="ch3106-p031">Abe Akaya radiated a blue-green light, continuously releasing natural energy throughout the seventh underground level.</p>
+<p data-reading-anchor id="ch3106-p032">Fang Heng sat cross-legged at the center of the magic array.</p>
+<p data-reading-anchor id="ch3106-p033">As he opened the pores of his body, external natural-law energy merged with him much faster and was converted through his body into Qi.</p>
+<p class="game" data-reading-anchor id="ch3106-p034">[Hint: Player has absorbed Mysticism energy. Current Mysticism EXP +54,000.]</p>
+<p data-reading-anchor id="ch3106-p035">There it was!</p>
+<p data-reading-anchor id="ch3106-p036">Fang Heng was delighted to discover that acquiring Transcendent-level Mysticism had greatly increased his absorption efficiency again!</p>
+<p data-reading-anchor id="ch3106-p037">It had increased by approximately three to four times!</p>
+<p data-reading-anchor id="ch3106-p038">That meant his training efficiency could improve yet again!</p>
+<p data-reading-anchor id="ch3106-p039">Grind!</p>
+<p data-reading-anchor id="ch3106-p040">Keep grinding!</p>
+<p data-reading-anchor id="ch3106-p041">...</p>
+<p data-reading-anchor id="ch3106-p042">"Administrator, we've checked the Seven-Realm Martial Capital's personnel records and screened every pan-human. We've identified 24,272 pan-humans in total, including one high-ranking warrior, three mid-ranking warriors, and forty-two low-ranking warriors."</p>
+<p data-reading-anchor id="ch3106-p043">"The investigation is ongoing. Several people of particular interest have been placed under individual surveillance, but nothing suspicious has been discovered yet."</p>
+<p data-reading-anchor id="ch3106-p044">"Of special note, an Elven prince and a Flying Squirrel Clan member recently applied for racial registration on humanity's behalf. We've tracked them and suspect they may be connected to the humans."</p>
+<p data-reading-anchor id="ch3106-p045">"A good observation."</p>
+<p data-reading-anchor id="ch3106-p046">Administrator Lila considered the matter before looking up. "Those two are indeed suspicious. Whether or not they have anything to do with the Black Mist world, you have my permission to eliminate them directly. And try not to leave any traces."</p>
+<p data-reading-anchor id="ch3106-p047">"Yes, Administrator. The Flying Squirrel Clan's perception is quite sharp. They detected our surveillance during the preliminary investigation. They've since curtailed their activities and spend most of their time hiding in a hotel belonging to the Mechanical Clan. It's difficult to find a chance to strike."</p>
+<p data-reading-anchor id="ch3106-p048">"No hurry. Post people outside."</p>
+<p data-reading-anchor id="ch3106-p049">Lila replied coolly, "Aren't they trying to complete humanity's registration? I'd like to see how they can continue applying while hiding inside that hotel."</p>
+<p data-reading-anchor id="ch3106-p050">"Yes, Administrator."</p>
+<p data-reading-anchor id="ch3106-p051">Another young Kinsfolk stepped forward to report. "Administrator, an elder previously mentioned encountering a very strong pan-human warrior in the arena. I've conducted a preliminary investigation. Coincidentally, he only appeared here recently, around the same time as the Black Mist."</p>
+<p data-reading-anchor id="ch3106-p052">"Very good. Continue investigating. I'm granting our investigators the highest level of authority. You don't need evidence. If you have sufficient grounds for suspicion, you may conduct elimination operations directly. We must cut off the source of the Black Mist."</p>
+<p data-reading-anchor id="ch3106-p053">The young Kinsfolk bowed respectfully. "Yes, Administrator."</p>
+<p data-reading-anchor id="ch3106-p054">...</p>
+<p data-reading-anchor id="ch3106-p055">Another day and night passed.</p>
+<p data-reading-anchor id="ch3106-p056">In the basement, Fang Heng finished another training cycle and opened his eyes.</p>
+<p data-reading-anchor id="ch3106-p057">The experience required to level up Transcendent Mysticism was immense.</p>
+<p data-reading-anchor id="ch3106-p058">Abe Akaya could currently absorb some of Hell's power and the power of the Demon Cores, so there was plenty of energy available. But given the limitations of Fang Heng's absorption and conversion rate, he estimated that finishing would still take more than ten days.</p>
+<p data-reading-anchor id="ch3106-p059">To ordinary people, maxing out Transcendent Mysticism in half a month would be unimaginably fast.</p>
+<p data-reading-anchor id="ch3106-p060">But Fang Heng still wasn't entirely satisfied.</p>
+<p data-reading-anchor id="ch3106-p061">Too slow.</p>
+<p data-reading-anchor id="ch3106-p062">Grinding Alchemy skills was much more convenient.</p>
+<p data-reading-anchor id="ch3106-p063">Fang Heng raised his head and glanced at the game notifications.</p>
+<p data-reading-anchor id="ch3106-p064">Judging by the time, another day of AFK grinding should bring his next breakthrough.</p>
+<p data-reading-anchor id="ch3106-p065">Maybe he should take another break? Go tease the Kinsfolk to unwind?</p>
+<p data-reading-anchor id="ch3106-p066">Fang Heng looked around the basement.</p>
+<p data-reading-anchor id="ch3106-p067">Hundreds of thousands of zombie clones were working nonstop underground, setting up magic arrays to grind experience. After two days, some Black Mist had accumulated again.</p>
+<p data-reading-anchor id="ch3106-p068">It wasn't especially dense, but there was enough for another little outing.</p>
+<p data-reading-anchor id="ch3106-p069">Just then, his phone rang.</p>
+<p data-reading-anchor id="ch3106-p070">Fang Heng checked the caller, saw Kappa's name, and answered immediately.</p>
+<p data-reading-anchor id="ch3106-p071">"Boss Fang, I think we're being watched."</p>
+<p data-reading-anchor id="ch3106-p072">On the other end of the line, Kappa lowered his voice and quickly described the troubles they'd encountered recently.</p>
+<p data-reading-anchor id="ch3106-p073">Over the past two days, Kappa and Korkalot had run all over the place. With help from the local elves, they'd finally struggled through most of the process of registering the human world.</p>
+<p data-reading-anchor id="ch3106-p074">But as they approached the final stage, Kappa sensed murderous intent.</p>
+<p data-reading-anchor id="ch3106-p075">The Flying Squirrel Clan had an exceptionally sharp sixth sense. As soon as they realized something was wrong, they retreated to a hotel run by the Mechanical Clan in the Seven-Realm Martial Capital.</p>
+<p data-reading-anchor id="ch3106-p076">The Mechanical Clan provided hotel guests with various services and security guarantees, but every night's stay cost a fortune.</p>
+<p data-reading-anchor id="ch3106-p077">"Mm, I understand. I'm coming over now."</p>
+<p data-reading-anchor id="ch3106-p078">The Kinsfolk!</p>
+<p data-reading-anchor id="ch3106-p079">A dark look crossed Fang Heng's face. He shifted into soul form and flew toward the district where Kappa and his companion were staying.</p>
+<p data-reading-anchor id="ch3106-p080">Hm?</p>
+<p data-reading-anchor id="ch3106-p081">Just as he left the villa in soul form, Fang Heng suddenly sensed something and looked to the right.</p>
+<p data-reading-anchor id="ch3106-p082">Who was there?</p>
+</article>
+<p class="end" data-reading-anchor id="ch3106-end">— End of Chapter 3106 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Chinese Chapter 3107: 转化. English Chapter 3106: Conversion. Narrative paragraphs: 82/82.</li><li>The Kinsfolk&#x27;s investigation lists 24,272 pan-humans, one high-ranking, three mid-ranking, and forty-two low-ranking warriors; preserve each number.</li><li>Source says 帕卡 once for a caller but immediately uses 卡帕 elsewhere; kept established Kappa (卡帕).</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_3105_Learning_by_Analogy.html#start">← Previous</a><a class="next" href="Global_Game_AFK_Chapter_3107_Tracking.html#start">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

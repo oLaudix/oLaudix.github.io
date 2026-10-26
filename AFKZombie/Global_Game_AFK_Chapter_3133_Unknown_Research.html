@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 3133 — Unknown Research | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-3133">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3132_Law_Orbs.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_3133_Unknown_Research.html"><option value="Global_Game_AFK_Chapter_3133_Unknown_Research.html" selected>3133 · Unknown Research</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3134_Frozen_Soul_Land.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-3133" data-reading-anchor>
+<div class="chapter-num">Chapter 3133</div><h2 class="chapter-title">Unknown Research</h2>
+<p class="source-identity">From Chinese Chapter 3134 · 未知研究</p>
+<article class="prose">
+<p data-reading-anchor id="ch3133-p001">“The 'Heliom' experiment… I wonder whether the Noel Clan knows about it.”</p>
+<p data-reading-anchor id="ch3133-p002">Fang Heng frowned and muttered to himself as he continued searching through the psychic information.</p>
+<p data-reading-anchor id="ch3133-p003">The fourth group of warriors had already been selected by Administrator Lila. They were scheduled to be transferred to Prism Starship V on the third day of next month, from which they would be sent straight to the experimental site.</p>
+<p data-reading-anchor id="ch3133-p004">After sorting through all the information, Fang Heng narrowed his eyes and unconsciously clenched his fists.</p>
+<p data-reading-anchor id="ch3133-p005">“Laws… power surpassing high-tier warriors, perhaps even honored-guest-level warriors…”</p>
+<p data-reading-anchor id="ch3133-p006">That was enticing!</p>
+<p data-reading-anchor id="ch3133-p007">Most high-tier warriors had at least one discipline at the peak of the Transcendent level. Once they reached that stage, improving further meant either mastering another discipline or crossing the threshold into the Demigod level.</p>
+<p data-reading-anchor id="ch3133-p008">At that level, improvements in strength were generally measured in years.</p>
+<p data-reading-anchor id="ch3133-p009">Yet these people could make enormous breakthroughs within just a few months?</p>
+<p data-reading-anchor id="ch3133-p010">What exactly was the Kinsfolk's so-called 'Heliom' experiment?</p>
+<p data-reading-anchor id="ch3133-p011">And there was more.</p>
+<p data-reading-anchor id="ch3133-p012">According to Mu Shunan and Nasir, advancing academic proficiency all the way to the God level meant gaining power equal to that of a god…</p>
+<p data-reading-anchor id="ch3133-p013">Fang Heng grew more and more interested.</p>
+<p data-reading-anchor id="ch3133-p014">Unfortunately, the list of high-tier warriors taking part in this round had already been finalized. At first glance, infiltrating the experiment wouldn't be easy.</p>
+<p data-reading-anchor id="ch3133-p015">After some thought, Fang Heng continued inspecting the remaining contents of the purple light cluster.</p>
+<p data-reading-anchor id="ch3133-p016">Huh?</p>
+<p data-reading-anchor id="ch3133-p017">Hm? Part of the report also concerned the spread of black mist among pan-human races.</p>
+<p data-reading-anchor id="ch3133-p018">Just as he'd suspected.</p>
+<p data-reading-anchor id="ch3133-p019">The Kinsfolk hadn't established that he was responsible. They'd simply investigated all the pan-human races living in the Seven Realms Martial Capital. Apart from those they could definitively clear, they'd massacred everyone else who remained under suspicion.</p>
+<p data-reading-anchor id="ch3133-p020">Fang Heng spotted Kappa and Korkalot's names.</p>
+<p data-reading-anchor id="ch3133-p021">The Kinsfolk had originally planned to dispose of both of them as well.</p>
+<p data-reading-anchor id="ch3133-p022">But they'd decided to use the pair as bait, so they'd imprisoned them temporarily and set a trap in their cell. Anyone attempting to contact Kappa and Korkalot would be caught immediately.</p>
+<p data-reading-anchor id="ch3133-p023">“Heh…”</p>
+<p data-reading-anchor id="ch3133-p024">Fang Heng sneered and kept reading.</p>
+<p data-reading-anchor id="ch3133-p025">It turned out Kappa and Korkalot were still publicly listed as prisoners in a border-region prison. In reality, however, they'd already been transferred as convicts to the Frozen Soul Land.</p>
+<p data-reading-anchor id="ch3133-p026">Troublesome.</p>
+<p data-reading-anchor id="ch3133-p027">Fang Heng inwardly cursed. He'd believed the two were still somewhere in the Seven Realms Martial Capital, where the Noel Clan might have been able to negotiate and get them released.</p>
+<p data-reading-anchor id="ch3133-p028">He hadn't expected the Kinsfolk to have moved first.</p>
+<p data-reading-anchor id="ch3133-p029">After thinking it over, Fang Heng abandoned his plan to continue cultivating.</p>
+<p data-reading-anchor id="ch3133-p030">Now that he knew where Kappa and Korkalot were being held, he needed to rescue them as soon as possible.</p>
+<p class="scene" data-reading-anchor id="ch3133-p031">…</p>
+<p data-reading-anchor id="ch3133-p032">Following the previous night's intrusion, the entire Kinsfolk building remained under lockdown until a fleet carrying high-ranking Kinsfolk officials arrived in the Seven Realms Martial Capital the next afternoon.</p>
+<p data-reading-anchor id="ch3133-p033">The city's joint investigative department was extremely concerned about the incident.</p>
+<p data-reading-anchor id="ch3133-p034">But the Kinsfolk declared that they would direct the investigation themselves and wanted no outside interference.</p>
+<p data-reading-anchor id="ch3133-p035">The Kinsfolk soon discovered that, in addition to the attack on their headquarters, the warriors they'd sent to kill Fang Heng had disappeared completely.</p>
+<p data-reading-anchor id="ch3133-p036">Fang Heng became one of their primary suspects.</p>
+<p data-reading-anchor id="ch3133-p037">By then, however, Fang Heng had contacted the elves of the Seven Realms Martial Capital during the night. With the help of their covert connections, he'd found a way to sneak aboard a ship bound for the Frozen Soul Land.</p>
+<p data-reading-anchor id="ch3133-p038">Only one starship departed for the Frozen Soul Land each week, and it happened to be leaving that very afternoon.</p>
+<p data-reading-anchor id="ch3133-p039">The elves had very little influence in the Seven Realms Martial Capital, so they could arrange only a simple disguise. Fang Heng passed himself off as an elf convicted of a crime and joined a group of prisoners being transported to the frozen region.</p>
+<p data-reading-anchor id="ch3133-p040">It was all rather rushed. Only after boarding did Fang Heng learn from another inmate that the Frozen Soul Land was a special prison planet directly controlled by the Kinsfolk.</p>
+<p data-reading-anchor id="ch3133-p041">The planet possessed unusual mineral resources, but they were difficult to exploit. As a result, new groups of prisoners were transported there each week to work in the mines.</p>
+<p data-reading-anchor id="ch3133-p042">There were now more than three hundred people crammed into Fang Heng's ship compartment.</p>
+<p data-reading-anchor id="ch3133-p043">The prisoners were packed into the cramped space, giving off an unpleasant odor.</p>
+<p data-reading-anchor id="ch3133-p044">Several ship guards apparently couldn't stand the smell and remained on watch beside the compartment entrance.</p>
+<p data-reading-anchor id="ch3133-p045">Fang Heng lay on the floor against a wall among the prisoners.</p>
+<p data-reading-anchor id="ch3133-p046">He didn't intend to cause trouble. He just wanted to reach the Frozen Soul Land, find Kappa and Korkalot, and take them away.</p>
+<p data-reading-anchor id="ch3133-p047">Unexpectedly, trouble came looking for him first.</p>
+<p data-reading-anchor id="ch3133-p048">A burly, middle-aged alien approached Fang Heng and deliberately lashed out with a heavy kick, clearly trying to pick a fight.</p>
+<p data-reading-anchor id="ch3133-p049">“Move it, you stinking elf!”</p>
+<p data-reading-anchor id="ch3133-p050">Fang Heng narrowed his eyes at the newcomer, a trace of killing intent appearing in his gaze.</p>
+<p data-reading-anchor id="ch3133-p051">The alien man's heart jumped when Fang Heng fixed his eyes on him.</p>
+<p data-reading-anchor id="ch3133-p052">“He's new and doesn't know the rules. Please don't hold it against him.” An elderly man rose and stepped between them, repeatedly cupping his hands toward the aggressor in apology. “I apologize to you on his behalf.”</p>
+<p data-reading-anchor id="ch3133-p053">Realizing he'd shown fear a moment earlier, the alien grew inexplicably furious and took it out on the old man. “Damn it! Old bastard! Aren't you too old to play the hero? Who the hell do you think you are? Move aside, or I'll break your legs!”</p>
+<p data-reading-anchor id="ch3133-p054">Hearing the abuse, several young people behind the old man rose and stood at his back.</p>
+<p data-reading-anchor id="ch3133-p055">“Clack!!!”</p>
+<p data-reading-anchor id="ch3133-p056">The compartment door opened.</p>
+<p data-reading-anchor id="ch3133-p057">Two ship guards entered, looked over the opposing groups, and barked, “What are you doing?! Got nothing better to do? Back off, or we'll add ten years to every one of your sentences!”</p>
+<p data-reading-anchor id="ch3133-p058">The burly alien glared viciously at the old man and snorted before finally backing away.</p>
+<p data-reading-anchor id="ch3133-p059">“Young brother, thank you. It's your first time here, isn't it? Don't bother arguing with people like that. Once we reach the Frozen Soul Land, someone will teach them a proper lesson.”</p>
+<p data-reading-anchor id="ch3133-p060">Fang Heng gave a quiet acknowledgment and asked, “Why did you help me?”</p>
+<p data-reading-anchor id="ch3133-p061">“We're all pan-human races. When you're away from home, you help your own if you can.” Uncle Hong waved a hand. “I'm older than you. Just call me Uncle Hong.”</p>
+<p data-reading-anchor id="ch3133-p062">Fang Heng was somewhat surprised.</p>
+<p data-reading-anchor id="ch3133-p063">His elf disguise wasn't perfect, but he hadn't expected anyone to see through it so easily.</p>
+<p data-reading-anchor id="ch3133-p064">“Uncle Hong, what were you sentenced for?”</p>
+<p data-reading-anchor id="ch3133-p065">“Ordinarily it wouldn't have been a big deal. A little money would have settled everything. But our luck was bad, and we ran afoul of the Kinsfolk at the wrong time. The Kinsfolk punish pan-human races severely. A group of youngsters from our clan got sentences of more than ten years each. I was worried about them, so I came along.”</p>
+<p data-reading-anchor id="ch3133-p066">Fang Heng nodded.</p>
+<p data-reading-anchor id="ch3133-p067">“The Frozen Soul Land is full of all kinds of people. You should believe at most half of what other prisoners tell you, or you'll suffer for it.” Uncle Hong offered his advice. “If you don't mind, stick with us when we arrive.”</p>
+<p data-reading-anchor id="ch3133-p068">“Thank you.”</p>
+<p data-reading-anchor id="ch3133-p069">Fang Heng nodded and closed his eyes to rest again.</p>
+</article>
+<p class="end" data-reading-anchor id="ch3133-end">— End of Chapter 3133 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Chinese Chapter 3134: 未知研究. English Chapter 3133: Unknown Research. Narrative paragraphs: 69/69 (source/English).</li><li>Restored separate reactions, sound effects, and dialogue breaks where the earlier V55 draft merged or missed them; source paragraph boundaries checked against the Chinese upload.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_3132_Law_Orbs.html#start">← Previous</a><a href="Global_Game_AFK_Chapter_3134_Frozen_Soul_Land.html#start" class="next">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#171719"><title>Chapter 3108 — Fight to the Death | Global Game: AFK in the Zombie Apocalypse</title><style>
+:root{
+  --bg:#171719; --fg:#c5c5c9; --muted:#929297; --line:#343438; --panel:#1e1e21;
+  --btn:#242428; --font-size:14px; --bar-height:54px;
+}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#303036; --muted:#66676b; --line:#d5d5da; --panel:#f1f1f3; --btn:#f2f2f4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:calc(var(--bar-height) + 12px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Roboto,"Helvetica Neue",Arial,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,select{font:inherit;color:inherit}
+button{cursor:pointer}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.toolbar{min-height:var(--bar-height);max-width:780px;margin:auto;padding:8px 15px;display:flex;align-items:center;gap:7px}
+#chapter-picker{flex:1;min-width:0;max-width:365px;background:var(--panel);border:1px solid var(--line);border-radius:7px;font:500 13px/1.35 Roboto,Arial,sans-serif;padding:8px 7px;height:37px}
+.toolbtn{flex:0 0 auto;min-width:34px;height:37px;border:1px solid var(--line);background:var(--btn);border-radius:7px;padding:0 7px;font:600 14px/1 system-ui,sans-serif}
+.toolbtn:active{background:var(--line)}
+#progress-track{height:2px;width:100%;background:transparent}
+#progress{height:100%;width:0;background:var(--muted);transition:width .12s}
+main{max-width:730px;padding:0 19px 62px;margin:0 auto}
+.chapter-section{padding-top:38px;scroll-margin-top:calc(var(--bar-height) + 18px)}
+.chapter-section+.chapter-section{border-top:1px solid var(--line);margin-top:52px;padding-top:45px}
+.chapter-num{font:600 11px/1.4 system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--muted)}
+.chapter-title{font:600 clamp(24px,5vw,29px)/1.22 Roboto,Arial,sans-serif;text-align:center;margin:9px 0 5px;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-caption{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 37px}
+.prose{font-size:var(--font-size);line-height:1.48;font-weight:400;overflow-wrap:break-word}
+.prose p{margin:0 0 1.28em}
+.prose p.sound{font-size:.94em;font-style:italic;text-align:center;color:var(--muted);letter-spacing:.02em;margin:1.5em 0}
+.prose p.scene{color:var(--muted);text-align:center;letter-spacing:.17em;margin:2em 0}
+.prose [data-reading-anchor]{scroll-margin-top:calc(var(--bar-height) + 8px)}
+.source-gap{margin:26px 0;padding:13px 13px 14px;background:var(--panel);border-left:3px solid var(--muted);font-size:.93em;line-height:1.58}
+.source-gap strong{display:block;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;margin-bottom:8px}
+.source-gap p{margin:0}
+.end{text-align:center;font:12px/1.5 system-ui,sans-serif;color:var(--muted);padding-top:26px;margin:0 0 26px}
+.editor-notes{border-top:1px solid var(--line);padding:14px 0 0;font:13px/1.65 system-ui,sans-serif;color:var(--muted)}
+.editor-notes summary{color:var(--fg);font-weight:600;cursor:pointer;list-style:revert;font-size:13px;padding:8px 0}
+.editor-notes ul{padding-left:20px;margin:10px 0 18px}.editor-notes li{margin:0 0 11px}
+.editor-notes strong{color:var(--fg)}
+.chapter-nav{display:flex;gap:12px;margin:32px 0 0;align-items:center;justify-content:space-between}
+.chapter-nav a{display:block;border:1px solid var(--line);border-radius:8px;padding:12px 15px;color:var(--fg);background:var(--panel);text-decoration:none;font:600 13px/1.35 system-ui,sans-serif;scroll-margin-top:calc(var(--bar-height) + 15px)}
+.chapter-nav a:hover{border-color:var(--muted)}
+.chapter-nav .next{margin-left:auto}
+.footer{border-top:1px solid var(--line);margin-top:52px;padding:25px 0 0;font:12px/1.65 system-ui,sans-serif;color:var(--muted)}
+.footer p{margin:0 0 8px}
+#save-status{font-weight:600}
+#reading-toast{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;max-width:calc(100vw - 34px);background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;font:12px/1.4 system-ui,sans-serif;z-index:30;display:none;box-shadow:0 7px 28px rgba(0,0,0,.16)}
+@media(max-width:460px){.toolbar{padding:7px 10px;gap:5px}.toolbtn{min-width:33px;padding:0 5px}#chapter-picker{font-size:12px}main{padding:0 18px 50px}.chapter-section{padding-top:30px}.chapter-section+.chapter-section{padding-top:39px}}
+@media print{.topbar,#reading-toast{display:none}body{background:#fff;color:#111}main{max-width:none;padding:0}.prose{font-size:12pt;line-height:1.4}.chapter-section{break-before:page}.chapter-section:first-child{break-before:auto}.editor-notes{break-inside:avoid}}
+
+.prose p.game{margin:0;padding:6px 11px 6px 12px;background:var(--panel);border-left:2px solid var(--line);font-size:.94em;line-height:1.48}
+.prose p.game + p.game{padding-top:3px}
+.prose p.game:last-of-type{margin-bottom:1.3em}
+.chapter-section .source-identity{text-align:center;color:var(--muted);font:11px/1.45 system-ui,sans-serif;margin:0 0 34px}
+
+.prose p.system{color:var(--fg);border-left:2px solid var(--line);padding:0 0 0 10px;font-size:.95em}
+.source-identity{text-align:center;font:11px/1.5 system-ui,sans-serif;color:var(--muted);margin:0 0 34px}
+
+.chapter-section{padding-top:28px}
+.chapter-nav{display:flex;align-items:stretch;gap:8px;margin-top:34px}
+.chapter-nav a{flex:1;text-align:center;display:block}
+.chapter-nav a.next{margin-left:0}
+.toolbar .jump-link{display:flex;align-items:center;justify-content:center;padding:0;text-decoration:none;font-size:18px;min-width:31px}
+.toolbar .jump-link.disabled{opacity:.25;pointer-events:none}
+.footer{margin-top:44px}
+@media(max-width:430px){.toolbar{gap:4px;padding:7px 8px}.toolbar .jump-link{min-width:29px}.toolbar .toolbtn{min-width:30px}.toolbar #chapter-picker{font-size:11px;padding:6px 3px}}
+
+.editor-notes .expr-heading{font:600 13px/1.5 system-ui,sans-serif;color:var(--fg);margin:16px 0 3px}
+</style></head>
+<body data-series-key="afk" data-chapter-key="chapter-3108">
+<header class="topbar" role="banner"><div class="toolbar">
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3107_Tracking.html#start" title="Previous chapter">‹</a>
+<select id="chapter-picker" aria-label="Choose a chapter" data-chapter-file="Global_Game_AFK_Chapter_3108_Fight_to_the_Death.html"><option value="Global_Game_AFK_Chapter_3108_Fight_to_the_Death.html" selected>3108 · Fight to the Death</option></select>
+<a class="toolbtn jump-link" href="Global_Game_AFK_Chapter_3109_Beads.html#start" title="Next chapter">›</a>
+<button class="toolbtn" id="smaller" title="Smaller text" aria-label="Decrease font size">A−</button>
+<button class="toolbtn" id="larger" title="Larger text" aria-label="Increase font size">A+</button>
+<button class="toolbtn" id="theme" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">◐</button>
+</div><div id="progress-track"><div id="progress"></div></div></header>
+<main><span id="start" aria-hidden="true"></span><section class="chapter-section" id="chapter-3108" data-reading-anchor>
+<div class="chapter-num">Chapter 3108</div><h2 class="chapter-title">Fight to the Death</h2>
+<p class="source-identity">From Chinese Chapter 3109 · 搏杀</p>
+<article class="prose">
+<p data-reading-anchor id="ch3108-p001">Something was wrong.</p>
+<p data-reading-anchor id="ch3108-p002">Cold sweat immediately formed on Dario's forehead.</p>
+<p data-reading-anchor id="ch3108-p003">He suddenly realized something.</p>
+<p data-reading-anchor id="ch3108-p004">The arena matches had been competitions. This was a genuine fight to the death.</p>
+<p data-reading-anchor id="ch3108-p005">And this brat was clearly much better at killing than competing.</p>
+<p data-reading-anchor id="ch3108-p006">Alray, who had been knocked backward by a single punch, propped himself up with one hand and sat on the ground, breathing heavily.</p>
+<p data-reading-anchor id="ch3108-p007">Looking down, he saw a layer of strange black energy clinging to the place where the punch had struck him.</p>
+<p data-reading-anchor id="ch3108-p008">Wariness flickered in his eyes.</p>
+<p data-reading-anchor id="ch3108-p009">Hm?</p>
+<p data-reading-anchor id="ch3108-p010">Alray tried to push himself to his feet, but suddenly felt his chest tighten and his arm go weak. An overwhelming exhaustion flooded his body.</p>
+<p data-reading-anchor id="ch3108-p011">What!?</p>
+<p data-reading-anchor id="ch3108-p012">Alray looked down at his chest.</p>
+<p data-reading-anchor id="ch3108-p013">The rapidly spreading black energy was devouring his life force at terrifying speed!</p>
+<p data-reading-anchor id="ch3108-p014">Hm!?</p>
+<p data-reading-anchor id="ch3108-p015">Suddenly he noticed that the blood running down his face was creeping toward his neck, gradually forming a ring and tightening around his throat.</p>
+<p data-reading-anchor id="ch3108-p016">This was bad!</p>
+<p data-reading-anchor id="ch3108-p017">Alray reached up and tried to tear away the blood wrapped around his neck.</p>
+<p data-reading-anchor id="ch3108-p018">He couldn't pull it loose!</p>
+<p data-reading-anchor id="ch3108-p019">For some inexplicable reason, the blood was extraordinarily tough, while his body had become so weak that he could barely muster any strength.</p>
+<p class="sound" data-reading-anchor id="ch3108-p020">"Whoosh!!!"</p>
+<p data-reading-anchor id="ch3108-p021">Elsewhere, Fang Heng flickered through the crowd like a phantom, moving so quickly that his figure was almost impossible to follow.</p>
+<p data-reading-anchor id="ch3108-p022">"Stop him!"</p>
+<p data-reading-anchor id="ch3108-p023">Dario and several mid-ranking warriors hadn't noticed anything unusual about Alray. Their attention was entirely on Fang Heng, and they attacked him together.</p>
+<p data-reading-anchor id="ch3108-p024">"Mental Shock!"</p>
+<p data-reading-anchor id="ch3108-p025">"Spatial Lock!"</p>
+<p data-reading-anchor id="ch3108-p026">The Transcendent-level Mental Shock affected Fang Heng for only an instant, while its illusion was shattered immediately by the Omniscient Eye. Spatial Lock, however, placed a considerable burden on him.</p>
+<p data-reading-anchor id="ch3108-p027">He felt an extraordinarily powerful gravitational force pressing down on his body, restricting his movement speed.</p>
+<p data-reading-anchor id="ch3108-p028">Gravity manipulation?</p>
+<p data-reading-anchor id="ch3108-p029">Was this a spatial ability involving laws?</p>
+<p data-reading-anchor id="ch3108-p030">Interesting!</p>
+<p data-reading-anchor id="ch3108-p031">Too bad he wasn't in the arena. Otherwise, Fang Heng would definitely experiment to see exactly how the technique worked.</p>
+<p class="sound" data-reading-anchor id="ch3108-p032">"Whoosh!!!"</p>
+<p data-reading-anchor id="ch3108-p033">Fang Heng ducked beneath a combined attack from two mid-ranking warriors and dashed toward another opponent.</p>
+<p data-reading-anchor id="ch3108-p034">Horror flashed across Dario's face. Even with law power suppressing Fang Heng, his monstrous physique still allowed him to move like this while forcibly resisting spatial laws.</p>
+<p data-reading-anchor id="ch3108-p035">Under the spatial pressure, the targeted mid-ranking warrior could barely distinguish Fang Heng's movement trajectory. Seeing him approach, he desperately formed a hand seal.</p>
+<p data-reading-anchor id="ch3108-p036">"Blizzard!"</p>
+<p class="sound" data-reading-anchor id="ch3108-p037">"Roar!!!"</p>
+<p data-reading-anchor id="ch3108-p038">A roaring fissure hurled thick shards of ice straight toward Fang Heng.</p>
+<p class="sound" data-reading-anchor id="ch3108-p039">"Boom!"</p>
+<p data-reading-anchor id="ch3108-p040">A fist shot forward!</p>
+<p class="sound" data-reading-anchor id="ch3108-p041">"Bang!!!"</p>
+<p data-reading-anchor id="ch3108-p042">The ice crystals exploded under the shock wave, and the mid-ranking warrior was reduced to a cloud of blood in midair without making a sound.</p>
+<p data-reading-anchor id="ch3108-p043">What?</p>
+<p data-reading-anchor id="ch3108-p044">The grisly sight made everyone's scalp crawl.</p>
+<p data-reading-anchor id="ch3108-p045">Compared with the mid-ranking warrior, they finally understood just how powerful Alray was.</p>
+<p data-reading-anchor id="ch3108-p046">Both men had taken a direct punch from Fang Heng. Alray had merely been sent flying with blood streaming from his orifices, while a mid-ranking warrior who didn't specialize in close combat had been blown apart into a bloody mist.</p>
+<p data-reading-anchor id="ch3108-p047">Such terrifying strength was packed into that fist.</p>
+<p class="sound" data-reading-anchor id="ch3108-p048">"Whoosh!"</p>
+<p data-reading-anchor id="ch3108-p049">After dispatching one opponent, Fang Heng tapped the ground again and nimbly dashed toward another mid-ranking warrior on his right.</p>
+<p data-reading-anchor id="ch3108-p050">The warrior's face changed drastically. Panicking, he began forming a seal before his chest.</p>
+<p data-reading-anchor id="ch3108-p051">"Ice Curtain! Thousand-Layer Ice Curtain!!"</p>
+<p data-reading-anchor id="ch3108-p052">Sheets of ice as thin as cicada wings formed before him.</p>
+<p class="sound" data-reading-anchor id="ch3108-p053">"Bang! Bang, bang, bang!!!!"</p>
+<p data-reading-anchor id="ch3108-p054">Fang Heng threw a punch. Every ice curtain blocking his path shattered under the pressure wave before his fist even touched it. Then his punch hit the warrior himself, turning him into a spray of blood!</p>
+<p data-reading-anchor id="ch3108-p055">Fang Heng quickly surveyed the battlefield out of the corner of his eye.</p>
+<p data-reading-anchor id="ch3108-p056">Aside from the gravely wounded Alray, who was still struggling on the ground, four opponents remained.</p>
+<p data-reading-anchor id="ch3108-p057">The remaining four warriors, including Dario, turned pale when Fang Heng fixed his gaze upon them.</p>
+<p data-reading-anchor id="ch3108-p058">In less than a minute of fighting, one high-ranking warrior in their seven-man team had been incapacitated and two mid-ranking warriors had been blown to pieces.</p>
+<p data-reading-anchor id="ch3108-p059">In fact, there was a further rank of warrior above the high-ranking level: the Revered-level warrior.</p>
+<p data-reading-anchor id="ch3108-p060">Warriors of that rank generally didn't participate in competitions. They served as deterrents and held honored positions among the various overlord races.</p>
+<p data-reading-anchor id="ch3108-p061">This brat might very well be a Revered-level warrior!</p>
+<p data-reading-anchor id="ch3108-p062">Before coming here, the warrior team had never imagined that Fang Heng could possess such terrifying strength.</p>
+<p data-reading-anchor id="ch3108-p063">In their eyes, Fang Heng now resembled a demon emerging from the abyss.</p>
+<p data-reading-anchor id="ch3108-p064">He was going to devour them!</p>
+<p data-reading-anchor id="ch3108-p065">"Scatter! Run!"</p>
+<p data-reading-anchor id="ch3108-p066">Dario shouted, turned decisively, and fled to the right, praying that Fang Heng wouldn't follow him.</p>
+<p data-reading-anchor id="ch3108-p067">As a Spatial Studies scholar, he had an advantage when it came to escaping.</p>
+<p data-reading-anchor id="ch3108-p068">And the other warriors could buy him a little time.</p>
+<p data-reading-anchor id="ch3108-p069">He might still survive!</p>
+<p data-reading-anchor id="ch3108-p070">But three muffled bursts sounded behind him in succession, each one striking his heart like a hammer.</p>
+<p data-reading-anchor id="ch3108-p071">This was bad!</p>
+<p data-reading-anchor id="ch3108-p072">Sensing a presence closing in behind him, Dario immediately entered a secondary spatial projection and changed direction as he fled.</p>
+<p data-reading-anchor id="ch3108-p073">"Heh..."</p>
+<p data-reading-anchor id="ch3108-p074">Spatial Studies!</p>
+<p data-reading-anchor id="ch3108-p075">Such a nuisance!</p>
+<p data-reading-anchor id="ch3108-p076">Fang Heng had already locked onto Dario and the others using his perception and vampire marks.</p>
+<p data-reading-anchor id="ch3108-p077">These people had seen his face and knew his identity. He absolutely couldn't let them escape!</p>
+<p data-reading-anchor id="ch3108-p078">Having resolved to kill them, Fang Heng likewise entered the secondary spatial projection and chased after Dario at high speed.</p>
+<p data-reading-anchor id="ch3108-p079">Dario fled desperately for more than ten minutes. Only after he could no longer sense Fang Heng did he believe he'd shaken off the pursuit. He relaxed, emerged from the projection, and prepared to find a way to contact the Kinsfolk.</p>
+<p data-reading-anchor id="ch3108-p080">But in the next instant, warning bells rang through his mind again.</p>
+<p data-reading-anchor id="ch3108-p081">Space suddenly rippled and ruptured to his right!</p>
+<p data-reading-anchor id="ch3108-p082">Fang Heng stepped directly out of the distortion and launched a punch at him.</p>
+<p class="sound" data-reading-anchor id="ch3108-p083">"Boom!!!!"</p>
+<p data-reading-anchor id="ch3108-p084">What!</p>
+<p data-reading-anchor id="ch3108-p085">The blow came straight at his face.</p>
+<p data-reading-anchor id="ch3108-p086">Only now did Dario fully sense the terrifying power contained in Fang Heng's fist.</p>
+<p data-reading-anchor id="ch3108-p087">Spatial Curtain!</p>
+<p data-reading-anchor id="ch3108-p088">In desperation, Dario played his final trump card!</p>
+<p class="sound" data-reading-anchor id="ch3108-p089">"Thud!!!"</p>
+<p data-reading-anchor id="ch3108-p090">Fang Heng's punch struck what felt like a solid wall of space.</p>
+<p data-reading-anchor id="ch3108-p091">Laws?</p>
+<p data-reading-anchor id="ch3108-p092">Dario's face drained of color as a violent tremor rocked his body through the spatial wall.</p>
+<p data-reading-anchor id="ch3108-p093">He had never imagined that one of Fang Heng's punches could be so powerful. The defense created by compressing spatial energy in front of him had only absorbed part of the force.</p>
+<p data-reading-anchor id="ch3108-p094">The remaining impact traveled through space and struck him head-on. Blood gushed from all seven orifices again as he was hurled backward.</p>
+<p data-reading-anchor id="ch3108-p095">Leave no evil alive!</p>
+<p data-reading-anchor id="ch3108-p096">Fang Heng narrowed his eyes and raised a hand toward the airborne Dario.</p>
+<p data-reading-anchor id="ch3108-p097">Hm?</p>
+<p data-reading-anchor id="ch3108-p098">Still flying backward and dazed from the punch, Dario suddenly tasted something sweet and metallic at the corner of his mouth.</p>
+</article>
+<p class="end" data-reading-anchor id="ch3108-end">— End of Chapter 3108 —</p>
+<details class="editor-notes"><summary>Editing and Source Notes</summary><ul><li>Chinese Chapter 3109: 搏杀. English Chapter 3108: Fight to the Death. Narrative paragraphs: 98/98.</li><li>The source describes the fighting duration both as &#x27;a few minutes&#x27; and &#x27;less than one minute&#x27; in one sentence; rendered the more precise latter reference, without inventing an intermediate timeline.</li><li>Revered-level warrior (供奉级) is a higher position than high-ranking warrior, not the Demigod academic rank.</li></ul></details>
+<nav class="chapter-nav" aria-label="Chapter navigation"><a href="Global_Game_AFK_Chapter_3107_Tracking.html#start">← Previous</a><a class="next" href="Global_Game_AFK_Chapter_3109_Beads.html#start">Next →</a></nav></section>
+<footer class="footer"><p id="save-status">Reading position: preparing automatic save…</p><p>GitHub Pages saves your reading position, font size, and theme in this browser when site storage is available.</p><p><a href="index.html" style="color:inherit">All chapters / Chapter index</a></p></footer>
+</main><div id="reading-toast"></div><script src="chapters.js"></script><script>
+(()=>{
+'use strict';
+const seriesKey=(document.body.dataset.seriesKey||'my-novel');
+const chapterKey=(document.body.dataset.chapterKey||'chapter-1');
+const currentFile=decodeURIComponent(location.pathname.split('/').pop()||'index.html');
+const storeKey=seriesKey+'-reader-position:'+chapterKey+':v2';
+const sizeKey=seriesKey+'-reader-font-size:compact-v3';
+const themeKey=seriesKey+'-reader-theme:compact-v3';
+const root=document.documentElement;
+const picker=document.getElementById('chapter-picker');
+// Hydrate site-wide chapter navigation from chapters.js. Keep the one-option
+// HTML fallback if the shared file is missing or has no valid current entry.
+function populateChapterPicker(){
+ const entries=window.AFK_CHAPTERS || window.NOVEL_CHAPTERS;
+ if(!Array.isArray(entries) || !entries.length)return;
+ const fragment=document.createDocumentFragment();
+ let foundCurrent=false;
+ for(const chapter of entries){
+  if(!chapter || !Number.isInteger(chapter.number) ||
+     typeof chapter.title!=='string' ||
+     typeof chapter.file!=='string' ||
+     !/^[A-Za-z0-9._-]+\.html$/.test(chapter.file))continue;
+  const option=document.createElement('option');
+  option.value=chapter.file;
+  option.textContent=chapter.number+' · '+chapter.title;
+  if(chapter.file===currentFile){option.selected=true;foundCurrent=true}
+  fragment.appendChild(option);
+ }
+ if(foundCurrent)picker.replaceChildren(fragment);
+}
+populateChapterPicker();
+const bar=document.querySelector('.topbar');
+const progress=document.getElementById('progress');
+const status=document.getElementById('save-status');
+const toast=document.getElementById('reading-toast');
+const anchors=Array.from(document.querySelectorAll('[data-reading-anchor]'));
+let size=14, theme='dark', ready=false, debounce, lastPersist=0, storageOK=false;
+function getStored(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function setStored(k,v){try{localStorage.setItem(k,v);return true}catch(_){return false}}
+try{localStorage.setItem(seriesKey+'-reader-test','ok');localStorage.removeItem(seriesKey+'-reader-test');storageOK=true}catch(_){}
+const sz=Number(getStored(sizeKey));
+if(Number.isFinite(sz) && sz>=13 && sz<=24)size=sz;
+const th=getStored(themeKey);if(th==='light'||th==='dark')theme=th;
+function applyAppearance(){root.style.setProperty('--font-size',size+'px');root.setAttribute('data-theme',theme)}
+applyAppearance();
+function offset(){return Math.ceil(bar.getBoundingClientRect().height)+13}
+function closest(){
+ const lim=offset();let chosen=anchors[0];
+ for(const a of anchors){if(a.getBoundingClientRect().top<=lim+2)chosen=a;else break}
+ return chosen?{id:chosen.id,offset:Math.max(0,Math.round(lim-chosen.getBoundingClientRect().top))}:null;
+}
+function restore(pos){
+ if(!pos||!pos.id)return false;
+ const a=document.getElementById(pos.id);if(!a)return false;
+ const distance=Math.max(0,Math.min(a.offsetHeight+12,Number(pos.offset)||0));
+ window.scrollTo({top:Math.max(0,a.getBoundingClientRect().top+window.scrollY-offset()+distance),behavior:'instant'});
+ return true;
+}
+function hashPos(){const m=/^#read=([a-z0-9-]+)~(\d+)$/.exec(location.hash);return m?{id:m[1],offset:Number(m[2])}:null}
+function storeHash(pos){
+ const h='#read='+pos.id+'~'+Math.floor(pos.offset);
+ if(location.hash===h)return true;
+ try{history.replaceState(history.state,'',location.href.split('#')[0]+h);return true}catch(_){return false}
+}
+function progressBar(){
+ const max=Math.max(0,document.documentElement.scrollHeight-window.innerHeight);
+ progress.style.width=(max?Math.max(0,Math.min(100,window.scrollY/max*100)):0).toFixed(1)+'%';
+}
+function persist(){
+ setStored(seriesKey+'-last-chapter', currentFile);
+ if(!ready)return;
+ const pos=closest();if(!pos)return;
+ const local=storageOK&&setStored(storeKey,JSON.stringify(pos));
+ const hash=storeHash(pos);
+ status.textContent=local?'Reading position: saved automatically':hash?'Reading position: saved in the tab URL':'Reading position: browser-dependent';
+ lastPersist=Date.now();
+}
+function onScroll(){progressBar();if(!ready)return;
+ if(Date.now()-lastPersist>1200)persist();
+ clearTimeout(debounce);debounce=setTimeout(persist,380);
+}
+function toastMessage(msg){toast.textContent=msg;toast.style.display='block';clearTimeout(toastMessage.timer);toastMessage.timer=setTimeout(()=>toast.style.display='none',1800)}
+function adjust(d){let pos=closest();size=Math.max(13,Math.min(24,size+d));applyAppearance();setStored(sizeKey,String(size));requestAnimationFrame(()=>{restore(pos);progressBar();persist()});toastMessage('Font size: '+size+'px')}
+document.getElementById('smaller').addEventListener('click',()=>adjust(-1));
+document.getElementById('larger').addEventListener('click',()=>adjust(1));
+document.getElementById('theme').addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';applyAppearance();setStored(themeKey,theme);toastMessage(theme==='dark'?'Dark theme':'Light theme')});
+picker.addEventListener('change',()=>{persist();window.location.href=picker.value});
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',progressBar,{passive:true});
+window.addEventListener('pagehide',persist);
+window.addEventListener('beforeunload',persist);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')persist()});
+try{history.scrollRestoration='manual'}catch(_){}
+window.addEventListener('load',()=>{
+ let pos=hashPos();
+ if(!pos&&location.hash!=='#start'){try{pos=JSON.parse(getStored(storeKey)||'null')}catch(_){}}
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{
+  if(location.hash==='#start')window.scrollTo(0,0);
+  else if(pos)restore(pos);
+  progressBar();ready=true;
+  if(pos)toastMessage('Resumed where you left off');
+  status.textContent=storageOK?'Reading position: saved automatically':'Reading position: saved in tab URL when possible';
+ }));
+});
+})();
+</script></body></html>
