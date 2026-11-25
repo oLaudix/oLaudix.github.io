@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HZD Remastered — Print Guide 01 — Opening / Point of the Spear</title>
+<style>
+  :root { color-scheme: light; --ink:#171717; --muted:#454545; --line:#d4d4d4; }
+  * { box-sizing: border-box; }
+  html { background: #e9e9e9; }
+  body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: var(--ink); font-size: 11pt; line-height: 1.32; }
+  .toolbar { background:#1f2937; color:#fff; padding:12px max(16px,calc((100% - 210mm)/2)); display:flex; align-items:center; gap:12px; }
+  .toolbar button { border:0; border-radius:5px; padding:8px 12px; font-size:13px; font-weight:700; background:#fff; color:#111; cursor:pointer; }
+  .toolbar .hint {font-size:13px; opacity:.9;}
+  .sheet { width: 210mm; min-height: 297mm; margin: 12px auto; background:#fff; padding: 11mm 12mm 12mm; box-shadow:0 4px 18px #0002; position:relative; page-break-after:always; }
+  .sheet:last-of-type {page-break-after:auto;}
+  .top {display:flex; align-items:center; justify-content:space-between; gap:8mm; border-bottom: 2px solid #222; padding-bottom:8px; }
+  .eyebrow {font-size:9pt; font-weight:700; text-transform:uppercase; letter-spacing:1.2px;}
+  h1 {font-size:19pt; margin:2px 0 0; line-height:1.06; letter-spacing:-.6px;}
+  .sheetno {font-size:10pt; text-align:right; color:#333; flex:none;}
+  .intro {margin:9px 0 10px; padding:7px 9px; border:1px solid #aaa; background:#fafafa; font-size:10pt;}
+  h2 {font-size:12.5pt; border-bottom:1px solid #bcbcbc; margin:14px 0 6px; padding-bottom:3px;}
+  h2 .tag {font-size:9pt; font-weight:normal; color:#555; margin-left:5px;}
+  ol.steps {list-style:none; padding:0; margin:0; counter-reset:one;}
+  li.step {display:grid; grid-template-columns: 6mm 1fr; gap:2.5mm; margin:0 0 8px; break-inside:avoid; page-break-inside:avoid;}
+  li.step input[type=checkbox] {appearance:none; -webkit-appearance:none; width:5mm; height:5mm; margin:2px 0 0; border:1.6px solid #111; border-radius:0; background:white; cursor:pointer; }
+  li.step input[type=checkbox]:checked {background:linear-gradient(130deg,transparent 45%,#111 45%,#111 55%,transparent 55%), linear-gradient(40deg,transparent 45%,#111 45%,#111 55%,transparent 55%);}
+  .step-title {font-weight:700; display:inline;}
+  .step p {margin:2px 0 0; }
+  .minor {font-size:9.3pt; color:#454545;}
+  .subpoints { margin:3px 0 0; padding:0 0 0 16px; }
+  .subpoints li {margin:1px 0;}
+  .milestone {border:1px solid #777; padding:7px 9px; margin:9px 0 4px; background:#f9f9f9; font-size:10pt; break-inside:avoid;}
+  .milestone b{font-weight:700;}
+  .footer {margin-top:10px; border-top:1px solid #bbb; padding-top:5px; font-size:8pt; color:#555; display:flex; justify-content:space-between;}
+  .tight .step {margin-bottom:6px;}
+  .tight h2 {margin-top:11px;}
+  .small {font-size:10pt;}
+  .tracker {display:flex; flex-wrap:wrap; gap:4mm 7mm; align-items:center; margin:8px 0; padding:7px 9px; border:1px solid #999; background:#fcfcfc; font-size:9.5pt; }
+  .tracker label {white-space:nowrap;}
+  .tracker input {width:13px; height:13px; margin:0 4px 0 0; vertical-align:middle; accent-color:#222;}
+  .note {font-size:9.2pt; color:#333; border-left:2px solid #666; padding-left:8px; margin:7px 0;}
+  @page { size: A4; margin: 0; }
+  @media print {
+    html, body {background:white; margin:0; padding:0; -webkit-print-color-adjust:exact; print-color-adjust:exact;}
+    .toolbar {display:none;}
+    .sheet { margin:0; padding:11mm 12mm 10mm; box-shadow:none; width:210mm; height:297mm; min-height:0; max-height:297mm; overflow:hidden; }
+    .sheet + .sheet { break-before:page; page-break-before:always; }
+  }
+  @media screen and (max-width:760px) { .sheet {width:auto; min-height:unset; margin:12px; padding:20px;} .toolbar {padding:12px; flex-wrap:wrap;} }
+</style>
+</head>
+<body>
+<div class="toolbar"><button onclick="window.print()">Print this chapter (A4)</button><span class="hint">2 sheets · print at 100% scale · check items on paper as you play</span></div>
+
+<section class="sheet">
+  <header class="top">
+    <div><div class="eyebrow">Horizon Zero Dawn Remastered · 79 / 79 route</div><h1>01 · Opening &amp; Rost's house</h1></div>
+    <div class="sheetno">PLAYTHROUGH 1<br><b>PAGE 1 OF 2</b></div>
+  </header>
+  <div class="intro"><b>How to use:</b> Go from top to bottom. Tick the box <b>after</b> doing the action. Follow the game's marker whenever a step says to. This chapter ends <b>before Mother's Heart</b>; don't advance there until you've checked page 2.</div>
+
+  <h2>Main quest · A Gift from the Past <span class="tag">playing as child Aloy</span></h2>
+  <ol class="steps">
+    <li class="step"><input type="checkbox" aria-label="First tutorial"><div><span class="step-title">Follow the tutorial through the underground ruin.</span><p>Get the Focus, scan the indicated objects, and follow the purple Focus trail to the exit. <b>Do not waste time looking for the Power Cell yet:</b> the blocked room requires adult Aloy's spear.</p></div></li>
+  </ol>
+  <h2>Main quest · Lessons of the Wild <span class="tag">still playing as child Aloy</span></h2>
+  <ol class="steps">
+    <li class="step"><input type="checkbox" aria-label="Finish hunting lessons"><div><span class="step-title">Do exactly what Rost teaches.</span><p>Gather Ridge-Wood, craft arrows, scan Watchers, and shoot the weak spot in their eye. When you reach Teb, stay in the red grass and guide him past the machines without being seen. Return to Rost.</p><p class="minor"><b>Unlock:</b> “Followed Rost's teachings” (automatic story achievement).</p></div></li>
+  </ol>
+
+  <h2>Main quest · The Point of the Spear <span class="tag">adult Aloy begins</span></h2>
+  <ol class="steps">
+    <li class="step"><input type="checkbox" aria-label="Buy first skills"><div><span class="step-title">As soon as adult Aloy appears outside Rost's house, open Skills.</span><p>Spend your starting points on <b>Silent Strike</b>, <b>Lure Call</b> and <b>Concentration</b>. This gives you a reliable method for easy stealth machine kills and better bow aiming.</p></div></li>
+    <li class="step"><input type="checkbox" aria-label="Destroy seven house dummies"><div><span class="step-title">Do not leave Rost's yard yet. Knock down all SEVEN Grazer dummies.</span><p>Use a heavy spear attack on each wooden, machine-shaped target until it topples:</p><ul class="subpoints"><li><b>1</b> immediately left of the house;</li><li><b>1</b> on the ledge below and left of that one;</li><li><b>3</b> on the right, between the two exit gates;</li><li><b>2</b> left of the campfire.</li></ul><p class="minor">Notebook → Statistics → Other → Training Dummies should show <b>7 / 23</b>.</p></div></li>
+    <li class="step"><input type="checkbox" aria-label="Metal flower west of Rost"><div><span class="step-title">Pick up Metal Flower <b>Mark I (B)</b> near Rost's house.</span><p>Use the <b>west/back gate</b> of Rost's yard. Take the zipline immediately along the path below it; then walk across the rope to the isolated ledge. Pick up the flower from the little triangular bed of flowers.</p><p class="minor"><b>Unlock:</b> “First Metal Flower found” (if this is your first one). This is flower <b>1 / 30</b>.</p></div></li>
+    <li class="step"><input type="checkbox" aria-label="Talk to Rost and save"><div><span class="step-title">Return to the main quest marker and talk to Rost.</span><p>He is standing at a viewpoint along the route downhill from his home. Finish the conversation. You can ask “Anything else?” to pick up the <i>Odd Grata</i> errand, but it is <b>not required for achievements</b>. Activate a nearby campfire.</p></div></li>
+  </ol>
+
+  <div class="milestone"><b>STOP FOLLOWING THE MAIN MARKER TEMPORARILY.</b> You now have open-world freedom. Before collecting the Tripcaster and meeting Rost again, make the short detour to the childhood ruins on the next page.</div>
+  <div class="footer"><span>ROUTE 01 · check boxes with a pen · continue on back of sheet</span><span>↳ Page 2: ruins → Karst → Sawtooth</span></div>
+</section>
+
+<section class="sheet tight">
+  <header class="top"><div><div class="eyebrow">Horizon Zero Dawn Remastered · 79 / 79 route</div><h1>01 · Ruins, Tripcaster &amp; Sawtooth</h1></div><div class="sheetno">PLAYTHROUGH 1<br><b>PAGE 2 OF 2</b></div></header>
+  <div class="intro"><b>Current main quest:</b> The Point of the Spear. Do the numbered detour first, then resume the quest marker. No side-quest grinding is required here.</div>
+
+  <h2>Detour · Childhood Ruins <span class="tag">before meeting Rost at the northern gate</span></h2>
+  <ol class="steps">
+    <li class="step"><input type="checkbox" aria-label="Find original ruins"><div><span class="step-title">Open the map and locate the “Ruins” icon <b>east of Mother's Watch</b>.</span><p>These are the underground ruins where you found the Focus as a child. Place a map marker there; travel to the opening and drop/climb down. This is not the separate “Ancient Armory” bunker.</p></div></li>
+    <li class="step"><input type="checkbox" aria-label="Take metal flower in ruins"><div><span class="step-title">Get Metal Flower <b>Mark I (A)</b> from the lower floor.</span><p>From the bottom of the ruins, follow the passage until a small flight of stairs and the partly open door. After going through, look for a <b>left-hand passage blocked by pale rock spikes</b>. Smash them with heavy spear attacks. The flower sits among the plants inside.</p><p class="minor">Metal Flowers should now be <b>2 / 30</b>.</p></div></li>
+    <li class="step"><input type="checkbox" aria-label="Take Power Cell in ruins"><div><span class="step-title">Get <b>Power Cell #1</b> before leaving the ruins.</span><p>Return to the main ruin passage. Continue past the “Happy Birthday Isaac” recording/body area and head <b>upstairs</b>. On the upper level, turn <b>right</b> toward another room blocked by mineral spikes. Break through with your spear and take the Power Cell from the desk/table.</p><p class="minor">This starts the <i>Ancient Armory</i> quest. <b>Don't go to its objective yet</b>; the armor needs five cells collected throughout the story.</p></div></li>
+  </ol>
+
+  <h2>Resume · The Point of the Spear <span class="tag">follow main-quest markers again</span></h2>
+  <ol class="steps">
+    <li class="step"><input type="checkbox" aria-label="Craft fire arrows"><div><span class="step-title">Track “The Point of the Spear.” Kill Striders for Blaze.</span><p>Find the Strider herd marked by the quest, scan them if you haven't already, then kill and loot them until you have <b>3 Blaze</b>. Open Crafting and make the Fire Arrows the quest requests.</p></div></li>
+    <li class="step"><input type="checkbox" aria-label="Karst and dummy"><div><span class="step-title">Follow the quest marker to <b>Karst's house</b>, southeast of Mother's Cradle.</span><p>Before entering the merchant dialogue, knock down the <b>one Grazer dummy right outside his house</b> with a heavy spear attack. Talk to Karst, trade for the <b>Tripcaster</b>, then equip it on your weapon wheel.</p><p class="minor">Dummy total should now be <b>8 / 23</b>.</p></div></li>
+    <li class="step"><input type="checkbox" aria-label="Mother Cradle dummy"><div><span class="step-title">On the way through <b>Mother's Cradle</b>, collect its other Grazer dummy.</span><p>In the settlement, check the <b>southwest corner</b>; look behind the building by the campfire and knock down the dummy there. This is separate from the one outside Karst's house.</p><p class="minor">Dummy total should now be <b>9 / 23</b>.</p></div></li>
+    <li class="step"><input type="checkbox" aria-label="Sawtooth fight"><div><span class="step-title">Now follow the marker to <b>Rost near the Northern Embrace Gate</b>.</span><p>Save/rest at the campfire when prompted; follow the destruction trail. Scan the <b>Sawtooth</b> and mark its walking path with the Focus. Lay <b>Tripcaster Shock Wires</b> across that path, lure it through a wire, then hit it with fire arrows while it's stunned. Repeat until dead, loot it, and talk to Rost.</p><p class="minor"><b>Unlock:</b> “Defeated the Sawtooth” (automatic story achievement).</p></div></li>
+  </ol>
+
+  <div class="milestone"><b>CHAPTER COMPLETE.</b> You should have: two story achievements (“Followed Rost's teachings”; “Defeated the Sawtooth”), <b>9/23 dummies</b>, <b>2/30 Metal Flowers</b>, <b>1/5 Power Cells</b>, and your Tripcaster. Skill/stealth-kill totals may vary.</div>
+  <div class="note"><b>Stop here.</b> The next sheet will start at <b>Mother's Heart</b>, and deal with the village dummies before <i>The Proving</i>. If one item above wasn't accessible or differed in Remastered, tell me the exact step and we'll correct the route before extending it.</div>
+  <div class="footer"><span>References checked: GameFAQs · Gamer Guides · SuperCheats · VGFAQ</span><span>END OF CHAPTER 01</span></div>
+</section>
+</body></html>
